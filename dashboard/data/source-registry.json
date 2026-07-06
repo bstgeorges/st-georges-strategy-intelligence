@@ -1,0 +1,767 @@
+{
+  "version": "2026-07-01",
+  "purpose": "Source universe for the weekly St Georges Strategy Intelligence and AI Signals refresh.",
+  "sourceTiers": {
+    "primary": "Official regulator, central bank, standard-setter, company, academic, or government source.",
+    "specialist": "Recognised trade, legal, cyber, technology, market, or financial-services publication.",
+    "press": "General media used for market colour, company news, or early reports where primary sources are not yet available."
+  },
+  "sources": [
+    {
+      "id": "uk-fca",
+      "name": "Financial Conduct Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://www.fca.org.uk/news",
+      "cadence": "weekly",
+      "useFor": ["conduct", "crypto", "consumer-duty", "financial-crime", "ai-governance", "market-integrity"],
+      "signalQuestions": [
+        "Has the FCA changed expectations for firms, boards, senior managers, or customer outcomes?",
+        "Is there a consultation, speech, enforcement action, or deadline that needs an owner?"
+      ]
+    },
+    {
+      "id": "uk-fca-regulatory-initiatives-grid",
+      "name": "Financial Services Regulatory Initiatives Grid",
+      "tier": "primary",
+      "category": "regulatory-horizon",
+      "jurisdictions": ["UK"],
+      "url": "https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid",
+      "cadence": "weekly",
+      "useFor": ["regulatory-horizon", "consultations", "implementation-deadlines", "board-planning"],
+      "signalQuestions": [
+        "Has a planned regulatory initiative, milestone, consultation, or implementation window changed?",
+        "Does a horizon item need a named owner before the next board or committee cycle?"
+      ]
+    },
+    {
+      "id": "uk-fca-enforcement-notices",
+      "name": "Financial Conduct Authority Enforcement Notices",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://www.fca.org.uk/news/search-results?category=notices%20and%20decisions",
+      "cadence": "weekly",
+      "useFor": ["enforcement", "conduct", "financial-crime", "control-failures", "consumer-duty"],
+      "signalQuestions": [
+        "Does an FCA notice reveal a repeatable conduct, governance, financial-crime, or control failure pattern?",
+        "Does the notice create a control-owner question or deadline for remediation evidence?"
+      ]
+    },
+    {
+      "id": "uk-boe-pra",
+      "name": "Bank of England and Prudential Regulation Authority",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["UK"],
+      "url": "https://www.bankofengland.co.uk/news",
+      "cadence": "weekly",
+      "useFor": ["capital", "liquidity", "operational-resilience", "financial-stability", "payments", "private-markets"],
+      "signalQuestions": [
+        "Has prudential, resilience, or financial-stability language shifted?",
+        "Are banks, insurers, FMIs, stablecoins, or nonbanks being pulled into a new control expectation?"
+      ]
+    },
+    {
+      "id": "ecb-supervision",
+      "name": "European Central Bank Banking Supervision",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://www.bankingsupervision.europa.eu/press/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": ["bank-supervision", "credit-risk", "governance", "climate", "technology-risk"],
+      "signalQuestions": [
+        "Does the ECB point to a supervisory priority, thematic review, or governance weakness?",
+        "Does the signal translate into a control-owner challenge for UK or global firms?"
+      ]
+    },
+    {
+      "id": "ecb-ssm-newsletter",
+      "name": "ECB Banking Supervision Newsletter",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["EU"],
+      "url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html",
+      "cadence": "monthly",
+      "useFor": ["bank-supervision", "supervisory-priorities", "prudential-policy", "resilience", "governance"],
+      "signalQuestions": [
+        "Does the SSM newsletter reveal a supervisory priority, implementation theme, or recurring weakness?",
+        "Does the item translate into a board, risk committee, or control-owner question?"
+      ]
+    },
+    {
+      "id": "ecb-supervisory-priorities",
+      "name": "ECB Banking Supervision Priorities and Risks",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["EU"],
+      "url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": ["bank-supervision", "supervisory-priorities", "risk-themes", "governance", "resilience"],
+      "signalQuestions": [
+        "Have ECB supervisory priorities, risk themes, or expectations shifted?",
+        "Does a priority create a horizon item or control challenge for banks and global groups?"
+      ]
+    },
+    {
+      "id": "eba",
+      "name": "European Banking Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://www.eba.europa.eu/publications-and-media/press-releases",
+      "cadence": "weekly",
+      "useFor": ["prudential-policy", "payments", "crypto", "operational-risk", "outsourcing"],
+      "signalQuestions": [
+        "Has the EBA published final guidance, consultation, technical standards, or risk analysis?",
+        "Does it create a near-term implementation date or policy dependency?"
+      ]
+    },
+    {
+      "id": "esma",
+      "name": "European Securities and Markets Authority",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["EU"],
+      "url": "https://www.esma.europa.eu/press-news/esma-news",
+      "cadence": "weekly",
+      "useFor": ["markets", "funds", "crypto", "market-abuse", "disclosures", "data-reporting"],
+      "signalQuestions": [
+        "Is there a market-structure, investor-protection, reporting, or crypto signal?",
+        "Does the item affect trading, asset management, wealth, or surveillance teams?"
+      ]
+    },
+    {
+      "id": "eiopa",
+      "name": "European Insurance and Occupational Pensions Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://www.eiopa.europa.eu/media/news_en",
+      "cadence": "weekly",
+      "useFor": ["insurance", "pensions", "dora", "conduct", "financial-stability", "supervisory-convergence"],
+      "signalQuestions": [
+        "Has EIOPA changed expectations for insurers, occupational pensions, conduct, resilience, or supervisory reporting?",
+        "Does the item create an implementation date, board question, or control-owner action for insurance or pension businesses?"
+      ]
+    },
+    {
+      "id": "bis",
+      "name": "Bank for International Settlements",
+      "tier": "primary",
+      "category": "financial-stability",
+      "jurisdictions": ["Global"],
+      "url": "https://www.bis.org/list/press_releases/index.htm",
+      "cadence": "weekly",
+      "useFor": ["financial-stability", "ai-capex", "payments", "banking", "macroprudential"],
+      "signalQuestions": [
+        "Is a macro-financial vulnerability becoming relevant to financial-institution risk appetite?",
+        "Does the signal point to concentration, leverage, liquidity, valuation, or infrastructure fragility?"
+      ]
+    },
+    {
+      "id": "fsb",
+      "name": "Financial Stability Board",
+      "tier": "primary",
+      "category": "financial-stability",
+      "jurisdictions": ["Global"],
+      "url": "https://www.fsb.org/press/",
+      "cadence": "weekly",
+      "useFor": ["nonbank-finance", "crypto", "operational-resilience", "climate", "cross-border-policy"],
+      "signalQuestions": [
+        "Is the FSB signalling global convergence or divergence in financial-stability expectations?",
+        "Does the item create a topic for boards, risk committees, or cross-border policy teams?"
+      ]
+    },
+    {
+      "id": "bcbs",
+      "name": "Basel Committee on Banking Supervision",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Global"],
+      "url": "https://www.bis.org/bcbs/publications.htm",
+      "cadence": "weekly",
+      "useFor": ["capital", "liquidity", "banking-standards", "crypto", "climate-risk"],
+      "signalQuestions": [
+        "Has the Basel Committee changed standards, monitoring, implementation expectations, or disclosure requirements?",
+        "Does the item affect capital planning, risk-weighted assets, liquidity, or supervisory reporting?"
+      ]
+    },
+    {
+      "id": "iosco",
+      "name": "IOSCO",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Global"],
+      "url": "https://www.iosco.org/news/",
+      "cadence": "weekly",
+      "useFor": ["markets", "asset-management", "crypto", "retail-investors", "market-conduct"],
+      "signalQuestions": [
+        "Is IOSCO signalling global market-conduct expectations?",
+        "Does the item affect funds, market infrastructure, trading venues, or investor protection?"
+      ]
+    },
+    {
+      "id": "sec",
+      "name": "US Securities and Exchange Commission",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["US"],
+      "url": "https://www.sec.gov/newsroom",
+      "cadence": "weekly",
+      "useFor": ["markets", "disclosures", "crypto", "enforcement", "market-structure"],
+      "signalQuestions": [
+        "Is there a US market, disclosure, enforcement, or crypto signal with global read-across?",
+        "Does it affect listed issuers, asset managers, brokers, exchanges, or advisers?"
+      ]
+    },
+    {
+      "id": "cftc",
+      "name": "US Commodity Futures Trading Commission",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["US"],
+      "url": "https://www.cftc.gov/PressRoom/PressReleases",
+      "cadence": "weekly",
+      "useFor": ["derivatives", "commodities", "market-abuse", "crypto", "clearing"],
+      "signalQuestions": [
+        "Is there a derivatives, clearing, crypto, or commodity-market signal?",
+        "Does it affect market conduct, surveillance, client risk, or margin assumptions?"
+      ]
+    },
+    {
+      "id": "ofsi",
+      "name": "UK Office of Financial Sanctions Implementation",
+      "tier": "primary",
+      "category": "financial-crime",
+      "jurisdictions": ["UK"],
+      "url": "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation",
+      "cadence": "weekly",
+      "useFor": ["sanctions", "financial-crime", "enforcement", "screening"],
+      "signalQuestions": [
+        "Has sanctions guidance, enforcement, licensing, or reporting changed?",
+        "Does the item create a control update for screening, payments, onboarding, or escalation?"
+      ]
+    },
+    {
+      "id": "fatf",
+      "name": "Financial Action Task Force",
+      "tier": "primary",
+      "category": "financial-crime",
+      "jurisdictions": ["Global"],
+      "url": "https://www.fatf-gafi.org/en/publications.html",
+      "cadence": "weekly",
+      "useFor": ["financial-crime", "aml", "ctf", "sanctions", "crypto"],
+      "signalQuestions": [
+        "Has FATF changed financial-crime, AML, CTF, sanctions, or crypto expectations?",
+        "Does the item create a cross-border control question for onboarding, monitoring, screening, or escalation?"
+      ]
+    },
+    {
+      "id": "fincen-enforcement",
+      "name": "FinCEN Enforcement Actions",
+      "tier": "primary",
+      "category": "financial-crime",
+      "jurisdictions": ["US"],
+      "url": "https://www.fincen.gov/news/enforcement-actions",
+      "cadence": "weekly",
+      "useFor": ["financial-crime", "aml", "enforcement", "control-failures"],
+      "signalQuestions": [
+        "Does a FinCEN action reveal a repeatable AML, reporting, monitoring, or governance failure pattern?",
+        "Does the enforcement release create a practical control-owner question for financial-crime teams?"
+      ]
+    },
+    {
+      "id": "ofac-recent-actions",
+      "name": "OFAC Recent Actions",
+      "tier": "primary",
+      "category": "financial-crime",
+      "jurisdictions": ["US"],
+      "url": "https://ofac.treasury.gov/recent-actions",
+      "cadence": "weekly",
+      "useFor": ["sanctions", "financial-crime", "enforcement", "screening"],
+      "signalQuestions": [
+        "Has OFAC issued a sanctions action, guidance, penalty, or update that changes screening or escalation priorities?",
+        "Does the item indicate a control weakness firms should test across payments, onboarding, or transaction monitoring?"
+      ]
+    },
+    {
+      "id": "amf-sanctions",
+      "name": "AMF Enforcement Committee News Releases",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["France", "EU"],
+      "url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases",
+      "cadence": "weekly",
+      "useFor": ["enforcement", "market-conduct", "control-failures", "asset-management"],
+      "signalQuestions": [
+        "Does an AMF sanction reveal a market-conduct, disclosure, governance, or control failure pattern?",
+        "Does the release create a board, compliance, or control-owner question for firms with EU market activity?"
+      ]
+    },
+    {
+      "id": "ecb-supervision-sanctions",
+      "name": "ECB Banking Supervision Sanctions",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["EU"],
+      "url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": ["bank-supervision", "enforcement", "prudential-policy", "control-failures"],
+      "signalQuestions": [
+        "Has the ECB imposed or updated a sanction that reveals a prudential, governance, reporting, or control weakness?",
+        "Does the sanction create an implementation lesson for supervised banks or global banking groups?"
+      ]
+    },
+    {
+      "id": "uk-ncsc",
+      "name": "UK National Cyber Security Centre",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["UK"],
+      "url": "https://www.ncsc.gov.uk/section/keep-up-to-date/reports-advisories",
+      "cadence": "weekly",
+      "useFor": ["cyber", "operational-resilience", "third-party-risk", "threat-intelligence"],
+      "signalQuestions": [
+        "Is there a threat, advisory, or resilience lesson relevant to financial services?",
+        "Does it affect critical services, suppliers, identity, cloud, payments, or incident response?"
+      ]
+    },
+    {
+      "id": "cisa",
+      "name": "US Cybersecurity and Infrastructure Security Agency",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["US"],
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+      "cadence": "weekly",
+      "useFor": ["cyber", "vulnerabilities", "third-party-risk", "incident-response"],
+      "signalQuestions": [
+        "Is there an exploited vulnerability or advisory that should trigger control-owner action?",
+        "Does the advisory touch widely used software, cloud services, identity, or managed service providers?"
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://openai.com/news/",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "agents", "enterprise-ai", "safety", "infrastructure"],
+      "signalQuestions": [
+        "Has OpenAI changed model capability, product packaging, enterprise controls, or safety positioning?",
+        "Does the item change adoption, vendor-risk, or governance assumptions for regulated firms?"
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://www.anthropic.com/news",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "agents", "safety", "enterprise-ai", "cyber"],
+      "signalQuestions": [
+        "Has Anthropic changed model capability, access controls, enterprise controls, or safety posture?",
+        "Does the signal affect model-risk, cyber-risk, procurement, or agent deployment?"
+      ]
+    },
+    {
+      "id": "google-deepmind",
+      "name": "Google DeepMind",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://deepmind.google/blog/",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "multimodal-ai", "robotics", "safety", "research"],
+      "signalQuestions": [
+        "Has Google changed the frontier model, multimodal, robotics, or research landscape?",
+        "Does the item create a governance issue for physical-world AI, enterprise use, or vendor concentration?"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "name": "Meta AI",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://ai.meta.com/blog/",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "open-models", "research", "infrastructure", "safety"],
+      "signalQuestions": [
+        "Has Meta changed open-model capability, release posture, tooling, safety, or distribution?",
+        "Does the item alter enterprise adoption, open-source dependency, or model-governance assumptions?"
+      ]
+    },
+    {
+      "id": "mistral-ai",
+      "name": "Mistral AI",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["EU", "Global"],
+      "url": "https://mistral.ai/news/",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "enterprise-ai", "agents", "european-ai", "safety"],
+      "signalQuestions": [
+        "Has Mistral changed model capability, product packaging, enterprise controls, or European AI positioning?",
+        "Does the item change procurement, sovereignty, governance, or vendor-concentration assumptions?"
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://x.ai/news",
+      "cadence": "weekly",
+      "useFor": ["model-releases", "agents", "consumer-ai", "infrastructure", "safety"],
+      "signalQuestions": [
+        "Has xAI changed model capability, release posture, infrastructure, or distribution?",
+        "Does the item create a market, safety, governance, or platform-dependency signal?"
+      ]
+    },
+    {
+      "id": "microsoft-ai",
+      "name": "Microsoft AI",
+      "tier": "primary",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://blogs.microsoft.com/ai/",
+      "cadence": "weekly",
+      "useFor": ["copilot", "agents", "enterprise-ai", "cloud", "developer-tools"],
+      "signalQuestions": [
+        "Has Microsoft changed enterprise AI distribution, Copilot controls, developer tooling, or cloud dependency?",
+        "Does the item affect regulated-firm adoption, data controls, or operational resilience?"
+      ]
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA Newsroom",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://nvidianews.nvidia.com/",
+      "cadence": "weekly",
+      "useFor": ["chips", "ai-infrastructure", "data-centres", "sovereign-ai", "supply-chain"],
+      "signalQuestions": [
+        "Has chip, data-centre, sovereign AI, or infrastructure dependency changed?",
+        "Does the item affect capital concentration, supplier risk, energy assumptions, or vendor lock-in?"
+      ]
+    },
+    {
+      "id": "arxiv-ai",
+      "name": "arXiv AI and machine learning research",
+      "tier": "primary",
+      "category": "ai-research",
+      "jurisdictions": ["Global"],
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "cadence": "weekly",
+      "useFor": ["research", "benchmarks", "safety", "agents", "evaluation"],
+      "signalQuestions": [
+        "Is there credible research that changes the interpretation of model capability, risk, or adoption?",
+        "Is the paper strong enough to cite, or should it remain a monitoring signal?"
+      ]
+    },
+    {
+      "id": "eu-ai-act",
+      "name": "European Commission EU AI Act",
+      "tier": "primary",
+      "category": "ai-regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "cadence": "weekly",
+      "useFor": ["ai-governance", "ai-regulation", "implementation-deadlines", "model-risk"],
+      "signalQuestions": [
+        "Has the European Commission changed EU AI Act implementation guidance, timelines, or supervisory expectations?",
+        "Does the item create a compliance, model-risk, procurement, or board question for regulated firms using AI?"
+      ]
+    },
+    {
+      "id": "ai-act-tracker",
+      "name": "EU Artificial Intelligence Act Tracker",
+      "tier": "specialist",
+      "category": "ai-regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://artificialintelligenceact.eu/",
+      "cadence": "weekly",
+      "useFor": ["ai-governance", "ai-regulation", "implementation-deadlines", "tracker"],
+      "signalQuestions": [
+        "Does the tracker clarify an EU AI Act implementation milestone that should be checked against primary Commission material?",
+        "Does the item help translate official AI Act obligations into a board or control-owner planning question?"
+      ]
+    },
+    {
+      "id": "epoch-ai",
+      "name": "Epoch AI",
+      "tier": "specialist",
+      "category": "ai-research",
+      "jurisdictions": ["Global"],
+      "url": "https://epoch.ai/",
+      "cadence": "weekly",
+      "useFor": ["capability-data", "benchmarks", "compute", "forecasting", "ai-economics"],
+      "signalQuestions": [
+        "Does Epoch AI provide capability, compute, or economic evidence that changes the interpretation of model progress?",
+        "Is the data current enough to cite, or should the item be flagged as older than 90 days?"
+      ]
+    },
+    {
+      "id": "lmarena",
+      "name": "LMArena",
+      "tier": "specialist",
+      "category": "ai-research",
+      "jurisdictions": ["Global"],
+      "url": "https://arena.ai/",
+      "cadence": "weekly",
+      "useFor": ["capability-data", "leaderboards", "model-comparison", "benchmarks"],
+      "signalQuestions": [
+        "Has a leaderboard movement changed practical model-selection or capability assumptions?",
+        "Does the result need corroboration with model cards, system cards, or primary release notes before publication?"
+      ]
+    },
+    {
+      "id": "stanford-hai-ai-index",
+      "name": "Stanford HAI AI Index",
+      "tier": "specialist",
+      "category": "ai-research",
+      "jurisdictions": ["Global"],
+      "url": "https://hai.stanford.edu/ai-index",
+      "cadence": "weekly",
+      "useFor": ["annual-statistics", "ai-adoption", "capability-data", "investment", "governance"],
+      "signalQuestions": [
+        "Does the AI Index provide the right annual anchor statistic for AI adoption, capability, investment, or governance?",
+        "Is the statistic older than 90 days and therefore something to flag rather than present as current movement?"
+      ]
+    },
+    {
+      "id": "nist-ai-rmf",
+      "name": "NIST AI Risk Management Framework",
+      "tier": "primary",
+      "category": "ai-regulation",
+      "jurisdictions": ["US", "Global"],
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "cadence": "weekly",
+      "useFor": ["ai-governance", "ai-risk-management", "model-risk", "critical-infrastructure", "standards"],
+      "signalQuestions": [
+        "Has NIST changed AI RMF guidance, profiles, playbooks, or implementation material?",
+        "Does the update create a governance control, assurance, or board question that cross-feeds the Virtual Officer brief?"
+      ]
+    },
+    {
+      "id": "import-ai",
+      "name": "Import AI",
+      "tier": "specialist",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://www.importai.net/",
+      "cadence": "weekly",
+      "useFor": ["curated-ai-signal", "research", "policy", "model-releases", "industry-news"],
+      "signalQuestions": [
+        "Does Import AI surface a research, policy, model, or industry signal missed by daily source sweeps?",
+        "Can the signal be traced back to a primary lab, paper, regulator, or company source before publication?"
+      ]
+    },
+    {
+      "id": "the-batch",
+      "name": "The Batch",
+      "tier": "specialist",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://www.deeplearning.ai/the-batch",
+      "cadence": "weekly",
+      "useFor": ["curated-ai-signal", "industry-news", "research", "product-launches", "governance"],
+      "signalQuestions": [
+        "Does The Batch catch a practical AI signal that should be checked against a primary source?",
+        "Does the item help prioritise model, product, governance, or industry cards for AI Signals?"
+      ]
+    },
+    {
+      "id": "ft",
+      "name": "Financial Times",
+      "tier": "specialist",
+      "category": "markets",
+      "jurisdictions": ["Global"],
+      "url": "https://www.ft.com/financial-services",
+      "cadence": "weekly",
+      "useFor": ["markets", "banking", "asset-management", "technology", "private-markets"],
+      "signalQuestions": [
+        "Is the item useful market colour, company intelligence, or early read-through?",
+        "Can the main claim be corroborated with a primary or second specialist source?"
+      ]
+    },
+    {
+      "id": "reuters-regulatory-news",
+      "name": "Reuters Regulatory News",
+      "tier": "press",
+      "category": "regulation",
+      "jurisdictions": ["Global"],
+      "url": "https://www.reuters.com/sustainability/boards-policy-regulation/",
+      "cadence": "weekly",
+      "useFor": ["regulation", "incident-corroboration", "markets", "policy", "enforcement"],
+      "signalQuestions": [
+        "Does Reuters corroborate a regulatory, enforcement, incident, or market-structure claim from a primary source?",
+        "Is there a primary regulator, company, court, or official document that should be cited instead as the lead source?"
+      ]
+    },
+    {
+      "id": "orx-news",
+      "name": "ORX News and Blogs",
+      "tier": "specialist",
+      "category": "risk-management",
+      "jurisdictions": ["Global"],
+      "url": "https://www.orx.org/news-and-blogs",
+      "cadence": "weekly",
+      "useFor": ["operational-risk", "control-failures", "incident-corroboration", "loss-events", "resilience"],
+      "signalQuestions": [
+        "Does ORX identify an operational-risk event or pattern that should be checked against primary incident sources?",
+        "Does the item help distinguish a one-off event from a repeatable control failure theme?"
+      ]
+    },
+    {
+      "id": "regulation-tomorrow",
+      "name": "Global Regulation Tomorrow",
+      "tier": "specialist",
+      "category": "regulation",
+      "jurisdictions": ["Global"],
+      "url": "https://www.regulationtomorrow.com/",
+      "cadence": "weekly",
+      "useFor": ["regulatory-interpretation", "deadline-analysis", "financial-services-policy", "horizon"],
+      "signalQuestions": [
+        "Does Regulation Tomorrow clarify what a regulatory deadline, consultation, or supervisory update means in practice?",
+        "Can the interpretation be traced back to the regulator or primary legal text before publication?"
+      ]
+    },
+    {
+      "id": "sidley-insights",
+      "name": "Sidley Insights",
+      "tier": "specialist",
+      "category": "regulation",
+      "jurisdictions": ["Global"],
+      "url": "https://www.sidley.com/en/insights/newsupdates",
+      "cadence": "weekly",
+      "useFor": ["regulatory-interpretation", "financial-services-policy", "deadline-analysis", "markets", "digital-assets"],
+      "signalQuestions": [
+        "Does Sidley provide useful interpretation of a financial-services regulatory change or deadline?",
+        "Is the interpretation backed by a primary regulator, statute, consultation, or enforcement source?"
+      ]
+    },
+    {
+      "id": "ao-shearman-insights",
+      "name": "A&O Shearman Insights",
+      "tier": "specialist",
+      "category": "regulation",
+      "jurisdictions": ["Global"],
+      "url": "https://www.aoshearman.com/en/insights",
+      "cadence": "weekly",
+      "useFor": ["regulatory-interpretation", "financial-services-policy", "deadline-analysis", "markets", "dora"],
+      "signalQuestions": [
+        "Does A&O Shearman add practical interpretation of a regulatory, DORA, markets, or governance deadline?",
+        "Can the item be checked against primary legal text, regulator publications, or official consultations before citation?"
+      ]
+    },
+    {
+      "id": "risk-net",
+      "name": "Risk.net",
+      "tier": "specialist",
+      "category": "risk-management",
+      "jurisdictions": ["Global"],
+      "url": "https://www.risk.net/",
+      "cadence": "weekly",
+      "useFor": ["risk-management", "capital", "markets", "model-risk", "operational-risk"],
+      "signalQuestions": [
+        "Does the item reveal how practitioners are interpreting a rule, model, or market-risk issue?",
+        "Is it an implementation detail that official sources do not cover?"
+      ]
+    },
+    {
+      "id": "finextra",
+      "name": "Finextra",
+      "tier": "specialist",
+      "category": "payments",
+      "jurisdictions": ["Global"],
+      "url": "https://www.finextra.com/",
+      "cadence": "weekly",
+      "useFor": ["payments", "fintech", "digital-assets", "bank-technology", "open-banking"],
+      "signalQuestions": [
+        "Is there a payment, fintech, bank-technology, or digital-asset signal with operational impact?",
+        "Does it need corroboration from a firm, regulator, or scheme owner?"
+      ]
+    },
+    {
+      "id": "the-register",
+      "name": "The Register",
+      "tier": "specialist",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://www.theregister.com/",
+      "cadence": "weekly",
+      "useFor": ["cloud", "cyber", "outages", "technology-risk", "ai-infrastructure"],
+      "signalQuestions": [
+        "Is there a technology outage, vulnerability, cloud dependency, or infrastructure issue relevant to resilience?",
+        "Can the item be linked to a vendor advisory or official incident page?"
+      ]
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch AI",
+      "tier": "press",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "cadence": "weekly",
+      "useFor": ["industry-news", "startups", "funding", "product-launches", "ai-market"],
+      "signalQuestions": [
+        "Is there an AI company, funding, product, or market signal that needs a primary source check?",
+        "Does the item create a useful industry card after corroboration with company or official material?"
+      ]
+    },
+    {
+      "id": "the-verge-ai",
+      "name": "The Verge AI",
+      "tier": "press",
+      "category": "ai",
+      "jurisdictions": ["Global"],
+      "url": "https://www.theverge.com/ai-artificial-intelligence",
+      "cadence": "weekly",
+      "useFor": ["industry-news", "consumer-ai", "platforms", "product-launches", "policy"],
+      "signalQuestions": [
+        "Is there a platform, consumer-AI, policy, or product signal that needs a primary source check?",
+        "Does the item help explain industry consequence without becoming the lead citation for official claims?"
+      ]
+    },
+    {
+      "id": "ars-technica-ai",
+      "name": "Ars Technica AI",
+      "tier": "specialist",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://arstechnica.com/ai/",
+      "cadence": "weekly",
+      "useFor": ["industry-news", "ai-research", "technology-risk", "platforms", "security"],
+      "signalQuestions": [
+        "Is there a technical AI development, research dispute, or platform signal with governance implications?",
+        "Can the item be corroborated with model release notes, research papers, or official product material?"
+      ]
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "tier": "press",
+      "category": "markets",
+      "jurisdictions": ["Global"],
+      "url": "https://www.reuters.com/business/finance/",
+      "cadence": "weekly",
+      "useFor": ["markets", "companies", "regulation", "technology", "macro"],
+      "signalQuestions": [
+        "Is this a timely company, market, or regulatory development not yet available in a primary source?",
+        "Can it be corroborated before publication?"
+      ]
+    }
+  ]
+}

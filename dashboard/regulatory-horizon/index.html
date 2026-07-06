@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Regulatory Horizon — week ending 2026-07-04</title>
+<meta name="description" content="Weekly public-source regulatory horizon scan for UK/EU financial services — material signals, deadlines that matter, and watch themes. Primary documents only.">
+<link rel="alternate" type="application/rss+xml" title="Regulatory Horizon — weekly scan" href="feed.xml">
+<link rel="alternate" type="text/calendar" title="Regulatory horizon deadlines" href="horizon.ics">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #e9e2d2; --paper-raised: #f4efe3; --paper-soft: #f6f1e6;
+    --ink: #15140f; --body: #2c2a22; --muted: #6b6555;
+    --navy: #0f2233; --navy-soft: #182d40;
+    --accent: #a07e2e; --accent-bright: #c49a4a;
+    --rule: rgba(15, 34, 51, 0.18); --rule-strong: rgba(15, 34, 51, 0.55);
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Hanken Grotesk", -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--body);
+         font: 16px/1.6 var(--sans); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 72px; }
+
+  .kicker { font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+            color: var(--accent); }
+  .kicker .sep { color: var(--muted); }
+
+  /* Masthead */
+  .masthead { border-bottom: 3px double var(--rule-strong); padding-bottom: 22px; }
+  .masthead .topline { display: flex; justify-content: space-between; align-items: baseline;
+                       flex-wrap: wrap; gap: 8px; }
+  .masthead h1 { font: 600 clamp(34px, 5.5vw, 54px)/1.08 var(--serif); color: var(--ink);
+                 margin: 14px 0 10px; letter-spacing: -.01em; }
+  .masthead h1 em { font-style: italic; color: var(--navy); }
+  .dateline { font: 400 12px/1.6 var(--mono); color: var(--muted); }
+  .dateline b { color: var(--ink); font-weight: 500; }
+
+  /* Sections */
+  section { margin-top: 46px; }
+  .sechead { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px solid var(--rule-strong);
+             padding-bottom: 8px; margin-bottom: 4px; }
+  .sechead .num { font: 500 12px/1 var(--mono); color: var(--accent); }
+  .sechead h2 { font: 600 21px/1.2 var(--serif); color: var(--ink); margin: 0; }
+  .sechead .note { margin-left: auto; font: 400 11px/1 var(--mono); color: var(--muted);
+                   letter-spacing: .08em; text-transform: uppercase; }
+
+  /* Lead signal */
+  .lede { padding: 26px 0 10px; }
+  .lede .meta { font: 400 12px/1 var(--mono); color: var(--muted); margin-bottom: 12px; }
+  .lede .meta b { color: var(--navy); font-weight: 500; }
+  .lede h3 { font: 600 clamp(24px, 3.4vw, 34px)/1.2 var(--serif); color: var(--ink); margin: 0 0 14px; }
+  .lede h3 a:hover { color: var(--navy); }
+  .lede .standfirst { font-size: 17.5px; line-height: 1.65; color: var(--body); max-width: 62ch; margin: 0 0 12px; }
+  .tags { font: 400 11.5px/1.9 var(--mono); color: var(--muted); }
+  .tags .t { color: var(--navy); }
+  .tags .type { color: var(--accent); }
+  .srclink { font: 500 12px/1 var(--mono); color: var(--accent); border-bottom: 1px solid var(--accent); }
+  .srclink:hover { color: var(--navy); border-color: var(--navy); }
+
+  .seconds { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 0 40px; border-top: 1px solid var(--rule); }
+  .second { padding: 20px 0; }
+  .second + .second { border-left: none; }
+  @media (min-width: 700px) { .second + .second { border-left: 1px solid var(--rule); padding-left: 40px; } }
+  .second .meta { font: 400 11.5px/1 var(--mono); color: var(--muted); margin-bottom: 10px; }
+  .second h4 { font: 600 19px/1.3 var(--serif); color: var(--ink); margin: 0 0 10px; }
+  .second h4 a:hover { color: var(--navy); }
+  .second p { font-size: 14.5px; color: var(--body); margin: 0 0 10px; }
+
+  /* Pull-quote bottom line */
+  .bottomline { border-left: 3px solid var(--accent); padding: 6px 0 6px 26px; margin-top: 26px; }
+  .bottomline p { font: italic 500 20px/1.55 var(--serif); color: var(--navy); margin: 0; max-width: 58ch; }
+
+  /* Signal index */
+  .idx { list-style: none; margin: 0; padding: 0; }
+  .idx li { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px;
+            padding: 18px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .idx .n { font: 400 12px/1.8 var(--mono); color: var(--accent); }
+  .idx .title { font: 600 17px/1.4 var(--serif); color: var(--ink); }
+  .idx .title a:hover { color: var(--navy); }
+  .idx .sub { margin-top: 5px; }
+  .idx .summary { display: none; font-size: 13.5px; color: var(--muted); margin-top: 7px; max-width: 70ch; }
+  body.show-full .idx .summary { display: block; }
+  .idx .right { font: 400 11.5px/1.8 var(--mono); color: var(--muted); text-align: right; white-space: nowrap; }
+  .idx .right b { color: var(--navy); font-weight: 500; }
+  @media (max-width: 620px) { .idx li { grid-template-columns: 34px 1fr; } .idx .right { display: none; } }
+
+  .toggle { text-align: right; padding: 10px 0 2px; }
+  .toggle button { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+                   background: none; border: none; border-bottom: 1px solid transparent;
+                   color: var(--muted); padding: 4px 2px; margin-left: 18px; cursor: pointer; }
+  .toggle button.on { color: var(--accent); border-color: var(--accent); }
+
+  .whylabel { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+              color: var(--accent); margin-right: 8px; }
+  .alsocite { font: 400 11.5px/1.9 var(--mono); color: var(--muted); }
+  .alsocite a { color: var(--navy); border-bottom: 1px solid var(--rule); }
+  .alsocite a:hover { border-color: var(--navy); }
+
+  /* Horizon strip */
+  .band-label { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+                color: var(--navy); padding: 18px 0 4px; }
+  .horizon { list-style: none; margin: 0; padding: 0; }
+  .horizon li { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+  .horizon .hrow { display: flex; gap: 18px; align-items: baseline; }
+  .horizon .prompts { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 8px 0 0 128px;
+                      font: 400 11px/1.7 var(--mono); color: var(--muted); }
+  .horizon .prompts b { color: var(--accent); font-weight: 500; margin-right: 6px;
+                        letter-spacing: .1em; text-transform: uppercase; font-size: 10px; }
+  @media (max-width: 620px) { .horizon .prompts { margin-left: 0; } }
+  .horizon .date { font: 500 13px/1.6 var(--mono); color: var(--navy); min-width: 110px; }
+  .horizon .days { font: 400 10.5px/1.6 var(--mono); color: var(--accent); display: block; }
+  .horizon .what { font-size: 15px; color: var(--ink); }
+  .horizon .what a:hover { color: var(--navy); }
+  .horizon .who { margin-left: auto; font: 400 11px/1.8 var(--mono); color: var(--muted);
+                  white-space: nowrap; }
+  @media (max-width: 620px) { .horizon li { flex-wrap: wrap; } .horizon .who { margin-left: 0; } }
+
+  /* Theme heat strip */
+  .heat { border-collapse: collapse; font: 400 11px/1.6 var(--mono); color: var(--muted);
+          margin-top: 14px; }
+  .heat td, .heat th { padding: 3px 5px; text-align: center; font-weight: 400; }
+  .heat th { text-align: right; padding-right: 12px; color: var(--body); white-space: nowrap; }
+  .heat .cell { width: 26px; height: 20px; border: 1px solid var(--rule); }
+  .heat .cdate { font-size: 10px; color: var(--muted); }
+
+  /* Watch lists */
+  .watch { list-style: none; margin: 0; padding: 0; }
+  .watch li { display: flex; gap: 16px; align-items: baseline; padding: 12px 0;
+              border-bottom: 1px solid var(--rule); }
+  .watch .d { font: 400 11.5px/1.8 var(--mono); color: var(--muted); min-width: 150px; }
+  .watch .t { font-size: 15px; color: var(--ink); }
+  .watch .t a:hover { color: var(--navy); }
+  .watch .a { margin-left: auto; font: 400 11px/1.8 var(--mono); color: var(--accent);
+              white-space: nowrap; }
+  @media (max-width: 620px) { .watch li { flex-wrap: wrap; } .watch .d { min-width: 0; } }
+
+  footer { margin-top: 60px; border-top: 3px double var(--rule-strong); padding-top: 18px;
+           font: 400 12px/1.9 var(--mono); color: var(--muted); }
+  footer .flag { color: #8a3324; }
+  footer a { border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: var(--navy); }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="topline">
+      <span class="kicker"><a href="https://stgeorgesstrategy.com/" style="color:inherit">St Georges Strategy</a> <span class="sep">/</span> <a href="https://stgeorgesstrategy.com/intelligence/" style="color:inherit">Intelligence</a> <span class="sep">/</span> Horizon</span>
+      <span class="dateline">Week ending <b>2026-07-04</b></span>
+    </div>
+    <h1>Regulatory <em>Horizon</em></h1>
+    <div class="dateline">Generated 2026-07-04 21:30 UTC · 7-day review window · public sources only</div>
+  </header>
+
+  <section>
+    <div class="sechead">
+      <span class="num">01 /</span><h2>This week's lead</h2>
+    </div>
+
+    
+    
+    <div class="lede">
+      <div class="meta"><b>EBA</b> · 2026-07-03 · lead signal</div>
+      <h3><a href="https://www.eba.europa.eu/node/19812" rel="noopener">EBA E-mail alert 3 July, 2026</a></h3>
+      <p class="standfirst"><span class="whylabel">What's new</span>EBA E-mail alert 3 July, 2026 Date 03/07/2026 Anonymous (not verified) Fri, 07/03/2026 - 17:00 Final Q&As 2025_7587 Reporting additional leverage ratio exposure amount in accordance with Article 3 CRR in C43.00 2025_7664 Validation rules taxonomy V4.0 C_47.00, C_43.00.a, C_43.00.b, C_43.00.c -...</p>
+      <p class="standfirst"><span class="whylabel">Why it matters</span>A guidance from EBA touching balance-sheet, market-plumbing. Review before 2026-08-03.</p>
+      <div class="tags"><span class="type">guidance</span> / <span class="t">balance-sheet</span> / <span class="t">market-plumbing</span>
+        &nbsp;&nbsp;<a class="srclink" href="https://www.eba.europa.eu/node/19812" rel="noopener">Go deeper: primary source -></a></div>
+      
+    </div>
+
+    
+    <div class="seconds">
+      
+      <div class="second">
+        <div class="meta">EIOPA · 2026-07-01</div>
+        <h4><a href="https://www.eiopa.europa.eu/eiopa-consults-enhancements-insurance-corporate-disclosures-under-eu-taxonomy-environmentally-2026-07-01_en" rel="noopener">EIOPA consults on enhancements to insurance corporate disclosures under EU Taxonomy for environmentally sustainable activities</a></h4>
+        <p>A consultation from EIOPA touching customer-outcomes, market-plumbing. Review before 2026-08-03.</p>
+        <div class="tags"><span class="type">consultation</span> / <span class="t">customer-outcomes</span> / <span class="t">market-plumbing</span></div>
+        
+      </div>
+      
+      <div class="second">
+        <div class="meta">EBA · 2026-07-01</div>
+        <h4><a href="https://www.eba.europa.eu/node/19806" rel="noopener">EBA E-mail alert 1 July, 2026</a></h4>
+        <p>A consultation from EBA touching customer-outcomes. Review before 2026-08-03.</p>
+        <div class="tags"><span class="type">consultation</span> / <span class="t">customer-outcomes</span></div>
+        
+      </div>
+      
+    </div>
+    
+    
+
+    <div class="bottomline"><p>The clearest trigger this week is “EBA E-mail alert 3 July, 2026” from EBA (guidance). Material signals span 5 of 8 watch themes. 2 open consultations remain open to influence — prioritise responses.</p></div>
+  </section>
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">02 /</span><h2>Horizon — dates that matter</h2>
+      <span class="note"><a href="horizon.ics" style="color:inherit">Subscribe .ics -></a></span>
+    </div>
+    
+    <div class="band-label">31–60 days</div>
+    <ul class="horizon">
+      
+      <li>
+        <div class="hrow">
+          <span class="date">2026-08-21<span class="days">in 48 days</span></span>
+          <span class="what"><a href="https://www.regulationtomorrow.com/2026/07/fca-publishes-consultation-paper-on-simplifying-consumer-investment-disclosures/" rel="noopener">FCA publishes consultation paper on simplifying consumer investment disclosures</a></span>
+          <span class="who">Regulation Tomorrow (Norton Rose)</span>
+        </div>
+        <div class="prompts">
+          <span><b>Owner</b> Who owns the disclosure-rule response and drafting decision?</span>
+          <span><b>Action</b> Decide whether to respond, who drafts, and which disclosure or conduct forum reviews the submission.</span>
+          <span><b>Evidence</b> Response plan, named drafting owner, and dated committee or working-group slot.</span>
+        </div>
+      </li>
+      
+    </ul>
+    
+    <div class="band-label">61–90 days</div>
+    <ul class="horizon">
+      
+      <li>
+        <div class="hrow">
+          <span class="date">2026-09-20<span class="days">in 78 days</span></span>
+          <span class="what"><a href="https://www.regulationtomorrow.com/2026/07/amla-consults-on-draft-its-on-the-format-for-reporting-suspicions-and-providing-transaction-records/" rel="noopener">AMLA consults on draft ITS on the format for reporting suspicions and providing transaction records</a></span>
+          <span class="who">Regulation Tomorrow (Norton Rose)</span>
+        </div>
+        <div class="prompts">
+          <span><b>Owner</b> Who owns suspicious-activity reporting design and transaction-record readiness?</span>
+          <span><b>Action</b> Decide whether AML operations, compliance, or technology must respond and whether data changes are needed.</span>
+          <span><b>Evidence</b> Impact note covering reporting format, record retrieval, and accountable implementation owner.</span>
+        </div>
+      </li>
+      
+    </ul>
+    
+    <div class="band-label">Beyond 90 days</div>
+    <ul class="horizon">
+      
+      <li>
+        <div class="hrow">
+          <span class="date">2027-01-01<span class="days">in 181 days</span></span>
+          <span class="what"><a href="https://www.regulationtomorrow.com/2026/07/draft-si-the-overseas-prudential-requirements-regime-credit-institutions-and-investment-firms-regulations-2026/" rel="noopener">Draft SI: The Overseas Prudential Requirements Regime (Credit Institutions and Investment Firms) Regulations 2026</a></span>
+          <span class="who">Regulation Tomorrow (Norton Rose)</span>
+        </div>
+        <div class="prompts">
+          <span><b>Owner</b> Who owns cross-border perimeter analysis and prudential read-across?</span>
+          <span><b>Action</b> Decide whether the regime changes booking-model, branch, or counterparty assumptions and brief prudential stakeholders.</span>
+          <span><b>Evidence</b> Perimeter assessment, prudential read-across note, and named executive owner.</span>
+        </div>
+      </li>
+      
+    </ul>
+    
+  </section>
+  
+
+  <section>
+    <div class="sechead">
+      <span class="num">03 /</span><h2>Material signals</h2>
+      <span class="note">Ranked</span>
+    </div>
+    <div class="toggle">
+      <button id="btn-exec" class="on" onclick="setView(false)">Titles</button>
+      <button id="btn-full" onclick="setView(true)">Full summaries</button>
+    </div>
+    <ol class="idx">
+      
+      <li>
+        <span class="n">01</span>
+        <div>
+          <div class="title"><a href="https://www.eba.europa.eu/node/19812" rel="noopener">EBA E-mail alert 3 July, 2026</a></div>
+          <div class="tags sub"><span class="type">guidance</span> / <span class="t">balance-sheet</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary"><span>EBA E-mail alert 3 July, 2026</span>
+
+  <div class="field field--name-alert-date field--type-datetime field--label-inline clearfix">
+    <h2 class="field__label">Date</h2>
+          <time datetime="2026-07-03T12:00:00Z">03/07/2026</time>
+
+      </div>
+
+<span><span>Anonymous (not verified)</span></span>
+
+<span><time datetime="2026-07-03T17:00:03+02:00" title="Friday, July 3, 2026 - 17:00">Fri, 07/03/2026 - 17:00</time>
+</span>
+
+            <div class="field field--name-extra-field-newsletter-preview field--type-extra-field field--label-hidden field__item">
+</div>
+      
+  <div class="field field--name-final-qa field--type-entity-reference field--label-above">
+    <h2 class="field__label">Final Q&amp;As</h2>
+          <a href="https://www.eba.europa.eu/single-rule-book-qa/qna/view/publicId/2025_7587" hreflang="en">2025_7587 Reporting additional leverage ratio exposure amount in accordance with Article 3 CRR in C43.00</a>
+          <a href="https://www.eba.europa.eu/single-rule-book-qa/qna/view/publicId/2025_7664" hreflang="en">2025_7664 Validation rules taxonomy V4.0 C_47.00, C_43.00.a, C_43.00.b, C_43.00.c - v4456_m</a>
+          <a href="https://www.eba.europa.eu/single-rule-book-qa/qna/view/publicId/2026_7753" hreflang="en">2026_7753 To which vintage bucket under Article 47c CRR should the anniversary date of an exposure’s classification as non‑performing be assigned?</a>
+          <a href="https://www.eba.europa.eu/single-rule-book-qa/qna/view/publicId/2026_7843" hreflang="en">2026_7843 Sectoral classification of UK credit institutions</a>
+      </div></div>
+        </div>
+        <div class="right"><b>EBA</b><br>2026-07-03 · 1.305</div>
+      </li>
+      
+      <li>
+        <span class="n">02</span>
+        <div>
+          <div class="title"><a href="https://www.eiopa.europa.eu/eiopa-consults-enhancements-insurance-corporate-disclosures-under-eu-taxonomy-environmentally-2026-07-01_en" rel="noopener">EIOPA consults on enhancements to insurance corporate disclosures under EU Taxonomy for environmentally sustainable activities</a></div>
+          <div class="tags sub"><span class="type">consultation</span> / <span class="t">customer-outcomes</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">EIOPA has launched a consultation on proposed changes to insurance corporate disclosures under the EU Taxonomy framework for environmentally sustainable activities. EIOPA’s draft proposals aim to increase transparency, simplify reporting, and better align insurers’ Taxonomy-related reporting...</div>
+        </div>
+        <div class="right"><b>EIOPA</b><br>2026-07-01 · 1.232</div>
+      </li>
+      
+      <li>
+        <span class="n">03</span>
+        <div>
+          <div class="title"><a href="https://www.eba.europa.eu/node/19806" rel="noopener">EBA E-mail alert 1 July, 2026</a></div>
+          <div class="tags sub"><span class="type">consultation</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary"><span>EBA E-mail alert 1 July, 2026</span>
+
+  <div class="field field--name-alert-date field--type-datetime field--label-inline clearfix">
+    <h2 class="field__label">Date</h2>
+          <time datetime="2026-07-01T12:00:00Z">01/07/2026</time>
+
+      </div>
+
+<span><span>Anonymous (not verified)</span></span>
+
+<span><time datetime="2026-07-01T17:00:02+02:00" title="Wednesday, July 1, 2026 - 17:00">Wed, 07/01/2026 - 17:00</time>
+</span>
+
+            <div class="field field--name-extra-field-newsletter-preview field--type-extra-field field--label-hidden field__item">
+</div>
+      
+  <div class="field field--name-news-press field--type-entity-reference field--label-above">
+    <h2 class="field__label">News &amp; Press</h2>
+          <a href="https://www.eba.europa.eu/publications-and-media/press-releases/eba-launches-consultation-key-performance-indicators-taxonomy-disclosures" hreflang="en">The EBA launches consultation on key performance indicators of Taxonomy disclosures</a>
+      </div></div>
+        </div>
+        <div class="right"><b>EBA</b><br>2026-07-01 · 1.09</div>
+      </li>
+      
+      <li>
+        <span class="n">04</span>
+        <div>
+          <div class="title"><a href="https://finance.ec.europa.eu/news/commission-adopts-revised-sustainability-reporting-standards-reduce-administrative-burdens-eu-2026-07-03_en" rel="noopener">Commission adopts revised sustainability reporting standards to reduce administrative burdens for EU businesses while maintaining high-quality disclosures</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">The revised standards adopted today are designed to reduce administrative burdens for EU businesses while maintaining high‑quality disclosures.</div>
+        </div>
+        <div class="right"><b>EU Commission, Financial Stability</b><br>2026-07-03 · 0.936</div>
+      </li>
+      
+      <li>
+        <span class="n">05</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/whole-of-government-accounts-2025-to-2026-guidance-for-preparers" rel="noopener">Corporate report: Whole of Government Accounts 2025 to 2026: guidance for preparers</a></div>
+          <div class="tags sub"><span class="type">guidance</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">Guidance for central government and local government preparers for Whole of Government Accounts.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-06-30 · 0.755</div>
+      </li>
+      
+      <li>
+        <span class="n">06</span>
+        <div>
+          <div class="title"><a href="https://www.finma.ch/en/news/2026/06/20260629-mm-durchsetzung-verhaltensregeln/" rel="noopener">FINMA concludes proceedings against Swiss Fund Management AG in liquidation and BZ Berater Zentrum AG and enforces rules of conduct in the financial services sector</a></div>
+          <div class="tags sub"><span class="type">enforcement</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary">The Swiss Financial Market Supervisory Authority FINMA has concluded enforcement proceedings against two institutions and one individual for serious breaches of the rules of conduct governing the provision of financial services under the FinSA. To restore compliance with the law and protect investors, FINMA ordered various measures. It withdrew Swiss Fund Management AG in liquidation’s licence to manage funds. An application by BZ Berater Zentrum AG for authorisation as an independent portfolio manager was rejected. In addition, FINMA is confiscating millions in illegally generated profits and imposing a multi-year industry ban on one of the individuals responsible.&nbsp;</div>
+        </div>
+        <div class="right"><b>Swiss FINMA</b><br>2026-06-29 · 0.747</div>
+      </li>
+      
+      <li>
+        <span class="n">07</span>
+        <div>
+          <div class="title"><a href="https://www.eba.europa.eu/node/19810" rel="noopener">EBA E-mail alert 2 July, 2026</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary"><span>EBA E-mail alert 2 July, 2026</span>
+
+  <div class="field field--name-alert-date field--type-datetime field--label-inline clearfix">
+    <h2 class="field__label">Date</h2>
+          <time datetime="2026-07-02T12:00:00Z">02/07/2026</time>
+
+      </div>
+
+<span><span>Anonymous (not verified)</span></span>
+
+<span><time datetime="2026-07-02T17:00:03+02:00" title="Thursday, July 2, 2026 - 17:00">Thu, 07/02/2026 - 17:00</time>
+</span>
+
+            <div class="field field--name-extra-field-newsletter-preview field--type-extra-field field--label-hidden field__item">
+</div>
+      
+  <div class="field field--name-news-press field--type-entity-reference field--label-above">
+    <h2 class="field__label">News &amp; Press</h2>
+          <a href="https://www.eba.europa.eu/publications-and-media/press-releases/targeted-eba-peer-review-finds-high-compliance-pillar-3-disclosures-calls-greater-consistency" hreflang="en">Targeted EBA peer review finds high compliance on Pillar 3 disclosures but calls for greater consistency </a>
+      </div></div>
+        </div>
+        <div class="right"><b>EBA</b><br>2026-07-02 · 0.745</div>
+      </li>
+      
+      <li>
+        <span class="n">08</span>
+        <div>
+          <div class="title"><a href="https://www.cssf.lu/en/2026/07/mica-transition-period-for-virtual-asset-service-providers-ended-on-1-july-2026/" rel="noopener">MiCA: Transition period for virtual asset service providers ended on 1 July 2026</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">digital-money</span></div>
+          
+          
+        </div>
+        <div class="right"><b>CSSF (Luxembourg)</b><br>2026-07-02 · 0.745</div>
+      </li>
+      
+      <li>
+        <span class="n">09</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/fscs-annual-report-and-accounts-and-class-statements-202526" rel="noopener">Policy paper: FSCS Annual Report and Accounts and Class Statements 2025/26</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">In its Annual Report and Accounts and Class Statements published today (Thursday 2 July, 2026), the Financial Services Compensation Scheme (FSCS) outlines the vital work it has carried out during the past financial year.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-07-02 · 0.745</div>
+      </li>
+      
+      <li>
+        <span class="n">10</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/pwlb-annual-report-and-accounts-2025-to-2026" rel="noopener">Corporate report: PWLB annual report and accounts 2025 to 2026</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">Annual report and accounts of the PWLB.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-07-02 · 0.745</div>
+      </li>
+      
+      <li>
+        <span class="n">11</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/national-payments-vision" rel="noopener">Policy paper: National Payments Vision</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">digital-money</span></div>
+          
+          <div class="summary">The government has published the National Payments Vision, setting out its ambitions for the UK’s payments sector to deliver world-leading payments and support the growth mission.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-07-02 · 0.745</div>
+      </li>
+      
+      <li>
+        <span class="n">12</span>
+        <div>
+          <div class="title"><a href="https://www.eiopa.europa.eu/eiopa-peer-review-follow-shows-progress-product-oversight-and-governance-supervision-2026-06-30_en" rel="noopener">EIOPA peer review follow-up shows progress in product oversight and governance supervision</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">boardroom-and-accountability</span> / <span class="t">market-plumbing</span></div>
+          
+          <div class="summary">EIOPA published today its follow-up report to the Peer Review on Product Oversight and Governance (POG), assessing the progress made by National Competent Authorities (NCAs) in implementing recommended actions to strengthen the supervision of POG requirements.</div>
+        </div>
+        <div class="right"><b>EIOPA</b><br>2026-06-30 · 0.682</div>
+      </li>
+      
+      <li>
+        <span class="n">13</span>
+        <div>
+          <div class="title"><a href="https://www.cssf.lu/en/2026/07/communication-to-market-participants-on-the-application-of-the-esg-ratings-regulation-and-the-new-disclosure-requirements-under-the-sfdr/" rel="noopener">Communication to market participants on the application of the ESG Ratings Regulation and the new disclosure requirements under the SFDR</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+          
+          
+        </div>
+        <div class="right"><b>CSSF (Luxembourg)</b><br>2026-07-01 · 0.671</div>
+      </li>
+      
+      <li>
+        <span class="n">14</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/reference-documents-for-the-customs-reliefs-from-a-liability-to-import-duty-and-miscellaneous-amendments-eu-exit-regulations-2020" rel="noopener">Statutory guidance: Reference documents for The Customs (Reliefs from a Liability to Import Duty and Miscellaneous Amendments) (EU Exit) Regulations 2020</a></div>
+          <div class="tags sub"><span class="type">guidance</span></div>
+          
+          <div class="summary">Find the documents for details of the conditions in which a 'good' may be eligible for a relief from the standard tariff rate.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-06-30 · 0.656</div>
+      </li>
+      
+      <li>
+        <span class="n">15</span>
+        <div>
+          <div class="title"><a href="https://www.gov.uk/government/publications/reference-documents-for-the-customs-tariff-quotas-eu-exit-regulations-2020" rel="noopener">Statutory guidance: Reference Documents for The Customs (Tariff Quotas) (EU Exit) Regulations 2020</a></div>
+          <div class="tags sub"><span class="type">guidance</span></div>
+          
+          <div class="summary">Check the documents that detail product specific tariff-rate quotas, including the individual product volumes and rates, and also list of eligible goods and their authorised uses.</div>
+        </div>
+        <div class="right"><b>HM Treasury</b><br>2026-06-30 · 0.656</div>
+      </li>
+      
+    </ol>
+  </section>
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">04 /</span><h2>Pressure map</h2>
+      <span class="note">Signals per watch theme, by edition</span>
+    </div>
+    <table class="heat">
+      <tr><th></th><td class="cdate">07-02</td><td class="cdate">07-04</td></tr>
+      
+      <tr><th>balance-sheet</th>
+        
+        
+        <td><div class="cell" title="balance-sheet · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+        
+        <td><div class="cell" title="balance-sheet · 2026-07-04 · 2"
+             style="background: rgba(15, 34, 51, 0.26);"></div></td>
+        
+      </tr>
+      
+      <tr><th>customer-outcomes</th>
+        
+        
+        <td><div class="cell" title="customer-outcomes · 2026-07-02 · 4"
+             style="background: rgba(15, 34, 51, 0.40);"></div></td>
+        
+        
+        <td><div class="cell" title="customer-outcomes · 2026-07-04 · 6"
+             style="background: rgba(15, 34, 51, 0.55);"></div></td>
+        
+      </tr>
+      
+      <tr><th>boardroom-and-accountability</th>
+        
+        
+        <td><div class="cell" title="boardroom-and-accountability · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+        
+        <td><div class="cell" title="boardroom-and-accountability · 2026-07-04 · 1"
+             style="background: rgba(15, 34, 51, 0.19);"></div></td>
+        
+      </tr>
+      
+      <tr><th>crime-and-sanctions</th>
+        
+        
+        <td><div class="cell" title="crime-and-sanctions · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+        
+        <td><div class="cell" title="crime-and-sanctions · 2026-07-04 · 1"
+             style="background: rgba(15, 34, 51, 0.19);"></div></td>
+        
+      </tr>
+      
+      <tr><th>digital-resilience</th>
+        
+        
+        <td><div class="cell" title="digital-resilience · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+        
+        <td><div class="cell" title="digital-resilience · 2026-07-04 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>ai-and-models</th>
+        
+        
+        <td><div class="cell" title="ai-and-models · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+        
+        <td><div class="cell" title="ai-and-models · 2026-07-04 · 1"
+             style="background: rgba(15, 34, 51, 0.19);"></div></td>
+        
+      </tr>
+      
+      <tr><th>digital-money</th>
+        
+        
+        <td><div class="cell" title="digital-money · 2026-07-02 · 2"
+             style="background: rgba(15, 34, 51, 0.26);"></div></td>
+        
+        
+        <td><div class="cell" title="digital-money · 2026-07-04 · 2"
+             style="background: rgba(15, 34, 51, 0.26);"></div></td>
+        
+      </tr>
+      
+      <tr><th>market-plumbing</th>
+        
+        
+        <td><div class="cell" title="market-plumbing · 2026-07-02 · 1"
+             style="background: rgba(15, 34, 51, 0.19);"></div></td>
+        
+        
+        <td><div class="cell" title="market-plumbing · 2026-07-04 · 11"
+             style="background: rgba(15, 34, 51, 0.90);"></div></td>
+        
+      </tr>
+      
+    </table>
+  </section>
+  
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">05 /</span><h2>Watchlist</h2>
+      <span class="note">Monitor only</span>
+    </div>
+    <ul class="watch">
+      
+      <li>
+        <span class="d">ECB Banking Supervision</span>
+        <span class="t"><a href="https://www.bankingsupervision.europa.eu//press/pr/date/2026/html/ssm.pr260629~f60e0e7048.en.html" rel="noopener">ECB sanctions BIL for breaching ECB decision on internal models</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/green-book-review-2025-one-year-on" rel="noopener">Policy paper: Green Book Review 2025: One year on</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/the-10-year-review-of-the-women-in-finance-charter" rel="noopener">Corporate report: The 10 Year Review of the Women in Finance Charter</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">SRB</span>
+        <span class="t"><a href="https://www.srb.europa.eu/en/content/srb-2025-annual-report-stresses-progress-crisis-readiness" rel="noopener">SRB 2025 Annual Report stresses progress on crisis readiness</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">Swiss FINMA</span>
+        <span class="t"><a href="https://www.finma.ch/en/news/2026/07/20260701-mm-regopt/" rel="noopener">FINMA welcomes the establishment of a working group on the “optimisation of financial market regulation”</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">EBA</span>
+        <span class="t"><a href="https://www.eba.europa.eu/node/19791" rel="noopener">EBA E-mail alert 29 June, 2026</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+      <li>
+        <span class="d">FSB</span>
+        <span class="t"><a href="https://www.fsb.org/2026/06/virtual-outreach-event-on-fsb-sound-practices-for-financial-institutions-responsible-adoption-of-artificial-intelligence/" rel="noopener">Virtual outreach event on FSB sound practices for financial institutions’ responsible adoption of artificial intelligence</a></span>
+        <span class="a">Monitor next 30 days · by 2026-08-03</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">06 /</span><h2>Policy watch</h2>
+      <span class="note">Broader context</span>
+    </div>
+    <ul class="watch">
+      
+      <li>
+        <span class="d">2026-07-03 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/uk-official-holdings-of-international-reserves-june-2026" rel="noopener">Research: UK official holdings of international reserves: June 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/statistics/hm-treasury-statistics-timetable-standards-and-policies" rel="noopener">Official Statistics: HM Treasury Statistics: Timetable, standards and policies</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/news/green-book-changes-to-drive-investment-in-all-parts-of-uk" rel="noopener">Green Book changes to drive investment in all parts of UK</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/statistics/gdp-deflators-at-market-prices-and-money-gdp-june-2026-quarterly-national-accounts" rel="noopener">Accredited official statistics: GDP deflators at market prices, and money GDP June 2026 (Quarterly National Accounts)</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/authorised-use-eligible-goods-and-authorised-uses" rel="noopener">Statutory guidance: Reference document for authorised use: eligible goods and authorised uses</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/the-defence-investment-plan" rel="noopener">Policy paper: The Defence Investment Plan</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/guidance-on-developing-business-cases" rel="noopener">Guidance: Guidance on developing business cases</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/green-book-discount-rate-review-2026" rel="noopener">Policy paper: Green Book discount rate review 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/green-book-supplementary-guidance-examples-of-appraisal-calculations--2" rel="noopener">Guidance: Green Book supplementary guidance: examples of appraisal calculations</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/news/15-billion-new-funding-boost-to-transform-armed-forces-and-keep-the-uk-safe" rel="noopener">£15 billion new funding boost to transform Armed Forces and keep the UK safe</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/women-in-finance-charter" rel="noopener">Guidance: Women in Finance Charter</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-29 · HM Treasury</span>
+        <span class="t"><a href="https://www.gov.uk/government/news/government-steps-up-drive-to-reconnect-young-people-with-16-billion-in-unclaimed-savings" rel="noopener">Government steps up drive to reconnect young people with £1.6 billion in unclaimed savings</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · ECB Banking Supervision</span>
+        <span class="t"><a href="https://www.bankingsupervision.europa.eu//press/speeches/date/2026/html/ssm.sp260702_1~9af2c5f010.en.html" rel="noopener">Frank Elderson: The green transition – benefits and barriers</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · ECB Banking Supervision</span>
+        <span class="t"><a href="https://www.bankingsupervision.europa.eu//press/speeches/date/2026/html/ssm.sp260702~8fde047a2d.en.html" rel="noopener">Claudia Buch: Hearing of the Committee on Economic and Monetary Affairs of the European Parliament</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · EBA</span>
+        <span class="t"><a href="https://www.eba.europa.eu/node/19799" rel="noopener">EBA E-mail alert 30 June, 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · BoE speeches</span>
+        <span class="t"><a href="https://www.bankofengland.co.uk/speech/2026/july/catherine-l-mann-fireside-chat-at-the-natixis-cib-conference-on-private-debt" rel="noopener">Mixed signals, research findings, and policy judgements − speech by Catherine L. Mann</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · BoE speeches</span>
+        <span class="t"><a href="https://www.bankofengland.co.uk/speech/2026/june/sarah-breeden-panel-at-the-european-central-bank-forum-on-central-banking-2026" rel="noopener">Agents of change − speech by Sarah Breeden</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/global-situation-of-undertakings-for-collective-investment-at-the-end-of-may-2026/" rel="noopener">Global situation of undertakings for collective investment at the end of May 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/net-assets-of-ucis/" rel="noopener">Net assets of UCIs</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/breakdown-according-to-currency/" rel="noopener">Breakdown according to currency</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/origin-of-uci-initiators-in-luxembourg/" rel="noopener">Origin of UCI initiators in Luxembourg</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/number-of-ucis/" rel="noopener">Number of UCIs</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/07/investment-policy-of-ucis/" rel="noopener">Investment policy of UCIs</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/06/mandatory-sell-out-proceedings-in-relation-to-the-shares-of-kernel-holding-s-a-isin-lu0327357389/" rel="noopener">Mandatory sell-out proceedings in relation to the shares of Kernel Holding S.A. (ISIN LU0327357389)</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · CSSF (Luxembourg)</span>
+        <span class="t"><a href="https://www.cssf.lu/en/2026/06/warning-concerning-the-website-www-hautfortpartners-com/" rel="noopener">Warning concerning the website www.hautfortpartners.com</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-29 · SRB</span>
+        <span class="t"><a href="https://www.srb.europa.eu/en/content/srb-introduces-new-procedure-faster-approval-early-redemptions-mrel-instruments" rel="noopener">SRB introduces a new procedure for faster approval of early redemptions of MREL instruments</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/cma-consumer-forum-meeting-notes-2-june-2026" rel="noopener">Transparency data: CMA Consumer Forum meeting notes: 2 June 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/cma-register-of-interests" rel="noopener">Transparency data: CMA board: register of interests</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/healthcare-ireland-slash-hutchinson-homes-merger-inquiry" rel="noopener">Healthcare Ireland / Hutchinson Homes merger inquiry</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/referral-of-the-proposed-subsidy-to-athletic-ventures-llp-by-uk-sport-and-the-greater-london-authority" rel="noopener">Referral of the proposed subsidy to Athletic Ventures LLP by UK Sport and the Greater London Authority</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/cma-letter-to-phin-welcoming-achievement-of-gold-compliance-milestone" rel="noopener">Correspondence: CMA letter to PHIN welcoming achievement of gold compliance milestone</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/private-healthcare-market-investigation" rel="noopener">Private healthcare market investigation</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/marks-electrical-consumer-protection-enforcement-case" rel="noopener">Marks Electrical: consumer protection enforcement case</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/suspected-anti-competitive-conduct-in-relation-to-the-supply-of-solidworks-computer-aided-design-and-computer-aided-engineering-software-and-related-products-and-services" rel="noopener">Suspected anti-competitive conduct in relation to the supply of Solidworks computer-aided design and computer-aided engineering software and related products and services</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/paramount-slash-warner-bros-discovery-merger-inquiry" rel="noopener">Paramount / Warner Bros. Discovery merger inquiry</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/nexfibre-slash-substantial-merger-inquiry" rel="noopener">nexfibre / Substantial merger inquiry</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/cma-response-to-government-in-relation-to-childcare-provision" rel="noopener">Correspondence: CMA correspondence in relation to early years education and childcare sector</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/early-years-education-and-childcare-market-study" rel="noopener">Early years education and childcare market study</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/guidance/how-to-engage-with-the-cmas-childcare-market-study" rel="noopener">How to engage with the CMA’s childcare market study</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/calls-for-evidence/early-years-education-and-childcare-market-study-families" rel="noopener">Early years education and childcare market study: families</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/calls-for-evidence/early-years-education-and-childcare-market-study-providers-and-professionals" rel="noopener">Early years education and childcare market study: providers and professionals</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/calls-for-evidence/early-years-education-and-childcare-market-study-other-interested-people" rel="noopener">Early years education and childcare market study: other interested people</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/news/cma-opens-probe-into-childcare-sector" rel="noopener">CMA opens probe into childcare sector</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/referral-of-the-proposed-subsidy-to-udx-development-company-limited-by-the-department-for-culture-media-and-sport" rel="noopener">Referral of the proposed subsidy to UDX Development Company Limited by the Department for Culture Media and Sport</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/government/consultations/vets-market-investigation-draft-funding-order-and-undertakings" rel="noopener">Vets market investigation: draft funding Order and Undertakings</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · CMA</span>
+        <span class="t"><a href="https://www.gov.uk/cma-cases/veterinary-services-market-for-pets-review" rel="noopener">Veterinary services for household pets</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/guidance/launching-or-returning-a-rocket-or-space-plane-rules-and-regulations" rel="noopener">Launching or returning a rocket or space plane: rules and regulations</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/guidance/operating-an-orbital-space-object-rules-and-regulations" rel="noopener">Operating an orbital space object: rules and regulations</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/guidance/operating-a-spaceport-rules-and-regulations" rel="noopener">Operating a spaceport: rules and regulations</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/guidance/providing-range-control-services-rules-and-regulations" rel="noopener">Providing range control services: rules and regulations</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/consultations/expanding-the-information-sharing-powers-in-part-5-chapter-one-of-the-digital-economy-act-2017-to-support-passported-benefits-and-reduce-fuel-poverty" rel="noopener">Expanding the information sharing powers in Part 5 (chapter one) of the Digital Economy Act 2017 to support passported benefits and reduce fuel poverty</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/women-in-research-charter" rel="noopener">Guidance: Women in Research Charter</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/news/improved-family-leave-and-flexible-working-to-signal-step-change-in-support-for-women-researchers" rel="noopener">Improved family leave and flexible working to signal step change in support for women researchers</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/uk-germany-joint-statement-on-advanced-ai-safety-and-security" rel="noopener">Notice: UK-Germany joint statement on advanced AI safety and security</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/person-data-standard-overview-and-guidance" rel="noopener">Guidance: Person Data Standard: overview and guidance</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/person-standard-use-case-hmpps-core-person-service" rel="noopener">Guidance: Person Standard Use Case: HMPPS Core Person Service</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/attributes-specification-for-person-standard" rel="noopener">Guidance: Attributes Specification for Person Standard</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/logical-reference-model-for-person-standard" rel="noopener">Guidance: Logical Reference Model for Person Standard</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/concept-reference-model-for-person-standard" rel="noopener">Guidance: Concept Reference Model for Person Standard</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/cyber-security-and-resilience-network-and-information-systems-bill-factsheets" rel="noopener">Policy paper: Cyber Security and Resilience (Network and Information Systems) Bill: factsheets</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/vulnerabilities-data-standards-overview-and-guidance" rel="noopener">Guidance: Vulnerabilities Data Standards: overview and guidance</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/governance-of-vulnerability-related-taxonomies" rel="noopener">Guidance: Governance of vulnerability-related taxonomies</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/taxonomy-of-vulnerability-risk-factors" rel="noopener">Guidance: Taxonomy of Vulnerability Risk Factors</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/data-models-for-vulnerability" rel="noopener">Guidance: Data Models for Vulnerability</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-29 · UK DSIT</span>
+        <span class="t"><a href="https://www.gov.uk/government/publications/dsits-equalities-objectives-2026-to-2030" rel="noopener">Corporate report: DSIT's equalities objectives 2026 to 2030</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/amla-consults-on-draft-its-on-the-format-for-reporting-suspicions-and-providing-transaction-records/" rel="noopener">AMLA consults on draft ITS on the format for reporting suspicions and providing transaction records</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/esma-public-statement-on-the-application-of-the-national-product-intervention-measures-on-binary-options-to-event-contracts/" rel="noopener">ESMA Public Statement on the application of the national product intervention measures on binary options to event contracts</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/draft-si-the-overseas-prudential-requirements-regime-credit-institutions-and-investment-firms-regulations-2026/" rel="noopener">Draft SI: The Overseas Prudential Requirements Regime (Credit Institutions and Investment Firms) Regulations 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/the-financial-services-act-2012-relevant-functions-in-relation-to-complaints-scheme-amendment-order-2026/" rel="noopener">The Financial Services Act 2012 (Relevant Functions in relation to Complaints Scheme) (Amendment) Order 2026</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/esma-final-report-on-the-call-for-evidence-on-a-comprehensive-approach-for-the-simplification-of-financial-transaction-reporting/" rel="noopener">ESMA Final Report on the Call for Evidence on a comprehensive approach for the simplification of financial transaction reporting</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-03 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/eba-peer-review-report-on-pillar-3-disclosures/" rel="noopener">EBA Peer Review Report on Pillar 3 disclosures</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/pvdc-publishes-updated-policy-paper-in-relation-to-roles-and-responsibilities-in-the-future-retail-payments-ecosystem/" rel="noopener">PVDC publishes updated policy paper in relation to roles and responsibilities in the future retail payments ecosystem</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/fca-publishes-policy-statement-on-regulated-fees-and-levies-2026-27/" rel="noopener">FCA publishes policy statement on regulated fees and levies 2026/27</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-02 · Regulation Tomorrow (Norton Rose)</span>
+        <span class="t"><a href="https://www.regulationtomorrow.com/2026/07/fca-publishes-consultation-paper-on-simplifying-consumer-investment-disclosures/" rel="noopener">FCA publishes consultation paper on simplifying consumer investment disclosures</a></span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  <footer>
+    <div>Sources scanned: 55 ·
+      boe: ok / fca: ok / hmt: ok / ecb-ssm: ok / eba: ok / esma: ok / eiopa: ok / esrb: empty / ec-fisma: ok / ofsi: ok / bafin: pending-scraper / bundesbank: pending-scraper / boe-speeches: ok / psr: pending-scraper / cbi: pending-scraper / cssf: ok / acpr: pending-scraper / amf: pending-scraper / ec-ai: empty / srb: ok / finma: ok / snb: pending-scraper / eu-ai-act: ok / ncsc: ok / enisa: pending-scraper / fos: pending-scraper / iosco: pending-scraper / fatf: pending-scraper / fsb: ok / adgm-fsra: pending-scraper / afm-nl: pending-scraper / bdl: pending-scraper / boe-fpc: pending-scraper / cbb-bahrain: pending-scraper / cbn-nigeria: pending-scraper / dfsa: pending-scraper / edpb: pending-scraper / eu-council: pending-scraper / ec-comp-digital: pending-scraper / ep-econ: pending-scraper / dg-tresor: pending-scraper / sama: pending-scraper / sarb: pending-scraper / cert-eu: pending-scraper / cma: ok / nis-coop: pending-scraper / ofac: ok / ofcom: pending-scraper / uk-dsit: ok / nca: pending-scraper / oecd-df: pending-scraper / banca-italia: pending-scraper / banco-espana: pending-scraper / cisa-kev: pending-scraper / regulation-tomorrow: ok</div>
+    
+    
+    <div>Archive:
+      <a href="archive/2026-07-04.html">2026-07-04</a> / <a href="archive/2026-07-02.html">2026-07-02</a>
+    </div>
+    
+    <div>Machine-readable: <a href="feed.xml">RSS</a> / <a href="latest.json">JSON</a> / <a href="horizon.ics">deadlines .ics</a></div>
+    <div>Personal, public-source horizon scan. Not affiliated with any employer. Informational only — not advice.</div>
+  </footer>
+
+</div>
+<script>
+  function setView(full) {
+    document.body.classList.toggle("show-full", full);
+    document.getElementById("btn-exec").classList.toggle("on", !full);
+    document.getElementById("btn-full").classList.toggle("on", full);
+  }
+</script>
+</body>
+</html>

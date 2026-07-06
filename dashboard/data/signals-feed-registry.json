@@ -1,0 +1,115 @@
+{
+  "version": "2026-07-06",
+  "purpose": "Phase-two candidate ingestion registry for Signals topics. These sources are used to generate reviewable candidates, not directly published rows.",
+  "settings": {
+    "windowDays": 14,
+    "perSourceCap": 8,
+    "perTopicCap": 20
+  },
+  "sources": [
+    {
+      "id": "openai-news-rss",
+      "sourceRegistryId": "openai",
+      "fetchType": "rss",
+      "fetchUrl": "https://openai.com/news/rss.xml",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["model-releases", "agents", "enterprise-ai", "safety"],
+      "maxItems": 8
+    },
+    {
+      "id": "anthropic-news-sitemap",
+      "sourceRegistryId": "anthropic",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.anthropic.com/sitemap.xml",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["model-releases", "agents", "enterprise-ai", "safety"],
+      "maxItems": 8
+    },
+    {
+      "id": "deepmind-sitemap",
+      "sourceRegistryId": "google-deepmind",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://deepmind.google/sitemap.xml",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["research", "multimodal-ai", "robotics", "safety"],
+      "maxItems": 8
+    },
+    {
+      "id": "microsoft-ai-rss",
+      "sourceRegistryId": "microsoft-ai",
+      "fetchType": "rss",
+      "fetchUrl": "https://blogs.microsoft.com/ai/feed/",
+      "topics": ["ai", "third-party"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["copilot", "agents", "enterprise-ai", "cloud"],
+      "keywordHints": ["copilot", "agent", "enterprise", "azure", "security", "control"],
+      "maxItems": 6
+    },
+    {
+      "id": "fca-news-rss",
+      "sourceRegistryId": "uk-fca",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.fca.org.uk/news/rss.xml",
+      "topics": ["market-structure", "third-party"],
+      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience"],
+      "tags": ["markets", "crypto", "outsourcing", "resilience"],
+      "keywordHints": ["market", "crypto", "outsourcing", "critical third", "resilience", "operational"],
+      "maxItems": 6
+    },
+    {
+      "id": "eba-rss",
+      "sourceRegistryId": "eba",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.eba.europa.eu/rss.xml",
+      "topics": ["market-structure", "third-party"],
+      "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience"],
+      "tags": ["prudential-policy", "payments", "outsourcing", "ict-risk"],
+      "keywordHints": ["outsourcing", "ict", "operational", "risk", "payment", "crypto", "market"],
+      "maxItems": 6
+    },
+    {
+      "id": "esma-rss",
+      "sourceRegistryId": "esma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.esma.europa.eu/rss.xml",
+      "topics": ["market-structure"],
+      "riskAreas": ["market-plumbing", "digital-money"],
+      "tags": ["markets", "mica", "trading", "settlement"],
+      "keywordHints": ["mica", "trading", "settlement", "market", "fund", "securities"],
+      "maxItems": 6
+    },
+    {
+      "id": "fsb-feed",
+      "sourceRegistryId": "fsb",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.fsb.org/feed/",
+      "topics": ["market-structure", "third-party"],
+      "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience"],
+      "tags": ["financial-stability", "nonbank-finance", "operational-resilience", "crypto"],
+      "keywordHints": ["financial stability", "non-bank", "outsourcing", "operational resilience", "crypto", "market"],
+      "maxItems": 6
+    },
+    {
+      "id": "reg-horizon-market-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["market-structure"],
+      "riskAreas": ["balance-sheet", "digital-money", "market-plumbing"],
+      "tags": ["reg-horizon", "deadlines", "market-structure"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-third-party-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["third-party"],
+      "riskAreas": ["digital-resilience", "ai-and-models", "market-plumbing"],
+      "tags": ["reg-horizon", "third-party", "dependency"],
+      "keywordHints": ["outsourcing", "third party", "critical third", "vendor", "supplier", "cloud", "processor", "model", "agent"],
+      "maxItems": 10
+    }
+  ]
+}

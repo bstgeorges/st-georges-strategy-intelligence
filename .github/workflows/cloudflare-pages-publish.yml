@@ -1,0 +1,73 @@
+name: Cloudflare Pages publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/cloudflare-pages-publish.yml"
+      - "site/**"
+      - "scripts/lib/**"
+      - "scripts/validate_signals_data.mjs"
+      - "scripts/validate_ai_signals_data.mjs"
+      - "dashboard/regulatory-horizon/**"
+      - "dashboard/data/ai-signals.json"
+      - "scripts/publish_site_bundle.mjs"
+      - "scripts/verify_generated_links.mjs"
+      - "scripts/verify_site_bundle.mjs"
+      - "scripts/generate_sitemap.mjs"
+      - "scripts/archive_current.mjs"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages-publish
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate published Signals data
+        run: npm run signals:validate
+
+      - name: Validate published Signals data liveness
+        run: npm run signals:validate:live
+
+      - name: Validate AI Signals data
+        run: npm run ai-signals:validate
+
+      - name: Validate AI Signals data liveness
+        run: npm run ai-signals:validate:live
+
+      - name: Build publish bundle
+        run: npm run site:build
+
+      - name: Verify site bundle
+        run: npm run site:verify
+
+      - name: Verify generated links
+        run: npm run verify:generated-links
+
+      - name: Deploy Pages production bundle
+        run: npx wrangler pages deploy site-dist --project-name st-georges-strategy-intelligence --branch production

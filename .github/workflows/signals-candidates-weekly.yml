@@ -1,0 +1,63 @@
+name: Signals candidates weekly refresh
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/signals-candidates-weekly.yml"
+      - "dashboard/data/signals-feed-registry.json"
+      - "dashboard/data/source-registry.json"
+      - "site/data/published-source-map.json"
+      - "scripts/refresh_signals_candidates.mjs"
+      - "scripts/validate_signals_candidates_output.mjs"
+      - "scripts/lib/**"
+      - "package.json"
+      - "package-lock.json"
+  workflow_run:
+    workflows:
+      - "Reg Horizon weekly scan"
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: signals-candidates-weekly-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh-candidates:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh Signals candidates
+        run: npm run signals:candidates:refresh
+
+      - name: Validate Signals candidate output
+        run: npm run signals:candidates:validate
+
+      - name: Commit generated candidate outputs
+        run: |
+          git config user.name "signals candidates bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dashboard/data/signals-candidates.generated.json dashboard/data/signals-candidate-state.json
+          git diff --cached --quiet || git commit -m "Weekly signals candidates refresh $(date -u +%F)"
+          git push

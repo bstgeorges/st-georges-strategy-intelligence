@@ -62,7 +62,7 @@ function isRestrictedButPresent(url, status) {
   try {
     const parsed = new URL(url);
     const hostname = parsed.hostname;
-    return status === 999 && hostname.endsWith("linkedin.com");
+    return [429, 999].includes(status) && hostname.endsWith("linkedin.com");
   } catch {
     return false;
   }
@@ -74,6 +74,9 @@ function isKnownRestrictedFetchFailure(url, error) {
     const parsed = new URL(url);
     const hostname = parsed.hostname.replace(/^www\./, "");
     if (hostname === "ft.com" && /^\/content\//i.test(parsed.pathname)) {
+      return /fetch failed/i.test(String(error));
+    }
+    if (hostname === "cssf.lu" && /^\/en\/20\d{2}\//i.test(parsed.pathname)) {
       return /fetch failed/i.test(String(error));
     }
   } catch {

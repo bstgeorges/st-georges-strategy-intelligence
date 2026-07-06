@@ -1,0 +1,85 @@
+name: Weekly editorial prep
+
+on:
+  schedule:
+    - cron: "30 6 * * 3" # 06:30 UTC Wednesdays
+  workflow_run:
+    workflows:
+      - "Signals candidates weekly refresh"
+    types:
+      - completed
+  workflow_dispatch:
+    inputs:
+      publication_date:
+        description: "Weekly publication date (YYYY-MM-DD). Defaults to today's UTC date."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-editorial-prep
+  cancel-in-progress: false
+
+jobs:
+  build-editorial-pack:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine publication date
+        id: vars
+        run: |
+          publication_date="${{ inputs.publication_date }}"
+          if [ -z "$publication_date" ]; then
+            publication_date="$(date -u +%F)"
+          fi
+          echo "publication_date=$publication_date" >> "$GITHUB_OUTPUT"
+
+      - name: Generate weekly refresh packet
+        run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"
+
+      - name: Build site bundle
+        run: npm run site:build
+
+      - name: Verify site bundle
+        run: npm run site:verify
+
+      - name: Validate candidate signals output
+        run: npm run signals:candidates:validate
+
+      - name: Assemble editorial artifact
+        run: |
+          mkdir -p editorial-pack
+          cp site-dist/weekly-refresh-packet.md editorial-pack/
+          cp dashboard/data/signals-candidates.generated.json editorial-pack/
+          cp dashboard/data/signals-candidate-state.json editorial-pack/
+          cp dashboard/data/source-registry.json editorial-pack/
+          cp dashboard/data/signals-feed-registry.json editorial-pack/
+          cp dashboard/data/ai-signals.json editorial-pack/
+          cp dashboard/regulatory-horizon/latest.json editorial-pack/regulatory-horizon-latest.json
+          cp dashboard/regulatory-horizon/feed.xml editorial-pack/regulatory-horizon-feed.xml
+          cp docs/weekly-refresh-workflow.md editorial-pack/
+          cp docs/weekly-refresh-packet-template.md editorial-pack/
+
+      - name: Upload editorial prep artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-editorial-prep-${{ steps.vars.outputs.publication_date }}
+          path: editorial-pack
+          if-no-files-found: error

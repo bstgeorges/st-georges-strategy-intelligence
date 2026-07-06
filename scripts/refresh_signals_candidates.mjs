@@ -292,10 +292,29 @@ async function main() {
   const windowDays = Number.isFinite(options.windowDaysOverride) ? options.windowDaysOverride : feedRegistry.settings?.windowDays || 14;
   const topicBuckets = new Map(TOPICS.map((topic) => [topic, []]));
   const warnings = [];
+  const sourceStats = [];
 
   for (const source of feedRegistry.sources || []) {
     const sourceMeta = loadSourceMeta(sourceRegistry, source);
-    const entries = await collectSourceCandidates(source, { options });
+    let entries = [];
+    try {
+      entries = await collectSourceCandidates(source, { options });
+    } catch (error) {
+      const message = `Source ${source.id} failed during candidate collection: ${error.message}`;
+      warnings.push(message);
+      sourceStats.push({
+        sourceId: source.id,
+        sourceRegistryId: source.sourceRegistryId || "",
+        fetchType: source.fetchType,
+        status: "failed",
+        fetchedEntries: 0,
+        acceptedCandidates: 0,
+        error: error.message,
+      });
+      continue;
+    }
+
+    let acceptedCandidates = 0;
     for (const entry of entries) {
       if (!entry?.url || !entry?.title) continue;
       if (!isRecent(entry.publishedAt, windowDays, now)) continue;
@@ -308,8 +327,19 @@ async function main() {
         if (seen.has(hash)) continue;
         topicBuckets.get(topicId)?.push(candidate);
         seen.add(hash);
+        acceptedCandidates += 1;
       }
     }
+
+    sourceStats.push({
+      sourceId: source.id,
+      sourceRegistryId: source.sourceRegistryId || "",
+      fetchType: source.fetchType,
+      status: "ok",
+      fetchedEntries: entries.length,
+      acceptedCandidates,
+      error: "",
+    });
   }
 
   const output = {
@@ -323,6 +353,7 @@ async function main() {
         .sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))
         .slice(0, feedRegistry.settings?.perTopicCap || 20),
     })),
+    sourceStats,
     warnings,
   };
 
@@ -341,6 +372,13 @@ async function main() {
   );
   for (const topic of output.topics) {
     console.log(`- ${topic.id}: ${topic.candidates.length}`);
+  }
+  for (const stat of sourceStats) {
+    if (stat.status === "failed") {
+      console.log(`- ${stat.sourceId}: failed (${stat.error})`);
+    } else {
+      console.log(`- ${stat.sourceId}: fetched ${stat.fetchedEntries}, accepted ${stat.acceptedCandidates}`);
+    }
   }
   for (const warning of warnings) console.log(`Warning: ${warning}`);
 }

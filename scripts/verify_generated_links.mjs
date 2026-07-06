@@ -60,11 +60,26 @@ function listHtmlFiles(dir) {
 function isRestrictedButPresent(url, status) {
   if (restrictedButPresentStatuses.has(status)) return true;
   try {
-    const hostname = new URL(url).hostname;
+    const parsed = new URL(url);
+    const hostname = parsed.hostname;
     return status === 999 && hostname.endsWith("linkedin.com");
   } catch {
     return false;
   }
+}
+
+function isKnownRestrictedFetchFailure(url, error) {
+  if (!error) return false;
+  try {
+    const parsed = new URL(url);
+    const hostname = parsed.hostname.replace(/^www\./, "");
+    if (hostname === "ft.com" && /^\/content\//i.test(parsed.pathname)) {
+      return /fetch failed/i.test(String(error));
+    }
+  } catch {
+    return false;
+  }
+  return false;
 }
 
 function extractExternalLinks(html) {
@@ -129,6 +144,9 @@ async function fetchUrl(url) {
       note: restricted ? "restricted" : soft404 ? "soft-404" : "",
     };
   } catch (error) {
+    if (isKnownRestrictedFetchFailure(url, error)) {
+      return { url, ok: true, note: "restricted", error: String(error) };
+    }
     return { url, ok: false, error: String(error) };
   } finally {
     clearTimeout(timer);

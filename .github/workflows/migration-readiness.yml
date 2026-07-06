@@ -44,11 +44,11 @@ jobs:
       - name: Check horizon sync script syntax
         run: node --check scripts/sync_reg_horizon.mjs
 
-      - name: Verify source site
-        run: npm run site:verify
-
       - name: Build staging-style migration output
         run: npm run site:build
+
+      - name: Verify built site bundle
+        run: npm run site:verify
 
       - name: Audit source registry
         run: npm run sources:audit

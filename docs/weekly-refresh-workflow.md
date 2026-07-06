@@ -15,6 +15,24 @@ Recommended editorial window:
 
 The live pages should not auto-publish without a human editorial pass. The weekly automation should prepare the packet and remind the editor; publication should happen by merging approved changes to `main`, not by manual dashboard upload.
 
+## Automated Editorial Prep
+
+GitHub Actions now prepares a weekly editorial pack automatically:
+
+- workflow: `Weekly editorial prep`
+- schedule: Wednesdays at 06:30 UTC
+- manual rerun: `Actions` -> `Weekly editorial prep` -> `Run workflow`
+
+The workflow produces an artifact named `weekly-editorial-prep-YYYY-MM-DD` containing:
+
+- a dated weekly refresh packet
+- current AI Signals JSON
+- current candidate signals JSON and state
+- current Reg Horizon JSON and feed
+- the weekly workflow and packet template docs
+
+This means the weekly process can start from the GitHub Actions artifact rather than a local terminal build.
+
 ## Refresh Packet
 
 Start from `docs/weekly-refresh-packet-template.md`.
@@ -61,7 +79,7 @@ AI Signals pipeline:
 
 ## Build Sequence
 
-1. Fill the weekly refresh packet.
+1. Download the latest `Weekly editorial prep` artifact from GitHub Actions and start from the generated packet.
 2. If new sources are being considered, add them to `dashboard/data/source-candidates.json` and run the intake gate:
 
 ```bash

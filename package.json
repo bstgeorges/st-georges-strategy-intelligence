@@ -15,6 +15,7 @@
     "ai-signals:validate": "node scripts/validate_ai_signals_data.mjs",
     "ai-signals:validate:live": "node scripts/validate_ai_signals_data.mjs --check-live",
     "refresh:preflight": "node scripts/weekly_refresh_preflight.mjs",
+    "refresh:packet": "node scripts/generate_weekly_refresh_packet.mjs",
     "sources:intake": "node scripts/source_intake_gate.mjs",
     "sources:promote": "node scripts/source_promote_approved.mjs",
     "sources:audit": "node scripts/source_registry_audit.mjs",

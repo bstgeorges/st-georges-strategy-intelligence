@@ -26,7 +26,7 @@ const disallowedPathPatterns = [
   /^\/pressroom\/?$/i,
   /^\/newsroom\/?$/i,
 ];
-const restrictedButPresentStatuses = new Set([401, 403]);
+const restrictedButPresentStatuses = new Set([401, 403, 415]);
 const soft404TitlePatterns = [/404/i, /page not found/i, /not found/i, /search results/i];
 const soft404BodyPatterns = [
   /page not found/i,

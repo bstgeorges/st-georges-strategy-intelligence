@@ -6,7 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DIR = path.join(ROOT, "site-dist");
 const USER_AGENT =
   "ProjectVirtualOfficerGeneratedLinkVerifier/1.0 (+https://stgeorgesstrategy.com/)";
-const restrictedButPresentStatuses = new Set([401, 403]);
+const restrictedButPresentStatuses = new Set([401, 403, 415]);
 const ignoredSchemes = /^(#|mailto:|tel:|javascript:|data:)/i;
 const REQUEST_TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;

@@ -22,7 +22,7 @@ const USER_AGENT =
   "ProjectVirtualOfficerLinkVerifier/1.0 (+https://stgeorgesstrategy.com/)";
 
 const ignoredSchemes = /^(#|mailto:|tel:|javascript:)/i;
-const restrictedButPresentStatuses = new Set([401, 403]);
+const restrictedButPresentStatuses = new Set([401, 403, 415]);
 const templateBindingPattern = /\{\{[^}]+\}\}|<x-dc\b/i;
 
 function isRestrictedButPresent(url, status) {

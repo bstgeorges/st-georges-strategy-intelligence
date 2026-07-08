@@ -16,7 +16,16 @@ const STATE_PATH = path.join(ROOT, "dashboard", "data", "signals-candidate-state
 const OUTPUT_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
 const HORIZON_PATH = path.join(ROOT, "dashboard", "regulatory-horizon", "latest.json");
 
-const TOPICS = ["ai", "market-structure", "third-party"];
+const TOPICS = [
+  "ai",
+  "market-structure",
+  "third-party",
+  "resilience",
+  "financial-crime",
+  "cyber",
+  "technology-failure",
+  "data",
+];
 const TRACKING_PARAMS = new Set(["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "fbclid", "gclid"]);
 
 function parseArgs(argv) {

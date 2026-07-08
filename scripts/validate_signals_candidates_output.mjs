@@ -6,7 +6,16 @@ import { isSpecificPublishedSourceUrl, resolvePublishedSource } from "./lib/publ
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
-const TOPICS = new Set(["ai", "market-structure", "third-party"]);
+const TOPICS = new Set([
+  "ai",
+  "market-structure",
+  "third-party",
+  "resilience",
+  "financial-crime",
+  "cyber",
+  "technology-failure",
+  "data",
+]);
 
 function fail(message, failures) {
   failures.push(message);

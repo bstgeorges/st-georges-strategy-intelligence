@@ -53,10 +53,10 @@
       "sourceRegistryId": "uk-fca",
       "fetchType": "rss",
       "fetchUrl": "https://www.fca.org.uk/news/rss.xml",
-      "topics": ["market-structure", "third-party"],
-      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience"],
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience", "crime-and-sanctions", "board-accountability"],
       "tags": ["markets", "crypto", "outsourcing", "resilience"],
-      "keywordHints": ["market", "crypto", "outsourcing", "critical third", "resilience", "operational"],
+      "keywordHints": ["market", "crypto", "outsourcing", "critical third", "resilience", "operational", "fraud", "scam", "financial crime", "sanctions", "money laundering", "data", "reporting", "disclosure"],
       "maxItems": 6
     },
     {
@@ -64,11 +64,32 @@
       "sourceRegistryId": "eba",
       "fetchType": "rss",
       "fetchUrl": "https://www.eba.europa.eu/rss.xml",
-      "topics": ["market-structure", "third-party"],
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure"],
       "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience"],
       "tags": ["prudential-policy", "payments", "outsourcing", "ict-risk"],
       "keywordHints": ["outsourcing", "ict", "operational", "risk", "payment", "crypto", "market"],
       "maxItems": 6
+    },
+    {
+      "id": "ncsc-advisories-rss",
+      "sourceRegistryId": "uk-ncsc",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
+      "topics": ["cyber", "resilience", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "advisory", "threat-intelligence"],
+      "keywordHints": ["vulnerability", "ransomware", "incident", "advisory", "threat", "outage", "cloud", "resilience"],
+      "maxItems": 8
+    },
+    {
+      "id": "nca-news-rss",
+      "sourceRegistryId": "uk-nca",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.nationalcrimeagency.gov.uk/news?format=feed&type=rss",
+      "topics": ["financial-crime"],
+      "riskAreas": ["crime-and-sanctions"],
+      "tags": ["fraud", "money-laundering", "sanctions", "organised-crime"],
+      "maxItems": 8
     },
     {
       "id": "esma-rss",
@@ -109,6 +130,56 @@
       "riskAreas": ["digital-resilience", "ai-and-models", "market-plumbing"],
       "tags": ["reg-horizon", "third-party", "dependency"],
       "keywordHints": ["outsourcing", "third party", "critical third", "vendor", "supplier", "cloud", "processor", "model", "agent"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-resilience-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["resilience"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["reg-horizon", "resilience", "impact-tolerance"],
+      "keywordHints": ["resilience", "outage", "impact tolerance", "important business service", "continuity"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-financial-crime-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["financial-crime"],
+      "riskAreas": ["crime-and-sanctions"],
+      "tags": ["reg-horizon", "financial-crime", "sanctions"],
+      "keywordHints": ["fraud", "aml", "money laundering", "sanctions", "scam", "financial crime"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-cyber-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["reg-horizon", "cyber", "threat"],
+      "keywordHints": ["cyber", "ransomware", "vulnerability", "breach", "incident", "threat"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-technology-failure-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["reg-horizon", "technology-failure", "outage"],
+      "keywordHints": ["outage", "failure", "disruption", "ict", "technology", "recovery"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-data-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["data"],
+      "riskAreas": ["board-accountability"],
+      "tags": ["reg-horizon", "data", "reporting"],
+      "keywordHints": ["data", "reporting", "disclosure", "privacy", "record", "governance"],
       "maxItems": 10
     }
   ]

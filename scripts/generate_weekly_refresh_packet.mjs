@@ -73,6 +73,53 @@ function extractIntelligenceEditionLine(html) {
   return match ? match[1].trim() : "";
 }
 
+function readJsonRelativeIfExists(relativePath) {
+  try {
+    return readJsonRelative(relativePath);
+  } catch {
+    return null;
+  }
+}
+
+function extractDateFromSource(sourceText) {
+  const iso = String(sourceText || "").match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
+  const monthOnly = String(sourceText || "").match(/\d{4}-\d{2}/);
+  if (monthOnly) return monthOnly[0];
+  const yearOnly = String(sourceText || "").match(/\b\d{4}\b/);
+  return yearOnly ? yearOnly[0] : null;
+}
+
+function daysStale(latestDate, targetDate) {
+  if (!latestDate) return null;
+  const padded = latestDate.length === 4 ? `${latestDate}-01-01` : latestDate.length === 7 ? `${latestDate}-01` : latestDate;
+  const latest = new Date(`${padded}T00:00:00.000Z`);
+  const target = new Date(`${targetDate}T00:00:00.000Z`);
+  if (Number.isNaN(latest.getTime())) return null;
+  return Math.round((target.getTime() - latest.getTime()) / (24 * 60 * 60 * 1000));
+}
+
+function buildTopicFreshnessLines(options) {
+  const signalsData = readJsonRelativeIfExists("site/data/signals.json");
+  const candidatesData = readJsonRelativeIfExists("dashboard/data/signals-candidates.generated.json");
+  const candidateCountByTopic = new Map(
+    (candidatesData?.topics || []).map((topic) => [topic.id, (topic.candidates || []).length]),
+  );
+
+  const topics = signalsData?.topics || [];
+  if (!topics.length) return ["- (site/data/signals.json not found; cannot report topic freshness)"];
+
+  return topics.map((topic) => {
+    const rows = [...(topic.top5 || []), ...(topic.additional5 || [])];
+    const dates = rows.map((row) => extractDateFromSource(row.source)).filter(Boolean).sort();
+    const latestDate = dates.length ? dates[dates.length - 1] : null;
+    const stale = daysStale(latestDate, options.date);
+    const candidateCount = candidateCountByTopic.has(topic.id) ? candidateCountByTopic.get(topic.id) : "n/a";
+    const staleFlag = stale !== null && stale > 14 ? ` — STALE (${stale}d since latest cited row, no fresh candidates surfaced if 0 above)` : "";
+    return `- ${topic.id}: ${candidateCount} candidates generated, latest cited row date ${latestDate || "unknown"}${staleFlag}`;
+  });
+}
+
 function main() {
   const options = parseArgs(process.argv.slice(2));
   const displayDate = formatDisplayDate(options.date);
@@ -80,6 +127,7 @@ function main() {
   const intelligence = readRelative("dashboard/index.html");
   const aiSignalsData = readJsonRelative("dashboard/data/ai-signals.json");
   const horizon = readJsonRelative("dashboard/regulatory-horizon/latest.json");
+  const topicFreshnessLines = buildTopicFreshnessLines(options);
 
   const intelligenceEditionLine = extractIntelligenceEditionLine(intelligence) || `Live edition · ${displayDate} · Vol. N`;
   const currentVolume = intelligenceEditionLine.match(/Vol\.\s+([IVXLCDM]+)/)?.[1] || "N";
@@ -130,6 +178,12 @@ function main() {
     `- Current Reg Horizon items: ${horizonItems.length}`,
     `- Candidate signals file: dashboard/data/signals-candidates.generated.json`,
     `- Horizon feed file: dashboard/regulatory-horizon/latest.json`,
+    "",
+    "### Signals topic freshness (all 8 topics)",
+    "",
+    "Check every topic below before publishing, not only the ones with automated candidates. A STALE flag or a 0-candidate topic means someone must manually research fresh rows this edition.",
+    "",
+    ...topicFreshnessLines,
     "",
   ].join("\n");
 

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Regulatory Horizon — week ending 2026-07-02</title>
+<meta name="description" content="Weekly public-source regulatory horizon scan for UK/EU financial services — material signals, deadlines that matter, and watch themes. Primary documents only.">
+<link rel="alternate" type="application/rss+xml" title="Regulatory Horizon — weekly scan" href="/regulatory-horizon/feed.xml">
+<link rel="alternate" type="text/calendar" title="Regulatory horizon deadlines" href="/regulatory-horizon/horizon.ics">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #e9e2d2; --paper-raised: #f4efe3; --paper-soft: #f6f1e6;
+    --ink: #15140f; --body: #2c2a22; --muted: #6b6555;
+    --navy: #0f2233; --navy-soft: #182d40;
+    --accent: #a07e2e; --accent-bright: #c49a4a;
+    --rule: rgba(15, 34, 51, 0.18); --rule-strong: rgba(15, 34, 51, 0.55);
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "Hanken Grotesk", -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--body);
+         font: 16px/1.6 var(--sans); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 72px; }
+
+  .kicker { font: 500 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+            color: var(--accent); }
+  .kicker .sep { color: var(--muted); }
+
+  /* Masthead */
+  .masthead { border-bottom: 3px double var(--rule-strong); padding-bottom: 22px; }
+  .masthead .topline { display: flex; justify-content: space-between; align-items: baseline;
+                       flex-wrap: wrap; gap: 8px; }
+  .masthead h1 { font: 600 clamp(34px, 5.5vw, 54px)/1.08 var(--serif); color: var(--ink);
+                 margin: 14px 0 10px; letter-spacing: -.01em; }
+  .masthead h1 em { font-style: italic; color: var(--navy); }
+  .dateline { font: 400 12px/1.6 var(--mono); color: var(--muted); }
+  .dateline b { color: var(--ink); font-weight: 500; }
+
+  /* Sections */
+  section { margin-top: 46px; }
+  .sechead { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px solid var(--rule-strong);
+             padding-bottom: 8px; margin-bottom: 4px; }
+  .sechead .num { font: 500 12px/1 var(--mono); color: var(--accent); }
+  .sechead h2 { font: 600 21px/1.2 var(--serif); color: var(--ink); margin: 0; }
+  .sechead .note { margin-left: auto; font: 400 11px/1 var(--mono); color: var(--muted);
+                   letter-spacing: .08em; text-transform: uppercase; }
+
+  /* Lead signal */
+  .lede { padding: 26px 0 10px; }
+  .lede .meta { font: 400 12px/1 var(--mono); color: var(--muted); margin-bottom: 12px; }
+  .lede .meta b { color: var(--navy); font-weight: 500; }
+  .lede h3 { font: 600 clamp(24px, 3.4vw, 34px)/1.2 var(--serif); color: var(--ink); margin: 0 0 14px; }
+  .lede h3 a:hover { color: var(--navy); }
+  .lede .standfirst { font-size: 17.5px; line-height: 1.65; color: var(--body); max-width: 62ch; margin: 0 0 12px; }
+  .tags { font: 400 11.5px/1.9 var(--mono); color: var(--muted); }
+  .tags .t { color: var(--navy); }
+  .tags .type { color: var(--accent); }
+  .srclink { font: 500 12px/1 var(--mono); color: var(--accent); border-bottom: 1px solid var(--accent); }
+  .srclink:hover { color: var(--navy); border-color: var(--navy); }
+
+  .seconds { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 0 40px; border-top: 1px solid var(--rule); }
+  .second { padding: 20px 0; }
+  .second + .second { border-left: none; }
+  @media (min-width: 700px) { .second + .second { border-left: 1px solid var(--rule); padding-left: 40px; } }
+  .second .meta { font: 400 11.5px/1 var(--mono); color: var(--muted); margin-bottom: 10px; }
+  .second h4 { font: 600 19px/1.3 var(--serif); color: var(--ink); margin: 0 0 10px; }
+  .second h4 a:hover { color: var(--navy); }
+  .second p { font-size: 14.5px; color: var(--body); margin: 0 0 10px; }
+
+  /* Pull-quote bottom line */
+  .bottomline { border-left: 3px solid var(--accent); padding: 6px 0 6px 26px; margin-top: 26px; }
+  .bottomline p { font: italic 500 20px/1.55 var(--serif); color: var(--navy); margin: 0; max-width: 58ch; }
+
+  /* Signal index */
+  .idx { list-style: none; margin: 0; padding: 0; }
+  .idx li { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px;
+            padding: 18px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .idx .n { font: 400 12px/1.8 var(--mono); color: var(--accent); }
+  .idx .title { font: 600 17px/1.4 var(--serif); color: var(--ink); }
+  .idx .title a:hover { color: var(--navy); }
+  .idx .sub { margin-top: 5px; }
+  .idx .summary { display: none; font-size: 13.5px; color: var(--muted); margin-top: 7px; max-width: 70ch; }
+  body.show-full .idx .summary { display: block; }
+  .idx .right { font: 400 11.5px/1.8 var(--mono); color: var(--muted); text-align: right; white-space: nowrap; }
+  .idx .right b { color: var(--navy); font-weight: 500; }
+  @media (max-width: 620px) { .idx li { grid-template-columns: 34px 1fr; } .idx .right { display: none; } }
+
+  .toggle { text-align: right; padding: 10px 0 2px; }
+  .toggle button { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+                   background: none; border: none; border-bottom: 1px solid transparent;
+                   color: var(--muted); padding: 4px 2px; margin-left: 18px; cursor: pointer; }
+  .toggle button.on { color: var(--accent); border-color: var(--accent); }
+
+  .whylabel { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+              color: var(--accent); margin-right: 8px; }
+  .alsocite { font: 400 11.5px/1.9 var(--mono); color: var(--muted); }
+  .alsocite a { color: var(--navy); border-bottom: 1px solid var(--rule); }
+  .alsocite a:hover { border-color: var(--navy); }
+
+  /* Horizon strip */
+  .band-label { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+                color: var(--navy); padding: 18px 0 4px; }
+  .horizon { list-style: none; margin: 0; padding: 0; }
+  .horizon li { padding: 13px 0; border-bottom: 1px solid var(--rule); }
+  .horizon .hrow { display: flex; gap: 18px; align-items: baseline; }
+  .horizon .prompts { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 8px 0 0 128px;
+                      font: 400 11px/1.7 var(--mono); color: var(--muted); }
+  .horizon .prompts b { color: var(--accent); font-weight: 500; margin-right: 6px;
+                        letter-spacing: .1em; text-transform: uppercase; font-size: 10px; }
+  @media (max-width: 620px) { .horizon .prompts { margin-left: 0; } }
+  .horizon .date { font: 500 13px/1.6 var(--mono); color: var(--navy); min-width: 110px; }
+  .horizon .days { font: 400 10.5px/1.6 var(--mono); color: var(--accent); display: block; }
+  .horizon .what { font-size: 15px; color: var(--ink); }
+  .horizon .what a:hover { color: var(--navy); }
+  .horizon .who { margin-left: auto; font: 400 11px/1.8 var(--mono); color: var(--muted);
+                  white-space: nowrap; }
+  @media (max-width: 620px) { .horizon li { flex-wrap: wrap; } .horizon .who { margin-left: 0; } }
+
+  /* Theme heat strip */
+  .heat { border-collapse: collapse; font: 400 11px/1.6 var(--mono); color: var(--muted);
+          margin-top: 14px; }
+  .heat td, .heat th { padding: 3px 5px; text-align: center; font-weight: 400; }
+  .heat th { text-align: right; padding-right: 12px; color: var(--body); white-space: nowrap; }
+  .heat .cell { width: 26px; height: 20px; border: 1px solid var(--rule); }
+  .heat .cdate { font-size: 10px; color: var(--muted); }
+
+  /* Watch lists */
+  .watch { list-style: none; margin: 0; padding: 0; }
+  .watch li { display: flex; gap: 16px; align-items: baseline; padding: 12px 0;
+              border-bottom: 1px solid var(--rule); }
+  .watch .d { font: 400 11.5px/1.8 var(--mono); color: var(--muted); min-width: 150px; }
+  .watch .t { font-size: 15px; color: var(--ink); }
+  .watch .t a:hover { color: var(--navy); }
+  .watch .a { margin-left: auto; font: 400 11px/1.8 var(--mono); color: var(--accent);
+              white-space: nowrap; }
+  @media (max-width: 620px) { .watch li { flex-wrap: wrap; } .watch .d { min-width: 0; } }
+
+  footer { margin-top: 60px; border-top: 3px double var(--rule-strong); padding-top: 18px;
+           font: 400 12px/1.9 var(--mono); color: var(--muted); }
+  footer .flag { color: #8a3324; }
+  footer a { border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: var(--navy); }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="topline">
+      <span class="kicker"><a href="https://stgeorgesstrategy.com/" style="color:inherit">St Georges Strategy</a> <span class="sep">/</span> <a href="https://stgeorgesstrategy.com/intelligence/" style="color:inherit">Intelligence</a> <span class="sep">/</span> Horizon</span>
+      <span class="dateline">Week ending <b>2026-07-02</b></span>
+    </div>
+    <h1>Regulatory <em>Horizon</em></h1>
+    <div class="dateline">Generated 2026-07-02 00:00 UTC · 7-day review window · public sources only</div>
+  </header>
+
+  <section>
+    <div class="sechead">
+      <span class="num">01 /</span><h2>This week's lead</h2>
+    </div>
+
+    
+    
+    <div class="lede">
+      <div class="meta"><b>FCA</b> · 2026-06-30 · lead signal</div>
+      <h3><a href="https://www.fca.org.uk/news/press-releases/fca-sets-landmark-crypto-rules-cement-uks-place-global-hub" rel="noopener">FCA sets landmark crypto rules to cement the UK's place as a global hub</a></h3>
+      <p class="standfirst"><span class="whylabel">What's new</span>The FCA has published final rules for cryptoasset firms, completing the core of the UK's new crypto regulatory regime.</p>
+      <p class="standfirst"><span class="whylabel">Why it matters</span>A final rule from FCA touching digital-money. Review before 2026-08-01.</p>
+      <div class="tags"><span class="type">final-rule</span> / <span class="t">digital-money</span>
+        &nbsp;&nbsp;<a class="srclink" href="https://www.fca.org.uk/news/press-releases/fca-sets-landmark-crypto-rules-cement-uks-place-global-hub" rel="noopener">Go deeper: primary source -></a></div>
+      
+    </div>
+
+    
+    <div class="seconds">
+      
+      <div class="second">
+        <div class="meta">FCA · 2026-06-30</div>
+        <h4><a href="https://www.fca.org.uk/news/statements/fca-and-bank-england-set-out-approach-joint-regulation-systemic-stablecoin-issuers" rel="noopener">FCA and the Bank of England set out approach to joint regulation of systemic stablecoin issuers</a></h4>
+        <p>A other from FCA touching customer-outcomes, digital-money. Review before 2026-08-01.</p>
+        <div class="tags"><span class="type">other</span> / <span class="t">customer-outcomes</span> / <span class="t">digital-money</span></div>
+        
+      </div>
+      
+      <div class="second">
+        <div class="meta">FCA · 2026-07-02</div>
+        <h4><a href="https://www.fca.org.uk/news/press-releases/financial-regulator-simplify-investment-disclosure-regime" rel="noopener">Financial regulator to simplify investment disclosure regime</a></h4>
+        <p>A other from FCA touching customer-outcomes. Review before 2026-08-01.</p>
+        <div class="tags"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+        
+      </div>
+      
+    </div>
+    
+    
+
+    <div class="bottomline"><p>The clearest trigger this week is “FCA sets landmark crypto rules to cement the UK's place as a global hub” from FCA (final rule). Material signals span 3 of 8 watch themes. 1 open consultation remain open to influence — prioritise responses.</p></div>
+  </section>
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">02 /</span><h2>Horizon — dates that matter</h2>
+      <span class="note"><a href="/regulatory-horizon/horizon.ics" style="color:inherit">Subscribe .ics -></a></span>
+    </div>
+    
+    <div class="band-label">31–60 days</div>
+    <ul class="horizon">
+      
+      <li>
+        <div class="hrow">
+          <span class="date">2026-08-14<span class="days">in 43 days</span></span>
+          <span class="what"><a href="https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds" rel="noopener">FCA consults on targeted changes to listing rules for closed-ended investment funds</a></span>
+          <span class="who">FCA</span>
+        </div>
+        <div class="prompts">
+          <span><b>Owner</b> Who decides whether we respond — and who drafts?</span>
+          <span><b>Action</b> Log the closing date; decide respond / monitor at least two weeks before it.</span>
+          <span><b>Evidence</b> Response draft, or a documented decision not to respond.</span>
+        </div>
+      </li>
+      
+    </ul>
+    
+  </section>
+  
+
+  <section>
+    <div class="sechead">
+      <span class="num">03 /</span><h2>Material signals</h2>
+      <span class="note">Ranked</span>
+    </div>
+    <div class="toggle">
+      <button id="btn-exec" class="on" onclick="setView(false)">Titles</button>
+      <button id="btn-full" onclick="setView(true)">Full summaries</button>
+    </div>
+    <ol class="idx">
+      
+      <li>
+        <span class="n">01</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/press-releases/fca-sets-landmark-crypto-rules-cement-uks-place-global-hub" rel="noopener">FCA sets landmark crypto rules to cement the UK's place as a global hub</a></div>
+          <div class="tags sub"><span class="type">final-rule</span> / <span class="t">digital-money</span></div>
+          
+          <div class="summary">The FCA has published final rules for cryptoasset firms, completing the core of the UK's new crypto regulatory regime.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-06-30 · 1.242</div>
+      </li>
+      
+      <li>
+        <span class="n">02</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/statements/fca-and-bank-england-set-out-approach-joint-regulation-systemic-stablecoin-issuers" rel="noopener">FCA and the Bank of England set out approach to joint regulation of systemic stablecoin issuers</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span> / <span class="t">digital-money</span></div>
+          
+          <div class="summary">Joint statement from the Financial Conduct Authority and the Bank of England on the regulation of systemic stablecoin issuers.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-06-30 · 0.936</div>
+      </li>
+      
+      <li>
+        <span class="n">03</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/press-releases/financial-regulator-simplify-investment-disclosure-regime" rel="noopener">Financial regulator to simplify investment disclosure regime</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary">The FCA has set out plans to simplify the disclosure regime for investment products.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-07-02 · 0.92</div>
+      </li>
+      
+      <li>
+        <span class="n">04</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/statements/motor-finance-scheme-partially-suspended" rel="noopener">Motor finance scheme partially suspended</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary">Statement on the partial suspension of the motor finance consumer redress scheme.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-07-02 · 0.92</div>
+      </li>
+      
+      <li>
+        <span class="n">05</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/press-releases/fca-consults-targeted-changes-listing-rules-closed-ended-investment-funds" rel="noopener">FCA consults on targeted changes to listing rules for closed-ended investment funds</a></div>
+          <div class="tags sub"><span class="type">consultation</span> / <span class="t">market-plumbing</span> / <span class="t">deadline 2026-08-14</span></div>
+          
+          <div class="summary">The FCA has published a consultation paper (CP26/21) on proposed changes to its UK Listing Rules for closed-ended investment funds, focused on the management of conflicts of interest. The FCA welcomes views by 14 August 2026 and aims to finalise rules before the end of the year.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-06-26 · 0.883</div>
+      </li>
+      
+      <li>
+        <span class="n">06</span>
+        <div>
+          <div class="title"><a href="https://www.fca.org.uk/news/press-releases/non-uk-business-removed-consumer-duty-scope-reduce-burdens-wholesale-businesses" rel="noopener">Non-UK business removed from Consumer Duty scope to reduce burdens on wholesale businesses</a></div>
+          <div class="tags sub"><span class="type">other</span> / <span class="t">customer-outcomes</span></div>
+          
+          <div class="summary">The FCA has confirmed rules removing non-UK business from the scope of the Consumer Duty, reducing burdens on wholesale firms.</div>
+        </div>
+        <div class="right"><b>FCA</b><br>2026-06-29 · 0.745</div>
+      </li>
+      
+    </ol>
+  </section>
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">04 /</span><h2>Pressure map</h2>
+      <span class="note">Signals per watch theme, by edition</span>
+    </div>
+    <table class="heat">
+      <tr><th></th><td class="cdate">07-02</td></tr>
+      
+      <tr><th>balance-sheet</th>
+        
+        
+        <td><div class="cell" title="balance-sheet · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>customer-outcomes</th>
+        
+        
+        <td><div class="cell" title="customer-outcomes · 2026-07-02 · 4"
+             style="background: rgba(15, 34, 51, 0.90);"></div></td>
+        
+      </tr>
+      
+      <tr><th>boardroom-and-accountability</th>
+        
+        
+        <td><div class="cell" title="boardroom-and-accountability · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>crime-and-sanctions</th>
+        
+        
+        <td><div class="cell" title="crime-and-sanctions · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>digital-resilience</th>
+        
+        
+        <td><div class="cell" title="digital-resilience · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>ai-and-models</th>
+        
+        
+        <td><div class="cell" title="ai-and-models · 2026-07-02 · 0"
+             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        
+      </tr>
+      
+      <tr><th>digital-money</th>
+        
+        
+        <td><div class="cell" title="digital-money · 2026-07-02 · 2"
+             style="background: rgba(15, 34, 51, 0.51);"></div></td>
+        
+      </tr>
+      
+      <tr><th>market-plumbing</th>
+        
+        
+        <td><div class="cell" title="market-plumbing · 2026-07-02 · 1"
+             style="background: rgba(15, 34, 51, 0.32);"></div></td>
+        
+      </tr>
+      
+    </table>
+  </section>
+  
+
+  
+
+  
+  <section>
+    <div class="sechead">
+      <span class="num">05 /</span><h2>Policy watch</h2>
+      <span class="note">Broader context</span>
+    </div>
+    <ul class="watch">
+      
+      <li>
+        <span class="d">2026-07-01 · FCA</span>
+        <span class="t"><a href="https://www.fca.org.uk/news/press-releases/statutory-panel-chair-appointments-confirmed-fca-listing-authority-and-practitioner-panels" rel="noopener">Statutory panel chair appointments confirmed for FCA listing authority and practitioner panels</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260701_33" rel="noopener">Reminder to File the 2026 Annual Report of Blocked Property</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-07-01 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260701" rel="noopener">Counter Narcotics Designations; Counter Terrorism Designations and Designation Update</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-30 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260630" rel="noopener">Counter Narcotics Designations; Russia-related Designations Removals; Publication of Report for Licensing Activities Undertaken Pursuant to the Trade Sanctions Reform and Export Enhancement Act (TSRA)</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-29 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260629" rel="noopener">Russia-related Designations Removals</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-29 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260629_33" rel="noopener">Launch of OFAC Reconsideration Portal</a></span>
+      </li>
+      
+      <li>
+        <span class="d">2026-06-26 · OFAC (EMEA nexus)</span>
+        <span class="t"><a href="https://ofac.treasury.gov/recent-actions/20260626" rel="noopener">Sudan-related Designations</a></span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  <footer>
+    <div>Sources scanned: 4 ·
+      boe: ok / fca: ok / finma: ok / ofac: ok</div>
+    
+    
+    <div>Archive:
+      <a href="/regulatory-horizon/archive/2026-07-02.html">2026-07-02</a>
+    </div>
+    
+    <div>Machine-readable: <a href="/regulatory-horizon/feed.xml">RSS</a> / <a href="/regulatory-horizon/latest.json">JSON</a> / <a href="/regulatory-horizon/horizon.ics">deadlines .ics</a></div>
+    <div>Personal, public-source horizon scan. Not affiliated with any employer. Informational only — not advice.</div>
+  </footer>
+
+</div>
+<script>
+  function setView(full) {
+    document.body.classList.toggle("show-full", full);
+    document.getElementById("btn-exec").classList.toggle("on", !full);
+    document.getElementById("btn-full").classList.toggle("on", full);
+  }
+</script>
+</body>
+</html>

@@ -19,6 +19,7 @@
     "sources:intake": "node scripts/source_intake_gate.mjs",
     "sources:promote": "node scripts/source_promote_approved.mjs",
     "sources:audit": "node scripts/source_registry_audit.mjs",
+    "refresh:packet": "node scripts/generate_weekly_refresh_packet.mjs",
     "reg-scan:test": "node scripts/run_reg_scan.mjs test",
     "reg-scan:dry-run": "node scripts/run_reg_scan.mjs dry-run",
     "reg-scan:run": "node scripts/run_reg_scan.mjs run",

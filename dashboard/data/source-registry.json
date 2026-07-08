@@ -232,6 +232,20 @@
       ]
     },
     {
+      "id": "uk-nca",
+      "name": "National Crime Agency",
+      "tier": "primary",
+      "category": "financial-crime",
+      "jurisdictions": ["UK"],
+      "url": "https://www.nationalcrimeagency.gov.uk/news",
+      "cadence": "weekly",
+      "useFor": ["fraud", "money-laundering", "sanctions", "organised-crime", "financial-crime"],
+      "signalQuestions": [
+        "Has the NCA published an alert, operation, or typology relevant to fraud, money laundering, or sanctions evasion?",
+        "Does the item create a monitoring, screening, or escalation update for financial-crime teams?"
+      ]
+    },
+    {
       "id": "ofsi",
       "name": "UK Office of Financial Sanctions Implementation",
       "tier": "primary",

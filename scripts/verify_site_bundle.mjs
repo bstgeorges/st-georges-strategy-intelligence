@@ -20,6 +20,7 @@ const routes = [
   ["signals-technology-failure", "signals/technology-failure/index.html", "https://stgeorgesstrategy.com/signals/technology-failure/"],
   ["signals-data", "signals/data/index.html", "https://stgeorgesstrategy.com/signals/data/"],
   ["regulatory-horizon", "regulatory-horizon/index.html", "https://stgeorgesstrategy.com/regulatory-horizon/"],
+  ["committee-questions", "committee-questions/index.html", "https://stgeorgesstrategy.com/committee-questions/"],
   ["archive", "archive/index.html", "https://stgeorgesstrategy.com/archive/"],
   ["about", "about/index.html", "https://stgeorgesstrategy.com/about/"],
 ];

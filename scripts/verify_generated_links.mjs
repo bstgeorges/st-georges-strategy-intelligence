@@ -8,6 +8,12 @@ const USER_AGENT =
   "ProjectVirtualOfficerGeneratedLinkVerifier/1.0 (+https://stgeorgesstrategy.com/)";
 const restrictedButPresentStatuses = new Set([401, 403, 415]);
 const ignoredSchemes = /^(#|mailto:|tel:|javascript:|data:)/i;
+const SELF_HOSTS = new Set([
+  "stgeorgesstrategy.com",
+  "www.stgeorgesstrategy.com",
+  "intelligence.stgeorgesstrategy.com",
+  "st-georges-strategy-intelligence.pages.dev",
+]);
 const REQUEST_TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;
 const soft404TitlePatterns = [
@@ -94,7 +100,14 @@ function extractExternalLinks(html) {
     const rel = attr(match[0], "rel").toLowerCase();
     if (!href || ignoredSchemes.test(href)) continue;
     if (match[1].toLowerCase() === "link" && rel.includes("preconnect")) continue;
-    if (/^https?:\/\//i.test(href)) links.push(href);
+    if (/^https?:\/\//i.test(href)) {
+      try {
+        if (SELF_HOSTS.has(new URL(href).hostname)) continue;
+      } catch {
+        // fall through and let fetchUrl handle/report malformed URLs
+      }
+      links.push(href);
+    }
   }
   return [...new Set(links)];
 }

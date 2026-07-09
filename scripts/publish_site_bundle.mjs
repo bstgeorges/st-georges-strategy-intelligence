@@ -307,8 +307,22 @@ function listFiles(dir, extension) {
   return files;
 }
 
+// The site's overall "edition" drives Signals/brief archive folder naming and the
+// signals.json edition field. It intentionally tracks the date this build actually
+// runs (i.e. the deploy date), not the freshness of any one feed underneath it — it
+// used to fall back to the Reg Horizon scan's own edition, which meant the whole
+// site's edition (and archive folder dating) went stale whenever the Reg Horizon scan
+// hadn't run recently, even though other content (e.g. Signals) had been refreshed.
 function latestEdition(out, preferred) {
+  void out;
   if (preferred) return preferred;
+  return new Date().toISOString().slice(0, 10);
+}
+
+// Used only for the "Reg Horizon scan / <date>" label on the archive index page —
+// this one should reflect the Reg Horizon feed's own edition, not the overall build
+// date, since it's specifically describing that feed's freshness.
+function horizonEditionLabel(out) {
   const latest = path.join(out, "regulatory-horizon", "latest.json");
   if (fs.existsSync(latest)) {
     const data = readJson(latest);
@@ -484,7 +498,7 @@ function updateArchiveIndexCards(out) {
 
   const signalsData = fs.existsSync(SIGNALS_INPUT) ? readJson(SIGNALS_INPUT) : { topics: [] };
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
-  const horizonEdition = latestEdition(out);
+  const horizonEdition = horizonEditionLabel(out);
 
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
   const cards = [];

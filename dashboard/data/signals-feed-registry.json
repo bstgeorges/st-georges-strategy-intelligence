@@ -53,22 +53,22 @@
       "sourceRegistryId": "uk-fca",
       "fetchType": "rss",
       "fetchUrl": "https://www.fca.org.uk/news/rss.xml",
-      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data"],
-      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience", "crime-and-sanctions", "board-accountability"],
-      "tags": ["markets", "crypto", "outsourcing", "resilience"],
-      "keywordHints": ["market", "crypto", "outsourcing", "critical third", "resilience", "operational", "fraud", "scam", "financial crime", "sanctions", "money laundering", "data", "reporting", "disclosure"],
-      "maxItems": 6
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data", "ai", "cyber"],
+      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience", "crime-and-sanctions", "board-accountability", "ai-and-models"],
+      "tags": ["markets", "crypto", "outsourcing", "resilience", "ai", "cyber"],
+      "keywordHints": ["market", "crypto", "outsourcing", "critical third", "resilience", "operational", "fraud", "scam", "financial crime", "sanctions", "money laundering", "data", "reporting", "disclosure", "artificial intelligence", " ai ", "ai-driven", "ai model", "ai agent", "agentic", "algorithm", "cyber", "ransomware", "vulnerability", "insider dealing", "enforcement", "authorisation", "consultation", "supervisory review", "stablecoin", "payments"],
+      "maxItems": 8
     },
     {
       "id": "eba-rss",
       "sourceRegistryId": "eba",
       "fetchType": "rss",
       "fetchUrl": "https://www.eba.europa.eu/rss.xml",
-      "topics": ["market-structure", "third-party", "resilience", "technology-failure"],
-      "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience"],
-      "tags": ["prudential-policy", "payments", "outsourcing", "ict-risk"],
-      "keywordHints": ["outsourcing", "ict", "operational", "risk", "payment", "crypto", "market"],
-      "maxItems": 6
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "ai", "cyber"],
+      "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience", "ai-and-models"],
+      "tags": ["prudential-policy", "payments", "outsourcing", "ict-risk", "ai", "cyber"],
+      "keywordHints": ["outsourcing", "ict", "operational", "risk", "payment", "crypto", "market", "artificial intelligence", " ai ", "ai-driven", "ai model", "agentic", "algorithm", "cyber", "stress test", "stablecoin", "dora", "guidelines", "supervisory"],
+      "maxItems": 8
     },
     {
       "id": "ncsc-advisories-rss",
@@ -78,7 +78,7 @@
       "topics": ["cyber", "resilience", "technology-failure"],
       "riskAreas": ["digital-resilience"],
       "tags": ["cyber", "advisory", "threat-intelligence"],
-      "keywordHints": ["vulnerability", "ransomware", "incident", "advisory", "threat", "outage", "cloud", "resilience"],
+      "keywordHints": ["vulnerability", "ransomware", "incident", "advisory", "threat", "outage", "cloud", "resilience", "cyber", "attack", "breach", "phishing", "malware", "patch", "exploit", "artificial intelligence", " ai "],
       "maxItems": 8
     },
     {
@@ -89,6 +89,7 @@
       "topics": ["financial-crime"],
       "riskAreas": ["crime-and-sanctions"],
       "tags": ["fraud", "money-laundering", "sanctions", "organised-crime"],
+      "keywordHints": ["fraud", "money laundering", "sanctions", "financial crime", "economic crime", "invoice fraud", "romance scam", "investment scam", "proceeds of crime", "asset recovery", "bribery", "corruption", "cyber crime", "cybercrime", "ransomware"],
       "maxItems": 8
     },
     {
@@ -96,11 +97,11 @@
       "sourceRegistryId": "esma",
       "fetchType": "rss",
       "fetchUrl": "https://www.esma.europa.eu/rss.xml",
-      "topics": ["market-structure"],
-      "riskAreas": ["market-plumbing", "digital-money"],
+      "topics": ["market-structure", "third-party", "resilience"],
+      "riskAreas": ["market-plumbing", "digital-money", "digital-resilience"],
       "tags": ["markets", "mica", "trading", "settlement"],
-      "keywordHints": ["mica", "trading", "settlement", "market", "fund", "securities"],
-      "maxItems": 6
+      "keywordHints": ["mica", "trading", "settlement", "market", "fund", "securities", "csdr", "dora", "custody", "supervisory action", "digital operational resilience", "crypto"],
+      "maxItems": 8
     },
     {
       "id": "fsb-feed",
@@ -110,7 +111,7 @@
       "topics": ["market-structure", "third-party"],
       "riskAreas": ["market-plumbing", "balance-sheet", "digital-resilience"],
       "tags": ["financial-stability", "nonbank-finance", "operational-resilience", "crypto"],
-      "keywordHints": ["financial stability", "non-bank", "outsourcing", "operational resilience", "crypto", "market"],
+      "keywordHints": ["financial stability", "non-bank", "outsourcing", "operational resilience", "crypto", "market", "third-party", "concentration", "artificial intelligence"],
       "maxItems": 6
     },
     {

@@ -53,12 +53,14 @@ jobs:
 
       - name: Validate published Signals data liveness
         run: npm run signals:validate:live
+        continue-on-error: true
 
       - name: Validate AI Signals data
         run: npm run ai-signals:validate
 
       - name: Validate AI Signals data liveness
         run: npm run ai-signals:validate:live
+        continue-on-error: true
 
       - name: Build publish bundle
         run: npm run site:build

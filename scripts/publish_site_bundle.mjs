@@ -9,6 +9,7 @@ const SOURCE = path.join(ROOT, "site");
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
+const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const FEED_XSL = `<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -316,21 +317,195 @@ function latestEdition(out, preferred) {
   return "2026-07-04";
 }
 
-function generateArchives(out, edition) {
-  copyArchiveHtml(out, "brief/index.html", `archive/brief/${edition}/index.html`);
+function listEditionDates(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort()
+    .reverse();
+}
 
+// Freezes this edition's brief and topic pages into a persistent, git-tracked store
+// (dashboard/signals-archive/) that survives the site-dist wipe-and-rebuild at the top
+// of every publish run, then copies the full accumulated history forward into this
+// build's output. Without this, dated archive URLs only ever contained whatever
+// edition happened to be "current" at build time, because site-dist itself is deleted
+// and regenerated from source on every run.
+function syncSignalsArchiveStore(out, edition) {
+  archiveIntoStore(out, "brief/index.html", path.join(ARCHIVE_STORE, "brief", edition, "index.html"));
   for (const topic of topics) {
-    copyArchiveHtml(out, `signals/${topic}/index.html`, `signals/${topic}/archive/${edition}/index.html`);
+    archiveIntoStore(
+      out,
+      `signals/${topic}/index.html`,
+      path.join(ARCHIVE_STORE, "topics", topic, edition, "index.html"),
+    );
+  }
+
+  const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
+  if (fs.existsSync(briefStoreDir)) {
+    fs.cpSync(briefStoreDir, path.join(out, "archive", "brief"), { recursive: true });
+  }
+  for (const topic of topics) {
+    const topicStoreDir = path.join(ARCHIVE_STORE, "topics", topic);
+    if (fs.existsSync(topicStoreDir)) {
+      fs.cpSync(topicStoreDir, path.join(out, "signals", topic, "archive"), { recursive: true });
+    }
   }
 }
 
-function copyArchiveHtml(out, sourceRelative, destinationRelative) {
+function archiveIntoStore(out, sourceRelative, destinationFile) {
   const sourceFile = path.join(out, sourceRelative);
   let text = read(sourceFile);
   text = text.replace(/\b(href|src)="([^"]+)"/g, (_match, attr, value) => {
     return `${attr}="${toRootRelativeReference(out, sourceFile, value)}"`;
   });
-  write(path.join(out, destinationRelative), text);
+  write(destinationFile, text);
+}
+
+function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, backLabel }) {
+  const cardsHtml = cards.length
+    ? cards
+        .map(
+          (card) =>
+            `<a class="archive-card" href="${escapeHtml(card.href)}"><p class="meta">${escapeHtml(card.meta)}</p><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.description)}</p></a>`,
+        )
+        .join("\n          ")
+    : "<p>No dated editions archived yet. Check back after the next weekly publish.</p>";
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${escapeHtml(title)}</title>
+    <meta name="description" content="${escapeHtml(description)}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="/"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/brief/">Weekly Brief</a>
+          <a href="/signals/">Signals</a>
+          <a href="/regulatory-horizon/">Reg Horizon</a>
+          <a href="/archive/" aria-current="page">Archive</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="masthead">
+        <p class="eyebrow">${escapeHtml(eyebrow)}</p>
+        <h1>${escapeHtml(title)}</h1>
+        <p class="dek">${escapeHtml(description)}</p>
+      </section>
+      <section class="band">
+        <div class="archive-grid">
+          ${cardsHtml}
+        </div>
+        <p><a href="${escapeHtml(backHref)}">${escapeHtml(backLabel)}</a></p>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">Archive</div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+`;
+}
+
+function generateArchiveHubPages(out) {
+  const signalsData = fs.existsSync(SIGNALS_INPUT) ? readJson(SIGNALS_INPUT) : { topics: [] };
+  const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
+
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  write(
+    path.join(out, "archive", "brief", "index.html"),
+    buildArchiveHubPage({
+      title: "Weekly Brief Archive | The Virtual Officer",
+      eyebrow: "Archive / Weekly Brief",
+      description: "Every dated edition of the weekly brief, preserved exactly as published.",
+      cards: briefDates.map((date) => ({
+        href: `/archive/brief/${date}/`,
+        meta: `Edition / ${date}`,
+        title: `Weekly Brief — ${date}`,
+        description: "Open the brief exactly as it was published that week.",
+      })),
+      backHref: "/archive/",
+      backLabel: "Back to the archive",
+    }),
+  );
+
+  for (const topic of topics) {
+    const meta = topicMeta.get(topic) || {};
+    const topicTitle = String(meta.title || topic).replace(/\.+$/, "");
+    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic));
+    write(
+      path.join(out, "signals", topic, "archive", "index.html"),
+      buildArchiveHubPage({
+        title: `${topicTitle} Archive | The Virtual Officer`,
+        eyebrow: `Archive / Signals / ${topic}`,
+        description: `Every dated edition of the ${topic.replace(/-/g, " ")} topic page, preserved exactly as published.`,
+        cards: dates.map((date) => ({
+          href: `/signals/${topic}/archive/${date}/`,
+          meta: `Edition / ${date}`,
+          title: `${topicTitle} — ${date}`,
+          description: "Open this topic page exactly as it was published that week.",
+        })),
+        backHref: `/signals/${topic}/`,
+        backLabel: "Back to the current edition",
+      }),
+    );
+  }
+}
+
+function updateArchiveIndexCards(out) {
+  const file = path.join(out, "archive", "index.html");
+  if (!fs.existsSync(file)) return;
+  const html = read(file);
+  const startMarker = "<!-- archive-grid:start -->";
+  const endMarker = "<!-- archive-grid:end -->";
+  const start = html.indexOf(startMarker);
+  const end = html.indexOf(endMarker);
+  if (start === -1 || end === -1 || end <= start) return;
+
+  const signalsData = fs.existsSync(SIGNALS_INPUT) ? readJson(SIGNALS_INPUT) : { topics: [] };
+  const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
+  const horizonEdition = latestEdition(out);
+
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  const cards = [];
+  cards.push(
+    `<a class="archive-card" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
+  );
+
+  for (const topic of topics) {
+    const meta = topicMeta.get(topic) || {};
+    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic));
+    cards.push(
+      `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Top 5 shortlist, additional evidence rows, and source trail.</p></a>`,
+    );
+  }
+
+  cards.push(
+    `<a class="archive-card" href="/regulatory-horizon/"><p class="meta">Reg Horizon</p><h3>Reg Horizon scan${horizonEdition ? ` / ${escapeHtml(horizonEdition)}` : ""}</h3><p>Public-source horizon scan with bottom line, deadline, material signals, and machine outputs.</p></a>`,
+  );
+
+  const rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;
+  write(file, rebuilt);
 }
 
 function stripTags(text) {
@@ -589,11 +764,19 @@ function generateSignalsJson(out, data) {
 }
 
 function generateSitemap(out, edition) {
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
   const urls = [
     ...routes.map(([route]) => `${PUBLIC_ORIGIN}${route}`),
-    `${PUBLIC_ORIGIN}/archive/brief/${edition}/`,
-    ...topics.map((topic) => `${PUBLIC_ORIGIN}/signals/${topic}/archive/${edition}/`),
+    `${PUBLIC_ORIGIN}/archive/brief/`,
+    ...briefDates.map((date) => `${PUBLIC_ORIGIN}/archive/brief/${date}/`),
   ];
+  for (const topic of topics) {
+    urls.push(`${PUBLIC_ORIGIN}/signals/${topic}/archive/`);
+    for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic))) {
+      urls.push(`${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`);
+    }
+  }
+  if (!briefDates.includes(edition)) urls.push(`${PUBLIC_ORIGIN}/archive/brief/${edition}/`);
 
   const horizonArchive = path.join(out, "regulatory-horizon", "archive", `${edition}.html`);
   if (fs.existsSync(horizonArchive)) urls.push(`${PUBLIC_ORIGIN}/regulatory-horizon/archive/${edition}.html`);
@@ -731,7 +914,9 @@ function main() {
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
   applyLiveEditionContent(options.out, horizonData);
-  generateArchives(options.out, edition);
+  syncSignalsArchiveStore(options.out, edition);
+  generateArchiveHubPages(options.out);
+  updateArchiveIndexCards(options.out);
   generateSignalsJson(options.out, signalsData);
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);

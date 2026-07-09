@@ -71,6 +71,7 @@ const routes = [
   ["/signals/technology-failure/", "signals/technology-failure/index.html"],
   ["/signals/data/", "signals/data/index.html"],
   ["/regulatory-horizon/", "regulatory-horizon/index.html"],
+  ["/committee-questions/", "committee-questions/index.html"],
   ["/archive/", "archive/index.html"],
   ["/about/", "about/index.html"],
 ];

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#132a3f"/>
+      <stop offset="55%" stop-color="#0f2233"/>
+      <stop offset="100%" stop-color="#0a1826"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0b1a29" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#0b1a29" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0b1a29" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- fine data grid -->
+  <g stroke="#c49a4a" stroke-opacity="0.07" stroke-width="1">
+    <path d="M0,90 H1200 M0,180 H1200 M0,270 H1200 M0,360 H1200 M0,450 H1200 M0,540 H1200"/>
+    <path d="M100,0 V630 M240,0 V630 M380,0 V630 M520,0 V630 M660,0 V630 M800,0 V630 M940,0 V630 M1080,0 V630"/>
+  </g>
+
+  <!-- horizon-scan arcs, off right edge, echoing Reg Horizon / radar -->
+  <g fill="none" stroke="#c49a4a" stroke-opacity="0.5" stroke-width="1">
+    <circle cx="1040" cy="315" r="120"/>
+    <circle cx="1040" cy="315" r="220" stroke-opacity="0.32"/>
+    <circle cx="1040" cy="315" r="320" stroke-opacity="0.18"/>
+    <circle cx="1040" cy="315" r="420" stroke-opacity="0.09"/>
+  </g>
+  <line x1="1040" y1="315" x2="1040" y2="15" stroke="#c49a4a" stroke-opacity="0.55" stroke-width="1.5"/>
+  <circle cx="1040" cy="315" r="4.5" fill="#c49a4a" fill-opacity="0.85"/>
+
+  <!-- scattered signal points, faint constellation -->
+  <g fill="#e7e1d3">
+    <circle cx="180" cy="140" r="2.4" fill-opacity="0.55"/>
+    <circle cx="330" cy="220" r="2" fill-opacity="0.4"/>
+    <circle cx="260" cy="360" r="2.4" fill-opacity="0.5"/>
+    <circle cx="470" cy="120" r="2" fill-opacity="0.35"/>
+    <circle cx="560" cy="300" r="2.6" fill-opacity="0.55"/>
+    <circle cx="700" cy="460" r="2" fill-opacity="0.4"/>
+    <circle cx="130" cy="470" r="2" fill-opacity="0.4"/>
+    <circle cx="620" cy="140" r="2" fill-opacity="0.35"/>
+    <circle cx="820" cy="220" r="2.2" fill-opacity="0.4"/>
+    <circle cx="900" cy="500" r="2" fill-opacity="0.3"/>
+  </g>
+  <g fill="none" stroke="#e7e1d3" stroke-opacity="0.16" stroke-width="1">
+    <path d="M180,140 L330,220 L260,360 M470,120 L560,300 L700,460 M130,470 L260,360"/>
+  </g>
+
+  <!-- gold double rule, lower third, brand device -->
+  <g stroke="#c49a4a">
+    <line x1="80" y1="512" x2="360" y2="512" stroke-width="3" stroke-opacity="0.85"/>
+    <line x1="80" y1="520" x2="360" y2="520" stroke-width="1" stroke-opacity="0.55"/>
+  </g>
+
+  <rect x="0" y="0" width="1200" height="630" fill="url(#shade)"/>
+</svg>

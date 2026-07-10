@@ -3,12 +3,13 @@ const FINAL_ROUTE_PREFIXES = [
   "/about/",
   "/archive/",
   "/brief/",
+  "/committee-questions/",
   "/data/",
   "/regulatory-horizon/",
   "/signals/",
 ];
 const FINAL_EXACT_PATHS = new Set(["/", "/index.html"]);
-const DIRECTORY_PATHS = new Set(["/about", "/archive", "/brief", "/regulatory-horizon", "/signals"]);
+const DIRECTORY_PATHS = new Set(["/about", "/archive", "/brief", "/committee-questions", "/regulatory-horizon", "/signals"]);
 
 const SECURITY_HEADERS = {
   "x-frame-options": "DENY",

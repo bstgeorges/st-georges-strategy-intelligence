@@ -2,6 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Retry marker 2026-07-10: previous Cloudflare Pages publish run failed at
+// this step's external link check (transient); this comment forces a real
+// blob diff so the path-filtered workflow actually re-fires.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DIR = path.join(ROOT, "site-dist");
 const USER_AGENT =

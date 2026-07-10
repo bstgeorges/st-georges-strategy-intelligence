@@ -308,15 +308,40 @@ function listFiles(dir, extension) {
   return files;
 }
 
+const MONTH_ABBREVIATIONS = {
+  jan: "01", feb: "02", mar: "03", apr: "04", may: "05", jun: "06",
+  jul: "07", aug: "08", sep: "09", oct: "10", nov: "11", dec: "12",
+};
+
+// Reads the "Week of D Mon YYYY" dateline the weekly brief already carries
+// (site/brief/index.html's eyebrow) and returns it as YYYY-MM-DD, or null if
+// it can't be parsed.
+function briefWeekEdition(out) {
+  const briefFile = path.join(out, "brief", "index.html");
+  if (!fs.existsSync(briefFile)) return null;
+  const match = read(briefFile).match(/Week of (\d{1,2}) ([A-Za-z]{3}) (\d{4})/);
+  if (!match) return null;
+  const [, day, monthAbbr, year] = match;
+  const month = MONTH_ABBREVIATIONS[monthAbbr.toLowerCase()];
+  if (!month) return null;
+  return `${year}-${month}-${day.padStart(2, "0")}`;
+}
+
 // The site's overall "edition" drives Signals/brief archive folder naming and the
-// signals.json edition field. It intentionally tracks the date this build actually
-// runs (i.e. the deploy date), not the freshness of any one feed underneath it — it
-// used to fall back to the Reg Horizon scan's own edition, which meant the whole
-// site's edition (and archive folder dating) went stale whenever the Reg Horizon scan
-// hadn't run recently, even though other content (e.g. Signals) had been refreshed.
+// signals.json edition field. It must track the editorial week being published, not
+// the date any given build happens to run — otherwise every deploy (including
+// code-only fixes with no editorial change) freezes a brand-new dated archive
+// snapshot of the same week's content, which is exactly the "one issue per week"
+// archive model breaking down. It previously used the raw build date here for this
+// reason: an earlier version fell back to the Reg Horizon scan's own edition, which
+// went stale whenever that scan hadn't run recently even though other content had
+// been refreshed. Preferring the brief's own dateline (falling back to the build
+// date only if that can't be parsed) fixes both problems: the edition is stable
+// across same-week rebuilds, and it no longer depends on the Reg Horizon feed.
 function latestEdition(out, preferred) {
-  void out;
   if (preferred) return preferred;
+  const briefEdition = briefWeekEdition(out);
+  if (briefEdition) return briefEdition;
   return new Date().toISOString().slice(0, 10);
 }
 
@@ -519,7 +544,16 @@ function updateArchiveIndexCards(out) {
     `<a class="archive-card" href="/regulatory-horizon/"><p class="meta">Reg Horizon</p><h3>Reg Horizon scan${horizonEdition ? ` / ${escapeHtml(horizonEdition)}` : ""}</h3><p>Public-source horizon scan with bottom line, deadline, material signals, and machine outputs.</p></a>`,
   );
 
-  const rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;
+  let rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;
+
+  // The page's own JSON-LD dateModified was a hardcoded placeholder that never moved,
+  // which undercuts exactly the freshness signal this archive page exists to give.
+  // Advance it to the actual build date each time the page is regenerated.
+  rebuilt = rebuilt.replace(
+    /"dateModified":\s*"\d{4}-\d{2}-\d{2}"/,
+    `"dateModified": "${new Date().toISOString().slice(0, 10)}"`,
+  );
+
   write(file, rebuilt);
 }
 
@@ -685,9 +719,23 @@ function loadHorizonData(out, failures) {
   return readJson(file);
 }
 
+// The Reg Horizon page's "Edition / <date>" eyebrow is baked into the static HTML
+// (site/regulatory-horizon/index.html) as an author-time placeholder, then patched
+// client-side by horizon-render.js once latest.json loads in the browser. That left
+// crawlers, social previews, and anyone browsing with JS disabled seeing whatever
+// stale placeholder date was last hand-authored, even though the live edition had
+// moved on — exactly the inconsistency this function exists to close by baking the
+// correct value in at build time too, so it is right before any JS runs.
 function applyLiveEditionContent(out, horizonData) {
-  void out;
-  void horizonData;
+  const file = path.join(out, "regulatory-horizon", "index.html");
+  if (!fs.existsSync(file)) return;
+  if (!horizonData || !horizonData.edition) return;
+  const html = read(file);
+  const updated = html.replace(
+    /(<p class="eyebrow" id="horizon-edition">)Edition \/ [^<]*(<\/p>)/,
+    `$1Edition / ${horizonData.edition}$2`,
+  );
+  if (updated !== html) write(file, updated);
 }
 
 function loadSignalsData(edition, failures) {

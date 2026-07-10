@@ -435,6 +435,7 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
           <a href="/brief/">Weekly Brief</a>
           <a href="/signals/">Signals</a>
           <a href="/regulatory-horizon/">Reg Horizon</a>
+          <a href="/committee-questions/">Committee Questions</a>
           <a href="/archive/" aria-current="page">Archive</a>
           <a href="/about/">About</a>
         </nav>

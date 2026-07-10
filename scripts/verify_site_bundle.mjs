@@ -63,6 +63,34 @@ function count(pattern, text) {
   return (text.match(pattern) || []).length;
 }
 
+function checkWorkerRouteCoverage(failures) {
+  const routeWorker = readSource(path.join("..", "workers", "not-found-route.js"));
+  const requiredPrefixes = [
+    "/about/",
+    "/archive/",
+    "/brief/",
+    "/committee-questions/",
+    "/data/",
+    "/regulatory-horizon/",
+    "/signals/",
+  ];
+  const requiredDirectories = [
+    "/about",
+    "/archive",
+    "/brief",
+    "/committee-questions",
+    "/regulatory-horizon",
+    "/signals",
+  ];
+
+  for (const route of requiredPrefixes) {
+    assert(routeWorker.includes(`"${route}"`), `not-found route worker missing prefix ${route}`, failures);
+  }
+  for (const route of requiredDirectories) {
+    assert(routeWorker.includes(`"${route}"`), `not-found route worker missing directory redirect ${route}`, failures);
+  }
+}
+
 function checkLocalLinks(failures) {
   const htmlFiles = [];
   function walk(dir) {
@@ -164,6 +192,7 @@ function main() {
   assert(structurePlan.includes("Root-level tabs are the target staging structure"), "Structure plan must record root-level route decision", failures);
   assert(redirectPlan.includes("Analytics Continuity"), "Redirect plan must include analytics continuity", failures);
 
+  checkWorkerRouteCoverage(failures);
   checkLocalLinks(failures);
 
   if (failures.length) {

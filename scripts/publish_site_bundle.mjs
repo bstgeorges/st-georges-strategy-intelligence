@@ -698,13 +698,15 @@ function updateHomepageStatStrip(out, edition) {
 // Committee Questions cross-links to the brief (§11) used a static "Source brief"
 // label that could silently point at the wrong week once a newer brief published.
 // Regenerating the label from the same edition data as the link removes that risk.
+// Matches both the pre-normalisation relative form ("../brief/index.html") and the
+// post-normalisation root-absolute form ("/brief/") since this can run at either point.
 function updateCommitteeQuestionsSourceLabel(out, edition) {
   const file = path.join(out, "committee-questions", "index.html");
   if (!fs.existsSync(file)) return;
   const html = read(file);
   const label = `From the ${formatDateShort(edition)} brief`;
   const updated = html.replace(
-    /(<a href="\/brief\/">)Source brief(<\/a>)/g,
+    /(<a href="(?:\.\.\/brief\/index\.html|\/brief\/)">)Source brief(<\/a>)/g,
     `$1${escapeHtml(label)}$2`,
   );
   if (updated !== html) write(file, updated);

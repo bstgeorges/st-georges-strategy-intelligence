@@ -167,7 +167,13 @@
     if (generated) generated.textContent = `Generated ${data.generatedAt || "from the current weekly run"} across a ${data.windowDays || 7}-day review window.`;
     if (bottomLine) bottomLine.innerHTML = `<p>${escapeHtml(data.bottomLine || "")}</p>`;
     if (dashboard) dashboard.innerHTML = renderDashboard(data);
-    if (deadlines) deadlines.innerHTML = data.horizon && data.horizon.length ? data.horizon.map(renderDeadline).join("") : "<li><time>No deadline</time><span>No future deadline detected in this edition.</span><span class=\"owner\">Monitor</span></li>";
+    if (deadlines) {
+      deadlines.innerHTML = data.horizon && data.horizon.length ? data.horizon.map(renderDeadline).join("") : "<li><time>No deadline</time><span>No future deadline detected in this edition.</span><span class=\"owner\">Monitor</span></li>";
+      // §5: suppress/restyle any rendered deadline whose date has already passed,
+      // relative to the reader's own clock — this only ever touches the live page,
+      // never an archived snapshot, since archive pages don't load this script.
+      if (window.applyHorizonDateStatus) window.applyHorizonDateStatus(deadlines);
+    }
     if (materialTop5) materialTop5.innerHTML = (data.signals || []).slice(0, 5).map(renderSignal).join("");
     if (materialAdditional) {
       const additional = (data.signals || []).slice(5, 15);

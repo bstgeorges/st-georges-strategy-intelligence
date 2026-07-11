@@ -1134,6 +1134,14 @@ function main() {
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
   applyLiveEditionContent(options.out, horizonData);
+  // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
+  // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
+  // its root-absolute form when the link target already exists on disk. Without this
+  // pre-pass, a topic page's own self-referential "archive" card link gets baked into
+  // the frozen snapshot unrewritten, then breaks once nested a level deeper under
+  // /signals/<topic>/archive/<edition>/. Generating the hub pages a second time after
+  // the freeze (below) then picks up today's edition in the hub's own card list.
+  generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
   generateArchiveHubPages(options.out);
   updateArchiveIndexCards(options.out);

@@ -31,6 +31,11 @@
   --duration-fast: 120ms;
   --duration-base: 200ms;
   --duration-slow: 320ms;
+  --motion-quick: 180ms;
+  --motion-base: 640ms;
+  --motion-slow: 18000ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --lift-shadow: 0 20px 40px rgba(15, 34, 51, 0.08);
 }
 
 * {
@@ -207,7 +212,7 @@ p {
 
 .site-nav a {
   color: inherit;
-  transition: color var(--duration-base) var(--ease-out);
+  transition: color var(--motion-quick) ease, opacity var(--motion-quick) ease;
 }
 
 .site-nav a:hover,
@@ -234,12 +239,19 @@ p {
   object-position: center;
   opacity: 0.45;
   filter: saturate(0.8) contrast(1.04);
+  transform: translate3d(0, 0, 0);
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
   background: linear-gradient(100deg, #0b1a29 12%, rgba(11, 26, 41, 0.88) 48%, rgba(11, 26, 41, 0.45));
+  transition:
+    transform var(--motion-quick) ease,
+    background-color var(--motion-quick) ease,
+    border-color var(--motion-quick) ease,
+    color var(--motion-quick) ease,
+    box-shadow var(--motion-quick) ease;
 }
 
 .hero-content {
@@ -309,6 +321,8 @@ p {
 
 .button.primary:hover {
   background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(244, 239, 227, 0.18);
 }
 
 .button.secondary {
@@ -319,6 +333,7 @@ p {
 .button.secondary:hover {
   border-color: rgba(255, 255, 255, 0.5);
   color: var(--cream);
+  transform: translateY(-1px);
 }
 
 .button.secondary.light {
@@ -329,6 +344,7 @@ p {
 .button.secondary.light:hover {
   border-color: rgba(15, 34, 51, 0.48);
   color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .hero-metrics {
@@ -341,6 +357,11 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(15, 34, 51, 0.9);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
 }
 
 .hero-metrics div {
@@ -567,24 +588,59 @@ p {
   padding: clamp(22px, 2.4vw, 34px);
 }
 
-/* Card hover motion (brand spec: "2px card lift with a border-colour shift",
-   120-320ms ease-out, no bounce/parallax/loop). Scoped to .card and
-   .archive-card since those are the two card classes that are always
-   rendered as clickable <a> elements site-wide; non-interactive <article>
-   cards (.brief-card, .about-card, .display-card) are left static so hover
-   motion never implies clickability where there isn't any. */
 .card,
-.archive-card {
-  transition: transform var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+.about-card,
+.archive-card,
+.signal-card,
+.brief-card {
+  transition:
+    transform var(--motion-quick) ease,
+    border-color var(--motion-quick) ease,
+    box-shadow var(--motion-quick) ease;
 }
 
 .card:hover,
-.archive-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--navy);
-  box-shadow: 0 10px 22px rgba(15, 34, 51, 0.12);
+.about-card:hover,
+.archive-card:hover,
+.signal-card:hover,
+.brief-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 34, 51, 0.22);
+  box-shadow: var(--lift-shadow);
+}
+
+.js-motion .js-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--motion-base) var(--motion-ease),
+    transform var(--motion-base) var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.js-motion .js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js-motion .hero-content .js-reveal,
+.js-motion .hero-metrics .js-reveal,
+.js-motion .ticker.js-reveal {
+  transition-duration: 720ms;
+}
+
+.js-motion .hero img {
+  animation: hero-drift var(--motion-slow) ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -6px, 0);
+  }
 }
 
 .display-card {
@@ -953,9 +1009,6 @@ a.tag:hover {
 .signal-card {
   display: grid;
   gap: 12px;
-  transition: opacity var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
 }
 
 .signal-card .button-row {
@@ -988,11 +1041,6 @@ a.tag:hover {
 .signal-stream-grid .signal-card {
   grid-template-rows: auto auto minmax(78px, 1fr) auto;
   padding: clamp(18px, 1.7vw, 24px);
-}
-
-.signal-stream-grid .signal-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--navy);
 }
 
 .signal-stream-grid .signal-card.featured {
@@ -1296,6 +1344,40 @@ a.tag:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .js-motion .js-reveal,
+  .js-motion .js-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .js-motion .hero img {
+    animation: none;
+    transform: none;
+  }
+
+  .button,
+  .card,
+  .display-card,
+  .signal-card,
+  .brief-card,
+  .archive-card,
+  .about-card,
+  .site-nav a,
+  .footer-note .footer-cta {
+    transition: none;
+  }
+
+  .button:hover,
+  .card:hover,
+  .about-card:hover,
+  .archive-card:hover,
+  .signal-card:hover,
+  .brief-card:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 

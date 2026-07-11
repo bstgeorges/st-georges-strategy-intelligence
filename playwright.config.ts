@@ -14,7 +14,7 @@ export default defineConfig({
   },
   projects: [
     { name: "desktop-chromium", use: { ...devices["Desktop Chrome"] } },
-    { name: "mobile-chromium", use: { ...devices["iPhone 13"] } },
+    { name: "mobile-chromium", use: { ...devices["Pixel 5"] } },
   ],
   webServer: {
     command: "npm run build && npm start -- --hostname 127.0.0.1",

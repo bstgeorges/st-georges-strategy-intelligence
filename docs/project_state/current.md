@@ -3,7 +3,7 @@
 - Objective: migrate the faithful clone into a typed, component-driven executive-intelligence publication organised around `Signal → Judgement → Board Question → Evidence Ask → Owner/Deadline → Archive`.
 - Capture truth: stable two-pass 33-route live corpus captured at `2026-07-11T13:11:40.871Z`; prior 42-route frozen corpus unchanged. Combined inventory: 79 artifacts / 75 HTML captures.
 - Remote/base truth: `upstream/Jonats@21c0b1a76d125e02e9c3ed38b9c00bae3fc8185a`. Isolated worktree `/Users/jonathanst-georges/Documents/Projects/StGeorgesStrategies-business-experience`, branch `feat/business-experience-20260711`; original dirty workspace untouched. Push only to `EXIBIST32132`, PR to `bstgeorges:Jonats`, never force-push or merge.
-- Current phase: release handoff complete. Authored architecture, Home, all route archetypes, semantic motion, integrated QA, Cloudflare deployment-readiness, and independent adversarial re-review pass. Checkpoint `b768a03` is pushed to the fork; draft PR [#22](https://github.com/bstgeorges/st-georges-strategy-intelligence/pull/22) targets upstream `Jonats` and is not merged.
+- Current phase: release handoff complete. Authored architecture, Home, all route archetypes, semantic motion, integrated QA, Cloudflare deployment-readiness, and independent adversarial re-review pass. The feature branch is pushed to the fork; draft PR [#22](https://github.com/bstgeorges/st-georges-strategy-intelligence/pull/22) targets upstream `Jonats` and is not merged.
 - Model routing: repository contract lists `gpt-5.4` frontier, `gpt-5.4-mini` standard, `gpt-5.3-codex-spark` fast exploration. Native child selection is role/inheritance driven; exact usage unavailable, so budgets remain qualitative.
 
 ## Implementation truth
@@ -38,4 +38,5 @@
 
 - Anti-slop pass removed debug/dead findings, duplicate navigation test code, misleading accessible names, stale renderer/runtime paths, and unsafe one-hop redirect assumptions. Final diff check is clean.
 - The first adversarial review found five HIGH, five MEDIUM, and two LOW issues; all were repaired. A second independent boundary review identified the sitemap/release fixture registry as the last HIGH. Production now has one authored 51-route public registry, expanded architecture tests enforce it, and the reviewer returned APPROVE with no residual defect.
+- The first PR CI run exposed that the project named `mobile-chromium` inherited WebKit from an iPhone descriptor while CI intentionally installed Chromium only. The project now uses Playwright's Pixel 5 Chromium descriptor; the full 38-test desktop/mobile suite passes with the same touch/mobile coverage.
 - Final local gates are green. The Lore checkpoint is pushed only to the user's fork and draft PR #22 is open—but not merged—against upstream `Jonats`. The authorized remote preview remains unrun; dispatch the manual preview workflow and validate its LCP before any production promotion.

@@ -34,6 +34,7 @@
     "verify:public-links": "node scripts/verify_public_links.mjs",
     "verify:generated-links": "node scripts/verify_generated_links.mjs",
     "verify:responsive": "node scripts/verify_responsive_pages.mjs",
+    "verify:edition-freshness": "node scripts/verify_edition_freshness.mjs",
     "site:verify": "node scripts/verify_site_bundle.mjs",
     "site:responsive": "node site/qa/responsive-check.mjs",
     "site:build": "node scripts/publish_site_bundle.mjs",

@@ -39,6 +39,19 @@ const soft404BodyPatterns = [
 ];
 const soft404UrlPatterns = [/\/search(?:\/|$|\?)/i, /[?&](?:query|q|s)=/i];
 
+// Source-row date policy (§3 of the 10 Jul 2026 fix spec): every citation must carry a
+// full YYYY-MM-DD date, unless it is a durable reference document (a statute, an
+// official regulator handbook page, a standing guidance collection) rather than a
+// perishable news item — those are allowed to omit a date entirely, the way citing a
+// piece of legislation doesn't need a "publish date". What is never allowed is a
+// *partial* date (a bare year, or year-month) on any row, regardless of tier: that
+// reads as an attempt at a date that was left unfinished, not a deliberate choice to
+// omit one, so it always fails rather than being treated as an evergreen citation.
+const EVERGREEN_REFERENCE_TIER_PATTERN =
+  /^(Primary|Official guidance|Official expectations|Official regulation|Official source|Standard setter|Threat source)\b/i;
+const FULL_ISO_DATE_PATTERN = /\b(19|20)\d{2}-\d{2}-\d{2}\b/;
+const PARTIAL_DATE_PATTERN = /\b(19|20)\d{2}(-\d{2})?\b/;
+
 let publishedSourceMapCache = null;
 
 export function loadPublishedSourceMap() {
@@ -101,6 +114,39 @@ export function summarisePublishedSourceCoverage(rows, resolveRowUrl) {
   };
 }
 
+// Enforces the §3 source-row date policy against each row's source label (the
+// "Tier / Publisher / Date" string already carried in signals.json). Called from both
+// the standalone `npm run signals:validate` pre-publish script and, more importantly,
+// from the site build itself (scripts/publish_site_bundle.mjs), so a row that fails
+// this check cannot actually publish — not just get flagged in a report nobody reads.
+export function validateSourceDatePolicy(rows, options = {}) {
+  const { label = "rows", resolveRowSourceLabel = (row) => row.source } = options;
+  const failures = [];
+
+  rows.forEach((row, index) => {
+    const rowLabel = `${label} row ${index + 1}`;
+    const sourceLabel = resolveRowSourceLabel(row) || "";
+
+    if (FULL_ISO_DATE_PATTERN.test(sourceLabel)) return;
+
+    if (PARTIAL_DATE_PATTERN.test(sourceLabel)) {
+      failures.push(
+        `${rowLabel} has a partial date, not full YYYY-MM-DD: "${sourceLabel}". Complete the date or cut the row (source-row date policy).`,
+      );
+      return;
+    }
+
+    const tier = (sourceLabel.split("/")[0] || "").trim();
+    if (!EVERGREEN_REFERENCE_TIER_PATTERN.test(tier)) {
+      failures.push(
+        `${rowLabel} is missing a date and is not a recognised evergreen-reference tier: "${sourceLabel}". Add a full YYYY-MM-DD date or cut the row (source-row date policy).`,
+      );
+    }
+  });
+
+  return { failures };
+}
+
 export function validatePublishedRows(rows, options = {}) {
   const {
     label = "published rows",
@@ -134,6 +180,9 @@ export function validatePublishedRows(rows, options = {}) {
       failures.push(`${rowLabel} uses an unregistered citation host: ${url}`);
     }
   });
+
+  const datePolicy = validateSourceDatePolicy(rows, { label, resolveRowSourceLabel });
+  failures.push(...datePolicy.failures);
 
   for (const [url, count] of Object.entries(coverage.byUrl)) {
     if (count > maxExactReusePerTopic) {

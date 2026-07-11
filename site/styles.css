@@ -410,6 +410,64 @@ p {
   border-bottom: 1px solid var(--rule);
 }
 
+.band-navy {
+  margin: 0 calc(50% - 50vw);
+  padding-right: calc(50vw - 50%);
+  padding-left: calc(50vw - 50%);
+  background: var(--navy);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.band-navy .page,
+.band-navy.page {
+  color: var(--navy-text);
+}
+
+.band-navy h2 {
+  color: var(--cream);
+}
+
+.band-navy .eyebrow {
+  color: var(--accent-bright);
+}
+
+.band-navy .section-heading p:last-child {
+  color: var(--navy-muted);
+}
+
+.band-navy .brief-note div {
+  border-top-color: rgba(244, 239, 227, 0.2);
+}
+
+.band-navy .brief-note dt {
+  color: var(--accent-bright);
+}
+
+.band-navy .brief-note dd {
+  color: var(--navy-text);
+}
+
+.band-navy .card {
+  border-color: rgba(244, 239, 227, 0.18);
+  background: rgba(244, 239, 227, 0.06);
+}
+
+.band-navy .card .meta {
+  color: var(--accent-bright);
+}
+
+.band-navy .card h3 {
+  color: var(--cream);
+}
+
+.band-navy .card p {
+  color: var(--navy-text);
+}
+
+.band-navy .card:hover h3 {
+  color: var(--accent-bright);
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
@@ -454,6 +512,25 @@ p {
 
 .grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 32px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.two-col li {
+  padding: 14px 0;
+  border-top: 1px solid rgba(15, 34, 51, 0.14);
+  color: var(--body);
+}
+
+.two-col strong {
+  color: var(--ink);
 }
 
 .brief-grid {
@@ -803,6 +880,30 @@ a.tag:hover {
   color: var(--accent);
   font: 500 11px/1.6 var(--mono);
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.horizon-list li.is-closed {
+  opacity: 0.6;
+}
+
+.horizon-list li.is-closed time {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.closed-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  padding: 2px 7px;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -1252,7 +1353,8 @@ a.tag:hover {
   .horizon-lanes,
   .method-strip,
   .hero-metrics,
-  .footer-inner {
+  .footer-inner,
+  .two-col {
     grid-template-columns: 1fr;
   }
 
@@ -1290,4 +1392,17 @@ a.tag:hover {
   .footer-meta {
     grid-column: auto;
   }
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { white-space: nowrap; }
 }

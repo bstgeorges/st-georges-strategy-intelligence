@@ -114,6 +114,50 @@ const RISK_AREA_LABELS = {
   "market-plumbing": "Market plumbing",
 };
 
+// Canonical navigation, in the order every page on the site must present it (§2 of the
+// 10 Jul 2026 fix spec). Rather than trusting 15+ hand-authored copies of the same
+// <nav> block to stay in sync, every generated page's nav is regenerated from this one
+// list at build time — this is the "shared partial" in a static-HTML pipeline that has
+// no templating engine of its own.
+const NAV_ROUTES = [
+  ["/", "Home"],
+  ["/brief/", "Weekly Brief"],
+  ["/signals/", "Signals"],
+  ["/regulatory-horizon/", "Reg Horizon"],
+  ["/committee-questions/", "Committee Questions"],
+  ["/archive/", "Archive"],
+  ["/about/", "About"],
+];
+
+function isCurrentNavRoute(navHref, pageRoute) {
+  if (navHref === "/") return pageRoute === "/";
+  return pageRoute === navHref || pageRoute.startsWith(navHref);
+}
+
+function buildNav(pageRoute) {
+  const links = NAV_ROUTES.map(([href, label]) => {
+    const current = isCurrentNavRoute(href, pageRoute);
+    return `<a href="${href}"${current ? ' aria-current="page"' : ""}>${label}</a>`;
+  });
+  return `<nav class="site-nav" aria-label="Primary">\n          ${links.join("\n          ")}\n        </nav>`;
+}
+
+// Rewrites every generated page's <nav class="site-nav"> block to the canonical
+// NAV_ROUTES markup above, keyed off the page's own route. This makes nav drift
+// (wrong order, missing links, stale "current" markers) impossible to ship, because
+// hand-edited nav copies in the source HTML are discarded and replaced every build.
+function enforceCanonicalNav(out) {
+  const navRegex = /<nav class="site-nav"[^>]*>[\s\S]*?<\/nav>/;
+  for (const [route, relative] of routes) {
+    const file = routeFile(out, relative);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    if (!navRegex.test(html)) continue;
+    const updated = html.replace(navRegex, buildNav(route));
+    if (updated !== html) write(file, updated);
+  }
+}
+
 function parseArgs(argv) {
   const options = {
     out: DEFAULT_OUT,
@@ -204,6 +248,71 @@ function copyHorizonArtifacts(out) {
   const archiveIn = path.join(DASHBOARD_HORIZON, "archive");
   const archiveOut = path.join(horizonOut, "archive");
   if (fs.existsSync(archiveIn)) fs.cpSync(archiveIn, archiveOut, { recursive: true });
+}
+
+// Decodes the sitewide OG-card PNG from small, individually-verifiable base64 text
+// chunks (site/assets/og-card.part00.b64 ... partNN.b64) into a real binary PNG at
+// build time. The GitHub file-write API silently mishandles very large inline text
+// payloads, so the source of truth is kept as several short chunks that are easy to
+// push and verify one at a time, and only combined into a binary file here.
+function materializeOgImage(out) {
+  const assetsDir = path.join(SOURCE, "assets");
+  if (!fs.existsSync(assetsDir)) return false;
+  const partFiles = fs
+    .readdirSync(assetsDir)
+    .filter((name) => /^og-card\.part\d+\.b64$/.test(name))
+    .sort();
+  if (!partFiles.length) return false;
+
+  const combined = partFiles.map((name) => read(path.join(assetsDir, name))).join("").replace(/\s+/g, "");
+  const buffer = Buffer.from(combined, "base64");
+  const pngFile = path.join(out, "assets", "og-card.png");
+  fs.mkdirSync(path.dirname(pngFile), { recursive: true });
+  fs.writeFileSync(pngFile, buffer);
+  return true;
+}
+
+// Sitewide og:image (§4): every page previously pointed at either /assets/hero.svg
+// (SVG og:images generally fail to render as link previews on LinkedIn and X) or a
+// legacy /dashboard/assets/*.webp path that was never actually committed. This
+// rewrites every generated page to the one real PNG card, and makes sure the
+// accompanying width/height/twitter tags are present so previews render at full size.
+function normaliseOgImage(out) {
+  const target = `${PUBLIC_ORIGIN}/assets/og-card.png`;
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    let changed = false;
+
+    const nextOg = html.replace(/property="og:image" content="[^"]*"/, `property="og:image" content="${target}"`);
+    if (nextOg !== html) {
+      html = nextOg;
+      changed = true;
+    }
+
+    if (/property="og:image" content="[^"]*"/.test(html) && !/property="og:image:width"/.test(html)) {
+      html = html.replace(
+        /(<meta property="og:image" content="[^"]*">)/,
+        `$1\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">`,
+      );
+      changed = true;
+    }
+
+    if (/name="twitter:image" content="[^"]*"/.test(html)) {
+      const nextTwitter = html.replace(/name="twitter:image" content="[^"]*"/, `name="twitter:image" content="${target}"`);
+      if (nextTwitter !== html) {
+        html = nextTwitter;
+        changed = true;
+      }
+    } else if (/name="twitter:card" content="summary_large_image">/.test(html)) {
+      html = html.replace(
+        /(<meta name="twitter:card" content="summary_large_image">)/,
+        `$1\n    <meta name="twitter:image" content="${target}">`,
+      );
+      changed = true;
+    }
+
+    if (changed) write(file, html);
+  }
 }
 
 function decorateHorizonFeed(out) {
@@ -558,6 +667,49 @@ function updateArchiveIndexCards(out) {
   write(file, rebuilt);
 }
 
+// Homepage stat strip (§6, Option A): rather than a fixed "N dated editions archived"
+// count that only ever advertises how young the archive is, this anchors the strip to
+// the current edition and a running edition number computed from the archive store —
+// both of which move forward automatically every week.
+function updateHomepageStatStrip(out, edition) {
+  const file = path.join(out, "index.html");
+  if (!fs.existsSync(file)) return;
+  const html = read(file);
+  const startMarker = "<!-- stat-strip:start -->";
+  const endMarker = "<!-- stat-strip:end -->";
+  const start = html.indexOf(startMarker);
+  const end = html.indexOf(endMarker);
+  if (start === -1 || end === -1 || end <= start) return;
+
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  const editionNumber = briefDates.includes(edition) ? briefDates.length : briefDates.length + 1;
+
+  const strip = `<div class="hero-metrics" aria-label="Publication model">
+            <div><strong>${escapeHtml(formatDateLong(edition))}</strong><span>week of this edition</span></div>
+            <div><strong>5</strong><span>signals ranked this week</span></div>
+            <div><strong>8</strong><span>streams scanned</span></div>
+            <div><strong>No. ${editionNumber}</strong><span>edition</span></div>
+          </div>`;
+
+  const rebuilt = `${html.slice(0, start)}${startMarker}\n          ${strip}\n          ${html.slice(end)}`;
+  write(file, rebuilt);
+}
+
+// Committee Questions cross-links to the brief (§11) used a static "Source brief"
+// label that could silently point at the wrong week once a newer brief published.
+// Regenerating the label from the same edition data as the link removes that risk.
+function updateCommitteeQuestionsSourceLabel(out, edition) {
+  const file = path.join(out, "committee-questions", "index.html");
+  if (!fs.existsSync(file)) return;
+  const html = read(file);
+  const label = `From the ${formatDateShort(edition)} brief`;
+  const updated = html.replace(
+    /(<a href="\/brief\/">)Source brief(<\/a>)/g,
+    `$1${escapeHtml(label)}$2`,
+  );
+  if (updated !== html) write(file, updated);
+}
+
 function stripTags(text) {
   return text
     .replace(/<[^>]+>/g, " ")
@@ -867,6 +1019,7 @@ function generateHeaders(out) {
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; upgrade-insecure-requests
+  Cache-Control: no-cache, must-revalidate
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -940,6 +1093,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   assert(sitemapUrls.length >= 23, `sitemap should include current routes and archives, found ${sitemapUrls.length}`, failures);
   assert(fs.existsSync(path.join(out, "_redirects")), "_redirects missing", failures);
   assert(fs.existsSync(path.join(out, "_headers")), "_headers missing", failures);
+  assert(fs.existsSync(path.join(out, "assets", "og-card.png")), "sitewide og-card.png missing from build output", failures);
   checkLocalLinks(out, failures);
   verifyLockedSections(out, failures);
 }
@@ -981,10 +1135,15 @@ function main() {
   syncSignalsArchiveStore(options.out, edition);
   generateArchiveHubPages(options.out);
   updateArchiveIndexCards(options.out);
+  updateHomepageStatStrip(options.out, edition);
+  updateCommitteeQuestionsSourceLabel(options.out, edition);
   generateSignalsJson(options.out, signalsData);
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);
   generateHeaders(options.out);
+  enforceCanonicalNav(options.out);
+  materializeOgImage(options.out);
+  normaliseOgImage(options.out);
   normaliseHtmlReferencesToRoot(options.out);
   normaliseHorizonArchiveLinks(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);

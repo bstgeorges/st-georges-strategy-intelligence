@@ -16,7 +16,9 @@
     "typecheck": "tsc --noEmit",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:editorial": "node scripts/validate-editorial.mjs",
+    "generate:documents": "node scripts/generate-editorial-documents.mjs",
     "verify:home": "node scripts/verify-home.mjs",
+    "verify:archetypes": "node scripts/verify-archetypes.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "verify": "npm run format && npm run lint && npm run typecheck && npm run validate:content && npm run validate:editorial && npm test && npm run build"

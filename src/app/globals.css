@@ -77,6 +77,198 @@ body {
   outline-offset: 4px;
 }
 
+.sgs-reading-progress {
+  position: fixed;
+  z-index: 110;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  color: var(--sgs-gold);
+}
+
+.sgs-reading-progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+.sgs-reading-progress::-webkit-progress-value {
+  background: var(--sgs-gold);
+}
+
+.sgs-reading-progress::-moz-progress-bar {
+  background: var(--sgs-gold);
+}
+
+.sgs-context-nav {
+  position: sticky;
+  z-index: 90;
+  top: 70px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 48px;
+  padding: 8px var(--sgs-gutter);
+  border-bottom: 1px solid rgba(16, 34, 48, 0.18);
+  background: color-mix(in srgb, var(--sgs-cream) 94%, transparent);
+  color: var(--sgs-ink);
+  backdrop-filter: blur(12px);
+}
+
+.sgs-context-nav > span {
+  color: var(--sgs-gold-ink);
+  font:
+    600 10px/1 var(--font-mono),
+    monospace;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.sgs-context-nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sgs-context-nav a {
+  padding-block: 8px;
+  border-bottom: 1px solid transparent;
+  font:
+    600 10px/1 var(--font-mono),
+    monospace;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.sgs-context-nav a:hover,
+.sgs-context-nav a[aria-current="page"] {
+  border-color: var(--sgs-gold);
+}
+
+.sgs-document {
+  position: relative;
+  min-width: 0;
+  --accent: #6f5018;
+  --accent-bright: #d8b96f;
+  --muted: #5e594b;
+  background: var(--paper, var(--sgs-paper));
+  color: var(--ink, var(--sgs-ink));
+}
+
+.sgs-document-main {
+  min-height: 60vh;
+}
+
+.sgs-document a[data-external="true"]::after {
+  display: inline-block;
+  margin-left: 0.28em;
+  color: var(--accent, var(--sgs-gold-ink));
+  font-size: 0.76em;
+  content: "↗";
+  transform: translateY(-0.08em);
+}
+
+.sgs-document .masthead {
+  position: relative;
+  overflow: clip;
+}
+
+.sgs-document .display-card {
+  --accent: #e0c789;
+  --accent-bright: #e0c789;
+}
+
+.sgs-document .display-card h2 {
+  color: var(--cream, var(--sgs-cream));
+  font-family: var(--sans, var(--font-sans)), sans-serif;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.18;
+}
+
+.sgs-document .about-card h2 {
+  margin: 0 0 12px;
+  color: var(--ink, var(--sgs-ink));
+  font-family: var(--sans, var(--font-sans)), sans-serif;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.18;
+}
+
+.sgs-document .button.secondary {
+  border-color: rgba(15, 34, 51, 0.34);
+  color: var(--navy, var(--sgs-navy));
+}
+
+.sgs-document .button.secondary:hover,
+.sgs-document .button.secondary:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.sgs-document .display-card .button.secondary {
+  border-color: rgba(244, 239, 227, 0.42);
+  color: var(--cream, var(--sgs-cream));
+}
+
+.sgs-document .masthead::after {
+  position: absolute;
+  right: clamp(20px, 5vw, 72px);
+  bottom: 0;
+  left: clamp(20px, 5vw, 72px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent, var(--sgs-gold)), transparent 72%);
+  content: "";
+}
+
+.sgs-document[data-archetype="weekly-brief"] .brief-card,
+.sgs-document[data-archetype="signal-topic"] .source-row,
+.sgs-document[data-archetype="committee-questions"] .question-callout,
+.sgs-document[data-archetype="archive"] .archive-card {
+  transition:
+    border-color var(--sgs-fast) ease-out,
+    background-color var(--sgs-fast) ease-out,
+    transform var(--sgs-fast) ease-out;
+}
+
+.sgs-document[data-archetype="weekly-brief"] .brief-card:hover,
+.sgs-document[data-archetype="weekly-brief"] .brief-card:focus-within,
+.sgs-document[data-archetype="signal-topic"] .source-row:hover,
+.sgs-document[data-archetype="signal-topic"] .source-row:focus-within,
+.sgs-document[data-archetype="committee-questions"] .question-callout:hover,
+.sgs-document[data-archetype="committee-questions"] .question-callout:focus-within,
+.sgs-document[data-archetype="archive"] .archive-card:hover,
+.sgs-document[data-archetype="archive"] .archive-card:focus-within {
+  border-color: var(--accent, var(--sgs-gold));
+  background-color: color-mix(in srgb, var(--cream, var(--sgs-cream)) 84%, white);
+  transform: translateY(-2px);
+}
+
+.sgs-document[data-archetype="regulatory-horizon"] .horizon-list {
+  position: relative;
+}
+
+.sgs-document[data-archetype="regulatory-horizon"] .horizon-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(var(--accent, var(--sgs-gold)), transparent);
+  content: "";
+}
+
+.sgs-document[data-archetype="signals-index"] .signal-stream-grid .card,
+.sgs-document[data-archetype="signals-index"] .grid-4 .card {
+  min-height: 100%;
+}
+
 .sgs-header {
   position: sticky;
   z-index: 100;
@@ -781,6 +973,45 @@ body {
   color: var(--sgs-cream);
 }
 
+.sgs-not-found {
+  display: grid;
+  align-content: center;
+  min-height: 72vh;
+  padding: clamp(84px, 12vw, 168px) var(--sgs-gutter);
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(196, 154, 74, 0.12) 50%, transparent 50.1%),
+    var(--sgs-cream);
+}
+
+.sgs-not-found > * {
+  width: min(760px, 100%);
+  margin-inline: auto;
+}
+
+.sgs-not-found h1 {
+  margin: 16px auto 22px;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(54px, 9vw, 118px);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.sgs-not-found > p:not(.sgs-kicker) {
+  max-width: 620px;
+  margin-inline: auto;
+  color: var(--sgs-muted-dark);
+  font-size: clamp(18px, 2vw, 23px);
+}
+
+.sgs-not-found nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  margin-top: 36px;
+}
+
 @media (max-width: 1180px) {
   .sgs-header-inner {
     grid-template-columns: auto 1fr auto auto;
@@ -855,6 +1086,26 @@ body {
 }
 
 @media (max-width: 900px) {
+  .sgs-context-nav {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-block: 10px;
+  }
+
+  .sgs-context-nav ol {
+    justify-content: flex-start;
+  }
+
+  .sgs-context-nav > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   .sgs-section-heading {
     grid-template-columns: 1fr;
     gap: 22px;
@@ -889,6 +1140,18 @@ body {
 }
 
 @media (max-width: 620px) {
+  .sgs-context-nav {
+    top: 64px;
+  }
+
+  .sgs-context-nav ol {
+    gap: 2px 14px;
+  }
+
+  .sgs-context-nav a {
+    font-size: 9px;
+  }
+
   .sgs-header-inner {
     grid-template-columns: 1fr auto auto;
     gap: 9px;
@@ -1001,6 +1264,12 @@ body {
     animation: none !important;
     transition-duration: 0ms !important;
   }
+}
+
+html[data-motion="reduced"]
+  .sgs-document
+  :is(.brief-card, .source-row, .question-callout, .archive-card) {
+  transition: none;
 }
 
 html[data-motion="reduced"] {

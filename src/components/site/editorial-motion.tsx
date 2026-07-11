@@ -15,8 +15,9 @@ export function EditorialMotion() {
       running.clear();
     };
 
-    const play = (region: Element) => {
-      if (reduced() || document.hidden || region.hasAttribute("data-motion-played")) return;
+    const play = (region: Element): boolean => {
+      if (region.hasAttribute("data-motion-played")) return true;
+      if (reduced() || document.hidden) return false;
       region.setAttribute("data-motion-played", "");
       region.querySelectorAll<HTMLElement>("[data-motion-step]").forEach((step, index) => {
         const animation = step.animate(
@@ -33,6 +34,7 @@ export function EditorialMotion() {
         running.add(animation);
         animation.finished.catch(() => {}).finally(() => running.delete(animation));
       });
+      return true;
     };
 
     const regions = Array.from(document.querySelectorAll("[data-motion-sequence]"));
@@ -40,8 +42,7 @@ export function EditorialMotion() {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          play(entry.target);
-          observer.unobserve(entry.target);
+          if (play(entry.target)) observer.unobserve(entry.target);
         });
       },
       { rootMargin: "0px 0px -12%", threshold: 0.08 },
@@ -50,7 +51,7 @@ export function EditorialMotion() {
 
     const onPreference = () => {
       cancel();
-      if (!reduced()) regions.forEach((region) => play(region));
+      if (!reduced()) regions.forEach((region) => observer.observe(region));
     };
     const onVisibility = () => {
       if (document.hidden) cancel();

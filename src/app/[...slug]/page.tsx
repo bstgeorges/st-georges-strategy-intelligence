@@ -1,36 +1,45 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { ReferencePage } from "@/components/reference-page";
 import {
-  getStaticPageSnapshot,
-  slugFromRoute,
-  staticPageSnapshots,
-  toNextMetadata,
-} from "@/lib/content";
+  EditorialDocumentPage,
+  StructuredEditorialData,
+} from "@/components/site/editorial-document-page";
+import {
+  editorialDocumentRegistry,
+  getEditorialDocument,
+} from "@/content/editorial/document-registry";
+import { toEditorialMetadata } from "@/lib/editorial-metadata";
 
 interface ReferenceRouteProps {
   params: Promise<{ slug: string[] }>;
 }
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ slug: string[] }> {
-  return staticPageSnapshots.flatMap((snapshot) => {
-    const slug = slugFromRoute(snapshot.route);
-    return slug?.length ? [{ slug }] : [];
+  return editorialDocumentRegistry.flatMap(({ route }) => {
+    const slug = route.split("/").filter(Boolean);
+    return slug.length ? [{ slug }] : [];
   });
 }
 
 export async function generateMetadata({ params }: ReferenceRouteProps): Promise<Metadata> {
   const { slug } = await params;
-  const snapshot = getStaticPageSnapshot(slug);
-  return snapshot ? toNextMetadata(snapshot) : {};
+  const document = getEditorialDocument(`/${slug.join("/")}/`);
+  return document ? toEditorialMetadata(document) : {};
 }
 
-export default async function ReferenceRoute({ params }: ReferenceRouteProps) {
+export default async function EditorialRoute({ params }: ReferenceRouteProps) {
   const { slug } = await params;
-  const snapshot = getStaticPageSnapshot(slug);
-  if (!snapshot) notFound();
-  return <ReferencePage snapshot={snapshot} />;
+  const document = getEditorialDocument(`/${slug.join("/")}/`);
+  if (!document) notFound();
+  return (
+    <>
+      {document.metadata.structuredData ? (
+        <StructuredEditorialData value={document.metadata.structuredData} />
+      ) : null}
+      <EditorialDocumentPage document={document} />
+    </>
+  );
 }

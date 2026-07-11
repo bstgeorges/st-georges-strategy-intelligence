@@ -1,13 +1,13 @@
 # Deploy Surface Runbook
 
-This repo now has a canonical deploy path. The permanent fix for the Codex mounted-workspace `wrangler` failure is not to keep retrying from the sandbox; it is to make deploys happen from environments that use a normal filesystem.
+This repo has one canonical deploy transaction: `Site release (Cloudflare)`. It builds, deploys Pages and Workers, handles cache invalidation, and verifies that the exact Git release is present. See [Release automation](release-automation.md).
 
 ## Canonical Deploy Surfaces
 
 Use one of these:
 
 1. GitHub Actions on push to `main`
-2. GitHub Actions via manual `workflow_dispatch`
+2. GitHub Actions via manual `workflow_dispatch` (`production` or `dev`)
 3. A normal local terminal on Ben's Mac, from the project root
 
 Priority order:
@@ -24,7 +24,7 @@ The intended default is:
 
 1. Edit and validate in the repo
 2. Push to `main`
-3. Let GitHub Actions deploy Pages and Workers
+3. Let `Site release (Cloudflare)` deploy Pages and Workers and verify the exact release
 
 That gives us:
 

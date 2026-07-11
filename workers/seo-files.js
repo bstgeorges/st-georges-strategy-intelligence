@@ -43,7 +43,7 @@ function respond(body, contentType) {
     status: 200,
     headers: {
       "content-type": contentType,
-      "cache-control": "public, max-age=3600",
+      "cache-control": "public, max-age=0, must-revalidate",
       "x-pvo-route": "stgeorgesstrategy-seo-files",
       ...SECURITY_HEADERS,
     },
@@ -63,7 +63,9 @@ export default {
 
     if (pathname === "/sitemap.xml") {
       try {
-        const upstream = await fetch(SITEMAP_ORIGIN);
+        const upstream = await fetch(SITEMAP_ORIGIN, {
+          cf: { cacheTtl: 0, cacheEverything: false },
+        });
         if (upstream.ok) {
           return respond(await upstream.text(), "application/xml; charset=utf-8");
         }

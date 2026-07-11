@@ -1,15 +1,21 @@
-# Project state
+# Project state — business experience transformation
 
-- Objective: faithfully recreate the public St Georges Strategy website, then add restrained motion enhancements and prove production readiness.
-- Reference capture: `2026-07-10T14:16:05Z` (`2026-07-10 15:16:05 BST`).
-- Current phase: Phase 0 complete; Phase 1 starting.
-- Repository baseline: empty directory, not a Git repository, no existing user files or scripts.
-- Browser prerequisite: `npx` available at `/usr/local/bin/npx`.
-- Selected skills: `$web-clone` (extraction/clone loop), `$playwright` (browser capture and flows), `$visual-verdict` (iteration gate), `vercel:nextjs` (App Router architecture once scaffolded).
-- Agents/models: none spawned yet.
-- Commands/results: workspace listing passed; Git status blocked because no repository exists; project file inventory empty.
-- Changed files: `.codex/project/task-registry.md`, `docs/project_state/current.md`.
-- Branch/commit/deployment: none; no Git repository or deployment link.
-- Blockers: none for local build; preview deployment will require a linked/authorized Vercel project later.
-- Next actions: same-origin crawl, responsive reference capture, content/asset inventory, then architecture contracts.
-
+- Objective: migrate the faithful clone into a typed, component-driven executive-intelligence publication organised around `Signal → Judgement → Board Question → Evidence Ask → Owner/Deadline → Archive`.
+- Remote truth: `upstream/Jonats` at `21c0b1a76d125e02e9c3ed38b9c00bae3fc8185a`; this branch is 83 commits behind/divergent from current `upstream/main` and is not current production truth.
+- Working branch/worktree: `feat/business-experience-20260711` at `/Users/jonathanst-georges/Documents/Projects/StGeorgesStrategies-business-experience`, tracking latest `upstream/Jonats`.
+- Fork/PR target: push only to `EXIBIST32132`; eventual base `bstgeorges:Jonats`; do not force-push, merge, or push upstream.
+- Current phase: Phase 3 architecture contracts. Research and prototype gates passed; no production redesign route has been migrated yet.
+- Baseline install: `npm ci` passed, 367 packages, zero vulnerabilities.
+- Baseline verification: formatting failed on 19 merged files; lint passed with two font/stylesheet warnings; typecheck passed; content validation passed (42 routes, 8 topics); unit tests 2/2 passed; production build passed (45 paths); Playwright passed 8/22 and failed 14/22, primarily contrast scans measured during generic translucent reveals plus genuine legacy contrast and mobile-keyboard/reduced-motion assertions.
+- Architecture truth: 42 frozen snapshots feed one optional catch-all route through `dangerouslySetInnerHTML`; Committee Questions is a standalone captured 404 handler; the importer depends on an uncommitted external crawl and hard-coded capture/index values.
+- Deployment truth: PR #19 removed the prior Cloudflare Pages/Workers publishing workflows, publisher scripts, runbooks, and deployment configuration without a Next.js replacement. The current branch has no CI or deploy adapter.
+- Model availability: leader config is `gpt-5.6-sol` with xhigh reasoning. The native child-agent interface inherits the session model and does not expose a model selector/ID; exact child IDs will not be invented.
+- Active agents: repository truth, content/IA, enterprise-site, and award-site audits complete; a separate current-live capture lane remains in progress. Budgets are qualitative.
+- Live-site correction: `/committee-questions/` currently returns 200 and identifies itself as updated 9 July 2026. The repository's capture-time 404 remains valid historical evidence rather than current live-route truth.
+- Route correction: the live sitemap captured at `2026-07-11T13:03:30Z` contains 33 successful routes, using one 6 July dated brief/topic edition rather than the frozen reference's 8/9 July archive routes. Both editions are tracked separately in `docs/route-inventory.md`.
+- Current live evidence: `scripts/capture-live-reference.mjs` preserved a stable two-pass 33-route corpus at `2026-07-11T13:11:40.871Z` under `src/content/live-reference/`; all routes are unique/200/checksum-matched and the frozen corpus is unchanged.
+- Content-trust correction: rendered Horizon/AI pages and their public “latest” JSON feeds represent different records/editions. They will remain distinct until provenance is reconciled; no synthetic latest edition will be inferred.
+- Constraints: preserve all snapshots, source links, dates, facts, disclaimers, and archive evidence; direct-site research precedes design; Ralph PRD/test-spec gate is satisfied before implementation; public access remains unauthenticated.
+- Research decision: select the Executive Decision Spine for Home and the in-flow editorial handoff for its signature motion; prototype the evidence lens only on Signals. CSS/Web Animations API is the initial motion stack.
+- Prototype evidence: both real-content directions passed browser checks at 1440×900, 390×844 and 320×844 with zero overflow, console or request failures; full/reduced, keyboard, and JavaScript-disabled content parity passed. Structured visual verdict scored the selected Decision Spine 91/100.
+- Next gate: commit the artifact/domain/parity/route contracts, validate representative records, and only then migrate the first production archetype.

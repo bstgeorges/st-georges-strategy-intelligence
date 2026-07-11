@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A static-first comparison of two homepage and motion directions for The Virtual Officer."
+    />
+    <title>Business experience prototype — St Georges Strategy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#prototype-content">Skip to prototype</a>
+
+    <header class="lab-bar" aria-label="Prototype controls">
+      <a class="lab-brand" href="#spine" aria-label="St Georges Strategy prototype home">
+        <span class="lab-mark" aria-hidden="true">SGS</span>
+        <span>Business experience prototype</span>
+      </a>
+
+      <nav class="direction-switcher" aria-label="Compare homepage directions">
+        <a href="#spine" data-direction-link="spine" aria-current="page">
+          <span aria-hidden="true">A</span> Executive spine
+        </a>
+        <a href="#observatory" data-direction-link="observatory">
+          <span aria-hidden="true">B</span> Observatory
+        </a>
+      </nav>
+
+      <fieldset class="motion-switcher">
+        <legend>Motion</legend>
+        <input type="radio" name="motion" id="motion-full" value="full" checked />
+        <label for="motion-full">Full</label>
+        <input type="radio" name="motion" id="motion-reduced" value="reduced" />
+        <label for="motion-reduced">Reduced</label>
+      </fieldset>
+    </header>
+
+    <main id="prototype-content">
+      <section
+        class="concept concept-spine"
+        id="spine"
+        data-direction="spine"
+        aria-labelledby="spine-title"
+      >
+        <div class="concept-label">
+          <p>Direction A / Motion 1</p>
+          <strong>Executive Decision Spine · Editorial Handoff</strong>
+        </div>
+
+        <section class="spine-hero" aria-labelledby="spine-title">
+          <div class="hero-orientation">
+            <p class="edition">Weekly risk intelligence · Week of 6 Jul 2026</p>
+            <p class="eyebrow">The Virtual Officer, from St Georges Strategy</p>
+            <h1 id="spine-title">What changed, why it matters, what to ask for next</h1>
+            <p class="hero-dek">
+              Public signals, regulatory movement, and technology developments turned into executive
+              judgement, board questions, and evidence to ask for.
+            </p>
+            <a class="primary-action" href="#spine-top-five"
+              >Read this week’s brief <span aria-hidden="true">→</span></a
+            >
+          </div>
+
+          <aside class="decision-dossier" aria-label="This week’s executive glance">
+            <div class="dossier-heading">
+              <span>This week in three lines</span>
+              <strong>AI conduct + cyber resilience</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>Judgement</dt>
+                <dd>
+                  Firms need one evidence base that shows AI is authorised, bounded, observable,
+                  reversible, and accountable for customer outcomes — and resilient against
+                  AI-accelerated attack.
+                </dd>
+              </div>
+              <div>
+                <dt>Board question</dt>
+                <dd>
+                  Can we stop an agent quickly, prove why it acted, and show who owned the decision?
+                </dd>
+              </div>
+              <div>
+                <dt>Evidence ask</dt>
+                <dd>
+                  Inventory, permissions, kill switch, fallback, and rehearsed escalation — not just
+                  a policy document.
+                </dd>
+              </div>
+            </dl>
+            <a class="deadline" href="#spine-deadline">
+              <span>Nearest deadline</span>
+              <strong>14 Aug — needs an owner</strong>
+              <small>Listing-rules consultation still open to influence.</small>
+            </a>
+          </aside>
+        </section>
+
+        <section class="handoff-section" aria-labelledby="handoff-title">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow">Signature translation</p>
+              <h2 id="handoff-title">From public source to committee action</h2>
+            </div>
+            <div>
+              <p>
+                The handoff follows one explicit editorial chain. Every stage is complete before
+                motion begins and remains in document order.
+              </p>
+              <button class="replay-button enhancement-only" type="button" data-replay="handoff">
+                Replay handoff
+              </button>
+            </div>
+          </div>
+
+          <ol class="handoff" aria-label="Editorial handoff stages">
+            <li class="handoff-step">
+              <span class="step-number">01</span>
+              <span class="step-label">Public sources</span>
+              <strong>FCA · ESAs &amp; ESRB</strong>
+              <small>6–7 Jul 2026</small>
+            </li>
+            <li class="handoff-step">
+              <span class="step-number">02</span>
+              <span class="step-label">Signal streams</span>
+              <strong>AI governance · Cyber</strong>
+              <small>Two explicit source-backed topics</small>
+            </li>
+            <li class="handoff-step">
+              <span class="step-number">03</span>
+              <span class="step-label">This week’s pattern</span>
+              <strong>Both sides of the AI risk story</strong>
+              <small>Conduct outcomes + systemic cyber risk</small>
+            </li>
+            <li class="handoff-step handoff-emphasis">
+              <span class="step-number">04</span>
+              <span class="step-label">Executive judgement</span>
+              <strong>One evidence base</strong>
+              <small>Authorised · bounded · observable · reversible · accountable</small>
+            </li>
+            <li class="handoff-step">
+              <span class="step-number">05</span>
+              <span class="step-label">Board question</span>
+              <strong>Can we stop it, explain it, and name the owner?</strong>
+              <small>Portable into the committee pack</small>
+            </li>
+            <li class="handoff-step">
+              <span class="step-number">06</span>
+              <span class="step-label">Evidence ask</span>
+              <strong>Inventory · permissions · kill switch · fallback</strong>
+              <small>Plus rehearsed escalation</small>
+            </li>
+          </ol>
+        </section>
+
+        <section
+          class="top-five-section"
+          id="spine-top-five"
+          aria-labelledby="spine-top-five-title"
+        >
+          <div class="section-intro compact">
+            <div>
+              <p class="eyebrow">Latest brief / Week of 6 Jul 2026</p>
+              <h2 id="spine-top-five-title">Regulators land on both sides of the AI risk story</h2>
+            </div>
+            <p>
+              The FCA’s first review of AI in retail financial services and the ESAs’ warning on
+              systemic cyber risk from frontier AI models arrived days apart. Firms need one
+              evidence base that covers both conduct outcomes and cyber resilience.
+            </p>
+          </div>
+
+          <ol class="ranked-list">
+            <li>
+              <span class="rank">01</span>
+              <h3>
+                FCA’s first AI review puts retail outcomes and agentic control on the same page
+              </h3>
+              <p>AI governance / FCA, 6 Jul</p>
+            </li>
+            <li>
+              <span class="rank">02</span>
+              <h3>
+                Frontier AI models are now a declared systemic cyber risk, say the ESAs and ESRB
+              </h3>
+              <p>Cyber / EBA-ESMA-EIOPA, 7 Jul</p>
+            </li>
+            <li>
+              <span class="rank">03</span>
+              <h3>
+                OFSI’s largest-ever circumvention penalty resets sanctions control expectations
+              </h3>
+              <p>Financial crime / OFSI, 17 Jun</p>
+            </li>
+            <li>
+              <span class="rank">04</span>
+              <h3>
+                Bank of England’s July Financial Stability Report resets the resilience and market
+                baseline
+              </h3>
+              <p>Resilience / Market structure / BoE, 7 Jul</p>
+            </li>
+            <li>
+              <span class="rank">05</span>
+              <h3>A new UK legal duty on data protection complaints takes effect</h3>
+              <p>Data / ICO, 23 Jun</p>
+            </li>
+          </ol>
+
+          <div class="deadline-card" id="spine-deadline">
+            <div>
+              <p class="eyebrow">Reg Horizon / Next deadline</p>
+              <h2>14 Aug — needs an owner</h2>
+            </div>
+            <p>Listing-rules consultation still open to influence.</p>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="concept concept-observatory"
+        id="observatory"
+        data-direction="observatory"
+        aria-labelledby="observatory-title"
+      >
+        <div class="concept-label">
+          <p>Direction B / Motion 2</p>
+          <strong>Intelligence Observatory · Evidence Lens</strong>
+        </div>
+
+        <section class="observatory-hero" aria-labelledby="observatory-title">
+          <div class="observatory-heading">
+            <p class="edition">Weekly risk intelligence · Week of 6 Jul 2026</p>
+            <p class="eyebrow">The Virtual Officer, from St Georges Strategy</p>
+            <h1 id="observatory-title">Eight streams. One weekly pattern.</h1>
+            <p>
+              Explore the coverage universe first, then focus the evidence lens on the source-backed
+              signals behind this week’s judgement.
+            </p>
+          </div>
+
+          <div class="observatory-shell">
+            <div
+              class="stream-selector enhancement-only"
+              role="group"
+              aria-label="Focus an intelligence stream"
+            >
+              <button type="button" data-stream="ai" aria-pressed="true">AI</button>
+              <button type="button" data-stream="resilience" aria-pressed="false">
+                Resilience
+              </button>
+              <button type="button" data-stream="third-party" aria-pressed="false">
+                Third-party
+              </button>
+              <button type="button" data-stream="markets" aria-pressed="false">Markets</button>
+              <button type="button" data-stream="financial-crime" aria-pressed="false">
+                Financial crime
+              </button>
+              <button type="button" data-stream="cyber" aria-pressed="false">Cyber</button>
+              <button type="button" data-stream="technology-failure" aria-pressed="false">
+                Technology failure
+              </button>
+              <button type="button" data-stream="data" aria-pressed="false">Data</button>
+            </div>
+
+            <section
+              class="lens-readout"
+              id="lens-readout"
+              aria-labelledby="lens-readout-title"
+              aria-live="polite"
+            >
+              <p class="lens-kicker">Evidence lens / selected stream</p>
+
+              <article class="lens-record" data-lens-record="ai">
+                <p class="stream-name">AI · Agents and control</p>
+                <h2 id="lens-readout-title">
+                  FCA’s first AI review puts retail outcomes and agentic control on the same page
+                </h2>
+                <p class="source-label">01 / AI governance / FCA, 6 Jul</p>
+                <p>Permission boundaries, kill switches, and escalation evidence.</p>
+              </article>
+              <article class="lens-record" data-lens-record="resilience">
+                <p class="stream-name">Resilience · Failure paths</p>
+                <h2>
+                  Bank of England’s July Financial Stability Report resets the resilience and market
+                  baseline
+                </h2>
+                <p class="source-label">04 / Resilience / Market structure / BoE, 7 Jul</p>
+                <p>Fallback evidence and customer-visible impact.</p>
+              </article>
+              <article class="lens-record" data-lens-record="third-party">
+                <p class="stream-name">Third-party · Dependencies</p>
+                <h2>What looks internal until it fails.</h2>
+                <p class="source-label">Tracked stream / Week of 6 Jul 2026</p>
+                <p>Dependencies and control evidence remain visible in the eight-stream scan.</p>
+              </article>
+              <article class="lens-record" data-lens-record="markets">
+                <p class="stream-name">Markets · Structure</p>
+                <h2>
+                  Bank of England’s July Financial Stability Report resets the resilience and market
+                  baseline
+                </h2>
+                <p class="source-label">04 / Resilience / Market structure / BoE, 7 Jul</p>
+                <p>Capital, liquidity, and concentration risk.</p>
+              </article>
+              <article class="lens-record" data-lens-record="financial-crime">
+                <p class="stream-name">Financial crime · Fraud and sanctions</p>
+                <h2>
+                  OFSI’s largest-ever circumvention penalty resets sanctions control expectations
+                </h2>
+                <p class="source-label">03 / Financial crime / OFSI, 17 Jun</p>
+                <p>Scams, AML, and control evidence.</p>
+              </article>
+              <article class="lens-record" data-lens-record="cyber">
+                <p class="stream-name">Cyber · Threats and response</p>
+                <h2>
+                  Frontier AI models are now a declared systemic cyber risk, say the ESAs and ESRB
+                </h2>
+                <p class="source-label">02 / Cyber / EBA-ESMA-EIOPA, 7 Jul</p>
+                <p>Vulnerabilities, identity, and recovery.</p>
+              </article>
+              <article class="lens-record" data-lens-record="technology-failure">
+                <p class="stream-name">Technology failure · Outages</p>
+                <h2>Change failure and recovery evidence.</h2>
+                <p class="source-label">Tracked stream / Week of 6 Jul 2026</p>
+                <p>Outages remain visible in the eight-stream scan.</p>
+              </article>
+              <article class="lens-record" data-lens-record="data">
+                <p class="stream-name">Data · Lineage</p>
+                <h2>A new UK legal duty on data protection complaints takes effect</h2>
+                <p class="source-label">05 / Data / ICO, 23 Jun</p>
+                <p>Reporting, privacy, and evidence integrity.</p>
+              </article>
+            </section>
+          </div>
+
+          <div class="stream-index" aria-labelledby="stream-index-title">
+            <div class="stream-index-heading">
+              <p class="eyebrow">Signals library</p>
+              <h2 id="stream-index-title">Eight streams, ranked and source-backed</h2>
+              <p>Each stream carries a Top 5 shortlist and five more source-backed rows.</p>
+            </div>
+            <ol>
+              <li><span>01</span><strong>AI</strong><small>Agents and control</small></li>
+              <li>
+                <span>02</span><strong>Operational resilience</strong><small>Failure paths</small>
+              </li>
+              <li><span>03</span><strong>Third-party risk</strong><small>Dependencies</small></li>
+              <li><span>04</span><strong>Market structure</strong><small>Structure</small></li>
+              <li>
+                <span>05</span><strong>Financial crime</strong><small>Fraud and sanctions</small>
+              </li>
+              <li><span>06</span><strong>Cyber</strong><small>Threats and response</small></li>
+              <li><span>07</span><strong>Technology failure</strong><small>Outages</small></li>
+              <li><span>08</span><strong>Data</strong><small>Lineage</small></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="observatory-judgement" aria-labelledby="observatory-judgement-title">
+          <div class="judgement-statement">
+            <p class="eyebrow">This week’s pattern</p>
+            <h2 id="observatory-judgement-title">
+              Regulators land on both sides of the AI risk story
+            </h2>
+            <p>
+              Firms need one evidence base that shows AI is authorised, bounded, observable,
+              reversible, and accountable for customer outcomes — and resilient against
+              AI-accelerated attack.
+            </p>
+          </div>
+          <dl class="action-pair">
+            <div>
+              <dt>Board question</dt>
+              <dd>
+                Can we stop an agent quickly, prove why it acted, and show who owned the decision?
+              </dd>
+            </div>
+            <div>
+              <dt>Evidence ask</dt>
+              <dd>
+                Inventory, permissions, kill switch, fallback, and rehearsed escalation — not just a
+                policy document.
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="observatory-evidence" aria-labelledby="observatory-top-five-title">
+          <div class="section-intro compact">
+            <div>
+              <p class="eyebrow">Current Top 5</p>
+              <h2 id="observatory-top-five-title">The ranked evidence behind the pattern</h2>
+            </div>
+            <div class="observatory-deadline">
+              <span>Next deadline</span>
+              <strong>14 Aug — needs an owner</strong>
+              <small>Listing-rules consultation still open to influence.</small>
+            </div>
+          </div>
+
+          <ol class="ranked-list ranked-list-dark">
+            <li>
+              <span class="rank">01</span>
+              <h3>
+                FCA’s first AI review puts retail outcomes and agentic control on the same page
+              </h3>
+              <p>AI governance / FCA, 6 Jul</p>
+            </li>
+            <li>
+              <span class="rank">02</span>
+              <h3>
+                Frontier AI models are now a declared systemic cyber risk, say the ESAs and ESRB
+              </h3>
+              <p>Cyber / EBA-ESMA-EIOPA, 7 Jul</p>
+            </li>
+            <li>
+              <span class="rank">03</span>
+              <h3>
+                OFSI’s largest-ever circumvention penalty resets sanctions control expectations
+              </h3>
+              <p>Financial crime / OFSI, 17 Jun</p>
+            </li>
+            <li>
+              <span class="rank">04</span>
+              <h3>
+                Bank of England’s July Financial Stability Report resets the resilience and market
+                baseline
+              </h3>
+              <p>Resilience / Market structure / BoE, 7 Jul</p>
+            </li>
+            <li>
+              <span class="rank">05</span>
+              <h3>A new UK legal duty on data protection complaints takes effect</h3>
+              <p>Data / ICO, 23 Jun</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+    </main>
+
+    <footer class="prototype-footer">
+      <strong>The Virtual Officer</strong>
+      <p>Phase-2 comparison prototype · Not a production route</p>
+      <a href="README.md">Read hypotheses and comparison criteria</a>
+    </footer>
+  </body>
+</html>

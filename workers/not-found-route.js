@@ -110,7 +110,17 @@ export default {
     }
 
     const upstream = new URL(url.pathname + url.search, ORIGIN);
-    const upstreamResponse = await fetch(upstream, { method: request.method });
+    // §0 fix (10 Jul 2026 fix spec): this fetch previously had no cache-control options,
+    // which let Cloudflare's edge cache transparently serve a stale copy of the origin
+    // response for an arbitrary period — the observed symptom was crawlers and non-JS
+    // clients getting a publish cycle (and one template generation) behind what a
+    // browser rendered. Forcing cacheTtl to 0 and disabling cacheEverything makes this
+    // Worker always pull a fresh response from the Pages origin, which already has its
+    // own short-lived Cache-Control (see generateHeaders() in publish_site_bundle.mjs).
+    const upstreamResponse = await fetch(upstream, {
+      method: request.method,
+      cf: { cacheTtl: 0, cacheEverything: false },
+    });
     if (upstreamResponse.status === 404) {
       return notFound(request.method);
     }

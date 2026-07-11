@@ -1,0 +1,84 @@
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+import { parseEditorialDocument } from "../src/content/editorial/document-parser.ts";
+
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const outputPath = path.join(projectRoot, "src/content/generated/editorial-documents.ts");
+
+const corpusDefinitions = [
+  {
+    corpus: "frozen",
+    directory: path.join(projectRoot, "src/content/reference"),
+    manifest: "content-fidelity-manifest.json",
+  },
+  {
+    corpus: "live",
+    directory: path.join(projectRoot, "src/content/live-reference"),
+    manifest: "manifest.json",
+  },
+];
+
+const readJson = async (filePath) => JSON.parse(await readFile(filePath, "utf8"));
+
+async function loadCorpus({ corpus, directory, manifest: manifestFile }) {
+  const manifest = await readJson(path.join(directory, manifestFile));
+  const files = (await readdir(directory)).filter((file) => /^\d+\.json$/.test(file)).sort();
+  if (files.length !== manifest.pages.length) {
+    throw new Error(
+      `${corpus} corpus has ${files.length} snapshots but ${manifest.pages.length} manifest rows`,
+    );
+  }
+
+  const manifestByFile = new Map(manifest.pages.map((page) => [page.file, page]));
+  const routes = new Set();
+  const documents = [];
+  for (const file of files) {
+    const snapshot = await readJson(path.join(directory, file));
+    const evidence = manifestByFile.get(file);
+    if (!evidence) throw new Error(`${corpus} manifest does not reference ${file}`);
+    if (
+      evidence.route !== snapshot.route ||
+      evidence.status !== snapshot.status ||
+      evidence.sha256 !== snapshot.sha256
+    ) {
+      throw new Error(`${corpus} manifest and snapshot disagree for ${file}`);
+    }
+    if (routes.has(snapshot.route)) throw new Error(`${corpus} corpus repeats ${snapshot.route}`);
+    routes.add(snapshot.route);
+    documents.push(parseEditorialDocument(snapshot, corpus));
+  }
+  return documents;
+}
+
+function moduleSource(documents) {
+  const serialized = JSON.stringify(documents)
+    .replaceAll("\\", "\\\\")
+    .replaceAll("'", "\\'")
+    .replaceAll("\u2028", "\\u2028")
+    .replaceAll("\u2029", "\\u2029");
+  return `// Generated capture/parity fixture. Never import this module from production routes or components.\n// Regenerate with scripts/generate-editorial-documents.mjs; edit authored records instead.\nimport type { EditorialDocument } from "../editorial/document-types";\n\nconst serializedDocuments =\n  '${serialized}';\n\nexport const capturedEditorialDocuments = Object.freeze(\n  JSON.parse(serializedDocuments) as readonly EditorialDocument[],\n);\n`;
+}
+
+export async function generateEditorialDocuments({ write = true } = {}) {
+  const documents = [];
+  for (const definition of corpusDefinitions) {
+    documents.push(...(await loadCorpus(definition)));
+  }
+  const output = moduleSource(documents);
+  if (write) {
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, output);
+  }
+  return { documents, output, outputPath };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  const { documents } = await generateEditorialDocuments();
+  const frozen = documents.filter(({ corpus }) => corpus === "frozen").length;
+  const live = documents.filter(({ corpus }) => corpus === "live").length;
+  console.log(
+    `Generated ${documents.length} capture/parity fixtures (${frozen} frozen, ${live} live).`,
+  );
+}

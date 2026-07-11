@@ -1,6 +1,34 @@
+import "../../public/styles.css";
 import "./globals.css";
 
-import { MotionEnhancements } from "@/components/motion-enhancements";
+import type { Metadata } from "next";
+import { Hanken_Grotesk, JetBrains_Mono, Playfair_Display } from "next/font/google";
+
+const display = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "optional",
+});
+
+const sans = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "optional",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "optional",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://stgeorgesstrategy.com"),
+  applicationName: "The Virtual Officer",
+  authors: [{ name: "Ben St Georges", url: "https://www.linkedin.com/in/benstgeorges/" }],
+  creator: "Ben St Georges",
+  publisher: "St Georges Strategy",
+};
 
 export default function RootLayout({
   children,
@@ -8,22 +36,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="/styles.css" />
-      </head>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
         {children}
-        <MotionEnhancements />
       </body>
     </html>
   );

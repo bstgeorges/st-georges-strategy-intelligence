@@ -45,7 +45,9 @@ export async function loadSnapshots(projectRoot = process.cwd()) {
   const root = path.join(projectRoot, "src/content/reference");
   const fileNames = (await readdir(root)).filter((name) => /^\d{2}\.json$/.test(name)).sort();
   return Promise.all(
-    fileNames.map(async (fileName) => JSON.parse(await readFile(path.join(root, fileName), "utf8"))),
+    fileNames.map(async (fileName) =>
+      JSON.parse(await readFile(path.join(root, fileName), "utf8")),
+    ),
   );
 }
 
@@ -57,19 +59,40 @@ export function validateSnapshots(snapshots) {
   const brokenInternal = new Set();
 
   for (const snapshot of snapshots) {
-    invariant(typeof snapshot.route === "string" && snapshot.route.startsWith("/"), "Invalid route");
-    invariant(snapshot.status === 200 || snapshot.status === 404, `Invalid status ${snapshot.route}`);
+    invariant(
+      typeof snapshot.route === "string" && snapshot.route.startsWith("/"),
+      "Invalid route",
+    );
+    invariant(
+      snapshot.status === 200 || snapshot.status === 404,
+      `Invalid status ${snapshot.route}`,
+    );
     invariant(snapshot.bodyHtml.includes("<main"), `Missing main landmark ${snapshot.route}`);
-    invariant(snapshot.bodyHtml.includes('id="main-content"'), `Missing skip-link target ${snapshot.route}`);
+    invariant(
+      snapshot.bodyHtml.includes('id="main-content"'),
+      `Missing skip-link target ${snapshot.route}`,
+    );
     invariant(snapshot.metadata?.title, `Missing title ${snapshot.route}`);
-    invariant(snapshot.status === 404 || snapshot.metadata?.description, `Missing description ${snapshot.route}`);
+    invariant(
+      snapshot.status === 404 || snapshot.metadata?.description,
+      `Missing description ${snapshot.route}`,
+    );
     invariant(/^[a-f0-9]{64}$/.test(snapshot.sha256), `Invalid SHA-256 ${snapshot.route}`);
-    invariant(!hashes.has(`${snapshot.route}:${snapshot.sha256}`), `Duplicate snapshot hash ${snapshot.route}`);
+    invariant(
+      !hashes.has(`${snapshot.route}:${snapshot.sha256}`),
+      `Duplicate snapshot hash ${snapshot.route}`,
+    );
     hashes.add(`${snapshot.route}:${snapshot.sha256}`);
-    invariant(!/\b(?:TODO|lorem ipsum|placeholder)\b/i.test(snapshot.bodyHtml), `Placeholder copy ${snapshot.route}`);
+    invariant(
+      !/\b(?:TODO|lorem ipsum|placeholder)\b/i.test(snapshot.bodyHtml),
+      `Placeholder copy ${snapshot.route}`,
+    );
 
     if (snapshot.status === 200 && !snapshot.route.includes("/archive/")) {
-      invariant(snapshot.bodyHtml.includes("Not investment, legal, compliance, or regulatory advice."), `Missing disclaimer ${snapshot.route}`);
+      invariant(
+        snapshot.bodyHtml.includes("Not investment, legal, compliance, or regulatory advice."),
+        `Missing disclaimer ${snapshot.route}`,
+      );
     }
 
     for (const match of snapshot.bodyHtml.matchAll(/\bhref=["']([^"']+)["']/gi)) {
@@ -96,7 +119,10 @@ export function validateSnapshots(snapshots) {
     invariant(routes.has(`/signals/${slug}/archive/2026-07-08/`), `Missing 2026-07-08 ${slug}`);
   }
 
-  invariant(brokenInternal.size === 0, `Broken internal targets: ${[...brokenInternal].join(", ")}`);
+  invariant(
+    brokenInternal.size === 0,
+    `Broken internal targets: ${[...brokenInternal].join(", ")}`,
+  );
   return { pages: snapshots.length, routes: routes.size, topics: topicSlugs.length };
 }
 
@@ -110,10 +136,22 @@ export async function validateMachineContent(projectRoot = process.cwd()) {
   const ai = JSON.parse(aiText);
   const horizon = JSON.parse(horizonText);
 
-  invariant(Array.isArray(ai.sections) && ai.sections.length === 3, "AI feed must have three sections");
-  invariant(ai.sections.every((section) => Array.isArray(section.cards) && section.cards.length === 5), "AI sections must contain five cards");
-  invariant(Array.isArray(horizon.signals) && horizon.signals.length === 10, "Horizon must contain ten delivered signals");
-  invariant(Array.isArray(horizon.horizon) && horizon.horizon.length === 3, "Horizon must contain three deadlines");
+  invariant(
+    Array.isArray(ai.sections) && ai.sections.length === 3,
+    "AI feed must have three sections",
+  );
+  invariant(
+    ai.sections.every((section) => Array.isArray(section.cards) && section.cards.length === 5),
+    "AI sections must contain five cards",
+  );
+  invariant(
+    Array.isArray(horizon.signals) && horizon.signals.length === 10,
+    "Horizon must contain ten delivered signals",
+  );
+  invariant(
+    Array.isArray(horizon.horizon) && horizon.horizon.length === 3,
+    "Horizon must contain three deadlines",
+  );
 
   return {
     aiSha256: createHash("sha256").update(aiText).digest("hex"),

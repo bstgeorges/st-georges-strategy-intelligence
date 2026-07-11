@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 import { isSpecificPublishedSourceUrl, validatePublishedRows } from "./lib/published_source_contract.mjs";
@@ -11,6 +12,7 @@ const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
+const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
 const FEED_XSL = `<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -404,6 +406,34 @@ function injectAnalytics(out, token) {
     write(file, html.replace("</head>", `${snippet}\n  </head>`));
   }
   return true;
+}
+
+function injectReleaseId(out, releaseId) {
+  if (!/^[A-Za-z0-9._-]{1,128}$/.test(releaseId)) {
+    throw new Error("SITE_RELEASE_ID must contain only letters, numbers, dots, underscores, or hyphens.");
+  }
+
+  const marker = `<meta name="x-sgs-release" content="${releaseId}">`;
+  for (const file of listFiles(out, ".html")) {
+    const html = read(file);
+    const withoutOldMarker = html.replace(/\s*<meta name="x-sgs-release" content="[^"]*">/g, "");
+    write(file, withoutOldMarker.replace("<head>", `<head>\n    ${marker}`));
+  }
+}
+
+function sha256(file) {
+  return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+}
+
+function writeReleaseMetadata(out, releaseId, edition) {
+  const files = ["styles.css", "app.js", "data/signals.json", "sitemap.xml"];
+  const metadata = {
+    release: releaseId,
+    edition,
+    generatedAt: new Date().toISOString(),
+    files: Object.fromEntries(files.map((file) => [`/${file}`, sha256(path.join(out, file))])),
+  };
+  write(path.join(out, "data", "release.json"), `${JSON.stringify(metadata, null, 2)}\n`);
 }
 
 function listFiles(dir, extension) {
@@ -1024,7 +1054,7 @@ function generateHeaders(out) {
   Cache-Control: no-cache, must-revalidate
 
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /data/*
   Cache-Control: public, max-age=300
@@ -1100,10 +1130,11 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   verifyLockedSections(out, failures);
 }
 
-function writeReport(out, edition, sitemapUrls, analyticsInjected, failures, publisherWarnings = []) {
+function writeReport(out, edition, releaseId, sitemapUrls, analyticsInjected, failures, publisherWarnings = []) {
   const report = {
     status: failures.length ? "failed" : "passed",
     generatedAt: new Date().toISOString(),
+    release: releaseId,
     edition,
     routes: routes.map(([route]) => route),
     topics,
@@ -1157,9 +1188,11 @@ function main() {
   normaliseHtmlReferencesToRoot(options.out);
   normaliseHorizonArchiveLinks(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);
+  injectReleaseId(options.out, RELEASE_ID);
+  writeReleaseMetadata(options.out, RELEASE_ID, edition);
   const publisherWarnings = assessPublisherWarnings(horizonData);
   verifyBuild(options.out, edition, sitemapUrls, failures);
-  writeReport(options.out, edition, sitemapUrls, analyticsInjected, failures, publisherWarnings);
+  writeReport(options.out, edition, RELEASE_ID, sitemapUrls, analyticsInjected, failures, publisherWarnings);
 
   if (failures.length) {
     console.error("Site bundle publish failed:");
@@ -1170,6 +1203,7 @@ function main() {
   console.log("Site bundle publish passed.");
   console.log(`Output: ${path.relative(ROOT, options.out)}`);
   console.log(`Edition: ${edition}`);
+  console.log(`Release: ${RELEASE_ID}`);
   console.log(`Routes generated: ${routes.length}`);
   console.log(`Topic archives generated: ${topics.length}`);
   console.log(`Sitemap URLs: ${sitemapUrls.length}`);

@@ -6,10 +6,10 @@ import {
   StructuredEditorialData,
 } from "@/components/site/editorial-document-page";
 import {
-  editorialDocumentRegistry,
-  getEditorialDocument,
-} from "@/content/editorial/document-registry";
-import { toEditorialMetadata } from "@/lib/editorial-metadata";
+  authoredEditorialRegistry,
+  getAuthoredEditorialRecord,
+} from "@/content/editorial/authored-registry";
+import { editorialStructuredData, toEditorialMetadata } from "@/lib/editorial-metadata";
 
 interface ReferenceRouteProps {
   params: Promise<{ slug: string[] }>;
@@ -18,7 +18,7 @@ interface ReferenceRouteProps {
 export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ slug: string[] }> {
-  return editorialDocumentRegistry.flatMap(({ route }) => {
+  return authoredEditorialRegistry.flatMap(({ route }) => {
     const slug = route.split("/").filter(Boolean);
     return slug.length ? [{ slug }] : [];
   });
@@ -26,20 +26,18 @@ export function generateStaticParams(): Array<{ slug: string[] }> {
 
 export async function generateMetadata({ params }: ReferenceRouteProps): Promise<Metadata> {
   const { slug } = await params;
-  const document = getEditorialDocument(`/${slug.join("/")}/`);
-  return document ? toEditorialMetadata(document) : {};
+  const record = getAuthoredEditorialRecord(`/${slug.join("/")}/`);
+  return record ? toEditorialMetadata(record) : {};
 }
 
 export default async function EditorialRoute({ params }: ReferenceRouteProps) {
   const { slug } = await params;
-  const document = getEditorialDocument(`/${slug.join("/")}/`);
-  if (!document) notFound();
+  const record = getAuthoredEditorialRecord(`/${slug.join("/")}/`);
+  if (!record) notFound();
   return (
     <>
-      {document.metadata.structuredData ? (
-        <StructuredEditorialData value={document.metadata.structuredData} />
-      ) : null}
-      <EditorialDocumentPage document={document} />
+      <StructuredEditorialData value={editorialStructuredData(record)} />
+      <EditorialDocumentPage record={record} />
     </>
   );
 }

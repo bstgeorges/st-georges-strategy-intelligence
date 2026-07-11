@@ -48,26 +48,24 @@ const handoffSteps = [
 export function HomePage() {
   return (
     <SiteShell currentPath="/">
-      <main id="main-content" className="sgs-main">
+      <main id="main-content" className="sgs-main" tabIndex={-1}>
         <section className="sgs-home-hero" aria-labelledby="home-title">
-          <div className="sgs-hero-orientation" data-motion-sequence>
-            <p className="sgs-edition" data-motion-step>
+          <div className="sgs-hero-orientation" data-home-motion="orientation">
+            <p className="sgs-edition" data-motion-part="context">
               Weekly risk intelligence · {homeEdition.week}
             </p>
-            <p className="sgs-kicker" data-motion-step>
+            <p className="sgs-kicker" data-motion-part="context">
               {homeEdition.eyebrow}
             </p>
-            <h1 id="home-title" data-motion-step>
-              {homeEdition.title}
-            </h1>
-            <p className="sgs-hero-copy" data-motion-step>
+            <h1 id="home-title">{homeEdition.title}</h1>
+            <p className="sgs-hero-copy" data-motion-part="explanation">
               {homeEdition.description}
             </p>
-            <div className="sgs-action-row" data-motion-step>
-              <Link className="sgs-button sgs-button-primary" href="/brief/">
+            <div className="sgs-action-row" data-motion-part="action">
+              <Link className="sgs-button sgs-button-primary" href="/brief/" prefetch={false}>
                 Read this week&apos;s brief
               </Link>
-              <Link className="sgs-button sgs-button-secondary" href="/signals/">
+              <Link className="sgs-button sgs-button-secondary" href="/signals/" prefetch={false}>
                 Explore Signals
               </Link>
             </div>
@@ -75,28 +73,28 @@ export function HomePage() {
           <aside
             className="sgs-executive-glance"
             aria-labelledby="glance-title"
-            data-motion-sequence
+            data-home-motion="translation"
           >
-            <div className="sgs-glance-heading" data-motion-step>
+            <div className="sgs-glance-heading" data-motion-part="judgement">
               <div>
                 <p className="sgs-kicker">This week in three lines</p>
                 <h2 id="glance-title">The judgement, the question, and the ask</h2>
               </div>
               <span>{homeEdition.editionDate}</span>
             </div>
-            <p className="sgs-glance-pattern" data-motion-step>
+            <p className="sgs-glance-pattern" data-motion-part="judgement">
               {homeEdition.pattern}
             </p>
             <dl>
-              <div data-motion-step>
+              <div data-motion-part="judgement">
                 <dt>The judgement</dt>
                 <dd>{homeEdition.judgement}</dd>
               </div>
-              <div data-motion-step>
+              <div data-motion-part="question">
                 <dt>The board question</dt>
                 <dd>{homeEdition.boardQuestion}</dd>
               </div>
-              <div data-motion-step>
+              <div data-motion-part="evidence">
                 <dt>What to ask for</dt>
                 <dd>{homeEdition.evidenceAsk}</dd>
               </div>
@@ -104,7 +102,8 @@ export function HomePage() {
             <Link
               className="sgs-deadline-link"
               href={homeEdition.nearestDeadline.href}
-              data-motion-step
+              prefetch={false}
+              data-motion-part="owner-deadline"
             >
               <span>Nearest deadline</span>
               <strong>
@@ -115,8 +114,12 @@ export function HomePage() {
           </aside>
         </section>
 
-        <section className="sgs-handoff" aria-labelledby="handoff-title" data-motion-sequence>
-          <div className="sgs-section-heading" data-motion-step>
+        <section
+          className="sgs-handoff"
+          aria-labelledby="handoff-title"
+          data-home-motion="convergence"
+        >
+          <div className="sgs-section-heading" data-motion-part="orientation">
             <div>
               <p className="sgs-kicker">Signal to action</p>
               <h2 id="handoff-title">How public information becomes executive action</h2>
@@ -128,7 +131,7 @@ export function HomePage() {
           </div>
           <ol className="sgs-handoff-list">
             {handoffSteps.map((step, index) => (
-              <li key={step.label} data-motion-step>
+              <li key={step.label} data-motion-stage={index + 1}>
                 <span className="sgs-step-number">{String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <p>{step.label}</p>
@@ -140,8 +143,12 @@ export function HomePage() {
           </ol>
         </section>
 
-        <section className="sgs-top-five" aria-labelledby="top-five-title" data-motion-sequence>
-          <div className="sgs-section-heading" data-motion-step>
+        <section
+          className="sgs-top-five"
+          aria-labelledby="top-five-title"
+          data-home-motion="priority"
+        >
+          <div className="sgs-section-heading" data-motion-part="orientation">
             <div>
               <p className="sgs-kicker">Latest brief / {homeEdition.week}</p>
               <h2 id="top-five-title">{homeEdition.briefTitle}</h2>
@@ -150,49 +157,22 @@ export function HomePage() {
           </div>
           <ol className="sgs-ranked-list">
             {homeTopSignals.map((signal) => (
-              <li key={signal.rank} data-motion-step>
+              <li key={signal.rank} data-motion-rank={signal.rank}>
                 <span className="sgs-rank">{String(signal.rank).padStart(2, "0")}</span>
-                <Link href={signal.href}>{signal.title}</Link>
+                <Link href={signal.href} prefetch={false}>
+                  {signal.title}
+                </Link>
                 <span>{signal.meta}</span>
               </li>
             ))}
           </ol>
-          <Link className="sgs-text-link" href="/brief/">
+          <Link className="sgs-text-link" href="/brief/" prefetch={false}>
             Read the full brief <span aria-hidden="true">→</span>
           </Link>
         </section>
 
-        <section className="sgs-audience" aria-labelledby="audience-title" data-motion-sequence>
-          <div className="sgs-section-heading" data-motion-step>
-            <div>
-              <p className="sgs-kicker">Who this is for, and how</p>
-              <h2 id="audience-title">Built for the people who oversee the risk</h2>
-            </div>
-            <p>
-              Senior risk, compliance, resilience, technology, and AI governance leaders in
-              regulated financial services who need a weekly view of what matters, what is coming,
-              and what evidence to ask for.
-            </p>
-          </div>
-          <ul className="sgs-role-list" aria-label="Roles this publication is written for">
-            {executiveRoles.map((role) => (
-              <li key={role} data-motion-step>
-                {role}
-              </li>
-            ))}
-          </ul>
-          <div className="sgs-use-grid">
-            {publicationUses.map((use) => (
-              <article key={use.label} data-motion-step>
-                <p className="sgs-kicker">{use.label}</p>
-                <p>{use.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="sgs-streams" aria-labelledby="streams-title" data-motion-sequence>
-          <div className="sgs-section-heading" data-motion-step>
+        <section className="sgs-streams" aria-labelledby="streams-title" data-home-motion="signal">
+          <div className="sgs-section-heading" data-motion-part="orientation">
             <div>
               <p className="sgs-kicker">Signals library</p>
               <h2 id="streams-title">Eight streams, ranked and source-backed</h2>
@@ -204,7 +184,7 @@ export function HomePage() {
           </div>
           <div className="sgs-stream-grid">
             {homeTopicStreams.map((stream, index) => (
-              <Link key={stream.slug} href={stream.href} data-motion-step>
+              <Link key={stream.slug} href={stream.href} prefetch={false} data-motion-source>
                 <span className="sgs-step-number">{String(index + 1).padStart(2, "0")}</span>
                 <p className="sgs-kicker">{stream.label}</p>
                 <h3>{stream.title}</h3>
@@ -214,8 +194,8 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="sgs-horizon" aria-labelledby="horizon-title" data-motion-sequence>
-          <div className="sgs-section-heading" data-motion-step>
+        <section className="sgs-horizon" aria-labelledby="horizon-title" data-home-motion="time">
+          <div className="sgs-section-heading" data-motion-part="orientation">
             <div>
               <p className="sgs-kicker">Reg Horizon</p>
               <h2 id="horizon-title">What is coming, and who needs to own it</h2>
@@ -226,21 +206,57 @@ export function HomePage() {
             </p>
           </div>
           <div className="sgs-horizon-grid">
-            <Link href="/regulatory-horizon/" data-motion-step>
+            <Link href="/regulatory-horizon/" prefetch={false} data-motion-time="current">
               <span>This edition</span>
               <strong>6 material signals</strong>
               <p>Ranked items requiring business-impact triage.</p>
             </Link>
-            <Link href="/regulatory-horizon/" data-motion-step>
+            <Link href="/regulatory-horizon/" prefetch={false} data-motion-time="themes">
               <span>Active themes</span>
               <strong>3 of 8 tracked themes</strong>
               <p>Digital money, customer outcomes, and market plumbing.</p>
             </Link>
-            <Link href="/regulatory-horizon/" data-motion-step>
+            <Link href="/regulatory-horizon/" prefetch={false} data-motion-time="deadline">
               <span>Next deadline</span>
               <strong>14 Aug — needs an owner</strong>
               <p>Listing-rules consultation still open to influence.</p>
             </Link>
+          </div>
+        </section>
+
+        <section className="sgs-audience" aria-labelledby="audience-title" data-motion-sequence>
+          <div className="sgs-section-heading" data-motion-step>
+            <div>
+              <p className="sgs-kicker">Your starting point</p>
+              <h2 id="audience-title">Enter through the risk you oversee</h2>
+            </div>
+            <p>
+              Each route is grounded in the current brief, committee library, or the named
+              dossier&apos;s approved audience and evidence context. Start there, then follow the
+              source trail.
+            </p>
+          </div>
+          <ul className="sgs-role-grid" aria-label="Role-based intelligence starting points">
+            {executiveRoles.map((entry) => (
+              <li key={entry.role} data-motion-step>
+                <Link href={entry.href} prefetch={false}>
+                  <p className="sgs-kicker">{entry.role}</p>
+                  <h3>{entry.startLabel}</h3>
+                  <span>{entry.summary}</span>
+                  <strong>
+                    Open starting point <span aria-hidden="true">→</span>
+                  </strong>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="sgs-use-grid">
+            {publicationUses.map((use) => (
+              <article key={use.label} data-motion-step>
+                <p className="sgs-kicker">{use.label}</p>
+                <p>{use.description}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -267,7 +283,7 @@ export function HomePage() {
               </article>
             ))}
           </div>
-          <Link className="sgs-text-link" href="/about/">
+          <Link className="sgs-text-link" href="/about/" prefetch={false}>
             About The Virtual Officer <span aria-hidden="true">→</span>
           </Link>
         </section>

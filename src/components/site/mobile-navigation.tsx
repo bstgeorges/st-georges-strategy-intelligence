@@ -17,10 +17,10 @@ export function MobileNavigation({
           <Link
             key={item.href}
             href={item.href}
-            prefetch={item.href === "/committee-questions/" ? false : undefined}
+            prefetch={false}
             aria-current={item.href === currentPath ? "page" : undefined}
           >
-            <span>{String(index + 1).padStart(2, "0")}</span>
+            <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
             {item.label}
           </Link>
         ))}

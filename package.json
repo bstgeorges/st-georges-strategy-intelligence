@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "overrides": {
     "postcss": "8.5.16"
   },
@@ -17,8 +20,19 @@
     "validate:content": "node scripts/validate-content.mjs",
     "validate:editorial": "node scripts/validate-editorial.mjs",
     "generate:documents": "node scripts/generate-editorial-documents.mjs",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:upload": "npm run cf:build && npm run cf:upload:built",
+    "cf:upload:built": "opennextjs-cloudflare upload",
+    "cf:deploy": "npm run cf:build && opennextjs-cloudflare deploy",
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "cf:dry-run": "wrangler deploy --dry-run --outdir output/cloudflare-dry-run",
+    "verify:workerd": "node scripts/verify-workerd.mjs",
     "verify:home": "node scripts/verify-home.mjs",
     "verify:archetypes": "node scripts/verify-archetypes.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
+    "verify:public-links": "node scripts/verify-release.mjs --external",
+    "profile:motion": "node scripts/profile-motion.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "verify": "npm run format && npm run lint && npm run typecheck && npm run validate:content && npm run validate:editorial && npm test && npm run build"
@@ -30,6 +44,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
+    "@opennextjs/cloudflare": "1.20.1",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -39,6 +54,7 @@
     "eslint-config-next": "16.2.10",
     "prettier": "^3.9.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "4.110.0"
   }
 }

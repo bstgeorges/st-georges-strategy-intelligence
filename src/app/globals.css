@@ -264,6 +264,26 @@ body {
   content: "";
 }
 
+/* Semantic state persists after each bounded Web Animations transition. */
+.sgs-document [data-editorial-motion="signal"][data-motion-state="source-linked"] {
+  border-inline-start-color: var(--accent, var(--sgs-gold));
+}
+
+.sgs-document [data-editorial-motion="translation"][data-motion-state="question-to-evidence"] {
+  border-inline-end-color: var(--accent, var(--sgs-gold));
+}
+
+.sgs-document[data-archetype="regulatory-horizon"]
+  [data-editorial-motion="time"][data-motion-state="timeline-advanced"]::before {
+  background: var(--accent, var(--sgs-gold));
+}
+
+.sgs-document[data-archetype="archive"]
+  [data-editorial-motion="archive"][data-motion-state="chronology-visible"]
+  .meta {
+  color: var(--accent, var(--sgs-gold-ink));
+}
+
 .sgs-document[data-archetype="signals-index"] .signal-stream-grid .card,
 .sgs-document[data-archetype="signals-index"] .grid-4 .card {
   min-height: 100%;
@@ -385,7 +405,7 @@ body {
 .sgs-motion-controls span {
   display: grid;
   place-items: center;
-  min-height: 32px;
+  min-height: 40px;
   padding: 7px 9px;
   border: 1px solid rgba(244, 239, 227, 0.16);
   color: var(--sgs-muted-light);
@@ -460,7 +480,9 @@ body {
   padding: clamp(88px, 10vh, 132px) max(var(--sgs-gutter), calc((100vw - var(--sgs-max)) / 2));
   background:
     linear-gradient(90deg, rgba(11, 29, 44, 0.98), rgba(11, 29, 44, 0.94)),
-    url("/dashboard/assets/financial-services-intelligence-hero.svg") center / cover;
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(196, 154, 74, 0.05) 80px),
+    repeating-linear-gradient(0deg, transparent 0 79px, rgba(196, 154, 74, 0.04) 80px),
+    var(--sgs-navy);
   color: var(--sgs-cream);
 }
 
@@ -518,7 +540,19 @@ body {
   background: var(--sgs-gold-soft);
 }
 
+.sgs-button-primary:focus-visible,
+.sgs-button-primary:active {
+  border-color: var(--sgs-gold-soft);
+  background: var(--sgs-gold-soft);
+}
+
 .sgs-button-secondary:hover {
+  border-color: var(--sgs-gold);
+  color: var(--sgs-gold) !important;
+}
+
+.sgs-button-secondary:focus-visible,
+.sgs-button-secondary:active {
   border-color: var(--sgs-gold);
   color: var(--sgs-gold) !important;
 }
@@ -601,6 +635,11 @@ body {
   background: rgba(196, 154, 74, 0.08);
 }
 
+.sgs-deadline-link:focus-visible,
+.sgs-deadline-link:active {
+  background: rgba(196, 154, 74, 0.08);
+}
+
 .sgs-deadline-link span {
   color: var(--sgs-gold);
   font-size: 9px;
@@ -659,18 +698,43 @@ body {
 }
 
 .sgs-handoff-list {
+  position: relative;
   margin: 0;
   border-top: 1px solid rgba(16, 34, 48, 0.25);
   padding: 0;
   list-style: none;
 }
 
+.sgs-handoff-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 39px;
+  width: 1px;
+  background: linear-gradient(var(--sgs-gold), rgba(16, 34, 48, 0.14));
+  content: "";
+}
+
 .sgs-handoff-list li {
+  position: relative;
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 24px;
   padding: 28px 0;
   border-bottom: 1px solid rgba(16, 34, 48, 0.2);
+}
+
+.sgs-handoff-list .sgs-step-number {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  padding: 4px 0;
+  background: var(--sgs-paper);
+}
+
+.sgs-handoff-list li[data-motion-state="active"] .sgs-step-number,
+.sgs-handoff-list li[data-motion-state$="settled"] .sgs-step-number {
+  color: var(--sgs-gold-ink);
 }
 
 .sgs-step-number,
@@ -748,7 +812,13 @@ body {
   transition: color var(--sgs-fast) ease-out;
 }
 
-.sgs-ranked-list a:hover {
+.sgs-ranked-list a:hover,
+.sgs-ranked-list a:focus-visible,
+.sgs-ranked-list a:active {
+  color: var(--sgs-gold-soft);
+}
+
+.sgs-ranked-list li[data-motion-state="prioritised"] .sgs-rank {
   color: var(--sgs-gold-soft);
 }
 
@@ -778,7 +848,9 @@ body {
   transition: transform var(--sgs-medium) var(--sgs-ease);
 }
 
-.sgs-text-link:hover span {
+.sgs-text-link:hover span,
+.sgs-text-link:focus-visible span,
+.sgs-text-link:active span {
   transform: translateX(5px);
 }
 
@@ -787,22 +859,54 @@ body {
   background: var(--sgs-cream);
 }
 
-.sgs-role-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
+.sgs-role-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 0 42px;
   padding: 0;
+  border-top: 1px solid rgba(16, 34, 48, 0.22);
+  border-left: 1px solid rgba(16, 34, 48, 0.22);
   list-style: none;
 }
 
-.sgs-role-list li {
-  padding: 9px 12px;
-  border: 1px solid rgba(16, 34, 48, 0.22);
+.sgs-role-grid a {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 13px;
+  min-height: 255px;
+  height: 100%;
+  padding: 25px;
+  border-right: 1px solid rgba(16, 34, 48, 0.22);
+  border-bottom: 1px solid rgba(16, 34, 48, 0.22);
+  text-decoration: none;
+  transition: background var(--sgs-fast) ease-out;
+}
+
+.sgs-role-grid a:hover,
+.sgs-role-grid a:focus-visible {
+  background: rgba(196, 154, 74, 0.1);
+}
+
+.sgs-role-grid :where(p, h3) {
+  margin: 0;
+}
+
+.sgs-role-grid h3 {
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.sgs-role-grid a > span {
+  color: var(--sgs-muted-dark);
+  font-size: 15px;
+}
+
+.sgs-role-grid strong {
+  color: var(--sgs-gold-ink);
   font:
-    600 10px/1 var(--font-mono),
+    600 9px/1.3 var(--font-mono),
     monospace;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -848,7 +952,9 @@ body {
     color var(--sgs-fast) ease-out;
 }
 
-.sgs-stream-grid a:hover {
+.sgs-stream-grid a:hover,
+.sgs-stream-grid a:focus-visible,
+.sgs-stream-grid a:active {
   background: var(--sgs-cream);
   color: var(--sgs-navy);
 }
@@ -866,8 +972,14 @@ body {
   color: var(--sgs-muted-light);
 }
 
-.sgs-stream-grid a:hover > span:last-child {
+.sgs-stream-grid a:hover > span:last-child,
+.sgs-stream-grid a:focus-visible > span:last-child,
+.sgs-stream-grid a:active > span:last-child {
   color: var(--sgs-muted-dark);
+}
+
+.sgs-stream-grid a[data-motion-state="linked"] .sgs-step-number {
+  color: var(--sgs-gold-soft);
 }
 
 .sgs-horizon {
@@ -890,8 +1002,15 @@ body {
   transition: background var(--sgs-fast) ease-out;
 }
 
-.sgs-horizon-grid a:hover {
+.sgs-horizon-grid a:hover,
+.sgs-horizon-grid a:focus,
+.sgs-horizon-grid a:focus-visible,
+.sgs-horizon-grid a:active {
   background: rgba(196, 154, 74, 0.1);
+}
+
+.sgs-horizon[data-motion-state="deadline-visible"] [data-motion-time="deadline"] {
+  border-bottom-color: var(--sgs-gold);
 }
 
 .sgs-horizon-grid span {
@@ -1128,6 +1247,7 @@ body {
   }
 
   .sgs-use-grid,
+  .sgs-role-grid,
   .sgs-stream-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1168,7 +1288,7 @@ body {
   }
 
   .sgs-motion-controls span {
-    min-height: 30px;
+    min-height: 38px;
     padding: 6px 7px;
     font-size: 8px;
   }
@@ -1235,7 +1355,12 @@ body {
     gap: 14px;
   }
 
+  .sgs-handoff-list::before {
+    left: 21px;
+  }
+
   .sgs-use-grid,
+  .sgs-role-grid,
   .sgs-stream-grid,
   .sgs-horizon-grid,
   .sgs-trust-grid {
@@ -1246,9 +1371,33 @@ body {
     min-height: 210px;
   }
 
+  .sgs-role-grid a {
+    min-height: 220px;
+  }
+
   .sgs-footer {
     padding-top: 62px;
     padding-bottom: 62px;
+  }
+}
+
+@media (forced-colors: active) {
+  .sgs-site :where(a, button, summary, input):focus-visible,
+  .sgs-motion-controls input:focus-visible + span {
+    outline: 2px solid Highlight;
+    outline-offset: 3px;
+  }
+
+  .sgs-motion-controls input:checked + span,
+  .sgs-mobile-nav summary,
+  .sgs-button {
+    border-color: ButtonText;
+    color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .sgs-handoff-list::before {
+    background: CanvasText;
   }
 }
 
@@ -1282,4 +1431,70 @@ html[data-motion="reduced"] .sgs-site *::after {
   scroll-behavior: auto !important;
   animation: none !important;
   transition-duration: 0ms !important;
+}
+
+@media print {
+  @page {
+    margin: 18mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  .sgs-site,
+  .sgs-document,
+  .sgs-document-main,
+  .page,
+  .band,
+  .masthead {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .skip-link,
+  .sgs-header,
+  .sgs-context-nav,
+  .sgs-reading-progress-region,
+  .sgs-action-row {
+    display: none !important;
+  }
+
+  .sgs-document :is(h1, h2, h3, h4, p, li, dt, dd, a, span, time),
+  .sgs-footer :is(h2, p, a) {
+    color: #111 !important;
+  }
+
+  .sgs-document .masthead,
+  .sgs-document .band,
+  .sgs-footer {
+    margin: 0 !important;
+    padding: 10mm 0 !important;
+  }
+
+  .sgs-footer {
+    border-top: 1px solid #555;
+    background: #fff !important;
+  }
+
+  .sgs-footer-inner {
+    display: block;
+    padding: 0 !important;
+  }
+
+  .sgs-footer-links {
+    display: none;
+  }
+
+  .sgs-document :is(.card, .brief-card, .signal-card, .archive-card, .about-card, li) {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .sgs-document a[data-external="true"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    overflow-wrap: anywhere;
+  }
 }

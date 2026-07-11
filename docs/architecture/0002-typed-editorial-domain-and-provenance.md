@@ -1,9 +1,9 @@
 # ADR 0002 — Typed editorial domain with immutable provenance
 
-Status: accepted  
+Status: accepted and implemented
 Date: 11 July 2026
 
-This supersedes ADR 0001 incrementally. The snapshot architecture remains the fidelity-fixture and rollback description until the raw-renderer retirement gate passes.
+This supersedes ADR 0001 for production rendering. The snapshot architecture remains only the fidelity-fixture, parity, and rollback-evidence description.
 
 ## Context
 
@@ -19,7 +19,7 @@ Selecting the greatest date or joining records by similar title/topic would inve
 
 ## Decision
 
-Production content will use a typed editorial domain while both snapshot corpora and public feeds remain immutable evidence.
+Production content uses a typed editorial domain while both snapshot corpora and public feeds remain immutable evidence.
 
 Captured artifact → provenance reference → typed entity/edition → server-rendered archetype
 
@@ -54,9 +54,9 @@ Archive comparison matches stable IDs: only-new is added, only-old is removed, e
 
 ### Rendering and routes
 
-Explicit App Router route families replace the optional catch-all incrementally: Home, Brief/current and dated archive, Signals index/topic/archive, Reg Horizon, Committee Questions, Archive, About, not-found, sitemap, and robots.
+The Home route remains its dedicated typed page. The 50 non-Home routes are statically enumerated by an authored registry behind a required catch-all with `dynamicParams = false`: Brief/current and dated archive, Signals index/topic/archive, Reg Horizon, Committee Questions, Archive, and About.
 
-Dynamic topic/date routes use generated parameters, runtime narrowing, and dynamicParams false.
+Seven explicit Server Component archetypes own layout. Their checked-in modules contain named, layout-free mastheads, judgements, ranked signals, sources, questions, evidence facts, deadlines, metrics, and archive links. No production component accepts an element tag/attribute tree or recursively renders arbitrary markup.
 
 Archetypes and content registries remain Server Components. Client islands are limited to mobile navigation, URL-addressable Signals filtering/evidence lens, reading progress, motion preference/control, and optional archive comparison.
 
@@ -70,24 +70,22 @@ The page checksum remains evidence but cannot prove semantic migration. A parity
 
 Validation fails on duplicate/malformed IDs, routes or hashes; unresolved keys/provenance; cross-channel reuse without reconciliation; invalid or cyclic edition pointers; duplicate/non-positive ranks; invalid dates; colliding source aliases; relationship endpoint mismatches; missing parity dispositions; or semantic hash mismatch.
 
-Golden tests cover archive diff semantics, channel isolation, Committee captured-404/live-200 preservation, metadata/sitemap rules, and the prohibition on max-date latest selection.
+Golden tests cover archive diff semantics, channel isolation, Committee captured-404/live-200 preservation, metadata/sitemap rules, the prohibition on max-date latest selection, the authored/capture route bijection, body-token and href parity, and the production import boundary.
 
-## Migration sequence
+Adjacent dated Brief/topic comparisons use an exact identity rule: `series namespace + authoritative source URL`. They never match by similar title, publisher, topic, or redirect, and never cross rendered/feed channels. The first observed edition is explicit; later editions compare checked-in source-backed revisions and fail closed when a revision lacks its exact source.
 
-1. Add types, validators, artifact/channel registry, known conflicts, route registry, and parity contracts without changing rendering.
-2. Migrate the shared shell, About, and not-found.
-3. Migrate current AI and one AI archive edition end-to-end.
-4. Migrate the other seven topic series.
-5. Migrate Brief after signal identities and relationships exist.
-6. Migrate rendered Horizon while public feed channels remain isolated.
-7. Migrate live Committee Questions while retaining the frozen 404 artifact.
-8. Migrate Signals/Home aggregates after their referenced editions resolve.
-9. Migrate archive indexes and comparisons.
-10. Retire raw rendering only after all gates pass.
+## Completed migration sequence
+
+1. Types, validators, artifact/channel registry, conflicts, route registry, and parity contracts were added without changing rendering.
+2. All selected live/frozen page content was normalized once into reviewed archetype data modules.
+3. Brief, eight topic series and their historical editions, Signals index, Horizon, Committee, Archive, and About moved to explicit archetype components.
+4. Committee's frozen 404 remains evidence while its live 200 record is the production selection.
+5. Same-series exact-URL archive comparisons were added without joining channels or inferring identity.
+6. Production imports of generated snapshot ASTs and the arbitrary-markup renderer were removed.
 
 ## Raw-renderer retirement gate
 
-The production bodyHtml renderer may be removed only when:
+The production bodyHtml/element-tree renderer was removed after verifying:
 
 1. every frozen/live artifact has a parity disposition;
 2. every public route has an approved typed edition/current pointer;
@@ -102,4 +100,4 @@ The production bodyHtml renderer may be removed only when:
 
 ## Consequences
 
-This preserves contradictory evidence honestly, makes weekly updates record-driven, and gives cross-links/archive/motion explicit contracts. The cost is authored IDs, provenance locators, reconciliation, atom-level parity, more route files, and local runtime validation. That cost is accepted because inference would weaken the publication's core promise: disciplined conversion from evidence into judgement.
+This preserves contradictory evidence honestly, makes weekly updates record-driven, and gives cross-links/archive/motion explicit contracts. Snapshot parsing and generated element trees still exist, but only in the fixture/parity boundary used by generation and tests; production routes and components cannot import them. The cost is authored IDs, provenance locators, reconciliation, atom-level parity, archetype data modules, and local runtime validation. That cost is accepted because inference would weaken the publication's core promise: disciplined conversion from evidence into judgement.

@@ -1,0 +1,59 @@
+name: Upload Cloudflare preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  upload-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: cloudflare-preview
+    outputs:
+      preview-url: ${{ steps.preview.outputs.url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run verify
+      - run: npm run cf:build
+      - run: npm run verify:workerd
+      - name: Upload an isolated version without production routes
+        run: npm run cf:upload:built
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.jsonl
+      - name: Capture the uploaded version preview URL
+        id: preview
+        env:
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-output.jsonl
+        run: >-
+          node --input-type=module -e '
+          import { appendFileSync, readFileSync } from "node:fs";
+          const events = readFileSync(process.env.WRANGLER_OUTPUT_FILE_PATH, "utf8")
+            .trim().split("\n").filter(Boolean).map((line) => JSON.parse(line));
+          const upload = events.findLast((event) => event.type === "version-upload");
+          if (!upload?.preview_url) throw new Error("Wrangler did not report a version preview URL");
+          appendFileSync(process.env.GITHUB_OUTPUT, `url=${upload.preview_url}\n`);
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `### Uploaded Cloudflare version\n\n- Version: \`${upload.version_id}\`\n- Preview: ${upload.preview_url}\n`);
+          '
+      - name: Smoke-test the exact uploaded version
+        env:
+          SGS_BASE_URL: ${{ steps.preview.outputs.url }}
+          BASE_URL: ${{ steps.preview.outputs.url }}
+        run: |
+          npm run verify:home
+          npm run verify:archetypes
+          npm run verify:release

@@ -4,7 +4,7 @@ import path from "node:path";
 import AxeBuilder from "@axe-core/playwright";
 import { chromium } from "@playwright/test";
 
-import { editorialDocumentRegistry } from "../src/content/editorial/document-registry.ts";
+import { publicEditorialRegistry } from "../src/content/editorial/public-registry.ts";
 
 const baseURL = process.env.BASE_URL ?? "http://127.0.0.1:3001";
 const outputDirectory = path.resolve("output/archetypes");
@@ -29,7 +29,7 @@ const browser = await chromium.launch();
 
 try {
   const requestContext = await browser.newContext();
-  for (const { route } of editorialDocumentRegistry) {
+  for (const { route } of publicEditorialRegistry) {
     const response = await requestContext.request.get(new URL(route, baseURL).href);
     if (response.status() !== 200) throw new Error(`${route} returned ${response.status()}`);
   }
@@ -130,7 +130,7 @@ try {
     JSON.stringify(
       {
         ok: true,
-        registryRoutes: editorialDocumentRegistry.length,
+        registryRoutes: publicEditorialRegistry.length,
         archetypeCaptures: evidence.length,
         axeRoutes: routes.length * 2,
         reducedMotion: reduced,

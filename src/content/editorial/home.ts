@@ -1,3 +1,5 @@
+import type { EditorialDocumentEvidence, EditorialDocumentMetadata } from "./document-types";
+
 export interface NavigationItem {
   href: string;
   label: string;
@@ -16,6 +18,14 @@ export interface TopicStreamSummary {
   title: string;
   summary: string;
   href: string;
+}
+
+export interface ExecutiveRoleEntry {
+  role: string;
+  startLabel: string;
+  summary: string;
+  href: string;
+  basis: string;
 }
 
 export const primaryNavigation = [
@@ -148,14 +158,57 @@ export const homeTopicStreams = [
 ] as const satisfies readonly TopicStreamSummary[];
 
 export const executiveRoles = [
-  "Chief Risk Officer",
-  "Chief Operating Officer",
-  "Chief Compliance Officer",
-  "Head of Operational Risk",
-  "CISO",
-  "AI governance lead",
-  "Resilience lead",
-] as const;
+  {
+    role: "Chief Risk Officer",
+    startLabel: "This week's judgement",
+    summary:
+      "Begin with the consolidated judgement and ranked Top 5, then follow the affected stream.",
+    href: "/brief/",
+    basis: "Home / current executive glance and Top 5",
+  },
+  {
+    role: "Chief Operating Officer",
+    startLabel: "Technology failure",
+    summary: "Change, third-party technology, customer impact, and recovery evidence.",
+    href: "/signals/technology-failure/",
+    basis: "Signals / Technology failure / Who cares",
+  },
+  {
+    role: "Chief Compliance Officer",
+    startLabel: "Committee questions",
+    summary: "Portable questions and evidence asks, traceable to the judgement that produced them.",
+    href: "/committee-questions/",
+    basis: "Committee Questions / question and evidence library",
+  },
+  {
+    role: "Head of Operational Risk",
+    startLabel: "Operational resilience",
+    summary: "Customer outcomes, third parties, incidents, and governance in one resilience view.",
+    href: "/signals/resilience/",
+    basis: "Signals / Operational resilience / Who cares",
+  },
+  {
+    role: "CISO",
+    startLabel: "Cyber",
+    summary: "Threats, vulnerabilities, identity, response, and recovery evidence.",
+    href: "/signals/cyber/",
+    basis: "Signals / Cyber / Who cares",
+  },
+  {
+    role: "AI governance lead",
+    startLabel: "AI and agentic control",
+    summary: "Permission boundaries, stop paths, observability, and accountable outcomes.",
+    href: "/signals/ai/",
+    basis: "Signals / AI and agentic control / Who cares",
+  },
+  {
+    role: "Resilience lead",
+    startLabel: "Operational resilience",
+    summary: "Failure paths, fallback evidence, customer impact, and owner action.",
+    href: "/signals/resilience/",
+    basis: "Signals / Operational resilience / Who cares",
+  },
+] as const satisfies readonly ExecutiveRoleEntry[];
 
 export const publicationUses = [
   {
@@ -203,3 +256,95 @@ export const trustSignals = [
 
 export const siteDisclaimer =
   "Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.";
+
+export interface HomeEditorialRecord {
+  readonly route: "/";
+  readonly status: 200;
+  readonly kind: "home";
+  readonly archetype: "home";
+  readonly sourceUrl: string;
+  readonly capturedAt: string;
+  readonly sourceSha256: string;
+  readonly selectionReason: "live-current";
+  readonly evidence: readonly EditorialDocumentEvidence[];
+  readonly metadata: EditorialDocumentMetadata;
+  readonly content: {
+    readonly navigation: typeof primaryNavigation;
+    readonly edition: typeof homeEdition;
+    readonly topSignals: typeof homeTopSignals;
+    readonly topicStreams: typeof homeTopicStreams;
+    readonly roles: typeof executiveRoles;
+    readonly uses: typeof publicationUses;
+    readonly trust: typeof trustSignals;
+    readonly disclaimer: typeof siteDisclaimer;
+  };
+}
+
+/**
+ * The authored Home record is the public route identity and link source.
+ * Capture evidence remains immutable, while its presentation content is editable above.
+ */
+export const homeEditorialRecord = {
+  route: "/",
+  status: 200,
+  kind: "home",
+  archetype: "home",
+  sourceUrl: "https://stgeorgesstrategy.com/",
+  capturedAt: "2026-07-11T13:11:40.871Z",
+  sourceSha256: "80b368f3035ac5f161b544dd606e7758f3a02b3d82972bf313cc873c8790114f",
+  selectionReason: "live-current",
+  evidence: [
+    {
+      key: "live:80b368f3035ac5f161b544dd606e7758f3a02b3d82972bf313cc873c8790114f:/",
+      corpus: "live",
+      status: 200,
+      sourceUrl: "https://stgeorgesstrategy.com/",
+      capturedAt: "2026-07-11T13:11:40.871Z",
+      sourceSha256: "80b368f3035ac5f161b544dd606e7758f3a02b3d82972bf313cc873c8790114f",
+    },
+  ],
+  metadata: {
+    title: "The Virtual Officer | St Georges Strategy",
+    description:
+      "Weekly financial-services risk intelligence from St Georges Strategy, combining the brief, Signals, Reg Horizon, and archived source-backed topic pages.",
+    canonical: "https://stgeorgesstrategy.com/",
+    openGraphTitle: "The Virtual Officer | St Georges Strategy",
+    openGraphDescription:
+      "Weekly financial-services risk intelligence from St Georges Strategy, combining the brief, Signals, Reg Horizon, and archived source-backed topic pages.",
+    openGraphUrl: "https://stgeorgesstrategy.com/",
+    openGraphImage: "https://stgeorgesstrategy.com/assets/og-card.png",
+    twitterCard: "summary_large_image",
+    twitterTitle: "The Virtual Officer | St Georges Strategy",
+    twitterDescription:
+      "Weekly financial-services risk intelligence from St Georges Strategy, combining the brief, Signals, Reg Horizon, and archived source-backed topic pages.",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "The Virtual Officer",
+      description:
+        "Weekly financial-services risk intelligence from St Georges Strategy, combining the brief, Signals, Reg Horizon, and archived source-backed topic pages.",
+      publisher: {
+        "@type": "Organization",
+        name: "St Georges Strategy",
+      },
+      author: {
+        "@type": "Person",
+        name: "Ben St Georges",
+        email: "ben@stgeorgesstrategy.com",
+        sameAs: "https://www.linkedin.com/in/benstgeorges/",
+      },
+      dateModified: "2026-07-09",
+      about: homeEdition.briefTitle,
+    },
+  },
+  content: {
+    navigation: primaryNavigation,
+    edition: homeEdition,
+    topSignals: homeTopSignals,
+    topicStreams: homeTopicStreams,
+    roles: executiveRoles,
+    uses: publicationUses,
+    trust: trustSignals,
+    disclaimer: siteDisclaimer,
+  },
+} as const satisfies HomeEditorialRecord;

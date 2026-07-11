@@ -33,4 +33,3 @@ Navigation current/hover is bright gold. Focus-visible is a 3px translucent gold
 - The hero image is broken. Stage A preserves the source condition; Stage B adds only code-native, non-data decorative depth.
 - The live Reg Horizon tablet page expands to 16,784px due to conflicting timeline grid rules. The faithful source is documented, but the production enhancement repairs this accessibility/usability defect.
 - Committee visual captures are not used for Stage A because they were taken after the route changed.
-

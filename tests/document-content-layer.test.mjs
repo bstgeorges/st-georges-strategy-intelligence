@@ -4,6 +4,7 @@ import path from "node:path";
 import test from "node:test";
 
 import { generateEditorialDocuments } from "../scripts/generate-editorial-documents.mjs";
+import { authoredEditorialRegistry } from "../src/content/editorial/authored-registry.ts";
 import { capturedEditorialDocuments } from "../src/content/generated/editorial-documents.ts";
 import {
   editorialDocumentAllowlist,
@@ -21,6 +22,47 @@ import {
 } from "../src/content/editorial/document-validation.ts";
 
 const projectRoot = path.resolve(import.meta.dirname, "..");
+
+const ignoredAuthoredKeys = new Set([
+  "archetype",
+  "dateTime",
+  "featured",
+  "href",
+  "kind",
+  "purpose",
+  "rel",
+  "role",
+  "target",
+]);
+
+function authoredBodyAtoms(value, key = "") {
+  if (ignoredAuthoredKeys.has(key) || value === undefined || value === null) return [];
+  if (typeof value === "string")
+    return value.match(/[\p{L}\p{N}]+(?:['’.-][\p{L}\p{N}]+)*/gu) ?? [];
+  if (Array.isArray(value)) return value.flatMap((item) => authoredBodyAtoms(item));
+  if (typeof value === "object") {
+    return Object.entries(value).flatMap(([entryKey, entryValue]) =>
+      authoredBodyAtoms(entryValue, entryKey),
+    );
+  }
+  return [];
+}
+
+function authoredHrefs(value) {
+  if (!value || typeof value !== "object") return [];
+  if (Array.isArray(value)) return value.flatMap(authoredHrefs);
+  return [
+    ...(typeof value.href === "string" ? [value.href] : []),
+    ...Object.values(value).flatMap(authoredHrefs),
+  ];
+}
+
+function fixtureBodyAtoms(node) {
+  if (node.type === "text") {
+    return node.value.match(/[\p{L}\p{N}]+(?:['’.-][\p{L}\p{N}]+)*/gu) ?? [];
+  }
+  return node.children.flatMap(fixtureBodyAtoms);
+}
 
 async function readCorpus(directory) {
   const root = path.join(projectRoot, "src/content", directory);
@@ -63,6 +105,68 @@ test("frozen-only historical archives remain addressable while current aliases p
   assert.equal(getEditorialDocument("/archive/brief/2026-07-06/")?.corpus, "live");
   assert.equal(getEditorialDocument("/archive/brief/2026-07-09/")?.corpus, "frozen");
   assert.equal(getEditorialDocument("/signals/ai/archive/2026-07-08/")?.corpus, "frozen");
+});
+
+test("authored production records cover the 50 non-Home routes with selected-fixture provenance", () => {
+  const fixtures = new Map(
+    editorialDocumentRegistry
+      .filter(({ route }) => route !== "/")
+      .map((entry) => [entry.route, entry]),
+  );
+  assert.equal(authoredEditorialRegistry.length, 50);
+  assert.equal(new Set(authoredEditorialRegistry.map(({ route }) => route)).size, 50);
+  for (const record of authoredEditorialRegistry) {
+    const fixture = fixtures.get(record.route);
+    assert.ok(fixture, `missing selected fixture for ${record.route}`);
+    assert.equal(record.sourceSha256, fixture.document.sourceSha256, record.route);
+    assert.equal(record.selectionReason, fixture.selectionReason, record.route);
+    assert.deepEqual(record.metadata, fixture.document.metadata, record.route);
+    assert.deepEqual(record.evidence, fixture.evidence, record.route);
+  }
+});
+
+test("authored data preserves every selected body token and href without carrying a markup AST", () => {
+  const fixtures = new Map(editorialDocumentRegistry.map((entry) => [entry.route, entry.document]));
+  for (const record of authoredEditorialRegistry) {
+    const fixture = fixtures.get(record.route);
+    assert.ok(fixture, record.route);
+    const semantics = projectEditorialSemantics(fixture.content);
+    assert.deepEqual(
+      authoredBodyAtoms(record.content).sort(),
+      fixtureBodyAtoms(fixture.content).sort(),
+      `body tokens changed for ${record.route}`,
+    );
+    assert.deepEqual(
+      authoredHrefs(record.content).sort(),
+      semantics.links.map(({ href }) => href).sort(),
+      `links changed for ${record.route}`,
+    );
+    assert.equal("tag" in record.content, false, record.route);
+    assert.equal("attributes" in record.content, false, record.route);
+    assert.equal("children" in record.content, false, record.route);
+  }
+});
+
+test("same-series archive comparisons use exact URL identity and expose first-observed editions", () => {
+  const comparisons = authoredEditorialRegistry.flatMap((record) =>
+    record.archiveComparison ? [[record.route, record.archiveComparison]] : [],
+  );
+  assert.equal(comparisons.length, 27);
+  assert.equal(
+    comparisons.filter(([, comparison]) => comparison.state === "first-observed").length,
+    9,
+  );
+  assert.equal(comparisons.filter(([, comparison]) => comparison.state === "available").length, 18);
+  for (const [route, comparison] of comparisons) {
+    if (comparison.state !== "available") continue;
+    const sourceUrls = new Map(comparison.sources.map((source) => [source.id, source.url]));
+    assert.equal(sourceUrls.size, comparison.sources.length, route);
+    for (const revision of [...comparison.previousRevisions, ...comparison.currentRevisions]) {
+      assert.equal(revision.sourceIds.length, 1, route);
+      assert.ok(sourceUrls.has(revision.sourceIds[0]), route);
+      assert.match(revision.signalId, /^signal:archive-url-[a-f0-9]{24}$/);
+    }
+  }
 });
 
 test("every generated semantic tree preserves normalized source text and links", async () => {

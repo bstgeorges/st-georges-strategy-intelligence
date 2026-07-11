@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 
-import { editorialDocumentRegistry } from "@/content/editorial/document-registry";
+import { publicEditorialRegistry } from "@/content/editorial/public-registry";
 import type { JsonValue } from "@/content/editorial/document-types";
+import { editorialCanonical } from "@/lib/editorial-metadata";
 
-const origin = "https://stgeorgesstrategy.com";
+const canonicalOrigin = "https://stgeorgesstrategy.com";
 
 function objectValue(
   value: JsonValue | undefined,
@@ -20,12 +21,26 @@ function editorialDate(value: JsonValue | undefined): string | undefined {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return editorialDocumentRegistry.map(({ route, archetype, document, selectionReason }) => ({
-    url: document.metadata.canonical ?? new URL(route, origin).href,
-    ...(editorialDate(document.metadata.structuredData)
-      ? { lastModified: editorialDate(document.metadata.structuredData) }
-      : {}),
-    changeFrequency: selectionReason === "frozen-historical" ? "never" : "weekly",
-    priority: route === "/" ? 1 : archetype === "archive" || archetype === "about" ? 0.6 : 0.8,
-  }));
+  const entries = publicEditorialRegistry.map(
+    ({ route, archetype, metadata, selectionReason }) => ({
+      url: editorialCanonical({ route, archetype, metadata }),
+      ...(editorialDate(metadata.structuredData)
+        ? { lastModified: editorialDate(metadata.structuredData) }
+        : {}),
+      changeFrequency:
+        selectionReason === "frozen-historical" ? ("never" as const) : ("weekly" as const),
+      priority: route === "/" ? 1 : archetype === "archive" || archetype === "about" ? 0.6 : 0.8,
+    }),
+  );
+  const urls = new Set<string>();
+  for (const [index, entry] of entries.entries()) {
+    const route = publicEditorialRegistry[index].route;
+    const url = new URL(entry.url);
+    if (url.origin !== canonicalOrigin || url.pathname !== route || url.search || url.hash) {
+      throw new Error(`Sitemap URL does not identify ${route}: ${entry.url}`);
+    }
+    if (urls.has(entry.url)) throw new Error(`Duplicate sitemap URL: ${entry.url}`);
+    urls.add(entry.url);
+  }
+  return entries;
 }

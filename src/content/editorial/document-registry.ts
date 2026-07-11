@@ -1,3 +1,4 @@
+// Capture/parity fixture registry. Production routes must use authored-registry.ts instead.
 // @ts-expect-error Node's type-stripping runtime needs the explicit extension; the bundler supports it.
 import { capturedEditorialDocuments } from "../generated/editorial-documents.ts";
 import type {

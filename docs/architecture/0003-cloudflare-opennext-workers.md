@@ -1,6 +1,6 @@
 # ADR 0003 — Deploy Next.js through Cloudflare Workers and OpenNext
 
-Status: proposed; becomes accepted only after a local OpenNext build/preview and authorised preview smoke test pass  
+Status: accepted for local/CI preview; production adoption remains blocked on an authorised remote preview and cutover
 Date: 11 July 2026
 
 ## Context
@@ -23,12 +23,12 @@ Use one Cloudflare Worker produced by the current stable @opennextjs/cloudflare 
 The production contract should contain:
 
 - @opennextjs/cloudflare and Wrangler as development/build dependencies, pinned through the lockfile;
-- open-next.config.ts with the smallest default configuration;
+- open-next.config.ts with the read-only static-assets cache and SSG cache interception required by this fully prerendered route set;
 - wrangler.jsonc pointing to the generated worker/assets, nodejs_compat, and a current compatibility date;
 - local scripts for Cloudflare build and preview;
 - deployment through the OpenNext CLI only after build/preview pass;
 - generated .open-next output ignored;
-- no R2/DO/queue/cache service until a measured need exists;
+- no R2/DO/queue or writable cache service until runtime revalidation becomes an approved editorial need;
 - no Cloudflare Images binding until image optimisation cost/benefit is approved;
 - no automatic production deployment from an untrusted pull request;
 - preview first, production promotion only with explicit authority.
@@ -44,7 +44,7 @@ An authorised deployment workflow:
 3. runs the full verification gate;
 4. builds the OpenNext Worker;
 5. uploads/deploys through the adapter using scoped Cloudflare secrets;
-6. returns a preview URL;
+6. captures the version ID and preview URL from Wrangler's machine-readable `version-upload` event;
 7. smoke-tests canonical routes, feeds, assets, console/network, and headers;
 8. promotes production only through a separately authorised action.
 
@@ -59,15 +59,16 @@ The workflow must not commit editorial archives during deployment. Weekly publis
 
 ## Acceptance gate
 
-This ADR becomes accepted when:
+Local/CI acceptance evidence:
 
 - the exact adapter and Wrangler versions are installed and recorded;
 - Next build and OpenNext build pass from a clean install;
-- local workerd preview serves every canonical route and support feed;
+- local Workerd preview serves every canonical route and support feed (51/51 routes passed);
 - worker compressed size stays within the target Cloudflare account limit;
 - no Node/workerd incompatibility, console error, or failed same-origin request remains;
 - deployment secrets and account/project names are documented without values;
 - rollback is documented;
-- an authorised preview, if credentials exist, passes smoke tests.
+- compressed upload is approximately 1.29 MiB against the 3 MiB free-tier ceiling;
+- Home, archetype, release and motion checks pass against Workerd.
 
-Until then, deployment is honestly classified as pending rather than production-ready.
+The initial empty OpenNext cache configuration built successfully but returned 404 for prerendered catch-all routes. OpenNext's read-only static-assets incremental cache and documented cache interception are therefore required contracts, not optional infrastructure. The preview workflow consumes Wrangler's JSON-lines output event rather than scraping terminal text, then tests the exact isolated version URL. Production remains pending until an authorised versioned preview is uploaded/smoked and a separately approved domain/route cutover plan accounts for the still-live legacy Pages/Workers topology.

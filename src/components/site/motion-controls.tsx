@@ -6,33 +6,42 @@ type MotionMode = "full" | "reduced";
 
 const preferenceKey = "sgs-motion-preference";
 
-function resolveInitialMode(): MotionMode {
+function storedMode(): MotionMode | null {
   try {
     const stored = window.localStorage.getItem(preferenceKey);
     if (stored === "full" || stored === "reduced") return stored;
   } catch {
     // Storage is optional.
   }
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "reduced" : "full";
+  return null;
 }
 
-function applyMotionMode(mode: MotionMode) {
+function applyMotionMode(mode: MotionMode, source: "system" | "user") {
   document.documentElement.dataset.motion = mode;
-  window.dispatchEvent(new CustomEvent("sgs-motion-change", { detail: mode }));
+  document.documentElement.dataset.motionSource = source;
+  window.dispatchEvent(new CustomEvent("sgs-motion-change", { detail: { mode, source } }));
 }
 
 export function MotionControls() {
   const [mode, setMode] = useState<MotionMode>("full");
 
   useEffect(() => {
-    const initialMode = resolveInitialMode();
-    applyMotionMode(initialMode);
-    queueMicrotask(() => setMode(initialMode));
+    const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const synchronise = () => {
+      const stored = storedMode();
+      const nextMode = stored ?? (reduceQuery.matches ? "reduced" : "full");
+      applyMotionMode(nextMode, stored ? "user" : "system");
+      setMode(nextMode);
+    };
+
+    synchronise();
+    reduceQuery.addEventListener("change", synchronise);
+    return () => reduceQuery.removeEventListener("change", synchronise);
   }, []);
 
   const updateMode = (nextMode: MotionMode) => {
     setMode(nextMode);
-    applyMotionMode(nextMode);
+    applyMotionMode(nextMode, "user");
     try {
       window.localStorage.setItem(preferenceKey, nextMode);
     } catch {

@@ -19,7 +19,11 @@ export function ContextNavigation({
       <ol>
         {items.map((item) => (
           <li key={`${item.href}:${item.label}`}>
-            <Link href={item.href} aria-current={item.current ? "page" : undefined}>
+            <Link
+              href={item.href}
+              prefetch={false}
+              aria-current={item.current ? "page" : undefined}
+            >
               {item.label}
             </Link>
           </li>

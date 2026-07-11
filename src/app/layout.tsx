@@ -7,19 +7,19 @@ import { Hanken_Grotesk, JetBrains_Mono, Playfair_Display } from "next/font/goog
 const display = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "swap",
+  display: "optional",
 });
 
 const sans = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
+  display: "optional",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <a className="skip-link" href="#main-content">
           Skip to main content

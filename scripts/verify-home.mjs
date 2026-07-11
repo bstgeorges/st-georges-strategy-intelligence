@@ -36,11 +36,15 @@ for (const viewport of viewports) {
   const mainText = await page.locator("main").innerText();
   const topSignals = await page.locator(".sgs-ranked-list > li").count();
   const streams = await page.locator(".sgs-stream-grid > a").count();
+  const roleEntries = await page.locator(".sgs-role-grid a").count();
   if (overflow > 0) failures.push(viewport.width + "px: " + overflow + "px horizontal overflow");
   if (topSignals !== 5) {
     failures.push(viewport.width + "px: expected 5 signals, got " + topSignals);
   }
   if (streams !== 8) failures.push(viewport.width + "px: expected 8 streams, got " + streams);
+  if (roleEntries !== 7) {
+    failures.push(viewport.width + "px: expected 7 role entries, got " + roleEntries);
+  }
   for (const required of [
     "Firms need one evidence base",
     "Can we stop an agent quickly",
@@ -89,6 +93,7 @@ for (const viewport of viewports) {
     overflow,
     topSignals,
     streams,
+    roleEntries,
     reducedMode: mode,
     consoleErrors: consoleErrors.length,
     failedSameOriginRequests: failedSameOriginRequests.length,

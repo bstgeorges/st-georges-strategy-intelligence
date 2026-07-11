@@ -11,7 +11,12 @@ export function SiteShell({ children, currentPath }: { children: ReactNode; curr
     <div className="sgs-site">
       <header className="sgs-header">
         <div className="sgs-header-inner">
-          <Link className="sgs-wordmark" href="/" aria-label="St Georges Strategy home">
+          <Link
+            className="sgs-wordmark"
+            href="/"
+            prefetch={false}
+            aria-label="St Georges Strategy home"
+          >
             <span className="sgs-mark" aria-hidden="true">
               SGS
             </span>
@@ -22,7 +27,7 @@ export function SiteShell({ children, currentPath }: { children: ReactNode; curr
               <Link
                 key={item.href}
                 href={item.href}
-                prefetch={item.href === "/committee-questions/" ? false : undefined}
+                prefetch={false}
                 aria-current={item.href === currentPath ? "page" : undefined}
               >
                 {item.label}
@@ -41,9 +46,15 @@ export function SiteShell({ children, currentPath }: { children: ReactNode; curr
             <h2>Weekly risk intelligence for financial-services leaders.</h2>
           </div>
           <div className="sgs-footer-links">
-            <Link href="/brief/">Read the latest brief</Link>
-            <Link href="/archive/">Trace the archive</Link>
-            <Link href="/about/">Method and author</Link>
+            <Link href="/brief/" prefetch={false}>
+              Read the latest brief
+            </Link>
+            <Link href="/archive/" prefetch={false}>
+              Trace the archive
+            </Link>
+            <Link href="/about/" prefetch={false}>
+              Method and author
+            </Link>
           </div>
           <div className="sgs-footer-meta">
             <p>

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  executiveRoles,
   homeEdition,
   homeTopicStreams,
   homeTopSignals,
@@ -24,6 +25,27 @@ test("the typed Home preserves the current executive glance exactly", () => {
     "The permission map, the stop path, and the rehearsal evidence — not just the policy document.",
   );
   assert.equal(homeEdition.nearestDeadline.date, "14 Aug");
+});
+
+test("every mandated executive role has an explainable starting route", () => {
+  assert.deepEqual(
+    executiveRoles.map(({ role }) => role),
+    [
+      "Chief Risk Officer",
+      "Chief Operating Officer",
+      "Chief Compliance Officer",
+      "Head of Operational Risk",
+      "CISO",
+      "AI governance lead",
+      "Resilience lead",
+    ],
+  );
+  for (const entry of executiveRoles) {
+    assert.match(entry.href, /^\/(?:brief|committee-questions|signals\/[a-z-]+)\/$/);
+    assert.ok(entry.startLabel.length > 0);
+    assert.ok(entry.summary.length > 0);
+    assert.ok(entry.basis.length > 0);
+  }
 });
 
 test("the typed Home retains all ranked signals, streams, routes, and disclaimer", () => {

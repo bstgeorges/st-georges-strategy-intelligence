@@ -22,4 +22,3 @@ The renderer is intentionally small and server-first. Trusted, repository-owned 
 - Hand-transcribing every page into JSX: high fidelity and maintenance risk with no user-visible benefit.
 - Serving a copied static directory without an application layer: weak validation, metadata control, route testing, and enhancement boundaries.
 - Shipping an improvised client-only admin editor: not production-secure and not required for public delivery.
-

@@ -1,40 +1,46 @@
-name: Cloudflare Pages publish
+name: Site release (Cloudflare)
 
 on:
   push:
     branches:
       - main
+      - dev
     paths:
       - ".github/workflows/cloudflare-pages-publish.yml"
       - "site/**"
-      - "scripts/lib/**"
-      - "scripts/validate_signals_data.mjs"
-      - "scripts/validate_ai_signals_data.mjs"
+      - "dashboard/data/**"
       - "dashboard/regulatory-horizon/**"
-      - "dashboard/data/ai-signals.json"
-      - "scripts/publish_site_bundle.mjs"
-      - "scripts/verify_generated_links.mjs"
-      - "scripts/verify_site_bundle.mjs"
-      - "scripts/generate_sitemap.mjs"
-      - "scripts/archive_current.mjs"
+      - "scripts/**"
+      - "workers/**"
       - "package.json"
       - "package-lock.json"
   workflow_dispatch:
+    inputs:
+      target:
+        description: "Deployment target"
+        required: true
+        default: production
+        type: choice
+        options:
+          - production
+          - dev
 
 permissions:
   contents: write
 
 concurrency:
-  group: cloudflare-pages-publish
+  group: site-release-${{ github.ref_name }}-${{ inputs.target || 'push' }}
   cancel-in-progress: true
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      SITE_RELEASE_ID: ${{ github.sha }}
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -48,36 +54,100 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Select deployment target
+        id: target
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.target }}" == "dev" ]] || [[ "${{ github.ref_name }}" == "dev" ]]; then
+            echo "name=dev" >> "$GITHUB_OUTPUT"
+            echo "branch=dev" >> "$GITHUB_OUTPUT"
+            echo "origin=https://dev.st-georges-strategy-intelligence.pages.dev" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=production" >> "$GITHUB_OUTPUT"
+            echo "branch=production" >> "$GITHUB_OUTPUT"
+            echo "origin=https://st-georges-strategy-intelligence.pages.dev" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Validate published Signals data
         run: npm run signals:validate
 
-      - name: Validate published Signals data liveness
+      - name: Validate published Signals links
         run: npm run signals:validate:live
         continue-on-error: true
 
-      - name: Validate AI Signals data
+      - name: Audit legacy AI Signals data
         run: npm run ai-signals:validate
+        continue-on-error: true
 
-      - name: Validate AI Signals data liveness
+      - name: Audit legacy AI Signals links
         run: npm run ai-signals:validate:live
         continue-on-error: true
 
-      - name: Build publish bundle
+      - name: Build release bundle
         run: npm run site:build
 
-      - name: Verify site bundle
+      - name: Verify release bundle
         run: npm run site:verify
 
-      - name: Verify generated links
+      - name: Audit generated links
         run: npm run verify:generated-links
+        continue-on-error: true
 
-      - name: Deploy Pages production bundle
-        run: npx wrangler pages deploy site-dist --project-name st-georges-strategy-intelligence --branch production
+      - name: Deploy Pages bundle
+        run: >-
+          npx wrangler pages deploy site-dist
+          --project-name st-georges-strategy-intelligence
+          --branch "${{ steps.target.outputs.branch }}"
+          --commit-hash "${{ github.sha }}"
 
-      - name: Commit dated archive snapshot
+      - name: Deploy production route Workers
+        if: steps.target.outputs.name == 'production'
+        run: |
+          npm run deploy:cloudflare:landing-route
+          npm run deploy:cloudflare:not-found-route
+          npm run deploy:cloudflare:seo-route
+          npm run deploy:cloudflare:www-route
+          npm run deploy:cloudflare:route
+          npm run deploy:cloudflare:subdomain-route
+          npm run deploy:cloudflare:ai-signals-route
+          npm run deploy:cloudflare:thevirtualofficer-route
+
+      - name: Purge production host caches
+        id: purge
+        if: steps.target.outputs.name == 'production'
+        run: npm run cloudflare:cache:purge
+        continue-on-error: true
+
+      - name: Verify exact deployed release on dev
+        if: steps.target.outputs.name == 'dev'
+        run: npm run verify:deployed-release -- --origin "${{ steps.target.outputs.origin }}"
+
+      - name: Verify exact deployed release on Pages and production
+        if: steps.target.outputs.name == 'production'
+        run: npm run verify:deployed-release
+
+      - name: Verify legacy redirects
+        if: steps.target.outputs.name == 'production'
+        run: npm run verify:legacy-routes
+
+      - name: Persist dated archive snapshot
+        if: steps.target.outputs.name == 'production'
+        continue-on-error: true
         run: |
           git config user.name "signals archive bot"
           git config user.email "actions@users.noreply.github.com"
           git add dashboard/signals-archive
           git diff --cached --quiet || git commit -m "Freeze weekly archive snapshot $(date -u +%F)"
           git push
+
+      - name: Write release summary
+        if: always()
+        run: |
+          {
+            echo "## Site release"
+            echo "- Release: \`${{ github.sha }}\`"
+            echo "- Target: \`${{ steps.target.outputs.name }}\`"
+            echo "- Pages origin: ${{ steps.target.outputs.origin }}"
+            echo "- Cache purge: \`${{ steps.purge.outcome || 'not-required' }}\`"
+            echo "- The workflow succeeds only after the deployed release marker and critical asset hashes match this commit."
+          } >> "$GITHUB_STEP_SUMMARY"

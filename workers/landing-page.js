@@ -26,7 +26,10 @@ export default {
     }
 
     const upstream = new URL("/", ORIGIN);
-    const upstreamResponse = await fetch(upstream, { method: request.method });
+    const upstreamResponse = await fetch(upstream, {
+      method: request.method,
+      cf: { cacheTtl: 0, cacheEverything: false },
+    });
     const headers = new Headers(upstreamResponse.headers);
     headers.delete("content-length");
     Object.entries(SECURITY_HEADERS).forEach(([key, value]) => headers.set(key, value));

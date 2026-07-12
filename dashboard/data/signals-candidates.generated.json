@@ -1,6 +1,6 @@
 {
   "version": "2026-07-06",
-  "generatedAt": "2026-07-12T09:23:32.040Z",
+  "generatedAt": "2026-07-12T22:21:23.836Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -105,10 +105,10 @@
       "sourceId": "nca-news-rss",
       "sourceRegistryId": "uk-nca",
       "fetchType": "rss",
-      "status": "failed",
-      "fetchedEntries": 0,
+      "status": "ok",
+      "fetchedEntries": 8,
       "acceptedCandidates": 0,
-      "error": "Fetch failed 403 for https://www.nationalcrimeagency.gov.uk/news?format=feed&type=rss"
+      "error": ""
     },
     {
       "sourceId": "esma-rss",
@@ -193,7 +193,6 @@
     }
   ],
   "warnings": [
-    "Source microsoft-ai-rss failed during candidate collection: Fetch failed 410 for https://blogs.microsoft.com/ai/feed/",
-    "Source nca-news-rss failed during candidate collection: Fetch failed 403 for https://www.nationalcrimeagency.gov.uk/news?format=feed&type=rss"
+    "Source microsoft-ai-rss failed during candidate collection: Fetch failed 410 for https://blogs.microsoft.com/ai/feed/"
   ]
 }

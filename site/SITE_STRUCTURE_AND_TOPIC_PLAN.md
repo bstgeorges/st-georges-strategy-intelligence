@@ -125,7 +125,7 @@ The Signals library has eight active streams.
 Each topic page should publish:
 
 - A current weekly Top 5.
-- Ten additional source-backed rows, or an explicit note that fewer rows cleared the threshold.
+- Three to seven unranked still-material signals, reviewed on a 90-day default and 180-day exception window.
 - Source labels and source type.
 - Editorial judgement.
 - So-what view.
@@ -148,7 +148,7 @@ Each weekly run should produce or update:
 | Current weekly brief | `/brief/index.html` | Editorial selection across Signals and Reg Horizon. |
 | Dated weekly archive | `/archive/<YYYY-MM-DD>/index.html` or `/archive/brief/<YYYY-MM-DD>/index.html` | Frozen weekly brief. |
 | Signals hub | `/signals/index.html` | Current topic Top 5s, signal stack, topic routes, archive links. |
-| Eight topic pages | `/signals/<topic>/index.html` | Topic Top 5, 5 more, sources, evidence prompts. |
+| Eight topic pages | `/signals/<topic>/index.html` | Weekly Top 5, 3–7 still-material signals, sources, evidence prompts. |
 | Topic archives | `/signals/<topic>/archive/<YYYY-MM-DD>/index.html` | Frozen topic edition. |
 | Reg Horizon page | `/regulatory-horizon/index.html` | `reg-scan/docs/latest.json`. |
 | Reg Horizon data | `/regulatory-horizon/latest.json` | Current machine-readable horizon edition. |
@@ -159,7 +159,7 @@ Each weekly run should produce or update:
 Reg Horizon contract note:
 
 - `signals[]` is capped at 10 material rows.
-- The public page treats `signals[0:5]` as the Top 5 and `signals[5:10]` as the 5 more rows.
+- The public page renders an explicit `top5` shortlist and a separate, unranked `stillMaterial` set reviewed on a 90-day default and 180-day exception window.
 - `signals[].sourceStatus` is an additive source-context field.
 - `warnings[]` can inform source-coverage caveats. Source-health/fetch failures remain admin evidence unless a plain reader-facing caveat is needed.
 - The current FCA-heavy fixture output is not a migration blocker by itself; the blocker is completing and syncing a first live run from a network environment that can reach regulator domains.

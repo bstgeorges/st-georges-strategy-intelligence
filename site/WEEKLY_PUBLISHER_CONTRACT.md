@@ -52,14 +52,14 @@ Each run must produce or update:
 | Weekly Brief | `/brief/index.html` | Current consolidated Top 5, executive readout, horizon prompts, source trails. |
 | Weekly archive | `/archive/brief/<YYYY-MM-DD>/index.html` | Frozen copy of the weekly brief. |
 | Signals hub | `/signals/index.html` | Eight streams, current signal stack, topic Top 5 previews, archive links. |
-| AI topic | `/signals/ai/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Resilience topic | `/signals/resilience/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Third-party topic | `/signals/third-party/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Market structure topic | `/signals/market-structure/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Financial crime topic | `/signals/financial-crime/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Cyber topic | `/signals/cyber/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Technology failure topic | `/signals/technology-failure/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
-| Data topic | `/signals/data/index.html` | Top 5 plus 5 more, source labels, evidence prompts. |
+| AI topic | `/signals/ai/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Resilience topic | `/signals/resilience/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Third-party topic | `/signals/third-party/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Market structure topic | `/signals/market-structure/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Financial crime topic | `/signals/financial-crime/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Cyber topic | `/signals/cyber/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Technology failure topic | `/signals/technology-failure/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
+| Data topic | `/signals/data/index.html` | Weekly Top 5 plus 3–7 still-material signals, source labels, evidence prompts. |
 | Topic archives | `/signals/<topic>/archive/<YYYY-MM-DD>/index.html` | Frozen topic edition for every active stream. |
 | Reg Horizon | `/regulatory-horizon/index.html` | Build-time HTML from `latest.json`; Top 5 plus additional rows. |
 | Reg Horizon JSON | `/regulatory-horizon/latest.json` | Machine-readable current edition. |
@@ -75,7 +75,7 @@ The publisher must fail before deploy if:
 - Any required route is missing.
 - Any canonical URL, `og:url`, or JSON-LD `@id` points to the old `/thevirtualofficer/` parent.
 - A topic page has fewer than 5 Top 5 rows without an explicit caveat.
-- A topic page has fewer than 5 additional rows without an explicit caveat.
+- A topic page has fewer than 3 or more than 7 still-material rows.
 - Reg Horizon `signals[]` has more than 10 rows.
 - Reg Horizon lacks `sourceStatus` or `warnings[]` after the new contract is live.
 - Author footer or disclaimer is missing.
@@ -99,7 +99,7 @@ Local publisher dry-run status:
 
 - `npm run site:build` generates a staging-style build at `site-dist/`.
 - The dry run writes the 14 current routes, dated weekly brief archive, eight dated topic archives, Reg Horizon JSON/feed/calendar/archive files, `data/signals.json`, `sitemap.xml`, `_headers`, `_redirects`, and `publish-report.json`.
-- The publisher reads `site/data/signals.json` and renders topic Top 5 plus 5 more rows from that shared topic data contract.
+- The publisher reads `site/data/signals.json` and renders each weekly Top 5 plus 3–7 unranked, still-material rows from that shared topic data contract.
 - The dry run normalises archive links to root-relative paths, which is required before staging.
 - If `CF_WEB_ANALYTICS_TOKEN` is set, the publisher injects the Cloudflare Web Analytics beacon into generated HTML.
 

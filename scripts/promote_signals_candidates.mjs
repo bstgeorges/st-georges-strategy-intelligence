@@ -59,12 +59,12 @@ function formatSourceLabel(candidate) {
 
 // Promote up to MAX_FRESH_PROMOTIONS_PER_TOPIC fresh, allowlisted, not-already-published
 // candidates into the front of Top 5, then backfill the remaining slots from the topic's
-// existing top5/additional5 rows (oldest priority first) so a quiet week never leaves a
-// topic with fewer than 5 rows. This never touches additional5 directly.
+// existing top5/stillMaterial rows so a quiet week never leaves a topic with fewer than
+// 5 rows. The retained set is reviewed separately and is never rewritten here.
 function promoteTopic(topic, candidates, sourceMap, log) {
   const existingTop5 = Array.isArray(topic.top5) ? topic.top5 : [];
-  const existingAdditional5 = Array.isArray(topic.additional5) ? topic.additional5 : [];
-  const existingUrls = new Set([...existingTop5, ...existingAdditional5].map((row) => row.url));
+  const existingStillMaterial = Array.isArray(topic.stillMaterial) ? topic.stillMaterial : [];
+  const existingUrls = new Set([...existingTop5, ...existingStillMaterial].map((row) => row.url));
 
   const seenFresh = new Set();
   const freshRows = [];
@@ -89,7 +89,7 @@ function promoteTopic(topic, candidates, sourceMap, log) {
 
   const usedUrls = new Set(freshRows.map((row) => row.url));
   const backfillRows = [];
-  for (const row of [...existingTop5, ...existingAdditional5]) {
+  for (const row of [...existingTop5, ...existingStillMaterial]) {
     if (freshRows.length + backfillRows.length >= TOP5_COUNT) break;
     if (usedUrls.has(row.url)) continue;
     backfillRows.push(row);

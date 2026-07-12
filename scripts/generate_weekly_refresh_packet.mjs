@@ -110,7 +110,7 @@ function buildTopicFreshnessLines(options) {
   if (!topics.length) return ["- (site/data/signals.json not found; cannot report topic freshness)"];
 
   return topics.map((topic) => {
-    const rows = [...(topic.top5 || []), ...(topic.additional5 || [])];
+    const rows = [...(topic.top5 || []), ...(topic.stillMaterial || [])];
     const dates = rows.map((row) => extractDateFromSource(row.source)).filter(Boolean).sort();
     const latestDate = dates.length ? dates[dates.length - 1] : null;
     const stale = daysStale(latestDate, options.date);

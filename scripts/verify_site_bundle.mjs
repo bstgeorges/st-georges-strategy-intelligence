@@ -128,10 +128,12 @@ function main() {
   for (const topic of topics) {
     const html = read(`signals/${topic}/index.html`);
     const top5 = (html.match(/<aside class="display-card">[\s\S]*?<ul class="mini-list">([\s\S]*?)<\/ul>/) || [])[1] || "";
-    const additional = (html.match(/<ol class="brief-index evidence-list">([\s\S]*?)<\/ol>/) || [])[1] || "";
-    assert(count(/<li>/g, top5) === 5, `${topic} should have 5 Top 5 rows`, failures);
+    const stillMaterial = (html.match(/<ol class="brief-index evidence-list still-material-list">([\s\S]*?)<\/ol>/) || [])[1] || "";
+    assert(count(/<li(?:\s|>)/g, top5) === 5, `${topic} should have 5 Top 5 rows`, failures);
     assert(count(/top-source/g, top5) === 5, `${topic} should have 5 Top 5 source labels`, failures);
-    assert(count(/<li>/g, additional) >= 5, `${topic} should have at least 5 additional rows`, failures);
+    const retainedCount = count(/<li(?:\s|>)/g, stillMaterial);
+    assert(retainedCount >= 3 && retainedCount <= 7, `${topic} should have 3–7 still-material rows`, failures);
+    assert(!stillMaterial.includes('class="rank"'), `${topic} still-material rows should not be ranked`, failures);
   }
 
   const horizon = readJson("regulatory-horizon/latest.json");

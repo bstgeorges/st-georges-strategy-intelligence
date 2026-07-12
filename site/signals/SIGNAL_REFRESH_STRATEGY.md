@@ -1,15 +1,16 @@
 # Signals Refresh Strategy
 
-Status date: 2026-07-04
+Status date: 2026-07-12
 
-This document defines how the weekly Top 5 shortlist and additional topic evidence rows should be produced after migration. The goal is to avoid hand-curating a page from scratch while preserving editorial judgement while keeping every published citation specific, checkable, and machine-validated.
+This document defines how the weekly Top 5 shortlist and the curated still-material set should be produced after migration. The goal is to preserve weekly freshness and useful institutional memory while keeping every published citation specific, checkable, and machine-validated.
 
 ## Output Per Topic
 
 Each active topic page should publish:
 
-- Weekly Top 5: the five items most likely to affect the weekly brief or a leadership conversation.
-- Additional 5: the broader ranked source trail for readers who need depth, without repeating the Top 5.
+- Weekly Top 5: the five new, materially changed, or continuing-priority items most likely to affect the weekly brief or a leadership conversation.
+- Still material: three to seven unranked signals that remain useful for decisions, controls, or committee challenge.
+- Retention window: 90 days by default, extendable to 180 days only for an explicitly identified structural anchor with a recorded reason.
 - Source trail: URL, source label, source type, date or edition context.
 - Editorial judgement: why the topic made the brief.
 - Evidence prompts: what a control owner should be able to show.
@@ -60,7 +61,7 @@ Current refresh path:
 1. Validate `ai-signals.json`.
 2. Score all source-backed cards.
 3. Select the weekly Top 5 by control impact, supervisory relevance, and market consequence.
-4. Publish the next five rows as additional evidence.
+4. Review the still-material set; retain, add, supersede, or retire rows on editorial merit.
 5. Carry forward only when capability, governance status, or market consequence changes.
 
 ### Operational Resilience
@@ -267,7 +268,7 @@ Control failure lessons are a weekly output format, not a standing topic stream.
 2. Normalize candidate items into a shared row shape.
 3. Assign one or more topic streams.
 4. Score and sort candidates per topic.
-5. Draft each topic shortlist and additional evidence rows.
+5. Draft each topic shortlist and review its still-material set.
 6. Select each topic Top 5.
 7. Select the cross-topic weekly Top 5.
 8. Add editorial judgement and evidence prompts.
@@ -309,7 +310,7 @@ Phase 2: data-backed staging
 
 Phase 3: production refresh
 
-- Generate topic Top 5 and additional evidence rows during the weekly refresh.
+- Generate each topic Top 5 and review its variable three-to-seven-item still-material set during the weekly refresh.
 - Archive topic JSON and HTML by edition for all eight streams: AI, resilience, third-party, market structure, financial crime, cyber, technology failure, and data.
 - Preserve a dated copy for every topic at `/signals/<topic>/archive/<YYYY-MM-DD>/` and link the current page back to prior editions.
 - Update `/archive/` so each weekly issue links to the eight frozen topic editions and the Reg Horizon edition from the same run.

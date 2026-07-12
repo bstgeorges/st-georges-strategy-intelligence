@@ -7,6 +7,7 @@
       "id": "ai",
       "route": "/signals/ai/",
       "title": "AI, agents, and control evidence.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "FCA publishes landmark review into the impact of AI on retail financial services",
@@ -34,7 +35,7 @@
           "source": "Primary / EUR-Lex AI Act"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "NIST proof shows no fixed set of AI guardrails can be universally robust against adversarial prompts",
@@ -71,6 +72,7 @@
       "id": "resilience",
       "route": "/signals/resilience/",
       "title": "Failure paths, fallback evidence, and customer impact.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "Bank of England's July Financial Stability Report resets the operational resilience baseline",
@@ -98,7 +100,7 @@
           "source": "Digital services / Tom's Guide / 2026-06-22"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Worldpay outage shows processor failure can become customer harm",
@@ -115,13 +117,17 @@
           "rank": 8,
           "title": "FCA one-year review finds mapping still leans on technology over people, facilities, and third parties",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27"
+          "source": "Primary / FCA / 2026-03-27",
+          "retention": "six-month-anchor",
+          "retentionReason": "The one-year review remains the clearest current supervisory benchmark for resilience mapping quality."
         },
         {
           "rank": 9,
           "title": "FCA one-year review: firms still lack clear, tested methodologies for setting impact tolerances",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27"
+          "source": "Primary / FCA / 2026-03-27",
+          "retention": "six-month-anchor",
+          "retentionReason": "Impact-tolerance methodology remains an active evidence gap highlighted by the FCA review."
         },
         {
           "rank": 10,
@@ -135,6 +141,7 @@
       "id": "third-party",
       "route": "/signals/third-party/",
       "title": "Dependencies that look internal when they fail.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "ESMA's custody supervisory action turns third-party and DLT dependency governance into an evidence test",
@@ -162,7 +169,7 @@
           "source": "Primary / FSB / 2025-10-10"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Agentic AI suppliers create permission and audit-log questions",
@@ -173,7 +180,9 @@
           "rank": 7,
           "title": "FCA one-year review: third-party vulnerability identification still needs more work despite mapping progress",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27"
+          "source": "Primary / FCA / 2026-03-27",
+          "retention": "six-month-anchor",
+          "retentionReason": "The review remains a live supervisory anchor for third-party vulnerability identification."
         },
         {
           "rank": 8,
@@ -199,6 +208,7 @@
       "id": "market-structure",
       "route": "/signals/market-structure/",
       "title": "Capital, liquidity, infrastructure, and concentration risk.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "Bank of England's July Financial Stability Report frames the current systemic risk outlook",
@@ -226,7 +236,7 @@
           "source": "Primary / ESMA / 2025-10-13"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Autonomous trading agents put circuit breakers into the market-stability debate",
@@ -263,6 +273,7 @@
       "id": "financial-crime",
       "route": "/signals/financial-crime/",
       "title": "Fraud, scams, sanctions, and control evidence.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "OFSI issues its largest sanctions penalty since Russia's 2022 invasion, and its first for circumvention",
@@ -290,12 +301,14 @@
           "source": "Primary / FCA / 2026-06-30"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Fraudscape 2026: fraud cases hit record highs as identity fraud and AI-enabled account takeover scale up",
           "url": "https://www.cifas.org.uk/newsroom/fraudscape2026",
-          "source": "Industry data / Cifas Fraudscape 2026 / 2026-03-12"
+          "source": "Industry data / Cifas Fraudscape 2026 / 2026-03-12",
+          "retention": "six-month-anchor",
+          "retentionReason": "The annual dataset remains a current baseline for identity fraud and AI-enabled account-takeover trends."
         },
         {
           "rank": 7,
@@ -307,7 +320,9 @@
           "rank": 8,
           "title": "FCA review finds firms still lack independent testing and version control in customer due diligence controls",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-          "source": "Primary / FCA / 2026-04-08"
+          "source": "Primary / FCA / 2026-04-08",
+          "retention": "six-month-anchor",
+          "retentionReason": "The findings remain the current FCA benchmark for independent testing and version control in customer due diligence."
         },
         {
           "rank": 9,
@@ -327,6 +342,7 @@
       "id": "cyber",
       "route": "/signals/cyber/",
       "title": "Threats, vulnerabilities, identity, and response.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "ESAs back ESRB warning that frontier AI models pose a severe and rising systemic cyber risk",
@@ -354,7 +370,7 @@
           "source": "Primary / Bank of England, PRA and FCA / 2025-10-20"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Basic control hygiene remains the first test of cyber governance",
@@ -375,9 +391,9 @@
         },
         {
           "rank": 9,
-          "title": "ENISA's 2025 threat landscape finds threat groups increasingly reusing tools and converging tactics across the EU",
-          "url": "https://www.enisa.europa.eu/publications/enisa-threat-landscape-2025",
-          "source": "Primary / ENISA / 2025-10-01, updated 2026-01-09"
+          "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
+          "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
+          "source": "Primary / NIST / 2026-06-09"
         },
         {
           "rank": 10,
@@ -391,6 +407,7 @@
       "id": "technology-failure",
       "route": "/signals/technology-failure/",
       "title": "Outages, change failure, data integrity, and recovery.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "Bank of England's July Financial Stability Report reassesses technology and third-party failure risk",
@@ -405,7 +422,9 @@
         {
           "title": "FCA cites AWS, Azure, and Cloudflare outages as the plausible-scenario bar firms must test against",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27"
+          "source": "Primary / FCA / 2026-03-27",
+          "retention": "six-month-anchor",
+          "retentionReason": "The review remains a current benchmark for post-deadline investment in vaulting and standby processing."
         },
         {
           "title": "DORA keeps ICT incidents, third-party risk, testing, and governance in one resilience frame",
@@ -418,12 +437,14 @@
           "source": "Official guidance / NCSC cloud"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "Firms have invested in data vaulting and standby processing centres since the resilience deadline passed",
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27"
+          "source": "Primary / FCA / 2026-03-27",
+          "retention": "six-month-anchor",
+          "retentionReason": "The review remains a current benchmark for post-deadline investment in vaulting and standby processing."
         },
         {
           "rank": 7,
@@ -455,6 +476,7 @@
       "id": "data",
       "route": "/signals/data/",
       "title": "Lineage, reporting, privacy, and evidence integrity.",
+      "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
           "title": "New UK legal duty to handle data protection complaints takes effect",
@@ -482,7 +504,7 @@
           "source": "Primary / ICO / 2026-03-17"
         }
       ],
-      "additional5": [
+      "stillMaterial": [
         {
           "rank": 6,
           "title": "BCBS 239 progress reviews keep accountability for data quality on the supervisory agenda",
@@ -499,7 +521,9 @@
           "rank": 8,
           "title": "FCA's transaction-reporting overhaul (CP25/32) would cut reporting fields from 65 to 52 and save firms over £100m a year",
           "url": "https://www.fca.org.uk/publications/consultation-papers/cp25-32-improving-uk-transaction-reporting-regime",
-          "source": "Primary / FCA / consultation closed 2026-02-20"
+          "source": "Primary / FCA / consultation closed 2026-02-20",
+          "retention": "six-month-anchor",
+          "retentionReason": "The proposed reporting redesign remains material while firms prepare for the resulting field and control changes."
         },
         {
           "rank": 9,

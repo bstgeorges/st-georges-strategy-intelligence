@@ -38,7 +38,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 AI list is present. |
-| Expanded evidence rows | Yes | The AI page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The AI page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or edition context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -57,7 +57,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 resilience list is present. |
-| Expanded evidence rows | Yes | The resilience page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The resilience page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -76,7 +76,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 third-party list is present. |
-| Expanded evidence rows | Yes | The third-party page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The third-party page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -95,7 +95,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 market-structure list is present. |
-| Expanded evidence rows | Yes | The market-structure page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The market-structure page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -114,7 +114,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 financial-crime list is present. |
-| Expanded evidence rows | Yes | The financial-crime page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The financial-crime page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -133,7 +133,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 cyber list is present. |
-| Expanded evidence rows | Yes | The cyber page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The cyber page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -152,7 +152,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 technology-failure list is present. |
-| Expanded evidence rows | Yes | The technology-failure page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The technology-failure page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |
@@ -171,7 +171,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Item | Status | Evidence / next action |
 | --- | --- | --- |
 | Weekly top 5 | Yes | Top 5 data list is present. |
-| Expanded evidence rows | Yes | The data page shows a Top 5 shortlist plus five additional source-backed rows. |
+| Curated memory | Yes | The data page shows a Top 5 shortlist plus five reviewed still-material signals. |
 | Source-backed rows | Yes | Each ranked row has URL, source label, and date or official-source context. |
 | Why it made the brief | Yes | Editorial judgement section is present. |
 | So-what view | Yes | So-what card is present. |

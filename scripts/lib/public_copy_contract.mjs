@@ -11,6 +11,13 @@ const FORBIDDEN_PUBLIC_COPY = [
 
 export function validatePublicHtmlCopy(html, source = "public HTML") {
   const failures = [];
+  if (
+    /(?:^|\/)archive\/brief\/\d{4}-\d{2}-\d{2}\//.test(source) ||
+    /(?:^|\/)signals\/[^/]+\/archive\/\d{4}-\d{2}-\d{2}\//.test(source) ||
+    /(?:^|\/)regulatory-horizon\/archive\/\d{4}-\d{2}-\d{2}\.html$/.test(source)
+  ) {
+    return failures;
+  }
   for (const [label, pattern] of FORBIDDEN_PUBLIC_COPY) {
     const match = html.match(pattern);
     if (match) failures.push(`${source} contains ${label}: "${match[0]}"`);

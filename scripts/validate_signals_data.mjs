@@ -2,7 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { validatePublishedRows, validatePublishedRowsLiveness } from "./lib/published_source_contract.mjs";
+import {
+  isSpecificPublishedSourceUrl,
+  validatePublishedRows,
+  validatePublishedRowsLiveness,
+} from "./lib/published_source_contract.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "site", "data", "signals.json");
@@ -23,6 +27,22 @@ const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const DEFAULT_RETENTION_DAYS = 90;
 const EXTENDED_RETENTION_DAYS = 180;
+const REQUIRED_EVIDENCE_FIELDS = [
+  "sourceTitle",
+  "organisation",
+  "publishedDate",
+  "sourceUrl",
+  "sourceType",
+  "significance",
+];
+const ALLOWED_SOURCE_TYPES = new Set([
+  "regulator",
+  "company announcement",
+  "research",
+  "financial reporting",
+  "other reporting",
+]);
+const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|monitoring\s*\/\s*[^/]+?\s*\/\s*20\d{2}(?:-\d{2})?(?!-\d{2})\b/i;
 
 function parseArgs(argv) {
   const options = { checkLive: false };
@@ -50,6 +70,31 @@ function parseIsoDate(value) {
 function extractExactDate(sourceLabel) {
   const match = String(sourceLabel || "").match(/\b(\d{4}-\d{2}-\d{2})\b/);
   return match ? match[1] : "";
+}
+
+function validateEvidence(row, rowLabel, failures) {
+  const evidence = row.evidence || {};
+  for (const field of REQUIRED_EVIDENCE_FIELDS) {
+    if (!evidence[field]) fail(`${rowLabel} evidence.${field} is required.`, failures);
+  }
+  if (evidence.sourceUrl && evidence.sourceUrl !== row.url) {
+    fail(`${rowLabel} evidence.sourceUrl must match the row URL.`, failures);
+  }
+  if (evidence.sourceUrl && !isSpecificPublishedSourceUrl(evidence.sourceUrl)) {
+    fail(`${rowLabel} evidence.sourceUrl is generic or unsupported: ${evidence.sourceUrl}`, failures);
+  }
+  if (!parseIsoDate(evidence.publishedDate)) {
+    fail(`${rowLabel} evidence.publishedDate must be YYYY-MM-DD.`, failures);
+  }
+  if (evidence.accessedDate && !parseIsoDate(evidence.accessedDate)) {
+    fail(`${rowLabel} evidence.accessedDate must be YYYY-MM-DD when present.`, failures);
+  }
+  if (evidence.sourceType && !ALLOWED_SOURCE_TYPES.has(evidence.sourceType)) {
+    fail(`${rowLabel} evidence.sourceType is unsupported: ${evidence.sourceType}`, failures);
+  }
+  if (VAGUE_SOURCE_LABELS.test(row.source || "")) {
+    fail(`${rowLabel} source label is vague; use organisation, source type, and exact date in evidence instead.`, failures);
+  }
 }
 
 async function main() {
@@ -89,16 +134,18 @@ async function main() {
 
     const rows = [...(topic.top5 || []), ...retainedRows];
     rows.forEach((row, index) => {
+      const rowLabel = `${topicId} row ${index + 1}`;
       if (!row.title) fail(`${topicId} row ${index + 1} is missing title.`, failures);
       if (!row.source) fail(`${topicId} row ${index + 1} is missing source label.`, failures);
       if (!row.url) fail(`${topicId} row ${index + 1} is missing citation URL.`, failures);
+      validateEvidence(row, rowLabel, failures);
     });
 
     const publishedValidation = validatePublishedRows(rows, {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
-      maxExactReusePerTopic: 2,
+      maxExactReusePerTopic: 1,
     });
     failures.push(...publishedValidation.failures);
     warnings.push(...publishedValidation.warnings);

@@ -47,6 +47,7 @@
           "badge": "Research signal",
           "body": "The new Codex working paper frames agentic AI as delegated work rather than better chat. The control implication is workflow ownership, approval discipline, and evidence of what the agent changed.",
           "sourceName": "arXiv",
+          "sourceType": "dated",
           "date": "2026-06-25",
           "source": {
             "label": "The Shift to Agentic AI: Evidence from Codex",
@@ -58,6 +59,7 @@
           "badge": "Governance signal",
           "body": "The AI Act makes firms classify use cases, roles, and obligations more explicitly. The operational pressure point is no longer AI policy alone but maintaining an inventory that can support legal and control decisions.",
           "sourceName": "EUR-Lex",
+          "sourceType": "dated",
           "date": "2026-07-01",
           "source": {
             "label": "Artificial Intelligence Act",
@@ -69,7 +71,8 @@
           "badge": "Governance signal",
           "body": "For firms trying to keep AI governance practical, NIST still offers the cleanest baseline for mapping design, testing, monitoring, and accountability into an evidence pack.",
           "sourceName": "NIST",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "framework",
           "source": {
             "label": "NIST AI Risk Management Framework",
             "url": "https://www.nist.gov/itl/ai-risk-management-framework"
@@ -80,7 +83,8 @@
           "badge": "Data signal",
           "body": "The ICO's AI guidance keeps data provenance, lawful basis, explainability, and individual rights in the operational frame. That makes data discipline part of AI governance, not a separate privacy annex.",
           "sourceName": "ICO",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "guidance",
           "source": {
             "label": "ICO AI and data protection guidance",
             "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"
@@ -91,7 +95,8 @@
           "badge": "Product signal",
           "body": "The control challenge is not only greenfield AI deployment. AI capability now enters through tools firms already license, which raises inventory, permission, and change-control questions.",
           "sourceName": "Google Workspace",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "product-page",
           "source": {
             "label": "Google Workspace AI",
             "url": "https://workspace.google.com/solutions/ai/"
@@ -109,6 +114,7 @@
           "badge": "Market signal",
           "body": "The Bank of England debate has moved AI control language into circuit breakers, kill switches, and accountable human override. That is a much more operational standard than generic AI principles.",
           "sourceName": "Financial Times",
+          "sourceType": "dated",
           "date": "2026-06-30",
           "source": {
             "label": "Financial Times",
@@ -120,6 +126,7 @@
           "badge": "Payments signal",
           "body": "As AI agents move toward payments and customer action, the live questions are who consented, who is liable, and what happens when an agent acts at speed across fragmented providers.",
           "sourceName": "The Times",
+          "sourceType": "dated",
           "date": "2026-06-30",
           "source": {
             "label": "The Times",
@@ -131,7 +138,8 @@
           "badge": "Security signal",
           "body": "Prompt-level instructions are not enough governance when AI is connected to real systems. Firms need technical boundaries, recovery plans, and incident communications around the workflow itself.",
           "sourceName": "TechRadar",
-          "date": "2026",
+          "sourceType": "dated",
+          "date": "2026-06-22",
           "source": {
             "label": "TechRadar Pro",
             "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough"
@@ -142,7 +150,8 @@
           "badge": "Dependency signal",
           "body": "Once AI capability is embedded in regulated workflows, model providers start to look like critical third parties. That shifts attention to concentration, substitution, and evidence of control.",
           "sourceName": "FCA",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "guidance",
           "source": {
             "label": "FCA critical third parties policy",
             "url": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector"
@@ -153,7 +162,8 @@
           "badge": "Governance signal",
           "body": "The governance challenge is convergence: firms need a practical bridge from high-level frameworks to legal obligations, deployment boundaries, monitoring, and evidence.",
           "sourceName": "NIST / EUR-Lex",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "framework",
           "source": {
             "label": "NIST AI Risk Management Framework",
             "url": "https://www.nist.gov/itl/ai-risk-management-framework"
@@ -171,7 +181,8 @@
           "badge": "Market signal",
           "body": "The AI build-out is becoming a financial-services watch item because concentration, leverage, and valuation sensitivity can travel quickly from technology optimism into credit and market exposure.",
           "sourceName": "Wall Street Journal",
-          "date": "2026-06",
+          "sourceType": "dated",
+          "date": "2026-06-29",
           "source": {
             "label": "Wall Street Journal",
             "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb"
@@ -182,6 +193,7 @@
           "badge": "Supervisory signal",
           "body": "The next step is not only AI regulation but AI-enabled supervision. That points to faster pattern detection, more data-led challenge, and a rising premium on clean internal evidence.",
           "sourceName": "Financial Times",
+          "sourceType": "dated",
           "date": "2026-07-05",
           "source": {
             "label": "Financial Times",
@@ -193,6 +205,7 @@
           "badge": "Adoption signal",
           "body": "The adoption signal is that agent tools are beginning to alter how work is assigned and reviewed. That pushes governance from experimentation toward operating model design.",
           "sourceName": "arXiv",
+          "sourceType": "dated",
           "date": "2026-06-25",
           "source": {
             "label": "The Shift to Agentic AI: Evidence from Codex",
@@ -204,6 +217,7 @@
           "badge": "Policy signal",
           "body": "If AI-enabled products move faster than existing regulatory powers, firms should expect sharper debate about perimeter, accountability, consumer protection, and third-party oversight.",
           "sourceName": "Financial Times",
+          "sourceType": "dated",
           "date": "2026-07-05",
           "source": {
             "label": "Financial Times",
@@ -215,7 +229,8 @@
           "badge": "Distribution signal",
           "body": "The practical buying pattern matters: AI capability increasingly arrives through existing productivity and platform estates, which means governance has to watch defaults, permissions, and rollout paths.",
           "sourceName": "Google Workspace",
-          "date": "2026",
+          "sourceType": "evergreen",
+          "evergreenClassification": "product-page",
           "source": {
             "label": "Google Workspace AI",
             "url": "https://workspace.google.com/solutions/ai/"

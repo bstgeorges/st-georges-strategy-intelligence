@@ -17,6 +17,7 @@
   }
 
   function renderCard(card) {
+    const dateLabel = card.sourceType === "evergreen" ? "Evergreen" : card.date;
     return `<article class="card">
       <div class="card-top">
         <h2 class="card-title">${escapeHtml(card.title)}</h2>
@@ -25,7 +26,7 @@
       <p class="card-body">${escapeHtml(card.body)}</p>
       <div class="card-meta">
         <span>${escapeHtml(card.sourceName)}</span>
-        <span>${escapeHtml(card.date)}</span>
+        <span>${escapeHtml(dateLabel)}</span>
       </div>
       <div class="source-row">
         <a href="${escapeHtml(card.source && card.source.url)}">${escapeHtml(card.source && card.source.label)}</a>

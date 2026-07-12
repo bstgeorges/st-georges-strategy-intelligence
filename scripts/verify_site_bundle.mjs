@@ -50,6 +50,10 @@ function readJson(relative) {
   return JSON.parse(read(relative));
 }
 
+function readSourceJson(relative) {
+  return JSON.parse(readSource(relative));
+}
+
 function assert(condition, message, failures) {
   if (!condition) failures.push(message);
 }
@@ -61,6 +65,33 @@ function attr(html, pattern) {
 
 function count(pattern, text) {
   return (text.match(pattern) || []).length;
+}
+
+function formatDateLong(date) {
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return parsed.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+}
+
+function checkCurrentEditionAlignment(failures) {
+  const edition = readSourceJson("data/current-edition.json");
+  const home = read("index.html");
+  const brief = read("brief/index.html");
+  const archive = read("archive/index.html");
+  const committee = read("committee-questions/index.html");
+  const signals = readJson("data/signals.json");
+  const weekLabel = `Week of ${formatDateLong(edition.weekOf)}`;
+  const updatedLabel = `Last updated ${formatDateLong(edition.publicationDate)}`;
+
+  assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
+  assert(brief.includes(weekLabel), `brief should use canonical ${weekLabel}`, failures);
+  assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
+  assert(home.includes(edition.mainJudgement), "home should include canonical current-edition judgement", failures);
+  assert(
+    archive.includes(`latest ${edition.publicationDate}`),
+    `archive should report canonical latest archive ${edition.publicationDate}`,
+    failures,
+  );
+  assert(committee.includes(updatedLabel), `committee questions should use canonical ${updatedLabel}`, failures);
 }
 
 function checkWorkerRouteCoverage(failures) {
@@ -123,15 +154,15 @@ function checkLocalLinks(failures) {
 function main() {
   const failures = [];
 
-  if (SITE === GENERATED_SITE) {
-    const publicMarkdown = [];
-    function findMarkdown(dir) {
-      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-        const full = path.join(dir, entry.name);
-        if (entry.isDirectory()) findMarkdown(full);
-        else if (entry.name.endsWith(".md")) publicMarkdown.push(full);
-      }
+  const publicMarkdown = [];
+  function findMarkdown(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) findMarkdown(full);
+      else if (entry.name.endsWith(".md")) publicMarkdown.push(full);
     }
+  }
+  if (SITE === GENERATED_SITE) {
     findMarkdown(SITE);
     assert(publicMarkdown.length === 0, "public bundle should not contain internal Markdown files", failures);
   }
@@ -175,6 +206,7 @@ function main() {
   const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
+  checkCurrentEditionAlignment(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");
   assert(fs.existsSync(responsiveReport), "Responsive report missing", failures);

@@ -3,6 +3,9 @@ const FORBIDDEN_PUBLIC_COPY = [
   ["editorial scaffolding", /\bthe weekly newsletter should\b/i],
   ["migration note", /\bthe existing site has good raw material here\b/i],
   ["migration note", /\bin the migration,\s+this could become\b/i],
+  ["migration note", /\bbefore migration\b/i],
+  ["migration note", /\bmigration-ready\b/i],
+  ["draft marker", /\bdraft opening\b/i],
   ["placeholder marker", /\b(?:lorem ipsum|todo|tbd|tk)\b/i],
 ];
 

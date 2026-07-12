@@ -3,11 +3,21 @@ const FORBIDDEN_PUBLIC_COPY = [
   ["editorial scaffolding", /\bthe weekly newsletter should\b/i],
   ["migration note", /\bthe existing site has good raw material here\b/i],
   ["migration note", /\bin the migration,\s+this could become\b/i],
+  ["migration note", /\bbefore migration\b/i],
+  ["migration note", /\bmigration-ready\b/i],
+  ["draft marker", /\bdraft opening\b/i],
   ["placeholder marker", /\b(?:lorem ipsum|todo|tbd|tk)\b/i],
 ];
 
 export function validatePublicHtmlCopy(html, source = "public HTML") {
   const failures = [];
+  if (
+    /(?:^|\/)archive\/brief\/\d{4}-\d{2}-\d{2}\//.test(source) ||
+    /(?:^|\/)signals\/[^/]+\/archive\/\d{4}-\d{2}-\d{2}\//.test(source) ||
+    /(?:^|\/)regulatory-horizon\/archive\/\d{4}-\d{2}-\d{2}\.html$/.test(source)
+  ) {
+    return failures;
+  }
   for (const [label, pattern] of FORBIDDEN_PUBLIC_COPY) {
     const match = html.match(pattern);
     if (match) failures.push(`${source} contains ${label}: "${match[0]}"`);

@@ -11,9 +11,11 @@ const SOURCE = path.join(ROOT, "site");
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
+const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
+const ALLOW_ARCHIVE_CORRECTION = process.env.SGS_ARCHIVE_CORRECTION === "1";
 const FEED_XSL = `<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -94,6 +96,22 @@ const TOP5_COUNT = 5;
 const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const REG_HORIZON_ADDITIONAL_COUNT = 5;
+const REQUIRED_EVIDENCE_FIELDS = [
+  "sourceTitle",
+  "organisation",
+  "publishedDate",
+  "sourceUrl",
+  "sourceType",
+  "significance",
+];
+const ALLOWED_SOURCE_TYPES = new Set([
+  "regulator",
+  "company announcement",
+  "research",
+  "financial reporting",
+  "other reporting",
+]);
+const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|monitoring\s*\/\s*[^/]+?\s*\/\s*20\d{2}(?:-\d{2})?(?!-\d{2})\b/i;
 
 const redirects = [
   ["/intelligence/", "/brief/"],
@@ -234,6 +252,16 @@ function copyDirectory(source, destination, filter = () => true) {
     else if (entry.isFile()) write(to, fs.readFileSync(from));
     else throw new Error(`Unsupported public source entry: ${path.relative(ROOT, from)}`);
   }
+}
+
+function archiveEditionFilter(root, edition) {
+  return (sourcePath) => {
+    const relative = path.relative(root, sourcePath);
+    if (!relative) return true;
+    const first = relative.split(path.sep)[0];
+    if (/^\d{4}-\d{2}-\d{2}$/.test(first)) return first <= edition;
+    return true;
+  };
 }
 
 function copySite(out) {
@@ -506,13 +534,29 @@ function briefWeekEdition(out) {
 // reason: an earlier version fell back to the Reg Horizon scan's own edition, which
 // went stale whenever that scan hadn't run recently even though other content had
 // been refreshed. Preferring the brief's own dateline (falling back to the build
-// date only if that can't be parsed) fixes both problems: the edition is stable
-// across same-week rebuilds, and it no longer depends on the Reg Horizon feed.
-function latestEdition(out, preferred) {
+// date only if that can't be parsed) fixes both problems. When present, the
+// canonical edition record is the source of truth for the publication date.
+function latestEdition(out, preferred, editionRecord) {
   if (preferred) return preferred;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(editionRecord?.publicationDate || "")) return editionRecord.publicationDate;
   const briefEdition = briefWeekEdition(out);
   if (briefEdition) return briefEdition;
   return new Date().toISOString().slice(0, 10);
+}
+
+function loadEditionRecord(failures) {
+  assert(fs.existsSync(EDITION_INPUT), "current edition record missing at site/data/current-edition.json", failures);
+  if (!fs.existsSync(EDITION_INPUT)) return null;
+  const record = readJson(EDITION_INPUT);
+  const required = ["editionNumber", "title", "weekOf", "publicationDate", "canonicalUrl", "status", "signalsRanked", "streamsScanned"];
+  for (const field of required) assert(Boolean(record[field]), `current edition missing ${field}`, failures);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(record.weekOf || ""), "current edition weekOf must be YYYY-MM-DD", failures);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(record.publicationDate || ""), "current edition publicationDate must be YYYY-MM-DD", failures);
+  assert(["draft", "current", "archived"].includes(record.status), "current edition status must be draft, current, or archived", failures);
+  assert(record.canonicalUrl === `${PUBLIC_ORIGIN}/brief/`, "current edition canonicalUrl must point to the current brief", failures);
+  assert(record.signalsRanked === TOP5_COUNT, `current edition signalsRanked must be ${TOP5_COUNT}`, failures);
+  assert(record.streamsScanned === topics.length, `current edition streamsScanned must be ${topics.length}`, failures);
+  return record;
 }
 
 // Used only for the "Reg Horizon scan / <date>" label on the archive index page —
@@ -527,11 +571,12 @@ function horizonEditionLabel(out) {
   return "2026-07-04";
 }
 
-function listEditionDates(dir) {
+function listEditionDates(dir, maxDate = "") {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
+    .filter((entry) => !maxDate || entry.name <= maxDate)
     .map((entry) => entry.name)
     .sort()
     .reverse();
@@ -555,12 +600,12 @@ function syncSignalsArchiveStore(out, edition) {
 
   const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
   if (fs.existsSync(briefStoreDir)) {
-    copyDirectory(briefStoreDir, path.join(out, "archive", "brief"));
+    copyDirectory(briefStoreDir, path.join(out, "archive", "brief"), archiveEditionFilter(briefStoreDir, edition));
   }
   for (const topic of topics) {
     const topicStoreDir = path.join(ARCHIVE_STORE, "topics", topic);
     if (fs.existsSync(topicStoreDir)) {
-      copyDirectory(topicStoreDir, path.join(out, "signals", topic, "archive"));
+      copyDirectory(topicStoreDir, path.join(out, "signals", topic, "archive"), archiveEditionFilter(topicStoreDir, edition));
     }
   }
 }
@@ -571,6 +616,15 @@ function archiveIntoStore(out, sourceRelative, destinationFile) {
   text = text.replace(/\b(href|src)="([^"]+)"/g, (_match, attr, value) => {
     return `${attr}="${toRootRelativeReference(out, sourceFile, value)}"`;
   });
+  if (fs.existsSync(destinationFile)) {
+    const existing = fs.readFileSync(destinationFile, "utf8");
+    if (existing === text) return;
+    if (!ALLOW_ARCHIVE_CORRECTION) {
+      throw new Error(
+        `Archive snapshot already exists and differs: ${path.relative(ROOT, destinationFile)}. Set SGS_ARCHIVE_CORRECTION=1 for an intentional correction.`,
+      );
+    }
+  }
   write(destinationFile, text);
 }
 
@@ -638,11 +692,11 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
 `;
 }
 
-function generateArchiveHubPages(out) {
+function generateArchiveHubPages(out, edition) {
   const signalsData = fs.existsSync(SIGNALS_INPUT) ? readJson(SIGNALS_INPUT) : { topics: [] };
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
 
-  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
   write(
     path.join(out, "archive", "brief", "index.html"),
     buildArchiveHubPage({
@@ -663,7 +717,7 @@ function generateArchiveHubPages(out) {
   for (const topic of topics) {
     const meta = topicMeta.get(topic) || {};
     const topicTitle = String(meta.title || topic).replace(/\.+$/, "");
-    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic));
+    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition);
     write(
       path.join(out, "signals", topic, "archive", "index.html"),
       buildArchiveHubPage({
@@ -683,7 +737,7 @@ function generateArchiveHubPages(out) {
   }
 }
 
-function updateArchiveIndexCards(out) {
+function updateArchiveIndexCards(out, edition) {
   const file = path.join(out, "archive", "index.html");
   if (!fs.existsSync(file)) return;
   const html = read(file);
@@ -697,7 +751,7 @@ function updateArchiveIndexCards(out) {
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
   const horizonEdition = horizonEditionLabel(out);
 
-  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
   const cards = [];
   cards.push(
     `<a class="archive-card" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
@@ -705,7 +759,7 @@ function updateArchiveIndexCards(out) {
 
   for (const topic of topics) {
     const meta = topicMeta.get(topic) || {};
-    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic));
+    const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition);
     cards.push(
       `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
     );
@@ -985,6 +1039,7 @@ function validateSignalsData(data, failures) {
       assert(row.title, `${topicId} row ${index + 1} missing title`, failures);
       assert(/^https:\/\//.test(row.url || ""), `${topicId} row ${index + 1} missing https URL`, failures);
       assert(row.source, `${topicId} row ${index + 1} missing source label`, failures);
+      validateSignalEvidence(row, `${topicId} row ${index + 1}`, failures);
       assert(
         isSpecificPublishedSourceUrl(row.url || ""),
         `${topicId} row ${index + 1} uses a generic or unsupported source URL: ${row.url}`,
@@ -995,10 +1050,33 @@ function validateSignalsData(data, failures) {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
-      maxExactReusePerTopic: 2,
+      maxExactReusePerTopic: 1,
     });
     failures.push(...publishedValidation.failures);
   }
+}
+
+function validateSignalEvidence(row, rowLabel, failures) {
+  const evidence = row.evidence || {};
+  for (const field of REQUIRED_EVIDENCE_FIELDS) {
+    assert(Boolean(evidence[field]), `${rowLabel} evidence.${field} is required`, failures);
+  }
+  assert(evidence.sourceUrl === row.url, `${rowLabel} evidence.sourceUrl must match row url`, failures);
+  assert(
+    !evidence.sourceUrl || isSpecificPublishedSourceUrl(evidence.sourceUrl),
+    `${rowLabel} evidence.sourceUrl is generic or unsupported: ${evidence.sourceUrl}`,
+    failures,
+  );
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(evidence.publishedDate || ""), `${rowLabel} evidence.publishedDate must be YYYY-MM-DD`, failures);
+  if (evidence.accessedDate) {
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(evidence.accessedDate), `${rowLabel} evidence.accessedDate must be YYYY-MM-DD`, failures);
+  }
+  assert(
+    !evidence.sourceType || ALLOWED_SOURCE_TYPES.has(evidence.sourceType),
+    `${rowLabel} evidence.sourceType is unsupported: ${evidence.sourceType}`,
+    failures,
+  );
+  assert(!VAGUE_SOURCE_LABELS.test(row.source || ""), `${rowLabel} source label is vague`, failures);
 }
 
 function getStillMaterialRows(topic) {
@@ -1129,7 +1207,7 @@ function generateSignalsJson(out, data) {
 }
 
 function generateSitemap(out, edition) {
-  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
+  const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
   const entries = [
     ...routes.map(([route]) => ({ loc: `${PUBLIC_ORIGIN}${route}`, lastmod: edition })),
     { loc: `${PUBLIC_ORIGIN}/archive/brief/`, lastmod: edition },
@@ -1137,7 +1215,7 @@ function generateSitemap(out, edition) {
   ];
   for (const topic of topics) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/`, lastmod: edition });
-    for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic))) {
+    for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition)) {
       entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`, lastmod: date });
     }
   }
@@ -1298,7 +1376,8 @@ function main() {
   decorateHorizonFeed(options.out);
   normaliseMockupLinks(options.out);
   normaliseHorizonArchiveLinks(options.out);
-  const edition = latestEdition(options.out, options.edition);
+  const editionRecord = loadEditionRecord(failures);
+  const edition = latestEdition(options.out, options.edition, editionRecord);
   const horizonData = loadHorizonData(options.out, failures);
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
@@ -1313,10 +1392,10 @@ function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
-  generateArchiveHubPages(options.out);
-  updateArchiveIndexCards(options.out);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);
+  generateArchiveHubPages(options.out, edition);
+  updateArchiveIndexCards(options.out, edition);
   generateSignalsJson(options.out, signalsData);
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);

@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { validatePublicHtmlCopy } from "./lib/public_copy_contract.mjs";
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE_SITE = path.join(ROOT, "site");
 const GENERATED_SITE = path.join(ROOT, "site-dist");
@@ -75,6 +77,7 @@ function checkLocalLinks(failures) {
 
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
+    failures.push(...validatePublicHtmlCopy(html, path.relative(SITE, file)));
     for (const match of html.matchAll(/href="([^"]+)"/g)) {
       const href = match[1];
       if (/^(https?:|mailto:|#)/.test(href)) continue;
@@ -91,6 +94,19 @@ function checkLocalLinks(failures) {
 
 function main() {
   const failures = [];
+
+  if (SITE === GENERATED_SITE) {
+    const publicMarkdown = [];
+    function findMarkdown(dir) {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) findMarkdown(full);
+        else if (entry.name.endsWith(".md")) publicMarkdown.push(full);
+      }
+    }
+    findMarkdown(SITE);
+    assert(publicMarkdown.length === 0, "public bundle should not contain internal Markdown files", failures);
+  }
 
   for (const [name, relative, expectedUrl] of routes) {
     const file = path.join(SITE, relative);
@@ -123,6 +139,12 @@ function main() {
   assert(horizon.signals.length <= 15, "Reg Horizon signals[] exceeds 15 rows", failures);
   assert(horizon.signals.every((item) => item.sourceStatus), "Reg Horizon signals[] should include sourceStatus in mockup contract", failures);
   assert(Array.isArray(horizon.warnings), "Reg Horizon latest.json missing warnings[]", failures);
+
+  const sitemap = read("sitemap.xml");
+  const sitemapUrls = count(/<url>/g, sitemap);
+  const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
+  assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
+  assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");
   assert(fs.existsSync(responsiveReport), "Responsive report missing", failures);

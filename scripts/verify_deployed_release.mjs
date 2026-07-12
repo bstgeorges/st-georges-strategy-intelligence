@@ -7,6 +7,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DEFAULT_ORIGINS = [
   "https://st-georges-strategy-intelligence.pages.dev",
+  "https://main.st-georges-strategy-intelligence.pages.dev",
   "https://stgeorgesstrategy.com",
 ];
 

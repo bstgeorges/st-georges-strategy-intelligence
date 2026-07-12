@@ -100,6 +100,14 @@ jobs:
           --branch "${{ steps.target.outputs.branch }}"
           --commit-hash "${{ github.sha }}"
 
+      - name: Synchronize public main Pages alias
+        if: steps.target.outputs.name == 'production'
+        run: >-
+          npx wrangler pages deploy site-dist
+          --project-name st-georges-strategy-intelligence
+          --branch main
+          --commit-hash "${{ github.sha }}"
+
       - name: Deploy production route Workers
         if: steps.target.outputs.name == 'production'
         run: |
@@ -148,6 +156,7 @@ jobs:
             echo "- Release: \`${{ github.sha }}\`"
             echo "- Target: \`${{ steps.target.outputs.name }}\`"
             echo "- Pages origin: ${{ steps.target.outputs.origin }}"
+            echo "- Main Pages alias: synchronized on production releases"
             echo "- Cache purge: \`${{ steps.purge.outcome || 'not-required' }}\`"
             echo "- The workflow succeeds only after the deployed release marker and critical asset hashes match this commit."
           } >> "$GITHUB_STEP_SUMMARY"

@@ -7,7 +7,7 @@
 // main branch, so the public sitemap stays current whenever the dashboard
 // is deployed — no worker redeploy needed.
 
-import { readdirSync, statSync, writeFileSync, existsSync } from "node:fs";
+import { readdirSync, statSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -37,6 +37,15 @@ const ARCHIVE_SOURCES = [
 
 const DATE_DIR = /^\d{4}-\d{2}-\d{2}$/;
 
+function currentEdition() {
+  const report = join(ROOT, "site-dist", "publish-report.json");
+  if (existsSync(report)) {
+    const edition = JSON.parse(readFileSync(report, "utf8")).edition;
+    if (DATE_DIR.test(edition || "")) return edition;
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
 function archiveUrls({ dir, base }) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir)
@@ -46,17 +55,21 @@ function archiveUrls({ dir, base }) {
       return statSync(editionDir).isDirectory() && existsSync(join(editionDir, "index.html"));
     })
     .sort()
-    .map((name) => `${base}${name}/`);
+    .map((name) => ({ loc: `${base}${name}/`, lastmod: name }));
 }
 
-const urls = [...STATIC_PAGES, ...ARCHIVE_SOURCES.flatMap(archiveUrls)];
+const edition = currentEdition();
+const entries = [
+  ...STATIC_PAGES.map((loc) => ({ loc, lastmod: edition })),
+  ...ARCHIVE_SOURCES.flatMap(archiveUrls),
+];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((loc) => `  <url>\n    <loc>${loc}</loc>\n  </url>`).join("\n")}
+${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}
 </urlset>
 `;
 
 writeFileSync(OUT, xml);
-console.log(`sitemap: wrote ${urls.length} URLs to site-dist/sitemap.xml`);
-urls.forEach((u) => console.log(`  ${u}`));
+console.log(`sitemap: wrote ${entries.length} URLs to site-dist/sitemap.xml`);
+entries.forEach(({ loc, lastmod }) => console.log(`  ${lastmod} ${loc}`));

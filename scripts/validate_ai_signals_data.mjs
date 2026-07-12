@@ -47,6 +47,22 @@ function fail(message, failures) {
   failures.push(message);
 }
 
+function sourceContractLabel(card) {
+  if (card.sourceType === "dated") {
+    return `Other reporting / ${card.sourceName || card.source?.label || "AI Signals source"} / ${card.date || ""}`;
+  }
+  if (card.evergreenClassification === "framework") {
+    return `Primary / ${card.sourceName || card.source?.label || "AI Signals framework"}`;
+  }
+  if (card.evergreenClassification === "guidance") {
+    return `Official guidance / ${card.sourceName || card.source?.label || "AI Signals guidance"}`;
+  }
+  if (card.evergreenClassification === "product-page") {
+    return `Official source / ${card.sourceName || card.source?.label || "AI Signals product page"}`;
+  }
+  return card.source?.label || "";
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
@@ -119,7 +135,7 @@ async function main() {
   const publishedValidation = validatePublishedRows(allCards, {
     label: "AI Signals",
     resolveRowUrl: (card) => card.source?.url,
-    resolveRowSourceLabel: (card) => card.source?.label,
+    resolveRowSourceLabel: sourceContractLabel,
     maxExactReusePerTopic: 2,
   });
   failures.push(...publishedValidation.failures);

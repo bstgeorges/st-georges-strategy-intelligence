@@ -12,6 +12,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "dashboard/data/ai-signals.json");
 
 const requiredSections = ["model", "feature", "industry"];
+const allowedSourceTypes = new Set(["dated", "evergreen"]);
+const allowedEvergreenClassifications = new Set(["framework", "guidance", "product-page"]);
+const fullDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 
 function parseArgs(argv) {
   const options = { date: "", checkLive: false };
@@ -73,8 +76,25 @@ async function main() {
     const cards = Array.isArray(section.cards) ? section.cards : [];
     if (cards.length !== 5) fail(`${id} section must contain exactly 5 cards.`, failures);
     for (const [index, card] of cards.entries()) {
-      if (!card.title || !card.body || !card.badge || !card.sourceName || !card.date) {
+      if (!card.title || !card.body || !card.badge || !card.sourceName) {
         fail(`${id} card ${index + 1} is missing required display fields.`, failures);
+      }
+      if (!allowedSourceTypes.has(card.sourceType)) {
+        fail(`${id} card ${index + 1} must use sourceType dated or evergreen.`, failures);
+      } else if (card.sourceType === "dated") {
+        if (!fullDatePattern.test(card.date || "")) {
+          fail(`${id} card ${index + 1} must use a full YYYY-MM-DD date.`, failures);
+        }
+        if (card.evergreenClassification) {
+          fail(`${id} card ${index + 1} must not set evergreenClassification on a dated source.`, failures);
+        }
+      } else if (card.sourceType === "evergreen") {
+        if (card.date) {
+          fail(`${id} card ${index + 1} must not set date on an evergreen source.`, failures);
+        }
+        if (!allowedEvergreenClassifications.has(card.evergreenClassification)) {
+          fail(`${id} card ${index + 1} uses an unsupported evergreenClassification.`, failures);
+        }
       }
       if (!card.source || !/^https:\/\//.test(card.source.url || "") || !card.source.label) {
         fail(`${id} card ${index + 1} must include a source label and https URL.`, failures);

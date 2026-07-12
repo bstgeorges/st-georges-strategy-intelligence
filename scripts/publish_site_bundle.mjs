@@ -14,6 +14,7 @@ const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
+const ALLOW_ARCHIVE_CORRECTION = process.env.SGS_ARCHIVE_CORRECTION === "1";
 const FEED_XSL = `<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -571,6 +572,15 @@ function archiveIntoStore(out, sourceRelative, destinationFile) {
   text = text.replace(/\b(href|src)="([^"]+)"/g, (_match, attr, value) => {
     return `${attr}="${toRootRelativeReference(out, sourceFile, value)}"`;
   });
+  if (fs.existsSync(destinationFile)) {
+    const existing = fs.readFileSync(destinationFile, "utf8");
+    if (existing === text) return;
+    if (!ALLOW_ARCHIVE_CORRECTION) {
+      throw new Error(
+        `Archive snapshot already exists and differs: ${path.relative(ROOT, destinationFile)}. Set SGS_ARCHIVE_CORRECTION=1 for an intentional correction.`,
+      );
+    }
+  }
   write(destinationFile, text);
 }
 
@@ -995,7 +1005,7 @@ function validateSignalsData(data, failures) {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
-      maxExactReusePerTopic: 2,
+      maxExactReusePerTopic: 1,
     });
     failures.push(...publishedValidation.failures);
   }

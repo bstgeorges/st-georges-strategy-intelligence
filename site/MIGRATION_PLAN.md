@@ -38,7 +38,7 @@ Topic page rubric, applied separately to AI, operational resilience, third-party
 | Item | Pass condition | Yes/No |
 | --- | --- | --- |
 | Weekly top 5 | Shows the five items most likely to appear in the weekly brief. | No |
-| Expanded evidence rows | Shows the Top 5 shortlist plus five additional source-backed rows, or explicitly explains why fewer exist for that edition. | No |
+| Curated memory | Shows three to seven unranked still-material signals, or explicitly explains why fewer cleared the threshold. | No |
 | Source-backed rows | Each ranked item has a working source URL, source label, and date or edition context where available. | No |
 | Why it made the brief | Explains the editorial judgement behind the topic. | No |
 | So-what view | States the control, customer, supervisory, market, or operating implication. | No |
@@ -184,7 +184,7 @@ Do not migrate yet, and do not iterate on the mockup indefinitely. The next step
 
 Closer, but still not migration-ready.
 
-The weekly brief is now the strongest page. All eight signal streams now have exploded topic-page mockups with Top 5 shortlists and five more supporting evidence rows. The next work should be:
+The weekly brief is now the strongest page. All eight signal streams now have topic pages with weekly Top 5 shortlists and a curated set of still-material signals. The next work should be:
 
 - Maintain the live Gate A score in `MIGRATION_READINESS_SCORECARD.md`.
 - Convert every remaining `No` or `Needs review` into a concrete content or QA task.
@@ -204,7 +204,7 @@ Do not build the site against pipeline internals. The page should render:
 - `generatedAt`
 - `bottomLine`
 - `horizon[]` with owner/action/evidence prompts
-- `signals[]` with primary-source URLs, ranked by score, capped at 10 rows for Top 5 plus 5 more
+- explicit `top5` rows ranked by weekly editorial weight, plus an unranked `stillMaterial` set reviewed on a 90-day default and 180-day exception window
 - `signals[].sourceStatus` when present, as an additive source-context field
 - `warnings[]` where reader-safe coverage caveats need to be shown or admin-only health warnings need to be tracked
 - `archives[]`
@@ -252,7 +252,7 @@ Minimum weekly outputs:
 - Home/front door current issue preview.
 - Weekly brief page and dated archive copy.
 - Signals hub with visible topic Top 5 lists.
-- Eight Signals topic pages with a Top 5 shortlist plus five additional source-backed rows.
+- Eight Signals topic pages with a weekly Top 5 plus three to seven still-material signals.
 - Reg Horizon page from `latest.json`.
 - Archive index updates for weekly issues, topic editions, and Reg Horizon editions.
 - Feed/calendar artifacts where used by the reader journey.

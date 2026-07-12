@@ -91,7 +91,9 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
-const ADDITIONAL_COUNT = 5;
+const STILL_MATERIAL_MIN = 3;
+const STILL_MATERIAL_MAX = 7;
+const REG_HORIZON_ADDITIONAL_COUNT = 5;
 
 const redirects = [
   ["/intelligence/", "/brief/"],
@@ -115,6 +117,17 @@ const RISK_AREA_LABELS = {
   "ai-and-models": "AI and models",
   "digital-money": "Digital money",
   "market-plumbing": "Market plumbing",
+};
+
+const TOPIC_LABELS = {
+  ai: "AI and agentic control",
+  resilience: "Operational resilience",
+  "third-party": "Third-party and vendor risk",
+  "market-structure": "Market structure",
+  "financial-crime": "Financial crime",
+  cyber: "Cyber",
+  "technology-failure": "Technology failure",
+  data: "Data",
 };
 
 // Canonical navigation, in the order every page on the site must present it (§2 of the
@@ -255,7 +268,9 @@ function copyHorizonArtifacts(out) {
   const latestOut = path.join(horizonOut, "latest.json");
   if (copyIfExists(latestIn, latestOut)) {
     const latest = readJson(latestOut);
-    if (Array.isArray(latest.signals)) latest.signals = latest.signals.slice(0, TOP5_COUNT + ADDITIONAL_COUNT);
+    if (Array.isArray(latest.signals)) {
+      latest.signals = latest.signals.slice(0, TOP5_COUNT + REG_HORIZON_ADDITIONAL_COUNT);
+    }
     write(latestOut, `${JSON.stringify(latest, null, 2)}\n`);
   }
   copyIfExists(path.join(DASHBOARD_HORIZON, "feed.xml"), path.join(horizonOut, "feed.xml"));
@@ -692,7 +707,7 @@ function updateArchiveIndexCards(out) {
     const meta = topicMeta.get(topic) || {};
     const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic));
     cards.push(
-      `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Top 5 shortlist, additional evidence rows, and source trail.</p></a>`,
+      `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
     );
   }
 
@@ -792,7 +807,6 @@ function verifyLockedSections(out, failures) {
   const locked = [
     { file: "index.html", key: "home-editorial" },
     { file: "brief/index.html", key: "brief-editorial" },
-    { file: "signals/index.html", key: "signals-editorial" },
   ];
 
   for (const item of locked) {
@@ -960,13 +974,14 @@ function validateSignalsData(data, failures) {
     if (!topic) continue;
     assert(topic.route === `/signals/${topicId}/`, `${topicId} route mismatch in signals.json`, failures);
     assert(Array.isArray(topic.top5) && topic.top5.length === TOP5_COUNT, `${topicId} must have five top5 rows`, failures);
-    const additionalRows = getAdditionalRows(topic);
+    const stillMaterialRows = getStillMaterialRows(topic);
     assert(
-      Array.isArray(additionalRows) && additionalRows.length === ADDITIONAL_COUNT,
-      `${topicId} must have five additional rows`,
+      stillMaterialRows.length >= STILL_MATERIAL_MIN && stillMaterialRows.length <= STILL_MATERIAL_MAX,
+      `${topicId} must have between ${STILL_MATERIAL_MIN} and ${STILL_MATERIAL_MAX} still-material rows`,
       failures,
     );
-    for (const [index, row] of [...(topic.top5 || []), ...additionalRows].entries()) {
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(topic.stillMaterialReviewedAt || ""), `${topicId} missing still-material review date`, failures);
+    for (const [index, row] of [...(topic.top5 || []), ...stillMaterialRows].entries()) {
       assert(row.title, `${topicId} row ${index + 1} missing title`, failures);
       assert(/^https:\/\//.test(row.url || ""), `${topicId} row ${index + 1} missing https URL`, failures);
       assert(row.source, `${topicId} row ${index + 1} missing source label`, failures);
@@ -976,7 +991,7 @@ function validateSignalsData(data, failures) {
         failures,
       );
     }
-    const publishedValidation = validatePublishedRows([...(topic.top5 || []), ...additionalRows], {
+    const publishedValidation = validatePublishedRows([...(topic.top5 || []), ...stillMaterialRows], {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
@@ -986,9 +1001,22 @@ function validateSignalsData(data, failures) {
   }
 }
 
-function getAdditionalRows(topic) {
-  if (Array.isArray(topic.additional5)) return topic.additional5.slice(0, ADDITIONAL_COUNT);
+function getStillMaterialRows(topic) {
+  if (Array.isArray(topic.stillMaterial)) return topic.stillMaterial.slice(0, STILL_MATERIAL_MAX);
   return [];
+}
+
+function sourceDate(source) {
+  return String(source || "").match(/\b(\d{4}-\d{2}-\d{2})\b/)?.[1] || "";
+}
+
+function signalStatus(row, edition) {
+  const date = sourceDate(row.source);
+  if (!date) return "Continuing priority";
+  const ageDays = Math.floor((Date.parse(`${edition}T00:00:00Z`) - Date.parse(`${date}T00:00:00Z`)) / 86400000);
+  if (ageDays <= 7) return "New this week";
+  if (ageDays <= 30) return "Developing";
+  return "Continuing priority";
 }
 
 function renderTopicPagesFromSignals(out, signalsData) {
@@ -999,15 +1027,17 @@ function renderTopicPagesFromSignals(out, signalsData) {
     const file = path.join(out, "signals", topicId, "index.html");
     let html = read(file);
     const top5Html = topic.top5
-      .map((row) => {
-        return `<li><a href="${escapeHtml(row.url)}">${escapeHtml(row.title)}</a><span class="top-source">${escapeHtml(row.source)}</span></li>`;
+      .map((row, index) => {
+        const rank = String(index + 1).padStart(2, "0");
+        return `<li${index === 0 ? ' class="signal-lead"' : ""}><span class="signal-rank">${rank}</span><div class="signal-current-copy"><span class="signal-status">${escapeHtml(signalStatus(row, signalsData.edition))}</span><a href="${escapeHtml(row.url)}">${escapeHtml(row.title)}</a><span class="top-source">${escapeHtml(row.source)}</span></div></li>`;
       })
       .join("\n              ");
-    const additionalRows = getAdditionalRows(topic);
-    const additionalHtml = additionalRows
-      .map((row, index) => {
-        const rank = String(row.rank || index + 6).padStart(2, "0");
-        return `<li><span class="rank">${rank}</span><a href="${escapeHtml(row.url)}"><h3>${escapeHtml(row.title)}</h3></a><span class="meta">${escapeHtml(row.source)}</span></li>`;
+    const stillMaterialRows = getStillMaterialRows(topic);
+    const stillMaterialHtml = stillMaterialRows
+      .map((row) => {
+        const date = sourceDate(row.source);
+        const ageLabel = row.retention === "six-month-anchor" ? "Longer-term anchor" : date ? "90-day window" : "Structural reference";
+        return `<li><div class="signal-retention-meta"><span>${escapeHtml(ageLabel)}</span><span>Reviewed ${escapeHtml(formatDateShort(topic.stillMaterialReviewedAt))}</span></div><a href="${escapeHtml(row.url)}"><h3>${escapeHtml(row.title)}</h3></a><span class="meta">${escapeHtml(row.source)}</span></li>`;
       })
       .join("\n              ");
 
@@ -1016,11 +1046,82 @@ function renderTopicPagesFromSignals(out, signalsData) {
       `<ul class="mini-list">\n              ${top5Html}\n            </ul>`,
     );
     html = html.replace(
-      /<ol class="brief-index evidence-list">[\s\S]*?<\/ol>/,
-      `<ol class="brief-index evidence-list">\n              ${additionalHtml}\n            </ol>`,
+      /<ol class="brief-index evidence-list(?: still-material-list)?">[\s\S]*?<\/ol>/,
+      `<ol class="brief-index evidence-list still-material-list">\n              ${stillMaterialHtml}\n            </ol>`,
     );
+    html = html
+      .replace(/<p class="eyebrow">Standing evidence<\/p>/, '<p class="eyebrow">Curated memory</p>')
+      .replace(/<h2>Standing evidence and read-across<\/h2>/, '<h2>Still material</h2>')
+      .replace(
+        /<p>The shortlist above carries the leadership read\.[\s\S]*?<\/p>/,
+        `<p>${stillMaterialRows.length} signals remain live after editorial review. Most stay for up to 90 days; exceptional structural anchors can remain for six months with a recorded reason.</p>`,
+      );
     write(file, html);
   }
+}
+
+function renderSignalsHubFromData(out, signalsData) {
+  const file = path.join(out, "signals", "index.html");
+  let html = read(file);
+  const topicCards = signalsData.topics
+    .map((topic) => {
+      const lead = topic.top5?.[0] || {};
+      const retainedCount = getStillMaterialRows(topic).length;
+      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 refreshed · ${retainedCount} still material</span></a>`;
+    })
+    .join("\n          ");
+  const weeklyRows = signalsData.topics
+    .slice(0, TOP5_COUNT)
+    .map((topic, index) => {
+      const lead = topic.top5?.[0] || {};
+      const rank = String(index + 1).padStart(2, "0");
+      return `<li><span class="rank">${rank}</span><a href="${escapeHtml(topic.route)}"><h3>${escapeHtml(lead.title)}</h3></a><span class="meta">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span></li>`;
+    })
+    .join("\n          ");
+  const replacement = `<!-- publisher-lock:start:signals-editorial -->
+      <section class="signals-hub-hero">
+        <div>
+          <p class="eyebrow">Signals / Edition ${escapeHtml(signalsData.edition)}</p>
+          <h1>What is moving now—and what still matters</h1>
+          <p class="dek">A weekly editorial view of the five developments with the greatest current weight, supported by a curated memory of signals that remain relevant over the following three to six months.</p>
+        </div>
+        <aside class="signals-window-note">
+          <span class="meta">How to read this edition</span>
+          <strong>Freshness first. Memory where it earns its place.</strong>
+          <p>Top 5 lists are refreshed weekly. Still-material signals are unranked, reviewed each edition, and removed when they no longer change a live leadership or control question.</p>
+        </aside>
+      </section>
+
+      <section class="band signals-weekly-pulse">
+        <div class="section-heading">
+          <div><p class="eyebrow">Across the streams</p><h2>This week's signal stack</h2></div>
+          <p>One lead signal from each of the five streams carrying the greatest editorial weight in this edition.</p>
+        </div>
+        <ol class="brief-index signal-hub-top5">
+          ${weeklyRows}
+        </ol>
+      </section>
+
+      <section class="band">
+        <div class="section-heading">
+          <div><p class="eyebrow">Eight active streams</p><h2>Follow the live themes</h2></div>
+          <p>Each topic opens with a current Top 5 and then preserves only the signals that are still useful for decisions, controls, or committee challenge.</p>
+        </div>
+        <div class="signal-overview-grid">
+          ${topicCards}
+        </div>
+      </section>
+      <!-- publisher-lock:end:signals-editorial -->
+
+      `;
+  html = html.replace(
+    /<!-- publisher-lock:start:signals-editorial -->[\s\S]*?(?=<section class="band">\s*<div class="section-heading">\s*<div>\s*<p class="eyebrow">Editorial filter<\/p>)/,
+    replacement,
+  );
+  html = html
+    .replace(/Top 5 shortlist, additional source rows/g, "Top 5 shortlist, still-material signals")
+    .replace(/Top 5 shortlist\. Additional evidence by topic\./g, "Top 5 this week. Curated memory by topic.");
+  write(file, html);
 }
 
 function generateSignalsJson(out, data) {
@@ -1143,8 +1244,11 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   const signals = readJson(path.join(out, "data", "signals.json"));
   assert(signals.topics?.length === topics.length, "signals.json should contain all eight topics", failures);
   assert(
-    signals.topics?.every((topic) => topic.top5?.length === TOP5_COUNT && getAdditionalRows(topic)?.length === ADDITIONAL_COUNT),
-    "signals.json topics should contain Top 5 plus 5 more",
+    signals.topics?.every((topic) => {
+      const retainedCount = getStillMaterialRows(topic).length;
+      return topic.top5?.length === TOP5_COUNT && retainedCount >= STILL_MATERIAL_MIN && retainedCount <= STILL_MATERIAL_MAX;
+    }),
+    "signals.json topics should contain a Top 5 plus 3–7 still-material signals",
     failures,
   );
 
@@ -1198,6 +1302,7 @@ function main() {
   const horizonData = loadHorizonData(options.out, failures);
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
+  renderSignalsHubFromData(options.out, signalsData);
   applyLiveEditionContent(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to

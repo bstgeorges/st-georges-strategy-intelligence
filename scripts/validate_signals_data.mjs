@@ -19,7 +19,10 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
-const ADDITIONAL_COUNT = 5;
+const STILL_MATERIAL_MIN = 3;
+const STILL_MATERIAL_MAX = 7;
+const DEFAULT_RETENTION_DAYS = 90;
+const EXTENDED_RETENTION_DAYS = 180;
 
 function parseArgs(argv) {
   const options = { checkLive: false };
@@ -34,8 +37,19 @@ function fail(message, failures) {
   failures.push(message);
 }
 
-function additionalRows(topic) {
-  return Array.isArray(topic.additional5) ? topic.additional5.slice(0, ADDITIONAL_COUNT) : [];
+function stillMaterialRows(topic) {
+  return Array.isArray(topic.stillMaterial) ? topic.stillMaterial.slice(0, STILL_MATERIAL_MAX) : [];
+}
+
+function parseIsoDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return null;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function extractExactDate(sourceLabel) {
+  const match = String(sourceLabel || "").match(/\b(\d{4}-\d{2}-\d{2})\b/);
+  return match ? match[1] : "";
 }
 
 async function main() {
@@ -49,6 +63,8 @@ async function main() {
   }
 
   const byId = new Map(data.topics.map((topic) => [topic.id, topic]));
+  const editionDate = parseIsoDate(data.edition);
+  if (!editionDate) fail(`signals.json edition must be YYYY-MM-DD; received ${data.edition}`, failures);
 
   for (const topicId of topics) {
     const topic = byId.get(topicId);
@@ -60,11 +76,18 @@ async function main() {
     if (!Array.isArray(topic.top5) || topic.top5.length !== TOP5_COUNT) {
       fail(`${topicId} must contain exactly ${TOP5_COUNT} Top 5 rows.`, failures);
     }
-    if (additionalRows(topic).length !== ADDITIONAL_COUNT) {
-      fail(`${topicId} must contain exactly ${ADDITIONAL_COUNT} additional rows.`, failures);
+    const retainedRows = stillMaterialRows(topic);
+    if (retainedRows.length < STILL_MATERIAL_MIN || retainedRows.length > STILL_MATERIAL_MAX) {
+      fail(
+        `${topicId} must contain between ${STILL_MATERIAL_MIN} and ${STILL_MATERIAL_MAX} still-material rows.`,
+        failures,
+      );
+    }
+    if (!parseIsoDate(topic.stillMaterialReviewedAt)) {
+      fail(`${topicId} stillMaterialReviewedAt must be YYYY-MM-DD.`, failures);
     }
 
-    const rows = [...(topic.top5 || []), ...additionalRows(topic)];
+    const rows = [...(topic.top5 || []), ...retainedRows];
     rows.forEach((row, index) => {
       if (!row.title) fail(`${topicId} row ${index + 1} is missing title.`, failures);
       if (!row.source) fail(`${topicId} row ${index + 1} is missing source label.`, failures);
@@ -79,6 +102,27 @@ async function main() {
     });
     failures.push(...publishedValidation.failures);
     warnings.push(...publishedValidation.warnings);
+
+    if (editionDate) {
+      retainedRows.forEach((row, index) => {
+        const sourceDate = parseIsoDate(extractExactDate(row.source));
+        if (!sourceDate) return;
+        const ageDays = Math.floor((editionDate.getTime() - sourceDate.getTime()) / 86400000);
+        if (ageDays > EXTENDED_RETENTION_DAYS) {
+          fail(
+            `${topicId} still-material row ${index + 1} is ${ageDays} days old; retained rows with exact dates must be <= ${EXTENDED_RETENTION_DAYS} days old.`,
+            failures,
+          );
+        } else if (ageDays > DEFAULT_RETENTION_DAYS) {
+          if (row.retention !== "six-month-anchor" || !row.retentionReason) {
+            fail(
+              `${topicId} still-material row ${index + 1} is older than ${DEFAULT_RETENTION_DAYS} days and needs retention "six-month-anchor" plus retentionReason.`,
+              failures,
+            );
+          }
+        }
+      });
+    }
 
     if (options.checkLive) {
       const liveValidation = await validatePublishedRowsLiveness(rows, {

@@ -824,6 +824,65 @@ a.tag:hover {
   border-left: 4px solid var(--accent);
 }
 
+.brief-scan {
+  padding-top: clamp(42px, 5vw, 70px);
+}
+
+.brief-scan-grid,
+.brief-theme-list {
+  display: grid;
+  gap: 1px;
+  background: rgba(15, 34, 51, 0.14);
+}
+
+.brief-scan-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.brief-scan-grid article,
+.brief-theme-list div {
+  background: var(--paper-raised);
+  padding: clamp(20px, 2.2vw, 30px);
+}
+
+.brief-scan-grid h3 {
+  font-size: clamp(20px, 1.6vw, 25px);
+  line-height: 1.16;
+}
+
+.brief-scan-grid p:last-child,
+.brief-action-card p:last-child {
+  margin-bottom: 0;
+}
+
+.brief-theme-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 24px 0 0;
+}
+
+.brief-theme-list dt {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font: 600 11px/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brief-theme-list dd {
+  margin: 0;
+  color: var(--body);
+}
+
+.section-conclusion {
+  max-width: 72ch;
+  color: var(--navy);
+  font: italic 500 clamp(21px, 2vw, 29px)/1.35 var(--serif);
+}
+
+.brief-action-card {
+  background: linear-gradient(180deg, var(--paper-raised), var(--paper-soft));
+}
+
 .brief-columns,
 .note-grid,
 .radar-grid {
@@ -896,6 +955,15 @@ a.tag:hover {
 .question-list li {
   padding: 10px 0;
   color: var(--body);
+}
+
+.correction-note {
+  display: inline-block;
+  margin: 22px 0 0;
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 16px;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .horizon-dashboard {
@@ -1751,6 +1819,8 @@ a.tag:hover {
   }
 
   .grid-4,
+  .brief-scan-grid,
+  .brief-theme-list,
   .archive-grid,
   .radar-grid,
   .horizon-dashboard,
@@ -1837,6 +1907,8 @@ a.tag:hover {
   .grid-2,
   .grid-3,
   .grid-4,
+  .brief-scan-grid,
+  .brief-theme-list,
   .archive-grid,
   .brief-columns,
   .radar-grid,

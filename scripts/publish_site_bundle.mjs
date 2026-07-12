@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 import { isSpecificPublishedSourceUrl, validatePublishedRows } from "./lib/published_source_contract.mjs";
+import { validatePublicHtmlCopy } from "./lib/public_copy_contract.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = path.join(ROOT, "site");
@@ -209,6 +210,19 @@ function routeFile(out, route) {
   return path.join(out, route);
 }
 
+function copyDirectory(source, destination, filter = () => true) {
+  if (!filter(source)) return;
+  fs.mkdirSync(destination, { recursive: true });
+  for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
+    const from = path.join(source, entry.name);
+    const to = path.join(destination, entry.name);
+    if (!filter(from)) continue;
+    if (entry.isDirectory()) copyDirectory(from, to, filter);
+    else if (entry.isFile()) write(to, fs.readFileSync(from));
+    else throw new Error(`Unsupported public source entry: ${path.relative(ROOT, from)}`);
+  }
+}
+
 function copySite(out) {
   const relativeOut = path.relative(ROOT, out);
   if (!relativeOut || relativeOut.startsWith("..") || path.isAbsolute(relativeOut)) {
@@ -219,10 +233,12 @@ function copySite(out) {
   }
 
   fs.rmSync(out, { recursive: true, force: true });
-  fs.mkdirSync(out, { recursive: true });
-  fs.cpSync(SOURCE, out, {
-    recursive: true,
-    filter: (sourcePath) => !sourcePath.includes(`${path.sep}qa${path.sep}`),
+  copyDirectory(SOURCE, out, (sourcePath) => {
+    const relative = path.relative(SOURCE, sourcePath);
+    if (!relative) return true;
+    if (relative.split(path.sep).includes("qa")) return false;
+    if (path.extname(sourcePath).toLowerCase() === ".md") return false;
+    return path.basename(sourcePath) !== ".DS_Store";
   });
 }
 
@@ -249,7 +265,7 @@ function copyHorizonArtifacts(out) {
 
   const archiveIn = path.join(DASHBOARD_HORIZON, "archive");
   const archiveOut = path.join(horizonOut, "archive");
-  if (fs.existsSync(archiveIn)) fs.cpSync(archiveIn, archiveOut, { recursive: true });
+  if (fs.existsSync(archiveIn)) copyDirectory(archiveIn, archiveOut);
 }
 
 // Decodes the sitewide OG-card PNG from small, individually-verifiable base64 text
@@ -524,12 +540,12 @@ function syncSignalsArchiveStore(out, edition) {
 
   const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
   if (fs.existsSync(briefStoreDir)) {
-    fs.cpSync(briefStoreDir, path.join(out, "archive", "brief"), { recursive: true });
+    copyDirectory(briefStoreDir, path.join(out, "archive", "brief"));
   }
   for (const topic of topics) {
     const topicStoreDir = path.join(ARCHIVE_STORE, "topics", topic);
     if (fs.existsSync(topicStoreDir)) {
-      fs.cpSync(topicStoreDir, path.join(out, "signals", topic, "archive"), { recursive: true });
+      copyDirectory(topicStoreDir, path.join(out, "signals", topic, "archive"));
     }
   }
 }
@@ -1013,29 +1029,33 @@ function generateSignalsJson(out, data) {
 
 function generateSitemap(out, edition) {
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"));
-  const urls = [
-    ...routes.map(([route]) => `${PUBLIC_ORIGIN}${route}`),
-    `${PUBLIC_ORIGIN}/archive/brief/`,
-    ...briefDates.map((date) => `${PUBLIC_ORIGIN}/archive/brief/${date}/`),
+  const entries = [
+    ...routes.map(([route]) => ({ loc: `${PUBLIC_ORIGIN}${route}`, lastmod: edition })),
+    { loc: `${PUBLIC_ORIGIN}/archive/brief/`, lastmod: edition },
+    ...briefDates.map((date) => ({ loc: `${PUBLIC_ORIGIN}/archive/brief/${date}/`, lastmod: date })),
   ];
   for (const topic of topics) {
-    urls.push(`${PUBLIC_ORIGIN}/signals/${topic}/archive/`);
+    entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/`, lastmod: edition });
     for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic))) {
-      urls.push(`${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`);
+      entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`, lastmod: date });
     }
   }
-  if (!briefDates.includes(edition)) urls.push(`${PUBLIC_ORIGIN}/archive/brief/${edition}/`);
+  if (!briefDates.includes(edition)) {
+    entries.push({ loc: `${PUBLIC_ORIGIN}/archive/brief/${edition}/`, lastmod: edition });
+  }
 
   const horizonArchive = path.join(out, "regulatory-horizon", "archive", `${edition}.html`);
-  if (fs.existsSync(horizonArchive)) urls.push(`${PUBLIC_ORIGIN}/regulatory-horizon/archive/${edition}.html`);
+  if (fs.existsSync(horizonArchive)) {
+    entries.push({ loc: `${PUBLIC_ORIGIN}/regulatory-horizon/archive/${edition}.html`, lastmod: edition });
+  }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((loc) => `  <url>\n    <loc>${loc}</loc>\n  </url>`).join("\n")}
+${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}
 </urlset>
 `;
   write(path.join(out, "sitemap.xml"), xml);
-  return urls;
+  return entries.map(({ loc }) => loc);
 }
 
 function generateRedirects(out) {
@@ -1088,6 +1108,12 @@ function checkLocalLinks(out, failures) {
   }
 }
 
+function checkPublicCopy(out, failures) {
+  for (const file of listFiles(out, ".html")) {
+    failures.push(...validatePublicHtmlCopy(read(file), path.relative(out, file)));
+  }
+}
+
 function verifyBuild(out, edition, sitemapUrls, failures) {
   for (const [route, relative] of routes) {
     const file = routeFile(out, relative);
@@ -1123,9 +1149,17 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   );
 
   assert(sitemapUrls.length >= 23, `sitemap should include current routes and archives, found ${sitemapUrls.length}`, failures);
+  const sitemap = read(path.join(out, "sitemap.xml"));
+  assert(
+    (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length === sitemapUrls.length,
+    "sitemap should include one valid lastmod date per URL",
+    failures,
+  );
   assert(fs.existsSync(path.join(out, "_redirects")), "_redirects missing", failures);
   assert(fs.existsSync(path.join(out, "_headers")), "_headers missing", failures);
   assert(fs.existsSync(path.join(out, "assets", "og-card.png")), "sitewide og-card.png missing from build output", failures);
+  assert(listFiles(out, ".md").length === 0, "public bundle should not contain internal Markdown files", failures);
+  checkPublicCopy(out, failures);
   checkLocalLinks(out, failures);
   verifyLockedSections(out, failures);
 }

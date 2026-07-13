@@ -800,7 +800,7 @@ function updateHomepageStatStrip(out, edition) {
   const editionNumber = briefDates.includes(edition) ? briefDates.length : briefDates.length + 1;
 
   const strip = `<div class="hero-metrics" aria-label="Publication model">
-            <div><strong>${escapeHtml(formatDateLong(edition))}</strong><span>week of this edition</span></div>
+            <div><strong>${escapeHtml(formatDateLong(edition))}</strong><span>publication date</span></div>
             <div><strong>5</strong><span>signals ranked this week</span></div>
             <div><strong>8</strong><span>streams scanned</span></div>
             <div><strong>No. ${editionNumber}</strong><span>edition</span></div>
@@ -808,6 +808,18 @@ function updateHomepageStatStrip(out, edition) {
 
   const rebuilt = `${html.slice(0, start)}${startMarker}\n          ${strip}\n          ${html.slice(end)}`;
   write(file, rebuilt);
+}
+
+function updateHomepageEditionLine(out, edition) {
+  const file = path.join(out, "index.html");
+  if (!fs.existsSync(file)) return;
+  const html = read(file);
+  const label = `Latest edition / ${formatDateLong(edition)}`;
+  const updated = html.replace(
+    /<p class="edition-line">Latest edition \/ [^<]+<\/p>/,
+    `<p class="edition-line">${escapeHtml(label)}</p>`,
+  );
+  write(file, updated);
 }
 
 // Committee Questions cross-links to the brief (§11) used a static "Source brief"
@@ -1470,6 +1482,7 @@ function main() {
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
   renderSignalDecisionFramework(options.out, signalsData);
+  updateHomepageEditionLine(options.out, edition);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);
   generateArchiveHubPages(options.out, edition);

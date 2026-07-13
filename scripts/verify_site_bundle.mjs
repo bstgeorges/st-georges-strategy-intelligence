@@ -80,11 +80,13 @@ function checkCurrentEditionAlignment(failures) {
   const committee = read("committee-questions/index.html");
   const signals = readJson("data/signals.json");
   const weekLabel = `Week of ${formatDateLong(edition.weekOf)}`;
+  const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
   const updatedLabel = `Last updated ${formatDateLong(edition.publicationDate)}`;
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(brief.includes(weekLabel), `brief should use canonical ${weekLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
+  assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
   assert(home.includes(edition.mainJudgement), "home should include canonical current-edition judgement", failures);
   assert(
     archive.includes(`latest ${edition.publicationDate}`),

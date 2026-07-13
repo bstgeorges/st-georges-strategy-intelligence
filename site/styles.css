@@ -1727,6 +1727,16 @@ a.tag:hover {
   line-height: 1.42;
 }
 
+.home-evidence-list li {
+  grid-template-columns: minmax(160px, 0.28fr) minmax(0, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+  align-items: baseline;
+}
+
+.home-evidence-list strong {
+  max-width: 18ch;
+}
+
 .topic-layout .section-heading {
   gap: 18px;
   margin-bottom: 8px;
@@ -1743,19 +1753,19 @@ a.tag:hover {
   font-size: 16px;
 }
 
-.evidence-list li {
+.topic-layout .evidence-list li {
   grid-template-columns: 44px minmax(0, 1fr);
   gap: 10px 14px;
   align-items: start;
   padding: 11px 0;
 }
 
-.evidence-list h3 {
+.topic-layout .evidence-list h3 {
   font-size: clamp(17px, 1.25vw, 20px);
   line-height: 1.32;
 }
 
-.evidence-list .meta {
+.topic-layout .evidence-list .meta {
   grid-column: 2;
   font-size: 10.5px;
   line-height: 1.45;
@@ -2120,6 +2130,11 @@ a.tag:hover {
   .evidence-list li,
   .evidence-list li:nth-child(even) {
     border-right: 0;
+  }
+
+  .home-evidence-list li {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .hero-metrics div {

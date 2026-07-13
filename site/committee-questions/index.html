@@ -64,7 +64,7 @@
       <section class="masthead">
         <p class="eyebrow">Committee questions</p>
         <h1>Questions worth taking into the room</h1>
-        <p class="dek">Every weekly brief resolves into a small number of portable questions. This page collects the ones still worth asking, pulled from recent editions and kept until they are answered or overtaken.</p>
+        <p class="dek">Board-ready questions for turning public signals into challenge, evidence requests, and accountable follow-up.</p>
         <p class="meta">Last updated 9 Jul 2026 &middot; drawn from the week of 6 Jul 2026</p>
       </section>
 
@@ -72,82 +72,185 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">How to use this</p>
-            <h2>Take one question, not all of them</h2>
+            <h2>Choose the live decision domain, then ask for evidence</h2>
           </div>
-          <p>These are not a checklist. Pick the one or two that are live for your firm this quarter, put a name against them, and use the linked topic page for the source trail behind the question.</p>
+          <p>These are not a checklist. Pick the one or two questions that are live for your firm this quarter, assign an owner, and use the evidence request as the follow-up. The question should travel into the pack; the supporting notes help the owner answer it properly.</p>
+        </div>
+        <div class="committee-domain-strip" aria-label="Question domains">
+          <a href="#strategy-investment">Strategy and investment</a>
+          <a href="#governance-accountability">Governance and accountability</a>
+          <a href="#operational-readiness">Operational readiness</a>
+          <a href="#control-assurance">Control and assurance</a>
+          <a href="#resilience-response">Resilience and response</a>
         </div>
       </section>
 
-      <section class="band">
+      <section class="band committee-domain" id="strategy-investment">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">AI and agentic control</p>
-            <h2>Authority, boundaries, and the kill switch</h2>
+            <p class="eyebrow">Strategy and investment</p>
+            <h2>Where AI, infrastructure, and market exposure change the business case</h2>
           </div>
-          <p>The test is whether the firm can bound what an agent may do, see what it did, and stop it — with a named owner for each answer.</p>
+          <p>Use these where the decision is about scaling, funding, dependency, or strategic exposure.</p>
         </div>
-        <div class="grid-2">
-          <article class="brief-card">
-            <p class="question-callout"><span>Board question</span> Can we stop an agent quickly, prove why it acted, and show who owned the decision?</p>
-            <p>Ask this when agentic AI is being proposed for a bigger mandate — before the mandate, not after an incident.</p>
-            <div class="source-row"><a href="../signals/ai/index.html">AI signals</a><a href="../brief/index.html">Source brief</a></div>
+        <div class="committee-question-grid">
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which AI-enabled workflows are moving from productivity case to business-critical dependency, and what investment is needed to control them?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>The FCA AI review and frontier-AI cyber warning move AI from experimentation into operating-model and resilience territory.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>A prioritised AI workflow inventory, business-criticality rating, owner, funding need, and control maturity view.</dd></div>
+              <div><dt>Evidence to request</dt><dd>AI inventory, dependency map, investment backlog, control gaps, and exit or fallback options.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../brief/index.html">Current brief</a><a href="../signals/ai/index.html">AI signals</a></div>
           </article>
-          <article class="brief-card">
-            <p class="question-callout"><span>Governance question</span> Which AI agents or copilots can touch production data, code, email, or tickets today, and are their permissions and emergency stops technically enforced?</p>
-            <p>Ask AI governance teams for the permission map, not just the policy that describes what should happen.</p>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Where could AI infrastructure, model-provider concentration, or vendor lock-in create downside exposure that is not yet in our financial scenarios?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>AI capex and model concentration are becoming market and third-party risk questions, not only technology procurement questions.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Exposure sizing, stressed assumptions, substitution options, vendor concentration limits, and monitoring triggers.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Supplier spend, contract terms, concentration dashboard, scenario assumptions, and exit practicality assessment.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../signals/market-structure/index.html">Market structure signals</a><a href="../signals/third-party/index.html">Third-party signals</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band committee-domain" id="governance-accountability">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Governance and accountability</p>
+            <h2>Who owns the decision when automation acts</h2>
+          </div>
+          <p>Use these where the live issue is authority, sign-off, accountability, and escalation.</p>
+        </div>
+        <div class="committee-question-grid">
+          <article class="committee-question-card featured-question">
+            <p class="meta">Copy-ready question</p>
+            <h3>Can we stop an agent quickly, prove why it acted, and show who owned the decision?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Agentic workflows may act across customer, market, payments, code, data, and control processes faster than normal governance cycles.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Named accountable owner, permission boundary, monitoring trail, override path, rollback process, and tested escalation route.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Permission map, audit logs, kill-switch owner, rehearsal evidence, decision log, and incident communications plan.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../brief/index.html">Current brief</a><a href="../signals/ai/index.html">AI signals</a></div>
+          </article>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which AI agents or copilots can touch production data, code, email, or tickets today, and are their permissions technically enforced?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Prompt rules are not control evidence when AI tools have access to real systems and privileged workflows.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Access list, technical enforcement, least-privilege review, logging, exception process, and emergency-stop proof.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Access-control export, privileged-action logs, exception approvals, and live stop-path demonstration.</dd></div>
+            </dl>
             <div class="source-row"><a href="../signals/ai/index.html">AI signals</a><a href="../signals/cyber/index.html">Cyber signals</a></div>
           </article>
         </div>
       </section>
 
-      <section class="band">
+      <section class="band committee-domain" id="operational-readiness">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Resilience and third-party dependency</p>
-            <h2>What happens when the dependency, not the firm, fails</h2>
+            <p class="eyebrow">Operational readiness</p>
+            <h2>Whether the firm can operate when the signal becomes real</h2>
           </div>
+          <p>Use these where the question is whether a process, journey, or service can actually perform under stress.</p>
         </div>
-        <div class="grid-2">
-          <article class="brief-card">
-            <p class="question-callout"><span>Resilience question</span> Which critical payment journeys would fail if a processor, tokenisation provider, or telecom route degraded for two hours tonight?</p>
-            <p>Turn each deadline or dependency into an owner, a decision, and an evidence trail before it is tested by an outage.</p>
-            <div class="source-row"><a href="../signals/resilience/index.html">Resilience signals</a><a href="../signals/third-party/index.html">Third-party signals</a></div>
+        <div class="committee-question-grid">
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which critical payment journeys would fail if a processor, tokenisation provider, or telecom route degraded for two hours tonight?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Recent payment outages show that nonbank infrastructure layers can still create customer harm for regulated firms.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Journey map, dependency map, impact tolerance, fallback route, customer communications, and last test result.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Processor, tokenisation, telecom, power, and manual-fallback test evidence by customer journey.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../signals/resilience/index.html">Resilience signals</a><a href="../signals/technology-failure/index.html">Technology failure signals</a></div>
           </article>
-          <article class="brief-card">
-            <p class="question-callout"><span>Telemetry question</span> Do we know which network providers and CDN paths sit behind each top digital service, by user region?</p>
-            <p>Status pages can stay green while customers experience failure — ask for customer-edge telemetry, not internal uptime alone.</p>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Do we know which network providers and CDN paths sit behind each top digital service, by user region?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Status pages can stay green while customers experience failure at the edge, especially when internet-routing dependencies degrade.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Customer-edge telemetry, route map, region view, alert thresholds, and service-owner response plan.</dd></div>
+              <div><dt>Evidence to request</dt><dd>External monitoring, CDN/provider map, incident playbook, and customer-impact dashboard.</dd></div>
+            </dl>
             <div class="source-row"><a href="../signals/technology-failure/index.html">Technology failure signals</a></div>
-          </article>
-          <article class="brief-card">
-            <p class="question-callout"><span>Portability question</span> Which top customer journeys depend on third parties whose failure would look to customers like our failure, and when did we last test the fallback?</p>
-            <p>Give the three questions on this page to service owners, then ask for the fallback test evidence, not the assurance.</p>
-            <div class="source-row"><a href="../signals/third-party/index.html">Third-party signals</a></div>
-          </article>
-          <article class="brief-card">
-            <p class="question-callout"><span>Evidence question</span> Where are we relying on policy, attestation, or status pages instead of telemetry, technical controls, and evidence of recovery under stress?</p>
-            <p>Ask what would be shown to a supervisor, not what would be said to one.</p>
-            <div class="source-row"><a href="../regulatory-horizon/index.html">Reg Horizon</a></div>
           </article>
         </div>
       </section>
 
-      <section class="band">
+      <section class="band committee-domain" id="control-assurance">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Financial crime and data</p>
-            <h2>Fraud, sanctions, and whether the data trail holds up</h2>
+            <p class="eyebrow">Control and assurance</p>
+            <h2>Whether the answer is evidenced, not merely asserted</h2>
           </div>
+          <p>Use these where the firm is relying on policy, attestations, management information, or inherited assurance.</p>
         </div>
-        <div class="grid-2">
-          <article class="brief-card">
-            <p class="question-callout"><span>Conduct question</span> Where do rising scam typologies, known control gaps, or complaint ageing risk being characterised as systemic inaction?</p>
-            <p>Scam controls are not only customer education; prevention, complaint ageing, and restoration speed are evidence of control quality.</p>
+        <div class="committee-question-grid">
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Where are we relying on policy, attestation, or status pages instead of telemetry, technical controls, and evidence of recovery under stress?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Regulators are testing whether firms can prove control operation under stress, not just describe the control framework.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Operational telemetry, technical enforcement, independent test results, exception tracking, and owner sign-off.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Control test pack, real-time telemetry, incident evidence, and open-risk remediation plan.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../regulatory-horizon/index.html">Reg Horizon</a><a href="../brief/index.html">Current brief</a></div>
+          </article>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which critical decisions this week relied on data whose source, transformation, quality controls, and accountable sign-off can be reconstructed?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>AI adoption, supervisory analytics, cyber evidence, privacy duties, and regulatory reporting all depend on reconstructable data lineage.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Source, transformation, quality checks, exception owner, retention, approval, and use-case linkage.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Lineage map, quality-control report, exception log, sign-off trail, and sample reconstruction.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../signals/data/index.html">Data signals</a></div>
+          </article>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Where could rising scam typologies, known control gaps, or complaint ageing be characterised as systemic inaction?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Fraud, conduct, complaints, restrictions, and restoration speed are converging into one supervisory narrative.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Typology movement, control performance, complaint ageing, remediation times, vulnerable-customer impact, and owner actions.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Fraud dashboard, complaint ageing, control-gap register, reimbursement trend, and remediation evidence.</dd></div>
+            </dl>
             <div class="source-row"><a href="../signals/financial-crime/index.html">Financial crime signals</a></div>
           </article>
-          <article class="brief-card">
-            <p class="question-callout"><span>Lineage question</span> Which critical decisions this week relied on data whose source, transformation, quality controls, and accountable sign-off can be reconstructed?</p>
-            <p>Ask for what to show, not what to trust — lineage and sign-off should be provable on request, not asserted.</p>
-            <div class="source-row"><a href="../signals/data/index.html">Data signals</a></div>
+        </div>
+      </section>
+
+      <section class="band committee-domain" id="resilience-response">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Resilience and response</p>
+            <h2>Whether the firm can recover, communicate, and learn</h2>
+          </div>
+          <p>Use these where the live issue is fallback, incident response, or the boundary between firm and supplier.</p>
+        </div>
+        <div class="committee-question-grid">
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which top customer journeys depend on third parties whose failure would look to customers like our failure, and when did we last test the fallback?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Customer harm does not respect outsourcing boundaries; third-party failure can still look like the firm’s operational failure.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Important business service mapping, supplier dependency, fallback option, last test, communications route, and tolerance result.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Fallback test evidence, supplier SLA performance, incident communications pack, and customer-impact assessment.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../signals/third-party/index.html">Third-party signals</a><a href="../signals/resilience/index.html">Resilience signals</a></div>
+          </article>
+          <article class="committee-question-card">
+            <p class="meta">Copy-ready question</p>
+            <h3>Which weak signals already have owners, dates, and executive visibility?</h3>
+            <dl>
+              <div><dt>Why ask now</dt><dd>Payment fallback gaps, scam exposure, data-lineage weaknesses, customer-edge telemetry, exposed vulnerabilities, and AI-agent permissions are all live signals this edition.</dd></div>
+              <div><dt>Strong answer contains</dt><dd>Signal owner, action date, escalation threshold, management-information view, and closure evidence.</dd></div>
+              <div><dt>Evidence to request</dt><dd>Open-signals register, accountable owner list, due dates, risk acceptance, and committee reporting extract.</dd></div>
+            </dl>
+            <div class="source-row"><a href="../brief/index.html">Current brief</a><a href="../signals/index.html">Signals library</a></div>
           </article>
         </div>
       </section>

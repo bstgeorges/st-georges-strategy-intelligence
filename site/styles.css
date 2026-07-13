@@ -957,6 +957,94 @@ a.tag:hover {
   color: var(--body);
 }
 
+.committee-domain-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.committee-domain-strip a {
+  border: 1px solid rgba(15, 34, 51, 0.16);
+  background: var(--paper-raised);
+  padding: 10px 13px;
+  color: var(--navy);
+  font: 600 11px/1.35 var(--mono);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  transition:
+    border-color var(--motion-quick) ease,
+    color var(--motion-quick) ease,
+    transform var(--motion-quick) ease;
+}
+
+.committee-domain-strip a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.committee-domain {
+  scroll-margin-top: 92px;
+}
+
+.committee-question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.committee-question-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border: 1px solid rgba(15, 34, 51, 0.14);
+  border-left: 4px solid var(--accent);
+  background: var(--paper-raised);
+  padding: clamp(22px, 2.4vw, 34px);
+}
+
+.committee-question-card.featured-question {
+  border-left-color: var(--navy);
+  background: linear-gradient(180deg, var(--paper-raised), var(--paper-soft));
+}
+
+.committee-question-card h3 {
+  margin-bottom: 20px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2vw, 34px);
+  line-height: 1.12;
+}
+
+.committee-question-card dl {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.committee-question-card div {
+  border-top: 1px solid rgba(15, 34, 51, 0.12);
+  padding-top: 12px;
+}
+
+.committee-question-card dt {
+  margin-bottom: 5px;
+  color: var(--accent);
+  font: 600 10.5px/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.committee-question-card dd {
+  margin: 0;
+  color: var(--body);
+}
+
+.committee-question-card .source-row {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
 .correction-note {
   display: inline-block;
   margin: 22px 0 0;
@@ -1821,6 +1909,7 @@ a.tag:hover {
   .grid-4,
   .brief-scan-grid,
   .brief-theme-list,
+  .committee-question-grid,
   .archive-grid,
   .radar-grid,
   .horizon-dashboard,
@@ -1909,6 +1998,7 @@ a.tag:hover {
   .grid-4,
   .brief-scan-grid,
   .brief-theme-list,
+  .committee-question-grid,
   .archive-grid,
   .brief-columns,
   .radar-grid,

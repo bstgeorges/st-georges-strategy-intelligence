@@ -1533,7 +1533,23 @@ a.tag:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px 18px;
-  color: var(--muted);
+  color: var(--accent-readable);
+}
+
+.still-material-list .signal-retention-meta,
+.still-material-list .signal-retention-meta span,
+.brief-index.still-material-list .meta {
+  color: #7c642e;
+}
+
+.still-material-list .signal-retention-meta {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+.brief-index.still-material-list .meta {
+  font-weight: 650;
+  letter-spacing: 0.12em;
 }
 
 .mini-list,

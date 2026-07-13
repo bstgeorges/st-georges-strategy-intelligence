@@ -1476,6 +1476,58 @@ a.tag:hover {
   font-size: clamp(20px, 1.8vw, 27px);
 }
 
+.signal-decision-framework {
+  padding-top: clamp(44px, 5vw, 72px);
+}
+
+.framework-chain {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.framework-chain article {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 250px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-raised);
+  padding: clamp(22px, 2.6vw, 34px);
+}
+
+.framework-chain article::after {
+  position: absolute;
+  top: 28px;
+  right: clamp(18px, 2vw, 28px);
+  color: rgba(15, 34, 51, 0.28);
+  content: "→";
+  font: 500 clamp(24px, 2.8vw, 38px)/1 var(--serif);
+}
+
+.framework-chain article:last-child::after {
+  display: none;
+}
+
+.framework-chain h3 {
+  max-width: 32ch;
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 31px);
+  line-height: 1.16;
+}
+
+.framework-chain p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
 .signal-retention-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1951,6 +2003,7 @@ a.tag:hover {
   .brief-scan-grid,
   .brief-theme-list,
   .committee-question-grid,
+  .framework-chain,
   .archive-grid,
   .radar-grid,
   .horizon-dashboard,
@@ -2040,6 +2093,7 @@ a.tag:hover {
   .brief-scan-grid,
   .brief-theme-list,
   .committee-question-grid,
+  .framework-chain,
   .archive-grid,
   .brief-columns,
   .radar-grid,

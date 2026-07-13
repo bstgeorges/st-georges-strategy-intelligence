@@ -1138,6 +1138,83 @@ function renderTopicPagesFromSignals(out, signalsData) {
   }
 }
 
+const SIGNAL_DECISION_FRAMEWORK = {
+  ai: {
+    implication: "AI has moved from innovation governance into live conduct, resilience, cyber, and third-party control evidence.",
+    decision: "Decide which AI-enabled workflows need permission maps, stop paths, telemetry, owner evidence, and recovery rehearsal this quarter.",
+  },
+  resilience: {
+    implication: "Resilience evidence now has to connect macro stress, customer-visible service failure, third-party dependency, and recovery capability.",
+    decision: "Decide which important business services need refreshed fallback tests, impact tolerances, communications evidence, and named recovery owners.",
+  },
+  "third-party": {
+    implication: "External providers can create internal-looking failure, especially where custody, cloud, processors, model providers, or DLT dependencies sit behind customer journeys.",
+    decision: "Decide which critical dependencies need exit evidence, assurance rights, concentration limits, and tested customer-impact playbooks.",
+  },
+  "market-structure": {
+    implication: "Market and infrastructure signals are becoming operating-model questions, not only exposure or valuation commentary.",
+    decision: "Decide which assumptions on liquidity, capital, counterparty concentration, AI infrastructure, or digital assets need scenario refresh.",
+  },
+  "financial-crime": {
+    implication: "Financial-crime control expectations are moving toward provable escalation, ownership, typology refresh, and customer-harm evidence.",
+    decision: "Decide which fraud, scams, sanctions, AML, and crypto controls need fresh testing evidence and accountable remediation dates.",
+  },
+  cyber: {
+    implication: "Cyber risk is accelerating through AI-enabled attack speed, identity pressure, supplier exposure, and vulnerability-response deadlines.",
+    decision: "Decide which cyber scenarios need updated timing assumptions, identity-control evidence, supplier tests, and recovery rehearsal.",
+  },
+  "technology-failure": {
+    implication: "Technology failure is judged through customer impact, change control, third-party dependency, and recovery evidence rather than availability alone.",
+    decision: "Decide which journeys need service maps, outage communications, fallback tests, change records, and post-incident learning evidence.",
+  },
+  data: {
+    implication: "Data quality has become a control-evidence issue across complaints, reporting, AI inputs, privacy, and supervisory reconstruction.",
+    decision: "Decide which decisions require lineage maps, quality checks, exception logs, sign-off trails, and sample reconstruction evidence.",
+  },
+};
+
+function renderSignalDecisionFramework(out, signalsData) {
+  const byId = new Map(signalsData.topics.map((topic) => [topic.id, topic]));
+  for (const topicId of topics) {
+    const topic = byId.get(topicId);
+    const framework = SIGNAL_DECISION_FRAMEWORK[topicId];
+    const lead = topic?.top5?.[0];
+    if (!topic || !framework || !lead) continue;
+    const file = path.join(out, "signals", topicId, "index.html");
+    if (!fs.existsSync(file)) continue;
+    let html = read(file);
+    const block = `<section class="band signal-decision-framework" aria-label="Signal implication decision framework">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Signal → Implication → Decision</p>
+            <h2>Turn the lead signal into an owner decision</h2>
+          </div>
+          <p>This framework turns the current lead signal into the implication and decision a senior owner should be able to act on.</p>
+        </div>
+        <div class="framework-chain">
+          <article>
+            <p class="meta">Signal</p>
+            <h3>${escapeHtml(lead.title)}</h3>
+            <p>${escapeHtml(lead.source)}</p>
+          </article>
+          <article>
+            <p class="meta">Implication</p>
+            <h3>${escapeHtml(framework.implication)}</h3>
+          </article>
+          <article>
+            <p class="meta">Decision</p>
+            <h3>${escapeHtml(framework.decision)}</h3>
+          </article>
+        </div>
+      </section>`;
+    html = html.replace(
+      /(\s*<section class="band">\s*<div class="section-heading">\s*<div>\s*<p class="eyebrow">Why it made the weekly brief<\/p>)/,
+      `\n      ${block}$1`,
+    );
+    write(file, html);
+  }
+}
+
 function renderSignalsHubFromData(out, signalsData) {
   const file = path.join(out, "signals", "index.html");
   let html = read(file);
@@ -1392,6 +1469,7 @@ function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
+  renderSignalDecisionFramework(options.out, signalsData);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);
   generateArchiveHubPages(options.out, edition);

@@ -79,12 +79,12 @@ function checkCurrentEditionAlignment(failures) {
   const archive = read("archive/index.html");
   const committee = read("committee-questions/index.html");
   const signals = readJson("data/signals.json");
-  const weekLabel = `Week of ${formatDateLong(edition.weekOf)}`;
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
-  const updatedLabel = `Last updated ${formatDateLong(edition.publicationDate)}`;
+  const briefEditionLabel = `Weekly brief / ${formatDateLong(edition.publicationDate)}`;
+  const committeeEditionLabel = `Edition date ${formatDateLong(edition.publicationDate)}`;
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
-  assert(brief.includes(weekLabel), `brief should use canonical ${weekLabel}`, failures);
+  assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
   assert(home.includes(edition.mainJudgement), "home should include canonical current-edition judgement", failures);
@@ -93,7 +93,16 @@ function checkCurrentEditionAlignment(failures) {
     `archive should report canonical latest archive ${edition.publicationDate}`,
     failures,
   );
-  assert(committee.includes(updatedLabel), `committee questions should use canonical ${updatedLabel}`, failures);
+  assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
+  for (const [label, html] of [
+    ["home", home],
+    ["brief", brief],
+    ["archive", archive],
+    ["committee questions", committee],
+  ]) {
+    assert(!html.includes(`Week of ${formatDateLong(edition.weekOf)}`), `${label} should not display the internal weekOf date as the public edition date`, failures);
+    assert(!html.includes(`week of ${formatDateLong(edition.weekOf)}`), `${label} should not display the internal weekOf date as the public edition date`, failures);
+  }
 }
 
 function checkWorkerRouteCoverage(failures) {
@@ -155,6 +164,7 @@ function checkLocalLinks(failures) {
 
 function main() {
   const failures = [];
+  const edition = readSourceJson("data/current-edition.json");
 
   const publicMarkdown = [];
   function findMarkdown(dir) {
@@ -195,6 +205,9 @@ function main() {
     const retainedCount = count(/<li(?:\s|>)/g, stillMaterial);
     assert(retainedCount >= 3 && retainedCount <= 7, `${topic} should have 3–7 still-material rows`, failures);
     assert(!stillMaterial.includes('class="rank"'), `${topic} still-material rows should not be ranked`, failures);
+    assert(!html.includes(`Week of ${formatDateLong(edition.weekOf)}`), `${topic} should not display the internal weekOf date as the public edition date`, failures);
+    assert(!html.includes("Week of 1 Jul 2026"), `${topic} should not display stale topic-card week labels`, failures);
+    assert(!html.includes("Week of 8 Jul 2026"), `${topic} should not display stale topic-card week labels`, failures);
   }
 
   const horizon = readJson("regulatory-horizon/latest.json");

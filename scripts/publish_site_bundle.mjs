@@ -822,6 +822,44 @@ function updateHomepageEditionLine(out, edition) {
   write(file, updated);
 }
 
+function updateLiveEditionDateLabels(out, edition) {
+  const label = formatDateLong(edition);
+
+  const briefFile = path.join(out, "brief", "index.html");
+  if (fs.existsSync(briefFile)) {
+    const html = read(briefFile);
+    write(
+      briefFile,
+      html.replace(
+        /<p class="eyebrow">Weekly brief \/ Week of [^<]+<\/p>/,
+        `<p class="eyebrow">Weekly brief / ${escapeHtml(label)}</p>`,
+      ),
+    );
+  }
+
+  const committeeFile = path.join(out, "committee-questions", "index.html");
+  if (fs.existsSync(committeeFile)) {
+    const html = read(committeeFile);
+    write(
+      committeeFile,
+      html.replace(
+        /<p class="meta">Last updated [^<]+? &middot; drawn from the week of [^<]+<\/p>/,
+        `<p class="meta">Edition date ${escapeHtml(label)}</p>`,
+      ),
+    );
+  }
+
+  const liveFiles = [
+    path.join(out, "archive", "index.html"),
+    ...topics.map((topic) => path.join(out, "signals", topic, "index.html")),
+  ];
+  for (const file of liveFiles) {
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    write(file, html.replace(/<p class="meta">Week of [^<]+<\/p>/g, `<p class="meta">Edition date ${escapeHtml(label)}</p>`));
+  }
+}
+
 // Committee Questions cross-links to the brief (§11) used a static "Source brief"
 // label that could silently point at the wrong week once a newer brief published.
 // Regenerating the label from the same edition data as the link removes that risk.
@@ -869,7 +907,14 @@ function extractLockedSection(html, key) {
   return html.slice(startIndex + start.length, endIndex);
 }
 
-function verifyLockedSections(out, failures) {
+function normaliseLiveBriefEditionLabelForLock(text, editionRecord) {
+  if (!editionRecord) return text;
+  const weekLabel = `Weekly brief / Week of ${formatDateLong(editionRecord.weekOf)}`;
+  const publicationLabel = `Weekly brief / ${formatDateLong(editionRecord.publicationDate)}`;
+  return text.replace(publicationLabel, weekLabel);
+}
+
+function verifyLockedSections(out, failures, editionRecord = null) {
   const locked = [
     { file: "index.html", key: "home-editorial" },
     { file: "brief/index.html", key: "brief-editorial" },
@@ -883,8 +928,10 @@ function verifyLockedSections(out, failures) {
     assert(Boolean(sourceSection), `${item.file} missing source lock marker ${item.key}`, failures);
     assert(Boolean(outputSection), `${item.file} missing generated lock marker ${item.key}`, failures);
     if (!sourceSection || !outputSection) continue;
+    const comparableSource = item.file === "brief/index.html" ? normaliseLiveBriefEditionLabelForLock(sourceSection, editionRecord) : sourceSection;
+    const comparableOutput = item.file === "brief/index.html" ? normaliseLiveBriefEditionLabelForLock(outputSection, editionRecord) : outputSection;
     assert(
-      normaliseLockedText(sourceSection) === normaliseLockedText(outputSection),
+      normaliseLockedText(comparableSource) === normaliseLockedText(comparableOutput),
       `${item.file} publisher-locked section ${item.key} changed during build`,
       failures,
     );
@@ -1432,7 +1479,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   assert(listFiles(out, ".md").length === 0, "public bundle should not contain internal Markdown files", failures);
   checkPublicCopy(out, failures);
   checkLocalLinks(out, failures);
-  verifyLockedSections(out, failures);
+  verifyLockedSections(out, failures, readJson(EDITION_INPUT));
 }
 
 function writeReport(out, edition, releaseId, sitemapUrls, analyticsInjected, failures, publisherWarnings = []) {
@@ -1482,6 +1529,7 @@ function main() {
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
   renderSignalDecisionFramework(options.out, signalsData);
+  updateLiveEditionDateLabels(options.out, edition);
   updateHomepageEditionLine(options.out, edition);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);

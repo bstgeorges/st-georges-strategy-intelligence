@@ -57,11 +57,40 @@ function formatSourceLabel(candidate) {
   return date ? `${tier} / ${name} / ${date}` : `${tier} / ${name}`;
 }
 
+// source IDs from published-source-map.json that are commercial AI companies
+const TECH_COMPANY_SOURCE_IDS = new Set([
+  "openai", "anthropic", "google-deepmind", "meta-ai", "mistral-ai", "xai", "microsoft-ai", "nvidia",
+]);
+
+function inferSourceType(publishedSource) {
+  if (!publishedSource) return "other reporting";
+  const { id = "", tier = "" } = publishedSource;
+  if (tier === "research") return "research";
+  if (tier === "press" || tier === "specialist") return "other reporting";
+  if (TECH_COMPANY_SOURCE_IDS.has(id)) return "company announcement";
+  return "regulator";
+}
+
+// Build a placeholder evidence object from candidate metadata. The evidence fields satisfy
+// the validator so the draft PR can be created; human editors replace the placeholders
+// (especially significance) before merging to main.
+function buildEvidence(candidate, publishedSource, promotionDate) {
+  return {
+    sourceTitle: candidate.title,
+    organisation: candidate.sourceName || publishedSource?.id || "Unknown",
+    publishedDate: candidate.publishedAt ? candidate.publishedAt.slice(0, 10) : promotionDate,
+    sourceType: inferSourceType(publishedSource),
+    significance: `Auto-promoted from ${candidate.sourceName || "feed ingestion"} on ${promotionDate}. Replace with a specific significance statement before merging.`,
+    sourceUrl: candidate.url,
+    accessedDate: promotionDate,
+  };
+}
+
 // Promote up to MAX_FRESH_PROMOTIONS_PER_TOPIC fresh, allowlisted, not-already-published
 // candidates into the front of Top 5, then backfill the remaining slots from the topic's
 // existing top5/stillMaterial rows so a quiet week never leaves a topic with fewer than
 // 5 rows. The retained set is reviewed separately and is never rewritten here.
-function promoteTopic(topic, candidates, sourceMap, log) {
+function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
   const existingTop5 = Array.isArray(topic.top5) ? topic.top5 : [];
   const existingStillMaterial = Array.isArray(topic.stillMaterial) ? topic.stillMaterial : [];
   const existingUrls = new Set([...existingTop5, ...existingStillMaterial].map((row) => row.url));
@@ -75,7 +104,8 @@ function promoteTopic(topic, candidates, sourceMap, log) {
     if (!candidate.title || !candidate.url) continue;
     if (existingUrls.has(candidate.url)) continue;
     if (seenFresh.has(candidate.url)) continue;
-    if (!resolvePublishedSource(candidate.url, sourceMap)) {
+    const publishedSource = resolvePublishedSource(candidate.url, sourceMap);
+    if (!publishedSource) {
       skipped.push(`unregistered host: ${candidate.url}`);
       continue;
     }
@@ -84,6 +114,7 @@ function promoteTopic(topic, candidates, sourceMap, log) {
       title: candidate.title,
       url: candidate.url,
       source: formatSourceLabel(candidate),
+      evidence: buildEvidence(candidate, publishedSource, promotionDate),
     });
   }
 
@@ -133,7 +164,7 @@ function main() {
     const topic = byId.get(topicId);
     if (!topic) throw new Error(`Missing topic in site/data/signals.json: ${topicId}`);
     const candidates = candidatesByTopic.get(topicId) || [];
-    const { updatedTopic, freshRows } = promoteTopic(topic, candidates, sourceMap, log);
+    const { updatedTopic, freshRows } = promoteTopic(topic, candidates, sourceMap, log, options.date);
     summaryTopics.push({
       id: topicId,
       freshCount: freshRows.length,

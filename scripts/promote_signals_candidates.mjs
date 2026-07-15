@@ -71,16 +71,15 @@ function inferSourceType(publishedSource) {
   return "regulator";
 }
 
-// Build a placeholder evidence object from candidate metadata. The evidence fields satisfy
-// the validator so the draft PR can be created; human editors replace the placeholders
-// (especially significance) before merging to main.
+// Promotion remains a draft workflow. The explicit review marker is intentionally
+// rejected by the public-copy contract if an editor tries to merge it unchanged.
 function buildEvidence(candidate, publishedSource, promotionDate) {
   return {
     sourceTitle: candidate.title,
     organisation: candidate.sourceName || publishedSource?.id || "Unknown",
     publishedDate: candidate.publishedAt ? candidate.publishedAt.slice(0, 10) : promotionDate,
     sourceType: inferSourceType(publishedSource),
-    significance: `Auto-promoted from ${candidate.sourceName || "feed ingestion"} on ${promotionDate}. Replace with a specific significance statement before merging.`,
+    significance: "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
     sourceUrl: candidate.url,
     accessedDate: promotionDate,
   };

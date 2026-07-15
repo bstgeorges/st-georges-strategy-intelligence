@@ -6,6 +6,12 @@ const FORBIDDEN_PUBLIC_COPY = [
   ["migration note", /\bbefore migration\b/i],
   ["migration note", /\bmigration-ready\b/i],
   ["draft marker", /\bdraft opening\b/i],
+  ["draft marker", /\bauto[- ]drafted\b/i],
+  ["draft marker", /\breview before publishing\b/i],
+  ["draft marker", /\bneeds? (?:a )?human editorial pass\b/i],
+  ["draft marker", /\bauto[- ]promoted\b/i],
+  ["draft marker", /\breplace with a specific significance statement before merging\b/i],
+  ["draft marker", /\beditorial_review_required\b/i],
   ["placeholder marker", /\b(?:lorem ipsum|todo|tbd|tk)\b/i],
 ];
 

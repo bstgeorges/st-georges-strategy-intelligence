@@ -51,9 +51,6 @@ jobs:
           fi
           echo "publication_date=$publication_date" >> "$GITHUB_OUTPUT"
 
-      - name: Generate weekly refresh packet
-        run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"
-
       - name: Build site bundle
         run: npm run site:build
 
@@ -62,6 +59,9 @@ jobs:
 
       - name: Validate candidate signals output
         run: npm run signals:candidates:validate
+
+      - name: Generate weekly refresh packet
+        run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"
 
       - name: Assemble editorial artifact
         run: |

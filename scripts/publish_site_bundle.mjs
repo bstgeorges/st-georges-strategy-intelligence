@@ -12,6 +12,7 @@ const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
+const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
@@ -376,6 +377,21 @@ function normaliseOgImage(out) {
   }
 }
 
+function normaliseFavicon(out) {
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    if (/<link rel="icon"[^>]*>/.test(html)) {
+      html = html.replace(/<link rel="icon"[^>]*>/, '<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">');
+    } else {
+      html = html.replace(
+        /(<meta name="viewport"[^>]*>)/,
+        '$1\n    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">',
+      );
+    }
+    write(file, html);
+  }
+}
+
 function decorateHorizonFeed(out) {
   const feedFile = path.join(out, "regulatory-horizon", "feed.xml");
   if (!fs.existsSync(feedFile)) return;
@@ -485,7 +501,15 @@ function sha256(file) {
 }
 
 function writeReleaseMetadata(out, releaseId, edition) {
-  const files = ["styles.css", "app.js", "data/signals.json", "sitemap.xml"];
+  const files = [
+    "styles.css",
+    "app.js",
+    "assets/hero.svg",
+    "assets/favicon.svg",
+    "assets/og-card.png",
+    "data/signals.json",
+    "sitemap.xml",
+  ];
   const metadata = {
     release: releaseId,
     edition,
@@ -556,7 +580,81 @@ function loadEditionRecord(failures) {
   assert(record.canonicalUrl === `${PUBLIC_ORIGIN}/brief/`, "current edition canonicalUrl must point to the current brief", failures);
   assert(record.signalsRanked === TOP5_COUNT, `current edition signalsRanked must be ${TOP5_COUNT}`, failures);
   assert(record.streamsScanned === topics.length, `current edition streamsScanned must be ${topics.length}`, failures);
+  assert(Array.isArray(record.topSignals) && record.topSignals.length === TOP5_COUNT, `current edition topSignals must contain ${TOP5_COUNT} rows`, failures);
+  const seenTopSignalTopics = new Set();
+  for (const [index, signal] of (record.topSignals || []).entries()) {
+    const label = `current edition topSignals row ${index + 1}`;
+    assert(topics.includes(signal.topic), `${label} has unsupported topic ${signal.topic || "<missing>"}`, failures);
+    assert(!seenTopSignalTopics.has(signal.topic), `${label} repeats topic ${signal.topic}`, failures);
+    seenTopSignalTopics.add(signal.topic);
+    for (const field of ["title", "label", "why", "source"]) {
+      assert(Boolean(signal[field]), `${label} missing ${field}`, failures);
+    }
+  }
   return record;
+}
+
+function validatePromotionSummary(failures) {
+  if (!fs.existsSync(PROMOTION_SUMMARY_INPUT)) return;
+  const summary = readJson(PROMOTION_SUMMARY_INPUT);
+  for (const topic of summary.topics || []) {
+    const lead = topic.leadRow;
+    if (!lead) continue;
+    const evidence = lead.evidence || {};
+    assert(evidence.sourceTitle === lead.title, `${topic.id} promotion evidence.sourceTitle must match the lead title`, failures);
+    assert(evidence.sourceUrl === lead.url, `${topic.id} promotion evidence.sourceUrl must match the lead URL`, failures);
+    assert(
+      !/auto[- ]promoted|replace with a specific|editorial_review_required/i.test(evidence.significance || ""),
+      `${topic.id} promotion significance still contains an editorial placeholder`,
+      failures,
+    );
+  }
+}
+
+function renderCanonicalTopSignals(out, editionRecord) {
+  const topSignals = editionRecord?.topSignals || [];
+  if (topSignals.length !== TOP5_COUNT) return;
+
+  const homeFile = path.join(out, "index.html");
+  if (fs.existsSync(homeFile)) {
+    const rows = topSignals
+      .map((signal, index) => {
+        const rank = String(index + 1).padStart(2, "0");
+        return `<li>
+              <span class="rank">${rank}</span>
+              <a href="/signals/${escapeHtml(signal.topic)}/"><h3>${escapeHtml(signal.title)}</h3></a>
+              <p>Why it matters: ${escapeHtml(signal.why)}</p>
+              <span class="meta">${escapeHtml(signal.source)}</span>
+            </li>`;
+      })
+      .join("\n            ");
+    const html = read(homeFile);
+    write(
+      homeFile,
+      html.replace(
+        /<ol class="home-signal-list" aria-label="This week's ranked signals">[\s\S]*?<\/ol>/,
+        `<ol class="home-signal-list" aria-label="This week's ranked signals">\n            ${rows}\n          </ol>`,
+      ),
+    );
+  }
+
+  const briefFile = path.join(out, "brief", "index.html");
+  if (fs.existsSync(briefFile)) {
+    const rows = topSignals
+      .map((signal, index) => {
+        const rank = String(index + 1).padStart(2, "0");
+        return `<li><span class="rank">${rank}</span><a href="/signals/${escapeHtml(signal.topic)}/"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
+      })
+      .join("\n          ");
+    const html = read(briefFile);
+    write(
+      briefFile,
+      html.replace(
+        /(<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">)[\s\S]*?(<\/ol>)/,
+        `$1\n          ${rows}\n        $2`,
+      ),
+    );
+  }
 }
 
 // Used only for the "Reg Horizon scan / <date>" label on the archive index page —
@@ -1274,7 +1372,7 @@ function renderSignalDecisionFramework(out, signalsData) {
   }
 }
 
-function renderSignalsHubFromData(out, signalsData) {
+function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const file = path.join(out, "signals", "index.html");
   let html = read(file);
   const topicCards = signalsData.topics
@@ -1284,12 +1382,10 @@ function renderSignalsHubFromData(out, signalsData) {
       return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 refreshed · ${retainedCount} still material</span></a>`;
     })
     .join("\n          ");
-  const weeklyRows = signalsData.topics
-    .slice(0, TOP5_COUNT)
-    .map((topic, index) => {
-      const lead = topic.top5?.[0] || {};
+  const weeklyRows = (editionRecord?.topSignals || [])
+    .map((signal, index) => {
       const rank = String(index + 1).padStart(2, "0");
-      return `<li><span class="rank">${rank}</span><a href="${escapeHtml(topic.route)}"><h3>${escapeHtml(lead.title)}</h3></a><span class="meta">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span></li>`;
+      return `<li><span class="rank">${rank}</span><a href="/signals/${escapeHtml(signal.topic)}/"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
     })
     .join("\n          ");
   const replacement = `<!-- publisher-lock:start:signals-editorial -->
@@ -1513,11 +1609,13 @@ function main() {
   normaliseMockupLinks(options.out);
   normaliseHorizonArchiveLinks(options.out);
   const editionRecord = loadEditionRecord(failures);
+  validatePromotionSummary(failures);
   const edition = latestEdition(options.out, options.edition, editionRecord);
   const horizonData = loadHorizonData(options.out, failures);
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
-  renderSignalsHubFromData(options.out, signalsData);
+  renderSignalsHubFromData(options.out, signalsData, editionRecord);
+  renderCanonicalTopSignals(options.out, editionRecord);
   applyLiveEditionContent(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
@@ -1542,6 +1640,7 @@ function main() {
   enforceCanonicalNav(options.out);
   materializeOgImage(options.out);
   normaliseOgImage(options.out);
+  normaliseFavicon(options.out);
   normaliseHtmlReferencesToRoot(options.out);
   normaliseHorizonArchiveLinks(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);

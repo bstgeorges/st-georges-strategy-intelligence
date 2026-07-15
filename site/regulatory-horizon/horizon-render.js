@@ -83,7 +83,7 @@
   }
 
   function renderCoverageNotes(data) {
-    const warnings = (data.warnings || []).filter((warning) => warning.type !== "source-health");
+    const warnings = data.warnings || [];
     if (!warnings.length) {
       return "<p>No source coverage warning is attached to this public edition.</p>";
     }
@@ -100,6 +100,14 @@
       .map((slug) => THEME_COPY[slug]?.label || slug)
       .slice(0, 4)
       .join(", ");
+    if (data.status === "withheld") {
+      return `
+      <article><p class="meta">Publication status</p><strong>Withheld</strong><span>editorial and source checks did not pass</span></article>
+      <article><p class="meta">Material signals</p><strong>0</strong><span>no rows from this scan are presented as reviewed intelligence</span></article>
+      <article><p class="meta">Open deadline</p><strong>None</strong><span>no deadline from this scan is being published</span></article>
+      <article><p class="meta">Next step</p><strong>Review</strong><span>use the prior reviewed archive while the scan is corrected</span></article>
+    `;
+    }
     return `
       <article>
         <p class="meta">Material signals</p>
@@ -108,7 +116,7 @@
       </article>
       <article>
         <p class="meta">Active themes</p>
-        <strong>${escapeHtml(data.kpis?.coverage || `${activeThemes.size} of ${Object.keys(THEME_COPY).length}`)}</strong>
+        <strong>${escapeHtml(`${data.kpis?.themes ?? activeThemes.size} of ${Object.keys(THEME_COPY).length}`)}</strong>
         <span>${escapeHtml(activeLabels || "no active theme detected in this run")}</span>
       </article>
       <article>
@@ -136,7 +144,7 @@
   }
 
   function renderEvidenceFiles(data) {
-    const archiveHref = data.archives && data.archives[0] ? data.archives[0] : "archive/2026-07-02.html";
+    const archiveHref = data.archives && data.archives[0] ? data.archives[0] : "archive/2026-07-04.html";
     return `
       <a class="archive-card" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
       <a class="archive-card" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
@@ -174,7 +182,11 @@
       // never an archived snapshot, since archive pages don't load this script.
       if (window.applyHorizonDateStatus) window.applyHorizonDateStatus(deadlines);
     }
-    if (materialTop5) materialTop5.innerHTML = (data.signals || []).slice(0, 5).map(renderSignal).join("");
+    if (materialTop5) {
+      materialTop5.innerHTML = (data.signals || []).length
+        ? (data.signals || []).slice(0, 5).map(renderSignal).join("")
+        : "<li><span class=\"rank\">--</span><span><h3>No material signals are published for this edition</h3></span><span class=\"meta\">Edition withheld</span></li>";
+    }
     if (materialAdditional) {
       const additional = (data.signals || []).slice(5, 15);
       materialAdditional.innerHTML = additional.length

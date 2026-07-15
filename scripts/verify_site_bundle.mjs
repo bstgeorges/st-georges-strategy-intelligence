@@ -82,12 +82,27 @@ function checkCurrentEditionAlignment(failures) {
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
   const briefEditionLabel = `Weekly brief / ${formatDateLong(edition.publicationDate)}`;
   const committeeEditionLabel = `Edition date ${formatDateLong(edition.publicationDate)}`;
+  const expectedTopSignals = (edition.topSignals || []).map((signal) => signal.title);
+
+  function topSignalTitles(html, pattern) {
+    const section = (html.match(pattern) || [])[1] || "";
+    return Array.from(section.matchAll(/<h3>([^<]+)<\/h3>/g), (match) => match[1]);
+  }
+
+  const homeTopSignals = topSignalTitles(home, /<ol class="home-signal-list"[^>]*>([\s\S]*?)<\/ol>/);
+  const briefTopSignals = topSignalTitles(brief, /<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">([\s\S]*?)<\/ol>/);
+  const signalsHub = read("signals/index.html");
+  const hubTopSignals = topSignalTitles(signalsHub, /<ol class="brief-index signal-hub-top5">([\s\S]*?)<\/ol>/);
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
   assert(home.includes(edition.mainJudgement), "home should include canonical current-edition judgement", failures);
+  assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
+  assert(JSON.stringify(homeTopSignals) === JSON.stringify(expectedTopSignals), "homepage Top 5 should match current-edition.json", failures);
+  assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);
+  assert(JSON.stringify(hubTopSignals) === JSON.stringify(expectedTopSignals), "signals hub Top 5 should match current-edition.json", failures);
   assert(
     archive.includes(`latest ${edition.publicationDate}`),
     `archive should report canonical latest archive ${edition.publicationDate}`,
@@ -108,6 +123,7 @@ function checkCurrentEditionAlignment(failures) {
 function checkWorkerRouteCoverage(failures) {
   const routeWorker = readSource(path.join("..", "workers", "not-found-route.js"));
   const requiredPrefixes = [
+    "/assets/",
     "/about/",
     "/archive/",
     "/brief/",
@@ -165,6 +181,9 @@ function checkLocalLinks(failures) {
 function main() {
   const failures = [];
   const edition = readSourceJson("data/current-edition.json");
+  assert(fs.existsSync(path.join(SITE, "assets", "hero.svg")), "hero.svg missing from the public bundle", failures);
+  assert(fs.existsSync(path.join(SITE, "assets", "favicon.svg")), "favicon.svg missing from the public bundle", failures);
+  assert(fs.existsSync(path.join(SITE, "assets", "og-card.png")), "og-card.png missing from the public bundle", failures);
 
   const publicMarkdown = [];
   function findMarkdown(dir) {
@@ -215,6 +234,13 @@ function main() {
   assert(horizon.signals.length <= 15, "Reg Horizon signals[] exceeds 15 rows", failures);
   assert(horizon.signals.every((item) => item.sourceStatus), "Reg Horizon signals[] should include sourceStatus in mockup contract", failures);
   assert(Array.isArray(horizon.warnings), "Reg Horizon latest.json missing warnings[]", failures);
+  if (horizon.status === "withheld") {
+    const horizonPage = read("regulatory-horizon/index.html");
+    assert(horizon.signals.length === 0, "withheld Reg Horizon editions must publish zero material signals", failures);
+    assert((horizon.horizon || []).length === 0, "withheld Reg Horizon editions must publish zero deadlines", failures);
+    assert(horizonPage.includes("Withheld"), "withheld Reg Horizon page must show its publication status", failures);
+    assert(horizonPage.includes("No material signals are published"), "withheld Reg Horizon page must not imply material rows were cleared", failures);
+  }
 
   const sitemap = read("sitemap.xml");
   const sitemapUrls = count(/<url>/g, sitemap);

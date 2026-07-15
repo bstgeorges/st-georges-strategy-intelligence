@@ -1,5 +1,6 @@
 const ORIGIN = "https://st-georges-strategy-intelligence.pages.dev";
 const FINAL_ROUTE_PREFIXES = [
+  "/assets/",
   "/about/",
   "/archive/",
   "/brief/",

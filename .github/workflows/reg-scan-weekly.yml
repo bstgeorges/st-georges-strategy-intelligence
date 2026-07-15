@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: reg-horizon-weekly-scan
@@ -42,13 +43,29 @@ jobs:
       - name: Sync Reg Horizon outputs into site
         run: npm run horizon:sync
 
+      - name: Validate Reg Horizon publication data
+        run: npm run reg-horizon:validate
+
       - name: Verify migration build
         run: npm run site:build
 
-      - name: Commit generated scan outputs
+      - name: Open generated scan for editorial review
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "reg-scan bot"
           git config user.email "actions@users.noreply.github.com"
+          branch="automation/reg-horizon-${GITHUB_RUN_ID}"
+          git switch -c "$branch"
           git add tools/reg-scan/docs tools/reg-scan/state/scan.db dashboard/regulatory-horizon site/regulatory-horizon
-          git diff --cached --quiet || git commit -m "Weekly regulatory horizon scan $(date -u +%F)"
-          git push
+          if git diff --cached --quiet; then
+            echo "No Reg Horizon changes to review."
+            exit 0
+          fi
+          git commit -m "Weekly regulatory horizon scan $(date -u +%F)"
+          git push --set-upstream origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Review weekly Reg Horizon scan $(date -u +%F)" \
+            --body "Automated scan output. Review classifications, source coverage, materiality, deadlines, and public copy before merging. A merge to main is required before the canonical site release can publish it."

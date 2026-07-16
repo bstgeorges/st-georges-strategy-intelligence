@@ -234,12 +234,35 @@ function main() {
   assert(horizon.signals.length <= 15, "Reg Horizon signals[] exceeds 15 rows", failures);
   assert(horizon.signals.every((item) => item.sourceStatus), "Reg Horizon signals[] should include sourceStatus in mockup contract", failures);
   assert(Array.isArray(horizon.warnings), "Reg Horizon latest.json missing warnings[]", failures);
+  const horizonPage = read("regulatory-horizon/index.html");
   if (horizon.status === "withheld") {
-    const horizonPage = read("regulatory-horizon/index.html");
     assert(horizon.signals.length === 0, "withheld Reg Horizon editions must publish zero material signals", failures);
     assert((horizon.horizon || []).length === 0, "withheld Reg Horizon editions must publish zero deadlines", failures);
     assert(horizonPage.includes("Withheld"), "withheld Reg Horizon page must show its publication status", failures);
     assert(horizonPage.includes("No material signals are published"), "withheld Reg Horizon page must not imply material rows were cleared", failures);
+  } else {
+    const horizonFeed = read("regulatory-horizon/feed.xml");
+    const horizonCalendar = read("regulatory-horizon/horizon.ics");
+    assert(horizon.status === "published", "Reg Horizon status must be published or withheld", failures);
+    assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
+    assert(horizonPage.includes("What this edition means"), "published Reg Horizon page missing operating readout", failures);
+    for (const signal of horizon.signals.slice(0, 5)) {
+      assert(horizonPage.includes(signal.title), `published Reg Horizon page missing signal: ${signal.title}`, failures);
+    }
+    for (const entry of horizon.horizon || []) {
+      assert(horizonPage.includes(`datetime="${entry.date}"`), `published Reg Horizon page missing deadline ${entry.date}`, failures);
+    }
+    assert(!/withheld/i.test(horizonFeed), "published Reg Horizon feed contains stale withheld language", failures);
+    assert(
+      count(/<item>/g, horizonFeed) === horizon.signals.length,
+      "published Reg Horizon feed item count must match signals[]",
+      failures,
+    );
+    assert(
+      count(/BEGIN:VEVENT/g, horizonCalendar) === (horizon.horizon || []).length,
+      "published Reg Horizon calendar event count must match horizon[]",
+      failures,
+    );
   }
 
   const sitemap = read("sitemap.xml");

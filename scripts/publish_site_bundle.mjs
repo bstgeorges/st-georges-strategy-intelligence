@@ -1123,6 +1123,81 @@ function renderThemeCards(signals) {
     .join("");
 }
 
+function renderHorizonSignalList(entries, offset = 0) {
+  return (entries || [])
+    .map((signal, index) => {
+      const rank = String(index + offset + 1).padStart(2, "0");
+      const type = String(signal.type || "other").replace(/-/g, " ");
+      const areas = (signal.riskAreas || []).map((area) => RISK_AREA_LABELS[area] || area).join(", ");
+      const meta = [type, areas, signal.source, signal.date].filter(Boolean).join(" / ");
+      return `<li><span class="rank">${rank}</span><a href="${escapeHtml(signal.url)}"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(meta)}</span></li>`;
+    })
+    .join("");
+}
+
+function renderHorizonDashboard(horizonData) {
+  const signals = horizonData.signals || [];
+  const deadlines = horizonData.horizon || [];
+  if (horizonData.status === "withheld") {
+    return `<article><p class="meta">Publication status</p><strong>Withheld</strong><span>editorial and source checks did not pass</span></article>
+          <article><p class="meta">Material signals</p><strong>0</strong><span>no rows from this scan are presented as reviewed intelligence</span></article>
+          <article><p class="meta">Open deadline</p><strong>None</strong><span>no deadline from this scan is being published</span></article>
+          <article><p class="meta">Next step</p><strong>Review</strong><span>use the prior reviewed archive while the scan is corrected</span></article>`;
+  }
+
+  const sources = [...new Set(signals.map((signal) => signal.source).filter(Boolean))];
+  const firstDeadline = deadlines[0];
+  return `<article><p class="meta">Material signals</p><strong>${escapeHtml(horizonData.kpis?.material ?? signals.length)}</strong><span>reviewed items requiring business-impact triage</span></article>
+          <article><p class="meta">Active themes</p><strong>${escapeHtml(`${horizonData.kpis?.themes ?? 0} / ${Object.keys(RISK_AREA_LABELS).length}`)}</strong><span>themes represented by this edition's reviewed signals</span></article>
+          <article><p class="meta">Next deadline</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "no future deadline in this edition")}</span></article>
+          <article><p class="meta">Primary source set</p><strong>${escapeHtml(sources.slice(0, 2).join(" / ") || "Monitor")}</strong><span>${escapeHtml(`${sources.length} primary authorities represented`)}</span></article>`;
+}
+
+function renderHorizonOperatingReadout(horizonData) {
+  if (horizonData.status === "withheld") {
+    return `<div class="section-heading">
+          <div><p class="eyebrow">Operating readout</p><h2>Why this edition is withheld</h2></div>
+          <p>The scan did not meet the standard required for a public regulatory readout. The page is explicit about that rather than presenting uncertain classifications as final.</p>
+        </div>
+        <div class="horizon-operating-grid">
+          <article class="brief-card"><p class="meta">Classification</p><h3>The scan requires editorial correction</h3><p>Only reviewed classifications can be presented as regulatory signals.</p></article>
+          <article class="brief-card"><p class="meta">Coverage</p><h3>The source universe is incomplete</h3><p>Quiet themes remain watch-listed until approved sources report cleanly.</p></article>
+          <article class="brief-card"><p class="meta">Materiality</p><h3>The ranking requires review</h3><p>Administrative or unrelated items must not clear the publication threshold.</p></article>
+          <article class="brief-card"><p class="meta">Safe fallback</p><h3>Use the last reviewed archive</h3><p>The archive remains available while the scan is corrected.</p></article>
+        </div>`;
+  }
+
+  const signals = horizonData.signals || [];
+  const deadlines = horizonData.horizon || [];
+  const sources = [...new Set(signals.map((signal) => signal.source).filter(Boolean))];
+  const warnings = horizonData.warnings || [];
+  return `<div class="section-heading">
+          <div><p class="eyebrow">Operating readout</p><h2>What this edition means</h2></div>
+          <p>The reviewed edition separates response deadlines, implementation work and forward-looking governance signals so each can be given an accountable owner.</p>
+        </div>
+        <div class="horizon-operating-grid">
+          <article class="brief-card"><p class="meta">Response windows</p><h3>${escapeHtml(`${deadlines.filter((entry) => /response deadline/i.test(entry.title || "")).length} consultations have dated decisions`)}</h3><p>Assign response ownership early enough for product, legal, compliance and operations input.</p></article>
+          <article class="brief-card"><p class="meta">Implementation</p><h3>Solvency II changes have a 30 January 2027 application date</h3><p>Liquidity, risk-margin, matching-adjustment and reporting changes need a joined implementation plan.</p></article>
+          <article class="brief-card"><p class="meta">Resilience</p><h3>Quantum readiness is now a supervisory planning issue</h3><p>Roadmaps, cryptographic inventories, external-provider dependencies and crypto-agility need evidence.</p></article>
+          <article class="brief-card"><p class="meta">Coverage</p><h3>${escapeHtml(`${sources.length} primary authorities support this edition`)}</h3><p>${escapeHtml(warnings[0]?.message || "Quiet themes remain watch-listed until wider sources report cleanly.")}</p></article>
+        </div>`;
+}
+
+function renderHorizonThemeCards(signals) {
+  const active = new Set((signals || []).flatMap((signal) => signal.riskAreas || []));
+  return Object.keys(RISK_AREA_LABELS)
+    .map((slug) => {
+      const isActive = active.has(slug);
+      return `<article class="card"><p class="meta">${isActive ? "Active" : "Quiet this run"}</p><h3>${escapeHtml(RISK_AREA_LABELS[slug])}</h3><p>${isActive ? "A reviewed material signal in this edition maps to this theme." : "No reviewed material signal is published for this theme in the current edition."}</p></article>`;
+    })
+    .join("");
+}
+
+function replaceElementContent(html, tag, id, content) {
+  const pattern = new RegExp(`(<${tag}[^>]*\\bid="${id}"[^>]*>)[\\s\\S]*?(</${tag}>)`);
+  return html.replace(pattern, `$1\n          ${content}\n        $2`);
+}
+
 function assessPublisherWarnings(horizonData) {
   const warnings = [];
   const commentaryOnly = (horizonData.horizon || []).filter((entry) =>
@@ -1157,9 +1232,62 @@ function applyLiveEditionContent(out, horizonData) {
   if (!fs.existsSync(file)) return;
   if (!horizonData || !horizonData.edition) return;
   const html = read(file);
-  const updated = html.replace(
+  const signals = horizonData.signals || [];
+  const deadlines = horizonData.horizon || [];
+  const top5 = signals.slice(0, 5);
+  const additional = signals.slice(5, 15);
+  let updated = html.replace(
     /(<p class="eyebrow" id="horizon-edition">)Edition \/ [^<]*(<\/p>)/,
     `$1Edition / ${horizonData.edition}$2`,
+  );
+  updated = updated
+    .replace(
+      /"datePublished":\s*"\d{4}-\d{2}-\d{2}"/,
+      `"datePublished": "${horizonData.edition}"`,
+    )
+    .replace(
+      /"dateModified":\s*"\d{4}-\d{2}-\d{2}"/,
+      `"dateModified": "${horizonData.edition}"`,
+    );
+  updated = replaceElementContent(
+    updated,
+    "p",
+    "horizon-generated",
+    escapeHtml(`Reviewed ${horizonData.generatedAt || "in the current weekly run"} across a ${horizonData.windowDays || 7}-day evidence window.`),
+  );
+  updated = replaceElementContent(updated, "div", "horizon-bottom-line", `<p>${escapeHtml(horizonData.bottomLine || "")}</p>`);
+  updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDashboard(horizonData));
+  updated = replaceElementContent(updated, "section", "horizon-operating-readout", renderHorizonOperatingReadout(horizonData));
+  updated = replaceElementContent(
+    updated,
+    "ul",
+    "horizon-deadlines",
+    deadlines.length
+      ? renderHorizonList(deadlines)
+      : '<li><time>No deadline</time><span>No future deadline detected in this edition.</span><span class="owner">Monitor</span></li>',
+  );
+  updated = replaceElementContent(
+    updated,
+    "ol",
+    "horizon-material-top5",
+    top5.length
+      ? renderHorizonSignalList(top5)
+      : '<li><span class="rank">--</span><span><h3>No material signals are published for this edition</h3></span><span class="meta">Edition withheld</span></li>',
+  );
+  updated = replaceElementContent(
+    updated,
+    "ol",
+    "horizon-material-additional",
+    additional.length
+      ? renderHorizonSignalList(additional, 5)
+      : '<li><span class="rank">--</span><span><h3>No further reviewed rows cleared the threshold in this edition</h3></span><span class="meta">Monitor the wider source universe</span></li>',
+  );
+  updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
+  updated = replaceElementContent(
+    updated,
+    "div",
+    "horizon-coverage-notes",
+    `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" "))}</p>`,
   );
   if (updated !== html) write(file, updated);
 }

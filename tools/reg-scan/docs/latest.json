@@ -1,246 +1,131 @@
 {
   "edition": "2026-07-15",
-  "generatedAt": "2026-07-15 13:22 UTC",
+  "generatedAt": "2026-07-16 20:45 UTC",
   "windowDays": 7,
+  "status": "published",
   "kpis": {
-    "material": 15,
-    "themes": 7,
-    "sources": 4,
-    "coverage": "4 of 36"
+    "material": 5,
+    "themes": 5,
+    "sources": 3,
+    "coverage": "3 of 8"
   },
-  "bottomLine": "The clearest trigger this edition is \"FCA cracks down on illegal promotions and market abuse in first year of new strategy\" from Financial Conduct Authority (final-rule). Material signals span 7 of 8 watch themes.",
-  "horizon": [],
+  "bottomLine": "Two HM Treasury consultations now set concrete response dates for payments and digital settlement services, while EIOPA's Solvency II package, FINMA's quantum guidance and the financial-services AI plan create implementation and governance work.",
+  "horizon": [
+    {
+      "date": "2026-08-31",
+      "band": "31-60",
+      "daysLeft": 47,
+      "title": "Response deadline: Bank of England fee regime for recognised payment systems",
+      "source": "HM Treasury",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "prompts": {
+        "owner": "Who owns the response on payment-system and digital-settlement supervisory fees?",
+        "action": "Assess scope, fee-cap impacts and whether to submit evidence before 31 August.",
+        "evidence": "Documented response decision, impact assessment and approved submission where relevant."
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "band": "61-90",
+      "daysLeft": 83,
+      "title": "Response deadline: Modernising Payment Services Regulation",
+      "source": "HM Treasury",
+      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+      "prompts": {
+        "owner": "Who owns the response across payments, Open Banking, tokenisation and agentic payments?",
+        "action": "Map proposed reforms to products, customer protections and operating-model dependencies.",
+        "evidence": "Committee-approved response position and traceable product and control impact assessment."
+      }
+    },
+    {
+      "date": "2027-01-30",
+      "band": "90+",
+      "daysLeft": 199,
+      "title": "Revised Solvency II framework begins to apply",
+      "source": "EIOPA",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "prompts": {
+        "owner": "Who owns Solvency II implementation across liquidity, risk margin, matching adjustment and reporting?",
+        "action": "Confirm applicability, implementation milestones and dependencies before the revised framework applies.",
+        "evidence": "Approved implementation plan, accountable owners, gap assessment and reporting change log."
+      }
+    }
+  ],
   "signals": [
     {
-      "title": "FCA cracks down on illegal promotions and market abuse in first year of new strategy",
-      "url": "https://www.fca.org.uk/news/press-releases/fca-cracks-down-illegal-promotions-and-market-abuse-first-year-new-strategy",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "market-plumbing",
-        "customer-outcomes",
-        "crime-and-sanctions"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching market-plumbing, customer-outcomes, crime-and-sanctions. Review before 2026-08-14.",
-      "score": 1.55,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "FCA publishes landmark review into impact of AI on retail financial services",
-      "url": "https://www.fca.org.uk/news/press-releases/fca-publishes-landmark-review-impact-ai-retail-financial-services",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "customer-outcomes",
-        "crime-and-sanctions",
-        "digital-resilience"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching customer-outcomes, crime-and-sanctions, digital-resilience. Review before 2026-08-14.",
-      "score": 1.55,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "UK financial regulators to begin overseeing Critical Third Parties announced by Treasury",
-      "url": "https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "balance-sheet",
-        "digital-resilience"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching balance-sheet, digital-resilience. Review before 2026-08-14.",
-      "score": 1.5,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "Schneider Electric Easergy MiCOM Px40 Series",
-      "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-190-03",
-      "source": "US Cybersecurity and Infrastructure Security Agency",
-      "sourceStatus": "approved",
-      "date": "2026-07-09",
-      "type": "final-rule",
-      "riskAreas": [
-        "digital-resilience",
-        "ai-governance"
-      ],
-      "why": "A final-rule from US Cybersecurity and Infrastructure Security Agency touching digital-resilience, ai-governance. Review before 2026-08-14.",
-      "score": 1.5,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "Rethinking the Evaluation of Harness Evolution for Agents",
-      "url": "https://arxiv.org/abs/2607.12227",
-      "source": "arXiv AI and machine learning research",
+      "title": "Updating the Bank of England’s fee regime for recognised payment systems",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "source": "HM Treasury",
       "sourceStatus": "approved",
       "date": "2026-07-15",
-      "type": "final-rule",
+      "type": "consultation",
       "riskAreas": [
-        "market-plumbing",
-        "ai-governance"
+        "digital-money",
+        "market-plumbing"
       ],
-      "why": "A final-rule from arXiv AI and machine learning research touching market-plumbing, ai-governance. Review before 2026-08-14.",
-      "score": 1.5,
-      "deadline": null,
+      "why": "HM Treasury is consulting on extending the Bank's supervisory fee regime to digital settlement asset service providers and on the level of fee caps; responses close on 31 August 2026.",
+      "score": 1.69,
+      "deadline": "2026-08-31",
       "also": []
     },
     {
-      "title": "AgentLens: Production-Assessed Trajectory Reviews for Coding Agent Evaluation",
-      "url": "https://arxiv.org/abs/2607.06624",
-      "source": "arXiv AI and machine learning research",
+      "title": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "source": "EIOPA",
       "sourceStatus": "approved",
       "date": "2026-07-15",
-      "type": "final-rule",
+      "type": "guidance",
       "riskAreas": [
-        "market-plumbing",
-        "ai-governance"
+        "balance-sheet"
       ],
-      "why": "A final-rule from arXiv AI and machine learning research touching market-plumbing, ai-governance. Review before 2026-08-14.",
-      "score": 1.5,
-      "deadline": null,
+      "why": "EIOPA completed its Solvency II Review package, including liquidity-risk guidance and technical standards affecting risk margin, matching adjustment and reporting; the revised framework applies from 30 January 2027.",
+      "score": 1.38,
+      "deadline": "2027-01-30",
       "also": []
     },
     {
-      "title": "New member appointed to the Regulatory Decisions Committee",
-      "url": "https://www.fca.org.uk/news/press-releases/new-member-regulatory-decisions-committee",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "other"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching other. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "FCA appoints new members to the Secondary Markets Advisory Committee",
-      "url": "https://www.fca.org.uk/news/press-releases/fca-appoints-new-members-secondary-markets-advisory-committee",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "customer-outcomes"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching customer-outcomes. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "Eldens Finance Limited enters administration",
-      "url": "https://www.fca.org.uk/news/news-stories/eldens-finance-limited-enters-administration",
-      "source": "Financial Conduct Authority",
-      "sourceStatus": "approved",
-      "date": "",
-      "type": "final-rule",
-      "riskAreas": [
-        "customer-outcomes"
-      ],
-      "why": "A final-rule from Financial Conduct Authority touching customer-outcomes. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "EBA E-mail alert 9 July, 2026",
-      "url": "https://www.eba.europa.eu/node/19839",
-      "source": "European Banking Authority",
+      "title": "FINMA guidance on quantum computing",
+      "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26/",
+      "source": "Swiss FINMA",
       "sourceStatus": "approved",
       "date": "2026-07-09",
-      "type": "final-rule",
+      "type": "guidance",
       "riskAreas": [
-        "crime-and-sanctions"
+        "digital-resilience"
       ],
-      "why": "A final-rule from European Banking Authority touching crime-and-sanctions. Review before 2026-08-14.",
-      "score": 1.45,
+      "why": "FINMA calls for forward-looking quantum-risk planning, including migration roadmaps, cryptographic inventories, protection against harvest-now-decrypt-later attacks and external-provider involvement.",
+      "score": 0.611,
       "deadline": null,
       "also": []
     },
     {
-      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-      "source": "US Cybersecurity and Infrastructure Security Agency",
+      "title": "Modernising Payment Services Regulation",
+      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+      "source": "HM Treasury",
       "sourceStatus": "approved",
       "date": "2026-07-14",
-      "type": "final-rule",
+      "type": "consultation",
       "riskAreas": [
-        "digital-resilience"
+        "digital-money"
       ],
-      "why": "A final-rule from US Cybersecurity and Infrastructure Security Agency touching digital-resilience. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
+      "why": "HM Treasury is seeking views on updating payment-services regulation for tokenised payments, Open Banking and agentic payments while maintaining consumer protections; responses close on 6 October 2026.",
+      "score": 1.346,
+      "deadline": "2026-10-06",
       "also": []
     },
     {
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/13/cisa-adds-one-known-exploited-vulnerability-catalog",
-      "source": "US Cybersecurity and Infrastructure Security Agency",
+      "title": "AI Adoption Plan: Financial Services",
+      "url": "https://www.gov.uk/government/publications/ai-adoption-plan-financial-services",
+      "source": "HM Treasury",
       "sourceStatus": "approved",
-      "date": "2026-07-13",
-      "type": "final-rule",
+      "date": "2026-07-14",
+      "type": "statement",
       "riskAreas": [
-        "digital-resilience"
+        "ai-and-models",
+        "market-plumbing"
       ],
-      "why": "A final-rule from US Cybersecurity and Infrastructure Security Agency touching digital-resilience. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-      "source": "US Cybersecurity and Infrastructure Security Agency",
-      "sourceStatus": "approved",
-      "date": "2026-07-10",
-      "type": "final-rule",
-      "riskAreas": [
-        "digital-resilience"
-      ],
-      "why": "A final-rule from US Cybersecurity and Infrastructure Security Agency touching digital-resilience. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "Optimization Is Not All You Need",
-      "url": "https://arxiv.org/abs/2607.11977",
-      "source": "arXiv AI and machine learning research",
-      "sourceStatus": "approved",
-      "date": "2026-07-15",
-      "type": "final-rule",
-      "riskAreas": [
-        "other"
-      ],
-      "why": "A final-rule from arXiv AI and machine learning research touching other. Review before 2026-08-14.",
-      "score": 1.45,
-      "deadline": null,
-      "also": []
-    },
-    {
-      "title": "LP Mining with LP2Graph: A Use Case for Railway Rescheduling",
-      "url": "https://arxiv.org/abs/2607.11980",
-      "source": "arXiv AI and machine learning research",
-      "sourceStatus": "approved",
-      "date": "2026-07-15",
-      "type": "final-rule",
-      "riskAreas": [
-        "other"
-      ],
-      "why": "A final-rule from arXiv AI and machine learning research touching other. Review before 2026-08-14.",
-      "score": 1.45,
+      "why": "The independent plan makes ten recommendations spanning the regulatory framework, AI-enabled advice, resilience, skills and agentic payments; the government has accepted its recommendations for government.",
+      "score": 1.229,
       "deadline": null,
       "also": []
     }
@@ -248,48 +133,18 @@
   "warnings": [
     {
       "type": "source-health",
-      "severity": "low",
-      "message": "38 source(s) did not return usable items (no feed configured or fetch error): amf-sanctions, anthropic, ao-shearman-insights, bcbs, bis, cftc, ecb-ssm-newsletter, ecb-supervision, ecb-supervision-sanctions, ecb-supervisory-priorities, eiopa, epoch-ai, esma, eu-ai-act, fatf, fincen-enforcement, finextra, ft, iosco, lmarena, meta-ai, microsoft-ai, mistral-ai, nvidia, ofac-recent-actions, orx-news, reuters, reuters-regulatory-news, risk-net, sec, sidley-insights, stanford-hai-ai-index, the-batch, the-register, uk-fca-enforcement-notices, uk-fca-regulatory-initiatives-grid, uk-nca, xai",
-      "sourceIds": [
-        "amf-sanctions",
-        "anthropic",
-        "ao-shearman-insights",
-        "bcbs",
-        "bis",
-        "cftc",
-        "ecb-ssm-newsletter",
-        "ecb-supervision",
-        "ecb-supervision-sanctions",
-        "ecb-supervisory-priorities",
-        "eiopa",
-        "epoch-ai",
-        "esma",
-        "eu-ai-act",
-        "fatf",
-        "fincen-enforcement",
-        "finextra",
-        "ft",
-        "iosco",
-        "lmarena",
-        "meta-ai",
-        "microsoft-ai",
-        "mistral-ai",
-        "nvidia",
-        "ofac-recent-actions",
-        "orx-news",
-        "reuters",
-        "reuters-regulatory-news",
-        "risk-net",
-        "sec",
-        "sidley-insights",
-        "stanford-hai-ai-index",
-        "the-batch",
-        "the-register",
-        "uk-fca-enforcement-notices",
-        "uk-fca-regulatory-initiatives-grid",
-        "uk-nca",
-        "xai"
-      ]
+      "severity": "medium",
+      "message": "This reviewed edition contains material rows from three primary authorities. Quiet themes remain watch-listed because the wider source universe did not report cleanly enough to support a whole-market conclusion."
+    },
+    {
+      "type": "source-concentration",
+      "severity": "medium",
+      "message": "HM Treasury supplies three of five material signals. Treat the bottom line as concentrated UK policy evidence rather than a complete cross-market view.",
+      "sourceId": "hmt",
+      "share": 0.6
     }
+  ],
+  "archives": [
+    "archive/2026-07-04.html"
   ]
 }

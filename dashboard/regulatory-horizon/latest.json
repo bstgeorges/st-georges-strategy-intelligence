@@ -1,23 +1,147 @@
 {
   "edition": "2026-07-15",
-  "generatedAt": "2026-07-15 13:22 UTC",
+  "generatedAt": "2026-07-16 20:45 UTC",
   "windowDays": 7,
-  "status": "withheld",
-  "reason": "The automated scan failed editorial and source-coverage checks. Its classifications and materiality ranking are not being published.",
+  "status": "published",
   "kpis": {
-    "material": 0,
-    "themes": 0,
-    "sources": 0,
-    "coverage": "0 of 36"
+    "material": 5,
+    "themes": 5,
+    "sources": 3,
+    "coverage": "3 of 8"
   },
-  "bottomLine": "The 15 July automated scan has been withheld. No material regulatory signals or deadlines from this run are being presented as reviewed intelligence.",
-  "horizon": [],
-  "signals": [],
+  "bottomLine": "Two HM Treasury consultations now set concrete response dates for payments and digital settlement services, while EIOPA's Solvency II package, FINMA's quantum guidance and the financial-services AI plan create implementation and governance work.",
+  "horizon": [
+    {
+      "date": "2026-08-31",
+      "band": "31-60",
+      "daysLeft": 47,
+      "title": "Response deadline: Bank of England fee regime for recognised payment systems",
+      "source": "HM Treasury",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "prompts": {
+        "owner": "Who owns the response on payment-system and digital-settlement supervisory fees?",
+        "action": "Assess scope, fee-cap impacts and whether to submit evidence before 31 August.",
+        "evidence": "Documented response decision, impact assessment and approved submission where relevant."
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "band": "61-90",
+      "daysLeft": 83,
+      "title": "Response deadline: Modernising Payment Services Regulation",
+      "source": "HM Treasury",
+      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+      "prompts": {
+        "owner": "Who owns the response across payments, Open Banking, tokenisation and agentic payments?",
+        "action": "Map proposed reforms to products, customer protections and operating-model dependencies.",
+        "evidence": "Committee-approved response position and traceable product and control impact assessment."
+      }
+    },
+    {
+      "date": "2027-01-30",
+      "band": "90+",
+      "daysLeft": 199,
+      "title": "Revised Solvency II framework begins to apply",
+      "source": "EIOPA",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "prompts": {
+        "owner": "Who owns Solvency II implementation across liquidity, risk margin, matching adjustment and reporting?",
+        "action": "Confirm applicability, implementation milestones and dependencies before the revised framework applies.",
+        "evidence": "Approved implementation plan, accountable owners, gap assessment and reporting change log."
+      }
+    }
+  ],
+  "signals": [
+    {
+      "title": "Updating the Bank of England’s fee regime for recognised payment systems",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "source": "HM Treasury",
+      "sourceStatus": "approved",
+      "date": "2026-07-15",
+      "type": "consultation",
+      "riskAreas": [
+        "digital-money",
+        "market-plumbing"
+      ],
+      "why": "HM Treasury is consulting on extending the Bank's supervisory fee regime to digital settlement asset service providers and on the level of fee caps; responses close on 31 August 2026.",
+      "score": 1.69,
+      "deadline": "2026-08-31",
+      "also": []
+    },
+    {
+      "title": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "source": "EIOPA",
+      "sourceStatus": "approved",
+      "date": "2026-07-15",
+      "type": "guidance",
+      "riskAreas": [
+        "balance-sheet"
+      ],
+      "why": "EIOPA completed its Solvency II Review package, including liquidity-risk guidance and technical standards affecting risk margin, matching adjustment and reporting; the revised framework applies from 30 January 2027.",
+      "score": 1.38,
+      "deadline": "2027-01-30",
+      "also": []
+    },
+    {
+      "title": "FINMA guidance on quantum computing",
+      "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26/",
+      "source": "Swiss FINMA",
+      "sourceStatus": "approved",
+      "date": "2026-07-09",
+      "type": "guidance",
+      "riskAreas": [
+        "digital-resilience"
+      ],
+      "why": "FINMA calls for forward-looking quantum-risk planning, including migration roadmaps, cryptographic inventories, protection against harvest-now-decrypt-later attacks and external-provider involvement.",
+      "score": 0.611,
+      "deadline": null,
+      "also": []
+    },
+    {
+      "title": "Modernising Payment Services Regulation",
+      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+      "source": "HM Treasury",
+      "sourceStatus": "approved",
+      "date": "2026-07-14",
+      "type": "consultation",
+      "riskAreas": [
+        "digital-money"
+      ],
+      "why": "HM Treasury is seeking views on updating payment-services regulation for tokenised payments, Open Banking and agentic payments while maintaining consumer protections; responses close on 6 October 2026.",
+      "score": 1.346,
+      "deadline": "2026-10-06",
+      "also": []
+    },
+    {
+      "title": "AI Adoption Plan: Financial Services",
+      "url": "https://www.gov.uk/government/publications/ai-adoption-plan-financial-services",
+      "source": "HM Treasury",
+      "sourceStatus": "approved",
+      "date": "2026-07-14",
+      "type": "statement",
+      "riskAreas": [
+        "ai-and-models",
+        "market-plumbing"
+      ],
+      "why": "The independent plan makes ten recommendations spanning the regulatory framework, AI-enabled advice, resilience, skills and agentic payments; the government has accepted its recommendations for government.",
+      "score": 1.229,
+      "deadline": null,
+      "also": []
+    }
+  ],
   "warnings": [
     {
-      "type": "editorial-review",
-      "severity": "high",
-      "message": "This edition was withheld after source coverage, classification, and materiality checks failed. Use the prior reviewed archive while the scan is corrected."
+      "type": "source-health",
+      "severity": "medium",
+      "message": "This reviewed edition contains material rows from three primary authorities. Quiet themes remain watch-listed because the wider source universe did not report cleanly enough to support a whole-market conclusion."
+    },
+    {
+      "type": "source-concentration",
+      "severity": "medium",
+      "message": "HM Treasury supplies three of five material signals. Treat the bottom line as concentrated UK policy evidence rather than a complete cross-market view.",
+      "sourceId": "hmt",
+      "share": 0.6
     }
   ],
   "archives": [

@@ -581,6 +581,16 @@ function loadEditionRecord(failures) {
   assert(record.signalsRanked === TOP5_COUNT, `current edition signalsRanked must be ${TOP5_COUNT}`, failures);
   assert(record.streamsScanned === topics.length, `current edition streamsScanned must be ${topics.length}`, failures);
   assert(Array.isArray(record.topSignals) && record.topSignals.length === TOP5_COUNT, `current edition topSignals must contain ${TOP5_COUNT} rows`, failures);
+  assert(record.judgement && typeof record.judgement === "object", "current edition must define judgement", failures);
+  for (const field of ["observation", "executiveJudgement", "implication"]) {
+    assert(Boolean(record.judgement?.[field]), `current edition judgement missing ${field}`, failures);
+  }
+  const judgementWordCount = [record.judgement?.observation, record.judgement?.executiveJudgement, record.judgement?.implication]
+    .filter(Boolean)
+    .join(" ")
+    .trim()
+    .split(/\s+/).length;
+  assert(judgementWordCount >= 80 && judgementWordCount <= 120, `current edition judgement must be 80–120 words; found ${judgementWordCount}`, failures);
   const seenTopSignalTopics = new Set();
   for (const [index, signal] of (record.topSignals || []).entries()) {
     const label = `current edition topSignals row ${index + 1}`;
@@ -592,6 +602,28 @@ function loadEditionRecord(failures) {
     }
   }
   return record;
+}
+
+function renderHomepageJudgement(out, editionRecord) {
+  const file = path.join(out, "index.html");
+  if (!fs.existsSync(file) || !editionRecord?.judgement) return;
+  const html = read(file);
+  const { observation, executiveJudgement, implication } = editionRecord.judgement;
+  const block = `<!-- judgement:start -->
+        <section class="home-judgement" aria-labelledby="weekly-judgement-title">
+          <header class="judgement-header">
+            <p class="eyebrow">This Week’s Judgement</p>
+            <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
+          </header>
+          <h2 id="weekly-judgement-title" class="visually-hidden">This Week’s Judgement</h2>
+          <div class="judgement-copy">
+            <p>${escapeHtml(observation)}</p>
+            <p>${escapeHtml(executiveJudgement)}</p>
+            <p class="judgement-implication">${escapeHtml(implication)}</p>
+          </div>
+        </section>
+        <!-- judgement:end -->`;
+  write(file, html.replace(/<!-- judgement:start -->[\s\S]*?<!-- judgement:end -->/, block));
 }
 
 function validatePromotionSummary(failures) {
@@ -1014,7 +1046,6 @@ function normaliseLiveBriefEditionLabelForLock(text, editionRecord) {
 
 function verifyLockedSections(out, failures, editionRecord = null) {
   const locked = [
-    { file: "index.html", key: "home-editorial" },
     { file: "brief/index.html", key: "brief-editorial" },
   ];
 
@@ -1744,6 +1775,7 @@ function main() {
   renderTopicPagesFromSignals(options.out, signalsData);
   renderSignalsHubFromData(options.out, signalsData, editionRecord);
   renderCanonicalTopSignals(options.out, editionRecord);
+  renderHomepageJudgement(options.out, editionRecord);
   applyLiveEditionContent(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to

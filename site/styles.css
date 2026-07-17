@@ -1640,16 +1640,57 @@ a.tag:hover {
 }
 
 .home-judgement {
-  border-top: 1px solid rgba(244, 239, 227, 0.08);
+  padding: clamp(58px, 8vw, 108px) 0;
+  border-bottom: 1px solid var(--rule);
 }
 
-.front-page-note {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(18px, 3vw, 36px);
+.judgement-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: baseline;
+  margin-bottom: clamp(26px, 4vw, 46px);
 }
 
-.front-page-note div {
-  padding-top: 18px;
+.judgement-header .eyebrow,
+.judgement-edition {
+  margin: 0;
+}
+
+.judgement-edition {
+  color: var(--muted);
+  font: 500 11px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.judgement-copy {
+  max-width: 860px;
+}
+
+.judgement-copy p {
+  margin: 0 0 0.65em;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.5vw, 34px);
+  line-height: 1.42;
+}
+
+.judgement-copy .judgement-implication {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .home-signal-list {

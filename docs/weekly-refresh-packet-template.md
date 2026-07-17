@@ -36,6 +36,28 @@ Primary-source sweep:
 
 ## Intelligence Brief
 
+### This Week’s Judgement
+
+Derive this only after the Weekly Brief, Signals and committee questions are drafted. Do not introduce a new research strand.
+
+Dominant narrative:
+
+Likely misconception or overlooked issue:
+
+Generate five candidates of 80–120 words. Each must contain one observation, one executive judgement and one implication. Give one line of reasoning for each; do not publish any candidate until the editor selects and edits it.
+
+| Candidate | Draft | Why this angle | Originality (1–5) | Editor decision |
+| --- | --- | --- | --- | --- |
+| 1 |  |  |  | Select / Hold / Reject |
+| 2 |  |  |  | Select / Hold / Reject |
+| 3 |  |  |  | Select / Hold / Reject |
+| 4 |  |  |  | Select / Hold / Reject |
+| 5 |  |  |  | Select / Hold / Reject |
+
+Selected candidate:
+
+Final editorial pass complete:
+
 ### Organising Theme
 
 One sentence:

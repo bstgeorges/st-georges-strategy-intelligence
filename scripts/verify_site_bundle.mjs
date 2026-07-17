@@ -98,7 +98,14 @@ function checkCurrentEditionAlignment(failures) {
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
-  assert(home.includes(edition.mainJudgement), "home should include canonical current-edition judgement", failures);
+  const judgement = edition.judgement || {};
+  const judgementText = [judgement.observation, judgement.executiveJudgement, judgement.implication].filter(Boolean).join(" ");
+  const judgementWordCount = judgementText.trim().split(/\s+/).length;
+  assert(judgementWordCount >= 80 && judgementWordCount <= 120, `current-edition judgement should be 80–120 words; found ${judgementWordCount}`, failures);
+  for (const paragraph of [judgement.observation, judgement.executiveJudgement, judgement.implication].filter(Boolean)) {
+    assert(home.includes(paragraph), "home should include every canonical current-edition judgement paragraph", failures);
+  }
+  assert(home.indexOf("This Week’s Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
   assert(JSON.stringify(homeTopSignals) === JSON.stringify(expectedTopSignals), "homepage Top 5 should match current-edition.json", failures);
   assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);

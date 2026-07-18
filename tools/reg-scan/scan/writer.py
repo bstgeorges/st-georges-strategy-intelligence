@@ -3,7 +3,7 @@
 ICS output is handled by deadlines.write_ics (already in the repo).
 """
 import json
-from datetime import date, datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 
@@ -19,8 +19,7 @@ def _why_text(item):
     if deadline:
         rev = f" Deadline: {deadline}."
     else:
-        review_by = (date.today() + timedelta(days=30)).isoformat()
-        rev = f" Review before {review_by}."
+        rev = " No explicit implementation or response deadline was extracted from the official feed."
     return f"A {sig_type} from {item.get('source_name', item['source_id'])} touching {area_str}.{rev}"
 
 
@@ -51,6 +50,7 @@ def fmt_signal(item, source):
         "url": item["url"],
         "source": source.get("name", item["source_id"]),
         "sourceStatus": source.get("status", "approved"),
+        "jurisdictions": source.get("jurisdictions", []),
         "date": (item.get("published_at") or "")[:10],
         "type": item.get("signal_type", "other"),
         "riskAreas": item.get("risk_areas", []),
@@ -91,16 +91,23 @@ def build_edition(
             themes.add(a)
 
     active_sources = len({s["source_id"] for s in signals})
+    active_jurisdictions = sorted({
+        jurisdiction
+        for signal in signals
+        for jurisdiction in sources_by_id.get(signal["source_id"], {}).get("jurisdictions", [])
+    })
     total_primary = sum(1 for s in sources_by_id.values() if s.get("tier") == "primary")
 
     return {
         "edition": edition,
         "generatedAt": generated_at.strftime("%Y-%m-%d %H:%M UTC"),
         "windowDays": window_days,
+        "status": "published" if material else "withheld",
         "kpis": {
             "material": len(material),
             "themes": len(themes),
             "sources": active_sources,
+            "jurisdictions": len(active_jurisdictions),
             "coverage": f"{active_sources} of {total_primary}",
         },
         "bottomLine": _bottom_line(material, signals),

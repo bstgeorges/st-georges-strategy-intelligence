@@ -528,6 +528,40 @@ p {
   color: var(--accent-bright);
 }
 
+.subscribe-band {
+  margin: 0 calc(50% - 50vw);
+  padding: clamp(48px, 6vw, 80px) calc(50vw - 50%);
+  background: var(--navy);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.subscribe-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.subscribe-band .eyebrow {
+  color: var(--accent-bright);
+}
+
+.subscribe-band h2 {
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+}
+
+.subscribe-band .dek {
+  margin: 12px 0 32px;
+  color: var(--navy-text);
+  font-size: 17px;
+}
+
+.subscribe-embed {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);

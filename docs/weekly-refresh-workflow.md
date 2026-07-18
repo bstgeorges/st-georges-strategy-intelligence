@@ -28,10 +28,22 @@ The workflow produces an artifact named `weekly-editorial-prep-YYYY-MM-DD` conta
 - a dated weekly refresh packet
 - current AI Signals JSON
 - current candidate signals JSON and state
+- a pending, dated Signals promotion review generated from the five highest-ranked candidates in each topic
 - current Reg Horizon JSON and feed
 - the weekly workflow and packet template docs
 
 This means the weekly process can start from the GitHub Actions artifact rather than a local terminal build.
+
+## Signals Editorial Gate
+
+Candidate collection and editorial approval are separate stages:
+
+1. `Signals candidates weekly refresh` collects and validates candidates, then generates `dashboard/data/signals-promotion-review.generated.json` with `reviewStatus: pending`.
+2. The editor reviews that file, copies only approved URLs and rationales into `dashboard/data/signals-promotion-shortlist.json`, preserves the exact `candidateGeneratedAt`, and sets `reviewStatus` to `approved`.
+3. The editor manually runs `Signals weekly publish draft`. It opens a draft PR; it does not publish the site.
+4. Promotion fails closed if the shortlist is pending or belongs to an older candidate run.
+
+This prevents ranking from being treated as editorial approval and prevents a previous week's shortlist from being reused silently.
 
 ## Refresh Packet
 

@@ -66,6 +66,9 @@ function validate(data) {
     assert(!urls.has(signal.url), `${label} repeats URL ${signal.url}`);
     urls.add(signal.url);
     assert(Boolean(signal.source), `${label} missing source`);
+    if (Object.hasOwn(signal, "jurisdictions")) {
+      assert(Array.isArray(signal.jurisdictions) && signal.jurisdictions.length > 0, `${label} needs at least one jurisdiction`);
+    }
     assert(signal.sourceStatus === "approved", `${label} source is not approved`);
     assert(/^\d{4}-\d{2}-\d{2}$/.test(signal.date || ""), `${label} date must use YYYY-MM-DD`);
     assert(ALLOWED_TYPES.has(signal.type), `${label} has unsupported type ${signal.type || "<missing>"}`);

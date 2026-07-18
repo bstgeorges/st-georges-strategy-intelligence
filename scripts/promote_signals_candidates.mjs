@@ -153,6 +153,15 @@ function main() {
     throw new Error("Missing dashboard/data/signals-promotion-shortlist.json; editorial review is required before promotion.");
   }
   const shortlistData = readJson(SHORTLIST_PATH);
+  if (shortlistData.reviewStatus !== "approved") {
+    throw new Error("Signals promotion shortlist must have reviewStatus=approved after an editorial review.");
+  }
+  if (shortlistData.candidateGeneratedAt !== candidatesData.generatedAt) {
+    throw new Error(
+      `Signals promotion shortlist was reviewed for ${shortlistData.candidateGeneratedAt || "an unknown candidate run"}, ` +
+      `not the current candidate run ${candidatesData.generatedAt || "<missing>"}.`,
+    );
+  }
   const selectedByTopic = new Map(
     (shortlistData.topics || []).map((topic) => [topic.id, new Set(topic.selectedUrls || [])]),
   );

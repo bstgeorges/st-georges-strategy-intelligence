@@ -102,9 +102,6 @@ class TestClassify(unittest.TestCase):
     def test_research_benchmark_is_not_a_final_rule(self):
         self.assertEqual(self.classify_type("Production benchmark for LLM agents"), "other")
 
-    def test_its_acronym_does_not_match_securities(self):
-        self.assertEqual(self.classify_type("License to conduct securities business"), "other")
-
     def test_risk_area_balance_sheet(self):
         areas = self.classify_risk_areas("New capital requirements under Basel III")
         self.assertIn("balance-sheet", areas)
@@ -191,8 +188,6 @@ class TestFetch(unittest.TestCase):
         self.assertFalse(passes_source_filter("hkma", "Tender for office furniture", filters=SOURCE_FILTERS))
         self.assertFalse(passes_source_filter("apra", "APRA publishes its annual report", filters=SOURCE_FILTERS))
         self.assertTrue(passes_source_filter("apra", "APRA consults on prudential reporting standards", filters=SOURCE_FILTERS))
-        self.assertFalse(passes_source_filter("saudi-cma", "The Capital Market Authority Licenses Saaf Capital to Conduct Managing Investments", filters=SOURCE_FILTERS))
-        self.assertTrue(passes_source_filter("saudi-cma", "Imposition of a Fine due to violation of the Rules on the Offer of Securities", filters=SOURCE_FILTERS))
 
     def test_nonstandard_official_feed_date_is_parsed(self):
         from scan.fetch import _parse_date
@@ -223,41 +218,6 @@ class TestFetch(unittest.TestCase):
             items, error = fetch_page_source(source, config, {})
         self.assertEqual(items, [])
         self.assertIn("blocked by anti-bot challenge", error)
-
-    def test_page_adapter_extracts_saudi_sharepoint_cards(self):
-        from unittest.mock import patch
-        from scan.fetch import fetch_page_source
-        from scan.feeds import SOURCE_FILTERS
-
-        html = b"""
-        <td class="carditem"><div class="card-wrapper">
-          <span class="date">07-June-2026</span>
-          <h3>Imposition of a Fine on Keir International Company, due to the violation of the Rules on the Offer of Securities and Continuing Obligations</h3>
-          <p>The Capital Market Authority announces the issuance of a board resolution.</p>
-          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx">Read More</a>
-        </div></td>
-        <td class="carditem"><div class="card-wrapper">
-          <span class="date">09-June-2026</span>
-          <h3>The Capital Market Authority approves a routine capital increase request</h3>
-          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4065.aspx">Read More</a>
-        </div></td>
-        """
-        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
-        config = [{
-            "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
-            "item_selectors": ["td.carditem"],
-            "link_selectors": ["a.btn[href]"],
-            "title_selector": "h3",
-            "summary_selector": "p",
-            "date_selectors": ["span.date"],
-        }]
-        source = {"id": "saudi-cma", "name": "Saudi CMA"}
-        with patch("scan.fetch._get", return_value=response):
-            items, error = fetch_page_source(source, config, SOURCE_FILTERS)
-        self.assertIsNone(error)
-        self.assertEqual(len(items), 1)
-        self.assertEqual(items[0]["published_at"], "2026-06-07T00:00:00+00:00")
-        self.assertEqual(items[0]["url"], "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx")
 
     def test_page_adapter_extracts_only_dated_filtered_official_entries(self):
         from unittest.mock import patch

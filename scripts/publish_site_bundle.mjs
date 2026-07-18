@@ -177,6 +177,20 @@ function buildNav(pageRoute) {
   return `<nav class="site-nav" aria-label="Primary">\n          ${links.join("\n          ")}\n        </nav>`;
 }
 
+function buildSubscribeSection() {
+  return `<section class="band subscribe-band" aria-label="Subscribe">
+        <div class="subscribe-inner">
+          <p class="eyebrow">Weekly, direct</p>
+          <h2>Get the brief before it's on the site</h2>
+          <p class="dek">One email a week. The so-what, the Top 5, and the board question - nothing else.</p>
+          <div class="subscribe-embed">
+            <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d75a8e0a-2d7c-467f-87c1-a2e3a86d4ba1"></script>
+          </div>
+        </div>
+      </section>
+      <!-- subscribe-marker:end -->`;
+}
+
 // Rewrites every generated page's <nav class="site-nav"> block to the canonical
 // NAV_ROUTES markup above, keyed off the page's own route. This makes nav drift
 // (wrong order, missing links, stale "current" markers) impossible to ship, because
@@ -190,6 +204,31 @@ function enforceCanonicalNav(out) {
     if (!navRegex.test(html)) continue;
     const updated = html.replace(navRegex, buildNav(route));
     if (updated !== html) write(file, updated);
+  }
+}
+
+// Injects the canonical subscribe section on the routes it belongs on, keyed off
+// a marker comment so re-running the build never duplicates it and a content
+// redraft can never silently drop it.
+const SUBSCRIBE_ROUTES = ["/", "/brief/"];
+
+function enforceSubscribeSection(out) {
+  const markerRegex = /<section class="band subscribe-band"[\s\S]*?<!-- subscribe-marker:end -->/;
+  const footerRegex = /(<footer class="footer">)/;
+  for (const [route, relative] of routes) {
+    if (!SUBSCRIBE_ROUTES.includes(route)) continue;
+    const file = routeFile(out, relative);
+    if (!fs.existsSync(file)) continue;
+    let html = read(file);
+    const section = buildSubscribeSection();
+    if (markerRegex.test(html)) {
+      html = html.replace(markerRegex, section);
+    } else if (footerRegex.test(html)) {
+      html = html.replace(footerRegex, `${section}\n    $1`);
+    } else {
+      continue;
+    }
+    write(file, html);
   }
 }
 
@@ -1697,7 +1736,7 @@ function generateHeaders(out) {
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
   Cache-Control: no-cache, must-revalidate
 
 /assets/*
@@ -1751,6 +1790,14 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     const expected = `${PUBLIC_ORIGIN}${route}`;
     assert(canonical === expected, `${route} canonical should be ${expected}, got ${canonical}`, failures);
     assert(html.includes("Not investment, legal, compliance, or regulatory advice"), `${route} missing disclaimer`, failures);
+  }
+
+  for (const [route, relative] of routes) {
+    if (!SUBSCRIBE_ROUTES.includes(route)) continue;
+    const file = routeFile(out, relative);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    assert(html.includes('class="band subscribe-band"'), `${route} missing subscribe section`, failures);
   }
 
   assert(fs.existsSync(path.join(out, "archive", "brief", edition, "index.html")), "Weekly brief archive copy missing", failures);
@@ -1888,6 +1935,7 @@ function main() {
   generateRedirects(options.out);
   generateHeaders(options.out);
   enforceCanonicalNav(options.out);
+  enforceSubscribeSection(options.out);
   materializeOgImage(options.out);
   normaliseOgImage(options.out);
   normaliseFavicon(options.out);

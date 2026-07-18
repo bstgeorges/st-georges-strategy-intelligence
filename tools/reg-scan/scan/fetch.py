@@ -125,7 +125,7 @@ def _parse_page_date(node):
             normalized = re.sub(r"\bde\s+", "", embedded_local.group(1), flags=re.I)
             for local, english in _LOCAL_MONTHS.items():
                 normalized = re.sub(rf"\b{local}\b", english, normalized, flags=re.I)
-    for fmt in ("%Y-%m-%d", "%d %B %Y", "%d %b %Y", "%d-%B-%Y", "%d-%b-%Y", "%d %b %Y, %I:%M %p", "%B %d, %Y", "%b %d, %Y", "%d/%m/%Y", "%m/%d/%Y", "%d.%m.%Y"):
+    for fmt in ("%Y-%m-%d", "%d %B %Y", "%d %b %Y", "%d %b %Y, %I:%M %p", "%B %d, %Y", "%b %d, %Y", "%d/%m/%Y", "%m/%d/%Y", "%d.%m.%Y"):
         try:
             return datetime.strptime(normalized[:32], fmt).replace(tzinfo=timezone.utc).isoformat()
         except ValueError:

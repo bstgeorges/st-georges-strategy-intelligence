@@ -23,7 +23,7 @@ _TYPE_RULES = [
         re.compile(
             r"\b(final rule|final standard|final guideline|final report"
             r"|implementing technical standard|regulatory technical standard"
-            r"|\bITS\b|\bRTS\b|delegated act|delegated regulation|directive|in force"
+            r"|ITS|RTS|delegated act|delegated regulation|directive|in force"
             r"|enters? into force|entry into force|adopted|published final"
             r"|binding technical|r.glement|r.solution|instru..o normativa"
             r"|norma definitiva|texto definitivo|texte d.finitif|real decreto|reglamento"

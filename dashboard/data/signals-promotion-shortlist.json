@@ -1,0 +1,78 @@
+{
+  "version": "2026-07-18",
+  "reviewedAt": "2026-07-18",
+  "purpose": "Editorially selected Signals candidates. Promotion must use only these URLs; titles and evidence remain subject to final copy review.",
+  "criteria": ["materiality", "specificity", "decision value", "source authority", "duplication control"],
+  "topics": [
+    {
+      "id": "ai",
+      "selectedUrls": [
+        "https://www.anthropic.com/research/agentic-misalignment",
+        "https://www.anthropic.com/news/finance-agents",
+        "https://openai.com/index/managing-ai-investments-in-agentic-era"
+      ],
+      "editorialRationale": "Prioritises insider-risk evidence, financial-services deployment and investment governance; excludes customer marketing and a cluster of narrower image-safety papers."
+    },
+    {
+      "id": "market-structure",
+      "selectedUrls": [
+        "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
+        "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
+        "https://www.gov.uk/government/consultations/modernising-payment-services-regulation"
+      ],
+      "editorialRationale": "Covers Swiss liquidity, EU crypto custody supervision and UK payments reform without repeating lower-consequence enforcement or administrative items."
+    },
+    {
+      "id": "third-party",
+      "selectedUrls": [
+        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+        "https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury"
+      ],
+      "editorialRationale": "Pairs a concrete cloud concentration incident with the new UK critical-third-party oversight regime."
+    },
+    {
+      "id": "resilience",
+      "selectedUrls": [
+        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+        "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
+        "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act"
+      ],
+      "editorialRationale": "Balances a real failure, an active supervisory exercise and implementation readiness; holds the broader Bundesbank policy commentary."
+    },
+    {
+      "id": "financial-crime",
+      "selectedUrls": [
+        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-157mr-asic-warning-pump-and-dump-scammers-intensify-use-of-fake-celebrity-endorsements",
+        "https://www.nationalcrimeagency.gov.uk/news/five-charged-in-nca-investigation-into-fraud-platform-responsible-for-millions-of-scam-calls",
+        "https://www.nationalcrimeagency.gov.uk/news/fraudsters-bought-luxury-car-and-home-improvements-from-ppe-scam"
+      ],
+      "editorialRationale": "Selects scalable scam techniques and control-relevant fraud typologies; holds opaque general-licence updates and unrelated rulebook material."
+    },
+    {
+      "id": "cyber",
+      "selectedUrls": [
+        "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+        "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-005",
+        "https://www.jpcert.or.jp/at/2026/at260020.html"
+      ],
+      "editorialRationale": "Prioritises known exploitation, a named intrusion campaign and Japanese patch intelligence; excludes promotional and generic cyber-programme stories."
+    },
+    {
+      "id": "technology-failure",
+      "selectedUrls": [
+        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+        "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
+        "https://www.bis.org/press/p260602.htm"
+      ],
+      "editorialRationale": "Combines an observed outage with forward-looking quantum risk and the Basel Committee's ICT risk-management findings."
+    },
+    {
+      "id": "data",
+      "selectedUrls": [
+        "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/how-data-protection-law-can-help-protect-businesses-from-crime"
+      ],
+      "editorialRationale": "Retains current reporting standards and practical data-protection controls; rejects the 2024 enforcement story whose sitemap timestamp was recently rewritten."
+    }
+  ]
+}

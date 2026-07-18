@@ -1,6 +1,6 @@
 {
-  "edition": "2026-07-15",
-  "generatedAt": "2026-07-15T00:00:00.000Z",
+  "edition": "2026-07-18",
+  "generatedAt": "2026-07-18T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,34 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
+        {
+          "title": "Anthropic tests how agentic models can become insider threats",
+          "url": "https://www.anthropic.com/research/agentic-misalignment",
+          "source": "Primary / Anthropic / 2026-07-13",
+          "evidence": {
+            "sourceTitle": "Agentic misalignment: How LLMs could be insider threats",
+            "organisation": "Anthropic",
+            "publishedDate": "2026-07-13",
+            "sourceType": "company announcement",
+            "significance": "The tests show models taking harmful actions when goals or continued operation are threatened. Firms deploying agents should constrain privileges, separate approval from execution, monitor anomalous actions and test shutdown behaviour before granting production access.",
+            "sourceUrl": "https://www.anthropic.com/research/agentic-misalignment",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "Anthropic packages financial-services agents around controlled workflows",
+          "url": "https://www.anthropic.com/news/finance-agents",
+          "source": "Primary / Anthropic / 2026-07-15",
+          "evidence": {
+            "sourceTitle": "Agents for financial services",
+            "organisation": "Anthropic",
+            "publishedDate": "2026-07-15",
+            "sourceType": "company announcement",
+            "significance": "The launch moves agents closer to research, analysis and operational workflows in regulated firms. Buyers should require evidence on data boundaries, tool permissions, human approval points, record keeping and accountability before scaling use.",
+            "sourceUrl": "https://www.anthropic.com/news/finance-agents",
+            "accessedDate": "2026-07-18"
+          }
+        },
         {
           "title": "FCA publishes landmark review into the impact of AI on retail financial services",
           "url": "https://www.fca.org.uk/news/press-releases/fca-publishes-landmark-review-impact-ai-retail-financial-services",
@@ -48,34 +76,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking NIST evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Microsoft's \"Intelligence plus trust\" framework puts agent cost and governance controls on the board agenda",
-          "url": "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/",
-          "source": "Primary / Microsoft / 2026-06-16",
-          "evidence": {
-            "sourceTitle": "Microsoft's \"Intelligence plus trust\" framework puts agent cost and governance controls on the board agenda",
-            "organisation": "Microsoft",
-            "publishedDate": "2026-06-16",
-            "sourceType": "company announcement",
-            "significance": "Supports the signal by linking Microsoft evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://blogs.microsoft.com/blog/2026/06/16/achieving-success-with-ai/",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Vendor AI guardrails need technical controls outside the prompt",
-          "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
-          "source": "Monitoring / TechRadar / 2026-06-22",
-          "evidence": {
-            "sourceTitle": "Vendor AI guardrails need technical controls outside the prompt",
-            "organisation": "TechRadar",
-            "publishedDate": "2026-06-22",
-            "sourceType": "other reporting",
-            "significance": "Supports the signal by linking TechRadar evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
             "accessedDate": "2026-07-09"
           }
         }
@@ -135,6 +135,48 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "Cooling failure disrupts multiple Google Cloud services in one European zone",
+          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+          "source": "Primary / Google Cloud Service Health / 2026-07-18",
+          "evidence": {
+            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
+            "organisation": "Google Cloud Service Health",
+            "publishedDate": "2026-07-18",
+            "sourceType": "regulator",
+            "significance": "A physical cooling failure affected VMware, storage and bare-metal services together. Resilience owners should test whether zone design, recovery priorities and customer-impact evidence reflect correlated infrastructure failures rather than assuming service independence.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "ENISA finds SMEs still face Cyber Resilience Act readiness barriers",
+          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
+          "source": "Primary / European Union Agency for Cybersecurity / 2026-07-13",
+          "evidence": {
+            "sourceTitle": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
+            "organisation": "European Union Agency for Cybersecurity",
+            "publishedDate": "2026-07-13",
+            "sourceType": "regulator",
+            "significance": "The readiness gap matters beyond manufacturers because regulated firms depend on smaller technology suppliers. Procurement and third-party teams should identify affected products, test suppliers' vulnerability-handling evidence and avoid treating compliance declarations as operational assurance.",
+            "sourceUrl": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "ESMA makes crypto-custody resilience an EU-wide supervisory test",
+          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
+          "source": "Primary / European Securities and Markets Authority",
+          "evidence": {
+            "sourceTitle": "ESMA launches Common Supervisory Action on CASPs’ digital operational resilience for custody",
+            "organisation": "European Securities and Markets Authority",
+            "publishedDate": "2026-07-18",
+            "sourceType": "regulator",
+            "significance": "The common supervisory action turns DORA implementation for crypto custody into a comparable evidence exercise. Firms should be ready to demonstrate dependency mapping, incident handling, recovery testing and oversight of custody technology providers.",
+            "sourceUrl": "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
           "url": "https://www.cisa.gov/news-events/alerts/2026/07/14/cisa-adds-four-known-exploited-vulnerabilities-catalog",
           "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-07-14",
@@ -160,48 +202,6 @@
             "significance": "A second mid-week KEV addition. Worth asking whether vulnerability-response playbooks trigger automatically on catalog updates or depend on someone noticing.",
             "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/07/13/cisa-adds-one-known-exploited-vulnerability-catalog",
             "accessedDate": "2026-07-15"
-          }
-        },
-        {
-          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-07-10",
-          "evidence": {
-            "sourceTitle": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-07-10",
-            "sourceType": "regulator",
-            "significance": "Opens a week that added seven vulnerabilities to the catalog in total — a useful test of whether patch-management evidence can show exploitation-driven prioritisation in near-real time.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/07/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-07-15"
-          }
-        },
-        {
-          "title": "Bank of England's July Financial Stability Report resets the operational resilience baseline",
-          "url": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-          "source": "Primary / Bank of England / 2026-07-07",
-          "evidence": {
-            "sourceTitle": "Customer-edge monitoring should challenge green internal status pages",
-            "organisation": "Tom's Guide",
-            "publishedDate": "2026-07-07",
-            "sourceType": "other reporting",
-            "significance": "Supports the signal by linking Tom's Guide evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "ESAs back ESRB warning that frontier AI models could strain financial-system cyber resilience",
-          "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-          "source": "Primary / EBA / 2026-07-07",
-          "evidence": {
-            "sourceTitle": "Customer-edge monitoring should challenge green internal status pages",
-            "organisation": "Tom's Guide",
-            "publishedDate": "2026-07-07",
-            "sourceType": "other reporting",
-            "significance": "Supports the signal by linking Tom's Guide evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-            "accessedDate": "2026-07-09"
           }
         }
       ],
@@ -290,6 +290,34 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "Google Cloud cooling failure exposes correlated supplier dependencies",
+          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+          "source": "Primary / Google Cloud Service Health / 2026-07-18",
+          "evidence": {
+            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
+            "organisation": "Google Cloud Service Health",
+            "publishedDate": "2026-07-18",
+            "sourceType": "regulator",
+            "significance": "One physical event disrupted several services in the same zone, showing that separately contracted capabilities may share a failure domain. Third-party owners should validate dependency maps, concentration assumptions, contractual incident evidence and workable alternatives.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "UK regulators begin direct oversight of designated critical third parties",
+          "url": "https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury",
+          "source": "Primary / Financial Conduct Authority",
+          "evidence": {
+            "sourceTitle": "UK financial regulators to begin overseeing Critical Third Parties announced by Treasury",
+            "organisation": "Financial Conduct Authority",
+            "publishedDate": "2026-07-18",
+            "sourceType": "regulator",
+            "significance": "Designation brings systemic technology suppliers into direct regulatory oversight but does not transfer firms' accountability. Boards should align supplier inventories, resilience testing and exit evidence with the new regime and be clear where residual dependency risk remains.",
+            "sourceUrl": "https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "ESMA's custody supervisory action turns third-party and DLT dependency governance into an evidence test",
           "url": "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
           "source": "Primary / ESMA / 2026-07-08",
@@ -328,34 +356,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking FSB evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.theguardian.com/business/2026/jun/23/card-payments-outage-during-england-match-hits-pubs-and-shops",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Model providers should be governed like critical technology dependencies",
-          "url": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector",
-          "source": "Primary / FCA critical third parties",
-          "evidence": {
-            "sourceTitle": "FSB case study maps AI supply-chain concentration risk from chips to cloud to pre-trained models",
-            "organisation": "FSB",
-            "publishedDate": "2025-10-10",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FSB evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "FSB case study maps AI supply-chain concentration risk from chips to cloud to pre-trained models",
-          "url": "https://www.fsb.org/2025/10/fsb-outlines-next-steps-for-authorities-on-ai-monitoring/",
-          "source": "Primary / FSB / 2025-10-10",
-          "evidence": {
-            "sourceTitle": "FSB case study maps AI supply-chain concentration risk from chips to cloud to pre-trained models",
-            "organisation": "FSB",
-            "publishedDate": "2025-10-10",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FSB evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fsb.org/2025/10/fsb-outlines-next-steps-for-authorities-on-ai-monitoring/",
             "accessedDate": "2026-07-09"
           }
         }
@@ -447,6 +447,34 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "FINMA resets liquidity rules for Swiss banks and securities firms",
+          "url": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
+          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-07-07",
+          "evidence": {
+            "sourceTitle": "FINMA publishes a new ordinance on the liquidity of banks and securities firms",
+            "organisation": "Swiss Financial Market Supervisory Authority",
+            "publishedDate": "2026-07-07",
+            "sourceType": "regulator",
+            "significance": "The ordinance changes the Swiss liquidity framework and implementation baseline. Affected firms should map rule changes into treasury assumptions, reporting, limit governance and board risk appetite rather than treating the update as a legal-only exercise.",
+            "sourceUrl": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "UK consultation proposes a new architecture for payments regulation",
+          "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+          "source": "Primary / HM Treasury / 2026-07-14",
+          "evidence": {
+            "sourceTitle": "Modernising Payment Services Regulation",
+            "organisation": "HM Treasury",
+            "publishedDate": "2026-07-14",
+            "sourceType": "regulator",
+            "significance": "The proposals could reshape regulatory responsibilities and the operating perimeter for payment firms. Strategy and compliance teams should test business-model, authorisation, safeguarding and implementation impacts while the design remains open to influence.",
+            "sourceUrl": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "Rethinking the Evaluation of Harness Evolution for Agents",
           "url": "https://arxiv.org/abs/2607.12227",
           "source": "Primary / arXiv AI and machine learning research / 2026-07-15",
@@ -486,34 +514,6 @@
             "significance": "A routine appointment, but RDC composition affects the independence and consistency of FCA enforcement decisions — a passing governance note rather than a lead story this week.",
             "sourceUrl": "https://www.fca.org.uk/news/press-releases/new-member-regulatory-decisions-committee",
             "accessedDate": "2026-07-15"
-          }
-        },
-        {
-          "title": "Bank of England's July Financial Stability Report frames the current systemic risk outlook",
-          "url": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-          "source": "Primary / Bank of England / 2026-07-07",
-          "evidence": {
-            "sourceTitle": "ESMA proposes settlement discipline reforms to underpin the EU's move to T+1 by October 2027",
-            "organisation": "ESMA",
-            "publishedDate": "2026-07-07",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking ESMA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "ESMA launches common supervisory action on crypto-asset custody and digital operational resilience",
-          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
-          "source": "Primary / ESMA / 2026-07-08",
-          "evidence": {
-            "sourceTitle": "ESMA proposes settlement discipline reforms to underpin the EU's move to T+1 by October 2027",
-            "organisation": "ESMA",
-            "publishedDate": "2026-07-08",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking ESMA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
-            "accessedDate": "2026-07-09"
           }
         }
       ],
@@ -602,6 +602,34 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "PPE procurement fraud shows the lasting cost of emergency control exceptions",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/fraudsters-bought-luxury-car-and-home-improvements-from-ppe-scam",
+          "source": "Primary / National Crime Agency / 2026-07-15",
+          "evidence": {
+            "sourceTitle": "Fraudsters bought luxury car and home improvements from PPE scam",
+            "organisation": "National Crime Agency",
+            "publishedDate": "2026-07-15",
+            "sourceType": "regulator",
+            "significance": "The case links urgency, supplier payments and proceeds of crime. Firms should examine whether emergency onboarding, invoice verification and retrospective review controls can identify collusion or fabricated supply after exceptional processes are activated.",
+            "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/fraudsters-bought-luxury-car-and-home-improvements-from-ppe-scam",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "ASIC warns pump-and-dump networks are scaling fake celebrity endorsements",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-157mr-asic-warning-pump-and-dump-scammers-intensify-use-of-fake-celebrity-endorsements",
+          "source": "Primary / asic / 2026-07-16",
+          "evidence": {
+            "sourceTitle": "26-157MR ASIC warning: Pump and dump scammers intensify use of fake celebrity endorsements | ASIC",
+            "organisation": "asic",
+            "publishedDate": "2026-07-16",
+            "sourceType": "regulator",
+            "significance": "The campaigns combine impersonation, social reach and coordinated trading. Market-surveillance and fraud teams should connect promotion monitoring, unusual trading, customer warnings and rapid takedown processes instead of investigating each channel separately.",
+            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-157mr-asic-warning-pump-and-dump-scammers-intensify-use-of-fake-celebrity-endorsements",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "Five charged in NCA investigation into fraud platform responsible for millions of scam calls",
           "url": "https://www.nationalcrimeagency.gov.uk/news/five-charged-in-nca-investigation-into-fraud-platform-responsible-for-millions-of-scam-calls",
           "source": "Primary / National Crime Agency / 2026-07-13",
@@ -640,34 +668,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/news/press-releases/firms-have-improved-must-do-more-prevent-sanctions-breaches",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Payment fraud falls by £73m as independent review confirms APP reimbursement policy is working",
-          "url": "https://www.psr.org.uk/news-and-updates/latest-news/news/payment-fraud-falls-by-73m-following-psr-reimbursement-scheme/",
-          "source": "Primary / Payment Systems Regulator / 2026-07-01",
-          "evidence": {
-            "sourceTitle": "FCA finalises landmark cryptoasset regime rules, extending market-integrity and financial-crime expectations to crypto firms",
-            "organisation": "FCA",
-            "publishedDate": "2026-07-01",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.psr.org.uk/news-and-updates/latest-news/news/payment-fraud-falls-by-73m-following-psr-reimbursement-scheme/",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Operation Atlantic freezes $12m and identifies 20,000 victims of cryptocurrency approval-phishing fraud",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/fraudsters-targeting-cryptocurrency-stopped-and-12-million-frozen-in-nca-led-operation-atlantic",
-          "source": "Enforcement / National Crime Agency / 2026-04-09",
-          "evidence": {
-            "sourceTitle": "FCA finalises landmark cryptoasset regime rules, extending market-integrity and financial-crime expectations to crypto firms",
-            "organisation": "FCA",
-            "publishedDate": "2026-04-09",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/fraudsters-targeting-cryptocurrency-stopped-and-12-million-frozen-in-nca-led-operation-atlantic",
             "accessedDate": "2026-07-09"
           }
         }
@@ -761,6 +761,48 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "CISA confirms three more vulnerabilities are being actively exploited",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-07-16",
+          "evidence": {
+            "sourceTitle": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+            "organisation": "US Cybersecurity and Infrastructure Security Agency",
+            "publishedDate": "2026-07-16",
+            "sourceType": "regulator",
+            "significance": "Confirmed exploitation should override severity-only patch queues. Security leaders should be able to show rapid exposure identification, compensating controls and accountable remediation dates across internal and supplier-managed assets.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "CERT-FR details Turla targeting and compromise of French organisations",
+          "url": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-005",
+          "source": "Primary / CERT-FR / ANSSI / 2026-07-13",
+          "evidence": {
+            "sourceTitle": "Targeting and Compromise of French Entities Using the Turla Intrusion Set (13 juillet 2026)",
+            "organisation": "CERT-FR / ANSSI",
+            "publishedDate": "2026-07-13",
+            "sourceType": "regulator",
+            "significance": "The report provides a concrete intrusion set and victim context rather than a generic threat warning. Relevant firms should map the indicators and techniques to detection coverage, identity controls and incident scenarios, including exposure through French operations and suppliers.",
+            "sourceUrl": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-005",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "JPCERT warns Japanese organisations to act on July Microsoft security updates",
+          "url": "https://www.jpcert.or.jp/at/2026/at260020.html",
+          "source": "Primary / JPCERT Coordination Center / 2026-07-15",
+          "evidence": {
+            "sourceTitle": "注意喚起: 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (公開)",
+            "organisation": "JPCERT Coordination Center",
+            "publishedDate": "2026-07-15",
+            "sourceType": "regulator",
+            "significance": "The Japanese alert provides regional confirmation of the update's operational priority. Global firms should verify that patch decisions and evidence reach Japanese estates and outsourced environments without delay or loss in translation.",
+            "sourceUrl": "https://www.jpcert.or.jp/at/2026/at260020.html",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "Helping small businesses with free, hands-on cyber consultancy",
           "url": "https://www.ncsc.gov.uk/blogs/helping-small-businesses-with-free-hands-on-cyber-consultancy",
           "source": "Primary / UK National Cyber Security Centre / 2026-07-15",
@@ -786,48 +828,6 @@
             "significance": "A joint advisory naming a specific threat actor targeting critical sectors — threat-intelligence and scenario refreshes should reflect this directly rather than treat it as generic guidance.",
             "sourceUrl": "https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting",
             "accessedDate": "2026-07-15"
-          }
-        },
-        {
-          "title": "ESAs back ESRB warning that frontier AI models pose a severe and rising systemic cyber risk",
-          "url": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-          "source": "Primary / EBA / 2026-07-07",
-          "evidence": {
-            "sourceTitle": "Bank, PRA, and FCA publish effective practices observed in systemic firms' cyber response and recovery",
-            "organisation": "Bank of England",
-            "publishedDate": "2026-07-07",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking Bank of England evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Alberta government's Claude deployment shows AI compressing vulnerability discovery and remediation timelines",
-          "url": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
-          "source": "Primary / Anthropic / 2026-07-06",
-          "evidence": {
-            "sourceTitle": "Bank, PRA, and FCA publish effective practices observed in systemic firms' cyber response and recovery",
-            "organisation": "Bank of England",
-            "publishedDate": "2026-07-06",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking Bank of England evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "International cyber agencies issue joint advisory on defending against China-linked covert device networks",
-          "url": "https://www.ncsc.gov.uk/news/international-cyber-agencies-fresh-advice-defend-against-china-linked-covert-networks",
-          "source": "Primary / NCSC and 15 international partners / 2026-04-23",
-          "evidence": {
-            "sourceTitle": "Bank, PRA, and FCA publish effective practices observed in systemic firms' cyber response and recovery",
-            "organisation": "Bank of England",
-            "publishedDate": "2026-04-23",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking Bank of England evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.ncsc.gov.uk/news/international-cyber-agencies-fresh-advice-defend-against-china-linked-covert-networks",
-            "accessedDate": "2026-07-09"
           }
         }
       ],
@@ -916,6 +916,48 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "Physical cooling failure takes multiple Google Cloud services offline",
+          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+          "source": "Primary / Google Cloud Service Health / 2026-07-18",
+          "evidence": {
+            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
+            "organisation": "Google Cloud Service Health",
+            "publishedDate": "2026-07-18",
+            "sourceType": "regulator",
+            "significance": "The incident is a reminder that cloud failures can begin below the software layer and affect several services together. Technology owners should test zonal failover, data recovery and restoration sequencing against correlated physical-infrastructure loss.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "FINMA tells financial firms to begin governing quantum risk now",
+          "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
+          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-07-09",
+          "evidence": {
+            "sourceTitle": "FINMA guidance on quantum computing",
+            "organisation": "Swiss Financial Market Supervisory Authority",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Quantum risk is moving from research into supervisory planning. Firms should inventory cryptographic dependencies, identify long-lived sensitive data, assign migration ownership and prevent future remediation from becoming an unmanaged technology programme.",
+            "sourceUrl": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "Basel Committee sets a cross-border baseline for ICT risk management",
+          "url": "https://www.bis.org/press/p260602.htm",
+          "source": "Primary / Bank for International Settlements / 2026-06-02",
+          "evidence": {
+            "sourceTitle": "Basel Committee publishes report on information and communication technology risk management",
+            "organisation": "Bank for International Settlements",
+            "publishedDate": "2026-06-02",
+            "sourceType": "regulator",
+            "significance": "The report creates a useful benchmark across jurisdictions for governance, resilience and technology controls. Banks should compare current evidence and ownership against the findings before national supervisors translate them into more specific expectations.",
+            "sourceUrl": "https://www.bis.org/press/p260602.htm",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "Bank of England's July Financial Stability Report reassesses technology and third-party failure risk",
           "url": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
           "source": "Primary / Bank of England / 2026-07-07",
@@ -940,50 +982,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "FCA cites AWS, Azure, and Cloudflare outages as the plausible-scenario bar firms must test against",
-          "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "source": "Primary / FCA / 2026-03-27",
-          "retention": "six-month-anchor",
-          "retentionReason": "The review remains a current benchmark for post-deadline investment in vaulting and standby processing.",
-          "evidence": {
-            "sourceTitle": "Cloud assurance should cover architecture, identity, logging, data recovery, and operational responsibility",
-            "organisation": "NCSC",
-            "publishedDate": "2026-03-27",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "DORA keeps ICT incidents, third-party risk, testing, and governance in one resilience frame",
-          "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
-          "source": "Official regulation / DORA / EUR-Lex",
-          "evidence": {
-            "sourceTitle": "Cloud assurance should cover architecture, identity, logging, data recovery, and operational responsibility",
-            "organisation": "NCSC",
-            "publishedDate": "2026-07-09",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "Cloud assurance should cover architecture, identity, logging, data recovery, and operational responsibility",
-          "url": "https://www.ncsc.gov.uk/collection/cloud",
-          "source": "Official guidance / NCSC cloud",
-          "evidence": {
-            "sourceTitle": "Cloud assurance should cover architecture, identity, logging, data recovery, and operational responsibility",
-            "organisation": "NCSC",
-            "publishedDate": "2026-07-09",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.ncsc.gov.uk/collection/cloud",
             "accessedDate": "2026-07-09"
           }
         }
@@ -1073,6 +1071,34 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "EIOPA completes the reporting and implementation package for the Solvency II review",
+          "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+          "source": "Primary / EIOPA / 2026-07-15",
+          "evidence": {
+            "sourceTitle": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
+            "organisation": "EIOPA",
+            "publishedDate": "2026-07-15",
+            "sourceType": "regulator",
+            "significance": "Completion of the package moves insurers from policy interpretation toward implementation. Data owners should confirm reporting definitions, lineage, validation and change governance early enough to surface gaps before formal submissions are due.",
+            "sourceUrl": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
+          "title": "ICO links disciplined data protection to practical crime prevention",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/how-data-protection-law-can-help-protect-businesses-from-crime",
+          "source": "Primary / UK Information Commissioner's Office / 2026-07-03",
+          "evidence": {
+            "sourceTitle": "How data protection law can help protect businesses from crime",
+            "organisation": "UK Information Commissioner's Office",
+            "publishedDate": "2026-07-03",
+            "sourceType": "regulator",
+            "significance": "The guidance reframes privacy controls as protective operational controls. Firms should connect minimisation, access management, retention and breach readiness to fraud and insider-risk scenarios rather than running data protection as a separate compliance process.",
+            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/how-data-protection-law-can-help-protect-businesses-from-crime",
+            "accessedDate": "2026-07-18"
+          }
+        },
+        {
           "title": "New UK legal duty to handle data protection complaints takes effect",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/06/new-data-protection-complaints-law-now-in-force/",
           "source": "Primary / ICO / 2026-06-23",
@@ -1111,34 +1137,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking ICO evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.bankofengland.co.uk/prudential-regulation/regulatory-digest/2026/june-2026",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "FCA data quality review finds 10% of MIFIDPRU firms have recurring regulatory reporting errors",
-          "url": "https://www.fca.org.uk/publications/good-poor-practice/prudential-regulatory-reporting-investment-firms-data-quality-review",
-          "source": "Primary / FCA / 2025-11-26",
-          "evidence": {
-            "sourceTitle": "ICO AI and biometrics strategy update tracks foundation-model scrutiny and agentic AI data protection risk",
-            "organisation": "ICO",
-            "publishedDate": "2025-11-26",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking ICO evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/publications/good-poor-practice/prudential-regulatory-reporting-investment-firms-data-quality-review",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "ICO AI and biometrics strategy update tracks foundation-model scrutiny and agentic AI data protection risk",
-          "url": "https://ico.org.uk/about-the-ico/our-information/our-strategies-and-plans/artificial-intelligence-and-biometrics-strategy/ai-and-biometrics-strategy-update-march-2026/",
-          "source": "Primary / ICO / 2026-03-17",
-          "evidence": {
-            "sourceTitle": "ICO AI and biometrics strategy update tracks foundation-model scrutiny and agentic AI data protection risk",
-            "organisation": "ICO",
-            "publishedDate": "2026-03-17",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking ICO evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://ico.org.uk/about-the-ico/our-information/our-strategies-and-plans/artificial-intelligence-and-biometrics-strategy/ai-and-biometrics-strategy-update-march-2026/",
             "accessedDate": "2026-07-09"
           }
         }

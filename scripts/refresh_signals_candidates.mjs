@@ -27,6 +27,16 @@ const TOPICS = [
   "data",
 ];
 const TRACKING_PARAMS = new Set(["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "fbclid", "gclid"]);
+const TOPIC_KEYWORDS = {
+  ai: ["artificial intelligence", "ai model", "ai agent", "agentic", "algorithm", "copilot", "machine learning"],
+  "market-structure": ["market", "trading", "settlement", "securities", "liquidity", "capital", "fund", "crypto", "stablecoin", "mica", "custody"],
+  "third-party": ["third party", "third parties", "third-party", "outsourcing", "supplier", "vendor", "cloud", "concentration", "subcontract", "dependency", "processor", "drittanbieter", "auslagerung", "prestataire", "sous-traitance"],
+  resilience: ["resilience", "operational", "outage", "incident", "continuity", "recovery", "impact tolerance", "important business service", "résilience", "continuité", "rétablissement", "ausfall", "wiederherstellung"],
+  "financial-crime": ["fraud", "scam", "money laundering", "financial crime", "sanctions", "bribery", "corruption", "asset recovery", "aml"],
+  cyber: ["cyber", "ransomware", "vulnerability", "exploit", "malware", "phishing", "breach", "threat", "vulnérabilité", "attaque", "compromission", "rançongiciel", "menace", "schwachstelle", "angriff"],
+  "technology-failure": ["technology failure", "ict", "outage", "disruption", "system failure", "change failure", "recovery", "cloud", "défaillance", "indisponibilité", "interruption", "panne", "systemausfall", "störung", "ikt-risiko"],
+  data: ["data", "reporting", "disclosure", "privacy", "record keeping", "lineage", "data quality", "governance", "données", "confidentialité", "protection des données", "daten", "datenschutz", "datenqualität"],
+};
 
 function parseArgs(argv) {
   const options = {
@@ -67,7 +77,8 @@ function writeJson(file, data) {
 function canonicaliseUrl(rawUrl) {
   const url = new URL(rawUrl);
   for (const key of [...url.searchParams.keys()]) {
-    if (TRACKING_PARAMS.has(key.toLowerCase())) url.searchParams.delete(key);
+    const normalizedKey = key.toLowerCase();
+    if (TRACKING_PARAMS.has(normalizedKey) || normalizedKey.startsWith("utm_")) url.searchParams.delete(key);
   }
   const pathname = url.pathname.endsWith("/") && url.pathname !== "/" ? url.pathname.slice(0, -1) : url.pathname;
   url.pathname = pathname || "/";
@@ -113,13 +124,20 @@ function normalizeDate(value) {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { "user-agent": "st-georges-signals-candidate-ingestion/0.1" },
-  });
-  if (!response.ok) {
-    throw new Error(`Fetch failed ${response.status} for ${url}`);
+  let lastError;
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: { "user-agent": "st-georges-signals-candidate-ingestion/0.2" },
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!response.ok) throw new Error(`Fetch failed ${response.status} for ${url}`);
+      return response.text();
+    } catch (error) {
+      lastError = error;
+    }
   }
-  return response.text();
+  throw lastError;
 }
 
 function parseRssOrAtom(xml, source) {
@@ -128,7 +146,7 @@ function parseRssOrAtom(xml, source) {
     ? blocks.map((block) => ({
         title: xmlField(block, "title"),
         url: xmlField(block, "link"),
-        publishedAt: normalizeDate(xmlField(block, "pubDate") || xmlField(block, "published") || xmlField(block, "updated")),
+        publishedAt: normalizeDate(xmlField(block, "pubDate") || xmlField(block, "dc:date") || xmlField(block, "published") || xmlField(block, "updated")),
         summary: xmlField(block, "description") || xmlField(block, "summary"),
       }))
     : [...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi)].map((match) => {
@@ -142,11 +160,26 @@ function parseRssOrAtom(xml, source) {
       });
 
   return entries
+    .map((entry) => ({
+      ...entry,
+      publishedAt: entry.publishedAt || inferDateFromUrl(entry.url),
+    }))
     .filter((entry) => entry.title && entry.url)
     .slice(0, source.maxItems || 8);
 }
 
+function inferDateFromUrl(rawUrl) {
+  const match = String(rawUrl || "").match(/(?:^|\/)(20\d{2})(\d{2})(\d{2})(?:\/|\.|-|$)/);
+  if (!match) return "";
+  const parsed = new Date(`${match[1]}-${match[2]}-${match[3]}T00:00:00.000Z`);
+  if (Number.isNaN(parsed.getTime())) return "";
+  if (parsed.getUTCFullYear() !== Number(match[1]) || parsed.getUTCMonth() + 1 !== Number(match[2]) || parsed.getUTCDate() !== Number(match[3])) return "";
+  return parsed.toISOString();
+}
+
 function parseSitemap(xml, source) {
+  const pathPatterns = (source.pathPatterns || ["/news/", "/blog/", "/research/", "/articles/", "/publications/"])
+    .map((value) => String(value).toLowerCase());
   const urls = [...xml.matchAll(/<url\b[\s\S]*?<\/url>/gi)]
     .map((match) => {
       const block = match[0];
@@ -155,9 +188,11 @@ function parseSitemap(xml, source) {
         lastmod: normalizeDate(xmlField(block, "lastmod")),
       };
     })
-    .filter((entry) => entry.url && /\/(news|blog)\//i.test(entry.url));
+    .filter((entry) => entry.url && pathPatterns.some((pattern) => entry.url.toLowerCase().includes(pattern)));
 
-  return urls.slice(0, source.maxItems || 8);
+  return urls
+    .sort((a, b) => String(b.lastmod || "").localeCompare(String(a.lastmod || "")))
+    .slice(0, source.maxItems || 8);
 }
 
 async function enrichSitemapEntries(entries) {
@@ -166,7 +201,9 @@ async function enrichSitemapEntries(entries) {
     try {
       const html = await fetchText(entry.url);
       const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-      const ogTitle = html.match(/<meta[^>]+property="og:title"[^>]+content="([^"]+)"/i);
+      const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
+      const ogTag = metaTags.find((tag) => /(?:property|name)\s*=\s*["']og:title["']/i.test(tag));
+      const ogTitle = ogTag?.match(/content\s*=\s*["']([^"']+)["']/i);
       const title = decodeXml((ogTitle?.[1] || titleMatch?.[1] || "").trim()).replace(/\s+/g, " ");
       if (title) {
         enriched.push({
@@ -187,14 +224,59 @@ function isRecent(iso, windowDays, now) {
   if (!iso) return true;
   const published = new Date(iso);
   if (Number.isNaN(published.getTime())) return true;
+  if (published.getTime() > now.getTime() + 24 * 60 * 60 * 1000) return false;
   return published.getTime() >= now.getTime() - windowDays * 24 * 60 * 60 * 1000;
 }
 
 function matchesKeywords(entry, source) {
+  const haystack = `${entry.title || ""} ${entry.summary || ""}`.toLowerCase();
+  const excluded = source.excludeKeywordHints || [];
+  if (excluded.some((hint) => haystack.includes(String(hint).toLowerCase()))) return false;
+  const titleHints = source.titleKeywordHints || [];
+  if (titleHints.length) {
+    const title = String(entry.title || "").toLowerCase();
+    return titleHints.some((hint) => title.includes(String(hint).toLowerCase()));
+  }
   const hints = source.keywordHints || [];
   if (!hints.length) return true;
-  const haystack = `${entry.title || ""} ${entry.summary || ""}`.toLowerCase();
   return hints.some((hint) => haystack.includes(String(hint).toLowerCase()));
+}
+
+function matchedTopicKeywords(entry, source, topicId) {
+  const configured = source.topicKeywordHints?.[topicId];
+  const keywords = Array.isArray(configured) && configured.length ? configured : TOPIC_KEYWORDS[topicId] || [];
+  const haystack = `${entry.title || ""} ${entry.summary || ""}`.toLowerCase().replace(/\s+/g, " ");
+  return keywords.filter((keyword) => haystack.includes(String(keyword).toLowerCase()));
+}
+
+function topicRelevance(entry, source, topicId) {
+  // A single-topic feed has already passed that source's keyword gate. Multi-topic
+  // feeds need topic evidence so one broad match cannot broadcast into every topic.
+  if ((source.topics || []).length === 1) return { accepted: true, matchedKeywords: matchedTopicKeywords(entry, source, topicId) };
+  const matchedKeywords = matchedTopicKeywords(entry, source, topicId);
+  const titleMatches = matchedTopicKeywords({ title: entry.title, summary: "" }, source, topicId);
+  const summaryMatches = matchedTopicKeywords({ title: "", summary: entry.summary }, source, topicId);
+  return {
+    // Multi-topic feeds are particularly prone to boilerplate and cross-story
+    // terms in summaries. Require headline evidence unless a source is explicitly
+    // configured to allow summary-only routing.
+    accepted: titleMatches.length > 0 || (source.allowSummaryOnlyTopicMatch === true && summaryMatches.length >= 2),
+    matchedKeywords,
+    titleMatchedKeywords: titleMatches,
+    summaryMatchedKeywords: summaryMatches,
+  };
+}
+
+function relevanceScore(entry, sourceMeta, matchedKeywords, now = new Date(), titleMatchedKeywords = matchedKeywords) {
+  const tierScores = { primary: 40, official: 40, research: 30, specialist: 20, press: 15 };
+  let freshness = 0;
+  if (entry.publishedAt) {
+    const ageDays = Math.max(0, (now.getTime() - new Date(entry.publishedAt).getTime()) / 86400000);
+    if (Number.isFinite(ageDays)) freshness = Math.max(0, 30 - Math.floor(ageDays * 2));
+  }
+  const titleEvidence = Math.min(30, titleMatchedKeywords.length * 15);
+  const summaryOnlyEvidence = Math.min(10, Math.max(0, matchedKeywords.length - titleMatchedKeywords.length) * 2);
+  return Math.min(100, (tierScores[sourceMeta.tier] || 10) + freshness + titleEvidence + summaryOnlyEvidence);
 }
 
 function topicFromHorizonSignal(signal, source) {
@@ -251,7 +333,7 @@ async function collectSourceCandidates(source, context) {
   return [];
 }
 
-function candidateRecord(entry, source, sourceMeta, topicId) {
+function candidateRecord(entry, source, sourceMeta, topicId, relevance, now) {
   const canonicalUrl = canonicaliseUrl(entry.url);
   return {
     id: urlHash(canonicalUrl).slice(0, 16),
@@ -267,6 +349,10 @@ function candidateRecord(entry, source, sourceMeta, topicId) {
     fetchType: source.fetchType,
     riskAreas: source.riskAreas || [],
     tags: source.tags || [],
+    matchedKeywords: relevance.matchedKeywords,
+    titleMatchedKeywords: relevance.titleMatchedKeywords || [],
+    summaryMatchedKeywords: relevance.summaryMatchedKeywords || [],
+    relevanceScore: relevanceScore(entry, sourceMeta, relevance.matchedKeywords, now, relevance.titleMatchedKeywords),
     reviewStatus: "candidate",
     sourceType: "feed-ingestion",
     whyCandidate:
@@ -278,6 +364,10 @@ function candidateRecord(entry, source, sourceMeta, topicId) {
 
 function validateCandidate(candidate, warnings) {
   if (!candidate.title || !candidate.url) return false;
+  if (/^(?:.+\s+)?e-?mail alert\b|^new q&as? available$/i.test(candidate.title.trim())) {
+    warnings.push(`Dropped low-information candidate title: ${candidate.title}`);
+    return false;
+  }
   if (!isSpecificPublishedSourceUrl(candidate.url)) {
     warnings.push(`Dropped generic citation candidate: ${candidate.url}`);
     return false;
@@ -290,12 +380,39 @@ function validateCandidate(candidate, warnings) {
   return true;
 }
 
+function assessCandidateQuality(topics) {
+  const warnings = [];
+  for (const topic of topics) {
+    const candidates = topic.candidates || [];
+    if (candidates.length === 0) {
+      warnings.push(`Coverage gap: ${topic.id} has no candidates in the current window.`);
+      continue;
+    }
+    if (candidates.length < 3) {
+      warnings.push(`Thin coverage: ${topic.id} has only ${candidates.length} candidate(s) in the current window.`);
+    }
+    if (candidates.length >= 3) {
+      const counts = new Map();
+      for (const candidate of candidates) {
+        counts.set(candidate.ingestSourceId, (counts.get(candidate.ingestSourceId) || 0) + 1);
+      }
+      const [sourceId, count] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+      const share = count / candidates.length;
+      if (share >= 0.75) {
+        warnings.push(`Source concentration: ${topic.id} relies on ${sourceId} for ${count}/${candidates.length} candidates.`);
+      }
+    }
+  }
+  return warnings;
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const feedRegistry = readJson(FEED_REGISTRY_PATH);
   const sourceRegistry = new Map(readJson(SOURCE_REGISTRY_PATH).sources.map((source) => [source.id, source]));
   const state = fs.existsSync(options.state) ? readJson(options.state) : { seenUrlHashes: [], lastGeneratedAt: null };
   const seen = new Set(options.includeSeen ? [] : state.seenUrlHashes || []);
+  const acceptedThisRun = new Set();
   const generatedAt = new Date().toISOString();
   const now = new Date();
   const windowDays = Number.isFinite(options.windowDaysOverride) ? options.windowDaysOverride : feedRegistry.settings?.windowDays || 14;
@@ -326,16 +443,24 @@ async function main() {
     let acceptedCandidates = 0;
     for (const entry of entries) {
       if (!entry?.url || !entry?.title) continue;
-      if (!isRecent(entry.publishedAt, windowDays, now)) continue;
+      const sourceWindowDays = Number.isFinite(source.windowDays) ? source.windowDays : windowDays;
+      if (!isRecent(entry.publishedAt, sourceWindowDays, now)) continue;
       if (!matchesKeywords(entry, source)) continue;
 
       for (const topicId of source.topics || []) {
-        const candidate = candidateRecord(entry, source, sourceMeta, topicId);
+        const relevance = topicRelevance(entry, source, topicId);
+        if (!relevance.accepted) continue;
+        const candidate = candidateRecord(entry, source, sourceMeta, topicId, relevance, now);
         if (!validateCandidate(candidate, warnings)) continue;
         const hash = urlHash(candidate.url);
-        if (seen.has(hash)) continue;
+        const topicHash = `${topicId}:${hash}`;
+        // Legacy state stored URL-only hashes. Honour those for duplicate suppression,
+        // while all new state is topic-scoped so legitimate cross-topic use survives.
+        if (seen.has(topicHash) || seen.has(hash)) continue;
+        if (acceptedThisRun.has(topicHash)) continue;
         topicBuckets.get(topicId)?.push(candidate);
-        seen.add(hash);
+        acceptedThisRun.add(topicHash);
+        seen.add(topicHash);
         acceptedCandidates += 1;
       }
     }
@@ -351,17 +476,20 @@ async function main() {
     });
   }
 
+  const topics = TOPICS.map((topicId) => ({
+    id: topicId,
+    candidates: (topicBuckets.get(topicId) || [])
+      .sort((a, b) => b.relevanceScore - a.relevanceScore || String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))
+      .slice(0, feedRegistry.settings?.perTopicCap || 20),
+  }));
+  warnings.push(...assessCandidateQuality(topics));
+
   const output = {
-    version: "2026-07-06",
+    version: "2026-07-18",
     generatedAt,
     windowDays,
     mode: options.offline ? "offline" : "live",
-    topics: TOPICS.map((topicId) => ({
-      id: topicId,
-      candidates: (topicBuckets.get(topicId) || [])
-        .sort((a, b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))
-        .slice(0, feedRegistry.settings?.perTopicCap || 20),
-    })),
+    topics,
     sourceStats,
     warnings,
   };
@@ -369,7 +497,7 @@ async function main() {
   writeJson(options.out, output);
   if (options.writeState) {
     writeJson(options.state, {
-      version: "2026-07-06",
+      version: "2026-07-18",
       lastGeneratedAt: generatedAt,
       seenUrlHashes: [...seen],
     });
@@ -392,7 +520,11 @@ async function main() {
   for (const warning of warnings) console.log(`Warning: ${warning}`);
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}
+
+export { assessCandidateQuality, canonicaliseUrl, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };

@@ -882,6 +882,11 @@ function updateArchiveIndexCards(out, edition) {
   const horizonEdition = horizonEditionLabel(out);
 
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
+  const archiveMetaStart = "<!-- archive-meta:start -->";
+  const archiveMetaEnd = "<!-- archive-meta:end -->";
+  const archiveMeta = briefDates.length
+    ? `<p class="meta">Last updated ${escapeHtml(formatDateLong(briefDates[0]))} &middot; ${briefDates.length} dated edition${briefDates.length === 1 ? "" : "s"} archived so far</p>`
+    : '<p class="meta">No dated editions archived yet</p>';
   const cards = [];
   cards.push(
     `<a class="archive-card" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
@@ -900,6 +905,12 @@ function updateArchiveIndexCards(out, edition) {
   );
 
   let rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;
+
+  const archiveMetaStartIndex = rebuilt.indexOf(archiveMetaStart);
+  const archiveMetaEndIndex = rebuilt.indexOf(archiveMetaEnd);
+  if (archiveMetaStartIndex !== -1 && archiveMetaEndIndex > archiveMetaStartIndex) {
+    rebuilt = `${rebuilt.slice(0, archiveMetaStartIndex)}${archiveMetaStart}\n        ${archiveMeta}\n        ${rebuilt.slice(archiveMetaEndIndex)}`;
+  }
 
   // The page's own JSON-LD dateModified was a hardcoded placeholder that never moved,
   // which undercuts exactly the freshness signal this archive page exists to give.

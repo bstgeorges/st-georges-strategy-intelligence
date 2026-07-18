@@ -19,6 +19,15 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -7%", ...options });
     elements.forEach((element) => observer.observe(element));
+
+    // Content must never remain hidden if observer delivery is suspended or blocked.
+    window.setTimeout(() => {
+      elements.forEach((element, index) => {
+        if (element.classList.contains("is-visible")) return;
+        onEnter(element, index);
+        observer.unobserve(element);
+      });
+    }, 3500);
   };
 
   if (page === "home") {

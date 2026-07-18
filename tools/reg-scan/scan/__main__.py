@@ -39,7 +39,7 @@ def _load_registry():
     sources = data.get("sources", [])
     for s in sources:
         s.setdefault("status", "approved")
-    return {s["id"]: s for s in sources}
+    return {s["id"]: s for s in sources if s["id"] in _feeds.REGULATORY_SOURCE_IDS}
 
 
 def _deduplicate(items):
@@ -51,6 +51,19 @@ def _deduplicate(items):
             seen.add(url)
             out.append(item)
     return out
+
+
+def _is_recent(published_at, cutoff, generated_at):
+    """Fail closed on missing, invalid, stale or materially future dates."""
+    if not published_at:
+        return False
+    try:
+        published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    return cutoff <= published <= generated_at + timedelta(days=1)
 
 
 def main():
@@ -70,38 +83,42 @@ def main():
     all_items = []
     no_feed_sources = []
     error_sources = []
+    source_health = []
 
     for source_id, source in sources_by_id.items():
         feed_urls = _feeds.FEED_MAP.get(source_id)
-        if not feed_urls:
+        page_configs = _feeds.PAGE_MAP.get(source_id)
+        if not feed_urls and not page_configs:
             no_feed_sources.append(source_id)
+            source_health.append({"sourceId": source_id, "status": "not-configured", "items": 0})
             continue
 
-        items, error = _fetch.fetch_source(source, feed_urls)
+        if feed_urls:
+            items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
+        else:
+            items, error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
         if error and not items:
             error_sources.append(source_id)
+            if "blocked by anti-bot challenge" in error or "403 Client Error: Forbidden" in error:
+                status = "blocked"
+            elif "no recognisable publication rows" in error:
+                status = "degraded"
+            else:
+                status = "failed"
+            source_health.append({"sourceId": source_id, "status": status, "items": 0, "error": error})
             log.warning("no items from %s: %s", source_id, error)
             continue
 
         # Filter to window
         recent = []
         for item in items:
-            pub = item.get("published_at")
-            if pub:
-                try:
-                    pub_dt = datetime.fromisoformat(pub)
-                    if pub_dt.tzinfo is None:
-                        pub_dt = pub_dt.replace(tzinfo=timezone.utc)
-                    if pub_dt < cutoff:
-                        continue
-                except ValueError:
-                    pass
-            recent.append(item)
-
-        for item in recent:
-            item["score"] = _score.score(item, source)
+            if _is_recent(item.get("published_at"), cutoff, generated_at):
+                recent.append(item)
 
         _dl.annotate(recent)
+        for item in recent:
+            item["score"] = _score.score(item, source)
+        source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent)})
         all_items.extend(recent)
 
     if not args.dry_run and conn is not None:
@@ -109,14 +126,15 @@ def main():
 
     signals = _deduplicate(all_items)
     signals.sort(key=lambda x: x.get("score", 0), reverse=True)
-    signals = signals[: _score.MAX_SIGNALS]
+    signals = [item for item in signals if _score.is_material(item)][:_score.MAX_SIGNALS]
 
     warnings = []
     missing_sources = sorted(set(no_feed_sources + error_sources))
     if missing_sources:
+        failed_share = len(error_sources) / max(1, len(sources_by_id))
         warnings.append({
             "type": "source-health",
-            "severity": "low",
+            "severity": "high" if failed_share >= 0.5 else "medium" if failed_share >= 0.25 else "low",
             "message": (
                 f"{len(missing_sources)} source(s) did not return usable items "
                 f"(no feed configured or fetch error): "
@@ -140,6 +158,7 @@ def main():
         warnings=warnings,
         window_days=args.window,
     )
+    data["sourceHealth"] = source_health
 
     log.info(
         "edition=%s  signals=%d  material=%d  horizon=%d  sources-with-feed=%d",

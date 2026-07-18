@@ -180,12 +180,10 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
     }],
     "saudi-cma": [{
-        "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
-        "item_selectors": ["td.carditem"],
-        "link_selectors": ["a.btn[href]", "a[title='Read More'][href]"],
-        "title_selector": "h3",
-        "summary_selector": "p",
-        "date_selectors": ["span.date"],
+        "url": "https://cma.org.sa/en/RulesRegulations/Consulting/Pages/default.aspx",
+        "item_selectors": ["tbody tr", ".news-item", ".item", ".ms-rtestate-field li"],
+        "link_selectors": ["td a[href]", "a[href]"],
+        "date_selectors": ["td:nth-of-type(2)", "time[datetime]", ".date", ".publish-date"],
     }],
     "adgm-fsra": [{
         "url": "https://www.adgm.com/legal-framework/public-consultations",
@@ -344,8 +342,8 @@ SOURCE_FILTERS = {
         "exclude": [r"evento", r"convegno", r"relazione annuale", r"discors"],
     },
     "saudi-cma": {
-        "include": [r"consult", r"draft", r"regulat", r"rules?", r"instructions?", r"market institutions?", r"enforcement", r"penalt", r"fine", r"violation", r"amend"],
-        "exclude": [r"workshop", r"event", r"appointment", r"annual report", r"Licenses .* to Conduct", r"approves? .*capital increase", r"public offering", r"bonus shares", r"rights issue", r"debt instruments program"],
+        "include": [r"consult", r"draft", r"regulat", r"rules?", r"instructions?", r"market institutions?", r"capital market", r"enforcement", r"penalt", r"amend"],
+        "exclude": [r"workshop", r"event", r"appointment", r"annual report"],
     },
 }
 

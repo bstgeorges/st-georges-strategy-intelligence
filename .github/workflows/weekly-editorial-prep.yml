@@ -68,6 +68,7 @@ jobs:
           mkdir -p editorial-pack
           cp site-dist/weekly-refresh-packet.md editorial-pack/
           cp dashboard/data/signals-candidates.generated.json editorial-pack/
+          cp dashboard/data/signals-promotion-review.generated.json editorial-pack/
           cp dashboard/data/signals-candidate-state.json editorial-pack/
           cp dashboard/data/source-registry.json editorial-pack/
           cp dashboard/data/signals-feed-registry.json editorial-pack/

@@ -902,6 +902,244 @@
         "Does Japan's FSA identify a material regulatory, market, operational, technology, data, or financial-crime development?",
         "Does it change supervisory expectations, governance, controls, disclosures, or implementation priorities?"
       ]
+    },
+    {
+      "id": "hkma",
+      "name": "Hong Kong Monetary Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Hong Kong"],
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/",
+      "cadence": "daily",
+      "useFor": ["banking-supervision", "payments", "market-infrastructure", "prudential-policy", "fintech", "consultations"],
+      "signalQuestions": [
+        "Does HKMA change supervisory expectations, prudential requirements, payment or market-infrastructure rules, or implementation dates?",
+        "What applicability, governance, control, reporting or delivery decision follows for firms operating in or exposed to Hong Kong?"
+      ]
+    },
+    {
+      "id": "apra",
+      "name": "Australian Prudential Regulation Authority",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Australia"],
+      "url": "https://www.apra.gov.au/news-and-publications",
+      "cadence": "weekly",
+      "useFor": ["prudential-policy", "supervision", "capital", "reporting", "operational-risk"],
+      "signalQuestions": [
+        "Does APRA change a prudential standard, reporting requirement, supervisory expectation or implementation date?",
+        "What applicability, governance, capital, risk or evidence response follows for APRA-regulated entities?"
+      ]
+    },
+    {
+      "id": "asic",
+      "name": "Australian Securities and Investments Commission",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Australia"],
+      "url": "https://www.asic.gov.au/regulatory-resources/find-a-document/regulatory-document-updates/regulatory-tracker/",
+      "cadence": "weekly",
+      "useFor": ["conduct", "markets", "consumer-protection", "consultations", "enforcement"],
+      "signalQuestions": [
+        "Does ASIC issue or update a consultation, regulatory guide, instrument, rule or material supervisory position?",
+        "What conduct, disclosure, governance, licensing or implementation response follows for Australian firms?"
+      ]
+    },
+    {
+      "id": "mas",
+      "name": "Monetary Authority of Singapore",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Singapore"],
+      "url": "https://www.mas.gov.sg/news",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "markets", "payments", "financial-crime", "technology-risk"],
+      "signalQuestions": [
+        "Does MAS change a notice, guideline, consultation, supervisory expectation or enforcement position?",
+        "What applicability, governance, capital, conduct, resilience or implementation response follows in Singapore?"
+      ]
+    },
+    {
+      "id": "osfi",
+      "name": "Office of the Superintendent of Financial Institutions",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Canada"],
+      "url": "https://www.osfi-bsif.gc.ca/en/news",
+      "cadence": "weekly",
+      "useFor": ["prudential-policy", "supervision", "capital", "liquidity", "operational-risk"],
+      "signalQuestions": [
+        "Does OSFI change a guideline, advisory, supervisory expectation or implementation date?",
+        "What applicability, governance, capital, liquidity, resilience or evidence response follows for federally regulated institutions?"
+      ]
+    },
+    {
+      "id": "india-sebi",
+      "name": "Securities and Exchange Board of India",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["India"],
+      "url": "https://www.sebi.gov.in/rss.html",
+      "cadence": "daily",
+      "useFor": ["securities", "circulars", "consultations", "orders", "market-conduct"],
+      "signalQuestions": [
+        "Does SEBI change a circular, market framework, disclosure rule, consultation or enforcement position?",
+        "What implementation, governance, trading, disclosure or investor-protection response follows in India?"
+      ]
+    },
+    {
+      "id": "korea-fsc",
+      "name": "Financial Services Commission of Korea",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["South Korea"],
+      "url": "https://www.fsc.go.kr/eng/pr010101",
+      "cadence": "weekly",
+      "useFor": ["financial-policy", "banking", "markets", "disclosure", "financial-crime"],
+      "signalQuestions": [
+        "Does Korea's FSC announce a binding reform, supervisory measure, disclosure requirement or financial-crime policy?",
+        "What applicability, implementation, governance or market response follows for firms exposed to South Korea?"
+      ]
+    },
+    {
+      "id": "brazil-cvm",
+      "name": "Comissão de Valores Mobiliários",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Brazil"],
+      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/",
+      "cadence": "daily",
+      "useFor": ["securities", "portuguese-language", "consultations", "enforcement", "market-guidance"],
+      "signalQuestions": [
+        "A CVM alterou regra, orientação, consulta pública ou posição sancionadora relevante?",
+        "Que resposta de implementação, divulgação, conduta ou governança é necessária no Brasil?"
+      ]
+    },
+    {
+      "id": "fr-amf",
+      "name": "Autorité des marchés financiers",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["France", "EU"],
+      "url": "https://www.amf-france.org/fr/abonnements-flux-rss",
+      "cadence": "daily",
+      "useFor": ["securities", "french-language", "regulation", "doctrine", "sanctions"],
+      "signalQuestions": [
+        "L’AMF modifie-t-elle sa réglementation, sa doctrine, une consultation ou une décision de sanction?",
+        "Quelle réponse de mise en œuvre, gouvernance, conduite ou information en découle en France?"
+      ]
+    },
+    {
+      "id": "spain-cnmv",
+      "name": "Comisión Nacional del Mercado de Valores",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Spain", "EU"],
+      "url": "https://www.cnmv.es/portal/gpage?id=RSS",
+      "cadence": "daily",
+      "useFor": ["securities", "spanish-language", "regulated-entities", "consultations", "market-conduct"],
+      "signalQuestions": [
+        "¿La CNMV modifica una circular, consulta, criterio supervisor o medida sancionadora?",
+        "¿Qué respuesta de implementación, conducta, divulgación o gobernanza requiere en España?"
+      ]
+    },
+    {
+      "id": "ireland-cbi",
+      "name": "Central Bank of Ireland",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Ireland", "EU"],
+      "url": "https://www.centralbank.ie/fns/rss-feeds",
+      "cadence": "daily",
+      "useFor": ["banking-supervision", "markets", "consumer-protection", "consultations", "enforcement"],
+      "signalQuestions": [
+        "Does the Central Bank change a supervisory expectation, consultation, market requirement or enforcement position?",
+        "What applicability, governance, capital, conduct or implementation response follows for Irish-regulated firms?"
+      ]
+    },
+    {
+      "id": "adgm-fsra",
+      "name": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Abu Dhabi", "United Arab Emirates"],
+      "url": "https://www.adgm.com/legal-framework/public-consultations",
+      "cadence": "weekly",
+      "useFor": ["financial-services", "consultations", "prudential", "markets", "financial-crime"],
+      "signalQuestions": [
+        "Does ADGM FSRA propose or implement a material amendment to its financial-services framework?",
+        "What licensing, prudential, conduct, AML or implementation response follows for ADGM firms?"
+      ]
+    },
+    {
+      "id": "de-bafin",
+      "name": "Bundesanstalt für Finanzdienstleistungsaufsicht",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Germany", "EU"],
+      "url": "https://bafin.de/",
+      "cadence": "daily",
+      "useFor": ["banking-supervision", "markets", "insurance", "german-language", "enforcement"],
+      "signalQuestions": [
+        "Ändert die BaFin eine Konsultation, Aufsichtsmaßnahme, Allgemeinverfügung oder Sanktion?",
+        "Welche Umsetzungs-, Governance-, Kapital- oder Kontrollreaktion folgt für beaufsichtigte Institute?"
+      ]
+    },
+    {
+      "id": "dubai-dfsa",
+      "name": "Dubai Financial Services Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Dubai", "United Arab Emirates"],
+      "url": "https://www.dfsa.ae/news",
+      "cadence": "daily",
+      "useFor": ["financial-services", "consultations", "rulebook", "supervision", "enforcement"],
+      "signalQuestions": [
+        "Does the DFSA propose or implement a consultation, Rulebook amendment, supervisory measure or enforcement action?",
+        "What licensing, prudential, conduct, AML or implementation response follows for DIFC firms?"
+      ]
+    },
+    {
+      "id": "mexico-cnbv",
+      "name": "Comisión Nacional Bancaria y de Valores",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Mexico"],
+      "url": "https://www.gob.mx/cnbv/archivo/prensa?idiom=es-MX",
+      "cadence": "daily",
+      "useFor": ["banking-supervision", "markets", "spanish-language", "capital", "financial-crime"],
+      "signalQuestions": [
+        "¿La CNBV cambia una disposición, circular, consulta, medida de supervisión o sanción?",
+        "¿Qué respuesta de capital, liquidez, gobierno, conducta o antilavado requiere para entidades mexicanas?"
+      ]
+    },
+    {
+      "id": "italy-consob",
+      "name": "Commissione Nazionale per le Società e la Borsa",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Italy", "EU"],
+      "url": "https://www.consob.it/web/consob/comunicati-stampa",
+      "cadence": "daily",
+      "useFor": ["securities", "italian-language", "market-conduct", "supervision", "enforcement"],
+      "signalQuestions": [
+        "La Consob modifica una consultazione, delibera, regolamento, richiamo di attenzione o sanzione?",
+        "Quale risposta di governance, condotta, informativa o controllo richiede per operatori italiani?"
+      ]
+    },
+    {
+      "id": "saudi-cma",
+      "name": "Capital Market Authority of Saudi Arabia",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Saudi Arabia"],
+      "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+      "cadence": "weekly",
+      "useFor": ["securities", "consultations", "capital-markets", "market-conduct", "enforcement"],
+      "signalQuestions": [
+        "Does the Saudi CMA propose or implement a rule, instruction, consultation or enforcement action?",
+        "What licensing, disclosure, conduct, market-structure or implementation response follows for Saudi market participants?"
+      ]
     }
   ]
 }

@@ -84,6 +84,9 @@ class TestClassify(unittest.TestCase):
     def test_type_consultation(self):
         self.assertEqual(self.classify_type("EBA consults on new guidelines"), "consultation")
 
+    def test_consultative_group_is_not_a_consultation(self):
+        self.assertEqual(self.classify_type("Regional Consultative Group meets in Mauritius"), "other")
+
     def test_type_final_rule(self):
         self.assertEqual(self.classify_type("Commission adopts final rule on DORA"), "final-rule")
 
@@ -96,6 +99,12 @@ class TestClassify(unittest.TestCase):
     def test_type_other(self):
         self.assertEqual(self.classify_type("Annual general meeting results announced"), "other")
 
+    def test_research_benchmark_is_not_a_final_rule(self):
+        self.assertEqual(self.classify_type("Production benchmark for LLM agents"), "other")
+
+    def test_its_acronym_does_not_match_securities(self):
+        self.assertEqual(self.classify_type("License to conduct securities business"), "other")
+
     def test_risk_area_balance_sheet(self):
         areas = self.classify_risk_areas("New capital requirements under Basel III")
         self.assertIn("balance-sheet", areas)
@@ -106,11 +115,15 @@ class TestClassify(unittest.TestCase):
 
     def test_risk_area_ai(self):
         areas = self.classify_risk_areas("EU AI Act implementing rules for large language models")
-        self.assertIn("ai-governance", areas)
+        self.assertIn("ai-and-models", areas)
 
     def test_risk_area_default(self):
         areas = self.classify_risk_areas("Quarterly newsletter from a regulator")
-        self.assertEqual(areas, ["other"])
+        self.assertEqual(areas, [])
+
+    def test_risk_areas_match_publication_contract(self):
+        allowed = {"balance-sheet", "customer-outcomes", "crime-and-sanctions", "digital-resilience", "ai-and-models", "market-plumbing"}
+        self.assertTrue(set(self.classify_risk_areas("AI cyber resilience and capital rules")).issubset(allowed))
 
     def test_multiple_risk_areas(self):
         areas = self.classify_risk_areas(
@@ -118,6 +131,19 @@ class TestClassify(unittest.TestCase):
         )
         self.assertIn("digital-resilience", areas)
         self.assertIn("crime-and-sanctions", areas)
+
+    def test_portuguese_and_french_instrument_classification(self):
+        self.assertEqual(self.classify_type("CVM abre consulta pública sobre nova resolução"), "consultation")
+        self.assertEqual(self.classify_type("AMF publie une décision de sanction"), "enforcement")
+        self.assertIn("customer-outcomes", self.classify_risk_areas("orientação para proteção do consumidor e investidor"))
+
+    def test_spanish_and_chinese_instrument_classification(self):
+        self.assertEqual(self.classify_type("CNMV publica documento a consulta sobre el mercado"), "consultation")
+        self.assertEqual(self.classify_type("关于规则公开征求意见的通知"), "consultation")
+
+    def test_german_instrument_classification(self):
+        self.assertEqual(self.classify_type("BaFin eröffnet Konsultation zur MaRisk-Novelle"), "consultation")
+        self.assertEqual(self.classify_type("BaFin setzt Bußgeld gegen Institut fest"), "enforcement")
 
 
 class TestScore(unittest.TestCase):
@@ -143,6 +169,145 @@ class TestScore(unittest.TestCase):
         item = {"signal_type": "guidance", "risk_areas": ["market-plumbing"]}
         source = {"tier": "specialist"}
         self.assertIsInstance(self.score(item, source), float)
+
+    def test_primary_other_without_evidence_is_not_material(self):
+        item = {"signal_type": "other", "risk_areas": []}
+        self.assertFalse(self.is_material({"score": self.score(item, {"tier": "primary"})}))
+
+
+class TestFetch(unittest.TestCase):
+    def test_canonicalize_url_removes_tracking_and_fragment(self):
+        from scan.utils import canonicalize_url
+        self.assertEqual(canonicalize_url("https://EXAMPLE.com/item/?utm_source=x&id=4#part"), "https://example.com/item?id=4")
+
+    def test_infer_date_from_official_url(self):
+        from scan.utils import infer_date_from_url
+        self.assertEqual(infer_date_from_url("https://www.fsa.go.jp/news/20260717/item.html"), "2026-07-17T00:00:00+00:00")
+        self.assertIsNone(infer_date_from_url("https://example.com/20261340/item"))
+
+    def test_source_filter_excludes_noise_and_keeps_regulatory_items(self):
+        from scan.fetch import passes_source_filter
+        from scan.feeds import SOURCE_FILTERS
+        self.assertFalse(passes_source_filter("hkma", "Tender for office furniture", filters=SOURCE_FILTERS))
+        self.assertFalse(passes_source_filter("apra", "APRA publishes its annual report", filters=SOURCE_FILTERS))
+        self.assertTrue(passes_source_filter("apra", "APRA consults on prudential reporting standards", filters=SOURCE_FILTERS))
+        self.assertFalse(passes_source_filter("saudi-cma", "The Capital Market Authority Licenses Saaf Capital to Conduct Managing Investments", filters=SOURCE_FILTERS))
+        self.assertTrue(passes_source_filter("saudi-cma", "Imposition of a Fine due to violation of the Rules on the Offer of Securities", filters=SOURCE_FILTERS))
+
+    def test_nonstandard_official_feed_date_is_parsed(self):
+        from scan.fetch import _parse_date
+        entry = type("Entry", (), {"published": "17 Jul, 2026 +0530"})()
+        self.assertEqual(_parse_date(entry), "2026-07-16T18:30:00+00:00")
+
+    def test_spanish_and_italian_page_dates_are_parsed(self):
+        from bs4 import BeautifulSoup
+        from scan.fetch import _parse_page_date
+        spanish = BeautifulSoup("<span>17 de junio de 2026 Fecha de publicación</span>", "lxml").span
+        italian = BeautifulSoup("<span>10 luglio 2026</span>", "lxml").span
+        self.assertEqual(_parse_page_date(spanish), "2026-06-17T00:00:00+00:00")
+        self.assertEqual(_parse_page_date(italian), "2026-07-10T00:00:00+00:00")
+
+    def test_page_adapter_reports_anti_bot_block(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        html = b"<html><title>Challenge Validation</title><body>Please solve this CAPTCHA</body></html>"
+        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
+        config = [{
+            "url": "https://www.gob.mx/cnbv/archivo/prensa?idiom=es-MX",
+            "item_selectors": ["article"],
+            "link_selectors": ["a[href]"],
+            "date_selectors": ["time[datetime]"],
+        }]
+        source = {"id": "mexico-cnbv", "name": "CNBV"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, {})
+        self.assertEqual(items, [])
+        self.assertIn("blocked by anti-bot challenge", error)
+
+    def test_page_adapter_extracts_saudi_sharepoint_cards(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import SOURCE_FILTERS
+
+        html = b"""
+        <td class="carditem"><div class="card-wrapper">
+          <span class="date">07-June-2026</span>
+          <h3>Imposition of a Fine on Keir International Company, due to the violation of the Rules on the Offer of Securities and Continuing Obligations</h3>
+          <p>The Capital Market Authority announces the issuance of a board resolution.</p>
+          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx">Read More</a>
+        </div></td>
+        <td class="carditem"><div class="card-wrapper">
+          <span class="date">09-June-2026</span>
+          <h3>The Capital Market Authority approves a routine capital increase request</h3>
+          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4065.aspx">Read More</a>
+        </div></td>
+        """
+        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
+        config = [{
+            "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+            "item_selectors": ["td.carditem"],
+            "link_selectors": ["a.btn[href]"],
+            "title_selector": "h3",
+            "summary_selector": "p",
+            "date_selectors": ["span.date"],
+        }]
+        source = {"id": "saudi-cma", "name": "Saudi CMA"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"], "2026-06-07T00:00:00+00:00")
+        self.assertEqual(items[0]["url"], "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx")
+
+    def test_page_adapter_extracts_only_dated_filtered_official_entries(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import SOURCE_FILTERS
+
+        html = b"""
+        <div class='views-row'><h3><a href='/consultation'>APRA consults on prudential reporting standards</a></h3>
+          <time datetime='2026-07-10'>10 July 2026</time><p>Responses invited.</p></div>
+        <div class='views-row'><h3><a href='/annual-report'>APRA publishes its annual report</a></h3>
+          <time datetime='2026-07-09'>9 July 2026</time></div>
+        <div class='views-row'><h3><a href='/undated'>APRA issues guidance</a></h3></div>
+        """
+        response = type("Response", (), {"content": html})()
+        config = [{
+            "url": "https://www.apra.gov.au/news-and-publications?page=0",
+            "item_selectors": [".views-row"],
+            "link_selectors": ["h3 a[href]"],
+            "date_selectors": ["time[datetime]"],
+        }]
+        source = {"id": "apra", "name": "APRA"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["url"], "https://www.apra.gov.au/consultation")
+        self.assertEqual(items[0]["published_at"], "2026-07-10T00:00:00+00:00")
+
+
+class TestSourcePerimeter(unittest.TestCase):
+    def test_regulatory_perimeter_excludes_research_press_and_cyber_alerts(self):
+        from scan.feeds import REGULATORY_SOURCE_IDS
+        self.assertNotIn("arxiv-ai", REGULATORY_SOURCE_IDS)
+        self.assertNotIn("reuters", REGULATORY_SOURCE_IDS)
+        self.assertNotIn("cisa", REGULATORY_SOURCE_IDS)
+        self.assertIn("hkma", REGULATORY_SOURCE_IDS)
+        self.assertIn("apra", REGULATORY_SOURCE_IDS)
+        self.assertIn("osfi", REGULATORY_SOURCE_IDS)
+        self.assertIn("india-sebi", REGULATORY_SOURCE_IDS)
+        self.assertIn("korea-fsc", REGULATORY_SOURCE_IDS)
+        self.assertIn("brazil-cvm", REGULATORY_SOURCE_IDS)
+        self.assertIn("fr-amf", REGULATORY_SOURCE_IDS)
+        self.assertIn("spain-cnmv", REGULATORY_SOURCE_IDS)
+        self.assertIn("ireland-cbi", REGULATORY_SOURCE_IDS)
+        self.assertIn("adgm-fsra", REGULATORY_SOURCE_IDS)
+        self.assertIn("de-bafin", REGULATORY_SOURCE_IDS)
+        self.assertIn("dubai-dfsa", REGULATORY_SOURCE_IDS)
+        self.assertIn("mexico-cnbv", REGULATORY_SOURCE_IDS)
+        self.assertIn("italy-consob", REGULATORY_SOURCE_IDS)
+        self.assertIn("saudi-cma", REGULATORY_SOURCE_IDS)
 
 
 class TestDb(unittest.TestCase):

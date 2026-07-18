@@ -12,6 +12,7 @@
     "signals:candidates:refresh": "node scripts/refresh_signals_candidates.mjs",
     "signals:candidates:refresh:offline": "node scripts/refresh_signals_candidates.mjs --offline --include-seen --no-state-write",
     "signals:candidates:validate": "node scripts/validate_signals_candidates_output.mjs",
+    "signals:candidates:test": "node --test scripts/refresh_signals_candidates.test.mjs",
     "signals:promote": "node scripts/promote_signals_candidates.mjs",
     "signals:promote:dry-run": "node scripts/promote_signals_candidates.mjs --dry-run",
     "brief:draft": "node scripts/draft_weekly_brief.mjs",

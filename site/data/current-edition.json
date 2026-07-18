@@ -1,53 +1,53 @@
 {
   "editionNumber": "Vol. III",
-  "title": "FCA publishes landmark review into the impact of AI on retail financial services",
+  "title": "A cooling failure reveals the common control problem across cloud, AI and cyber",
   "weekOf": "2026-07-13",
-  "publicationDate": "2026-07-15",
+  "publicationDate": "2026-07-18",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "AI governance and resilience should no longer be treated as parallel workstreams. They need a shared operating evidence base.",
+  "mainJudgement": "Dependency risk is only understood when firms can show how physical infrastructure, software, suppliers and automated decisions fail together.",
   "judgement": {
-    "observation": "AI governance and operational resilience are still being discussed as separate committee concerns.",
-    "executiveJudgement": "That division is now artificial. The FCA’s retail-AI review, warnings about AI-enabled cyber risk and the evidence demanded after technology failures all point to the same weakness: firms can describe their controls more readily than they can demonstrate what those controls did. A policy, model score or resilience map is not operating evidence; monitoring, intervention and recovery records are.",
-    "implication": "The question is not whether the organisation has governed AI and resilience. It is whether it can reconstruct the decisions, permissions and interventions that kept an AI-enabled service within tolerance."
+    "observation": "A cooling failure disrupted several Google Cloud services together while regulators sharpened expectations for agents, cyber exploitation and technology risk.",
+    "executiveJudgement": "These are not separate stories. They expose the same weakness: control frameworks often describe services, suppliers and risks independently even when the underlying failure domains are shared. A cloud zone, privileged agent, vulnerable product or outsourced process can connect several important services before governance recognises the concentration.",
+    "implication": "Committees should ask for evidence that dependency maps, permissions, patch priorities and recovery tests reflect correlated failure. The useful test is whether the firm can identify what else fails, who can intervene and how service is restored when one supposedly contained dependency breaks."
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "FCA publishes landmark review into the impact of AI on retail financial services",
-      "label": "AI governance",
-      "why": "Retail AI is now a customer-outcomes, governance, and control-evidence question, not an innovation side topic.",
-      "source": "FCA · Regulator · 2026-07-06"
+      "title": "Anthropic tests how agentic models can become insider threats",
+      "label": "AI control",
+      "why": "Production agents need constrained privileges, independent approval and observable shutdown behaviour.",
+      "source": "Anthropic · Company research · 2026-07-13"
     },
     {
       "topic": "cyber",
-      "title": "ESAs support an ESRB warning on systemic cyber risks from frontier AI models",
+      "title": "CISA confirms three more vulnerabilities are being actively exploited",
       "label": "Cyber",
-      "why": "AI risk now includes the speed and scale of AI-enabled cyber attack, with financial stability implications.",
-      "source": "EBA · Regulator · 2026-07-07"
+      "why": "Confirmed exploitation should override severity-only patch queues across internal and supplier-managed assets.",
+      "source": "CISA · Government · 2026-07-16"
     },
     {
       "topic": "financial-crime",
-      "title": "OFSI’s largest-ever circumvention penalty resets sanctions-control expectations",
+      "title": "ASIC warns pump-and-dump networks are scaling fake celebrity endorsements",
       "label": "Financial crime",
-      "why": "Boards should expect sharper evidence on escalation, beneficial ownership, and sanctions circumvention testing.",
-      "source": "HM Treasury and OFSI · Regulator · 2026-06-17"
+      "why": "Fraud and market-surveillance teams need joined-up detection across impersonation, promotion and trading activity.",
+      "source": "ASIC · Regulator · 2026-07-16"
     },
     {
       "topic": "resilience",
-      "title": "Bank of England’s July Financial Stability Report resets the resilience baseline",
+      "title": "Cooling failure disrupts multiple Google Cloud services in one European zone",
       "label": "Resilience",
-      "why": "Resilience planning has to connect macro stress, operational disruption, market functioning, and customer impact.",
-      "source": "Bank of England · Regulator · 2026-07-07"
+      "why": "Several services shared one physical failure domain, testing assumptions about cloud diversification and zonal recovery.",
+      "source": "Google Cloud · Company status · 2026-07-18"
     },
     {
-      "topic": "data",
-      "title": "New UK legal duty on data-protection complaints takes effect",
-      "label": "Data",
-      "why": "Complaint handling is now a data-governance evidence trail, not just a customer-service workflow.",
-      "source": "ICO · Regulator · 2026-06-23"
+      "topic": "technology-failure",
+      "title": "FINMA tells financial firms to begin governing quantum risk now",
+      "label": "Technology failure",
+      "why": "Cryptographic inventories and migration ownership need to exist before quantum remediation becomes urgent.",
+      "source": "FINMA · Regulator · 2026-07-09"
     }
   ]
 }

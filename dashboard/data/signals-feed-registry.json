@@ -15,6 +15,7 @@
       "topics": ["ai"],
       "riskAreas": ["ai-and-models"],
       "tags": ["model-releases", "agents", "enterprise-ai", "safety"],
+      "keywordHints": ["agent", "model", "enterprise", "financial", "safety", "security", "governance", "risk", "control", "evaluation", "release"],
       "maxItems": 8
     },
     {
@@ -25,6 +26,7 @@
       "topics": ["ai"],
       "riskAreas": ["ai-and-models"],
       "tags": ["model-releases", "agents", "enterprise-ai", "safety"],
+      "keywordHints": ["agent", "model", "enterprise", "financial", "safety", "security", "governance", "risk", "control", "evaluation", "release"],
       "maxItems": 8
     },
     {
@@ -35,13 +37,14 @@
       "topics": ["ai"],
       "riskAreas": ["ai-and-models"],
       "tags": ["research", "multimodal-ai", "robotics", "safety"],
+      "keywordHints": ["agent", "model", "llm", "enterprise", "financial", "safety", "security", "governance", "risk", "evaluation", "release"],
       "maxItems": 8
     },
     {
       "id": "microsoft-ai-rss",
       "sourceRegistryId": "microsoft-ai",
       "fetchType": "rss",
-      "fetchUrl": "https://blogs.microsoft.com/ai/feed/",
+      "fetchUrl": "https://blogs.microsoft.com/feed/",
       "topics": ["ai", "third-party"],
       "riskAreas": ["ai-and-models", "digital-resilience"],
       "tags": ["copilot", "agents", "enterprise-ai", "cloud"],
@@ -182,6 +185,194 @@
       "tags": ["reg-horizon", "data", "reporting"],
       "keywordHints": ["data", "reporting", "disclosure", "privacy", "record", "governance"],
       "maxItems": 10
+    },
+    {
+      "id": "cisa-advisories-rss",
+      "sourceRegistryId": "cisa",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "vulnerabilities", "ransomware", "critical-infrastructure"],
+      "titleKeywordHints": ["known exploited", "ransomware", "critical infrastructure", "threat actor", "malware", "campaign", "alert"],
+      "maxItems": 8
+    },
+    {
+      "id": "cert-fr-rss",
+      "sourceRegistryId": "cert-fr",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cert.ssi.gouv.fr/feed/",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "vulnerabilities", "threat-intelligence", "france"],
+      "keywordHints": ["vulnérabilité", "attaque", "compromission", "rançongiciel", "menace", "malveillant", "intrusion"],
+      "maxItems": 6
+    },
+    {
+      "id": "enisa-news-sitemap",
+      "sourceRegistryId": "enisa",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.enisa.europa.eu/sitemap.xml",
+      "pathPatterns": ["/news/"],
+      "topics": ["cyber", "resilience", "third-party"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "nis2", "critical-sectors", "supply-chain"],
+      "keywordHints": ["cyber", "resilience", "incident", "critical sector", "supply chain", "vulnerability", "threat", "nis2"],
+      "excludeKeywordHints": ["competition", "challenge for women", "career event"],
+      "maxItems": 8
+    },
+    {
+      "id": "bis-press-rss",
+      "sourceRegistryId": "bis",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.bis.org/doclist/all_pressrels.rss",
+      "topics": ["technology-failure", "resilience", "third-party", "data"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["ict-risk", "operational-resilience", "data", "third-party"],
+      "keywordHints": ["technology", "ict", "operational resilience", "third-party", "outsourcing", "data", "reporting", "cyber"],
+      "topicKeywordHints": {
+        "technology-failure": ["technology", "ict", "system failure", "operational risk"],
+        "resilience": ["operational resilience", "resilience"],
+        "third-party": ["third-party", "outsourcing", "concentration"],
+        "data": ["data", "reporting"]
+      },
+      "windowDays": 60,
+      "maxItems": 8
+    },
+    {
+      "id": "ico-news-sitemap",
+      "sourceRegistryId": "ico",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://ico.org.uk/sitemap.xml",
+      "pathPatterns": ["/about-the-ico/media-centre/news-and-blogs/"],
+      "topics": ["data"],
+      "riskAreas": ["board-accountability", "ai-and-models"],
+      "tags": ["data-protection", "privacy", "governance", "ai-data"],
+      "keywordHints": ["data", "privacy", "ai", "artificial intelligence", "governance", "security", "breach"],
+      "windowDays": 30,
+      "maxItems": 8
+    },
+    {
+      "id": "bundesbank-topics-rss",
+      "sourceRegistryId": "de-bundesbank",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.bundesbank.de/service/rss/de/633288/feed.rss",
+      "topics": ["technology-failure", "resilience", "third-party", "data"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["ict-risk", "banking-supervision", "operational-risk", "germany"],
+      "keywordHints": ["ikt", "it-risiko", "system", "störung", "ausfall", "digitalisierung", "resilienz", "dora", "daten", "drittanbieter", "auslagerung"],
+      "topicKeywordHints": {
+        "technology-failure": ["ikt", "it-risiko", "system", "störung", "ausfall", "digitalisierung", "technologie"],
+        "resilience": ["resilienz", "operationell", "wiederherstellung", "dora"],
+        "third-party": ["drittanbieter", "auslagerung", "cloud", "dienstleister"],
+        "data": ["daten", "datenqualität", "meldewesen", "berichterstattung"]
+      },
+      "windowDays": 60,
+      "maxItems": 10
+    },
+    {
+      "id": "google-cloud-status-atom",
+      "sourceRegistryId": "google-cloud-status",
+      "fetchType": "atom",
+      "fetchUrl": "https://status.cloud.google.com/en/feed.atom",
+      "topics": ["technology-failure", "resilience", "third-party"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cloud", "outage", "service-degradation", "dependency"],
+      "keywordHints": ["outage", "failure", "degraded", "disruption", "unavailable", "latency", "incident"],
+      "topicKeywordHints": {
+        "technology-failure": ["outage", "failure", "degraded", "disruption", "unavailable", "latency"],
+        "resilience": ["outage", "failure", "disruption", "incident"],
+        "third-party": ["google cloud", "cloud", "service"]
+      },
+      "windowDays": 30,
+      "maxItems": 8
+    },
+    {
+      "id": "ofsi-updates-atom",
+      "sourceRegistryId": "ofsi",
+      "fetchType": "atom",
+      "fetchUrl": "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation.atom",
+      "topics": ["financial-crime"],
+      "riskAreas": ["crime-and-sanctions"],
+      "tags": ["sanctions", "enforcement", "licences", "uk"],
+      "keywordHints": ["sanction", "ofsi", "general licence", "penalty", "enforcement", "designation"],
+      "windowDays": 30,
+      "maxItems": 8
+    },
+    {
+      "id": "canada-cyber-centre-alerts",
+      "sourceRegistryId": "canada-cyber-centre",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cyber.gc.ca/api/cccs/rss/v1/get?feed=alerts_advisories&lang=en",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "alerts", "actively-exploited", "canada"],
+      "titleKeywordHints": ["critical", "ransomware", "actively exploited", "threat", "alert"],
+      "windowDays": 30,
+      "maxItems": 6
+    },
+    {
+      "id": "jpcert-alerts-rss",
+      "sourceRegistryId": "jpcert",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.jpcert.or.jp/rss/jpcert.rdf",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cyber", "alerts", "vulnerabilities", "japan", "japanese-language"],
+      "titleKeywordHints": ["注意喚起", "脆弱性", "攻撃", "ランサムウェア", "侵害"],
+      "windowDays": 30,
+      "maxItems": 6
+    },
+    {
+      "id": "finma-news-rss",
+      "sourceRegistryId": "finma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.finma.ch/en/rss/news/",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data", "cyber"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions", "board-accountability"],
+      "tags": ["supervision", "operational-risk", "sanctions", "technology", "switzerland"],
+      "keywordHints": ["market", "liquidity", "outsourcing", "third-party", "operational", "resilience", "technology", "quantum", "cyber", "data", "sanction", "money laundering"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "liquidity", "fund", "securities"],
+        "third-party": ["outsourcing", "third-party", "service provider"],
+        "resilience": ["operational", "resilience", "continuity"],
+        "technology-failure": ["technology", "quantum", "ict", "system"],
+        "financial-crime": ["sanction", "money laundering", "financial crime"],
+        "data": ["data", "reporting", "disclosure"],
+        "cyber": ["cyber", "attack", "vulnerability"]
+      },
+      "windowDays": 45,
+      "maxItems": 8
+    },
+    {
+      "id": "japan-fsa-news-rss",
+      "sourceRegistryId": "japan-fsa",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.fsa.go.jp/fsaEnNewsList_rss2.xml",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data", "ai", "cyber"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions", "board-accountability", "ai-and-models"],
+      "tags": ["financial-regulation", "supervision", "technology-risk", "japan"],
+      "keywordHints": ["market", "crypto", "outsourcing", "operational", "resilience", "technology", "fraud", "money laundering", "sanction", "data", "artificial intelligence", "cyber"],
+      "windowDays": 45,
+      "maxItems": 8
+    },
+    {
+      "id": "asic-news-sitemap",
+      "sourceRegistryId": "asic",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://asic.gov.au/sitemap.xml",
+      "pathPatterns": ["/about-asic/news-centre/find-a-media-release/2026-releases/"],
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["enforcement", "markets", "scams", "reporting", "australia"],
+      "keywordHints": ["market", "securities", "investment fund", "fraud", "scam", "money laundering", "insider", "data", "reporting", "disclosure"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "securities", "investment fund", "trading", "liquidity"],
+        "financial-crime": ["fraud", "scam", "money laundering", "insider", "corruption"],
+        "data": ["data", "reporting", "disclosure", "privacy"]
+      },
+      "windowDays": 30,
+      "maxItems": 8
     }
   ]
 }

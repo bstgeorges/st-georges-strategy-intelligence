@@ -776,6 +776,132 @@
         "Is this a timely company, market, or regulatory development not yet available in a primary source?",
         "Can it be corroborated before publication?"
       ]
+    },
+    {
+      "id": "cert-fr",
+      "name": "CERT-FR / ANSSI",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["France", "EU"],
+      "url": "https://www.cert.ssi.gouv.fr/",
+      "cadence": "daily",
+      "useFor": ["vulnerabilities", "threat-intelligence", "incidents", "french-language"],
+      "signalQuestions": [
+        "Does the French national CERT identify an actively material vulnerability, intrusion, or threat campaign?",
+        "Does the item change patching, detection, containment, or recovery priorities for a regulated firm?"
+      ]
+    },
+    {
+      "id": "enisa",
+      "name": "European Union Agency for Cybersecurity",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["EU"],
+      "url": "https://www.enisa.europa.eu/news",
+      "cadence": "weekly",
+      "useFor": ["nis2", "critical-sectors", "cyber-resilience", "supply-chain"],
+      "signalQuestions": [
+        "Does ENISA identify a material change in EU cyber preparedness, critical-sector risk, or incident response?",
+        "Does the item create a practical resilience, supply-chain, or control-evidence prompt?"
+      ]
+    },
+    {
+      "id": "ico",
+      "name": "UK Information Commissioner's Office",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/",
+      "cadence": "weekly",
+      "useFor": ["data-protection", "privacy", "data-governance", "ai-data"],
+      "signalQuestions": [
+        "Does the ICO item change expectations for privacy, data governance, security, or AI inputs?",
+        "What ownership, lineage, retention, access, or evidence response should a firm be able to demonstrate?"
+      ]
+    },
+    {
+      "id": "de-bundesbank",
+      "name": "Deutsche Bundesbank",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Germany", "EU"],
+      "url": "https://www.bundesbank.de/de/aufgaben/themen",
+      "cadence": "weekly",
+      "useFor": ["ict-risk", "operational-risk", "data", "third-party", "german-language"],
+      "signalQuestions": [
+        "Does the Bundesbank identify a material ICT, system-failure, operational-resilience, data, or outsourcing risk?",
+        "What supervisory evidence or control response would the German analysis imply for a regulated firm?"
+      ]
+    },
+    {
+      "id": "google-cloud-status",
+      "name": "Google Cloud Service Health",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://status.cloud.google.com/",
+      "cadence": "daily",
+      "useFor": ["cloud-outages", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did a Google Cloud incident affect availability, latency, data access, or a critical dependency?",
+        "What does the incident reveal about concentration, fallback, recovery, and customer-impact evidence?"
+      ]
+    },
+    {
+      "id": "canada-cyber-centre",
+      "name": "Canadian Centre for Cyber Security",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Canada"],
+      "url": "https://www.cyber.gc.ca/en/alerts-advisories",
+      "cadence": "daily",
+      "useFor": ["cyber-alerts", "actively-exploited", "ransomware", "canada"],
+      "signalQuestions": [
+        "Does the Canadian Cyber Centre identify a critical, actively exploited, or systemic cyber threat?",
+        "Does the alert change patching, detection, containment, or third-party response priorities?"
+      ]
+    },
+    {
+      "id": "jpcert",
+      "name": "JPCERT Coordination Center",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Japan"],
+      "url": "https://www.jpcert.or.jp/",
+      "cadence": "daily",
+      "useFor": ["cyber-alerts", "vulnerabilities", "incidents", "japanese-language"],
+      "signalQuestions": [
+        "Does JPCERT issue a material warning about exploitation, ransomware, compromise, or a critical vulnerability?",
+        "What immediate control, patching, monitoring, or recovery response does the warning imply?"
+      ]
+    },
+    {
+      "id": "finma",
+      "name": "Swiss Financial Market Supervisory Authority",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Switzerland"],
+      "url": "https://www.finma.ch/en/news/",
+      "cadence": "weekly",
+      "useFor": ["financial-supervision", "operational-risk", "technology", "sanctions", "markets"],
+      "signalQuestions": [
+        "Does FINMA identify a material change in Swiss supervisory, market, operational, technology, or financial-crime risk?",
+        "What governance, control evidence, resilience, or reporting response should a regulated firm consider?"
+      ]
+    },
+    {
+      "id": "japan-fsa",
+      "name": "Financial Services Agency of Japan",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["Japan"],
+      "url": "https://www.fsa.go.jp/en/news/index.html",
+      "cadence": "weekly",
+      "useFor": ["financial-regulation", "supervision", "markets", "technology-risk", "financial-crime"],
+      "signalQuestions": [
+        "Does Japan's FSA identify a material regulatory, market, operational, technology, data, or financial-crime development?",
+        "Does it change supervisory expectations, governance, controls, disclosures, or implementation priorities?"
+      ]
     }
   ]
 }

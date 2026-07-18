@@ -7,6 +7,7 @@ import { loadPublishedSourceMap, resolvePublishedSource } from "./lib/published_
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SIGNALS_PATH = path.join(ROOT, "site", "data", "signals.json");
 const CANDIDATES_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
+const SHORTLIST_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-shortlist.json");
 const LOG_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-log.md");
 const SUMMARY_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
 
@@ -148,7 +149,19 @@ function main() {
   const options = parseArgs(process.argv.slice(2));
   const signalsData = readJson(SIGNALS_PATH);
   const candidatesData = fs.existsSync(CANDIDATES_PATH) ? readJson(CANDIDATES_PATH) : { topics: [] };
-  const candidatesByTopic = new Map((candidatesData.topics || []).map((topic) => [topic.id, topic.candidates || []]));
+  if (!fs.existsSync(SHORTLIST_PATH)) {
+    throw new Error("Missing dashboard/data/signals-promotion-shortlist.json; editorial review is required before promotion.");
+  }
+  const shortlistData = readJson(SHORTLIST_PATH);
+  const selectedByTopic = new Map(
+    (shortlistData.topics || []).map((topic) => [topic.id, new Set(topic.selectedUrls || [])]),
+  );
+  const candidatesByTopic = new Map(
+    (candidatesData.topics || []).map((topic) => {
+      const selected = selectedByTopic.get(topic.id) || new Set();
+      return [topic.id, (topic.candidates || []).filter((candidate) => selected.has(candidate.url))];
+    }),
+  );
   const sourceMap = loadPublishedSourceMap();
 
   const log = [`# Signals promotion log — ${options.date}`, ""];

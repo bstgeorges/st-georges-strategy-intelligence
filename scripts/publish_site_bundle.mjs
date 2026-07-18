@@ -719,12 +719,19 @@ function listEditionDates(dir, maxDate = "") {
 // edition happened to be "current" at build time, because site-dist itself is deleted
 // and regenerated from source on every run.
 function syncSignalsArchiveStore(out, edition) {
-  archiveIntoStore(out, "brief/index.html", path.join(ARCHIVE_STORE, "brief", edition, "index.html"));
+  if (ALLOW_ARCHIVE_CORRECTION) correctStoredArchiveMetadata();
+  archiveIntoStore(
+    out,
+    "brief/index.html",
+    path.join(ARCHIVE_STORE, "brief", edition, "index.html"),
+    `${PUBLIC_ORIGIN}/archive/brief/${edition}/`,
+  );
   for (const topic of topics) {
     archiveIntoStore(
       out,
       `signals/${topic}/index.html`,
       path.join(ARCHIVE_STORE, "topics", topic, edition, "index.html"),
+      `${PUBLIC_ORIGIN}/signals/${topic}/archive/${edition}/`,
     );
   }
 
@@ -740,12 +747,47 @@ function syncSignalsArchiveStore(out, edition) {
   }
 }
 
-function archiveIntoStore(out, sourceRelative, destinationFile) {
+function rewriteArchiveMetadata(text, publicUrl) {
+  return text
+    .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${publicUrl}">`)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${publicUrl}$2`)
+    .replace(
+      /("mainEntityOfPage":\s*{\s*"@type":\s*"WebPage",\s*"@id":\s*")[^"]*(")/,
+      `$1${publicUrl}$2`,
+    );
+}
+
+function correctStoredArchiveMetadata() {
+  const corrections = [];
+  for (const date of listEditionDates(path.join(ARCHIVE_STORE, "brief"))) {
+    corrections.push([
+      path.join(ARCHIVE_STORE, "brief", date, "index.html"),
+      `${PUBLIC_ORIGIN}/archive/brief/${date}/`,
+    ]);
+  }
+  for (const topic of topics) {
+    for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic))) {
+      corrections.push([
+        path.join(ARCHIVE_STORE, "topics", topic, date, "index.html"),
+        `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`,
+      ]);
+    }
+  }
+  for (const [file, publicUrl] of corrections) {
+    if (!fs.existsSync(file)) continue;
+    const existing = read(file);
+    const corrected = rewriteArchiveMetadata(existing, publicUrl);
+    if (corrected !== existing) write(file, corrected);
+  }
+}
+
+function archiveIntoStore(out, sourceRelative, destinationFile, publicUrl) {
   const sourceFile = path.join(out, sourceRelative);
   let text = read(sourceFile);
   text = text.replace(/\b(href|src)="([^"]+)"/g, (_match, attr, value) => {
     return `${attr}="${toRootRelativeReference(out, sourceFile, value)}"`;
   });
+  text = rewriteArchiveMetadata(text, publicUrl);
   if (fs.existsSync(destinationFile)) {
     const existing = fs.readFileSync(destinationFile, "utf8");
     if (existing === text) return;
@@ -758,7 +800,7 @@ function archiveIntoStore(out, sourceRelative, destinationFile) {
   write(destinationFile, text);
 }
 
-function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, backLabel }) {
+function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, backLabel, url }) {
   const cardsHtml = cards.length
     ? cards
         .map(
@@ -775,6 +817,8 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}">
+    <link rel="canonical" href="${escapeHtml(url)}">
+    <meta property="og:url" content="${escapeHtml(url)}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -841,6 +885,7 @@ function generateArchiveHubPages(out, edition) {
       })),
       backHref: "/archive/",
       backLabel: "Back to the archive",
+      url: `${PUBLIC_ORIGIN}/archive/brief/`,
     }),
   );
 
@@ -862,6 +907,7 @@ function generateArchiveHubPages(out, edition) {
         })),
         backHref: `/signals/${topic}/`,
         backLabel: "Back to the current edition",
+        url: `${PUBLIC_ORIGIN}/signals/${topic}/archive/`,
       }),
     );
   }
@@ -1714,6 +1760,39 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
       `${topic} topic archive copy missing`,
       failures,
     );
+  }
+
+  const archiveCanonicalChecks = [
+    [path.join(out, "archive", "brief", "index.html"), `${PUBLIC_ORIGIN}/archive/brief/`],
+    ...listEditionDates(path.join(out, "archive", "brief")).map((date) => [
+      path.join(out, "archive", "brief", date, "index.html"),
+      `${PUBLIC_ORIGIN}/archive/brief/${date}/`,
+    ]),
+  ];
+  for (const topic of topics) {
+    archiveCanonicalChecks.push([
+      path.join(out, "signals", topic, "archive", "index.html"),
+      `${PUBLIC_ORIGIN}/signals/${topic}/archive/`,
+    ]);
+    for (const date of listEditionDates(path.join(out, "signals", topic, "archive"))) {
+      archiveCanonicalChecks.push([
+        path.join(out, "signals", topic, "archive", date, "index.html"),
+        `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`,
+      ]);
+    }
+  }
+  for (const [file, expected] of archiveCanonicalChecks) {
+    assert(fs.existsSync(file), `${expected} archive page missing`, failures);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    const canonical = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
+    const ogUrl = (html.match(/<meta property="og:url" content="([^"]+)"/) || [])[1] || "";
+    assert(canonical === expected, `${expected} canonical should reference itself, got ${canonical}`, failures);
+    assert(ogUrl === expected, `${expected} og:url should reference itself, got ${ogUrl}`, failures);
+    if (/\/\d{4}-\d{2}-\d{2}\/$/.test(expected)) {
+      const entityId = (html.match(/"mainEntityOfPage":\s*{\s*"@type":\s*"WebPage",\s*"@id":\s*"([^"]+)"/) || [])[1] || "";
+      assert(entityId === expected, `${expected} JSON-LD mainEntityOfPage should reference itself, got ${entityId}`, failures);
+    }
   }
 
   const horizonFiles = ["latest.json", "feed.xml", "horizon.ics"];

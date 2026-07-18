@@ -1,0 +1,5943 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T21:33:20.340Z",
+  "purpose": "Governed global discovery universe for Regulatory Horizon. Catalogue status does not imply ingestion coverage.",
+  "provenance": [
+    {
+      "name": "IOSCO ordinary-member directory",
+      "url": "https://www.iosco.org/v2/about/?subsection=membership",
+      "retrievedAt": "2026-07-18T21:33:20.342Z"
+    },
+    {
+      "name": "St Georges Strategy source registry",
+      "path": "dashboard/data/source-registry.json"
+    }
+  ],
+  "metrics": {
+    "authorities": 135,
+    "endpoints": 184,
+    "jurisdictions": 139,
+    "operationalOrAssessedEndpoints": 49,
+    "cataloguedEndpoints": 135
+  },
+  "authorities": [
+    {
+      "id": "iosco-jurisdiction-organization",
+      "name": "Organization",
+      "jurisdictions": [
+        "Jurisdiction"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.adgm.com/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=0"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-abu-dhabi-financial-services-regulatory-authority",
+      "name": "Financial Services Regulatory Authority",
+      "jurisdictions": [
+        "Abu Dhabi"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.adgm.com/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=430"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-albania-albanian-financial-supervisory-authority",
+      "name": "Albanian Financial Supervisory Authority",
+      "jurisdictions": [
+        "Albania"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.amf.gov.al/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=1"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-alberta-alberta-securities-commission",
+      "name": "Alberta Securities Commission",
+      "jurisdictions": [
+        "Alberta"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.albertasecurities.com/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=2"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-algeria-commission-d-organisation-et-de-surveillance-des-operations-de-bourse",
+      "name": "Commission d'Organisation et de Surveillance des Opérations de Bourse",
+      "jurisdictions": [
+        "Algeria"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cosob.org",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=4"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-andorra-autoritat-financera-andorrana",
+      "name": "Autoritat Financera Andorrana",
+      "jurisdictions": [
+        "Andorra"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.afa.ad/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=400"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-angola-comissao-do-mercado-de-capitais",
+      "name": "Comissão do Mercado de Capitais",
+      "jurisdictions": [
+        "Angola"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmc.ao",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=417"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-argentina-comision-nacional-de-valores",
+      "name": "Comisión Nacional de Valores",
+      "jurisdictions": [
+        "Argentina"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cnv.gob.ar/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=5"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-armenia-central-bank-of-armenia",
+      "name": "Central Bank of Armenia",
+      "jurisdictions": [
+        "Armenia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.cba.am",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=311"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-australia-australian-securities-and-investments-commission",
+      "name": "Australian Securities and Investments Commission",
+      "jurisdictions": [
+        "Australia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.asic.gov.au/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=7"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-austria-financial-market-authority",
+      "name": "Financial Market Authority",
+      "jurisdictions": [
+        "Austria"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fma.gv.at/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=8"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bahamas-securities-commission-of-the-bahamas",
+      "name": "Securities Commission of The Bahamas",
+      "jurisdictions": [
+        "Bahamas"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.scb.gov.bs/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=9"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bahrain-kingdom-of-central-bank-of-bahrain",
+      "name": "Central Bank of Bahrain",
+      "jurisdictions": [
+        "Bahrain, Kingdom of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cbb.gov.bh/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=10"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bangladesh-bangladesh-securities-and-exchange-commission",
+      "name": "Bangladesh Securities and Exchange Commission",
+      "jurisdictions": [
+        "Bangladesh"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.bd/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=11"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-barbados-financial-services-commission",
+      "name": "Financial Services Commission",
+      "jurisdictions": [
+        "Barbados"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsc.gov.bb/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=12"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-belgium-financial-services-and-markets-authority",
+      "name": "Financial Services and Markets Authority",
+      "jurisdictions": [
+        "Belgium"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsma.be/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=13"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-belize-financial-services-commission",
+      "name": "Financial Services Commission",
+      "jurisdictions": [
+        "Belize"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.belizefsc.org.bz/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=764"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bermuda-bermuda-monetary-authority",
+      "name": "Bermuda Monetary Authority",
+      "jurisdictions": [
+        "Bermuda"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bma.bm/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=14"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bolivia-autoridad-de-supervision-del-sistema-financiero",
+      "name": "Autoridad de Supervisión del Sistema Financiero",
+      "jurisdictions": [
+        "Bolivia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.asfi.gob.bo",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=354"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bosnia-and-herzegovina-federation-of-securities-commission-of-the-federation-of-bosnia-and-herzegovina",
+      "name": "Securities Commission of the Federation of Bosnia and Herzegovina",
+      "jurisdictions": [
+        "Bosnia and Herzegovina, Federation of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.komvp.gov.ba/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=173"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-brazil-comissao-de-valores-mobiliarios",
+      "name": "Comissão de Valores Mobiliários",
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cvm.gov.br/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=17"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-british-columbia-british-columbia-securities-commission",
+      "name": "British Columbia Securities Commission",
+      "jurisdictions": [
+        "British Columbia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bcsc.bc.ca",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=3"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-british-virgin-islands-british-virgin-islands-financial-services-commission",
+      "name": "British Virgin Islands Financial Services Commission",
+      "jurisdictions": [
+        "British Virgin Islands"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bvifsc.vg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=335"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-brunei-brunei-darussalam-central-bank",
+      "name": "Brunei Darussalam Central Bank",
+      "jurisdictions": [
+        "Brunei"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bdcb.gov.bn",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=296"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-bulgaria-financial-supervision-commission",
+      "name": "Financial Supervision Commission",
+      "jurisdictions": [
+        "Bulgaria"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsc.bg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=18"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-cabo-verde-auditoria-geral-do-mercado-de-valores-mobiliarios-banco-central-of-cabo-verde",
+      "name": "Auditoria Geral do Mercado de Valores Mobiliários, Banco Central of Cabo Verde",
+      "jurisdictions": [
+        "Cabo Verde"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bcv.cv",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=431"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-cayman-islands-cayman-islands-monetary-authority",
+      "name": "Cayman Islands Monetary Authority",
+      "jurisdictions": [
+        "Cayman Islands"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cima.ky",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=349"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-central-africa-commission-de-surveillance-du-marche-financier-de-l-afrique-centrale-securities-",
+      "name": "Commission de Surveillance du Marché Financier de l'Afrique Centrale (Securities and Exchange Commission of Central Africa)",
+      "jurisdictions": [
+        "Central Africa"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cosumaf.org",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=427"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-chile-comision-para-el-mercado-financiero-financial-market-commission",
+      "name": "Comisión para el Mercado Financiero (Financial Market Commission)",
+      "jurisdictions": [
+        "Chile"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmfchile.cl",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=19"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-china-china-securities-regulatory-commission",
+      "name": "China Securities Regulatory Commission",
+      "jurisdictions": [
+        "China"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.csrc.gov.cn/pub/csrc_en/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=20"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-colombia-superintendencia-financiera-de-colombia",
+      "name": "Superintendencia Financiera de Colombia",
+      "jurisdictions": [
+        "Colombia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.superfinanciera.gov.co",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=21"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-costa-rica-superintendencia-general-de-valores",
+      "name": "Superintendencia General de Valores",
+      "jurisdictions": [
+        "Costa Rica"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sugeval.fi.cr/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=22"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-croatia-republic-of-croatian-financial-services-supervisory-agency",
+      "name": "Croatian Financial Services Supervisory Agency",
+      "jurisdictions": [
+        "Croatia, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.hanfa.hr/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=23"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-cyprus-cyprus-securities-and-exchange-commission",
+      "name": "Cyprus Securities and Exchange Commission",
+      "jurisdictions": [
+        "Cyprus"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cysec.gov.cy/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=24"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-czech-republic-czech-national-bank",
+      "name": "Czech National Bank",
+      "jurisdictions": [
+        "Czech Republic"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cnb.cz/en/index.html/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=25"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-denmark-danish-financial-supervisory-authority",
+      "name": "Danish Financial Supervisory Authority",
+      "jurisdictions": [
+        "Denmark"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.finanstilsynet.dk/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=26"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-difc-dubai-dubai-financial-services-authority",
+      "name": "Dubai Financial Services Authority",
+      "jurisdictions": [
+        "DIFC, Dubai"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.dfsa.ae",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=314"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-dominican-republic-superintendencia-del-mercado-de-valores",
+      "name": "Superintendencia del Mercado de Valores",
+      "jurisdictions": [
+        "Dominican Republic"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.simv.gob.do",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=27"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-ecuador-superintendencia-de-companias-valores-y-seguros",
+      "name": "Superintendencia de Compañías, Valores y Seguros",
+      "jurisdictions": [
+        "Ecuador"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.supercias.gob.ec",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=28"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-egypt-financial-regulatory-authority",
+      "name": "Financial Regulatory Authority",
+      "jurisdictions": [
+        "Egypt"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fra.gov.eg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=29"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-el-salvador-superintendencia-del-sistema-financiero",
+      "name": "Superintendencia del Sistema Financiero",
+      "jurisdictions": [
+        "El Salvador"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.ssf.gob.sv",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=30"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-estonia-finantsinspektsioon",
+      "name": "Finantsinspektsioon",
+      "jurisdictions": [
+        "Estonia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fi.ee/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=31"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-finland-financial-supervision-authority",
+      "name": "Financial Supervision Authority",
+      "jurisdictions": [
+        "Finland"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.finanssivalvonta.fi/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=32"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-france-autorite-des-marches-financiers",
+      "name": "Autorité des marchés financiers",
+      "jurisdictions": [
+        "France"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.amf-france.org/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=34"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-georgia-national-bank-of-georgia",
+      "name": "National Bank Of Georgia",
+      "jurisdictions": [
+        "Georgia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.nbg.ge/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=469"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-germany-bundesanstalt-fur-finanzdienstleistungsaufsicht",
+      "name": "Bundesanstalt für Finanzdienstleistungsaufsicht",
+      "jurisdictions": [
+        "Germany"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bafin.de/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=35"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-ghana-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Ghana"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.gh",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=36"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-gibraltar-gibraltar-financial-services-commission",
+      "name": "Gibraltar Financial Services Commission",
+      "jurisdictions": [
+        "Gibraltar"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsc.gi/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=324"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-greece-hellenic-capital-market-commission",
+      "name": "Hellenic Capital Market Commission",
+      "jurisdictions": [
+        "Greece"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.hcmc.gr/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=37"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-guernsey-guernsey-financial-services-commission",
+      "name": "Guernsey Financial Services Commission",
+      "jurisdictions": [
+        "Guernsey"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.gfsc.gg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=38"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-hong-kong-securities-and-futures-commission",
+      "name": "Securities and Futures Commission",
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.sfc.hk/web/EN/index.html",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=39"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-hungary-magyar-nemzeti-bank-the-central-bank-of-hungary",
+      "name": "Magyar Nemzeti Bank (The Central Bank of Hungary)",
+      "jurisdictions": [
+        "Hungary"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.mnb.hu/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=40"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-iceland-the-central-bank-of-iceland",
+      "name": "The Central Bank of Iceland",
+      "jurisdictions": [
+        "Iceland"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cb.is/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=359"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-india-securities-and-exchange-board-of-india",
+      "name": "Securities and Exchange Board of India",
+      "jurisdictions": [
+        "India"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sebi.gov.in/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=41"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-indonesia-indonesia-financial-services-authority",
+      "name": "Indonesia Financial Services Authority",
+      "jurisdictions": [
+        "Indonesia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.ojk.go.id/en/Default.aspx",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=393"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-iran-securities-and-exchange-organization",
+      "name": "Securities and Exchange Organization",
+      "jurisdictions": [
+        "Iran"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://en.seo.ir",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=433"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-ireland-central-bank-of-ireland",
+      "name": "Central Bank of Ireland",
+      "jurisdictions": [
+        "Ireland"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.centralbank.ie/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=43"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-isle-of-man-isle-of-man-financial-services-authority",
+      "name": "Isle of Man Financial Services Authority",
+      "jurisdictions": [
+        "Isle of Man"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.iomfsa.im",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=44"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-israel-israel-securities-authority",
+      "name": "Israel Securities Authority",
+      "jurisdictions": [
+        "Israel"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.isa.gov.il/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=45"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-italy-commissione-nazionale-per-le-societa-e-la-borsa",
+      "name": "Commissione Nazionale per le Società e la Borsa",
+      "jurisdictions": [
+        "Italy"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.consob.it/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=46"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-jamaica-financial-services-commission",
+      "name": "Financial Services Commission",
+      "jurisdictions": [
+        "Jamaica"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fscjamaica.org/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=47"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-japan-financial-services-agency",
+      "name": "Financial Services Agency",
+      "jurisdictions": [
+        "Japan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsa.go.jp/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=48"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-japan-ministry-of-agriculture-forestry-and-fisheries",
+      "name": "Ministry of Agriculture, Forestry and Fisheries",
+      "jurisdictions": [
+        "Japan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.maff.go.jp/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=105"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-japan-ministry-of-economy-trade-and-industry",
+      "name": "Ministry of Economy, Trade and Industry",
+      "jurisdictions": [
+        "Japan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.meti.go.jp/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=106"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-jersey-jersey-financial-services-commission",
+      "name": "Jersey Financial Services Commission",
+      "jurisdictions": [
+        "Jersey"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.jerseyfsc.org/about-us/contact-us/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=49"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-jordan-jordan-securities-commission",
+      "name": "Jordan Securities Commission",
+      "jurisdictions": [
+        "Jordan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.jsc.gov.jo/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=50"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-kazakhstan-republic-of-agency-of-the-republic-of-kazakhstan-for-regulation-and-development-of-financial",
+      "name": "Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market",
+      "jurisdictions": [
+        "Kazakhstan, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.finreg.kz/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=707"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-kenya-capital-markets-authority",
+      "name": "Capital Markets Authority",
+      "jurisdictions": [
+        "Kenya"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cma.or.ke/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=52"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-korea-republic-of-financial-services-commission-financial-supervisory-service",
+      "name": "Financial Services Commission/Financial Supervisory Service",
+      "jurisdictions": [
+        "Korea, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsc.go.kr/eng",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=53"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-kuwait-capital-markets-authority",
+      "name": "Capital Markets Authority",
+      "jurisdictions": [
+        "Kuwait"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cma.gov.kw",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=450"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-kyrgyz-republic-state-service-for-financial-market-regulation-and-supervision-under-the-governme",
+      "name": "State Service for Financial Market Regulation and Supervision under the Government of the Kyrgyz Republic",
+      "jurisdictions": [
+        "Kyrgyz Republic"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.fsa.kg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=54"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-latvia-republic-of-latvijas-banka",
+      "name": "Latvijas Banka",
+      "jurisdictions": [
+        "Latvia, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.bank.lv/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=394"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-liechtenstein-financial-market-authority",
+      "name": "Financial Market Authority",
+      "jurisdictions": [
+        "Liechtenstein"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fma-li.li/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=370"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-lithuania-bank-of-lithuania",
+      "name": "Bank of Lithuania",
+      "jurisdictions": [
+        "Lithuania"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.lb.lt/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=56"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-luxembourg-commission-de-surveillance-du-secteur-financier",
+      "name": "Commission de Surveillance du Secteur Financier",
+      "jurisdictions": [
+        "Luxembourg"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cssf.lu/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=57"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-malawi-reserve-bank-of-malawi",
+      "name": "Reserve Bank of Malawi",
+      "jurisdictions": [
+        "Malawi"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.rbm.mw/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=295"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-malaysia-securities-commission",
+      "name": "Securities Commission",
+      "jurisdictions": [
+        "Malaysia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sc.com.my/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=58"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-maldives-capital-market-development-authority",
+      "name": "Capital Market Development Authority",
+      "jurisdictions": [
+        "Maldives"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://cmda.gov.mv/en",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=360"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-malta-malta-financial-services-authority",
+      "name": "Malta Financial Services Authority",
+      "jurisdictions": [
+        "Malta"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.mfsa.mt/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=278"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-mauritius-financial-services-commission",
+      "name": "Financial Services Commission",
+      "jurisdictions": [
+        "Mauritius"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fscmauritius.org",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=60"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-mexico-comision-nacional-bancaria-y-de-valores",
+      "name": "Comisión Nacional Bancaria y de Valores",
+      "jurisdictions": [
+        "Mexico"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cnbv.gob.mx/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=61"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-monaco-principality-of-commission-de-controle-des-activites-financieres",
+      "name": "Commission de Contrôle des Activités Financières",
+      "jurisdictions": [
+        "Monaco, Principality of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.ccaf.mc",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=455"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-mongolia-financial-regulatory-commission",
+      "name": "Financial Regulatory Commission",
+      "jurisdictions": [
+        "Mongolia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.frc.mn/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=297"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-montenegro-capital-market-authority-of-montenegro",
+      "name": "Capital Market Authority of Montenegro",
+      "jurisdictions": [
+        "Montenegro"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.scmn.me/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=313"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-morocco-autorite-marocaine-du-marche-des-capitaux",
+      "name": "Autorité Marocaine du Marché des Capitaux",
+      "jurisdictions": [
+        "Morocco"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.ammc.ma/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=62"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-the-netherlands-the-dutch-authority-for-the-financial-markets",
+      "name": "The Dutch Authority for the Financial Markets",
+      "jurisdictions": [
+        "The Netherlands"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.afm.nl/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=63"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-new-zealand-financial-markets-authority",
+      "name": "Financial Markets Authority",
+      "jurisdictions": [
+        "New Zealand"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.fma.govt.nz",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=64"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-nigeria-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Nigeria"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.ng",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=65"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-north-macedonia-republic-of-securities-and-exchange-commission-of-the-republic-of-north-macedonia",
+      "name": "Securities and Exchange Commission of the Republic of North Macedonia",
+      "jurisdictions": [
+        "North Macedonia, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.mk/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=33"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-norway-finanstilsynet-the-financial-supervisory-authority-of-norway",
+      "name": "Finanstilsynet (The Financial Supervisory Authority of Norway)",
+      "jurisdictions": [
+        "Norway"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.finanstilsynet.no/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=66"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-oman-sultanate-of-financial-services-authority",
+      "name": "Financial Services Authority",
+      "jurisdictions": [
+        "Oman, Sultanate of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.fsa.gov.om",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=67"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-ontario-ontario-securities-commission",
+      "name": "Ontario Securities Commission",
+      "jurisdictions": [
+        "Ontario"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.osc.ca/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=68"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-pakistan-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Pakistan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.secp.gov.pk/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=69"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-palestine-palestine-capital-market-authority",
+      "name": "Palestine Capital Market Authority",
+      "jurisdictions": [
+        "Palestine"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.pcma.ps",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=412"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-panama-superintendencia-del-mercado-de-valores",
+      "name": "Superintendencia del Mercado de Valores",
+      "jurisdictions": [
+        "Panama"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.supervalores.gob.pa/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=70"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-papua-new-guinea-securities-commission-of-papua-new-guinea",
+      "name": "Securities Commission of Papua New Guinea",
+      "jurisdictions": [
+        "Papua New Guinea"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.scpng.gov.pg",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=71"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-paraguay-superintendencia-de-valores-banco-central-del-paraguay",
+      "name": "Superintendencia de Valores Banco Central del Paraguay",
+      "jurisdictions": [
+        "Paraguay"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://siv.bcp.gov.py/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=438"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-peru-superintendencia-del-mercado-de-valores",
+      "name": "Superintendencia del Mercado de Valores",
+      "jurisdictions": [
+        "Peru"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.smv.gob.pe/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=73"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-philippines-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Philippines"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.ph/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=74"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-poland-polish-financial-supervision-authority",
+      "name": "Polish Financial Supervision Authority",
+      "jurisdictions": [
+        "Poland"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.knf.gov.pl/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=75"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-portugal-comissao-do-mercado-de-valores-mobiliarios",
+      "name": "Comissão do Mercado de Valores Mobiliários",
+      "jurisdictions": [
+        "Portugal"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmvm.pt",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=76"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-qatar-qatar-financial-markets-authority",
+      "name": "Qatar Financial Markets Authority",
+      "jurisdictions": [
+        "Qatar"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.qfma.org.qa/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=395"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-quebec-autorite-des-marches-financiers",
+      "name": "Autorité des marchés financiers",
+      "jurisdictions": [
+        "Quebec"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.lautorite.qc.ca/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=77"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-romania-financial-supervisory-authority",
+      "name": "Financial Supervisory Authority",
+      "jurisdictions": [
+        "Romania"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.asfromania.ro/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=78"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-russia-the-bank-of-russia",
+      "name": "The Bank of Russia",
+      "jurisdictions": [
+        "Russia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cbr.ru",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=79"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-saudi-arabia-capital-market-authority",
+      "name": "Capital Market Authority",
+      "jurisdictions": [
+        "Saudi Arabia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cma.org.sa/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=361"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-serbia-republic-of-securities-commission",
+      "name": "Securities Commission",
+      "jurisdictions": [
+        "Serbia, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.rs",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=286"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-singapore-monetary-authority-of-singapore",
+      "name": "Monetary Authority of Singapore",
+      "jurisdictions": [
+        "Singapore"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.mas.gov.sg/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=80"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-slovak-republic-the-national-bank-of-slovakia",
+      "name": "The National Bank of Slovakia",
+      "jurisdictions": [
+        "Slovak Republic"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.nbs.sk",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=81"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-slovenia-securities-market-agency-agencija-za-trg-vrednostnih-papirjev",
+      "name": "Securities Market Agency/Agencija Za Trg Vrednostnih Papirjev",
+      "jurisdictions": [
+        "Slovenia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.atvp.si",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=82"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-south-africa-financial-sector-conduct-authority",
+      "name": "Financial Sector Conduct Authority",
+      "jurisdictions": [
+        "South Africa"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.fsca.co.za/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=83"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-spain-comision-nacional-del-mercado-de-valores",
+      "name": "Comisión Nacional del Mercado de Valores",
+      "jurisdictions": [
+        "Spain"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cnmv.es/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=84"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-sri-lanka-securities-and-exchange-commission-of-sri-lanka",
+      "name": "Securities and Exchange Commission of Sri Lanka",
+      "jurisdictions": [
+        "Sri Lanka"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov.lk/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=85"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-srpska-republic-of-securities-commission-of-the-republic-srpska",
+      "name": "Securities Commission of the Republic Srpska",
+      "jurisdictions": [
+        "Srpska, Republic of"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.secrs.gov.ba/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=86"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-sweden-finansinspektionen",
+      "name": "Finansinspektionen",
+      "jurisdictions": [
+        "Sweden"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fi.se/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=87"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-switzerland-swiss-financial-market-supervisory-authority",
+      "name": "Swiss Financial Market Supervisory Authority",
+      "jurisdictions": [
+        "Switzerland"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.finma.ch/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=88"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-syria-syrian-commission-on-financial-markets-and-securities",
+      "name": "Syrian Commission on Financial Markets and Securities",
+      "jurisdictions": [
+        "Syria"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.scfms.sy/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=362"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-chinese-taipei-financial-supervisory-commission",
+      "name": "Financial Supervisory Commission",
+      "jurisdictions": [
+        "Chinese Taipei"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fsc.gov.tw/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=89"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-tanzania-capital-markets-and-securities-authority",
+      "name": "Capital Markets and Securities Authority",
+      "jurisdictions": [
+        "Tanzania"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmsa-tz.org/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=90"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-thailand-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Thailand"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.or.th/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=91"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-trinidad-and-tobago-trinidad-and-tobago-securities-and-exchange-commission",
+      "name": "Trinidad and Tobago Securities and Exchange Commission",
+      "jurisdictions": [
+        "Trinidad and Tobago"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.ttsec.org.tt/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=92"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-tunisia-conseil-du-marche-financier",
+      "name": "Conseil du marché financier",
+      "jurisdictions": [
+        "Tunisia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmf.tn/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=93"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-turkiye-capital-markets-board",
+      "name": "Capital Markets Board",
+      "jurisdictions": [
+        "Türkiye"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmb.gov.tr/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=94"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-turks-caicos-turks-caicos-islands-financial-services-commission",
+      "name": "Turks & Caicos Islands Financial Services Commission",
+      "jurisdictions": [
+        "Turks & Caicos"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.tcifsc.tc/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=432"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-uganda-capital-markets-authority",
+      "name": "Capital Markets Authority",
+      "jurisdictions": [
+        "Uganda"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cmauganda.co.ug",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=95"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-ukraine-national-securities-and-stock-market-commission",
+      "name": "National Securities and Stock Market Commission",
+      "jurisdictions": [
+        "Ukraine"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.nssmc.gov.ua",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=96"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-united-arab-emirates-capital-market-authority",
+      "name": "Capital Market Authority",
+      "jurisdictions": [
+        "United Arab Emirates"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sca.ae",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=294"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-united-kingdom-financial-conduct-authority",
+      "name": "Financial Conduct Authority",
+      "jurisdictions": [
+        "United Kingdom"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.fca.org.uk",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=97"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-united-states-of-america-commodity-futures-trading-commission",
+      "name": "Commodity Futures Trading Commission",
+      "jurisdictions": [
+        "United States of America"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.cftc.gov/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=108"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-united-states-of-america-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "United States of America"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.sec.gov/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=98"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-uruguay-banco-central-del-uruguay",
+      "name": "Banco Central del Uruguay",
+      "jurisdictions": [
+        "Uruguay"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.bcu.gub.uy/",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=99"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-uzbekistan-national-agency-of-perspective-projects-of-the-republic-of-uzbekistan",
+      "name": "National Agency of Perspective Projects of the Republic of Uzbekistan",
+      "jurisdictions": [
+        "Uzbekistan"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.napp.uz",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=100"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-vietnam-state-securities-commission",
+      "name": "State Securities Commission",
+      "jurisdictions": [
+        "Vietnam"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=102",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=102"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-west-african-monetary-union-autorite-des-marches-financiers-de-l-umoa",
+      "name": "Autorité des Marchés Financiers de l’UMOA",
+      "jurisdictions": [
+        "West African Monetary Union"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.crepmf.org",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=103"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    },
+    {
+      "id": "iosco-zambia-securities-and-exchange-commission",
+      "name": "Securities and Exchange Commission",
+      "jurisdictions": [
+        "Zambia"
+      ],
+      "functions": [
+        "securities-and-markets"
+      ],
+      "publicationLanguages": [],
+      "languageReview": "required",
+      "homepage": "http://www.seczambia.org.zm",
+      "provenance": {
+        "directory": "IOSCO ordinary members",
+        "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=104"
+      },
+      "verification": "official-directory",
+      "ingestion": {
+        "status": "catalogued",
+        "method": "to-assess",
+        "endpoints": []
+      }
+    }
+  ],
+  "supplementalSources": [
+    {
+      "id": "uk-fca",
+      "name": "Financial Conduct Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://www.fca.org.uk/news",
+      "cadence": "weekly",
+      "useFor": [
+        "conduct",
+        "crypto",
+        "consumer-duty",
+        "financial-crime",
+        "ai-governance",
+        "market-integrity"
+      ]
+    },
+    {
+      "id": "uk-fca-enforcement-notices",
+      "name": "Financial Conduct Authority Enforcement Notices",
+      "category": "regulation",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://www.fca.org.uk/news/search-results?category=notices%20and%20decisions",
+      "cadence": "weekly",
+      "useFor": [
+        "enforcement",
+        "conduct",
+        "financial-crime",
+        "control-failures",
+        "consumer-duty"
+      ]
+    },
+    {
+      "id": "uk-boe-pra",
+      "name": "Bank of England and Prudential Regulation Authority",
+      "category": "prudential",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://www.bankofengland.co.uk/news",
+      "cadence": "weekly",
+      "useFor": [
+        "capital",
+        "liquidity",
+        "operational-resilience",
+        "financial-stability",
+        "payments",
+        "private-markets"
+      ]
+    },
+    {
+      "id": "ecb-supervision",
+      "name": "European Central Bank Banking Supervision",
+      "category": "regulation",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.bankingsupervision.europa.eu/press/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": [
+        "bank-supervision",
+        "credit-risk",
+        "governance",
+        "climate",
+        "technology-risk"
+      ]
+    },
+    {
+      "id": "ecb-ssm-newsletter",
+      "name": "ECB Banking Supervision Newsletter",
+      "category": "prudential",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html",
+      "cadence": "monthly",
+      "useFor": [
+        "bank-supervision",
+        "supervisory-priorities",
+        "prudential-policy",
+        "resilience",
+        "governance"
+      ]
+    },
+    {
+      "id": "ecb-supervisory-priorities",
+      "name": "ECB Banking Supervision Priorities and Risks",
+      "category": "prudential",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": [
+        "bank-supervision",
+        "supervisory-priorities",
+        "risk-themes",
+        "governance",
+        "resilience"
+      ]
+    },
+    {
+      "id": "eba",
+      "name": "European Banking Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.eba.europa.eu/publications-and-media/press-releases",
+      "cadence": "weekly",
+      "useFor": [
+        "prudential-policy",
+        "payments",
+        "crypto",
+        "operational-risk",
+        "outsourcing"
+      ]
+    },
+    {
+      "id": "esma",
+      "name": "European Securities and Markets Authority",
+      "category": "markets",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.esma.europa.eu/press-news/esma-news",
+      "cadence": "weekly",
+      "useFor": [
+        "markets",
+        "funds",
+        "crypto",
+        "market-abuse",
+        "disclosures",
+        "data-reporting"
+      ]
+    },
+    {
+      "id": "eiopa",
+      "name": "European Insurance and Occupational Pensions Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.eiopa.europa.eu/media/news_en",
+      "cadence": "weekly",
+      "useFor": [
+        "insurance",
+        "pensions",
+        "dora",
+        "conduct",
+        "financial-stability",
+        "supervisory-convergence"
+      ]
+    },
+    {
+      "id": "bis",
+      "name": "Bank for International Settlements",
+      "category": "financial-stability",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.bis.org/list/press_releases/index.htm",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-stability",
+        "ai-capex",
+        "payments",
+        "banking",
+        "macroprudential"
+      ]
+    },
+    {
+      "id": "fsb",
+      "name": "Financial Stability Board",
+      "category": "financial-stability",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.fsb.org/press/",
+      "cadence": "weekly",
+      "useFor": [
+        "nonbank-finance",
+        "crypto",
+        "operational-resilience",
+        "climate",
+        "cross-border-policy"
+      ]
+    },
+    {
+      "id": "bcbs",
+      "name": "Basel Committee on Banking Supervision",
+      "category": "prudential",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.bis.org/bcbs/publications.htm",
+      "cadence": "weekly",
+      "useFor": [
+        "capital",
+        "liquidity",
+        "banking-standards",
+        "crypto",
+        "climate-risk"
+      ]
+    },
+    {
+      "id": "iosco",
+      "name": "IOSCO",
+      "category": "markets",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.iosco.org/news/",
+      "cadence": "weekly",
+      "useFor": [
+        "markets",
+        "asset-management",
+        "crypto",
+        "retail-investors",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "sec",
+      "name": "US Securities and Exchange Commission",
+      "category": "markets",
+      "jurisdictions": [
+        "US"
+      ],
+      "url": "https://www.sec.gov/newsroom",
+      "cadence": "weekly",
+      "useFor": [
+        "markets",
+        "disclosures",
+        "crypto",
+        "enforcement",
+        "market-structure"
+      ]
+    },
+    {
+      "id": "cftc",
+      "name": "US Commodity Futures Trading Commission",
+      "category": "markets",
+      "jurisdictions": [
+        "US"
+      ],
+      "url": "https://www.cftc.gov/PressRoom/PressReleases",
+      "cadence": "weekly",
+      "useFor": [
+        "derivatives",
+        "commodities",
+        "market-abuse",
+        "crypto",
+        "clearing"
+      ]
+    },
+    {
+      "id": "uk-nca",
+      "name": "National Crime Agency",
+      "category": "financial-crime",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://www.nationalcrimeagency.gov.uk/news",
+      "cadence": "weekly",
+      "useFor": [
+        "fraud",
+        "money-laundering",
+        "sanctions",
+        "organised-crime",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "ofsi",
+      "name": "UK Office of Financial Sanctions Implementation",
+      "category": "financial-crime",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation",
+      "cadence": "weekly",
+      "useFor": [
+        "sanctions",
+        "financial-crime",
+        "enforcement",
+        "screening"
+      ]
+    },
+    {
+      "id": "fatf",
+      "name": "Financial Action Task Force",
+      "category": "financial-crime",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.fatf-gafi.org/en/publications.html",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-crime",
+        "aml",
+        "ctf",
+        "sanctions",
+        "crypto"
+      ]
+    },
+    {
+      "id": "fincen-enforcement",
+      "name": "FinCEN Enforcement Actions",
+      "category": "financial-crime",
+      "jurisdictions": [
+        "US"
+      ],
+      "url": "https://www.fincen.gov/news/enforcement-actions",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-crime",
+        "aml",
+        "enforcement",
+        "control-failures"
+      ]
+    },
+    {
+      "id": "ofac-recent-actions",
+      "name": "OFAC Recent Actions",
+      "category": "financial-crime",
+      "jurisdictions": [
+        "US"
+      ],
+      "url": "https://ofac.treasury.gov/recent-actions",
+      "cadence": "weekly",
+      "useFor": [
+        "sanctions",
+        "financial-crime",
+        "enforcement",
+        "screening"
+      ]
+    },
+    {
+      "id": "amf-sanctions",
+      "name": "AMF Enforcement Committee News Releases",
+      "category": "markets",
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases",
+      "cadence": "weekly",
+      "useFor": [
+        "enforcement",
+        "market-conduct",
+        "control-failures",
+        "asset-management"
+      ]
+    },
+    {
+      "id": "ecb-supervision-sanctions",
+      "name": "ECB Banking Supervision Sanctions",
+      "category": "prudential",
+      "jurisdictions": [
+        "EU"
+      ],
+      "url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html",
+      "cadence": "weekly",
+      "useFor": [
+        "bank-supervision",
+        "enforcement",
+        "prudential-policy",
+        "control-failures"
+      ]
+    },
+    {
+      "id": "ft",
+      "name": "Financial Times",
+      "category": "markets",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.ft.com/financial-services",
+      "cadence": "weekly",
+      "useFor": [
+        "markets",
+        "banking",
+        "asset-management",
+        "technology",
+        "private-markets"
+      ]
+    },
+    {
+      "id": "reuters-regulatory-news",
+      "name": "Reuters Regulatory News",
+      "category": "regulation",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.reuters.com/sustainability/boards-policy-regulation/",
+      "cadence": "weekly",
+      "useFor": [
+        "regulation",
+        "incident-corroboration",
+        "markets",
+        "policy",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "regulation-tomorrow",
+      "name": "Global Regulation Tomorrow",
+      "category": "regulation",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.regulationtomorrow.com/",
+      "cadence": "weekly",
+      "useFor": [
+        "regulatory-interpretation",
+        "deadline-analysis",
+        "financial-services-policy",
+        "horizon"
+      ]
+    },
+    {
+      "id": "sidley-insights",
+      "name": "Sidley Insights",
+      "category": "regulation",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.sidley.com/en/insights/newsupdates",
+      "cadence": "weekly",
+      "useFor": [
+        "regulatory-interpretation",
+        "financial-services-policy",
+        "deadline-analysis",
+        "markets",
+        "digital-assets"
+      ]
+    },
+    {
+      "id": "ao-shearman-insights",
+      "name": "A&O Shearman Insights",
+      "category": "regulation",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.aoshearman.com/en/insights",
+      "cadence": "weekly",
+      "useFor": [
+        "regulatory-interpretation",
+        "financial-services-policy",
+        "deadline-analysis",
+        "markets",
+        "dora"
+      ]
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "category": "markets",
+      "jurisdictions": [
+        "Global"
+      ],
+      "url": "https://www.reuters.com/business/finance/",
+      "cadence": "weekly",
+      "useFor": [
+        "markets",
+        "companies",
+        "regulation",
+        "technology",
+        "macro"
+      ]
+    },
+    {
+      "id": "ico",
+      "name": "UK Information Commissioner's Office",
+      "category": "regulation",
+      "jurisdictions": [
+        "UK"
+      ],
+      "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/",
+      "cadence": "weekly",
+      "useFor": [
+        "data-protection",
+        "privacy",
+        "data-governance",
+        "ai-data"
+      ]
+    },
+    {
+      "id": "de-bundesbank",
+      "name": "Deutsche Bundesbank",
+      "category": "prudential",
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "url": "https://www.bundesbank.de/de/aufgaben/themen",
+      "cadence": "weekly",
+      "useFor": [
+        "ict-risk",
+        "operational-risk",
+        "data",
+        "third-party",
+        "german-language"
+      ]
+    },
+    {
+      "id": "finma",
+      "name": "Swiss Financial Market Supervisory Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "Switzerland"
+      ],
+      "url": "https://www.finma.ch/en/news/",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-supervision",
+        "operational-risk",
+        "technology",
+        "sanctions",
+        "markets"
+      ]
+    },
+    {
+      "id": "japan-fsa",
+      "name": "Financial Services Agency of Japan",
+      "category": "regulation",
+      "jurisdictions": [
+        "Japan"
+      ],
+      "url": "https://www.fsa.go.jp/en/news/index.html",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-regulation",
+        "supervision",
+        "markets",
+        "technology-risk",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "hkma",
+      "name": "Hong Kong Monetary Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/",
+      "cadence": "daily",
+      "useFor": [
+        "banking-supervision",
+        "payments",
+        "market-infrastructure",
+        "prudential-policy",
+        "fintech",
+        "consultations"
+      ]
+    },
+    {
+      "id": "apra",
+      "name": "Australian Prudential Regulation Authority",
+      "category": "prudential",
+      "jurisdictions": [
+        "Australia"
+      ],
+      "url": "https://www.apra.gov.au/news-and-publications",
+      "cadence": "weekly",
+      "useFor": [
+        "prudential-policy",
+        "supervision",
+        "capital",
+        "reporting",
+        "operational-risk"
+      ]
+    },
+    {
+      "id": "asic",
+      "name": "Australian Securities and Investments Commission",
+      "category": "regulation",
+      "jurisdictions": [
+        "Australia"
+      ],
+      "url": "https://www.asic.gov.au/regulatory-resources/find-a-document/regulatory-document-updates/regulatory-tracker/",
+      "cadence": "weekly",
+      "useFor": [
+        "conduct",
+        "markets",
+        "consumer-protection",
+        "consultations",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "mas",
+      "name": "Monetary Authority of Singapore",
+      "category": "regulation",
+      "jurisdictions": [
+        "Singapore"
+      ],
+      "url": "https://www.mas.gov.sg/news",
+      "cadence": "weekly",
+      "useFor": [
+        "banking-supervision",
+        "markets",
+        "payments",
+        "financial-crime",
+        "technology-risk"
+      ]
+    },
+    {
+      "id": "osfi",
+      "name": "Office of the Superintendent of Financial Institutions",
+      "category": "prudential",
+      "jurisdictions": [
+        "Canada"
+      ],
+      "url": "https://www.osfi-bsif.gc.ca/en/news",
+      "cadence": "weekly",
+      "useFor": [
+        "prudential-policy",
+        "supervision",
+        "capital",
+        "liquidity",
+        "operational-risk"
+      ]
+    },
+    {
+      "id": "india-sebi",
+      "name": "Securities and Exchange Board of India",
+      "category": "markets",
+      "jurisdictions": [
+        "India"
+      ],
+      "url": "https://www.sebi.gov.in/rss.html",
+      "cadence": "daily",
+      "useFor": [
+        "securities",
+        "circulars",
+        "consultations",
+        "orders",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "korea-fsc",
+      "name": "Financial Services Commission of Korea",
+      "category": "regulation",
+      "jurisdictions": [
+        "South Korea"
+      ],
+      "url": "https://www.fsc.go.kr/eng/pr010101",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-policy",
+        "banking",
+        "markets",
+        "disclosure",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "brazil-cvm",
+      "name": "Comissão de Valores Mobiliários",
+      "category": "markets",
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/",
+      "cadence": "daily",
+      "useFor": [
+        "securities",
+        "portuguese-language",
+        "consultations",
+        "enforcement",
+        "market-guidance"
+      ]
+    },
+    {
+      "id": "fr-amf",
+      "name": "Autorité des marchés financiers",
+      "category": "markets",
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "url": "https://www.amf-france.org/fr/abonnements-flux-rss",
+      "cadence": "daily",
+      "useFor": [
+        "securities",
+        "french-language",
+        "regulation",
+        "doctrine",
+        "sanctions"
+      ]
+    },
+    {
+      "id": "spain-cnmv",
+      "name": "Comisión Nacional del Mercado de Valores",
+      "category": "markets",
+      "jurisdictions": [
+        "Spain",
+        "EU"
+      ],
+      "url": "https://www.cnmv.es/portal/gpage?id=RSS",
+      "cadence": "daily",
+      "useFor": [
+        "securities",
+        "spanish-language",
+        "regulated-entities",
+        "consultations",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "ireland-cbi",
+      "name": "Central Bank of Ireland",
+      "category": "prudential",
+      "jurisdictions": [
+        "Ireland",
+        "EU"
+      ],
+      "url": "https://www.centralbank.ie/fns/rss-feeds",
+      "cadence": "daily",
+      "useFor": [
+        "banking-supervision",
+        "markets",
+        "consumer-protection",
+        "consultations",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "adgm-fsra",
+      "name": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "Abu Dhabi",
+        "United Arab Emirates"
+      ],
+      "url": "https://www.adgm.com/legal-framework/public-consultations",
+      "cadence": "weekly",
+      "useFor": [
+        "financial-services",
+        "consultations",
+        "prudential",
+        "markets",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "de-bafin",
+      "name": "Bundesanstalt für Finanzdienstleistungsaufsicht",
+      "category": "prudential",
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "url": "https://bafin.de/",
+      "cadence": "daily",
+      "useFor": [
+        "banking-supervision",
+        "markets",
+        "insurance",
+        "german-language",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "dubai-dfsa",
+      "name": "Dubai Financial Services Authority",
+      "category": "regulation",
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "url": "https://www.dfsa.ae/news",
+      "cadence": "daily",
+      "useFor": [
+        "financial-services",
+        "consultations",
+        "rulebook",
+        "supervision",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "mexico-cnbv",
+      "name": "Comisión Nacional Bancaria y de Valores",
+      "category": "prudential",
+      "jurisdictions": [
+        "Mexico"
+      ],
+      "url": "https://www.gob.mx/cnbv/archivo/prensa?idiom=es-MX",
+      "cadence": "daily",
+      "useFor": [
+        "banking-supervision",
+        "markets",
+        "spanish-language",
+        "capital",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "italy-consob",
+      "name": "Commissione Nazionale per le Società e la Borsa",
+      "category": "markets",
+      "jurisdictions": [
+        "Italy",
+        "EU"
+      ],
+      "url": "https://www.consob.it/web/consob/comunicati-stampa",
+      "cadence": "daily",
+      "useFor": [
+        "securities",
+        "italian-language",
+        "market-conduct",
+        "supervision",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "saudi-cma",
+      "name": "Capital Market Authority of Saudi Arabia",
+      "category": "markets",
+      "jurisdictions": [
+        "Saudi Arabia"
+      ],
+      "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+      "cadence": "weekly",
+      "useFor": [
+        "securities",
+        "consultations",
+        "capital-markets",
+        "market-conduct",
+        "enforcement"
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "id": "iosco-jurisdiction-organization-home",
+      "authorityId": "iosco-jurisdiction-organization",
+      "type": "authority-home",
+      "url": "http://www.adgm.com/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-abu-dhabi-financial-services-regulatory-authority-home",
+      "authorityId": "iosco-abu-dhabi-financial-services-regulatory-authority",
+      "type": "authority-home",
+      "url": "http://www.adgm.com/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-albania-albanian-financial-supervisory-authority-home",
+      "authorityId": "iosco-albania-albanian-financial-supervisory-authority",
+      "type": "authority-home",
+      "url": "http://www.amf.gov.al/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-alberta-alberta-securities-commission-home",
+      "authorityId": "iosco-alberta-alberta-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.albertasecurities.com/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-algeria-commission-d-organisation-et-de-surveillance-des-operations-de-bourse-home",
+      "authorityId": "iosco-algeria-commission-d-organisation-et-de-surveillance-des-operations-de-bourse",
+      "type": "authority-home",
+      "url": "http://www.cosob.org",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-andorra-autoritat-financera-andorrana-home",
+      "authorityId": "iosco-andorra-autoritat-financera-andorrana",
+      "type": "authority-home",
+      "url": "http://www.afa.ad/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-angola-comissao-do-mercado-de-capitais-home",
+      "authorityId": "iosco-angola-comissao-do-mercado-de-capitais",
+      "type": "authority-home",
+      "url": "http://www.cmc.ao",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-argentina-comision-nacional-de-valores-home",
+      "authorityId": "iosco-argentina-comision-nacional-de-valores",
+      "type": "authority-home",
+      "url": "http://www.cnv.gob.ar/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-armenia-central-bank-of-armenia-home",
+      "authorityId": "iosco-armenia-central-bank-of-armenia",
+      "type": "authority-home",
+      "url": "https://www.cba.am",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-australia-australian-securities-and-investments-commission-home",
+      "authorityId": "iosco-australia-australian-securities-and-investments-commission",
+      "type": "authority-home",
+      "url": "http://www.asic.gov.au/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-austria-financial-market-authority-home",
+      "authorityId": "iosco-austria-financial-market-authority",
+      "type": "authority-home",
+      "url": "http://www.fma.gv.at/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bahamas-securities-commission-of-the-bahamas-home",
+      "authorityId": "iosco-bahamas-securities-commission-of-the-bahamas",
+      "type": "authority-home",
+      "url": "http://www.scb.gov.bs/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bahrain-kingdom-of-central-bank-of-bahrain-home",
+      "authorityId": "iosco-bahrain-kingdom-of-central-bank-of-bahrain",
+      "type": "authority-home",
+      "url": "http://www.cbb.gov.bh/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bangladesh-bangladesh-securities-and-exchange-commission-home",
+      "authorityId": "iosco-bangladesh-bangladesh-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.bd/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-barbados-financial-services-commission-home",
+      "authorityId": "iosco-barbados-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.fsc.gov.bb/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-belgium-financial-services-and-markets-authority-home",
+      "authorityId": "iosco-belgium-financial-services-and-markets-authority",
+      "type": "authority-home",
+      "url": "http://www.fsma.be/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-belize-financial-services-commission-home",
+      "authorityId": "iosco-belize-financial-services-commission",
+      "type": "authority-home",
+      "url": "https://www.belizefsc.org.bz/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bermuda-bermuda-monetary-authority-home",
+      "authorityId": "iosco-bermuda-bermuda-monetary-authority",
+      "type": "authority-home",
+      "url": "http://www.bma.bm/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bolivia-autoridad-de-supervision-del-sistema-financiero-home",
+      "authorityId": "iosco-bolivia-autoridad-de-supervision-del-sistema-financiero",
+      "type": "authority-home",
+      "url": "http://www.asfi.gob.bo",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bosnia-and-herzegovina-federation-of-securities-commission-of-the-federation-of-bosnia-and-herzegovina-home",
+      "authorityId": "iosco-bosnia-and-herzegovina-federation-of-securities-commission-of-the-federation-of-bosnia-and-herzegovina",
+      "type": "authority-home",
+      "url": "http://www.komvp.gov.ba/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-brazil-comissao-de-valores-mobiliarios-home",
+      "authorityId": "iosco-brazil-comissao-de-valores-mobiliarios",
+      "type": "authority-home",
+      "url": "http://www.cvm.gov.br/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-british-columbia-british-columbia-securities-commission-home",
+      "authorityId": "iosco-british-columbia-british-columbia-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.bcsc.bc.ca",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-british-virgin-islands-british-virgin-islands-financial-services-commission-home",
+      "authorityId": "iosco-british-virgin-islands-british-virgin-islands-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.bvifsc.vg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-brunei-brunei-darussalam-central-bank-home",
+      "authorityId": "iosco-brunei-brunei-darussalam-central-bank",
+      "type": "authority-home",
+      "url": "http://www.bdcb.gov.bn",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-bulgaria-financial-supervision-commission-home",
+      "authorityId": "iosco-bulgaria-financial-supervision-commission",
+      "type": "authority-home",
+      "url": "http://www.fsc.bg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-cabo-verde-auditoria-geral-do-mercado-de-valores-mobiliarios-banco-central-of-cabo-verde-home",
+      "authorityId": "iosco-cabo-verde-auditoria-geral-do-mercado-de-valores-mobiliarios-banco-central-of-cabo-verde",
+      "type": "authority-home",
+      "url": "http://www.bcv.cv",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-cayman-islands-cayman-islands-monetary-authority-home",
+      "authorityId": "iosco-cayman-islands-cayman-islands-monetary-authority",
+      "type": "authority-home",
+      "url": "http://www.cima.ky",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-central-africa-commission-de-surveillance-du-marche-financier-de-l-afrique-centrale-securities--home",
+      "authorityId": "iosco-central-africa-commission-de-surveillance-du-marche-financier-de-l-afrique-centrale-securities-",
+      "type": "authority-home",
+      "url": "http://www.cosumaf.org",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-chile-comision-para-el-mercado-financiero-financial-market-commission-home",
+      "authorityId": "iosco-chile-comision-para-el-mercado-financiero-financial-market-commission",
+      "type": "authority-home",
+      "url": "http://www.cmfchile.cl",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-china-china-securities-regulatory-commission-home",
+      "authorityId": "iosco-china-china-securities-regulatory-commission",
+      "type": "authority-home",
+      "url": "http://www.csrc.gov.cn/pub/csrc_en/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-colombia-superintendencia-financiera-de-colombia-home",
+      "authorityId": "iosco-colombia-superintendencia-financiera-de-colombia",
+      "type": "authority-home",
+      "url": "http://www.superfinanciera.gov.co",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-costa-rica-superintendencia-general-de-valores-home",
+      "authorityId": "iosco-costa-rica-superintendencia-general-de-valores",
+      "type": "authority-home",
+      "url": "http://www.sugeval.fi.cr/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-croatia-republic-of-croatian-financial-services-supervisory-agency-home",
+      "authorityId": "iosco-croatia-republic-of-croatian-financial-services-supervisory-agency",
+      "type": "authority-home",
+      "url": "http://www.hanfa.hr/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-cyprus-cyprus-securities-and-exchange-commission-home",
+      "authorityId": "iosco-cyprus-cyprus-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.cysec.gov.cy/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-czech-republic-czech-national-bank-home",
+      "authorityId": "iosco-czech-republic-czech-national-bank",
+      "type": "authority-home",
+      "url": "http://www.cnb.cz/en/index.html/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-denmark-danish-financial-supervisory-authority-home",
+      "authorityId": "iosco-denmark-danish-financial-supervisory-authority",
+      "type": "authority-home",
+      "url": "http://www.finanstilsynet.dk/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-difc-dubai-dubai-financial-services-authority-home",
+      "authorityId": "iosco-difc-dubai-dubai-financial-services-authority",
+      "type": "authority-home",
+      "url": "http://www.dfsa.ae",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-dominican-republic-superintendencia-del-mercado-de-valores-home",
+      "authorityId": "iosco-dominican-republic-superintendencia-del-mercado-de-valores",
+      "type": "authority-home",
+      "url": "http://www.simv.gob.do",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-ecuador-superintendencia-de-companias-valores-y-seguros-home",
+      "authorityId": "iosco-ecuador-superintendencia-de-companias-valores-y-seguros",
+      "type": "authority-home",
+      "url": "http://www.supercias.gob.ec",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-egypt-financial-regulatory-authority-home",
+      "authorityId": "iosco-egypt-financial-regulatory-authority",
+      "type": "authority-home",
+      "url": "http://www.fra.gov.eg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-el-salvador-superintendencia-del-sistema-financiero-home",
+      "authorityId": "iosco-el-salvador-superintendencia-del-sistema-financiero",
+      "type": "authority-home",
+      "url": "http://www.ssf.gob.sv",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-estonia-finantsinspektsioon-home",
+      "authorityId": "iosco-estonia-finantsinspektsioon",
+      "type": "authority-home",
+      "url": "http://www.fi.ee/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-finland-financial-supervision-authority-home",
+      "authorityId": "iosco-finland-financial-supervision-authority",
+      "type": "authority-home",
+      "url": "http://www.finanssivalvonta.fi/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-france-autorite-des-marches-financiers-home",
+      "authorityId": "iosco-france-autorite-des-marches-financiers",
+      "type": "authority-home",
+      "url": "http://www.amf-france.org/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-georgia-national-bank-of-georgia-home",
+      "authorityId": "iosco-georgia-national-bank-of-georgia",
+      "type": "authority-home",
+      "url": "http://www.nbg.ge/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-germany-bundesanstalt-fur-finanzdienstleistungsaufsicht-home",
+      "authorityId": "iosco-germany-bundesanstalt-fur-finanzdienstleistungsaufsicht",
+      "type": "authority-home",
+      "url": "http://www.bafin.de/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-ghana-securities-and-exchange-commission-home",
+      "authorityId": "iosco-ghana-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.gh",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-gibraltar-gibraltar-financial-services-commission-home",
+      "authorityId": "iosco-gibraltar-gibraltar-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.fsc.gi/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-greece-hellenic-capital-market-commission-home",
+      "authorityId": "iosco-greece-hellenic-capital-market-commission",
+      "type": "authority-home",
+      "url": "http://www.hcmc.gr/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-guernsey-guernsey-financial-services-commission-home",
+      "authorityId": "iosco-guernsey-guernsey-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.gfsc.gg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-hong-kong-securities-and-futures-commission-home",
+      "authorityId": "iosco-hong-kong-securities-and-futures-commission",
+      "type": "authority-home",
+      "url": "https://www.sfc.hk/web/EN/index.html",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-hungary-magyar-nemzeti-bank-the-central-bank-of-hungary-home",
+      "authorityId": "iosco-hungary-magyar-nemzeti-bank-the-central-bank-of-hungary",
+      "type": "authority-home",
+      "url": "http://www.mnb.hu/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-iceland-the-central-bank-of-iceland-home",
+      "authorityId": "iosco-iceland-the-central-bank-of-iceland",
+      "type": "authority-home",
+      "url": "http://www.cb.is/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-india-securities-and-exchange-board-of-india-home",
+      "authorityId": "iosco-india-securities-and-exchange-board-of-india",
+      "type": "authority-home",
+      "url": "http://www.sebi.gov.in/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-indonesia-indonesia-financial-services-authority-home",
+      "authorityId": "iosco-indonesia-indonesia-financial-services-authority",
+      "type": "authority-home",
+      "url": "https://www.ojk.go.id/en/Default.aspx",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-iran-securities-and-exchange-organization-home",
+      "authorityId": "iosco-iran-securities-and-exchange-organization",
+      "type": "authority-home",
+      "url": "http://en.seo.ir",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-ireland-central-bank-of-ireland-home",
+      "authorityId": "iosco-ireland-central-bank-of-ireland",
+      "type": "authority-home",
+      "url": "http://www.centralbank.ie/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-isle-of-man-isle-of-man-financial-services-authority-home",
+      "authorityId": "iosco-isle-of-man-isle-of-man-financial-services-authority",
+      "type": "authority-home",
+      "url": "http://www.iomfsa.im",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-israel-israel-securities-authority-home",
+      "authorityId": "iosco-israel-israel-securities-authority",
+      "type": "authority-home",
+      "url": "http://www.isa.gov.il/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-italy-commissione-nazionale-per-le-societa-e-la-borsa-home",
+      "authorityId": "iosco-italy-commissione-nazionale-per-le-societa-e-la-borsa",
+      "type": "authority-home",
+      "url": "http://www.consob.it/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-jamaica-financial-services-commission-home",
+      "authorityId": "iosco-jamaica-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.fscjamaica.org/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-japan-financial-services-agency-home",
+      "authorityId": "iosco-japan-financial-services-agency",
+      "type": "authority-home",
+      "url": "http://www.fsa.go.jp/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-japan-ministry-of-agriculture-forestry-and-fisheries-home",
+      "authorityId": "iosco-japan-ministry-of-agriculture-forestry-and-fisheries",
+      "type": "authority-home",
+      "url": "http://www.maff.go.jp/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-japan-ministry-of-economy-trade-and-industry-home",
+      "authorityId": "iosco-japan-ministry-of-economy-trade-and-industry",
+      "type": "authority-home",
+      "url": "https://www.meti.go.jp/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-jersey-jersey-financial-services-commission-home",
+      "authorityId": "iosco-jersey-jersey-financial-services-commission",
+      "type": "authority-home",
+      "url": "https://www.jerseyfsc.org/about-us/contact-us/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-jordan-jordan-securities-commission-home",
+      "authorityId": "iosco-jordan-jordan-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.jsc.gov.jo/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-kazakhstan-republic-of-agency-of-the-republic-of-kazakhstan-for-regulation-and-development-of-financial-home",
+      "authorityId": "iosco-kazakhstan-republic-of-agency-of-the-republic-of-kazakhstan-for-regulation-and-development-of-financial",
+      "type": "authority-home",
+      "url": "http://www.finreg.kz/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-kenya-capital-markets-authority-home",
+      "authorityId": "iosco-kenya-capital-markets-authority",
+      "type": "authority-home",
+      "url": "http://www.cma.or.ke/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-korea-republic-of-financial-services-commission-financial-supervisory-service-home",
+      "authorityId": "iosco-korea-republic-of-financial-services-commission-financial-supervisory-service",
+      "type": "authority-home",
+      "url": "http://www.fsc.go.kr/eng",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-kuwait-capital-markets-authority-home",
+      "authorityId": "iosco-kuwait-capital-markets-authority",
+      "type": "authority-home",
+      "url": "http://www.cma.gov.kw",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-kyrgyz-republic-state-service-for-financial-market-regulation-and-supervision-under-the-governme-home",
+      "authorityId": "iosco-kyrgyz-republic-state-service-for-financial-market-regulation-and-supervision-under-the-governme",
+      "type": "authority-home",
+      "url": "https://www.fsa.kg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-latvia-republic-of-latvijas-banka-home",
+      "authorityId": "iosco-latvia-republic-of-latvijas-banka",
+      "type": "authority-home",
+      "url": "https://www.bank.lv/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-liechtenstein-financial-market-authority-home",
+      "authorityId": "iosco-liechtenstein-financial-market-authority",
+      "type": "authority-home",
+      "url": "http://www.fma-li.li/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-lithuania-bank-of-lithuania-home",
+      "authorityId": "iosco-lithuania-bank-of-lithuania",
+      "type": "authority-home",
+      "url": "http://www.lb.lt/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-luxembourg-commission-de-surveillance-du-secteur-financier-home",
+      "authorityId": "iosco-luxembourg-commission-de-surveillance-du-secteur-financier",
+      "type": "authority-home",
+      "url": "http://www.cssf.lu/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-malawi-reserve-bank-of-malawi-home",
+      "authorityId": "iosco-malawi-reserve-bank-of-malawi",
+      "type": "authority-home",
+      "url": "http://www.rbm.mw/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-malaysia-securities-commission-home",
+      "authorityId": "iosco-malaysia-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.sc.com.my/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-maldives-capital-market-development-authority-home",
+      "authorityId": "iosco-maldives-capital-market-development-authority",
+      "type": "authority-home",
+      "url": "https://cmda.gov.mv/en",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-malta-malta-financial-services-authority-home",
+      "authorityId": "iosco-malta-malta-financial-services-authority",
+      "type": "authority-home",
+      "url": "https://www.mfsa.mt/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-mauritius-financial-services-commission-home",
+      "authorityId": "iosco-mauritius-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.fscmauritius.org",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-mexico-comision-nacional-bancaria-y-de-valores-home",
+      "authorityId": "iosco-mexico-comision-nacional-bancaria-y-de-valores",
+      "type": "authority-home",
+      "url": "http://www.cnbv.gob.mx/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-monaco-principality-of-commission-de-controle-des-activites-financieres-home",
+      "authorityId": "iosco-monaco-principality-of-commission-de-controle-des-activites-financieres",
+      "type": "authority-home",
+      "url": "http://www.ccaf.mc",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-mongolia-financial-regulatory-commission-home",
+      "authorityId": "iosco-mongolia-financial-regulatory-commission",
+      "type": "authority-home",
+      "url": "http://www.frc.mn/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-montenegro-capital-market-authority-of-montenegro-home",
+      "authorityId": "iosco-montenegro-capital-market-authority-of-montenegro",
+      "type": "authority-home",
+      "url": "http://www.scmn.me/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-morocco-autorite-marocaine-du-marche-des-capitaux-home",
+      "authorityId": "iosco-morocco-autorite-marocaine-du-marche-des-capitaux",
+      "type": "authority-home",
+      "url": "http://www.ammc.ma/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-the-netherlands-the-dutch-authority-for-the-financial-markets-home",
+      "authorityId": "iosco-the-netherlands-the-dutch-authority-for-the-financial-markets",
+      "type": "authority-home",
+      "url": "http://www.afm.nl/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-new-zealand-financial-markets-authority-home",
+      "authorityId": "iosco-new-zealand-financial-markets-authority",
+      "type": "authority-home",
+      "url": "https://www.fma.govt.nz",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-nigeria-securities-and-exchange-commission-home",
+      "authorityId": "iosco-nigeria-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.ng",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-north-macedonia-republic-of-securities-and-exchange-commission-of-the-republic-of-north-macedonia-home",
+      "authorityId": "iosco-north-macedonia-republic-of-securities-and-exchange-commission-of-the-republic-of-north-macedonia",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.mk/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-norway-finanstilsynet-the-financial-supervisory-authority-of-norway-home",
+      "authorityId": "iosco-norway-finanstilsynet-the-financial-supervisory-authority-of-norway",
+      "type": "authority-home",
+      "url": "http://www.finanstilsynet.no/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-oman-sultanate-of-financial-services-authority-home",
+      "authorityId": "iosco-oman-sultanate-of-financial-services-authority",
+      "type": "authority-home",
+      "url": "https://www.fsa.gov.om",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-ontario-ontario-securities-commission-home",
+      "authorityId": "iosco-ontario-ontario-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.osc.ca/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-pakistan-securities-and-exchange-commission-home",
+      "authorityId": "iosco-pakistan-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "https://www.secp.gov.pk/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-palestine-palestine-capital-market-authority-home",
+      "authorityId": "iosco-palestine-palestine-capital-market-authority",
+      "type": "authority-home",
+      "url": "http://www.pcma.ps",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-panama-superintendencia-del-mercado-de-valores-home",
+      "authorityId": "iosco-panama-superintendencia-del-mercado-de-valores",
+      "type": "authority-home",
+      "url": "http://www.supervalores.gob.pa/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-papua-new-guinea-securities-commission-of-papua-new-guinea-home",
+      "authorityId": "iosco-papua-new-guinea-securities-commission-of-papua-new-guinea",
+      "type": "authority-home",
+      "url": "http://www.scpng.gov.pg",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-paraguay-superintendencia-de-valores-banco-central-del-paraguay-home",
+      "authorityId": "iosco-paraguay-superintendencia-de-valores-banco-central-del-paraguay",
+      "type": "authority-home",
+      "url": "https://siv.bcp.gov.py/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-peru-superintendencia-del-mercado-de-valores-home",
+      "authorityId": "iosco-peru-superintendencia-del-mercado-de-valores",
+      "type": "authority-home",
+      "url": "http://www.smv.gob.pe/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-philippines-securities-and-exchange-commission-home",
+      "authorityId": "iosco-philippines-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.ph/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-poland-polish-financial-supervision-authority-home",
+      "authorityId": "iosco-poland-polish-financial-supervision-authority",
+      "type": "authority-home",
+      "url": "http://www.knf.gov.pl/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-portugal-comissao-do-mercado-de-valores-mobiliarios-home",
+      "authorityId": "iosco-portugal-comissao-do-mercado-de-valores-mobiliarios",
+      "type": "authority-home",
+      "url": "http://www.cmvm.pt",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-qatar-qatar-financial-markets-authority-home",
+      "authorityId": "iosco-qatar-qatar-financial-markets-authority",
+      "type": "authority-home",
+      "url": "http://www.qfma.org.qa/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-quebec-autorite-des-marches-financiers-home",
+      "authorityId": "iosco-quebec-autorite-des-marches-financiers",
+      "type": "authority-home",
+      "url": "http://www.lautorite.qc.ca/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-romania-financial-supervisory-authority-home",
+      "authorityId": "iosco-romania-financial-supervisory-authority",
+      "type": "authority-home",
+      "url": "http://www.asfromania.ro/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-russia-the-bank-of-russia-home",
+      "authorityId": "iosco-russia-the-bank-of-russia",
+      "type": "authority-home",
+      "url": "http://www.cbr.ru",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-saudi-arabia-capital-market-authority-home",
+      "authorityId": "iosco-saudi-arabia-capital-market-authority",
+      "type": "authority-home",
+      "url": "http://www.cma.org.sa/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-serbia-republic-of-securities-commission-home",
+      "authorityId": "iosco-serbia-republic-of-securities-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.rs",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-singapore-monetary-authority-of-singapore-home",
+      "authorityId": "iosco-singapore-monetary-authority-of-singapore",
+      "type": "authority-home",
+      "url": "http://www.mas.gov.sg/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-slovak-republic-the-national-bank-of-slovakia-home",
+      "authorityId": "iosco-slovak-republic-the-national-bank-of-slovakia",
+      "type": "authority-home",
+      "url": "https://www.nbs.sk",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-slovenia-securities-market-agency-agencija-za-trg-vrednostnih-papirjev-home",
+      "authorityId": "iosco-slovenia-securities-market-agency-agencija-za-trg-vrednostnih-papirjev",
+      "type": "authority-home",
+      "url": "http://www.atvp.si",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-south-africa-financial-sector-conduct-authority-home",
+      "authorityId": "iosco-south-africa-financial-sector-conduct-authority",
+      "type": "authority-home",
+      "url": "https://www.fsca.co.za/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-spain-comision-nacional-del-mercado-de-valores-home",
+      "authorityId": "iosco-spain-comision-nacional-del-mercado-de-valores",
+      "type": "authority-home",
+      "url": "http://www.cnmv.es/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-sri-lanka-securities-and-exchange-commission-of-sri-lanka-home",
+      "authorityId": "iosco-sri-lanka-securities-and-exchange-commission-of-sri-lanka",
+      "type": "authority-home",
+      "url": "http://www.sec.gov.lk/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-srpska-republic-of-securities-commission-of-the-republic-srpska-home",
+      "authorityId": "iosco-srpska-republic-of-securities-commission-of-the-republic-srpska",
+      "type": "authority-home",
+      "url": "http://www.secrs.gov.ba/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-sweden-finansinspektionen-home",
+      "authorityId": "iosco-sweden-finansinspektionen",
+      "type": "authority-home",
+      "url": "http://www.fi.se/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-switzerland-swiss-financial-market-supervisory-authority-home",
+      "authorityId": "iosco-switzerland-swiss-financial-market-supervisory-authority",
+      "type": "authority-home",
+      "url": "http://www.finma.ch/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-syria-syrian-commission-on-financial-markets-and-securities-home",
+      "authorityId": "iosco-syria-syrian-commission-on-financial-markets-and-securities",
+      "type": "authority-home",
+      "url": "http://www.scfms.sy/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-chinese-taipei-financial-supervisory-commission-home",
+      "authorityId": "iosco-chinese-taipei-financial-supervisory-commission",
+      "type": "authority-home",
+      "url": "http://www.fsc.gov.tw/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-tanzania-capital-markets-and-securities-authority-home",
+      "authorityId": "iosco-tanzania-capital-markets-and-securities-authority",
+      "type": "authority-home",
+      "url": "http://www.cmsa-tz.org/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-thailand-securities-and-exchange-commission-home",
+      "authorityId": "iosco-thailand-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.or.th/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-trinidad-and-tobago-trinidad-and-tobago-securities-and-exchange-commission-home",
+      "authorityId": "iosco-trinidad-and-tobago-trinidad-and-tobago-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.ttsec.org.tt/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-tunisia-conseil-du-marche-financier-home",
+      "authorityId": "iosco-tunisia-conseil-du-marche-financier",
+      "type": "authority-home",
+      "url": "http://www.cmf.tn/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-turkiye-capital-markets-board-home",
+      "authorityId": "iosco-turkiye-capital-markets-board",
+      "type": "authority-home",
+      "url": "http://www.cmb.gov.tr/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-turks-caicos-turks-caicos-islands-financial-services-commission-home",
+      "authorityId": "iosco-turks-caicos-turks-caicos-islands-financial-services-commission",
+      "type": "authority-home",
+      "url": "http://www.tcifsc.tc/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-uganda-capital-markets-authority-home",
+      "authorityId": "iosco-uganda-capital-markets-authority",
+      "type": "authority-home",
+      "url": "http://www.cmauganda.co.ug",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-ukraine-national-securities-and-stock-market-commission-home",
+      "authorityId": "iosco-ukraine-national-securities-and-stock-market-commission",
+      "type": "authority-home",
+      "url": "http://www.nssmc.gov.ua",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-united-arab-emirates-capital-market-authority-home",
+      "authorityId": "iosco-united-arab-emirates-capital-market-authority",
+      "type": "authority-home",
+      "url": "http://www.sca.ae",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-united-kingdom-financial-conduct-authority-home",
+      "authorityId": "iosco-united-kingdom-financial-conduct-authority",
+      "type": "authority-home",
+      "url": "http://www.fca.org.uk",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-united-states-of-america-commodity-futures-trading-commission-home",
+      "authorityId": "iosco-united-states-of-america-commodity-futures-trading-commission",
+      "type": "authority-home",
+      "url": "http://www.cftc.gov/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-united-states-of-america-securities-and-exchange-commission-home",
+      "authorityId": "iosco-united-states-of-america-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.sec.gov/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-uruguay-banco-central-del-uruguay-home",
+      "authorityId": "iosco-uruguay-banco-central-del-uruguay",
+      "type": "authority-home",
+      "url": "http://www.bcu.gub.uy/",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-uzbekistan-national-agency-of-perspective-projects-of-the-republic-of-uzbekistan-home",
+      "authorityId": "iosco-uzbekistan-national-agency-of-perspective-projects-of-the-republic-of-uzbekistan",
+      "type": "authority-home",
+      "url": "https://www.napp.uz",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-vietnam-state-securities-commission-home",
+      "authorityId": "iosco-vietnam-state-securities-commission",
+      "type": "authority-home",
+      "url": "https://www.iosco.org/v2/about/?subsection=membership&memid=1&orgID=102",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-west-african-monetary-union-autorite-des-marches-financiers-de-l-umoa-home",
+      "authorityId": "iosco-west-african-monetary-union-autorite-des-marches-financiers-de-l-umoa",
+      "type": "authority-home",
+      "url": "http://www.crepmf.org",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "iosco-zambia-securities-and-exchange-commission-home",
+      "authorityId": "iosco-zambia-securities-and-exchange-commission",
+      "type": "authority-home",
+      "url": "http://www.seczambia.org.zm",
+      "status": "catalogued",
+      "primary": true
+    },
+    {
+      "id": "registry-uk-fca",
+      "authorityId": "uk-fca",
+      "type": "monitored-publication-source",
+      "url": "https://www.fca.org.uk/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "conduct",
+        "crypto",
+        "consumer-duty",
+        "financial-crime",
+        "ai-governance",
+        "market-integrity"
+      ]
+    },
+    {
+      "id": "registry-uk-fca-enforcement-notices",
+      "authorityId": "uk-fca-enforcement-notices",
+      "type": "monitored-publication-source",
+      "url": "https://www.fca.org.uk/news/search-results?category=notices%20and%20decisions",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "enforcement",
+        "conduct",
+        "financial-crime",
+        "control-failures",
+        "consumer-duty"
+      ]
+    },
+    {
+      "id": "registry-uk-boe-pra",
+      "authorityId": "uk-boe-pra",
+      "type": "monitored-publication-source",
+      "url": "https://www.bankofengland.co.uk/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "capital",
+        "liquidity",
+        "operational-resilience",
+        "financial-stability",
+        "payments",
+        "private-markets"
+      ]
+    },
+    {
+      "id": "registry-ecb-supervision",
+      "authorityId": "ecb-supervision",
+      "type": "monitored-publication-source",
+      "url": "https://www.bankingsupervision.europa.eu/press/html/index.en.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "bank-supervision",
+        "credit-risk",
+        "governance",
+        "climate",
+        "technology-risk"
+      ]
+    },
+    {
+      "id": "registry-ecb-ssm-newsletter",
+      "authorityId": "ecb-ssm-newsletter",
+      "type": "monitored-publication-source",
+      "url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "bank-supervision",
+        "supervisory-priorities",
+        "prudential-policy",
+        "resilience",
+        "governance"
+      ]
+    },
+    {
+      "id": "registry-ecb-supervisory-priorities",
+      "authorityId": "ecb-supervisory-priorities",
+      "type": "monitored-publication-source",
+      "url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "bank-supervision",
+        "supervisory-priorities",
+        "risk-themes",
+        "governance",
+        "resilience"
+      ]
+    },
+    {
+      "id": "registry-eba",
+      "authorityId": "eba",
+      "type": "monitored-publication-source",
+      "url": "https://www.eba.europa.eu/publications-and-media/press-releases",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "prudential-policy",
+        "payments",
+        "crypto",
+        "operational-risk",
+        "outsourcing"
+      ]
+    },
+    {
+      "id": "registry-esma",
+      "authorityId": "esma",
+      "type": "monitored-publication-source",
+      "url": "https://www.esma.europa.eu/press-news/esma-news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "markets",
+        "funds",
+        "crypto",
+        "market-abuse",
+        "disclosures",
+        "data-reporting"
+      ]
+    },
+    {
+      "id": "registry-eiopa",
+      "authorityId": "eiopa",
+      "type": "monitored-publication-source",
+      "url": "https://www.eiopa.europa.eu/media/news_en",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "insurance",
+        "pensions",
+        "dora",
+        "conduct",
+        "financial-stability",
+        "supervisory-convergence"
+      ]
+    },
+    {
+      "id": "registry-bis",
+      "authorityId": "bis",
+      "type": "monitored-publication-source",
+      "url": "https://www.bis.org/list/press_releases/index.htm",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "financial-stability",
+        "ai-capex",
+        "payments",
+        "banking",
+        "macroprudential"
+      ]
+    },
+    {
+      "id": "registry-fsb",
+      "authorityId": "fsb",
+      "type": "monitored-publication-source",
+      "url": "https://www.fsb.org/press/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "nonbank-finance",
+        "crypto",
+        "operational-resilience",
+        "climate",
+        "cross-border-policy"
+      ]
+    },
+    {
+      "id": "registry-bcbs",
+      "authorityId": "bcbs",
+      "type": "monitored-publication-source",
+      "url": "https://www.bis.org/bcbs/publications.htm",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "capital",
+        "liquidity",
+        "banking-standards",
+        "crypto",
+        "climate-risk"
+      ]
+    },
+    {
+      "id": "registry-iosco",
+      "authorityId": "iosco",
+      "type": "monitored-publication-source",
+      "url": "https://www.iosco.org/news/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "markets",
+        "asset-management",
+        "crypto",
+        "retail-investors",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "registry-sec",
+      "authorityId": "sec",
+      "type": "monitored-publication-source",
+      "url": "https://www.sec.gov/newsroom",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "US"
+      ],
+      "functions": [
+        "markets",
+        "disclosures",
+        "crypto",
+        "enforcement",
+        "market-structure"
+      ]
+    },
+    {
+      "id": "registry-cftc",
+      "authorityId": "cftc",
+      "type": "monitored-publication-source",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "US"
+      ],
+      "functions": [
+        "derivatives",
+        "commodities",
+        "market-abuse",
+        "crypto",
+        "clearing"
+      ]
+    },
+    {
+      "id": "registry-uk-nca",
+      "authorityId": "uk-nca",
+      "type": "monitored-publication-source",
+      "url": "https://www.nationalcrimeagency.gov.uk/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "fraud",
+        "money-laundering",
+        "sanctions",
+        "organised-crime",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "registry-ofsi",
+      "authorityId": "ofsi",
+      "type": "monitored-publication-source",
+      "url": "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "sanctions",
+        "financial-crime",
+        "enforcement",
+        "screening"
+      ]
+    },
+    {
+      "id": "registry-fatf",
+      "authorityId": "fatf",
+      "type": "monitored-publication-source",
+      "url": "https://www.fatf-gafi.org/en/publications.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "financial-crime",
+        "aml",
+        "ctf",
+        "sanctions",
+        "crypto"
+      ]
+    },
+    {
+      "id": "registry-fincen-enforcement",
+      "authorityId": "fincen-enforcement",
+      "type": "monitored-publication-source",
+      "url": "https://www.fincen.gov/news/enforcement-actions",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "US"
+      ],
+      "functions": [
+        "financial-crime",
+        "aml",
+        "enforcement",
+        "control-failures"
+      ]
+    },
+    {
+      "id": "registry-ofac-recent-actions",
+      "authorityId": "ofac-recent-actions",
+      "type": "monitored-publication-source",
+      "url": "https://ofac.treasury.gov/recent-actions",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "US"
+      ],
+      "functions": [
+        "sanctions",
+        "financial-crime",
+        "enforcement",
+        "screening"
+      ]
+    },
+    {
+      "id": "registry-amf-sanctions",
+      "authorityId": "amf-sanctions",
+      "type": "monitored-publication-source",
+      "url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "functions": [
+        "enforcement",
+        "market-conduct",
+        "control-failures",
+        "asset-management"
+      ]
+    },
+    {
+      "id": "registry-ecb-supervision-sanctions",
+      "authorityId": "ecb-supervision-sanctions",
+      "type": "monitored-publication-source",
+      "url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "EU"
+      ],
+      "functions": [
+        "bank-supervision",
+        "enforcement",
+        "prudential-policy",
+        "control-failures"
+      ]
+    },
+    {
+      "id": "registry-ft",
+      "authorityId": "ft",
+      "type": "monitored-publication-source",
+      "url": "https://www.ft.com/financial-services",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "markets",
+        "banking",
+        "asset-management",
+        "technology",
+        "private-markets"
+      ]
+    },
+    {
+      "id": "registry-reuters-regulatory-news",
+      "authorityId": "reuters-regulatory-news",
+      "type": "monitored-publication-source",
+      "url": "https://www.reuters.com/sustainability/boards-policy-regulation/",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "regulation",
+        "incident-corroboration",
+        "markets",
+        "policy",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-regulation-tomorrow",
+      "authorityId": "regulation-tomorrow",
+      "type": "monitored-publication-source",
+      "url": "https://www.regulationtomorrow.com/",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "regulatory-interpretation",
+        "deadline-analysis",
+        "financial-services-policy",
+        "horizon"
+      ]
+    },
+    {
+      "id": "registry-sidley-insights",
+      "authorityId": "sidley-insights",
+      "type": "monitored-publication-source",
+      "url": "https://www.sidley.com/en/insights/newsupdates",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "regulatory-interpretation",
+        "financial-services-policy",
+        "deadline-analysis",
+        "markets",
+        "digital-assets"
+      ]
+    },
+    {
+      "id": "registry-ao-shearman-insights",
+      "authorityId": "ao-shearman-insights",
+      "type": "monitored-publication-source",
+      "url": "https://www.aoshearman.com/en/insights",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "regulatory-interpretation",
+        "financial-services-policy",
+        "deadline-analysis",
+        "markets",
+        "dora"
+      ]
+    },
+    {
+      "id": "registry-reuters",
+      "authorityId": "reuters",
+      "type": "monitored-publication-source",
+      "url": "https://www.reuters.com/business/finance/",
+      "status": "operational-or-assessed",
+      "primary": false,
+      "jurisdictions": [
+        "Global"
+      ],
+      "functions": [
+        "markets",
+        "companies",
+        "regulation",
+        "technology",
+        "macro"
+      ]
+    },
+    {
+      "id": "registry-ico",
+      "authorityId": "ico",
+      "type": "monitored-publication-source",
+      "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "UK"
+      ],
+      "functions": [
+        "data-protection",
+        "privacy",
+        "data-governance",
+        "ai-data"
+      ]
+    },
+    {
+      "id": "registry-de-bundesbank",
+      "authorityId": "de-bundesbank",
+      "type": "monitored-publication-source",
+      "url": "https://www.bundesbank.de/de/aufgaben/themen",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "functions": [
+        "ict-risk",
+        "operational-risk",
+        "data",
+        "third-party",
+        "german-language"
+      ]
+    },
+    {
+      "id": "registry-finma",
+      "authorityId": "finma",
+      "type": "monitored-publication-source",
+      "url": "https://www.finma.ch/en/news/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Switzerland"
+      ],
+      "functions": [
+        "financial-supervision",
+        "operational-risk",
+        "technology",
+        "sanctions",
+        "markets"
+      ]
+    },
+    {
+      "id": "registry-japan-fsa",
+      "authorityId": "japan-fsa",
+      "type": "monitored-publication-source",
+      "url": "https://www.fsa.go.jp/en/news/index.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Japan"
+      ],
+      "functions": [
+        "financial-regulation",
+        "supervision",
+        "markets",
+        "technology-risk",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "registry-hkma",
+      "authorityId": "hkma",
+      "type": "monitored-publication-source",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "functions": [
+        "banking-supervision",
+        "payments",
+        "market-infrastructure",
+        "prudential-policy",
+        "fintech",
+        "consultations"
+      ]
+    },
+    {
+      "id": "registry-apra",
+      "authorityId": "apra",
+      "type": "monitored-publication-source",
+      "url": "https://www.apra.gov.au/news-and-publications",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Australia"
+      ],
+      "functions": [
+        "prudential-policy",
+        "supervision",
+        "capital",
+        "reporting",
+        "operational-risk"
+      ]
+    },
+    {
+      "id": "registry-asic",
+      "authorityId": "asic",
+      "type": "monitored-publication-source",
+      "url": "https://www.asic.gov.au/regulatory-resources/find-a-document/regulatory-document-updates/regulatory-tracker/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Australia"
+      ],
+      "functions": [
+        "conduct",
+        "markets",
+        "consumer-protection",
+        "consultations",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-mas",
+      "authorityId": "mas",
+      "type": "monitored-publication-source",
+      "url": "https://www.mas.gov.sg/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Singapore"
+      ],
+      "functions": [
+        "banking-supervision",
+        "markets",
+        "payments",
+        "financial-crime",
+        "technology-risk"
+      ]
+    },
+    {
+      "id": "registry-osfi",
+      "authorityId": "osfi",
+      "type": "monitored-publication-source",
+      "url": "https://www.osfi-bsif.gc.ca/en/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Canada"
+      ],
+      "functions": [
+        "prudential-policy",
+        "supervision",
+        "capital",
+        "liquidity",
+        "operational-risk"
+      ]
+    },
+    {
+      "id": "registry-india-sebi",
+      "authorityId": "india-sebi",
+      "type": "monitored-publication-source",
+      "url": "https://www.sebi.gov.in/rss.html",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "India"
+      ],
+      "functions": [
+        "securities",
+        "circulars",
+        "consultations",
+        "orders",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "registry-korea-fsc",
+      "authorityId": "korea-fsc",
+      "type": "monitored-publication-source",
+      "url": "https://www.fsc.go.kr/eng/pr010101",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "South Korea"
+      ],
+      "functions": [
+        "financial-policy",
+        "banking",
+        "markets",
+        "disclosure",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "registry-brazil-cvm",
+      "authorityId": "brazil-cvm",
+      "type": "monitored-publication-source",
+      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "functions": [
+        "securities",
+        "portuguese-language",
+        "consultations",
+        "enforcement",
+        "market-guidance"
+      ]
+    },
+    {
+      "id": "registry-fr-amf",
+      "authorityId": "fr-amf",
+      "type": "monitored-publication-source",
+      "url": "https://www.amf-france.org/fr/abonnements-flux-rss",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "functions": [
+        "securities",
+        "french-language",
+        "regulation",
+        "doctrine",
+        "sanctions"
+      ]
+    },
+    {
+      "id": "registry-spain-cnmv",
+      "authorityId": "spain-cnmv",
+      "type": "monitored-publication-source",
+      "url": "https://www.cnmv.es/portal/gpage?id=RSS",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Spain",
+        "EU"
+      ],
+      "functions": [
+        "securities",
+        "spanish-language",
+        "regulated-entities",
+        "consultations",
+        "market-conduct"
+      ]
+    },
+    {
+      "id": "registry-ireland-cbi",
+      "authorityId": "ireland-cbi",
+      "type": "monitored-publication-source",
+      "url": "https://www.centralbank.ie/fns/rss-feeds",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Ireland",
+        "EU"
+      ],
+      "functions": [
+        "banking-supervision",
+        "markets",
+        "consumer-protection",
+        "consultations",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-adgm-fsra",
+      "authorityId": "adgm-fsra",
+      "type": "monitored-publication-source",
+      "url": "https://www.adgm.com/legal-framework/public-consultations",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Abu Dhabi",
+        "United Arab Emirates"
+      ],
+      "functions": [
+        "financial-services",
+        "consultations",
+        "prudential",
+        "markets",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "registry-de-bafin",
+      "authorityId": "de-bafin",
+      "type": "monitored-publication-source",
+      "url": "https://bafin.de/",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "functions": [
+        "banking-supervision",
+        "markets",
+        "insurance",
+        "german-language",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-dubai-dfsa",
+      "authorityId": "dubai-dfsa",
+      "type": "monitored-publication-source",
+      "url": "https://www.dfsa.ae/news",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "functions": [
+        "financial-services",
+        "consultations",
+        "rulebook",
+        "supervision",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-mexico-cnbv",
+      "authorityId": "mexico-cnbv",
+      "type": "monitored-publication-source",
+      "url": "https://www.gob.mx/cnbv/archivo/prensa?idiom=es-MX",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Mexico"
+      ],
+      "functions": [
+        "banking-supervision",
+        "markets",
+        "spanish-language",
+        "capital",
+        "financial-crime"
+      ]
+    },
+    {
+      "id": "registry-italy-consob",
+      "authorityId": "italy-consob",
+      "type": "monitored-publication-source",
+      "url": "https://www.consob.it/web/consob/comunicati-stampa",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Italy",
+        "EU"
+      ],
+      "functions": [
+        "securities",
+        "italian-language",
+        "market-conduct",
+        "supervision",
+        "enforcement"
+      ]
+    },
+    {
+      "id": "registry-saudi-cma",
+      "authorityId": "saudi-cma",
+      "type": "monitored-publication-source",
+      "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+      "status": "operational-or-assessed",
+      "primary": true,
+      "jurisdictions": [
+        "Saudi Arabia"
+      ],
+      "functions": [
+        "securities",
+        "consultations",
+        "capital-markets",
+        "market-conduct",
+        "enforcement"
+      ]
+    }
+  ]
+}

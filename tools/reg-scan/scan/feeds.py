@@ -233,10 +233,11 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".ecl-content-block__date", ".date"],
     }],
     "fatf": [{
-        "url": "https://www.fatf-gafi.org/en/publications.html",
-        "item_selectors": ["article", ".cmp-teaser", ".publication-item"],
-        "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]"],
-        "date_selectors": ["time[datetime]", ".date", ".cmp-teaser__date"],
+        "url": "https://www.fsa.go.jp/inter/fatf/fatf_menu.html",
+        "item_selectors": ["article#content ul li"],
+        "link_selectors": ["a[href]"],
+        "title_selector": "a[href]",
+        "date_selectors": ["a[href]"],
     }],
     "fincen-enforcement": [{
         "url": "https://www.fincen.gov/news/enforcement-actions",
@@ -284,8 +285,12 @@ SOURCE_FILTERS = {
         "exclude": [r"speech", r"event", r"vacanc"],
     },
     "fatf": {
-        "include": [r"standard", r"guidance", r"recommendation", r"risk", r"mutual evaluation", r"jurisdiction", r"consult", r"virtual asset"],
-        "exclude": [r"speech", r"meeting"],
+        "include": [
+            r"standard", r"guidance", r"recommendation", r"risk", r"mutual evaluation", r"jurisdiction",
+            r"consult", r"virtual asset", r"FATF", r"市中協議", r"声明", r"公表", r"勧告", r"基準",
+            r"暗号資産", r"マネロン", r"テロ資金", r"VASP", r"Payment Transparency",
+        ],
+        "exclude": [r"speech", r"meeting", r"講演", r"会合.*開催", r"共同議長"],
     },
     "asic": {
         "include": [r"consult", r"regulatory guide", r"legislative instrument", r"reporting", r"guidance", r"rule", r"standard", r"relief"],

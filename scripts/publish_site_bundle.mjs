@@ -339,6 +339,10 @@ function copyHorizonArtifacts(out) {
     if (Array.isArray(latest.signals)) {
       latest.signals = latest.signals.slice(0, TOP5_COUNT + REG_HORIZON_ADDITIONAL_COUNT);
     }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(latest.edition || "")) {
+      latest.horizon = filterFutureHorizonItems(latest.horizon || [], latest.edition);
+      latest.archives = [`archive/${latest.edition}.html`];
+    }
     write(latestOut, `${JSON.stringify(latest, null, 2)}\n`);
   }
   copyIfExists(path.join(DASHBOARD_HORIZON, "feed.xml"), path.join(horizonOut, "feed.xml"));
@@ -349,6 +353,11 @@ function copyHorizonArtifacts(out) {
   const archiveIn = path.join(DASHBOARD_HORIZON, "archive");
   const archiveOut = path.join(horizonOut, "archive");
   if (fs.existsSync(archiveIn)) copyDirectory(archiveIn, archiveOut);
+}
+
+function filterFutureHorizonItems(entries, edition) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(edition || "")) return entries || [];
+  return (entries || []).filter((entry) => !entry.date || entry.date > edition);
 }
 
 // Decodes the sitewide OG-card PNG from small, individually-verifiable base64 text
@@ -1231,6 +1240,35 @@ function renderHorizonList(entries) {
     .join("");
 }
 
+function renderHorizonEvidenceFiles(horizonData) {
+  const archiveHref = (horizonData.archives || [])[0] || `archive/${horizonData.edition}.html`;
+  return `<a class="archive-card" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
+          <a class="archive-card" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
+          <a class="archive-card" href="horizon.ics"><p class="meta">Calendar</p><h3>Deadline calendar</h3><p>All-day events for future deadlines that need owner assignment and evidence.</p></a>
+          <a class="archive-card" href="${escapeHtml(archiveHref)}"><p class="meta">Archive</p><h3>Frozen edition</h3><p>A dated record of the bottom line, source set, and deadline prompts for review.</p></a>`;
+}
+
+function filterRenderedHorizonLists(out, edition) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(edition || "")) return;
+  const files = [
+    path.join(out, "brief", "index.html"),
+    path.join(out, "archive", "brief", edition, "index.html"),
+  ];
+  const listRegex = /<ul class="horizon-list"[^>]*>[\s\S]*?<\/ul>/g;
+  const itemRegex = /\s*<li\b[\s\S]*?<\/li>/g;
+  for (const file of files) {
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    const updated = html.replace(listRegex, (listHtml) =>
+      listHtml.replace(itemRegex, (itemHtml) => {
+        const date = (itemHtml.match(/<time datetime="(\d{4}-\d{2}-\d{2})"/) || [])[1];
+        return date && date < edition ? "" : itemHtml;
+      }),
+    );
+    if (updated !== html) write(file, updated);
+  }
+}
+
 function renderThemeCards(signals) {
   const grouped = new Map();
   for (const signal of signals || []) {
@@ -1410,6 +1448,7 @@ function applyLiveEditionContent(out, horizonData) {
       : '<li><span class="rank">--</span><span><h3>No further reviewed rows cleared the threshold in this edition</h3></span><span class="meta">Monitor the wider source universe</span></li>',
   );
   updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
+  updated = replaceElementContent(updated, "div", "horizon-evidence-files", renderHorizonEvidenceFiles(horizonData));
   updated = replaceElementContent(
     updated,
     "div",
@@ -1417,6 +1456,32 @@ function applyLiveEditionContent(out, horizonData) {
     `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" "))}</p>`,
   );
   if (updated !== html) write(file, updated);
+}
+
+function generateCurrentHorizonArchive(out, horizonData) {
+  if (!horizonData || !/^\d{4}-\d{2}-\d{2}$/.test(horizonData.edition || "")) return;
+  const liveFile = path.join(out, "regulatory-horizon", "index.html");
+  if (!fs.existsSync(liveFile)) return;
+  const archiveRoute = `/regulatory-horizon/archive/${horizonData.edition}.html`;
+  const archiveUrl = `${PUBLIC_ORIGIN}${archiveRoute}`;
+  let html = read(liveFile)
+    .replace(/<link rel="canonical" href="https:\/\/stgeorgesstrategy\.com\/regulatory-horizon\/">/, `<link rel="canonical" href="${archiveUrl}">`)
+    .replace(/<meta property="og:url" content="https:\/\/stgeorgesstrategy\.com\/regulatory-horizon\/">/, `<meta property="og:url" content="${archiveUrl}">`)
+    .replace(/"@id":\s*"https:\/\/stgeorgesstrategy\.com\/regulatory-horizon\/"/, `"@id": "${archiveUrl}"`)
+    .replace(/(<p class="eyebrow" id="horizon-edition">)Edition \//, "$1Frozen edition /");
+  html = html.replace(/<script src="horizon-render\.js"><\/script>\s*/g, "");
+  html = html
+    .replace(/\b(href|src)="\.\.\/styles\.css"/g, '$1="/styles.css"')
+    .replace(/\b(href|src)="\.\.\/app\.js"/g, '$1="/app.js"')
+    .replace(/\bhref="\.\.\/brief\/index\.html"/g, 'href="/brief/"')
+    .replace(/\bhref="\.\.\/signals\/index\.html"/g, 'href="/signals/"')
+    .replace(/\bhref="index\.html"/g, 'href="/regulatory-horizon/"')
+    .replace(/\bhref="\.\.\/committee-questions\/index\.html"/g, 'href="/committee-questions/"')
+    .replace(/\bhref="\.\.\/archive\/index\.html"/g, 'href="/archive/"')
+    .replace(/\bhref="\.\.\/about\/index\.html"/g, 'href="/about/"')
+    .replace(/\bhref="\.\.\/signals\/([^/]+)\/index\.html"/g, 'href="/signals/$1/"');
+  fs.mkdirSync(path.join(out, "regulatory-horizon", "archive"), { recursive: true });
+  write(path.join(out, "regulatory-horizon", "archive", `${horizonData.edition}.html`), html);
 }
 
 function loadSignalsData(edition, failures) {
@@ -1740,7 +1805,7 @@ function generateHeaders(out) {
   Cache-Control: no-cache, must-revalidate
 
 /assets/*
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /data/*
   Cache-Control: public, max-age=300
@@ -1846,6 +1911,24 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   for (const file of horizonFiles) {
     assert(fs.existsSync(path.join(out, "regulatory-horizon", file)), `Reg Horizon ${file} missing`, failures);
   }
+  const horizonData = readJson(path.join(out, "regulatory-horizon", "latest.json"));
+  const horizonArchive = path.join(out, "regulatory-horizon", "archive", `${horizonData.edition}.html`);
+  assert(fs.existsSync(horizonArchive), `Reg Horizon frozen edition archive/${horizonData.edition}.html missing`, failures);
+  assert(
+    (horizonData.archives || [])[0] === `archive/${horizonData.edition}.html`,
+    `Reg Horizon latest.json frozen edition should point to archive/${horizonData.edition}.html`,
+    failures,
+  );
+  const horizonPage = read(path.join(out, "regulatory-horizon", "index.html"));
+  assert(
+    horizonPage.includes(`href="archive/${horizonData.edition}.html"`) ||
+      horizonPage.includes(`href="/regulatory-horizon/archive/${horizonData.edition}.html"`),
+    "Reg Horizon page frozen-edition card should link to the current dated snapshot",
+    failures,
+  );
+  for (const entry of horizonData.horizon || []) {
+    assert(entry.date > horizonData.edition, `Reg Horizon deadline ${entry.date} must be after edition ${horizonData.edition}`, failures);
+  }
 
   const signals = readJson(path.join(out, "data", "signals.json"));
   assert(signals.topics?.length === topics.length, "signals.json should contain all eight topics", failures);
@@ -1914,6 +1997,7 @@ function main() {
   renderCanonicalTopSignals(options.out, editionRecord);
   renderHomepageJudgement(options.out, editionRecord);
   applyLiveEditionContent(options.out, horizonData);
+  generateCurrentHorizonArchive(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
   // its root-absolute form when the link target already exists on disk. Without this
@@ -1923,6 +2007,7 @@ function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
+  filterRenderedHorizonLists(options.out, edition);
   renderSignalDecisionFramework(options.out, signalsData);
   updateLiveEditionDateLabels(options.out, edition);
   updateHomepageEditionLine(options.out, edition);

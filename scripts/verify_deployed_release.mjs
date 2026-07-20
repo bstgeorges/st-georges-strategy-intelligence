@@ -61,6 +61,16 @@ async function fetchBytes(url) {
 
 async function checkOrigin(origin, report, releaseMetadata) {
   const failures = [];
+  const notFoundUrl = cacheBustedUrl(origin, "/__sgs-known-bad-url-for-release-check/", report.release);
+  try {
+    const { response, bytes } = await fetchBytes(notFoundUrl);
+    const html = bytes.toString("utf8");
+    if (response.status !== 404) failures.push(`${notFoundUrl} returned ${response.status}; expected 404`);
+    else if (!/Page not found|404/i.test(html)) failures.push(`${notFoundUrl} returned 404 without branded not-found HTML`);
+  } catch (error) {
+    failures.push(`${notFoundUrl} could not be read: ${error.message}`);
+  }
+
   const releaseUrl = cacheBustedUrl(origin, "/data/release.json", report.release);
   try {
     const { response, bytes } = await fetchBytes(releaseUrl);

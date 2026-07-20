@@ -270,6 +270,29 @@ function main() {
       "published Reg Horizon calendar event count must match horizon[]",
       failures,
     );
+    const horizonArchive = `regulatory-horizon/archive/${horizon.edition}.html`;
+    assert(fs.existsSync(path.join(SITE, horizonArchive)), `published Reg Horizon archive missing ${horizonArchive}`, failures);
+    assert(
+      (horizon.archives || [])[0] === `archive/${horizon.edition}.html`,
+      `published Reg Horizon archive pointer should be archive/${horizon.edition}.html`,
+      failures,
+    );
+    assert(
+      horizonPage.includes(`href="archive/${horizon.edition}.html"`) ||
+        horizonPage.includes(`href="/regulatory-horizon/archive/${horizon.edition}.html"`),
+      "published Reg Horizon page should link the frozen-edition card to the current archive",
+      failures,
+    );
+    for (const entry of horizon.horizon || []) {
+      assert(entry.date > horizon.edition, `published Reg Horizon deadline ${entry.date} must be after edition ${horizon.edition}`, failures);
+    }
+  }
+
+  const brief = read("brief/index.html");
+  const briefHorizonHtml = Array.from(brief.matchAll(/<ul class="horizon-list"[^>]*>([\s\S]*?)<\/ul>/g), (match) => match[1]).join("\n");
+  const briefDates = Array.from(briefHorizonHtml.matchAll(/<time datetime="(\d{4}-\d{2}-\d{2})"/g), (match) => match[1]);
+  for (const date of briefDates) {
+    assert(date >= edition.publicationDate, `brief horizon date ${date} must not be before edition ${edition.publicationDate}`, failures);
   }
 
   const sitemap = read("sitemap.xml");

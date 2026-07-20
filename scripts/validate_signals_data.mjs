@@ -10,6 +10,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "site", "data", "signals.json");
+const CURRENT_EDITION_PATH = path.join(ROOT, "site", "data", "current-edition.json");
 
 const topics = [
   "ai",
@@ -72,6 +73,34 @@ function extractExactDate(sourceLabel) {
   return match ? match[1] : "";
 }
 
+function validateCurrentEditionSummaries(signalsData, failures) {
+  if (!fs.existsSync(CURRENT_EDITION_PATH)) return;
+  const currentEdition = JSON.parse(fs.readFileSync(CURRENT_EDITION_PATH, "utf8"));
+  const topicsById = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
+
+  for (const [index, summary] of (currentEdition.topSignals || []).entries()) {
+    const label = `current-edition topSignals row ${index + 1}`;
+    const topic = topicsById.get(summary.topic);
+    if (!topic) {
+      fail(`${label} references unknown topic: ${summary.topic}`, failures);
+      continue;
+    }
+
+    const signalRow = (topic.top5 || []).find((row) => row.title === summary.title);
+    if (!signalRow) {
+      fail(`${label} does not match a top5 signal row in ${summary.topic}: ${summary.title}`, failures);
+      continue;
+    }
+
+    const summaryDate = extractExactDate(summary.source || "");
+    const signalDate = extractExactDate(signalRow.source || "");
+    if (!summaryDate) fail(`${label} source must include an exact YYYY-MM-DD date.`, failures);
+    if (summaryDate && signalDate && summaryDate !== signalDate) {
+      fail(`${label} source date ${summaryDate} must match ${summary.topic} signal source date ${signalDate}.`, failures);
+    }
+  }
+}
+
 function validateEvidence(row, rowLabel, failures) {
   const evidence = row.evidence || {};
   for (const field of REQUIRED_EVIDENCE_FIELDS) {
@@ -106,6 +135,8 @@ async function main() {
   if (!Array.isArray(data.topics)) {
     throw new Error("site/data/signals.json must contain topics[].");
   }
+
+  validateCurrentEditionSummaries(data, failures);
 
   const byId = new Map(data.topics.map((topic) => [topic.id, topic]));
   const editionDate = parseIsoDate(data.edition);

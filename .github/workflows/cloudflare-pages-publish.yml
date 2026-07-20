@@ -86,6 +86,9 @@ jobs:
         run: npm run signals:validate:live
         continue-on-error: true
 
+      - name: Audit published Signals source dates
+        run: npm run signals:date-audit:ci
+
       - name: Audit legacy AI Signals data
         run: npm run ai-signals:validate
         continue-on-error: true

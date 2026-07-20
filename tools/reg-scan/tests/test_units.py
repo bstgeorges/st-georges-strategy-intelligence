@@ -138,6 +138,11 @@ class TestClassify(unittest.TestCase):
         self.assertEqual(self.classify_type("CNMV publica documento a consulta sobre el mercado"), "consultation")
         self.assertEqual(self.classify_type("关于规则公开征求意见的通知"), "consultation")
 
+    def test_japanese_fatf_instrument_classification(self):
+        text = "FATFによる市中協議文書「FATF改訂勧告16ガイダンス案」の公表について"
+        self.assertEqual(self.classify_type(text), "consultation")
+        self.assertIn("crime-and-sanctions", self.classify_risk_areas(text))
+
     def test_german_instrument_classification(self):
         self.assertEqual(self.classify_type("BaFin eröffnet Konsultation zur MaRisk-Novelle"), "consultation")
         self.assertEqual(self.classify_type("BaFin setzt Bußgeld gegen Institut fest"), "enforcement")
@@ -197,10 +202,16 @@ class TestFetch(unittest.TestCase):
     def test_spanish_and_italian_page_dates_are_parsed(self):
         from bs4 import BeautifulSoup
         from scan.fetch import _parse_page_date
-        spanish = BeautifulSoup("<span>17 de junio de 2026 Fecha de publicación</span>", "lxml").span
-        italian = BeautifulSoup("<span>10 luglio 2026</span>", "lxml").span
+        spanish = BeautifulSoup("<span>17 de junio de 2026 Fecha de publicación</span>", "html.parser").span
+        italian = BeautifulSoup("<span>10 luglio 2026</span>", "html.parser").span
         self.assertEqual(_parse_page_date(spanish), "2026-06-17T00:00:00+00:00")
         self.assertEqual(_parse_page_date(italian), "2026-07-10T00:00:00+00:00")
+
+    def test_japanese_reiwa_page_dates_are_parsed(self):
+        from bs4 import BeautifulSoup
+        from scan.fetch import _parse_page_date
+        node = BeautifulSoup("<a>令和８年６月25日　FATFによる市中協議文書</a>", "html.parser").a
+        self.assertEqual(_parse_page_date(node), "2026-06-25T00:00:00+00:00")
 
     def test_page_adapter_reports_anti_bot_block(self):
         from unittest.mock import patch
@@ -245,6 +256,35 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["url"], "https://www.apra.gov.au/consultation")
         self.assertEqual(items[0]["published_at"], "2026-07-10T00:00:00+00:00")
+
+    def test_page_adapter_extracts_japan_fsa_fatf_items(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import SOURCE_FILTERS
+
+        html = """
+        <article id="content">
+          <ul>
+            <li><a href="/inter/fatf/20260624/20260626.html">令和８年６月25日　FATFによる市中協議文書「FATF改訂勧告16ガイダンス案」の公表について</a></li>
+            <li><a href="/inter/etc/20240628/20240628.html">令和６年６月28日　羽渕国際資金洗浄対策室長の政策企画部会共同議長再任について</a></li>
+          </ul>
+        </article>
+        """.encode("utf-8")
+        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
+        config = [{
+            "url": "https://www.fsa.go.jp/inter/fatf/fatf_menu.html",
+            "item_selectors": ["article#content ul li"],
+            "link_selectors": ["a[href]"],
+            "title_selector": "a[href]",
+            "date_selectors": ["a[href]"],
+        }]
+        source = {"id": "fatf", "name": "Financial Action Task Force"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"], "2026-06-25T00:00:00+00:00")
+        self.assertEqual(items[0]["url"], "https://www.fsa.go.jp/inter/fatf/20260624/20260626.html")
 
 
 class TestSourcePerimeter(unittest.TestCase):

@@ -58,10 +58,10 @@ _TYPE_RULES = [
 ]
 
 _NON_LATIN_TYPE_RULES = [
-    ("consultation", re.compile(r"征求意见|公開徵求意見")),
-    ("final-rule", re.compile(r"正式发布|正式發佈|条例|條例")),
+    ("consultation", re.compile(r"征求意见|公開徵求意見|市中協議|パブリックコメント")),
+    ("final-rule", re.compile(r"正式发布|正式發佈|条例|條例|声明|公表|勧告|基準")),
     ("enforcement", re.compile(r"处罚|處罰|罚款|罰款")),
-    ("guidance", re.compile(r"指导意见|指導意見|指引")),
+    ("guidance", re.compile(r"指导意见|指導意見|指引|ガイダンス|ベスト・プラクティス")),
 ]
 
 # Risk-area classification - multiple areas per item are allowed.
@@ -87,7 +87,8 @@ RISK_AREA_PATTERNS = {
     "crime-and-sanctions": re.compile(
         r"\b(AML|KYC|CFT|sanction[sd]?|money launder|financial crime"
         r"|FinCEN|OFAC|OFSI|FATF|fraud|suspicious activity|proliferation"
-        r"|crypto.asset|digital asset|illicit|antilavado|lavado de dinero|abusivismo)\b",
+        r"|crypto.asset|digital asset|illicit|antilavado|lavado de dinero|abusivismo)(?:\b|(?=[^\x00-\x7F]))"
+        r"|マネロン|テロ資金|資金洗浄|金融活動作業部会|暗号資産",
         re.I,
     ),
     "digital-resilience": re.compile(

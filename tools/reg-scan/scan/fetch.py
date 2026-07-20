@@ -11,7 +11,6 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from urllib.parse import urljoin
 
-import feedparser
 import requests
 from bs4 import BeautifulSoup
 
@@ -75,6 +74,13 @@ def _strip_html(html: str) -> str:
     return _STRIP_TAGS.sub(" ", html or "").strip()
 
 
+def _parse_html(content):
+    try:
+        return BeautifulSoup(content, "lxml")
+    except Exception:
+        return BeautifulSoup(content, "html.parser")
+
+
 def _is_blocked_response(response):
     """Identify official pages that returned an anti-bot/challenge shell."""
     text = response.text[:8000] if getattr(response, "text", None) else ""
@@ -107,10 +113,22 @@ def _parse_page_date(node):
     """Parse a page date node into a UTC ISO timestamp, failing closed."""
     if node is None:
         return None
-    raw = node.get("datetime") or node.get_text(" ", strip=True)
+    raw = node.get("datetime") or node.get("content") or node.get_text(" ", strip=True)
     if not raw:
         return None
-    normalized = re.sub(r"^(published|updated|date)\s*:?\s*", "", raw, flags=re.I).strip()
+    normalized = re.sub(r"^(published(?:\s+date)?|updated(?:\s+date)?|date)\s*:?\s*", "", raw, flags=re.I).strip()
+    japanese_era = re.search(r"令和\s*(\d+)\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", normalized)
+    if japanese_era:
+        try:
+            parsed = datetime(
+                2018 + int(japanese_era.group(1)),
+                int(japanese_era.group(2)),
+                int(japanese_era.group(3)),
+                tzinfo=timezone.utc,
+            )
+            return parsed.isoformat()
+        except ValueError:
+            return None
     normalized = re.sub(r"\bde\s+", "", normalized, flags=re.I)
     normalized = normalized.replace("Sept ", "Sep ")
     for local, english in _LOCAL_MONTHS.items():
@@ -182,6 +200,8 @@ def fetch_source(source, feed_urls, source_filters=None):
     Fetch all feed_urls for a source and return (items, last_error).
     last_error is None when at least one feed succeeded.
     """
+    import feedparser
+
     all_items = []
     last_error = None
 
@@ -229,7 +249,7 @@ def fetch_page_source(source, page_configs, source_filters=None):
                 last_error = f"blocked by anti-bot challenge at {url}"
                 log.warning("blocked official page %s", url)
                 continue
-            soup = BeautifulSoup(response.content, "lxml")
+            soup = _parse_html(response.content)
             rows = []
             for selector in config["item_selectors"]:
                 rows = soup.select(selector)

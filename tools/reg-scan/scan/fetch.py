@@ -198,16 +198,42 @@ def _headers_for(config=None):
 
 def _get(url, config=None):
     last_error = None
-    for attempt in range(_RETRIES):
+    timeout = (config or {}).get("timeout", _TIMEOUT)
+    retries = (config or {}).get("retries", _RETRIES)
+    for attempt in range(retries):
         try:
-            response = requests.get(url, headers=_headers_for(config), timeout=_TIMEOUT)
+            response = requests.get(url, headers=_headers_for(config), timeout=timeout)
             response.raise_for_status()
             return response
         except requests.RequestException as exc:
             last_error = exc
-            if attempt + 1 < _RETRIES:
+            if attempt + 1 < retries:
                 time.sleep(0.5 * (2 ** attempt))
     raise last_error
+
+
+def enrich_deadline_text(records, max_items=24):
+    """Fetch visible text from likely deadline-bearing detail pages.
+
+    This is deliberately best-effort: a blocked or failed page never removes
+    feed evidence, and only consultation/final-rule/deadline records are
+    eligible to keep scan cost bounded across the global source set.
+    """
+    eligible = [r for r in records if r.get("signal_type") in {"consultation", "final-rule", "deadline"}]
+    for rec in eligible[:max_items]:
+        try:
+            response = _get(rec["url"], {"timeout": 8, "retries": 1})
+            if _is_blocked_response(response):
+                continue
+            soup = _parse_html(response.content)
+            for node in soup(["script", "style", "noscript", "svg"]):
+                node.decompose()
+            text = soup.get_text(" ", strip=True)
+            if text:
+                rec["detail_text"] = text[:12000]
+        except (requests.RequestException, ValueError) as exc:
+            log.debug("deadline detail unavailable %s: %s", rec.get("url"), exc)
+    return records
 
 
 def fetch_source(source, feed_urls, source_filters=None):

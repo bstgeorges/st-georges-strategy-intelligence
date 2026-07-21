@@ -62,6 +62,25 @@ def seen_urls(conn: sqlite3.Connection, source_id: str) -> set:
     return {r["url"] for r in rows}
 
 
+def previous_items(conn: sqlite3.Connection, urls) -> dict:
+    """Return prior stored records keyed by URL for edition change tracking."""
+    urls = list(urls)
+    if not urls:
+        return {}
+    marks = ",".join("?" for _ in urls)
+    rows = conn.execute(f"SELECT url, title, deadline FROM items WHERE url IN ({marks})", urls).fetchall()
+    return {row["url"]: dict(row) for row in rows}
+
+
+def open_deadlines(conn: sqlite3.Connection, today: str) -> list:
+    """Return previously seen future-deadline items for carry-forward."""
+    rows = conn.execute(
+        "SELECT url, source_id, title, summary, published_at, signal_type, risk_areas, score, deadline "
+        "FROM items WHERE deadline IS NOT NULL AND deadline >= ?", (today,)
+    ).fetchall()
+    return [dict(row) for row in rows]
+
+
 def upsert_items(conn: sqlite3.Connection, items: list) -> None:
     """Insert-or-update a list of item dicts."""
     now = datetime.now(timezone.utc).isoformat()

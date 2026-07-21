@@ -72,12 +72,13 @@
   function renderSignal(item, index) {
     const areas = (item.riskAreas || []).join(", ");
     const sourceStatus = item.sourceStatus ? `${item.sourceStatus} source / ` : "";
-    const meta = `${typeLabel(item.type)} / ${areas || "unclassified"} / ${sourceStatus}${item.source || ""} / ${item.date || ""}`;
+    const chips = [typeLabel(item.type), areas || "unclassified", sourceStatus ? `${sourceStatus}${item.source || ""}` : item.source, item.date]
+      .filter(Boolean).map((value) => `<span class="horizon-chip">${escapeHtml(value)}</span>`).join("");
     return `
-      <li>
+      <li class="horizon-signal">
         <span class="rank">${pad(index + 1)}</span>
-        <a href="${escapeHtml(item.url)}"><h3>${escapeHtml(item.title)}</h3></a>
-        <span class="meta">${escapeHtml(meta)}</span>
+        <div class="horizon-signal-body"><a href="${escapeHtml(item.url)}"><h3>${escapeHtml(item.title)}</h3></a>
+        <div class="horizon-chips">${chips}</div></div>
       </li>
     `;
   }

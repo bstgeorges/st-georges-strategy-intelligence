@@ -28,6 +28,7 @@ const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const DEFAULT_RETENTION_DAYS = 90;
 const EXTENDED_RETENTION_DAYS = 180;
+const TOP5_MAX_AGE_DAYS = 60;
 const REQUIRED_EVIDENCE_FIELDS = [
   "sourceTitle",
   "organisation",
@@ -126,6 +127,21 @@ function validateEvidence(row, rowLabel, failures) {
   }
 }
 
+function validateTop5Freshness(row, rowLabel, editionDate, failures) {
+  if (!editionDate) return;
+  const sourceDate = parseIsoDate(row.evidence?.publishedDate || extractExactDate(row.source));
+  if (!sourceDate) return;
+  const ageDays = Math.floor((editionDate.getTime() - sourceDate.getTime()) / 86400000);
+  if (ageDays < 0) {
+    fail(`${rowLabel} source date cannot be after the Signals edition date.`, failures);
+  } else if (ageDays > TOP5_MAX_AGE_DAYS) {
+    fail(
+      `${rowLabel} is ${ageDays} days old; Top 5 rows must be no older than ${TOP5_MAX_AGE_DAYS} days. Move it to still-material or replace it with a fresh signal.`,
+      failures,
+    );
+  }
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
@@ -164,7 +180,15 @@ async function main() {
     }
 
     const rows = [...(topic.top5 || []), ...retainedRows];
-    rows.forEach((row, index) => {
+    (topic.top5 || []).forEach((row, index) => {
+      const rowLabel = `${topicId} Top 5 row ${index + 1}`;
+      if (!row.title) fail(`${topicId} Top 5 row ${index + 1} is missing title.`, failures);
+      if (!row.source) fail(`${topicId} Top 5 row ${index + 1} is missing source label.`, failures);
+      if (!row.url) fail(`${topicId} Top 5 row ${index + 1} is missing citation URL.`, failures);
+      validateEvidence(row, rowLabel, failures);
+      validateTop5Freshness(row, rowLabel, editionDate, failures);
+    });
+    retainedRows.forEach((row, index) => {
       const rowLabel = `${topicId} row ${index + 1}`;
       if (!row.title) fail(`${topicId} row ${index + 1} is missing title.`, failures);
       if (!row.source) fail(`${topicId} row ${index + 1} is missing source label.`, failures);
@@ -172,7 +196,7 @@ async function main() {
       validateEvidence(row, rowLabel, failures);
     });
 
-    const publishedValidation = validatePublishedRows(rows, {
+    const publishedValidation = validatePublishedRows(topic.top5 || [], {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
@@ -180,6 +204,14 @@ async function main() {
     });
     failures.push(...publishedValidation.failures);
     warnings.push(...publishedValidation.warnings);
+    const retainedValidation = validatePublishedRows(retainedRows, {
+      label: `${topicId} still-material`,
+      resolveRowUrl: (row) => row.url,
+      resolveRowSourceLabel: (row) => row.source,
+      maxExactReusePerTopic: 1,
+    });
+    failures.push(...retainedValidation.failures);
+    warnings.push(...retainedValidation.warnings);
 
     if (editionDate) {
       retainedRows.forEach((row, index) => {

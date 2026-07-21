@@ -1,8 +1,8 @@
 {
   "version": "2026-07-18",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-07-18T21:50:29.318Z",
-  "preparedAt": "2026-07-18T21:51:25.316Z",
+  "candidateGeneratedAt": "2026-07-20T20:54:30.539Z",
+  "preparedAt": "2026-07-20T20:56:16.110Z",
   "instructions": "Review the proposed candidates, copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -16,25 +16,64 @@
       "id": "ai",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "Safety and alignment in an era of long-horizon models",
+          "url": "https://openai.com/index/safety-alignment-long-horizon-models",
+          "sourceName": "OpenAI",
+          "publishedAt": "2026-07-20T10:00:00.000Z",
+          "relevanceScore": 85
+        }
+      ]
     },
     {
       "id": "market-structure",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "ESMA calls on firms to finalise preparations ahead of T+1 settlement deadlines",
+          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines",
+          "sourceName": "European Securities and Markets Authority",
+          "publishedAt": "",
+          "relevanceScore": 61
+        },
+        {
+          "title": "Prosper Capital LLP enters creditors’ voluntary liquidation",
+          "url": "https://www.fca.org.uk/news/news-stories/prosper-capital-llp-enters-creditors-voluntary-liquidation",
+          "sourceName": "Financial Conduct Authority",
+          "publishedAt": "",
+          "relevanceScore": 57
+        }
+      ]
     },
     {
       "id": "third-party",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+          "sourceName": "Google Cloud Service Health",
+          "publishedAt": "2026-07-20T18:31:26.000Z",
+          "relevanceScore": 100
+        }
+      ]
     },
     {
       "id": "resilience",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+          "sourceName": "Google Cloud Service Health",
+          "publishedAt": "2026-07-20T18:31:26.000Z",
+          "relevanceScore": 91
+        }
+      ]
     },
     {
       "id": "financial-crime",
@@ -46,13 +85,43 @@
       "id": "cyber",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "Vulnérabilité dans Schneider Electric EcoStruxure (15 juillet 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0881",
+          "sourceName": "CERT-FR / ANSSI",
+          "publishedAt": "2026-07-15T00:00:00.000Z",
+          "relevanceScore": 74
+        },
+        {
+          "title": "Multiples vulnérabilités dans Apache Tomcat (15 juillet 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0876",
+          "sourceName": "CERT-FR / ANSSI",
+          "publishedAt": "2026-07-15T00:00:00.000Z",
+          "relevanceScore": 74
+        },
+        {
+          "title": "Multiples vulnérabilités dans Microsoft Azure (15 juillet 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0871",
+          "sourceName": "CERT-FR / ANSSI",
+          "publishedAt": "2026-07-15T00:00:00.000Z",
+          "relevanceScore": 74
+        }
+      ]
     },
     {
       "id": "technology-failure",
       "selectedUrls": [],
       "editorialRationale": "",
-      "proposedCandidates": []
+      "proposedCandidates": [
+        {
+          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+          "sourceName": "Google Cloud Service Health",
+          "publishedAt": "2026-07-20T18:31:26.000Z",
+          "relevanceScore": 89
+        }
+      ]
     },
     {
       "id": "data",

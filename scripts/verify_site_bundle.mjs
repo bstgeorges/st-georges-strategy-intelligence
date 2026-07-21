@@ -288,6 +288,12 @@ function main() {
     }
   }
 
+  const signalsLatest = readJson("signals/latest.json");
+  assert(signalsLatest.contractVersion === "signals.latest.v1", "Signals latest.json contractVersion mismatch", failures);
+  assert(signalsLatest.edition === edition.publicationDate, "Signals latest.json edition should match current publicationDate", failures);
+  assert(signalsLatest.canonicalUrl === "https://stgeorgesstrategy.com/signals/", "Signals latest.json canonicalUrl mismatch", failures);
+  assert(Array.isArray(signalsLatest.topics) && signalsLatest.topics.length === 8, "Signals latest.json should contain eight topics", failures);
+
   const brief = read("brief/index.html");
   const briefHorizonHtml = Array.from(brief.matchAll(/<ul class="horizon-list"[^>]*>([\s\S]*?)<\/ul>/g), (match) => match[1]).join("\n");
   const briefDates = Array.from(briefHorizonHtml.matchAll(/<time datetime="(\d{4}-\d{2}-\d{2})"/g), (match) => match[1]);

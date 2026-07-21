@@ -1756,6 +1756,23 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
 
 function generateSignalsJson(out, data) {
   write(path.join(out, "data", "signals.json"), `${JSON.stringify(data, null, 2)}\n`);
+  const latest = {
+    contractVersion: "signals.latest.v1",
+    kind: "signals-edition",
+    edition: data.edition,
+    canonicalUrl: `${PUBLIC_ORIGIN}/signals/`,
+    source: "site/data/signals.json",
+    topics: (data.topics || []).map((topic) => ({
+      id: topic.id,
+      route: topic.route,
+      title: topic.title,
+      description: topic.description,
+      stillMaterialReviewedAt: topic.stillMaterialReviewedAt,
+      top5: topic.top5 || [],
+      stillMaterial: getStillMaterialRows(topic),
+    })),
+  };
+  write(path.join(out, "signals", "latest.json"), `${JSON.stringify(latest, null, 2)}\n`);
 }
 
 function generateSitemap(out, edition) {
@@ -1931,6 +1948,20 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   }
 
   const signals = readJson(path.join(out, "data", "signals.json"));
+  const signalsLatest = path.join(out, "signals", "latest.json");
+  assert(fs.existsSync(signalsLatest), "Signals latest.json missing", failures);
+  if (fs.existsSync(signalsLatest)) {
+    const latest = readJson(signalsLatest);
+    assert(latest.contractVersion === "signals.latest.v1", "Signals latest.json contractVersion mismatch", failures);
+    assert(latest.edition === signals.edition, "Signals latest.json edition must match signals.json", failures);
+    assert(latest.canonicalUrl === `${PUBLIC_ORIGIN}/signals/`, "Signals latest.json canonicalUrl mismatch", failures);
+    assert(latest.topics?.length === topics.length, "Signals latest.json should contain all eight topics", failures);
+    assert(
+      latest.topics?.every((topic) => topic.top5?.length === TOP5_COUNT),
+      "Signals latest.json topics should contain five Top 5 rows",
+      failures,
+    );
+  }
   assert(signals.topics?.length === topics.length, "signals.json should contain all eight topics", failures);
   assert(
     signals.topics?.every((topic) => {

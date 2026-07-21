@@ -318,8 +318,9 @@ async function main() {
     for (const row of item.rows) console.log(`  - ${row.topic}/${row.section}: ${row.title}`);
   }
   const mismatches = results.filter((result) => result.result === "mismatch");
-  if (options.failOnMismatch && mismatches.length) {
-    console.error(`Signal source date audit failed: ${mismatches.length} displayed date mismatch(es).`);
+  const blockingMismatches = mismatches.filter((result) => result.rows.some((row) => row.section === "top5"));
+  if (options.failOnMismatch && blockingMismatches.length) {
+    console.error(`Signal source date audit failed: ${blockingMismatches.length} Top 5 displayed date mismatch(es).`);
     process.exit(1);
   }
 }

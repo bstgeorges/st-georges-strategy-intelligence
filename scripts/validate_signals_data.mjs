@@ -119,6 +119,14 @@ function validateEvidence(row, rowLabel, failures) {
   if (evidence.accessedDate && !parseIsoDate(evidence.accessedDate)) {
     fail(`${rowLabel} evidence.accessedDate must be YYYY-MM-DD when present.`, failures);
   }
+  if (evidence.sourceDateVerification?.status === "evergreen") {
+    if (!parseIsoDate(evidence.sourceDateVerification.reviewedDate)) {
+      fail(`${rowLabel} evergreen sourceDateVerification.reviewedDate must be YYYY-MM-DD.`, failures);
+    }
+    if (!evidence.sourceDateVerification.reason) {
+      fail(`${rowLabel} evergreen sourceDateVerification.reason is required.`, failures);
+    }
+  }
   if (evidence.sourceType && !ALLOWED_SOURCE_TYPES.has(evidence.sourceType)) {
     fail(`${rowLabel} evidence.sourceType is unsupported: ${evidence.sourceType}`, failures);
   }

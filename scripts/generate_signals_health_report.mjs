@@ -19,7 +19,7 @@ const top5 = rows
     result: row.result,
     manualVerification: item.manualVerification,
   })))
-  .filter((row) => !["verified", "candidate-match"].includes(row.confidence) && row.manualVerification?.status !== "manual-verified");
+  .filter((row) => !["verified", "candidate-match", "evergreen"].includes(row.confidence) && row.manualVerification?.status !== "manual-verified");
 
 const report = {
   generatedAt: audit.generatedAt,

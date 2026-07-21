@@ -1295,8 +1295,9 @@ function renderHorizonSignalList(entries, offset = 0) {
       const rank = String(index + offset + 1).padStart(2, "0");
       const type = String(signal.type || "other").replace(/-/g, " ");
       const areas = (signal.riskAreas || []).map((area) => RISK_AREA_LABELS[area] || area).join(", ");
-      const meta = [type, areas, signal.source, signal.date].filter(Boolean).join(" / ");
-      return `<li><span class="rank">${rank}</span><a href="${escapeHtml(signal.url)}"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(meta)}</span></li>`;
+      const chips = [type, areas, signal.source, signal.date].filter(Boolean)
+        .map((value) => `<span class="horizon-chip">${escapeHtml(value)}</span>`).join("");
+      return `<li class="horizon-signal"><span class="rank">${rank}</span><div class="horizon-signal-body"><a href="${escapeHtml(signal.url)}"><h3>${escapeHtml(signal.title)}</h3></a><div class="horizon-chips">${chips}</div></div></li>`;
     })
     .join("");
 }

@@ -44,6 +44,19 @@ class TestDeadlines(unittest.TestCase):
         published = "2026-07-01T00:00:00+00:00"
         self.assertIsNone(self.extract(text, published))
 
+    def test_extract_deadline_global_date_forms(self):
+        published = "2026-07-01T00:00:00+00:00"
+        cases = {
+            "Comments due by 2026-09-30": "2026-09-30",
+            "Réponses jusqu'au 30/09/2026": "2026-09-30",
+            "Feedback frist: 30.09.2026": "2026-09-30",
+            "The deadline is September 30, 2026": "2026-09-30",
+            "意見募集は2026年9月30日まで": "2026-09-30",
+        }
+        for text, expected in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(self.extract(text, published), expected)
+
     def test_annotate_attaches_deadline(self):
         records = [
             {
@@ -54,6 +67,16 @@ class TestDeadlines(unittest.TestCase):
         ]
         self.annotate(records)
         self.assertEqual(records[0]["deadline"], "2026-11-30")
+
+    def test_annotate_uses_detail_page_text(self):
+        records = [{
+            "title": "Consultation on operational resilience",
+            "summary": "The consultation is now open.",
+            "detail_text": "Responses must be submitted by 2026-10-15.",
+            "published_at": "2026-07-01T00:00:00+00:00",
+        }]
+        self.annotate(records)
+        self.assertEqual(records[0]["deadline"], "2026-10-15")
 
     def test_band_boundaries(self):
         self.assertEqual(self.band(0), "0-30")

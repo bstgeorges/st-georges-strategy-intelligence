@@ -118,6 +118,7 @@ def main():
             if _is_recent(item.get("published_at"), cutoff, generated_at):
                 recent.append(item)
 
+        _fetch.enrich_deadline_text(recent, max_items=8)
         _dl.annotate(recent)
         for item in recent:
             item["score"] = _score.score(item, source)
@@ -125,7 +126,29 @@ def main():
         all_items.extend(recent)
 
     if not args.dry_run and conn is not None:
+        prior = _db.previous_items(conn, [item["url"] for item in all_items])
+        for item in all_items:
+            old = prior.get(item["url"])
+            if not old:
+                item["change_status"] = "new"
+            elif old.get("deadline") != item.get("deadline"):
+                item["change_status"] = "changed"
+            else:
+                item["change_status"] = "unchanged"
+        current_urls = {item["url"] for item in all_items}
+        for old in _db.open_deadlines(conn, generated_at.date().isoformat()):
+            if old["url"] in current_urls or old["source_id"] not in sources_by_id:
+                continue
+            all_items.append({
+                **old,
+                "source_name": sources_by_id[old["source_id"]].get("name", old["source_id"]),
+                "risk_areas": json.loads(old.get("risk_areas") or "[]"),
+                "change_status": "carried-forward",
+            })
         _db.upsert_items(conn, all_items)
+    else:
+        for item in all_items:
+            item["change_status"] = "new"
 
     signals = _deduplicate(all_items)
     signals.sort(key=lambda x: x.get("score", 0), reverse=True)

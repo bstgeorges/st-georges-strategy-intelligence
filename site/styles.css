@@ -737,6 +737,13 @@ p {
 #horizon-watch-themes .card { position: relative; }
 #horizon-watch-themes .is-active-theme::before { position: absolute; top: -1px; right: -1px; left: -1px; height: 2px; background: var(--accent); content: ""; transform: scaleX(0); transform-origin: left; animation: draw-rule 520ms var(--motion-ease) forwards; }
 #horizon-material-top5 .rank, #horizon-material-additional .rank { font-size: clamp(30px, 4vw, 48px); }
+.horizon-signal { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 18px; align-items: start; }
+.horizon-signal-body { min-width: 0; }
+.horizon-signal-body h3 { max-width: 54rem; margin: 0 0 13px; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.08; }
+.horizon-signal-body a { color: var(--navy); text-decoration: none; }
+.horizon-signal-body a:hover h3 { color: var(--accent-readable); }
+.horizon-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.horizon-chip { display: inline-flex; border: 1px solid var(--rule); padding: 5px 8px; color: var(--ink-soft); font: 600 10px/1.1 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 
 .committee-question-card { position: relative; border-left-width: 1px; }
 .committee-question-card h3 { border-left: 2px solid var(--accent); padding-left: 18px; font-size: clamp(27px, 2.35vw, 39px); font-style: italic; }

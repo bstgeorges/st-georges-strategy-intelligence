@@ -57,6 +57,7 @@ def fmt_signal(item, source):
         "why": _why_text(item),
         "score": item.get("score", 0),
         "deadline": item.get("deadline"),
+        "changeStatus": item.get("change_status", "new"),
         "also": [],
     }
 

@@ -16,10 +16,20 @@ _MONTH_RX = "|".join(MONTHS)
 CUES = re.compile(
     r"(closes?|closing|by|until|before|deadline|respond|responses?|comments?|"
     r"feedback|enters? into force|entry into force|takes? effect|applies from|"
-    r"applicable from|effective|due|submit)", re.I)
+    r"applicable from|effective|due|submit|comments? due|responses? due|"
+    r"commentaires?|réponses?|jusqu(?:'|’|\s+au)|fecha límite|plazo|"
+    r"frist|stellungnahmen?|至|締切|截止|截止日期|まで)", re.I)
 
+# Accept the dominant official-publication forms globally: UK/EU text dates,
+# US month-first dates, ISO dates, dotted/slashed numeric dates, and Japanese
+# era-independent dates (YYYY年M月D日).  Candidate validation happens below.
 DATE_RX = re.compile(
-    rf"\b(\d{{1,2}})(?:st|nd|rd|th)?\s+({_MONTH_RX})(?:\s+(\d{{4}}))?\b", re.I)
+    rf"(?:\b(\d{{1,2}})(?:st|nd|rd|th)?\s+({_MONTH_RX})(?:\s+(\d{{4}}))?\b|"
+    rf"\b({_MONTH_RX})\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(\d{{4}}))?\b|"
+    r"\b(\d{4})[-/](\d{1,2})[-/](\d{1,2})\b|"
+    r"\b(\d{1,2})[./](\d{1,2})[./](\d{4})\b|"
+    r"(?<!\d)(\d{4})年(\d{1,2})月(\d{1,2})日)"
+    , re.I)
 
 WINDOW = 90  # chars of context around a date that must contain a cue
 
@@ -44,8 +54,17 @@ def extract_deadline(text, published_at):
         ctx = text[max(0, m.start() - WINDOW): m.end() + WINDOW]
         if not CUES.search(ctx):
             continue
-        day, month = int(m.group(1)), MONTHS[m.group(2).lower()]
-        year = _resolve_year(day, month, m.group(3), published)
+        if m.group(1):
+            day, month, year = int(m.group(1)), MONTHS[m.group(2).lower()], m.group(3)
+        elif m.group(4):
+            month, day, year = MONTHS[m.group(4).lower()], int(m.group(5)), m.group(6)
+        elif m.group(7):
+            year, month, day = int(m.group(7)), int(m.group(8)), int(m.group(9))
+        elif m.group(10):
+            day, month, year = int(m.group(10)), int(m.group(11)), m.group(12)
+        else:
+            year, month, day = int(m.group(13)), int(m.group(14)), int(m.group(15))
+        year = _resolve_year(day, month, year, published)
         try:
             d = date(year, month, day)
         except ValueError:
@@ -60,7 +79,7 @@ def extract_deadline(text, published_at):
 def annotate(records):
     """Attach rec['deadline'] (ISO date or None) to each record in place."""
     for rec in records:
-        text = f"{rec.get('title', '')}. {rec.get('summary', '')}"
+        text = f"{rec.get('title', '')}. {rec.get('summary', '')}. {rec.get('detail_text', '')}"
         rec["deadline"] = extract_deadline(text, rec.get("published_at"))
     return records
 

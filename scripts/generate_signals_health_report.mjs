@@ -17,7 +17,7 @@ const top5 = rows
     ...item,
     confidence: row.confidence,
     result: row.result,
-    manualVerification: row.manualVerification,
+    manualVerification: item.manualVerification,
   })))
   .filter((row) => !["verified", "candidate-match"].includes(row.confidence) && row.manualVerification?.status !== "manual-verified");
 

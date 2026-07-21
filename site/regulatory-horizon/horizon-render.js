@@ -190,9 +190,9 @@
     }
     if (materialAdditional) {
       const additional = (data.signals || []).slice(5, 15);
-      materialAdditional.innerHTML = additional.length
-        ? additional.map((item, index) => renderSignal(item, index + 5)).join("")
-        : "<li><span class=\"rank\">--</span><span><h3>No further material rows cleared the threshold in this edition</h3></span><span class=\"meta\">Monitor source universe</span></li>";
+    materialAdditional.innerHTML = additional.length
+      ? additional.map((item, index) => renderSignal(item, index + 5)).join("")
+      : "<li class=\"horizon-empty\"><div><p class=\"eyebrow\">No additional rows</p><h3>The wider source universe was reviewed, but no further items met the materiality threshold.</h3><p>Continue monitoring approved sources; this is an intentional empty state, not a missing scan.</p></div></li>";
     }
     if (themes) {
       const active = new Set((data.signals || []).flatMap((item) => item.riskAreas || []));

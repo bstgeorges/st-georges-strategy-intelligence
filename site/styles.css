@@ -745,6 +745,9 @@ p {
 .band #horizon-material-additional li.horizon-signal:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15, 34, 51, .09); }
 .band #horizon-material-additional li.horizon-signal { background: transparent; box-shadow: none; }
 .band #horizon-material-additional li.horizon-signal:hover { background: var(--paper-raised); }
+.band #horizon-material-additional li.horizon-empty { display: block; padding: 28px; border: 1px dashed var(--rule-strong); background: rgba(15, 34, 51, .025); }
+.horizon-empty h3 { max-width: 42rem; margin: 6px 0 8px; font: 500 clamp(22px, 2vw, 30px)/1.15 var(--serif); }
+.horizon-empty p:not(.eyebrow) { max-width: 58ch; margin: 0; color: var(--ink-soft); }
 .band #horizon-material-top5 .rank,
 .band #horizon-material-additional .rank { color: var(--accent-readable); font: 600 14px/1 var(--mono); letter-spacing: .08em; }
 .band #horizon-material-top5 .horizon-signal-body h3,

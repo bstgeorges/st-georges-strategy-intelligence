@@ -14,7 +14,7 @@ const counts = rows.reduce((summary, row) => {
 }, {});
 const top5 = rows
   .flatMap((row) => (row.rows || []).filter((item) => item.section === "top5").map((item) => ({ ...item, confidence: row.confidence, result: row.result })))
-  .filter((row) => !["verified", "candidate-match"].includes(row.confidence));
+  .filter((row) => !["verified", "candidate-match"].includes(row.confidence) && row.manualVerification?.status !== "manual-verified");
 
 const report = {
   generatedAt: audit.generatedAt,
@@ -23,8 +23,13 @@ const report = {
   uniqueUrlCount: audit.uniqueUrlCount,
   confidenceCounts: counts,
   top5Unresolved: top5,
-  status: top5.some((row) => ["mismatch", "fetch-failed", "undated"].includes(row.confidence)) ? "attention-required" : "ready",
+  status: top5.length ? "attention-required" : "ready",
 };
+
+if (report.top5Unresolved.length) {
+  console.error(`Signals health gate failed: ${report.top5Unresolved.length} unresolved Top 5 source(s).`);
+  process.exit(1);
+}
 
 fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(report, null, 2)}\n`);
 console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT_PATH), status: report.status, confidenceCounts: counts, top5Unresolved: top5.length }, null, 2));

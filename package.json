@@ -11,6 +11,7 @@
     "signals:validate:live": "node scripts/validate_signals_data.mjs --check-live",
     "signals:date-audit": "node scripts/audit_signal_source_dates.mjs --out dashboard/data/signal-source-date-audit.generated.json",
     "signals:date-audit:ci": "node scripts/audit_signal_source_dates.mjs --fail-on-mismatch",
+    "signals:health": "node scripts/audit_signal_source_dates.mjs --out dashboard/data/signal-source-date-audit.generated.json && node scripts/generate_signals_health_report.mjs",
     "signals:candidates:refresh": "node scripts/refresh_signals_candidates.mjs",
     "signals:candidates:refresh:offline": "node scripts/refresh_signals_candidates.mjs --offline --include-seen --no-state-write",
     "signals:candidates:validate": "node scripts/validate_signals_candidates_output.mjs",

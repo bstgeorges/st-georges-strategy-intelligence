@@ -226,6 +226,19 @@ function classify(expectedDates, best, candidates, response) {
   return "mismatch";
 }
 
+function confidenceForResult(result) {
+  return {
+    match: "verified",
+    "candidate-match": "candidate-match",
+    restricted: "restricted",
+    "no-source-date-found": "undated",
+    "no-displayed-date": "undated",
+    "fetch-failed": "fetch-failed",
+    "fetch-error": "fetch-failed",
+    mismatch: "mismatch",
+  }[result] || "unknown";
+}
+
 async function auditUrl(item) {
   const expectedDates = Array.from(new Set(item.rows.flatMap((row) => row.displayedSourceDates || []).filter(Boolean)));
   if (!expectedDates.length) {
@@ -238,6 +251,7 @@ async function auditUrl(item) {
       sourceDateEvidence: "",
       candidates: [],
       result: "no-displayed-date",
+      confidence: "undated",
       rows: item.rows,
     };
   }
@@ -250,6 +264,7 @@ async function auditUrl(item) {
     const html = contentType.includes("text") || contentType.includes("html") || contentType.includes("xml") ? await response.text() : "";
     const candidates = html ? collectDates(html, response.url) : [];
     const best = chooseBestDate(candidates);
+    const result = classify(expectedDates, best, candidates, response);
     return {
       url: item.url,
       finalUrl: response.url,
@@ -258,11 +273,12 @@ async function auditUrl(item) {
       sourceDate: best?.date || "",
       sourceDateEvidence: best?.source || "",
       candidates: candidates.slice(0, 12),
-      result: classify(expectedDates, best, candidates, response),
+      result,
+      confidence: confidenceForResult(result),
       rows: item.rows,
     };
   } catch (error) {
-    return { url: item.url, finalUrl: "", status: 0, expectedDates, sourceDate: "", sourceDateEvidence: "", candidates: [], result: "fetch-error", error: error.message, rows: item.rows };
+    return { url: item.url, finalUrl: "", status: 0, expectedDates, sourceDate: "", sourceDateEvidence: "", candidates: [], result: "fetch-error", confidence: "fetch-failed", error: error.message, rows: item.rows };
   }
 }
 

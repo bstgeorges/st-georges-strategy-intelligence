@@ -242,6 +242,11 @@ function confidenceForResult(result) {
   }[result] || "unknown";
 }
 
+function applyEvergreenPolicy(result, row) {
+  if (row.section === "stillMaterial" && row.manualVerification?.status === "evergreen") return "evergreen";
+  return result;
+}
+
 async function auditUrl(item) {
   const expectedDates = Array.from(new Set(item.rows.flatMap((row) => row.displayedSourceDates || []).filter(Boolean)));
   if (!expectedDates.length) {
@@ -267,7 +272,9 @@ async function auditUrl(item) {
     const html = contentType.includes("text") || contentType.includes("html") || contentType.includes("xml") ? await response.text() : "";
     const candidates = html ? collectDates(html, response.url) : [];
     const best = chooseBestDate(candidates);
-    const result = classify(expectedDates, best, candidates, response);
+    const result = item.rows.every((row) => row.section === "stillMaterial")
+      ? applyEvergreenPolicy(classify(expectedDates, best, candidates, response), item.rows[0])
+      : classify(expectedDates, best, candidates, response);
     return {
       url: item.url,
       finalUrl: response.url,

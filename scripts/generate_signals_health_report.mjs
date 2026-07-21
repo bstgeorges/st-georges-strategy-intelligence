@@ -13,7 +13,12 @@ const counts = rows.reduce((summary, row) => {
   return summary;
 }, {});
 const top5 = rows
-  .flatMap((row) => (row.rows || []).filter((item) => item.section === "top5").map((item) => ({ ...item, confidence: row.confidence, result: row.result })))
+  .flatMap((row) => (row.rows || []).filter((item) => item.section === "top5").map((item) => ({
+    ...item,
+    confidence: row.confidence,
+    result: row.result,
+    manualVerification: row.manualVerification,
+  })))
   .filter((row) => !["verified", "candidate-match"].includes(row.confidence) && row.manualVerification?.status !== "manual-verified");
 
 const report = {

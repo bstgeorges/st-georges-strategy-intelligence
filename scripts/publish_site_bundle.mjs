@@ -94,6 +94,7 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
+const TOP5_MAX_AGE_DAYS = 60;
 const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const REG_HORIZON_ADDITIONAL_COUNT = 5;
@@ -1523,13 +1524,26 @@ function validateSignalsData(data, failures) {
         failures,
       );
     }
-    const publishedValidation = validatePublishedRows([...(topic.top5 || []), ...stillMaterialRows], {
+    const publishedValidation = validatePublishedRows(topic.top5 || [], {
       label: topicId,
       resolveRowUrl: (row) => row.url,
       resolveRowSourceLabel: (row) => row.source,
       maxExactReusePerTopic: 1,
     });
     failures.push(...publishedValidation.failures);
+    const retainedValidation = validatePublishedRows(stillMaterialRows, {
+      label: `${topicId} still-material`,
+      resolveRowUrl: (row) => row.url,
+      resolveRowSourceLabel: (row) => row.source,
+      maxExactReusePerTopic: 1,
+    });
+    failures.push(...retainedValidation.failures);
+    for (const [index, row] of (topic.top5 || []).entries()) {
+      const sourceDate = row.evidence?.publishedDate || String(row.source || "").match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0];
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(sourceDate || "") || !/^\d{4}-\d{2}-\d{2}$/.test(data.edition || "")) continue;
+      const ageDays = Math.floor((Date.parse(`${data.edition}T00:00:00Z`) - Date.parse(`${sourceDate}T00:00:00Z`)) / 86400000);
+      assert(ageDays >= 0 && ageDays <= TOP5_MAX_AGE_DAYS, `${topicId} Top 5 row ${index + 1} is older than ${TOP5_MAX_AGE_DAYS} days`, failures);
+    }
   }
 }
 

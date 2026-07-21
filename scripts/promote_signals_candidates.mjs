@@ -23,6 +23,7 @@ const TOPICS = [
 ];
 const TOP5_COUNT = 5;
 const MAX_FRESH_PROMOTIONS_PER_TOPIC = 3;
+const TOP5_MAX_AGE_DAYS = 60;
 
 function parseArgs(argv) {
   const options = { date: "", dryRun: false };
@@ -56,6 +57,15 @@ function formatSourceLabel(candidate) {
   const name = candidate.sourceName || candidate.sourceRegistryId || "Unknown source";
   const date = candidate.publishedAt ? candidate.publishedAt.slice(0, 10) : "";
   return date ? `${tier} / ${name} / ${date}` : `${tier} / ${name}`;
+}
+
+function isFreshTop5Row(row, editionDate) {
+  const value = row.evidence?.publishedDate || String(row.source || "").match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0];
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return false;
+  const sourceTime = Date.parse(`${value}T00:00:00Z`);
+  const editionTime = Date.parse(`${editionDate}T00:00:00Z`);
+  const ageDays = Math.floor((editionTime - sourceTime) / 86400000);
+  return ageDays >= 0 && ageDays <= TOP5_MAX_AGE_DAYS;
 }
 
 // source IDs from published-source-map.json that are commercial AI companies
@@ -109,6 +119,10 @@ function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
       skipped.push(`unregistered host: ${candidate.url}`);
       continue;
     }
+    if (!isFreshTop5Row({ evidence: { publishedDate: candidate.publishedAt?.slice(0, 10) } }, promotionDate)) {
+      skipped.push(`stale candidate excluded: ${candidate.url}`);
+      continue;
+    }
     seenFresh.add(candidate.url);
     freshRows.push({
       title: candidate.title,
@@ -123,6 +137,10 @@ function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
   for (const row of [...existingTop5, ...existingStillMaterial]) {
     if (freshRows.length + backfillRows.length >= TOP5_COUNT) break;
     if (usedUrls.has(row.url)) continue;
+    if (!isFreshTop5Row(row, promotionDate)) {
+      skipped.push(`stale backfill excluded: ${row.url}`);
+      continue;
+    }
     backfillRows.push(row);
     usedUrls.add(row.url);
   }

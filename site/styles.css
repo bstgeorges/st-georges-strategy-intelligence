@@ -737,6 +737,18 @@ p {
 #horizon-watch-themes .card { position: relative; }
 #horizon-watch-themes .is-active-theme::before { position: absolute; top: -1px; right: -1px; left: -1px; height: 2px; background: var(--accent); content: ""; transform: scaleX(0); transform-origin: left; animation: draw-rule 520ms var(--motion-ease) forwards; }
 #horizon-material-top5 .rank, #horizon-material-additional .rank { font-size: clamp(30px, 4vw, 48px); }
+.band #horizon-material-top5,
+.band #horizon-material-additional { display: grid; gap: 12px; }
+.band #horizon-material-top5 li.horizon-signal,
+.band #horizon-material-additional li.horizon-signal { grid-template-columns: 64px minmax(0, 1fr); padding: 24px 26px; border: 1px solid var(--rule); background: var(--paper-raised); box-shadow: 0 8px 22px rgba(15, 34, 51, .045); transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
+.band #horizon-material-top5 li.horizon-signal:hover,
+.band #horizon-material-additional li.horizon-signal:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(15, 34, 51, .09); }
+.band #horizon-material-additional li.horizon-signal { background: transparent; box-shadow: none; }
+.band #horizon-material-additional li.horizon-signal:hover { background: var(--paper-raised); }
+.band #horizon-material-top5 .rank,
+.band #horizon-material-additional .rank { color: var(--accent-readable); font: 600 14px/1 var(--mono); letter-spacing: .08em; }
+.band #horizon-material-top5 .horizon-signal-body h3,
+.band #horizon-material-additional .horizon-signal-body h3 { margin-bottom: 14px; }
 .horizon-signal { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 18px; align-items: start; }
 .horizon-signal-body { min-width: 0; }
 .horizon-signal-body h3 { max-width: 54rem; margin: 0 0 13px; font-size: clamp(22px, 2.2vw, 34px); line-height: 1.08; }

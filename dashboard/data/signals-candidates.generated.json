@@ -1,6 +1,6 @@
 {
   "version": "2026-07-18",
-  "generatedAt": "2026-07-20T20:54:30.539Z",
+  "generatedAt": "2026-07-21T20:15:52.458Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -8,11 +8,11 @@
       "id": "ai",
       "candidates": [
         {
-          "id": "a5ab872c216c2f94",
+          "id": "d925d8c91f460a44",
           "topicId": "ai",
-          "title": "Safety and alignment in an era of long-horizon models",
-          "url": "https://openai.com/index/safety-alignment-long-horizon-models",
-          "publishedAt": "2026-07-20T10:00:00.000Z",
+          "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+          "publishedAt": "2026-07-21T07:00:00.000Z",
           "sourceRegistryId": "openai",
           "sourceName": "OpenAI",
           "sourceTier": "primary",
@@ -33,7 +33,36 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 85,
+          "relevanceScore": 84,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "69e481323262afa1",
+          "topicId": "ai",
+          "title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
+          "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards",
+          "publishedAt": "2026-07-21T00:00:00.000Z",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 69,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -42,183 +71,15 @@
     },
     {
       "id": "market-structure",
-      "candidates": [
-        {
-          "id": "df48a4c1d05c75f2",
-          "topicId": "market-structure",
-          "title": "ESMA calls on firms to finalise preparations ahead of T+1 settlement deadlines",
-          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines",
-          "publishedAt": "",
-          "sourceRegistryId": "esma",
-          "sourceName": "European Securities and Markets Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "esma-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience"
-          ],
-          "tags": [
-            "markets",
-            "mica",
-            "trading",
-            "settlement"
-          ],
-          "matchedKeywords": [
-            "market",
-            "trading",
-            "settlement",
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "settlement"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "trading",
-            "settlement",
-            "securities"
-          ],
-          "relevanceScore": 61,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Securities and Markets Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "4ddde8e790ffeb9b",
-          "topicId": "market-structure",
-          "title": "Prosper Capital LLP enters creditors’ voluntary liquidation",
-          "url": "https://www.fca.org.uk/news/news-stories/prosper-capital-llp-enters-creditors-voluntary-liquidation",
-          "publishedAt": "",
-          "sourceRegistryId": "uk-fca",
-          "sourceName": "Financial Conduct Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "fca-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "markets",
-            "crypto",
-            "outsourcing",
-            "resilience",
-            "ai",
-            "cyber"
-          ],
-          "matchedKeywords": [
-            "capital",
-            "fund"
-          ],
-          "titleMatchedKeywords": [
-            "capital"
-          ],
-          "summaryMatchedKeywords": [
-            "capital",
-            "fund"
-          ],
-          "relevanceScore": 57,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Financial Conduct Authority via rss ingestion and matched the topic rules."
-        }
-      ]
+      "candidates": []
     },
     {
       "id": "third-party",
-      "candidates": [
-        {
-          "id": "07bfb33c651a3d11",
-          "topicId": "third-party",
-          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
-          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
-          "publishedAt": "2026-07-20T18:31:26.000Z",
-          "sourceRegistryId": "google-cloud-status",
-          "sourceName": "Google Cloud Service Health",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "google-cloud-status-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "outage",
-            "service-degradation",
-            "dependency"
-          ],
-          "matchedKeywords": [
-            "google cloud",
-            "cloud"
-          ],
-          "titleMatchedKeywords": [
-            "google cloud",
-            "cloud"
-          ],
-          "summaryMatchedKeywords": [
-            "google cloud",
-            "cloud"
-          ],
-          "relevanceScore": 100,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        }
-      ]
+      "candidates": []
     },
     {
       "id": "resilience",
-      "candidates": [
-        {
-          "id": "07bfb33c651a3d11",
-          "topicId": "resilience",
-          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
-          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
-          "publishedAt": "2026-07-20T18:31:26.000Z",
-          "sourceRegistryId": "google-cloud-status",
-          "sourceName": "Google Cloud Service Health",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "google-cloud-status-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "outage",
-            "service-degradation",
-            "dependency"
-          ],
-          "matchedKeywords": [
-            "outage",
-            "failure",
-            "disruption",
-            "incident"
-          ],
-          "titleMatchedKeywords": [
-            "outage"
-          ],
-          "summaryMatchedKeywords": [
-            "failure",
-            "disruption",
-            "incident"
-          ],
-          "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        }
-      ]
+      "candidates": []
     },
     {
       "id": "financial-crime",
@@ -228,16 +89,16 @@
       "id": "cyber",
       "candidates": [
         {
-          "id": "53db177731cd254c",
+          "id": "af160bcfd41ad561",
           "topicId": "cyber",
-          "title": "Vulnérabilité dans Schneider Electric EcoStruxure (15 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0881",
-          "publishedAt": "2026-07-15T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
+          "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "publishedAt": "2026-07-21T12:00:00.000Z",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "sourceTier": "primary",
           "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
+          "ingestSourceId": "cisa-advisories-rss",
           "fetchType": "rss",
           "riskAreas": [
             "digital-resilience"
@@ -245,129 +106,68 @@
           "tags": [
             "cyber",
             "vulnerabilities",
-            "threat-intelligence",
-            "france"
+            "ransomware",
+            "critical-infrastructure"
           ],
           "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9fe75353aca3b49f",
-          "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans Apache Tomcat (15 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0876",
-          "publishedAt": "2026-07-15T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
             "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
+            "vulnerability",
+            "exploit",
+            "threat"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
+          "relevanceScore": 100,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "4ffc68cf12cd1b54",
-          "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans Microsoft Azure (15 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0871",
-          "publishedAt": "2026-07-15T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
         }
       ]
     },
     {
       "id": "technology-failure",
-      "candidates": [
-        {
-          "id": "07bfb33c651a3d11",
-          "topicId": "technology-failure",
-          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
-          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
-          "publishedAt": "2026-07-20T18:31:26.000Z",
-          "sourceRegistryId": "google-cloud-status",
-          "sourceName": "Google Cloud Service Health",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "google-cloud-status-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "outage",
-            "service-degradation",
-            "dependency"
-          ],
-          "matchedKeywords": [
-            "outage",
-            "failure",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "outage"
-          ],
-          "summaryMatchedKeywords": [
-            "failure",
-            "disruption"
-          ],
-          "relevanceScore": 89,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        }
-      ]
+      "candidates": []
     },
     {
       "id": "data",
-      "candidates": []
+      "candidates": [
+        {
+          "id": "0f973945ae4d8e21",
+          "topicId": "data",
+          "title": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures",
+          "publishedAt": "2026-07-20T00:21:45.000Z",
+          "sourceRegistryId": "asic",
+          "sourceName": "Australian Securities and Investments Commission",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "asic-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
+        }
+      ]
     }
   ],
   "sourceStats": [
@@ -377,7 +177,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 2,
       "error": ""
     },
     {
@@ -413,17 +213,17 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
       "sourceId": "eba-rss",
       "sourceRegistryId": "eba",
       "fetchType": "rss",
-      "status": "failed",
-      "fetchedEntries": 0,
+      "status": "ok",
+      "fetchedEntries": 8,
       "acceptedCandidates": 0,
-      "error": "The operation was aborted due to timeout"
+      "error": ""
     },
     {
       "sourceId": "ncsc-advisories-rss",
@@ -449,7 +249,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -530,7 +330,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 0,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -539,7 +339,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -583,8 +383,8 @@
       "sourceRegistryId": "google-cloud-status",
       "fetchType": "atom",
       "status": "ok",
-      "fetchedEntries": 2,
-      "acceptedCandidates": 3,
+      "fetchedEntries": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -638,19 +438,18 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 0,
+      "acceptedCandidates": 1,
       "error": ""
     }
   ],
   "warnings": [
-    "Source eba-rss failed during candidate collection: The operation was aborted due to timeout",
-    "Thin coverage: ai has only 1 candidate(s) in the current window.",
-    "Thin coverage: market-structure has only 2 candidate(s) in the current window.",
-    "Thin coverage: third-party has only 1 candidate(s) in the current window.",
-    "Thin coverage: resilience has only 1 candidate(s) in the current window.",
+    "Thin coverage: ai has only 2 candidate(s) in the current window.",
+    "Coverage gap: market-structure has no candidates in the current window.",
+    "Coverage gap: third-party has no candidates in the current window.",
+    "Coverage gap: resilience has no candidates in the current window.",
     "Coverage gap: financial-crime has no candidates in the current window.",
-    "Source concentration: cyber relies on cert-fr-rss for 3/3 candidates.",
-    "Thin coverage: technology-failure has only 1 candidate(s) in the current window.",
-    "Coverage gap: data has no candidates in the current window."
+    "Thin coverage: cyber has only 1 candidate(s) in the current window.",
+    "Coverage gap: technology-failure has no candidates in the current window.",
+    "Thin coverage: data has only 1 candidate(s) in the current window."
   ]
 }

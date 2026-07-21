@@ -1447,7 +1447,7 @@ function applyLiveEditionContent(out, horizonData) {
     "horizon-material-additional",
     additional.length
       ? renderHorizonSignalList(additional, 5)
-      : '<li><span class="rank">--</span><span><h3>No further reviewed rows cleared the threshold in this edition</h3></span><span class="meta">Monitor the wider source universe</span></li>',
+      : '<li class="horizon-empty"><div><p class="eyebrow">No additional rows</p><h3>The wider source universe was reviewed, but no further items met the materiality threshold.</h3><p>Continue monitoring approved sources; this is an intentional empty state, not a missing scan.</p></div></li>',
   );
   updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
   updated = replaceElementContent(updated, "div", "horizon-evidence-files", renderHorizonEvidenceFiles(horizonData));

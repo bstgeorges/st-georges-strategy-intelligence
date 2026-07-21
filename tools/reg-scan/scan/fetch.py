@@ -7,12 +7,13 @@ Each item dict has:
 import logging
 import re
 import time
+import warnings
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, unquote
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 
 from .classify import classify_type, classify_risk_areas
 from .utils import canonicalize_url, infer_date_from_url
@@ -33,6 +34,13 @@ _HEADERS = {
         "application/xml, text/xml, */*"
     ),
 }
+_BROWSER_HEADERS = {
+    **_HEADERS,
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+    ),
+}
 
 _STRIP_TAGS = re.compile(r"<[^>]+>")
 _BLOCKED_PAGE_PATTERNS = [
@@ -40,6 +48,7 @@ _BLOCKED_PAGE_PATTERNS = [
     re.compile(r"captcha page", re.I),
     re.compile(r"please solve this captcha", re.I),
     re.compile(r"perimeterx|radware|perfdrive|shieldsquare", re.I),
+    re.compile(r"<title>\s*Maintenance\s*</title>", re.I),
 ]
 _LOCAL_MONTHS = {
     "enero": "January",
@@ -143,7 +152,7 @@ def _parse_page_date(node):
             normalized = re.sub(r"\bde\s+", "", embedded_local.group(1), flags=re.I)
             for local, english in _LOCAL_MONTHS.items():
                 normalized = re.sub(rf"\b{local}\b", english, normalized, flags=re.I)
-    for fmt in ("%Y-%m-%d", "%d %B %Y", "%d %b %Y", "%d %b %Y, %I:%M %p", "%B %d, %Y", "%b %d, %Y", "%d/%m/%Y", "%m/%d/%Y", "%d.%m.%Y"):
+    for fmt in ("%Y-%m-%d", "%d %B %Y", "%d %b %Y", "%d-%B-%Y", "%d-%b-%Y", "%d %b %Y, %I:%M %p", "%B %d, %Y", "%b %d, %Y", "%d/%m/%Y", "%m/%d/%Y", "%d.%m.%Y"):
         try:
             return datetime.strptime(normalized[:32], fmt).replace(tzinfo=timezone.utc).isoformat()
         except ValueError:
@@ -181,11 +190,17 @@ def _canonical_item(source, title, link, summary="", published_at=None):
     }
 
 
-def _get(url):
+def _headers_for(config=None):
+    if (config or {}).get("request_profile") == "browser":
+        return _BROWSER_HEADERS
+    return _HEADERS
+
+
+def _get(url, config=None):
     last_error = None
     for attempt in range(_RETRIES):
         try:
-            response = requests.get(url, headers=_HEADERS, timeout=_TIMEOUT)
+            response = requests.get(url, headers=_headers_for(config), timeout=_TIMEOUT)
             response.raise_for_status()
             return response
         except requests.RequestException as exc:
@@ -244,7 +259,7 @@ def fetch_page_source(source, page_configs, source_filters=None):
     for config in page_configs:
         url = config["url"]
         try:
-            response = _get(url)
+            response = _get(url, config)
             if _is_blocked_response(response):
                 last_error = f"blocked by anti-bot challenge at {url}"
                 log.warning("blocked official page %s", url)
@@ -260,13 +275,23 @@ def fetch_page_source(source, page_configs, source_filters=None):
                 link_node = row if config.get("link_self") and row.get("href") else next(
                     (row.select_one(s) for s in config["link_selectors"] if row.select_one(s)), None
                 )
-                date_node = next((row.select_one(s) for s in config["date_selectors"] if row.select_one(s)), None)
-                if link_node is None or date_node is None:
+                if link_node is None:
                     continue
                 title_node = row.select_one(config.get("title_selector", "")) if config.get("title_selector") else link_node
+                if title_node is None:
+                    continue
                 title = title_node.get_text(" ", strip=True)
                 link = urljoin(url, link_node.get("href", ""))
-                published_at = _parse_page_date(date_node)
+                published_at = next(
+                    (
+                        parsed
+                        for selector in config["date_selectors"]
+                        for node in row.select(selector)
+                        for parsed in [_parse_page_date(node)]
+                        if parsed
+                    ),
+                    None,
+                )
                 if not title or not link or not published_at:
                     continue
                 summary_node = row.select_one(config.get("summary_selector", "p"))
@@ -285,4 +310,98 @@ def fetch_page_source(source, page_configs, source_filters=None):
             log.warning("unexpected page error %s: %s", url, exc, exc_info=True)
     if not all_items and matched_rows == 0 and last_error is None:
         last_error = "official page returned no recognisable publication rows"
+    return all_items, (last_error if not all_items else None)
+
+
+def _title_from_url(url):
+    slug = unquote(urlparse(url).path.rstrip("/").split("/")[-1])
+    title = re.sub(r"[-_]+", " ", slug).strip()
+    return title[:1].upper() + title[1:] if title else url
+
+
+def fetch_sitemap_source(source, sitemap_configs, source_filters=None):
+    """Fetch official sitemap URLs and enrich matching entries from detail pages."""
+    all_items = []
+    last_error = None
+    matched_urls = 0
+    for config in sitemap_configs:
+        url = config["url"]
+        try:
+            response = _get(url, config)
+            if _is_blocked_response(response):
+                last_error = f"blocked by anti-bot challenge at {url}"
+                log.warning("blocked official sitemap %s", url)
+                continue
+            try:
+                soup = BeautifulSoup(response.content, "xml")
+            except Exception:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore", XMLParsedAsHTMLWarning)
+                    soup = BeautifulSoup(response.content, "html.parser")
+            urls = []
+            for loc in soup.find_all("loc"):
+                link = loc.get_text(" ", strip=True)
+                if not link:
+                    continue
+                if any(re.search(pattern, link, re.I) for pattern in config.get("include_url_patterns", [])):
+                    urls.append(link)
+            prefer_patterns = config.get("prefer_url_patterns", [])
+            if prefer_patterns:
+                urls.sort(
+                    key=lambda link: (
+                        not any(re.search(pattern, link, re.I) for pattern in prefer_patterns),
+                        link,
+                    )
+                )
+            max_urls = config.get("max_urls")
+            if max_urls:
+                urls = urls[:max_urls]
+            matched_urls += len(urls)
+
+            for link in urls:
+                title = _title_from_url(link)
+                summary = ""
+                published_at = infer_date_from_url(link)
+
+                if config.get("fetch_detail", True):
+                    detail = _get(link, config)
+                    if _is_blocked_response(detail):
+                        continue
+                    detail_soup = _parse_html(detail.content)
+                    title_node = next(
+                        (detail_soup.select_one(selector) for selector in config.get("title_selectors", ["h1"]) if detail_soup.select_one(selector)),
+                        None,
+                    )
+                    if title_node:
+                        title = title_node.get_text(" ", strip=True)
+                    parsed_detail_date = next(
+                        (
+                            parsed
+                            for selector in config.get("date_selectors", [])
+                            for node in detail_soup.select(selector)
+                            for parsed in [_parse_page_date(node)]
+                            if parsed
+                        ),
+                        None,
+                    )
+                    published_at = parsed_detail_date or published_at
+                    summary_node = next(
+                        (detail_soup.select_one(selector) for selector in config.get("summary_selectors", []) if detail_soup.select_one(selector)),
+                        None,
+                    )
+                    if summary_node:
+                        summary = summary_node.get("content") or summary_node.get_text(" ", strip=True)
+
+                if not title or not link or not published_at:
+                    continue
+                if passes_source_filter(source["id"], title, summary, source_filters):
+                    all_items.append(_canonical_item(source, title, link, summary, published_at))
+        except requests.RequestException as exc:
+            last_error = f"HTTP error fetching {url}: {exc}"
+            log.warning("sitemap fetch error %s: %s", url, exc)
+        except Exception as exc:
+            last_error = f"unexpected error fetching {url}: {exc}"
+            log.warning("unexpected sitemap error %s: %s", url, exc, exc_info=True)
+    if not all_items and matched_urls == 0 and last_error is None:
+        last_error = "official sitemap returned no matching publication URLs"
     return all_items, (last_error if not all_items else None)

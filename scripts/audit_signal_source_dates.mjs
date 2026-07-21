@@ -68,9 +68,12 @@ function rowsFromSignals(data) {
           url: row.evidence?.sourceUrl || row.url,
           displayedDate: row.evidence?.publishedDate || "",
           displayedSourceDate: sourceLabelDate(row.source || ""),
-          displayedSourceDates: sourceLabelDates(row.source || ""),
+          displayedSourceDates: sourceLabelDates(row.source || "").length
+            ? sourceLabelDates(row.source || "")
+            : [row.evidence?.publishedDate].filter(Boolean),
           sourceLabel: row.source || "",
           sourceType: row.evidence?.sourceType || "",
+          manualVerification: row.evidence?.sourceDateVerification || null,
         });
       }
     }

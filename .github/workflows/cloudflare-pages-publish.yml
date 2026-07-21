@@ -89,6 +89,21 @@ jobs:
       - name: Audit published Signals source dates
         run: npm run signals:date-audit:ci
 
+      - name: Generate Signals source health report
+        run: npm run signals:health
+
+      - name: Publish Signals source health summary
+        run: cat dashboard/data/signals-health.generated.json >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Signals source health artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: signals-source-health-${{ github.sha }}
+          path: |
+            dashboard/data/signals-health.generated.json
+            dashboard/data/signal-source-date-audit.generated.json
+          if-no-files-found: error
+
       - name: Audit legacy AI Signals data
         run: npm run ai-signals:validate
         continue-on-error: true

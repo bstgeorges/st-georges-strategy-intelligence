@@ -180,10 +180,12 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
     }],
     "saudi-cma": [{
-        "url": "https://cma.org.sa/en/RulesRegulations/Consulting/Pages/default.aspx",
-        "item_selectors": ["tbody tr", ".news-item", ".item", ".ms-rtestate-field li"],
-        "link_selectors": ["td a[href]", "a[href]"],
-        "date_selectors": ["td:nth-of-type(2)", "time[datetime]", ".date", ".publish-date"],
+        "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+        "item_selectors": ["td.carditem"],
+        "link_selectors": ["a.btn[href]", "a[title='Read More'][href]"],
+        "title_selector": "h3",
+        "summary_selector": "p",
+        "date_selectors": ["span.date"],
     }],
     "adgm-fsra": [{
         "url": "https://www.adgm.com/legal-framework/public-consultations",
@@ -213,12 +215,6 @@ PAGE_MAP = {
         "item_selectors": ["tbody tr"],
         "link_selectors": ["td:nth-of-type(3) a[href]", "td a[href]"],
         "date_selectors": ["td:first-of-type"],
-    }],
-    "mas": [{
-        "url": "https://www.mas.gov.sg/news",
-        "item_selectors": ["article", ".listing-card", ".search-result", ".card"],
-        "link_selectors": ["h2 a[href]", "h3 a[href]", ".card-title a[href]"],
-        "date_selectors": ["time[datetime]", ".date", ".publish-date"],
     }],
     "uk-fca-enforcement-notices": [{
         "url": "https://www.fca.org.uk/news/search-results?search_term=enforcement&exclude_warnings=1",
@@ -256,6 +252,32 @@ PAGE_MAP = {
         "item_selectors": [".views-row", "article", ".card"],
         "link_selectors": ["h2 a[href]", "h3 a[href]", ".card-title a[href]"],
         "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"],
+    }],
+}
+
+SITEMAP_MAP = {
+    "mas": [{
+        "url": "https://www.mas.gov.sg/sitemap.xml",
+        "request_profile": "browser",
+        "include_url_patterns": [
+            r"/regulation/enforcement/enforcement-actions/20\d{2}/",
+            r"/regulation/circulars/",
+            r"/regulation/guidelines/",
+            r"/regulation/notices/",
+            r"/publications/consultations/",
+        ],
+        "prefer_url_patterns": [r"/2026/"],
+        "max_urls": 15,
+        "title_selectors": ["h1.mas-text-h1", "h1"],
+        "summary_selectors": [".mas-text-summary", "meta[name='description']"],
+        "date_selectors": [
+            "time[datetime]",
+            ".mas-ancillaries > span",
+            ".mas-article-info__date",
+            ".mas-date",
+            "meta[property='article:published_time']",
+            "meta[name='date']",
+        ],
     }],
 }
 
@@ -347,8 +369,8 @@ SOURCE_FILTERS = {
         "exclude": [r"evento", r"convegno", r"relazione annuale", r"discors"],
     },
     "saudi-cma": {
-        "include": [r"consult", r"draft", r"regulat", r"rules?", r"instructions?", r"market institutions?", r"capital market", r"enforcement", r"penalt", r"amend"],
-        "exclude": [r"workshop", r"event", r"appointment", r"annual report"],
+        "include": [r"consult", r"draft", r"regulat", r"rules?", r"instructions?", r"market institutions?", r"enforcement", r"penalt", r"fine", r"violation", r"amend"],
+        "exclude": [r"workshop", r"event", r"appointment", r"annual report", r"Licenses .* to Conduct", r"approves? .*capital increase", r"public offering", r"bonus shares", r"rights issue", r"debt instruments program"],
     },
 }
 

@@ -88,20 +88,23 @@ def main():
     for source_id, source in sources_by_id.items():
         feed_urls = _feeds.FEED_MAP.get(source_id)
         page_configs = _feeds.PAGE_MAP.get(source_id)
-        if not feed_urls and not page_configs:
+        sitemap_configs = _feeds.SITEMAP_MAP.get(source_id)
+        if not feed_urls and not page_configs and not sitemap_configs:
             no_feed_sources.append(source_id)
             source_health.append({"sourceId": source_id, "status": "not-configured", "items": 0})
             continue
 
         if feed_urls:
             items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
-        else:
+        elif page_configs:
             items, error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
+        else:
+            items, error = _fetch.fetch_sitemap_source(source, sitemap_configs, _feeds.SOURCE_FILTERS)
         if error and not items:
             error_sources.append(source_id)
             if "blocked by anti-bot challenge" in error or "403 Client Error: Forbidden" in error:
                 status = "blocked"
-            elif "no recognisable publication rows" in error:
+            elif "no recognisable publication rows" in error or "no matching publication URLs" in error:
                 status = "degraded"
             else:
                 status = "failed"

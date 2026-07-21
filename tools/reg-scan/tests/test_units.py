@@ -207,6 +207,12 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(_parse_page_date(spanish), "2026-06-17T00:00:00+00:00")
         self.assertEqual(_parse_page_date(italian), "2026-07-10T00:00:00+00:00")
 
+    def test_mas_published_date_label_is_parsed(self):
+        from bs4 import BeautifulSoup
+        from scan.fetch import _parse_page_date
+        node = BeautifulSoup("<span>Published Date: 25 May 2026</span>", "html.parser").span
+        self.assertEqual(_parse_page_date(node), "2026-05-25T00:00:00+00:00")
+
     def test_japanese_reiwa_page_dates_are_parsed(self):
         from bs4 import BeautifulSoup
         from scan.fetch import _parse_page_date
@@ -229,6 +235,34 @@ class TestFetch(unittest.TestCase):
             items, error = fetch_page_source(source, config, {})
         self.assertEqual(items, [])
         self.assertIn("blocked by anti-bot challenge", error)
+
+    def test_page_adapter_treats_maintenance_shell_as_blocked(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        html = b"<html><head><title>Maintenance</title></head><body>Back to Home</body></html>"
+        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
+        config = [{
+            "url": "https://www.mas.gov.sg/publications/consultations",
+            "item_selectors": ["article"],
+            "link_selectors": ["a[href]"],
+            "date_selectors": ["time[datetime]"],
+        }]
+        source = {"id": "mas", "name": "MAS"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, {})
+        self.assertEqual(items, [])
+        self.assertIn("blocked by anti-bot challenge", error)
+
+    def test_browser_request_profile_uses_browser_user_agent(self):
+        from unittest.mock import Mock, patch
+        from scan.fetch import _get
+
+        response = Mock()
+        response.raise_for_status.return_value = None
+        with patch("scan.fetch.requests.get", return_value=response) as request:
+            _get("https://www.mas.gov.sg/sitemap.xml", {"request_profile": "browser"})
+        headers = request.call_args.kwargs["headers"]
+        self.assertIn("Mozilla/5.0", headers["User-Agent"])
 
     def test_page_adapter_extracts_only_dated_filtered_official_entries(self):
         from unittest.mock import patch
@@ -285,6 +319,77 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["published_at"], "2026-06-25T00:00:00+00:00")
         self.assertEqual(items[0]["url"], "https://www.fsa.go.jp/inter/fatf/20260624/20260626.html")
+
+    def test_page_adapter_extracts_saudi_sharepoint_cards(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import SOURCE_FILTERS
+
+        html = b"""
+        <td class="carditem"><div class="card-wrapper">
+          <span class="date">07-June-2026</span>
+          <h3>Imposition of a Fine on Keir International Company, due to the violation of the Rules on the Offer of Securities and Continuing Obligations</h3>
+          <p>The Capital Market Authority announces the issuance of a board resolution.</p>
+          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx">Read More</a>
+        </div></td>
+        <td class="carditem"><div class="card-wrapper">
+          <span class="date">09-June-2026</span>
+          <h3>The Capital Market Authority approves a routine capital increase request</h3>
+          <a class="btn" title="Read More" href="/en/MediaCenter/NEWS/Pages/CMA_N_4065.aspx">Read More</a>
+        </div></td>
+        """
+        response = type("Response", (), {"content": html, "text": html.decode("utf-8")})()
+        config = [{
+            "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",
+            "item_selectors": ["td.carditem"],
+            "link_selectors": ["a.btn[href]"],
+            "title_selector": "h3",
+            "summary_selector": "p",
+            "date_selectors": ["span.date"],
+        }]
+        source = {"id": "saudi-cma", "name": "Saudi CMA"}
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source(source, config, SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"], "2026-06-07T00:00:00+00:00")
+        self.assertEqual(items[0]["url"], "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/CMA_N_4064.aspx")
+
+    def test_sitemap_adapter_extracts_mas_detail_pages(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_sitemap_source
+        from scan.feeds import SOURCE_FILTERS
+
+        sitemap = b"""
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url><loc>https://www.mas.gov.sg/regulation/enforcement/enforcement-actions/2026/mas-imposes-$300000-composition-penalty-on-padang-trust-singapore-pte-ltd-for-aml-cft-breaches</loc></url>
+          <url><loc>https://www.mas.gov.sg/careers</loc></url>
+        </urlset>
+        """
+        detail = b"""
+        <html><body>
+          <div class="mas-ancillaries"><span><div>Enforcement Actions</div></span><span>Published Date: 25 May 2026</span></div>
+          <h1 class="mas-text-h1">MAS Imposes $300,000 Composition Penalty on Padang Trust Singapore Pte. Ltd. for AML/CFT Breaches</h1>
+          <div class="mas-text-summary">MAS has imposed a composition penalty for anti-money laundering breaches.</div>
+        </body></html>
+        """
+        sitemap_response = type("Response", (), {"content": sitemap, "text": sitemap.decode("utf-8")})()
+        detail_response = type("Response", (), {"content": detail, "text": detail.decode("utf-8")})()
+        config = [{
+            "url": "https://www.mas.gov.sg/sitemap.xml",
+            "request_profile": "browser",
+            "include_url_patterns": [r"/regulation/enforcement/enforcement-actions/20\d{2}/"],
+            "title_selectors": ["h1.mas-text-h1", "h1"],
+            "summary_selectors": [".mas-text-summary"],
+            "date_selectors": [".mas-ancillaries > span"],
+        }]
+        source = {"id": "mas", "name": "MAS"}
+        with patch("scan.fetch._get", side_effect=[sitemap_response, detail_response]):
+            items, error = fetch_sitemap_source(source, config, SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"], "2026-05-25T00:00:00+00:00")
+        self.assertIn("AML/CFT Breaches", items[0]["title"])
 
 
 class TestSourcePerimeter(unittest.TestCase):

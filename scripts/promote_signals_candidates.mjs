@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,6 +11,7 @@ const CANDIDATES_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates
 const SHORTLIST_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-shortlist.json");
 const LOG_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-log.md");
 const SUMMARY_PATH = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
+const CANDIDATE_STATE_PATH = path.join(ROOT, "dashboard", "data", "signals-candidate-state.json");
 
 const TOPICS = [
   "ai",
@@ -48,6 +50,32 @@ function readJson(file) {
 function writeJson(file, data) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
+}
+
+function urlHash(rawUrl) {
+  const url = new URL(rawUrl);
+  for (const key of [...url.searchParams.keys()]) {
+    const normalized = key.toLowerCase();
+    if (normalized.startsWith("utm_") || ["fbclid", "gclid"].includes(normalized)) url.searchParams.delete(key);
+  }
+  url.hash = "";
+  if (url.pathname.endsWith("/") && url.pathname !== "/") url.pathname = url.pathname.slice(0, -1);
+  return crypto.createHash("sha256").update(url.toString()).digest("hex");
+}
+
+function recordPublishedCandidates(candidates) {
+  const current = fs.existsSync(CANDIDATE_STATE_PATH)
+    ? readJson(CANDIDATE_STATE_PATH)
+    : { publishedUrlHashes: [], rejectedUrlHashes: [] };
+  const publishedUrlHashes = new Set(current.publishedUrlHashes || []);
+  for (const candidate of candidates) publishedUrlHashes.add(urlHash(candidate.url));
+  writeJson(CANDIDATE_STATE_PATH, {
+    version: "2026-07-22",
+    lastGeneratedAt: current.lastGeneratedAt || null,
+    lastPublishedAt: new Date().toISOString(),
+    publishedUrlHashes: [...publishedUrlHashes].sort(),
+    rejectedUrlHashes: Array.from(new Set(current.rejectedUrlHashes || [])).sort(),
+  });
 }
 
 function formatSourceLabel(candidate) {
@@ -199,11 +227,13 @@ function main() {
 
   const byId = new Map(signalsData.topics.map((topic) => [topic.id, topic]));
   const summaryTopics = [];
+  const publishedCandidates = [];
   const updatedTopics = TOPICS.map((topicId) => {
     const topic = byId.get(topicId);
     if (!topic) throw new Error(`Missing topic in site/data/signals.json: ${topicId}`);
     const candidates = candidatesByTopic.get(topicId) || [];
     const { updatedTopic, freshRows } = promoteTopic(topic, candidates, sourceMap, log, options.date);
+    publishedCandidates.push(...freshRows);
     summaryTopics.push({
       id: topicId,
       freshCount: freshRows.length,
@@ -227,6 +257,7 @@ function main() {
   }
 
   writeJson(SIGNALS_PATH, output);
+  recordPublishedCandidates(publishedCandidates);
   fs.writeFileSync(LOG_PATH, `${log.join("\n")}\n`);
   writeJson(SUMMARY_PATH, { date: options.date, topics: summaryTopics });
   console.log(

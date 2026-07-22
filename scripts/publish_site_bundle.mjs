@@ -678,8 +678,13 @@ function renderHomepageJudgement(out, editionRecord) {
 function validatePromotionSummary(failures) {
   if (!fs.existsSync(PROMOTION_SUMMARY_INPUT)) return;
   const summary = readJson(PROMOTION_SUMMARY_INPUT);
+  const signals = readJson(SIGNALS_INPUT);
+  const topicsById = new Map((signals.topics || []).map((topic) => [topic.id, topic]));
   for (const topic of summary.topics || []) {
-    const lead = topic.leadRow;
+    // The summary is an audit record of promotion, not the editable source of
+    // editorial evidence. Validate the final reviewed row from signals.json.
+    if (!topic.freshCount) continue;
+    const lead = topicsById.get(topic.id)?.top5?.[0];
     if (!lead) continue;
     const evidence = lead.evidence || {};
     assert(evidence.sourceTitle === lead.title, `${topic.id} promotion evidence.sourceTitle must match the lead title`, failures);
@@ -732,7 +737,7 @@ function renderCanonicalTopSignals(out, editionRecord) {
       briefFile,
       html.replace(
         /(<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">)[\s\S]*?(<\/ol>)/,
-        `$1\n          ${rows}\n        $2`,
+        (_match, opening, closing) => `${opening}\n          ${rows}\n        ${closing}`,
       ),
     );
   }

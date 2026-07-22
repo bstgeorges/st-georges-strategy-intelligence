@@ -1,6 +1,6 @@
 {
-  "edition": "2026-07-18",
-  "generatedAt": "2026-07-18T00:00:00.000Z",
+  "edition": "2026-07-22",
+  "generatedAt": "2026-07-22T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,25 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
+        {
+          "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+          "source": "Primary / OpenAI / 2026-07-21",
+          "evidence": {
+            "sourceTitle": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+            "organisation": "OpenAI",
+            "publishedDate": "2026-07-21",
+            "sourceType": "company announcement",
+            "significance": "External model evaluation can extend access to sensitive prompts, data and model behaviour beyond the firm and its primary vendor. AI owners should evidence partner due diligence, least-privilege access, incident disclosure routes and a tested response when evaluation controls fail.",
+            "sourceUrl": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+            "accessedDate": "2026-07-22",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-07-22",
+              "reason": "The publisher page was checked directly and displays 21 July 2026; the automated audit client receives a restricted response from this host."
+            }
+          }
+        },
         {
           "title": "How to manage AI investments in the agentic era",
           "url": "https://openai.com/index/managing-ai-investments-in-agentic-era",
@@ -72,20 +91,6 @@
             "sourceType": "regulator",
             "significance": "Supports the signal by linking EUR-Lex evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
-            "accessedDate": "2026-07-09"
-          }
-        },
-        {
-          "title": "NIST proof shows no fixed set of AI guardrails can be universally robust against adversarial prompts",
-          "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
-          "source": "Primary / NIST / 2026-06-09",
-          "evidence": {
-            "sourceTitle": "NIST proof shows no fixed set of AI guardrails can be universally robust against adversarial prompts",
-            "organisation": "NIST",
-            "publishedDate": "2026-06-09",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking NIST evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
             "accessedDate": "2026-07-09"
           }
         }
@@ -229,7 +234,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "Current FCA operational-resilience expectations page retained as a live control baseline; it is not a dated weekly publication." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "Current FCA operational-resilience expectations page retained as a live control baseline; it is not a dated weekly publication."
+            }
           }
         },
         {
@@ -301,6 +310,20 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+          "source": "Primary / Google Cloud Service Health / 2026-07-20",
+          "evidence": {
+            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+            "organisation": "Google Cloud Service Health",
+            "publishedDate": "2026-07-20",
+            "sourceType": "company announcement",
+            "significance": "A zonal network incident affecting stretched clusters across regions is a live test of cloud dependency assumptions. Third-party owners should map the shared infrastructure, validate failover evidence and confirm which critical services can continue when a supplier's resilience design is impaired.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+            "accessedDate": "2026-07-22"
+          }
+        },
+        {
           "title": "Google Cloud cooling failure exposes correlated supplier dependencies",
           "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
           "source": "Primary / Google Cloud Service Health / 2026-07-17",
@@ -360,20 +383,6 @@
             "sourceUrl": "https://www.eba.europa.eu/publications-and-media/press-releases/esas-support-esrb-warning-systemic-cyber-risks-frontier-ai-models",
             "accessedDate": "2026-07-09"
           }
-        },
-        {
-          "title": "Payment processors can define the customer's lived outage",
-          "url": "https://www.theguardian.com/business/2026/jun/23/card-payments-outage-during-england-match-hits-pubs-and-shops",
-          "source": "Monitoring / Guardian / 2026-06-23",
-          "evidence": {
-            "sourceTitle": "FSB case study maps AI supply-chain concentration risk from chips to cloud to pre-trained models",
-            "organisation": "FSB",
-            "publishedDate": "2026-06-23",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FSB evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.theguardian.com/business/2026/jun/23/card-payments-outage-during-england-match-hits-pubs-and-shops",
-            "accessedDate": "2026-07-09"
-          }
         }
       ],
       "stillMaterial": [
@@ -422,7 +431,11 @@
             "significance": "Supports the signal by linking EBA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "EBA ICT and security-risk guidelines remain a live control baseline; the historical publication date is not used as a current-edition date." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "EBA ICT and security-risk guidelines remain a live control baseline; the historical publication date is not used as a current-edition date."
+            }
           }
         },
         {
@@ -438,7 +451,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "EBA outsourcing guidelines remain a live control baseline; the historical publication date is not used as a current-edition date." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "EBA outsourcing guidelines remain a live control baseline; the historical publication date is not used as a current-edition date."
+            }
           }
         },
         {
@@ -625,6 +642,20 @@
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
         {
+          "title": "Guidance: UK Financial Sanctions FAQs",
+          "url": "https://www.gov.uk/government/publications/uk-financial-sanctions-faqs",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-07-21",
+          "evidence": {
+            "sourceTitle": "Guidance: UK Financial Sanctions FAQs",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-07-21",
+            "sourceType": "regulator",
+            "significance": "Sanctions guidance changes should reach screening, payments, trade finance and escalation teams as controlled updates, with evidence of interpretation, ownership and any resulting rule or procedure changes. A published FAQ is not assurance unless those changes are traceable.",
+            "sourceUrl": "https://www.gov.uk/government/publications/uk-financial-sanctions-faqs",
+            "accessedDate": "2026-07-22"
+          }
+        },
+        {
           "title": "PPE procurement fraud shows the lasting cost of emergency control exceptions",
           "url": "https://www.nationalcrimeagency.gov.uk/news/fraudsters-bought-luxury-car-and-home-improvements-from-ppe-scam",
           "source": "Primary / National Crime Agency / 2026-07-15",
@@ -679,20 +710,6 @@
             "sourceUrl": "https://www.gov.uk/government/news/uk-issues-largest-penalty-for-financial-sanctions-breaches-since-russias-2022-illegal-invasion-of-ukraine",
             "accessedDate": "2026-07-09"
           }
-        },
-        {
-          "title": "FCA finds firms have improved sanctions controls but gaps remain in screening and frozen-asset management",
-          "url": "https://www.fca.org.uk/news/press-releases/firms-have-improved-must-do-more-prevent-sanctions-breaches",
-          "source": "Primary / FCA / 2026-05-28",
-          "evidence": {
-            "sourceTitle": "FCA finalises landmark cryptoasset regime rules, extending market-integrity and financial-crime expectations to crypto firms",
-            "organisation": "FCA",
-            "publishedDate": "2026-05-28",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/news/press-releases/firms-have-improved-must-do-more-prevent-sanctions-breaches",
-            "accessedDate": "2026-07-09"
-          }
         }
       ],
       "stillMaterial": [
@@ -711,7 +728,11 @@
             "significance": "Supports the signal by linking Cifas evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.cifas.org.uk/newsroom/fraudscape2026",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "manual-verified", "verifiedDate": "2026-07-21", "reason": "Fraudscape 2026 was checked manually as a dated annual dataset; the page does not expose a machine-readable publication date." }
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-07-21",
+              "reason": "Fraudscape 2026 was checked manually as a dated annual dataset; the page does not expose a machine-readable publication date."
+            }
           }
         },
         {
@@ -727,7 +748,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://handbook.fca.org.uk/handbook/FCG/1/",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "The FCA Financial Crime Guide is maintained handbook guidance and is retained as a live control baseline." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA Financial Crime Guide is maintained handbook guidance and is retained as a live control baseline."
+            }
           }
         },
         {
@@ -775,7 +800,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/cryptoassets-aml-ctf-regime",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "The FCA cryptoasset AML regime page is live supervisory guidance, retained for current control interpretation rather than as a dated news item." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA cryptoasset AML regime page is live supervisory guidance, retained for current control interpretation rather than as a dated news item."
+            }
           }
         }
       ]
@@ -786,6 +815,20 @@
       "title": "Threats, vulnerabilities, identity, and response.",
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
+        {
+          "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-07-21",
+          "evidence": {
+            "sourceTitle": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+            "organisation": "US Cybersecurity and Infrastructure Security Agency",
+            "publishedDate": "2026-07-21",
+            "sourceType": "regulator",
+            "significance": "Confirmed exploitation should override severity-only patch queues. Security leaders should be able to show the affected internal and supplier-managed estate, remediation deadlines, compensating controls and exceptions for every newly listed vulnerability.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-07-22"
+          }
+        },
         {
           "title": "CISA confirms three more vulnerabilities are being actively exploited",
           "url": "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
@@ -841,20 +884,6 @@
             "sourceUrl": "https://www.ncsc.gov.uk/blogs/helping-small-businesses-with-free-hands-on-cyber-consultancy",
             "accessedDate": "2026-07-15"
           }
-        },
-        {
-          "title": "UK and Allies urge critical sectors to improve defences against Russian intelligence targeting",
-          "url": "https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting",
-          "source": "Primary / UK National Cyber Security Centre / 2026-07-13",
-          "evidence": {
-            "sourceTitle": "UK and Allies urge critical sectors to improve defences against Russian intelligence targeting",
-            "organisation": "UK National Cyber Security Centre",
-            "publishedDate": "2026-07-13",
-            "sourceType": "regulator",
-            "significance": "A joint advisory naming a specific threat actor targeting critical sectors — threat-intelligence and scenario refreshes should reflect this directly rather than treat it as generic guidance.",
-            "sourceUrl": "https://www.ncsc.gov.uk/news/uk-and-allies-urge-critical-sectors-to-improve-defences-against-russian-intelligence-targeting",
-            "accessedDate": "2026-07-15"
-          }
         }
       ],
       "stillMaterial": [
@@ -871,7 +900,11 @@
             "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ncsc.gov.uk/collection/10-steps",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "NCSC 10 Steps is maintained baseline cyber guidance, retained for control hygiene rather than as a dated publication." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "NCSC 10 Steps is maintained baseline cyber guidance, retained for control hygiene rather than as a dated publication."
+            }
           }
         },
         {
@@ -887,7 +920,11 @@
             "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ncsc.gov.uk/collection/10-steps/identity-and-access-management",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "NCSC identity and access guidance is a maintained control baseline, not a weekly news item." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "NCSC identity and access guidance is a maintained control baseline, not a weekly news item."
+            }
           }
         },
         {
@@ -903,7 +940,11 @@
             "significance": "Supports the signal by linking CISA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "The CISA KEV catalogue is a live operational dataset; its review date is the relevant freshness signal." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The CISA KEV catalogue is a live operational dataset; its review date is the relevant freshness signal."
+            }
           }
         },
         {
@@ -934,7 +975,11 @@
             "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ncsc.gov.uk/collection/incident-management",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "NCSC incident-management guidance is a maintained control baseline, retained for operating practice rather than publication recency." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "NCSC incident-management guidance is a maintained control baseline, retained for operating practice rather than publication recency."
+            }
           }
         }
       ]
@@ -1030,7 +1075,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "FCA incident-reporting expectations are maintained supervisory guidance and remain relevant as a control baseline." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "FCA incident-reporting expectations are maintained supervisory guidance and remain relevant as a control baseline."
+            }
           }
         },
         {
@@ -1061,7 +1110,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/firms/outsourcing-and-operational-resilience",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "FCA outsourcing and operational-resilience expectations are maintained supervisory guidance, retained as a live baseline." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "FCA outsourcing and operational-resilience expectations are maintained supervisory guidance, retained as a live baseline."
+            }
           }
         },
         {
@@ -1102,6 +1155,20 @@
       "title": "Lineage, reporting, privacy, and evidence integrity.",
       "stillMaterialReviewedAt": "2026-07-09",
       "top5": [
+        {
+          "title": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures",
+          "source": "Primary / Australian Securities and Investments Commission / 2026-07-20",
+          "evidence": {
+            "sourceTitle": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
+            "organisation": "Australian Securities and Investments Commission",
+            "publishedDate": "2026-07-20",
+            "sourceType": "regulator",
+            "significance": "Systemic reporting failures turn data quality into market-integrity and conduct risk. Firms should maintain traceable ownership for reportable fields, reconciliations that identify recurring breaks and governance that can demonstrate timely correction to regulators.",
+            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures",
+            "accessedDate": "2026-07-22"
+          }
+        },
         {
           "title": "EIOPA completes the reporting and implementation package for the Solvency II review",
           "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
@@ -1157,20 +1224,6 @@
             "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/05/ico-response-to-government-on-safe-ai-powered-innovation/",
             "accessedDate": "2026-07-09"
           }
-        },
-        {
-          "title": "PRA Regulatory Digest confirms the Future Banking Data programme is streamlining reporting collection",
-          "url": "https://www.bankofengland.co.uk/prudential-regulation/regulatory-digest/2026/june-2026",
-          "source": "Primary / Bank of England PRA / 2026-07-01",
-          "evidence": {
-            "sourceTitle": "ICO AI and biometrics strategy update tracks foundation-model scrutiny and agentic AI data protection risk",
-            "organisation": "ICO",
-            "publishedDate": "2026-07-01",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking ICO evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.bankofengland.co.uk/prudential-regulation/regulatory-digest/2026/june-2026",
-            "accessedDate": "2026-07-09"
-          }
         }
       ],
       "stillMaterial": [
@@ -1219,7 +1272,11 @@
             "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.fca.org.uk/publications/techsprints/market-abuse-surveillance",
             "accessedDate": "2026-07-09",
-            "sourceDateVerification": { "status": "evergreen", "reviewedDate": "2026-07-21", "reason": "The FCA surveillance page is retained as a live control and evidence baseline, not as a dated weekly development." }
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA surveillance page is retained as a live control and evidence baseline, not as a dated weekly development."
+            }
           }
         },
         {

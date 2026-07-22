@@ -410,8 +410,17 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
   const feedRegistry = readJson(FEED_REGISTRY_PATH);
   const sourceRegistry = new Map(readJson(SOURCE_REGISTRY_PATH).sources.map((source) => [source.id, source]));
-  const state = fs.existsSync(options.state) ? readJson(options.state) : { seenUrlHashes: [], lastGeneratedAt: null };
-  const seen = new Set(options.includeSeen ? [] : state.seenUrlHashes || []);
+  const state = fs.existsSync(options.state)
+    ? readJson(options.state)
+    : { publishedUrlHashes: [], rejectedUrlHashes: [], lastGeneratedAt: null };
+  // Discovery is intentionally not an outcome.  Older state files stored every
+  // discovered URL as "seen", which made unreviewed candidates disappear on the
+  // next run.  Only a published or explicitly rejected item may be suppressed.
+  const suppressedHashes = [
+    ...(state.publishedUrlHashes || []),
+    ...(state.rejectedUrlHashes || []),
+  ];
+  const seen = new Set(options.includeSeen ? [] : suppressedHashes);
   const acceptedThisRun = new Set();
   const generatedAt = new Date().toISOString();
   const now = new Date();
@@ -497,9 +506,10 @@ async function main() {
   writeJson(options.out, output);
   if (options.writeState) {
     writeJson(options.state, {
-      version: "2026-07-18",
+      version: "2026-07-22",
       lastGeneratedAt: generatedAt,
-      seenUrlHashes: [...seen],
+      publishedUrlHashes: Array.from(new Set(state.publishedUrlHashes || [])).sort(),
+      rejectedUrlHashes: Array.from(new Set(state.rejectedUrlHashes || [])).sort(),
     });
   }
 

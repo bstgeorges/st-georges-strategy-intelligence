@@ -1,53 +1,53 @@
 {
-  "editionNumber": "Vol. III",
-  "title": "A cooling failure reveals the common control problem across cloud, AI and cyber",
-  "weekOf": "2026-07-13",
-  "publicationDate": "2026-07-18",
+  "editionNumber": "Vol. IV",
+  "title": "Fresh evidence turns supplier, patching and reporting controls into one operating question",
+  "weekOf": "2026-07-20",
+  "publicationDate": "2026-07-22",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "Dependency risk is only understood when firms can show how physical infrastructure, software, suppliers and automated decisions fail together.",
+  "mainJudgement": "The week’s evidence points to one discipline: firms need controls that remain traceable when a supplier, vulnerability or reporting process fails under real operating pressure.",
   "judgement": {
-    "observation": "A cooling failure disrupted several Google Cloud services together while regulators sharpened expectations for agents, cyber exploitation and technology risk.",
-    "executiveJudgement": "These are not separate stories. They expose the same weakness: control frameworks often describe services, suppliers and risks independently even when the underlying failure domains are shared. A cloud zone, privileged agent, vulnerable product or outsourced process can connect several important services before governance recognises the concentration.",
-    "implication": "Committees should ask for evidence that dependency maps, permissions, patch priorities and recovery tests reflect correlated failure. The useful test is whether the firm can identify what else fails, who can intervene and how service is restored when one supposedly contained dependency breaks."
+    "observation": "New evidence spans a model-evaluation security incident, a cloud-network outage, newly exploited vulnerabilities, sanctions guidance and a trade-reporting penalty. Each begins where a control crosses a boundary: partner access, supplier infrastructure, unmanaged assets, regulatory interpretation or data hand-off.",
+    "executiveJudgement": "The common weakness is not a missing policy. It is weak operational traceability. Boards need to know which services, datasets, assets and decisions depend on the control, who can act when it fails, and whether the evidence survives a real incident or regulatory challenge.",
+    "implication": "Ask management for one joined-up view of critical dependencies, exploitation-led patching, regulatory-change implementation and reporting-data breaks. The useful proof is a current inventory, named owner, tested escalation route, measurable remediation date and a challengeable exception trail."
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "How to manage AI investments in the agentic era",
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
       "label": "AI control",
-      "why": "Production agents need constrained privileges, independent approval and observable shutdown behaviour.",
-      "source": "OpenAI · Company research · 2026-07-14"
+      "why": "External evaluation needs the same access, incident and evidence controls as any other critical partner relationship.",
+      "source": "OpenAI · Company announcement · 2026-07-21"
     },
     {
       "topic": "cyber",
-      "title": "CISA confirms three more vulnerabilities are being actively exploited",
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
       "label": "Cyber",
-      "why": "Confirmed exploitation should override severity-only patch queues across internal and supplier-managed assets.",
-      "source": "CISA · Government · 2026-07-16"
+      "why": "Confirmed exploitation should drive remediation evidence across internal and supplier-managed assets.",
+      "source": "CISA · Government · 2026-07-21"
     },
     {
       "topic": "financial-crime",
-      "title": "ASIC warns pump-and-dump networks are scaling fake celebrity endorsements",
+      "title": "Guidance: UK Financial Sanctions FAQs",
       "label": "Financial crime",
-      "why": "Fraud and market-surveillance teams need joined-up detection across impersonation, promotion and trading activity.",
-      "source": "ASIC · Regulator · 2026-07-16"
+      "why": "Sanctions guidance has value only when its interpretation and resulting control changes are traceable.",
+      "source": "OFSI · Government · 2026-07-21"
     },
     {
-      "topic": "resilience",
-      "title": "Cooling failure disrupts multiple Google Cloud services in one European zone",
-      "label": "Resilience",
-      "why": "Several services shared one physical failure domain, testing assumptions about cloud diversification and zonal recovery.",
-      "source": "Google Cloud · Company status · 2026-07-17"
+      "topic": "third-party",
+      "title": "RESOLVED: Google Cloud VMware Engine (GCVE) Stretched Cluster customers are experiencing zonal outages impacting network connectivity across multiple regions.",
+      "label": "Third-party",
+      "why": "The incident tests whether cloud dependencies, failover plans and customer-impact evidence reflect shared failure domains.",
+      "source": "Google Cloud Service Health · Company status · 2026-07-20"
     },
     {
-      "topic": "technology-failure",
-      "title": "FINMA tells financial firms to begin governing quantum risk now",
-      "label": "Technology failure",
-      "why": "Cryptographic inventories and migration ownership need to exist before quantum remediation becomes urgent.",
-      "source": "FINMA · Regulator · 2026-07-09"
+      "topic": "data",
+      "title": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
+      "label": "Data",
+      "why": "Systemic reporting breaks require accountable lineage, reconciliation and timely remediation, not just corrected submissions.",
+      "source": "ASIC · Regulator · 2026-07-20"
     }
   ]
 }

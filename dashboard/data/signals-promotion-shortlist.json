@@ -1,80 +1,50 @@
 {
-  "version": "2026-07-18",
+  "version": "2026-07-22",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-07-18T19:33:58.263Z",
-  "reviewedAt": "2026-07-18",
+  "candidateGeneratedAt": "2026-07-22T04:14:55.283Z",
+  "reviewedAt": "2026-07-22",
   "purpose": "Editorially selected Signals candidates. Promotion must use only these URLs; titles and evidence remain subject to final copy review.",
   "criteria": ["materiality", "specificity", "decision value", "source authority", "duplication control"],
   "topics": [
     {
       "id": "ai",
-      "selectedUrls": [
-        "https://www.anthropic.com/research/agentic-misalignment",
-        "https://www.anthropic.com/news/finance-agents",
-        "https://openai.com/index/managing-ai-investments-in-agentic-era"
-      ],
-      "editorialRationale": "Prioritises insider-risk evidence, financial-services deployment and investment governance; excludes customer marketing and a cluster of narrower image-safety papers."
+      "selectedUrls": ["https://openai.com/index/hugging-face-model-evaluation-security-incident"],
+      "editorialRationale": "A concrete model-evaluation security incident gives boards a timely control question: what data, access and disclosure safeguards apply when external evaluation partners are involved?"
     },
     {
       "id": "market-structure",
-      "selectedUrls": [
-        "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
-        "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
-        "https://www.gov.uk/government/consultations/modernising-payment-services-regulation"
-      ],
-      "editorialRationale": "Covers Swiss liquidity, EU crypto custody supervision and UK payments reform without repeating lower-consequence enforcement or administrative items."
+      "selectedUrls": ["https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma"],
+      "editorialRationale": "FINMA's liquidity ordinance is a specific prudential development with direct relevance to bank and securities-firm liquidity governance."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-        "https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury"
-      ],
-      "editorialRationale": "Pairs a concrete cloud concentration incident with the new UK critical-third-party oversight regime."
+      "selectedUrls": ["https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF"],
+      "editorialRationale": "The resolved multi-region VMware incident provides current, observable evidence for cloud concentration, dependency mapping and supplier-assurance discussion."
     },
     {
       "id": "resilience",
-      "selectedUrls": [
-        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-        "https://www.esma.europa.eu/press-news/esma-news/esma-launches-common-supervisory-action-casps-digital-operational-resilience",
-        "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act"
-      ],
-      "editorialRationale": "Balances a real failure, an active supervisory exercise and implementation readiness; holds the broader Bundesbank policy commentary."
+      "selectedUrls": ["https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act"],
+      "editorialRationale": "ENISA's implementation-readiness view gives a distinct resilience signal without duplicating the cloud incident across the weekly lead set."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": [
-        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-157mr-asic-warning-pump-and-dump-scammers-intensify-use-of-fake-celebrity-endorsements",
-        "https://www.nationalcrimeagency.gov.uk/news/five-charged-in-nca-investigation-into-fraud-platform-responsible-for-millions-of-scam-calls",
-        "https://www.nationalcrimeagency.gov.uk/news/fraudsters-bought-luxury-car-and-home-improvements-from-ppe-scam"
-      ],
-      "editorialRationale": "Selects scalable scam techniques and control-relevant fraud typologies; holds opaque general-licence updates and unrelated rulebook material."
+      "selectedUrls": ["https://www.gov.uk/government/publications/uk-financial-sanctions-faqs"],
+      "editorialRationale": "A current OFSI FAQ update is operationally useful for sanctions-screening, escalation and evidence owners; it is preferred to routine enforcement updates."
     },
     {
       "id": "cyber",
-      "selectedUrls": [
-        "https://www.cisa.gov/news-events/alerts/2026/07/16/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-        "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-005",
-        "https://www.jpcert.or.jp/at/2026/at260020.html"
-      ],
-      "editorialRationale": "Prioritises known exploitation, a named intrusion campaign and Japanese patch intelligence; excludes promotional and generic cyber-programme stories."
+      "selectedUrls": ["https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog"],
+      "editorialRationale": "Confirmed exploitation is the strongest current trigger for patch-priority and third-party asset-assurance decisions."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [
-        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-        "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-        "https://www.bis.org/press/p260602.htm"
-      ],
-      "editorialRationale": "Combines an observed outage with forward-looking quantum risk and the Basel Committee's ICT risk-management findings."
+      "selectedUrls": ["https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26"],
+      "editorialRationale": "FINMA's quantum-computing guidance frames a forward technology-risk issue as an inventory, migration and governance responsibility."
     },
     {
       "id": "data",
-      "selectedUrls": [
-        "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
-        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/how-data-protection-law-can-help-protect-businesses-from-crime"
-      ],
-      "editorialRationale": "Retains current reporting standards and practical data-protection controls; rejects the 2024 enforcement story whose sitemap timestamp was recently rewritten."
+      "selectedUrls": ["https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures"],
+      "editorialRationale": "ASIC's systemic trade-reporting penalty is a current, specific reminder that data lineage, reconciliation and control ownership are conduct and market-integrity issues."
     }
   ]
 }

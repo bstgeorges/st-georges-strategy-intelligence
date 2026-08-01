@@ -9,6 +9,8 @@ Run from the tools/reg-scan/ directory:
 import argparse
 import json
 import logging
+import re
+from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -56,7 +58,25 @@ def _deduplicate(items):
 def _is_recent(published_at, cutoff, generated_at):
     """Fail closed on missing, invalid, stale or materially future dates."""
     if not published_at:
-        return False
+    return False
+
+
+def _semantic_change(old, item):
+    """Classify meaningful publication changes using deterministic evidence."""
+    old_title = old.get("title") or ""
+    new_title = item.get("title") or ""
+    old_summary = old.get("summary") or ""
+    new_summary = item.get("summary") or ""
+    old_deadline, new_deadline = old.get("deadline"), item.get("deadline")
+    if old_deadline and new_deadline and new_deadline > old_deadline:
+        return "extended"
+    combined = f"{new_title} {new_summary}".lower()
+    if re.search(r"\b(withdrawn|withdrawal|cancelled|canceled|superseded|replaced|revoked)\b", combined):
+        return "withdrawn" if re.search(r"\bwithdraw", combined) else "superseded"
+    similarity = SequenceMatcher(None, f"{old_title} {old_summary}", f"{new_title} {new_summary}").ratio()
+    if similarity < 0.72 or old_title != new_title:
+        return "changed"
+    return "unchanged"
     try:
         published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
         if published.tzinfo is None:
@@ -132,10 +152,15 @@ def main():
             old = prior.get(item["url"])
             if not old:
                 item["change_status"] = "new"
-            elif old.get("deadline") != item.get("deadline"):
-                item["change_status"] = "changed"
             else:
-                item["change_status"] = "unchanged"
+                item["change_status"] = _semantic_change(old, item)
+                if item["change_status"] != "unchanged":
+                    item["change_evidence"] = {
+                        "previousTitle": old.get("title"),
+                        "currentTitle": item.get("title"),
+                        "previousDeadline": old.get("deadline"),
+                        "currentDeadline": item.get("deadline"),
+                    }
         current_urls = {item["url"] for item in all_items}
         for old in _db.open_deadlines(conn, generated_at.date().isoformat()):
             if old["url"] in current_urls or old["source_id"] not in sources_by_id:

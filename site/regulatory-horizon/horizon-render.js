@@ -91,6 +91,11 @@
     return `<p>${warnings.map((warning) => escapeHtml(warning.message || warning.type)).join(" ")}</p>`;
   }
 
+  function renderReviewQueue(entries) {
+    if (!entries.length) return '<article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article>';
+    return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(item.confidence?.score || "")}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source || "Official source")}</span></article>`).join("");
+  }
+
   function renderDashboard(data) {
     const signals = data.signals || [];
     const horizon = data.horizon || [];
@@ -168,6 +173,7 @@
     const deadlines = document.getElementById("horizon-deadlines");
     const materialTop5 = document.getElementById("horizon-material-top5");
     const materialAdditional = document.getElementById("horizon-material-additional");
+    const reviewItems = document.getElementById("horizon-review-items");
     const themes = document.getElementById("horizon-watch-themes");
     const evidence = document.getElementById("horizon-evidence-files");
     const coverageNotes = document.getElementById("horizon-coverage-notes");
@@ -193,6 +199,7 @@
     materialAdditional.innerHTML = additional.length
       ? additional.map((item, index) => renderSignal(item, index + 5)).join("")
       : "<li class=\"horizon-empty\"><div><p class=\"eyebrow\">No additional rows</p><h3>The wider source universe was reviewed, but no further items met the materiality threshold.</h3><p>Continue monitoring approved sources; this is an intentional empty state, not a missing scan.</p></div></li>";
+    if (reviewItems) reviewItems.innerHTML = renderReviewQueue(data.reviewQueue || []);
     }
     if (themes) {
       const active = new Set((data.signals || []).flatMap((item) => item.riskAreas || []));

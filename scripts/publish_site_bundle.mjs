@@ -1251,9 +1251,9 @@ function renderHorizonList(entries) {
 
 function renderHorizonEvidenceFiles(horizonData) {
   const archiveHref = (horizonData.archives || [])[0] || `archive/${horizonData.edition}.html`;
-  return `<a class="archive-card" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
-          <a class="archive-card" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
-          <a class="archive-card" href="horizon.ics"><p class="meta">Calendar</p><h3>Deadline calendar</h3><p>All-day events for future deadlines that need owner assignment and evidence.</p></a>
+  return `<a class="archive-card data-affordance" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
+          <a class="archive-card data-affordance" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
+          <a class="archive-card data-affordance" href="horizon.ics"><p class="meta">Calendar</p><h3>Deadline calendar</h3><p>All-day events for future deadlines that need owner assignment and evidence.</p></a>
           <a class="archive-card" href="${escapeHtml(archiveHref)}"><p class="meta">Archive</p><h3>Frozen edition</h3><p>A dated record of the bottom line, source set, and deadline prompts for review.</p></a>`;
 }
 
@@ -1325,7 +1325,7 @@ function renderHorizonDashboard(horizonData) {
   return `<article><p class="meta">Material signals</p><strong>${escapeHtml(horizonData.kpis?.material ?? signals.length)}</strong><span>reviewed items requiring business-impact triage</span></article>
           <article><p class="meta">Active themes</p><strong>${escapeHtml(`${horizonData.kpis?.themes ?? 0} / ${Object.keys(RISK_AREA_LABELS).length}`)}</strong><span>themes represented by this edition's reviewed signals</span></article>
           <article><p class="meta">Next deadline</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "no future deadline in this edition")}</span></article>
-          <article><p class="meta">Primary source set</p><strong>${escapeHtml(sources.slice(0, 2).join(" / ") || "Monitor")}</strong><span>${escapeHtml(`${sources.length} primary authorities represented`)}</span></article>`;
+          <article><p class="meta">Primary source set</p><strong>${escapeHtml(`${sources.length} authorities`)}</strong><span>${escapeHtml(sources.length ? sources.join(" / ") : "No approved authorities represented")}</span></article>`;
 }
 
 function renderHorizonOperatingReadout(horizonData) {
@@ -1346,14 +1346,24 @@ function renderHorizonOperatingReadout(horizonData) {
   const deadlines = horizonData.horizon || [];
   const sources = [...new Set(signals.map((signal) => signal.source).filter(Boolean))];
   const warnings = horizonData.warnings || [];
+  const consultations = deadlines.filter((entry) => /response deadline/i.test(entry.title || ""));
+  const implementationSignals = signals.filter((signal) => ["final-rule", "guidance", "enforcement"].includes(signal.type));
+  const themeCounts = new Map();
+  for (const signal of signals) {
+    for (const area of signal.riskAreas || []) themeCounts.set(area, (themeCounts.get(area) || 0) + 1);
+  }
+  const leadingTheme = [...themeCounts.entries()].sort((a, b) => b[1] - a[1])[0];
+  const leadingThemeLabel = leadingTheme ? RISK_AREA_LABELS[leadingTheme[0]] || leadingTheme[0] : "No dominant theme";
+  const consultationLabel = `${consultations.length} consultation${consultations.length === 1 ? "" : "s"} with dated response windows`;
+  const implementationLabel = `${implementationSignals.length} implementation or enforcement signal${implementationSignals.length === 1 ? "" : "s"}`;
   return `<div class="section-heading">
           <div><p class="eyebrow">Operating readout</p><h2>What this edition means</h2></div>
           <p>The reviewed edition separates response deadlines, implementation work and forward-looking governance signals so each can be given an accountable owner.</p>
         </div>
         <div class="horizon-operating-grid">
-          <article class="brief-card"><p class="meta">Response windows</p><h3>${escapeHtml(`${deadlines.filter((entry) => /response deadline/i.test(entry.title || "")).length} consultations have dated decisions`)}</h3><p>Assign response ownership early enough for product, legal, compliance and operations input.</p></article>
-          <article class="brief-card"><p class="meta">Implementation</p><h3>Solvency II changes have a 30 January 2027 application date</h3><p>Liquidity, risk-margin, matching-adjustment and reporting changes need a joined implementation plan.</p></article>
-          <article class="brief-card"><p class="meta">Resilience</p><h3>Quantum readiness is now a supervisory planning issue</h3><p>Roadmaps, cryptographic inventories, external-provider dependencies and crypto-agility need evidence.</p></article>
+          <article class="brief-card"><p class="meta">Response windows</p><h3>${escapeHtml(consultationLabel)}</h3><p>Assign response ownership early enough for product, legal, compliance and operations input.</p></article>
+          <article class="brief-card"><p class="meta">Implementation</p><h3>${escapeHtml(implementationLabel)}</h3><p>Review applicability, implementation dates, and control or reporting dependencies before the item becomes a late calendar surprise.</p></article>
+          <article class="brief-card"><p class="meta">Leading theme</p><h3>${escapeHtml(leadingThemeLabel)}</h3><p>${escapeHtml(leadingTheme ? `${leadingTheme[1]} reviewed signal${leadingTheme[1] === 1 ? "" : "s"} map to this theme.` : "No risk theme has enough reviewed evidence to lead this edition.")}</p></article>
           <article class="brief-card"><p class="meta">Coverage</p><h3>${escapeHtml(`${sources.length} primary authorities support this edition`)}</h3><p>${escapeHtml(warnings[0]?.message || "Quiet themes remain watch-listed until wider sources report cleanly.")}</p></article>
         </div>`;
 }
@@ -1363,9 +1373,16 @@ function renderHorizonThemeCards(signals) {
   return Object.keys(RISK_AREA_LABELS)
     .map((slug) => {
       const isActive = active.has(slug);
-      return `<article class="card"><p class="meta">${isActive ? "Active" : "Quiet this run"}</p><h3>${escapeHtml(RISK_AREA_LABELS[slug])}</h3><p>${isActive ? "A reviewed material signal in this edition maps to this theme." : "No reviewed material signal is published for this theme in the current edition."}</p></article>`;
+      return `<article class="card ${isActive ? "is-active-theme" : "is-quiet-theme"}"><p class="meta">${isActive ? "Active" : "Quiet this run"}</p><h3>${escapeHtml(RISK_AREA_LABELS[slug])}</h3><p>${isActive ? "A reviewed material signal in this edition maps to this theme." : "No reviewed material signal is published for this theme in the current edition."}</p></article>`;
     })
     .join("");
+}
+
+function renderFreshnessTicks(retainedCount) {
+  const ticks = Array.from({ length: 5 + retainedCount }, (_, index) =>
+    `<span class="signal-freshness-tick ${index < 5 ? "is-current" : "is-retained"}" aria-hidden="true"></span>`,
+  ).join("");
+  return `<span class="signal-freshness" aria-label="Five current signals and ${retainedCount} still-material signals">${ticks}</span>`;
 }
 
 function replaceElementContent(html, tag, id, content) {
@@ -1459,6 +1476,7 @@ function applyLiveEditionContent(out, horizonData) {
   );
   updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
   updated = replaceElementContent(updated, "div", "horizon-evidence-files", renderHorizonEvidenceFiles(horizonData));
+  updated = replaceElementContent(updated, "div", "horizon-review-items", renderHorizonReviewQueue(horizonData.reviewQueue || []));
   updated = replaceElementContent(
     updated,
     "div",
@@ -1466,6 +1484,11 @@ function applyLiveEditionContent(out, horizonData) {
     `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" "))}</p>`,
   );
   if (updated !== html) write(file, updated);
+}
+
+function renderHorizonReviewQueue(entries) {
+  if (!entries.length) return '<article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article>';
+  return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(String(item.confidence?.score || ""))}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source_name || item.source_id || "Official source")}</span></article>`).join("");
 }
 
 function generateCurrentHorizonArchive(out, horizonData) {
@@ -1722,7 +1745,7 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
       const retainedCount = getStillMaterialRows(topic).length;
-      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 refreshed · ${retainedCount} still material</span></a>`;
+      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 refreshed · ${retainedCount} still material ${renderFreshnessTicks(retainedCount)}</span></a>`;
     })
     .join("\n          ");
   const weeklyRows = (editionRecord?.topSignals || [])

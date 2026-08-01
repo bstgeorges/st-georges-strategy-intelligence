@@ -55,10 +55,41 @@ def _deduplicate(items):
     return out
 
 
+def _reconcile_sources(items):
+    """Cluster likely cross-source duplicates while preserving source trails."""
+    clusters = []
+    for item in items:
+        title = re.sub(r"[^a-z0-9 ]", " ", (item.get("title") or "").lower())
+        title = re.sub(r"\b(consultation|consultations|guidance|statement|final rule)\b", " ", title)
+        title = re.sub(r"\s+", " ", title).strip()
+        match = next((cluster for cluster in clusters if SequenceMatcher(None, title, cluster["key"]).ratio() >= 0.86), None)
+        if not match:
+            clusters.append({"key": title, "item": item, "also": []})
+        else:
+            match["also"].append({"source": item.get("source_name", item.get("source_id")), "url": item.get("url")})
+            if item.get("score", 0) > match["item"].get("score", 0):
+                previous = match["item"]
+                match["item"] = item
+                match["also"].append({"source": previous.get("source_name", previous.get("source_id")), "url": previous.get("url")})
+    out = []
+    for cluster in clusters:
+        item = cluster["item"]
+        item["also"] = cluster["also"]
+        out.append(item)
+    return out
+
+
 def _is_recent(published_at, cutoff, generated_at):
     """Fail closed on missing, invalid, stale or materially future dates."""
     if not published_at:
-    return False
+        return False
+    try:
+        published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    return cutoff <= published <= generated_at + timedelta(days=1)
 
 
 def _semantic_change(old, item):
@@ -77,13 +108,6 @@ def _semantic_change(old, item):
     if similarity < 0.72 or old_title != new_title:
         return "changed"
     return "unchanged"
-    try:
-        published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
-        if published.tzinfo is None:
-            published = published.replace(tzinfo=timezone.utc)
-    except ValueError:
-        return False
-    return cutoff <= published <= generated_at + timedelta(days=1)
 
 
 def main():
@@ -176,7 +200,7 @@ def main():
         for item in all_items:
             item["change_status"] = "new"
 
-    signals = _deduplicate(all_items)
+    signals = _reconcile_sources(_deduplicate(all_items))
     signals.sort(key=lambda x: x.get("score", 0), reverse=True)
     signals = [item for item in signals if _score.is_material(item)][:_score.MAX_SIGNALS]
     review_queue = [item for item in signals if item.get("confidence", {}).get("band") == "medium"]
@@ -201,6 +225,45 @@ def main():
             ),
             "sourceIds": missing_sources,
         })
+
+    primary_source_ids = {
+        source_id for source_id, source in sources_by_id.items()
+        if source.get("tier") == "primary"
+    }
+    active_source_ids = {item.get("source_id") for item in signals if item.get("source_id")}
+    active_primary_count = len(active_source_ids & primary_source_ids)
+    if primary_source_ids and active_primary_count / len(primary_source_ids) < 0.5:
+        warnings.append({
+            "type": "source-coverage",
+            "severity": "high" if not signals else "medium",
+            "message": (
+                f"Only {active_primary_count} of {len(primary_source_ids)} primary authorities "
+                "contributed material rows in this edition. Treat quiet themes as unconfirmed, "
+                "not inactive."
+            ),
+            "activeSources": sorted(active_source_ids & primary_source_ids),
+        })
+
+    source_counts = {}
+    for item in signals:
+        source_id = item.get("source_id")
+        if source_id:
+            source_counts[source_id] = source_counts.get(source_id, 0) + 1
+    if signals and source_counts:
+        dominant_source_id, dominant_count = max(source_counts.items(), key=lambda pair: pair[1])
+        dominant_share = dominant_count / len(signals)
+        if dominant_share >= 0.5:
+            warnings.append({
+                "type": "source-concentration",
+                "severity": "medium",
+                "message": (
+                    f"{sources_by_id[dominant_source_id].get('name', dominant_source_id)} supplies "
+                    f"{dominant_count} of {len(signals)} material signals. Treat the edition as "
+                    "directional rather than a complete cross-market view."
+                ),
+                "sourceId": dominant_source_id,
+                "share": round(dominant_share, 3),
+            })
 
     horizon_raw = _dl.horizon(
         [s for s in signals if s.get("deadline")],

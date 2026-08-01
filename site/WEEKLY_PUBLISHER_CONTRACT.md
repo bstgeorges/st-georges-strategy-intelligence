@@ -33,12 +33,12 @@ Target cadence: run the Reg Horizon scan on Wednesday in the same working window
 
 Recommended sequence:
 
-1. Run `reg-scan` and produce `docs/latest.json`, `docs/feed.xml`, `docs/horizon.ics`, and the dated Horizon archive.
-2. Review warnings, source concentration, quiet themes, and any failed source-health items as admin evidence.
-3. Sync the approved Horizon outputs into the site source.
+1. Run `reg-scan` and open a review PR containing `docs/latest.json`, `docs/feed.xml`, `docs/horizon.ics`, and the dated Horizon archive.
+2. Review warnings, source concentration, quiet themes, and any failed source-health items as admin evidence, then merge only the approved scan PR.
+3. Let the merge-triggered candidate refresh and editorial prep consume the merged `main` state; prep must fail if the reviewed Horizon edition is more than eight days old or withheld.
 4. Generate the Weekly Brief, Signals hub, eight topic pages, Reg Horizon page, and archive routes.
 5. Run pre-publish checks and responsive QA.
-6. Commit and publish only after the generated site passes the migration verifier.
+6. Commit and publish only after the generated site passes the migration verifier and canonical release workflow.
 
 The scan should not publish directly to the public site without the editorial/site generation step. The Wednesday run is the evidence refresh; the site publisher is the release step.
 

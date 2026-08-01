@@ -14,11 +14,6 @@ on:
       - "workers/**"
       - "package.json"
       - "package-lock.json"
-  workflow_run:
-    workflows:
-      - "Signals candidates weekly refresh"
-    types:
-      - completed
   workflow_dispatch:
     inputs:
       target:
@@ -39,7 +34,6 @@ concurrency:
 
 jobs:
   release:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -51,7 +45,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref }}
+          ref: ${{ github.ref }}
 
       - name: Set up Node
         uses: actions/setup-node@v4

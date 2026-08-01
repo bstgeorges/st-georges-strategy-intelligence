@@ -78,6 +78,7 @@ function checkCurrentEditionAlignment(failures) {
   const brief = read("brief/index.html");
   const archive = read("archive/index.html");
   const committee = read("committee-questions/index.html");
+  const about = read("about/index.html");
   const signals = readJson("data/signals.json");
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
   const briefEditionLabel = `Weekly brief / ${formatDateLong(edition.publicationDate)}`;
@@ -116,6 +117,8 @@ function checkCurrentEditionAlignment(failures) {
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
+  assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);
+  assert(about.includes("Not proof of no activity"), "About page should explain quiet-theme meaning", failures);
   for (const [label, html] of [
     ["home", home],
     ["brief", brief],
@@ -240,8 +243,21 @@ function main() {
   assert(Array.isArray(horizon.signals), "Reg Horizon latest.json missing signals[]", failures);
   assert(horizon.signals.length <= 15, "Reg Horizon signals[] exceeds 15 rows", failures);
   assert(horizon.signals.every((item) => item.sourceStatus), "Reg Horizon signals[] should include sourceStatus in mockup contract", failures);
+  if (horizon.status === "published") {
+    assert(horizon.editorialReview?.reviewStatus === "approved", "published Reg Horizon edition missing approved editorial review", failures);
+    assert(horizon.signals.every((item) => ["act", "prepare", "monitor"].includes(item.lane)), "published Reg Horizon signals missing operating lane", failures);
+    assert(horizon.signals.every((item) => item.cluster), "published Reg Horizon signals missing editorial cluster", failures);
+  }
   assert(Array.isArray(horizon.warnings), "Reg Horizon latest.json missing warnings[]", failures);
   const horizonPage = read("regulatory-horizon/index.html");
+  const styles = read("styles.css");
+  const signalsHub = read("signals/index.html");
+  assert(horizonPage.includes("source-tier-core"), "Reg Horizon source tiers missing core authority treatment", failures);
+  assert(horizonPage.includes("source-tier-pilot"), "Reg Horizon source tiers missing pilot/watch treatment", failures);
+  assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
+  assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
+  assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
+  assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
   if (horizon.status === "withheld") {
     assert(horizon.signals.length === 0, "withheld Reg Horizon editions must publish zero material signals", failures);
     assert((horizon.horizon || []).length === 0, "withheld Reg Horizon editions must publish zero deadlines", failures);
@@ -252,7 +268,12 @@ function main() {
     const horizonCalendar = read("regulatory-horizon/horizon.ics");
     assert(horizon.status === "published", "Reg Horizon status must be published or withheld", failures);
     assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
-    assert(horizonPage.includes("What this edition means"), "published Reg Horizon page missing operating readout", failures);
+  assert(horizonPage.includes("What this edition means"), "published Reg Horizon page missing operating readout", failures);
+  assert(horizonPage.includes("horizon-freshness-status"), "Reg Horizon page missing freshness status", failures);
+  assert(horizonPage.includes("horizon-coverage-banner"), "Reg Horizon page missing coverage confidence banner", failures);
+  assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
+  assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
+  assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
     for (const signal of horizon.signals.slice(0, 5)) {
       assert(horizonPage.includes(signal.title), `published Reg Horizon page missing signal: ${signal.title}`, failures);
     }

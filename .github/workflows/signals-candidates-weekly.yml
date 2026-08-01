@@ -8,17 +8,14 @@ on:
       - ".github/workflows/signals-candidates-weekly.yml"
       - "dashboard/data/signals-feed-registry.json"
       - "dashboard/data/source-registry.json"
+      - "dashboard/regulatory-horizon/**"
       - "site/data/published-source-map.json"
+      - "site/regulatory-horizon/**"
       - "scripts/refresh_signals_candidates.mjs"
       - "scripts/validate_signals_candidates_output.mjs"
       - "scripts/lib/**"
       - "package.json"
       - "package-lock.json"
-  workflow_run:
-    workflows:
-      - "Reg Horizon weekly scan"
-    types:
-      - completed
   workflow_dispatch:
 
 permissions:
@@ -30,7 +27,6 @@ concurrency:
 
 jobs:
   refresh-candidates:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -24,11 +24,22 @@ _TYPE_RULES = [
             r"\b(final rule|final standard|final guideline|final report"
             r"|implementing technical standard|regulatory technical standard"
             r"|ITS|RTS|delegated act|delegated regulation|directive|in force"
-            r"|enters? into force|entry into force|adopted|published final"
+            r"|enters? into force|entry into force|published final"
             r"|binding technical|r.glement|r.solution|instru..o normativa"
             r"|norma definitiva|texto definitivo|texte d.finitif|real decreto|reglamento"
             r"|disposiciones de car.cter general|delibera|regolamento|正式发布"
             r"|Allgemeinverf.gung|tritt in Kraft|Regelwerk)\b",
+            re.I,
+        ),
+    ),
+    (
+        "guidance",
+        re.compile(
+            r"\b(guidance|guidelines?|supervisory expectation|dear\s+ceo"
+            r"|letter to firms|thematic review|feedback statement"
+            r"|recommendation|principles for|supervisory statement|SS\s*\d"
+            r"|expectations for firms|supervisory approach|orienta..o|of.cio circular"
+            r"|doctrine|position-recommandation|criterio|orientaci.n|richiamo di attenzione|指引|指导意见)\b",
             re.I,
         ),
     ),
@@ -44,24 +55,13 @@ _TYPE_RULES = [
             re.I,
         ),
     ),
-    (
-        "guidance",
-        re.compile(
-            r"\b(guidance|guidelines?|supervisory expectation|dear\s+ceo"
-            r"|letter to firms|thematic review|feedback statement"
-            r"|recommendation|principles for|supervisory statement|SS\s*\d"
-            r"|expectations for firms|supervisory approach|orienta..o|of.cio circular"
-            r"|doctrine|position-recommandation|criterio|orientaci.n|richiamo di attenzione|指引|指导意见)\b",
-            re.I,
-        ),
-    ),
 ]
 
 _NON_LATIN_TYPE_RULES = [
     ("consultation", re.compile(r"征求意见|公開徵求意見|市中協議|パブリックコメント")),
-    ("final-rule", re.compile(r"正式发布|正式發佈|条例|條例|声明|公表|勧告|基準")),
+    ("final-rule", re.compile(r"正式发布|正式發佈|条例|條例|声明|勧告")),
     ("enforcement", re.compile(r"处罚|處罰|罚款|罰款")),
-    ("guidance", re.compile(r"指导意见|指導意見|指引|ガイダンス|ベスト・プラクティス")),
+    ("guidance", re.compile(r"指导意见|指導意見|指引|ガイダンス|ベスト・プラクティス|報告書|実施状況")),
 ]
 
 # Risk-area classification - multiple areas per item are allowed.
@@ -75,7 +75,7 @@ RISK_AREA_PATTERNS = {
     "market-plumbing": re.compile(
         r"\b(clearing|settlement|CCP|derivative|repo|margin|collateral"
         r"|MiFID|EMIR|benchmark|LIBOR|SOFR|market abuse|MAR|short selling"
-        r"|securitisation|covered bond|mercado de capitais|mercado de valores|mercati finanziari|march.s financiers)\b",
+        r"|securitisation|covered bond|transfer schemes?|mercado de capitais|mercado de valores|mercati finanziari|march.s financiers)\b",
         re.I,
     ),
     "customer-outcomes": re.compile(
@@ -87,7 +87,7 @@ RISK_AREA_PATTERNS = {
     "crime-and-sanctions": re.compile(
         r"\b(AML|KYC|CFT|sanction[sd]?|money launder|financial crime"
         r"|FinCEN|OFAC|OFSI|FATF|fraud|suspicious activity|proliferation"
-        r"|crypto.asset|digital asset|illicit|antilavado|lavado de dinero|abusivismo)(?:\b|(?=[^\x00-\x7F]))"
+        r"|crypto.asset|digital asset|illicit|antilavado|lavado de dinero|abusivismo|sancionadora|sanção)(?:\b|(?=[^\x00-\x7F]))"
         r"|マネロン|テロ資金|資金洗浄|金融活動作業部会|暗号資産",
         re.I,
     ),
@@ -103,6 +103,11 @@ RISK_AREA_PATTERNS = {
         r"\b(artificial intelligence|machine learning|model risk|algorithmic"
         r"|large language model|LLM|foundation model|AI governance|AI risk"
         r"|automation|generative AI|GenAI|AI Act|EU AI Act|responsible AI)\b",
+        re.I,
+    ),
+    "boardroom-and-accountability": re.compile(
+        r"\b(governance|accountability|fitness and probity|prohibition notice"
+        r"|senior manager|responsible officer|board oversight|attestation)\b",
         re.I,
     ),
 }

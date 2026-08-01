@@ -1,8 +1,6 @@
 name: Weekly editorial prep
 
 on:
-  schedule:
-    - cron: "30 6 * * 3" # 06:30 UTC Wednesdays
   workflow_run:
     workflows:
       - "Signals candidates weekly refresh"
@@ -59,6 +57,9 @@ jobs:
 
       - name: Validate candidate signals output
         run: npm run signals:candidates:validate
+
+      - name: Require a current reviewed Reg Horizon edition
+        run: npm run reg-horizon:freshness -- --as-of "${{ steps.vars.outputs.publication_date }}" --max-age-days 8
 
       - name: Generate weekly refresh packet
         run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"

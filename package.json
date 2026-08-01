@@ -36,6 +36,7 @@
     "reg-scan:dry-run": "node scripts/run_reg_scan.mjs dry-run",
     "reg-scan:run": "node scripts/run_reg_scan.mjs run",
     "reg-horizon:validate": "node scripts/validate_reg_horizon_data.mjs",
+    "reg-horizon:freshness": "node scripts/validate_reg_horizon_freshness.mjs",
     "horizon:sync": "node scripts/sync_reg_horizon.mjs",
     "horizon:refresh": "npm run reg-scan:run && npm run horizon:sync",
     "sitemap:generate": "node scripts/generate_sitemap.mjs",

@@ -1251,6 +1251,53 @@ a.tag:hover {
   gap: 18px;
 }
 
+.horizon-coverage-banner {
+  margin-top: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.horizon-coverage-banner.coverage-limited {
+  background: rgba(166, 76, 49, .08);
+  border-left-color: #a64c31;
+}
+
+.horizon-top-three {
+  margin: 26px 0 0;
+  border-top: 3px solid var(--accent);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 20px 0 22px;
+}
+
+.horizon-top-three h3 { max-width: 50rem; margin: 6px 0 10px; font: 500 clamp(24px, 3vw, 36px)/1.12 var(--serif); }
+.horizon-top-three > p:not(.eyebrow) { max-width: 72ch; margin: 0; color: var(--ink-soft); line-height: 1.55; }
+.horizon-top-three .horizon-top-three-evidence { margin-top: 12px; font-size: 13px; }
+.horizon-top-three-evidence strong { color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+.horizon-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 24px;
+  background: var(--rule-strong);
+}
+
+.horizon-lane {
+  min-height: 230px;
+  padding: 24px;
+  background: var(--paper-raised);
+}
+
+.horizon-lane-act { border-top: 3px solid var(--accent); }
+.horizon-lane-prepare { border-top: 3px solid var(--navy); }
+.horizon-lane-monitor { border-top: 3px solid var(--rule-strong); }
+.horizon-lane h3 { margin: 8px 0 18px; font: 500 24px/1.12 var(--serif); }
+.horizon-lane ol { display: grid; gap: 14px; margin: 0; padding-left: 18px; }
+.horizon-lane li { padding-left: 4px; color: var(--ink-soft); font-size: 14px; line-height: 1.45; }
+.horizon-lane li a { display: block; margin-bottom: 4px; color: var(--navy); font-weight: 700; text-decoration: none; }
+.horizon-lane li a:hover { color: var(--accent-readable); }
+.horizon-lane li span { display: block; }
+.horizon-lane-empty { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+
 .horizon-operating-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -2359,6 +2406,7 @@ a.tag:hover {
   .radar-grid,
   .horizon-dashboard,
   .horizon-operating-grid,
+  .horizon-lane-grid,
   .horizon-lanes,
   .method-strip,
   .hero-metrics,

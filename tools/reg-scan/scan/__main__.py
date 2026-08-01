@@ -154,8 +154,15 @@ def main():
     signals = _deduplicate(all_items)
     signals.sort(key=lambda x: x.get("score", 0), reverse=True)
     signals = [item for item in signals if _score.is_material(item)][:_score.MAX_SIGNALS]
+    review_queue = [item for item in signals if item.get("confidence", {}).get("band") == "medium"]
+    held_low_confidence = [item for item in signals if item.get("confidence", {}).get("band") == "low"]
+    signals = [item for item in signals if item.get("confidence", {}).get("band") == "high"]
 
     warnings = []
+    if review_queue:
+        warnings.append({"type": "confidence-review", "severity": "medium", "message": f"{len(review_queue)} material signal(s) require confidence review before publication.", "count": len(review_queue)})
+    if held_low_confidence:
+        warnings.append({"type": "confidence-held", "severity": "high", "message": f"{len(held_low_confidence)} low-confidence signal(s) held from publication.", "count": len(held_low_confidence)})
     missing_sources = sorted(set(no_feed_sources + error_sources))
     if missing_sources:
         failed_share = len(error_sources) / max(1, len(sources_by_id))
@@ -186,6 +193,8 @@ def main():
         window_days=args.window,
     )
     data["sourceHealth"] = source_health
+    data["reviewQueue"] = review_queue
+    data["heldLowConfidence"] = len(held_low_confidence)
 
     log.info(
         "edition=%s  signals=%d  material=%d  horizon=%d  sources-with-feed=%d",

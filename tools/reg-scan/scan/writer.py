@@ -116,6 +116,8 @@ def build_edition(
         "horizon": [fmt_horizon(h) for h in horizon_entries],
         "signals": [fmt_signal(s, sources_by_id.get(s["source_id"], {})) for s in signals],
         "warnings": warnings,
+        "reviewQueue": [],
+        "heldLowConfidence": 0,
     }
 
 

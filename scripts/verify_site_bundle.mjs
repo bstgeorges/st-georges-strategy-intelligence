@@ -295,6 +295,7 @@ function main() {
   assert(Array.isArray(signalsLatest.topics) && signalsLatest.topics.length === 8, "Signals latest.json should contain eight topics", failures);
 
   const brief = read("brief/index.html");
+  const archive = read("archive/index.html");
   const briefHorizonHtml = Array.from(brief.matchAll(/<ul class="horizon-list"[^>]*>([\s\S]*?)<\/ul>/g), (match) => match[1]).join("\n");
   const briefDates = Array.from(briefHorizonHtml.matchAll(/<time datetime="(\d{4}-\d{2}-\d{2})"/g), (match) => match[1]);
   for (const date of briefDates) {
@@ -306,6 +307,18 @@ function main() {
   const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
+  const horizonEdition = horizon.edition;
+  const expectedHorizonArchiveHref = `/regulatory-horizon/archive/${horizonEdition}.html`;
+  assert(
+    archive.includes(`href="${expectedHorizonArchiveHref}"`),
+    `archive should link Reg Horizon to its frozen ${horizonEdition} edition`,
+    failures,
+  );
+  assert(
+    !archive.includes('href="/regulatory-horizon/"><p class="meta">Reg Horizon</p>'),
+    "archive should not link its Reg Horizon edition card to the live page",
+    failures,
+  );
   checkCurrentEditionAlignment(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");

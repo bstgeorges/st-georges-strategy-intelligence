@@ -1000,8 +1000,11 @@ function updateArchiveIndexCards(out, edition) {
     );
   }
 
+  const horizonHref = horizonEdition
+    ? `/regulatory-horizon/archive/${horizonEdition}.html`
+    : "/regulatory-horizon/";
   cards.push(
-    `<a class="archive-card" href="/regulatory-horizon/"><p class="meta">Reg Horizon</p><h3>Reg Horizon scan${horizonEdition ? ` / ${escapeHtml(horizonEdition)}` : ""}</h3><p>Public-source horizon scan with bottom line, deadline, material signals, and machine outputs.</p></a>`,
+    `<a class="archive-card" href="${horizonHref}"><p class="meta">Reg Horizon</p><h3>Reg Horizon scan${horizonEdition ? ` / ${escapeHtml(horizonEdition)}` : ""}</h3><p>Public-source horizon scan with bottom line, deadline, material signals, and machine outputs.</p></a>`,
   );
 
   let rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;

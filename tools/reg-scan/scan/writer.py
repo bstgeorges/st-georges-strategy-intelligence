@@ -120,6 +120,7 @@ def build_edition(
         "warnings": warnings,
         "reviewQueue": [],
         "heldLowConfidence": 0,
+        "runMetrics": {},
     }
 
 

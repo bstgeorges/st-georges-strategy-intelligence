@@ -68,6 +68,11 @@
         <p class="masthead-purpose">This page turns regulatory movement into an operating decision: assign an owner, decide to respond or monitor, and keep the evidence before each deadline closes. Use it for the weekly review, deadline ownership, and the audit trail governance will ask for.</p>
       </section>
 
+      <section class="band" id="horizon-review-queue">
+        <div class="section-heading"><div><p class="eyebrow">Editorial review</p><h2>Items awaiting confidence review</h2></div><p>Medium-confidence items remain visible for analyst resolution, but are not presented as cleared material signals.</p></div>
+        <div class="review-queue" id="horizon-review-items"><article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article></div>
+      </section>
+
       <section class="band">
         <div class="section-heading">
           <div>
@@ -186,11 +191,11 @@
           </div>
           <p>The reg-scan registry spans approved core UK, EU/global, and national-supervisor sources, plus a pilot watch-list. Each edition publishes only what cleared the material threshold that week.</p>
         </div>
-        <div class="grid-4">
-          <article class="card"><p class="meta">Approved / core UK</p><h3>FCA, BoE/PRA, HM Treasury, OFSI, PSR, NCSC</h3><p>Conduct, prudential, sanctions, payments, cyber, resilience, and customer-harm signals.</p></article>
-          <article class="card"><p class="meta">Approved / EU and global</p><h3>ECB/SSM, EBA, ESMA, EIOPA, ESRB, FSB, IOSCO, FATF</h3><p>Prudential, markets, financial stability, insurance, operational risk, and financial-crime signals.</p></article>
-          <article class="card"><p class="meta">Approved / national supervisors</p><h3>BaFin, Bundesbank, ACPR, AMF, CBI, CSSF, FINMA, SNB</h3><p>Cross-border regulatory movement, non-English source intake, and supervisory read-across.</p></article>
-          <article class="card"><p class="meta">Pilot / watch only</p><h3>OFAC, NCA, DSIT, EDPB, CERT-EU, DFSA, ADGM, CMA and others</h3><p>Useful policy watch sources, but not sole support for public material signals until promoted.</p></article>
+        <div class="grid-4 horizon-source-tiers">
+          <article class="card source-tier-core"><p class="meta">Approved / core UK</p><h3>FCA, BoE/PRA, HM Treasury, OFSI, PSR, NCSC</h3><p>Conduct, prudential, sanctions, payments, cyber, resilience, and customer-harm signals.</p></article>
+          <article class="card source-tier-global"><p class="meta">Approved / EU and global</p><h3>ECB/SSM, EBA, ESMA, EIOPA, ESRB, FSB, IOSCO, FATF</h3><p>Prudential, markets, financial stability, insurance, operational risk, and financial-crime signals.</p></article>
+          <article class="card source-tier-national"><p class="meta">Approved / national supervisors</p><h3>BaFin, Bundesbank, ACPR, AMF, CBI, CSSF, FINMA, SNB</h3><p>Cross-border regulatory movement, non-English source intake, and supervisory read-across.</p></article>
+          <article class="card source-tier-pilot"><p class="meta">Pilot / watch only</p><h3>OFAC, NCA, DSIT, EDPB, CERT-EU, DFSA, ADGM, CMA and others</h3><p>Useful policy watch sources, but not sole support for public material signals until promoted.</p></article>
         </div>
         <div class="status-note coverage-note" id="horizon-coverage-notes">
           <p>This edition was withheld after source coverage, classification, and materiality checks failed. Four of 36 configured sources returned published rows in the underlying scan.</p>
@@ -242,9 +247,9 @@
           <p>The page should support three operating uses: weekly review, deadline ownership, and audit trail. The machine-readable files remain available, but the reader-facing purpose is governance and preparation.</p>
         </div>
         <div class="archive-grid" id="horizon-evidence-files">
-          <a class="archive-card" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
-          <a class="archive-card" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
-          <a class="archive-card" href="horizon.ics"><p class="meta">Calendar</p><h3>Deadline calendar</h3><p>All-day events for future deadlines that need owner assignment and evidence.</p></a>
+          <a class="archive-card data-affordance" href="latest.json"><p class="meta">Data</p><h3>Current edition JSON</h3><p>Structured bottom line, horizon dates, signals, source links, and archive references.</p></a>
+          <a class="archive-card data-affordance" href="feed.xml"><p class="meta">Feed</p><h3>Material signals RSS</h3><p>A stable feed for readers or systems that want the regulatory signal stream, with a browser-friendly view for normal clicks.</p></a>
+          <a class="archive-card data-affordance" href="horizon.ics"><p class="meta">Calendar</p><h3>Deadline calendar</h3><p>All-day events for future deadlines that need owner assignment and evidence.</p></a>
           <a class="archive-card" href="archive/2026-07-04.html"><p class="meta">Archive</p><h3>Prior reviewed edition</h3><p>The last edition retained for use while the current automated scan is corrected.</p></a>
         </div>
       </section>

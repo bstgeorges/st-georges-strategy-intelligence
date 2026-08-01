@@ -748,6 +748,11 @@ p {
 .band #horizon-material-additional li.horizon-empty { display: block; padding: 28px; border: 1px dashed var(--rule-strong); background: rgba(15, 34, 51, .025); }
 .horizon-empty h3 { max-width: 42rem; margin: 6px 0 8px; font: 500 clamp(22px, 2vw, 30px)/1.15 var(--serif); }
 .horizon-empty p:not(.eyebrow) { max-width: 58ch; margin: 0; color: var(--ink-soft); }
+.review-queue { display: grid; gap: 12px; }
+.review-item, .review-empty { display: flex; justify-content: space-between; gap: 24px; padding: 24px; border: 1px solid var(--rule); background: rgba(160,126,46,.06); }
+.review-item h3, .review-empty h3 { margin: 6px 0 8px; font: 500 clamp(22px, 2vw, 30px)/1.15 var(--serif); }
+.review-item h3 a { color: var(--navy); }
+.review-item p:not(.eyebrow), .review-empty p:not(.eyebrow) { margin: 0; color: var(--ink-soft); }
 .band #horizon-material-top5 .rank,
 .band #horizon-material-additional .rank { color: var(--accent-readable); font: 600 14px/1 var(--mono); letter-spacing: .08em; }
 .band #horizon-material-top5 .horizon-signal-body h3,
@@ -1447,6 +1452,64 @@ a.tag:hover {
 
 .signal-overview-meta {
   color: var(--muted);
+}
+
+.signal-freshness {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.signal-freshness-tick {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid currentColor;
+}
+
+.signal-freshness-tick.is-current {
+  background: currentColor;
+}
+
+.signal-freshness-tick.is-retained {
+  opacity: 0.48;
+}
+
+.horizon-source-tiers .card {
+  position: relative;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.horizon-source-tiers .card::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  content: "";
+}
+
+.horizon-source-tiers .source-tier-core::before { background: var(--accent); }
+.horizon-source-tiers .source-tier-global::before { width: 1px; background: var(--rule-strong); }
+.horizon-source-tiers .source-tier-national::before { width: 1px; background: var(--navy); opacity: 0.7; }
+.horizon-source-tiers .source-tier-pilot::before { width: 2px; background: repeating-linear-gradient(to bottom, var(--rule-strong) 0 3px, transparent 3px 7px); }
+
+.data-affordance {
+  border-color: var(--rule-strong);
+}
+
+.data-affordance .meta {
+  font-family: var(--mono);
+}
+
+.data-affordance h3::after {
+  margin-left: 8px;
+  color: var(--accent-readable);
+  content: "↗";
+  font: 600 0.7em/1 var(--mono);
 }
 
 .topic-layout {

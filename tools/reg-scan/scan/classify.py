@@ -39,7 +39,8 @@ _TYPE_RULES = [
             r"|letter to firms|thematic review|feedback statement"
             r"|recommendation|principles for|supervisory statement|SS\s*\d"
             r"|expectations for firms|supervisory approach|orienta..o|of.cio circular"
-            r"|doctrine|position-recommandation|criterio|orientaci.n|richiamo di attenzione|指引|指导意见)\b",
+            r"|doctrine|position-recommandation|criterio|orientaci.n|richiamo di attenzione"
+            r"|call for enhanced governance|consistent supervision|指引|指导意见)\b",
             re.I,
         ),
     ),
@@ -51,6 +52,7 @@ _TYPE_RULES = [
             r"|misconduct|disciplinar|prohibition order|public censure|multa|san..o"
             r"|atividade sancionadora|d.cision de sanction|sanci.n|multa|处罚"
             r"|sanzion|abusivismo|oscuramento"
+            r"|order for compliance|recovery certificate|recovery proceedings|price and volume manipulation"
             r"|Bu.geld|verwarnt|Sanktion)\b",
             re.I,
         ),

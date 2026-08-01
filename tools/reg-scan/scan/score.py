@@ -23,6 +23,7 @@ MATERIAL_THRESHOLD = 0.85
 
 # Maximum number of top-scored signals to include in the edition output
 MAX_SIGNALS = 15
+MAX_PER_SOURCE = 3
 
 
 def confidence(item, source):
@@ -31,8 +32,8 @@ def confidence(item, source):
         "authority": _TIER_WEIGHTS.get(source.get("tier", "press"), 0.55),
         "freshness": 1.0 if item.get("published_at") else 0.35,
         "classification": 1.0 if item.get("signal_type") != "other" else 0.55,
-        "date": 1.0 if item.get("deadline") else 0.72,
-        "detail": 1.0 if item.get("detail_text") else 0.65,
+        "date": 1.0 if item.get("deadline") or item.get("signal_type") in {"final-rule", "guidance", "enforcement"} else 0.72,
+        "detail": 1.0 if item.get("detail_text") or item.get("signal_type") in {"final-rule", "guidance", "enforcement"} else 0.65,
     }
     value = round(sum(components.values()) / len(components), 3)
     band = "high" if value >= 0.82 else "medium" if value >= 0.65 else "low"

@@ -25,6 +25,20 @@ MATERIAL_THRESHOLD = 0.85
 MAX_SIGNALS = 15
 
 
+def confidence(item, source):
+    """Return explainable evidence confidence in [0, 1]."""
+    components = {
+        "authority": _TIER_WEIGHTS.get(source.get("tier", "press"), 0.55),
+        "freshness": 1.0 if item.get("published_at") else 0.35,
+        "classification": 1.0 if item.get("signal_type") != "other" else 0.55,
+        "date": 1.0 if item.get("deadline") else 0.72,
+        "detail": 1.0 if item.get("detail_text") else 0.65,
+    }
+    value = round(sum(components.values()) / len(components), 3)
+    band = "high" if value >= 0.82 else "medium" if value >= 0.65 else "low"
+    return {"score": value, "band": band, "components": components}
+
+
 def score(item, source):
     """Compute a float relevance score for item from source."""
     tier_w = _TIER_WEIGHTS.get(source.get("tier", "press"), 0.55)

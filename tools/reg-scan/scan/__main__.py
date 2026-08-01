@@ -122,6 +122,7 @@ def main():
         _dl.annotate(recent)
         for item in recent:
             item["score"] = _score.score(item, source)
+            item["confidence"] = _score.confidence(item, source)
         source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent)})
         all_items.extend(recent)
 

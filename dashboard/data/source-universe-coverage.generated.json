@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-01T15:41:24.254Z",
+  "generatedAt": "2026-08-01T15:44:08.375Z",
   "registryVersion": "2026-07-01",
   "totals": {
-    "sources": 85,
-    "primary": 66,
+    "sources": 89,
+    "primary": 70,
     "jurisdictions": 24,
     "categories": 14
   },
@@ -132,12 +132,15 @@
     {
       "jurisdiction": "Singapore",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
+      "sources": 2,
+      "primary": 2,
+      "languages": [
+        "english-language"
+      ],
+      "status": "covered",
       "sourceIds": [
-        "mas"
+        "mas",
+        "singapore-sgx"
       ]
     },
     {
@@ -157,36 +160,44 @@
     {
       "jurisdiction": "Brazil",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
+      "sources": 2,
+      "primary": 2,
       "languages": [
         "portuguese-language"
       ],
-      "status": "thin",
+      "status": "covered",
       "sourceIds": [
-        "brazil-cvm"
+        "brazil-cvm",
+        "brazil-bcb"
       ]
     },
     {
       "jurisdiction": "South Korea",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
+      "sources": 2,
+      "primary": 2,
+      "languages": [
+        "korean-language"
+      ],
+      "status": "covered",
       "sourceIds": [
-        "korea-fsc"
+        "korea-fsc",
+        "south-korea-fss"
       ]
     },
     {
       "jurisdiction": "Switzerland",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
+      "sources": 2,
+      "primary": 2,
+      "languages": [
+        "french-language",
+        "german-language"
+      ],
+      "status": "covered",
       "sourceIds": [
-        "finma"
+        "finma",
+        "switzerland-snb"
       ]
     },
     {
@@ -239,52 +250,5 @@
       ]
     }
   ],
-  "priorities": [
-    {
-      "jurisdiction": "Singapore",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
-      "sourceIds": [
-        "mas"
-      ]
-    },
-    {
-      "jurisdiction": "Brazil",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [
-        "portuguese-language"
-      ],
-      "status": "thin",
-      "sourceIds": [
-        "brazil-cvm"
-      ]
-    },
-    {
-      "jurisdiction": "South Korea",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
-      "sourceIds": [
-        "korea-fsc"
-      ]
-    },
-    {
-      "jurisdiction": "Switzerland",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
-      "sourceIds": [
-        "finma"
-      ]
-    }
-  ]
+  "priorities": []
 }

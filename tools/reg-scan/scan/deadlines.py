@@ -81,7 +81,24 @@ def annotate(records):
     for rec in records:
         text = f"{rec.get('title', '')}. {rec.get('summary', '')}. {rec.get('detail_text', '')}"
         rec["deadline"] = extract_deadline(text, rec.get("published_at"))
+        rec["deadline_stage"] = deadline_stage(text)
     return records
+
+
+def deadline_stage(text):
+    """Classify the meaning of a dated milestone from nearby regulatory cues."""
+    value = (text or "").lower()
+    if re.search(r"consultation|comments? due|responses?|feedback|commentaires?|réponses?", value):
+        return "consultation-close"
+    if re.search(r"enters? into force|entry into force|effective from|takes? effect|applicable from", value):
+        return "effective/in-force"
+    if re.search(r"implementation|implementing|transition(?:al)?|transitional", value):
+        return "implementation/transition"
+    if re.search(r"reporting|report due|return due|submit", value):
+        return "reporting/submission"
+    if re.search(r"review|reassessment|re-examin", value):
+        return "review"
+    return "other"
 
 
 BANDS = ("0-30", "31-60", "61-90", "90+")

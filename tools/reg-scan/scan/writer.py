@@ -69,6 +69,7 @@ def fmt_horizon(h):
     """Convert a raw deadlines.horizon() entry to the edition JSON format."""
     return {
         "date": h["deadline"],
+        "stage": h.get("deadline_stage", "other"),
         "band": h["band"],
         "daysLeft": h["days_left"],
         "title": h["title"],

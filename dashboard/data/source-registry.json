@@ -1140,6 +1140,62 @@
         "Does the Saudi CMA propose or implement a rule, instruction, consultation or enforcement action?",
         "What licensing, disclosure, conduct, market-structure or implementation response follows for Saudi market participants?"
       ]
+    },
+    {
+      "id": "hong-kong-sfc",
+      "name": "Securities and Futures Commission of Hong Kong",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Hong Kong"],
+      "url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements",
+      "cadence": "weekly",
+      "useFor": ["securities", "consultations", "enforcement", "market-conduct", "digital-assets", "english-language"],
+      "signalQuestions": [
+        "Has the SFC changed a rule, consultation, licensing expectation, enforcement position, or market-conduct standard?",
+        "What control, governance, disclosure, or implementation response follows for Hong Kong-regulated firms?"
+      ]
+    },
+    {
+      "id": "hong-kong-hkma",
+      "name": "Hong Kong Monetary Authority",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Hong Kong"],
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "prudential", "payments", "operational-resilience", "consultations", "english-language"],
+      "signalQuestions": [
+        "Has HKMA issued a circular, supervisory expectation, consultation, or banking-policy change?",
+        "What resilience, prudential, payments, or governance action is required for authorised institutions?"
+      ]
+    },
+    {
+      "id": "south-africa-sarb",
+      "name": "South African Reserve Bank",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["South Africa"],
+      "url": "https://www.resbank.co.za/en/home/newsroom",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "financial-stability", "prudential", "payments", "financial-crime", "english-language"],
+      "signalQuestions": [
+        "Has SARB or its prudential authority changed a supervisory, stability, payments, or financial-crime expectation?",
+        "What capital, liquidity, resilience, governance, or reporting response follows for South African firms?"
+      ]
+    },
+    {
+      "id": "india-rbi",
+      "name": "Reserve Bank of India",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["India"],
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "payments", "financial-crime", "prudential", "digital-money", "english-language"],
+      "signalQuestions": [
+        "Has RBI issued a notification, circular, master direction, consultation, or supervisory expectation?",
+        "What licensing, payments, conduct, reporting, or implementation response follows for Indian entities?"
+      ]
     }
   ]
 }

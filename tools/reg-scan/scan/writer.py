@@ -60,7 +60,7 @@ def fmt_signal(item, source):
         "changeStatus": item.get("change_status", "new"),
         "changeEvidence": item.get("change_evidence", {}),
         "confidence": item.get("confidence", {"score": 0, "band": "unknown", "components": {}}),
-        "also": [],
+        "also": item.get("also", []),
     }
 
 

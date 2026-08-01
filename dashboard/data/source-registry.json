@@ -1196,6 +1196,62 @@
         "Has RBI issued a notification, circular, master direction, consultation, or supervisory expectation?",
         "What licensing, payments, conduct, reporting, or implementation response follows for Indian entities?"
       ]
+    },
+    {
+      "id": "singapore-sgx",
+      "name": "Singapore Exchange Regulation",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["Singapore"],
+      "url": "https://www.sgx.com/regulation",
+      "cadence": "weekly",
+      "useFor": ["securities", "market-conduct", "listing-rules", "disclosures", "english-language"],
+      "signalQuestions": [
+        "Has SGX RegCo changed listing, disclosure, trading, or market-conduct requirements?",
+        "What implementation, governance, reporting, or control response follows for listed issuers and intermediaries?"
+      ]
+    },
+    {
+      "id": "brazil-bcb",
+      "name": "Banco Central do Brasil",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["Brazil"],
+      "url": "https://www.bcb.gov.br/en/financialstability/regulation",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "payments", "prudential", "financial-crime", "portuguese-language"],
+      "signalQuestions": [
+        "Has the BCB issued or amended a resolution, circular, consultation, or supervisory requirement?",
+        "What licensing, prudential, payments, reporting, or implementation response follows for Brazilian entities?"
+      ]
+    },
+    {
+      "id": "south-korea-fss",
+      "name": "Financial Supervisory Service of Korea",
+      "tier": "primary",
+      "category": "prudential",
+      "jurisdictions": ["South Korea"],
+      "url": "https://www.fss.or.kr/eng/main/main.do",
+      "cadence": "weekly",
+      "useFor": ["banking-supervision", "securities", "insurance", "enforcement", "korean-language"],
+      "signalQuestions": [
+        "Has the FSS changed a supervisory, reporting, conduct, or enforcement expectation?",
+        "What control, governance, prudential, or implementation response follows for Korean-regulated firms?"
+      ]
+    },
+    {
+      "id": "switzerland-snb",
+      "name": "Swiss National Bank",
+      "tier": "primary",
+      "category": "financial-stability",
+      "jurisdictions": ["Switzerland"],
+      "url": "https://www.snb.ch/en/the-snb/mandates-goals/stability",
+      "cadence": "weekly",
+      "useFor": ["financial-stability", "payments", "prudential", "macroprudential", "german-language", "french-language"],
+      "signalQuestions": [
+        "Has the SNB changed a financial-stability, macroprudential, payments, or systemic-risk assessment?",
+        "What capital, liquidity, resilience, or governance response follows for Swiss and global firms?"
+      ]
     }
   ]
 }

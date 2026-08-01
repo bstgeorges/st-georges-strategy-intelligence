@@ -50,6 +50,12 @@ def _init(conn: sqlite3.Connection) -> None:
             source_count INTEGER,
             notes        TEXT
         );
+        CREATE TABLE IF NOT EXISTS run_metrics (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            edition TEXT NOT NULL,
+            ran_at TEXT NOT NULL,
+            metrics TEXT NOT NULL
+        );
     """)
     conn.commit()
 
@@ -129,3 +135,16 @@ def log_run(
         (datetime.now(timezone.utc).isoformat(), edition, item_count, source_count, notes),
     )
     conn.commit()
+
+
+def log_metrics(conn: sqlite3.Connection, edition: str, metrics: dict) -> None:
+    conn.execute(
+        "INSERT INTO run_metrics (edition, ran_at, metrics) VALUES (?, ?, ?)",
+        (edition, datetime.now(timezone.utc).isoformat(), json.dumps(metrics)),
+    )
+    conn.commit()
+
+
+def recent_metrics(conn: sqlite3.Connection, limit: int = 12) -> list:
+    rows = conn.execute("SELECT edition, metrics FROM run_metrics ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
+    return [{"edition": row["edition"], **json.loads(row["metrics"])} for row in reversed(rows)]

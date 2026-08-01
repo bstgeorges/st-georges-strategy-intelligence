@@ -288,9 +288,12 @@ def main():
     data["heldLowConfidence"] = len(held_low_confidence)
     confidence_bands = {}
     impact_bands = {}
+    theme_counts = {}
     for item in all_items:
         confidence_bands[item.get("confidence", {}).get("band", "unknown")] = confidence_bands.get(item.get("confidence", {}).get("band", "unknown"), 0) + 1
         impact_bands[item.get("business_impact", {}).get("band", "unknown")] = impact_bands.get(item.get("business_impact", {}).get("band", "unknown"), 0) + 1
+        for area in item.get("risk_areas", []):
+            theme_counts[area] = theme_counts.get(area, 0) + 1
     failed_health = sum(1 for entry in source_health if entry.get("status") not in {"ok"})
     data["runMetrics"] = {
         "durationSeconds": round(time.monotonic() - started, 2),
@@ -299,10 +302,12 @@ def main():
         "sourcesFailed": failed_health,
         "confidenceBands": confidence_bands,
         "impactBands": impact_bands,
+        "themeCounts": theme_counts,
         "reviewQueue": len(review_queue),
         "heldLowConfidence": len(held_low_confidence),
         "alerts": (["source-health"] if failed_health else []) + (["confidence-review"] if review_queue else []),
     }
+    data["trend"] = _db.recent_metrics(conn) if conn is not None else []
 
     log.info(
         "edition=%s  signals=%d  material=%d  horizon=%d  sources-with-feed=%d",
@@ -334,6 +339,7 @@ def main():
 
     if conn is not None:
         _db.log_run(conn, edition, len(signals), len(sources_by_id) - len(no_feed_sources))
+        _db.log_metrics(conn, edition, data["runMetrics"])
     log.info("outputs written to %s", _DOCS_DIR)
 
 

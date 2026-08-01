@@ -1,6 +1,6 @@
 {
   "version": "2026-07-18",
-  "generatedAt": "2026-08-01T16:27:16.012Z",
+  "generatedAt": "2026-08-01T16:31:36.275Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -246,6 +246,38 @@
     {
       "id": "market-structure",
       "candidates": [
+        {
+          "id": "a4217c4671089d85",
+          "topicId": "market-structure",
+          "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+          "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+          "publishedAt": "2026-07-27T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-market-bridge",
+          "sourceName": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-market-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "balance-sheet",
+            "digital-money",
+            "market-plumbing"
+          ],
+          "tags": [
+            "reg-horizon",
+            "deadlines",
+            "market-structure"
+          ],
+          "matchedKeywords": [
+            "market"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 74,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
+        },
         {
           "id": "af528ea65cc6f195",
           "topicId": "market-structure",
@@ -834,6 +866,66 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "bdc31e1e91e25f2a",
+          "topicId": "financial-crime",
+          "title": "CVM publica Relatório da Atividade Sancionadora do 1º trimestre de 2026",
+          "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
+          "publishedAt": "2026-07-29T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-financial-crime-bridge",
+          "sourceName": "Comissão de Valores Mobiliários",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-financial-crime-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "reg-horizon",
+            "financial-crime",
+            "sanctions"
+          ],
+          "matchedKeywords": [
+            "sanctions"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
+        },
+        {
+          "id": "5e9d690b7ea2781b",
+          "topicId": "financial-crime",
+          "title": "令和８年７月29日　FATFによる「DeFiに係る規制上の課題に関する報告書」の公表について",
+          "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
+          "publishedAt": "2026-07-29T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-financial-crime-bridge",
+          "sourceName": "Financial Action Task Force",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-financial-crime-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "reg-horizon",
+            "financial-crime",
+            "sanctions"
+          ],
+          "matchedKeywords": [
+            "sanctions"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "84919d04d9ff13ff",
@@ -1668,8 +1760,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 4,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 1,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -1677,7 +1769,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 4,
+      "fetchedEntries": 1,
       "acceptedCandidates": 0,
       "error": ""
     },
@@ -1686,7 +1778,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 2,
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "error": ""
     },
@@ -1695,8 +1787,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 0,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 2,
+      "acceptedCandidates": 2,
       "error": ""
     },
     {
@@ -1704,7 +1796,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 1,
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "error": ""
     },
@@ -1713,7 +1805,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 1,
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "error": ""
     },
@@ -1722,7 +1814,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 1,
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "error": ""
     },

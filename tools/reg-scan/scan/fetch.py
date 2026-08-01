@@ -20,9 +20,9 @@ from .utils import canonicalize_url, infer_date_from_url
 
 log = logging.getLogger(__name__)
 
-_TIMEOUT = 20  # seconds
+_TIMEOUT = 8  # seconds; bounded so one slow authority cannot stall the edition
 _MAX_SUMMARY = 800  # chars
-_RETRIES = 3
+_RETRIES = 1
 
 _HEADERS = {
     "User-Agent": (

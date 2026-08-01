@@ -222,7 +222,7 @@ def enrich_deadline_text(records, max_items=24):
     eligible = [r for r in records if r.get("signal_type") in {"consultation", "final-rule", "deadline"}]
     for rec in eligible[:max_items]:
         try:
-            response = _get(rec["url"], {"timeout": 8, "retries": 1})
+            response = _get(rec["url"], {"timeout": 4, "retries": 1})
             if _is_blocked_response(response):
                 continue
             soup = _parse_html(response.content)

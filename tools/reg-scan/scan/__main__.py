@@ -119,12 +119,16 @@ def main():
                         help="Lookback window in days (default: 7)")
     parser.add_argument("--max-sources", type=int, default=0,
                         help="Limit source count for bounded validation runs (0 = all)")
+    parser.add_argument("--source-offset", type=int, default=0,
+                        help="Skip this many sources before applying --max-sources")
     args = parser.parse_args()
 
     started = time.monotonic()
     sources_by_id = _load_registry()
-    if args.max_sources > 0:
-        sources_by_id = dict(list(sources_by_id.items())[:args.max_sources])
+    source_items = list(sources_by_id.items())
+    if args.source_offset or args.max_sources > 0:
+        end = args.source_offset + args.max_sources if args.max_sources > 0 else None
+        sources_by_id = dict(source_items[args.source_offset:end])
     generated_at = datetime.now(timezone.utc)
     edition = generated_at.date().isoformat()
     cutoff = generated_at - timedelta(days=args.window)
@@ -168,7 +172,7 @@ def main():
             if _is_recent(item.get("published_at"), cutoff, generated_at):
                 recent.append(item)
 
-        _fetch.enrich_deadline_text(recent, max_items=8)
+        _fetch.enrich_deadline_text(recent, max_items=2)
         _dl.annotate(recent)
         for item in recent:
             item["score"] = _score.score(item, source)

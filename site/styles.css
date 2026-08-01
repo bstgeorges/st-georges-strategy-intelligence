@@ -732,6 +732,7 @@ p {
 .signal-connectors line { stroke: var(--navy); stroke-width: 1; opacity: 0.08; }
 
 .horizon-list li { position: relative; padding-bottom: 18px; }
+.horizon-list time small { display: block; margin-top: 5px; color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 .horizon-list li::after { position: absolute; bottom: -1px; left: 0; width: var(--urgency, 8%); height: 3px; background: var(--rule-strong); content: ""; }
 .horizon-list li.is-near-term::after { background: var(--accent); }
 #horizon-watch-themes .card { position: relative; }
@@ -764,6 +765,10 @@ p {
 .horizon-signal-body a:hover h3 { color: var(--accent-readable); }
 .horizon-chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .horizon-chip { display: inline-flex; border: 1px solid var(--rule); padding: 5px 8px; color: var(--ink-soft); font: 600 10px/1.1 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.horizon-signal-editorial { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.horizon-signal-editorial p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
+.horizon-signal-editorial strong { display: block; margin-bottom: 3px; color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+@media (max-width: 700px) { .horizon-signal-editorial { grid-template-columns: 1fr; } }
 
 .committee-question-card { position: relative; border-left-width: 1px; }
 .committee-question-card h3 { border-left: 2px solid var(--accent); padding-left: 18px; font-size: clamp(27px, 2.35vw, 39px); font-style: italic; }

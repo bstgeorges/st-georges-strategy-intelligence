@@ -59,7 +59,7 @@
     const prompts = item.prompts || {};
     return `
       <li>
-        <time datetime="${escapeHtml(item.date)}">${formatDate(item.date)}<br><span class="meta">${escapeHtml(item.band || "")} days</span></time>
+        <time datetime="${escapeHtml(item.date)}">${formatDate(item.date)}<br><span class="meta">${escapeHtml(item.stage || "other")} · ${escapeHtml(item.band || "")} days</span></time>
         <span>
           <a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a>
           <small>${escapeHtml(prompts.action || "")}</small>

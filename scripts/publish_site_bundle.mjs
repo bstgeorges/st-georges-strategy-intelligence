@@ -1244,7 +1244,7 @@ function renderHorizonList(entries) {
   return (entries || [])
     .map((entry) => {
       const source = entry.source ? ` / ${entry.source}` : "";
-      return `<li><time datetime="${escapeHtml(entry.date)}">${escapeHtml(formatDateShort(entry.date))}</time><span><a href="${escapeHtml(entry.url)}">${escapeHtml(entry.title)}</a>${escapeHtml(source)}</span><span class="owner">${escapeHtml(entry.prompts?.owner || "Owner to assign")}</span></li>`;
+      return `<li><time datetime="${escapeHtml(entry.date)}">${escapeHtml(formatDateShort(entry.date))}<small>${escapeHtml(entry.stage || "other")}</small></time><span><a href="${escapeHtml(entry.url)}">${escapeHtml(entry.title)}</a>${escapeHtml(source)}</span><span class="owner">${escapeHtml(entry.prompts?.owner || "Owner to assign")}</span></li>`;
     })
     .join("");
 }
@@ -1305,7 +1305,19 @@ function renderHorizonSignalList(entries, offset = 0) {
       const areas = (signal.riskAreas || []).map((area) => RISK_AREA_LABELS[area] || area).join(", ");
       const chips = [type, areas, signal.source, signal.date].filter(Boolean)
         .map((value) => `<span class="horizon-chip">${escapeHtml(value)}</span>`).join("");
-      return `<li class="horizon-signal"><span class="rank">${rank}</span><div class="horizon-signal-body"><a href="${escapeHtml(signal.url)}"><h3>${escapeHtml(signal.title)}</h3></a><div class="horizon-chips">${chips}</div></div></li>`;
+      const editorial = signal.editorial || {};
+      const detail = [
+        ["Change", editorial.change],
+        ["Affected", editorial.affected],
+        ["Implication", editorial.implication],
+        ["Owner", editorial.owner],
+        ["Action", editorial.action],
+        ["Evidence", editorial.evidence],
+      ]
+        .filter(([, value]) => value)
+        .map(([label, value]) => `<p><strong>${label}</strong>${escapeHtml(value)}</p>`)
+        .join("");
+      return `<li class="horizon-signal"><span class="rank">${rank}</span><div class="horizon-signal-body"><a href="${escapeHtml(signal.url)}"><h3>${escapeHtml(signal.title)}</h3></a><div class="horizon-chips">${chips}</div><div class="horizon-signal-editorial">${detail}</div></div></li>`;
     })
     .join("");
 }
@@ -1346,7 +1358,7 @@ function renderHorizonOperatingReadout(horizonData) {
   const deadlines = horizonData.horizon || [];
   const sources = [...new Set(signals.map((signal) => signal.source).filter(Boolean))];
   const warnings = horizonData.warnings || [];
-  const consultations = deadlines.filter((entry) => /response deadline/i.test(entry.title || ""));
+  const consultations = deadlines.filter((entry) => entry.stage === "consultation-close" || /response deadline|consultation/i.test(entry.title || ""));
   const implementationSignals = signals.filter((signal) => ["final-rule", "guidance", "enforcement"].includes(signal.type));
   const themeCounts = new Map();
   for (const signal of signals) {
@@ -1447,6 +1459,7 @@ function applyLiveEditionContent(out, horizonData) {
     "horizon-generated",
     escapeHtml(`Reviewed ${horizonData.generatedAt || "in the current weekly run"} across a ${horizonData.windowDays || 7}-day evidence window.`),
   );
+  updated = replaceElementContent(updated, "div", "horizon-freshness-status", renderHorizonFreshnessStatus(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-bottom-line", `<p>${escapeHtml(horizonData.bottomLine || "")}</p>`);
   updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDashboard(horizonData));
   updated = replaceElementContent(updated, "section", "horizon-operating-readout", renderHorizonOperatingReadout(horizonData));
@@ -1484,6 +1497,22 @@ function applyLiveEditionContent(out, horizonData) {
     `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" "))}</p>`,
   );
   if (updated !== html) write(file, updated);
+}
+
+function renderHorizonFreshnessStatus(horizonData) {
+  const asOf = process.env.SITE_AS_OF_DATE || new Date().toISOString().slice(0, 10);
+  const edition = horizonData.edition || "unknown date";
+  if (horizonData.status !== "published") {
+    return `<p><strong>Latest scan not published.</strong> This page is retaining the last reviewed edition (${escapeHtml(edition)}); the current scan did not clear publication checks.</p>`;
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(edition) || !/^\d{4}-\d{2}-\d{2}$/.test(asOf)) {
+    return `<p><strong>Review date:</strong> ${escapeHtml(edition)}. Freshness could not be calculated from the edition metadata.</p>`;
+  }
+  const ageDays = Math.max(0, Math.floor((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${edition}T00:00:00Z`)) / 86400000));
+  if (ageDays > 8) {
+    return `<p><strong>Last reviewed edition: ${escapeHtml(edition)}.</strong> The scheduled refresh is overdue, so quiet themes should be treated as unconfirmed rather than inactive.</p>`;
+  }
+  return `<p><strong>Last reviewed edition: ${escapeHtml(edition)}.</strong> This is the current reviewed weekly run; source coverage and warnings are shown below.</p>`;
 }
 
 function renderHorizonReviewQueue(entries) {

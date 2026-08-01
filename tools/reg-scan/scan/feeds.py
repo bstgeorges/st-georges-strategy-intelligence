@@ -151,6 +151,14 @@ FEED_MAP = {
 # link and date selectors are evaluated within it. Multiple selectors allow the
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
+    "uk-fca": [{
+        "url": "https://www.fca.org.uk/news/search-results?search_term=regulatory",
+        "request_profile": "browser",
+        "timeout": 12,
+        "item_selectors": [".search-item", ".views-row", "article"],
+        "link_selectors": ["h3 a[href]", "h2 a[href]"],
+        "date_selectors": ["time[datetime]", ".published-date", ".date"],
+    }],
     "de-bafin": [{
         "url": "https://bafin.de/",
         "item_selectors": ["div.c-teaser"],
@@ -175,6 +183,9 @@ PAGE_MAP = {
     }],
     "italy-consob": [{
         "url": "https://www.consob.it/web/consob/comunicati-stampa",
+        "request_profile": "browser",
+        "timeout": 12,
+        "retries": 2,
         "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", ".teaser"],
         "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='comunicato']"],
         "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
@@ -237,6 +248,9 @@ PAGE_MAP = {
     }],
     "fincen-enforcement": [{
         "url": "https://www.fincen.gov/news/enforcement-actions",
+        "request_profile": "browser",
+        "timeout": 15,
+        "retries": 2,
         "item_selectors": ["tbody tr"],
         "link_selectors": ["td:first-of-type a[href]"],
         "date_selectors": ["td:nth-of-type(2)"],

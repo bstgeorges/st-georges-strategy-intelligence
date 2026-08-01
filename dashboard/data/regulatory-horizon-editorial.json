@@ -4,11 +4,11 @@
   "reviewedAt": "2026-08-01",
   "editor": "Ben St Georges",
   "leadUrl": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-  "coverageCaveat": "Limited cross-market coverage this week: 4 of 34 primary authorities contributed material rows, and Consob was blocked by an anti-bot challenge.",
+  "coverageCaveat": "Coverage improved to 6 of 34 primary authorities contributing material rows, but Consob was blocked and quiet themes remain unconfirmed.",
   "topThree": {
-    "headline": "One live response window, one accountability clarification, and one enforcement read-across now deserve operating attention.",
-    "summary": "The immediate obligation is the ADGM transfer-schemes consultation. The next preparation step is to test fitness-and-probity evidence and comparable enforcement controls; the wider FATF material stays in monitor mode while coverage is limited.",
-    "evidence": "Ranked from the approved shortlist by response urgency, business consequence, and the quality of the primary-source evidence."
+    "headline": "One live response window, two supervisory accountability signals, and a focused enforcement read-across now deserve operating attention.",
+    "summary": "The immediate obligation is the ADGM transfer-schemes consultation. The preparation work is to test frontier-AI governance, fitness-and-probity evidence, and comparable enforcement controls; the FATF material stays in monitor mode while coverage remains incomplete.",
+    "evidence": "Ranked from the approved shortlist by response urgency, business consequence, source authority, and the quality of the primary-source evidence."
   },
   "shortlist": [
     {
@@ -22,8 +22,18 @@
       "evidence": "Approved response position, impact assessment, or a documented decision not to respond."
     },
     {
-      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-publishes-supplemental-guidance-prohibition-notices-under-the-f-and-p-regime-30-july-2026",
+      "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
       "rank": 2,
+      "lane": "prepare",
+      "cluster": "frontier-ai-supervision",
+      "whyItMatters": "The joint supervisory call makes governance, consistent supervision, and ICT risk controls around frontier AI a live preparation question for EU financial firms.",
+      "affected": "Boards, model-risk, technology, operational-resilience, compliance, and third-party owners using or assessing frontier AI.",
+      "action": "Map current AI governance and ICT-risk controls to the supervisory expectations, with accountable owners for any evidence gaps.",
+      "evidence": "AI governance map, ICT-risk assessment, third-party inventory, and recorded remediation decisions."
+    },
+    {
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-publishes-supplemental-guidance-prohibition-notices-under-the-f-and-p-regime-30-july-2026",
+      "rank": 3,
       "lane": "prepare",
       "cluster": "fitness-and-probity",
       "whyItMatters": "The guidance clarifies how prohibition decisions are considered, making accountability, role-holder evidence, and escalation records more important.",
@@ -33,7 +43,7 @@
     },
     {
       "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
-      "rank": 3,
+      "rank": 4,
       "lane": "prepare",
       "cluster": "cvm-enforcement-read-across",
       "whyItMatters": "The report is not a new rule, but it is a useful enforcement read-across: recurring failure patterns should be tested against comparable exposure.",
@@ -42,11 +52,21 @@
       "evidence": "Read-across memo, control findings, and remediation log where gaps are identified."
     },
     {
+      "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
+      "rank": 5,
+      "lane": "monitor",
+      "cluster": "sebi-enforcement-orders",
+      "whyItMatters": "This representative SEBI order sits within a wider cluster of recent recovery and manipulation actions, useful as an enforcement pattern rather than a standalone firm-specific event.",
+      "affected": "Market-abuse surveillance, trading controls, compliance, and governance owners with Indian-market or comparable exposure.",
+      "action": "Monitor the clustered enforcement pattern and test whether surveillance, escalation, and remediation evidence covers comparable conduct.",
+      "evidence": "Cluster read-across note, surveillance control review, and documented decision on any remediation."
+    },
+    {
       "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
-      "rank": 4,
+      "rank": 6,
       "lane": "monitor",
       "cluster": "fatf-crypto-asset-reports",
-      "whyItMatters": "The DeFi report is a forward-looking standards signal, useful for testing whether crypto-asset risk assumptions and control inventories are keeping pace.",
+      "whyItMatters": "The DeFi report, read with the related VASP implementation report, is a forward-looking standards signal for crypto-asset risk assumptions and control inventories.",
       "affected": "Digital-asset, AML, sanctions, product, risk, and third-party owners with DeFi or crypto-asset exposure.",
       "action": "Monitor the read-across and record whether current risk assessments, typologies, and control evidence need updating.",
       "evidence": "Recorded monitoring decision, updated risk assessment where needed, and a named next review date."
@@ -56,6 +76,14 @@
     {
       "url": "https://www.fsa.go.jp/inter/fatf/20260716/20260716.html",
       "reason": "Grouped into the FATF crypto-asset report cluster; retained as supporting source material rather than a separate public row."
+    },
+    {
+      "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-general-remittance-order-for-recovery-certificate-no-8296-of-2024-against-jalaj-agrawalin-the-matter-of-superior-finlease-limited_103272.html",
+      "reason": "Grouped into the SEBI enforcement-orders cluster; retained as supporting source material rather than a separate public row."
+    },
+    {
+      "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-general-remittance-order-for-recovery-certificate-no-7110-of-2023-against-shaina-munaf-rangwala-in-the-matter-of-dealing-in-illiquid-stock-options-at-bse_103270.html",
+      "reason": "Grouped into the SEBI enforcement-orders cluster; retained as supporting source material rather than a separate public row."
     }
   ]
 }

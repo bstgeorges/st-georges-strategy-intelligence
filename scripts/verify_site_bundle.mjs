@@ -272,6 +272,7 @@ function main() {
   assert(horizonPage.includes("horizon-freshness-status"), "Reg Horizon page missing freshness status", failures);
   assert(horizonPage.includes("horizon-coverage-banner"), "Reg Horizon page missing coverage confidence banner", failures);
   assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
+  assert(horizonPage.includes("horizon-rolling-coverage"), "Reg Horizon page missing rolling coverage", failures);
   assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
   assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
     for (const signal of horizon.signals.slice(0, 5)) {

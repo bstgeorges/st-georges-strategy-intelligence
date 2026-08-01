@@ -121,6 +121,12 @@ def _fetch_source_bundle(source_id, source):
     try:
         if feed_urls:
             items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
+            if not items and page_configs:
+                fallback_items, fallback_error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
+                if fallback_items:
+                    items, error = fallback_items, None
+                elif error is None:
+                    error = fallback_error
         elif page_configs:
             items, error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
         else:
@@ -229,7 +235,17 @@ def main():
 
     reconciled = _reconcile_sources(_deduplicate(all_items))
     reconciled.sort(key=lambda x: x.get("score", 0) + 0.3 * x.get("business_impact", {}).get("score", 0), reverse=True)
-    material_candidates = [item for item in reconciled if _score.is_material(item)][:_score.MAX_SIGNALS]
+    material_pool = [item for item in reconciled if _score.is_material(item)]
+    material_candidates = []
+    source_counts = {}
+    for item in material_pool:
+        source_id = item.get("source_id")
+        if source_counts.get(source_id, 0) >= _score.MAX_PER_SOURCE:
+            continue
+        material_candidates.append(item)
+        source_counts[source_id] = source_counts.get(source_id, 0) + 1
+        if len(material_candidates) >= _score.MAX_SIGNALS:
+            break
     review_queue = [item for item in material_candidates if item.get("confidence", {}).get("band") == "medium"]
     held_low_confidence = [item for item in material_candidates if item.get("confidence", {}).get("band") == "low"]
     signals = [item for item in material_candidates if item.get("confidence", {}).get("band") == "high"]

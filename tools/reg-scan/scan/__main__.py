@@ -10,6 +10,7 @@ import argparse
 import json
 import logging
 import re
+import time
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -118,6 +119,7 @@ def main():
                         help="Lookback window in days (default: 7)")
     args = parser.parse_args()
 
+    started = time.monotonic()
     sources_by_id = _load_registry()
     generated_at = datetime.now(timezone.utc)
     edition = generated_at.date().isoformat()
@@ -284,6 +286,23 @@ def main():
     data["sourceHealth"] = source_health
     data["reviewQueue"] = review_queue
     data["heldLowConfidence"] = len(held_low_confidence)
+    confidence_bands = {}
+    impact_bands = {}
+    for item in all_items:
+        confidence_bands[item.get("confidence", {}).get("band", "unknown")] = confidence_bands.get(item.get("confidence", {}).get("band", "unknown"), 0) + 1
+        impact_bands[item.get("business_impact", {}).get("band", "unknown")] = impact_bands.get(item.get("business_impact", {}).get("band", "unknown"), 0) + 1
+    failed_health = sum(1 for entry in source_health if entry.get("status") not in {"ok"})
+    data["runMetrics"] = {
+        "durationSeconds": round(time.monotonic() - started, 2),
+        "sourcesConfigured": len(sources_by_id),
+        "sourcesHealthy": len(source_health) - failed_health,
+        "sourcesFailed": failed_health,
+        "confidenceBands": confidence_bands,
+        "impactBands": impact_bands,
+        "reviewQueue": len(review_queue),
+        "heldLowConfidence": len(held_low_confidence),
+        "alerts": (["source-health"] if failed_health else []) + (["confidence-review"] if review_queue else []),
+    }
 
     log.info(
         "edition=%s  signals=%d  material=%d  horizon=%d  sources-with-feed=%d",

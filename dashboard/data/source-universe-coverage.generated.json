@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-01T15:38:58.721Z",
+  "generatedAt": "2026-08-01T15:41:24.254Z",
   "registryVersion": "2026-07-01",
   "totals": {
-    "sources": 81,
-    "primary": 62,
-    "jurisdictions": 23,
+    "sources": 85,
+    "primary": 66,
+    "jurisdictions": 24,
     "categories": 14
   },
   "coverage": [
@@ -117,12 +117,16 @@
     {
       "jurisdiction": "Hong Kong",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
+      "sources": 3,
+      "primary": 3,
+      "languages": [
+        "english-language"
+      ],
+      "status": "covered",
       "sourceIds": [
-        "hkma"
+        "hkma",
+        "hong-kong-sfc",
+        "hong-kong-hkma"
       ]
     },
     {
@@ -139,12 +143,15 @@
     {
       "jurisdiction": "India",
       "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
+      "sources": 2,
+      "primary": 2,
+      "languages": [
+        "english-language"
+      ],
+      "status": "covered",
       "sourceIds": [
-        "india-sebi"
+        "india-sebi",
+        "india-rbi"
       ]
     },
     {
@@ -208,11 +215,15 @@
     {
       "jurisdiction": "South Africa",
       "target": 1,
-      "sources": 0,
-      "primary": 0,
-      "languages": [],
-      "status": "gap",
-      "sourceIds": []
+      "sources": 1,
+      "primary": 1,
+      "languages": [
+        "english-language"
+      ],
+      "status": "covered",
+      "sourceIds": [
+        "south-africa-sarb"
+      ]
     },
     {
       "jurisdiction": "Mexico",
@@ -230,17 +241,6 @@
   ],
   "priorities": [
     {
-      "jurisdiction": "Hong Kong",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
-      "sourceIds": [
-        "hkma"
-      ]
-    },
-    {
       "jurisdiction": "Singapore",
       "target": 2,
       "sources": 1,
@@ -249,17 +249,6 @@
       "status": "thin",
       "sourceIds": [
         "mas"
-      ]
-    },
-    {
-      "jurisdiction": "India",
-      "target": 2,
-      "sources": 1,
-      "primary": 1,
-      "languages": [],
-      "status": "thin",
-      "sourceIds": [
-        "india-sebi"
       ]
     },
     {
@@ -296,15 +285,6 @@
       "sourceIds": [
         "finma"
       ]
-    },
-    {
-      "jurisdiction": "South Africa",
-      "target": 1,
-      "sources": 0,
-      "primary": 0,
-      "languages": [],
-      "status": "gap",
-      "sourceIds": []
     }
   ]
 }

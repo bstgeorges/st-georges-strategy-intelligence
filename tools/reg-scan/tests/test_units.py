@@ -113,6 +113,9 @@ class TestClassify(unittest.TestCase):
     def test_type_final_rule(self):
         self.assertEqual(self.classify_type("Commission adopts final rule on DORA"), "final-rule")
 
+    def test_generic_adoption_announcement_is_not_a_final_rule(self):
+        self.assertEqual(self.classify_type("Supervisory board adopts annual work programme"), "other")
+
     def test_type_enforcement(self):
         self.assertEqual(self.classify_type("FCA fines bank for misconduct"), "enforcement")
 
@@ -173,10 +176,19 @@ class TestClassify(unittest.TestCase):
 
 class TestScore(unittest.TestCase):
     def setUp(self):
-        from scan.score import score, is_material, MATERIAL_THRESHOLD
+        from scan.score import score, is_material, confidence, MATERIAL_THRESHOLD
         self.score = score
         self.is_material = is_material
         self.threshold = MATERIAL_THRESHOLD
+        self.confidence = confidence
+
+    def test_confidence_is_explainable(self):
+        result = self.confidence(
+            {"signal_type": "consultation", "published_at": "2026-07-01", "deadline": "2026-09-01", "detail_text": "Responses close 1 September 2026"},
+            {"tier": "primary"},
+        )
+        self.assertEqual(result["band"], "high")
+        self.assertIn("authority", result["components"])
 
     def test_primary_consultation_is_material(self):
         item = {"signal_type": "consultation", "risk_areas": ["balance-sheet"]}

@@ -38,10 +38,13 @@ This means the weekly process can start from the GitHub Actions artifact rather 
 
 Candidate collection and editorial approval are separate stages:
 
-1. `Signals candidates weekly refresh` collects and validates candidates, then generates `dashboard/data/signals-promotion-review.generated.json` with `reviewStatus: pending`.
-2. The editor reviews that file, copies only approved URLs and rationales into `dashboard/data/signals-promotion-shortlist.json`, preserves the exact `candidateGeneratedAt`, and sets `reviewStatus` to `approved`.
-3. The editor manually runs `Signals weekly publish draft`. It opens a draft PR; it does not publish the site.
-4. Promotion fails closed if the shortlist is pending or belongs to an older candidate run.
+1. The Wednesday Reg Horizon scan creates a review PR. Do not treat the scan workflow's successful PR creation as publication; review and merge the PR first.
+2. The merge to `main` triggers `Signals candidates weekly refresh`, which collects and validates candidates, then generates `dashboard/data/signals-promotion-review.generated.json` with `reviewStatus: pending`.
+3. The successful candidates workflow triggers `Weekly editorial prep`. It checks out the merged `main` state and refuses to create an editorial pack if Reg Horizon is more than eight days old or withheld.
+4. A `main` push then triggers the single canonical `Site release (Cloudflare)` workflow. Its green exact-release checks are the publication proof.
+5. The editor reviews that file, copies only approved URLs and rationales into `dashboard/data/signals-promotion-shortlist.json`, preserves the exact `candidateGeneratedAt`, and sets `reviewStatus` to `approved`.
+6. The editor manually runs `Signals weekly publish draft`. It opens a draft PR; it does not publish the site.
+7. Promotion fails closed if the shortlist is pending or belongs to an older candidate run.
 
 This prevents ranking from being treated as editorial approval and prevents a previous week's shortlist from being reused silently.
 

@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REG_SCAN_DOCS = path.join(ROOT, "tools", "reg-scan", "docs");
+const EDITORIAL_REVIEW = path.join(ROOT, "dashboard", "data", "regulatory-horizon-editorial.json");
 const TARGETS = [
   {
     path: path.join(ROOT, "dashboard", "regulatory-horizon"),
@@ -73,6 +74,55 @@ function verifyTarget(target, files) {
   );
 }
 
+function applyEditorialReview(target) {
+  if (!fs.existsSync(EDITORIAL_REVIEW)) return;
+  const review = JSON.parse(fs.readFileSync(EDITORIAL_REVIEW, "utf8"));
+  const latestPath = path.join(target, "latest.json");
+  const latest = JSON.parse(fs.readFileSync(latestPath, "utf8"));
+  if (review.edition !== latest.edition || review.reviewStatus !== "approved") return;
+
+  const byUrl = new Map((latest.signals || []).map((signal) => [signal.url, signal]));
+  const selected = [];
+  for (const selection of review.shortlist || []) {
+    const signal = byUrl.get(selection.url);
+    if (!signal) throw new Error(`Editorial shortlist URL is not present in scan output: ${selection.url}`);
+    selected.push({
+      ...signal,
+      lane: selection.lane,
+      cluster: selection.cluster,
+      editorial: {
+        ...(signal.editorial || {}),
+        change: signal.editorial?.change || signal.why || `The source published a ${signal.type || "regulatory"} item on ${signal.date}.`,
+        implication: selection.whyItMatters,
+        affected: selection.affected,
+        owner: signal.editorial?.owner || `Accountable owner for ${selection.affected} applicability and governance review.`,
+        action: selection.action,
+        evidence: selection.evidence,
+      },
+    });
+  }
+  latest.signals = selected;
+  latest.horizon = (latest.horizon || []).filter((entry) => selected.some((signal) => signal.url === entry.url));
+  latest.kpis = {
+    ...latest.kpis,
+    material: selected.length,
+    themes: new Set(selected.flatMap((signal) => signal.riskAreas || [])).size,
+    sources: new Set(selected.map((signal) => signal.source).filter(Boolean)).size,
+  };
+  latest.editorialReview = { ...review, excludedCount: (review.exclusions || []).length };
+  fs.writeFileSync(latestPath, `${JSON.stringify(latest, null, 2)}\n`);
+
+  const allowedUrls = new Set(selected.map((signal) => signal.url));
+  const feedPath = path.join(target, "feed.xml");
+  if (fs.existsSync(feedPath)) {
+    const feed = fs.readFileSync(feedPath, "utf8").replace(/\s*<item>[\s\S]*?<\/item>/g, (item) => {
+      const url = item.match(/<link>([^<]+)<\/link>/)?.[1];
+      return url && allowedUrls.has(url) ? `\n${item.trim()}` : "";
+    });
+    fs.writeFileSync(feedPath, `${feed.trim()}\n`);
+  }
+}
+
 function main() {
   assert(fs.existsSync(REG_SCAN_DOCS), "tools/reg-scan/docs does not exist. Run npm run reg-scan:run first.");
   for (const file of REQUIRED) {
@@ -82,6 +132,7 @@ function main() {
   for (const target of TARGETS) {
     copySelected(REG_SCAN_DOCS, target.path, target.files, target.copyArchive);
     normaliseArchiveLinks(target.path);
+    applyEditorialReview(target.path);
     verifyTarget(target.path, target.files);
     console.log(`synced ${path.relative(ROOT, REG_SCAN_DOCS)} -> ${path.relative(ROOT, target.path)}`);
   }

@@ -11,6 +11,7 @@ from datetime import date, datetime
 MONTHS = {m.lower(): i + 1 for i, m in enumerate(
     ["January", "February", "March", "April", "May", "June",
      "July", "August", "September", "October", "November", "December"])}
+MONTHS.update({m[:3].lower(): value for m, value in list(MONTHS.items())})
 _MONTH_RX = "|".join(MONTHS)
 
 CUES = re.compile(

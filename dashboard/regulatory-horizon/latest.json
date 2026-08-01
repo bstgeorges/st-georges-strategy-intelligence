@@ -1,150 +1,589 @@
 {
-  "edition": "2026-07-15",
-  "generatedAt": "2026-07-16 20:45 UTC",
+  "edition": "2026-08-01",
+  "generatedAt": "2026-08-01 16:16 UTC",
   "windowDays": 7,
   "status": "published",
   "kpis": {
-    "material": 5,
-    "themes": 5,
-    "sources": 3,
-    "coverage": "3 of 8"
+    "material": 4,
+    "themes": 3,
+    "sources": 4,
+    "jurisdictions": 6,
+    "coverage": "4 of 34"
   },
-  "bottomLine": "Two HM Treasury consultations now set concrete response dates for payments and digital settlement services, while EIOPA's Solvency II package, FINMA's quantum guidance and the financial-services AI plan create implementation and governance work.",
+  "bottomLine": "The clearest trigger this edition is \"Consultation Paper No. 2 of 2026 – Transfer Schemes\" from Abu Dhabi Global Market Financial Services Regulatory Authority (consultation). Material signals span 3 of 8 watch themes. 1 open consultation(s) to influence - prioritise responses.",
   "horizon": [
     {
-      "date": "2026-08-31",
+      "date": "2026-09-21",
+      "stage": "consultation-close",
       "band": "31-60",
-      "daysLeft": 47,
-      "title": "Response deadline: Bank of England fee regime for recognised payment systems",
-      "source": "HM Treasury",
-      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "daysLeft": 51,
+      "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+      "source": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
       "prompts": {
-        "owner": "Who owns the response on payment-system and digital-settlement supervisory fees?",
-        "action": "Assess scope, fee-cap impacts and whether to submit evidence before 31 August.",
-        "evidence": "Documented response decision, impact assessment and approved submission where relevant."
-      }
-    },
-    {
-      "date": "2026-10-06",
-      "band": "61-90",
-      "daysLeft": 83,
-      "title": "Response deadline: Modernising Payment Services Regulation",
-      "source": "HM Treasury",
-      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
-      "prompts": {
-        "owner": "Who owns the response across payments, Open Banking, tokenisation and agentic payments?",
-        "action": "Map proposed reforms to products, customer protections and operating-model dependencies.",
-        "evidence": "Committee-approved response position and traceable product and control impact assessment."
-      }
-    },
-    {
-      "date": "2027-01-30",
-      "band": "90+",
-      "daysLeft": 199,
-      "title": "Revised Solvency II framework begins to apply",
-      "source": "EIOPA",
-      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
-      "prompts": {
-        "owner": "Who owns Solvency II implementation across liquidity, risk margin, matching adjustment and reporting?",
-        "action": "Confirm applicability, implementation milestones and dependencies before the revised framework applies.",
-        "evidence": "Approved implementation plan, accountable owners, gap assessment and reporting change log."
+        "owner": "Who decides whether we respond — and who drafts?",
+        "action": "Log the closing date; decide respond / monitor at least two weeks before it.",
+        "evidence": "Response draft, or a documented decision not to respond."
       }
     }
   ],
   "signals": [
     {
-      "title": "Updating the Bank of England’s fee regime for recognised payment systems",
-      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
-      "source": "HM Treasury",
+      "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+      "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+      "source": "Abu Dhabi Global Market Financial Services Regulatory Authority",
       "sourceStatus": "approved",
-      "date": "2026-07-15",
+      "jurisdictions": [
+        "Abu Dhabi",
+        "United Arab Emirates"
+      ],
+      "date": "2026-07-27",
       "type": "consultation",
       "riskAreas": [
-        "digital-money",
         "market-plumbing"
       ],
-      "why": "HM Treasury is consulting on extending the Bank's supervisory fee regime to digital settlement asset service providers and on the level of fee caps; responses close on 31 August 2026.",
-      "score": 1.69,
-      "deadline": "2026-08-31",
-      "also": []
+      "why": "A consultation from Abu Dhabi Global Market Financial Services Regulatory Authority touching market-plumbing. Deadline: 2026-09-21.",
+      "editorial": {
+        "change": "The Financial Services Regulatory Authority has published this Consultation Paper to seek views on proposed enhancements to the framework governing the transfer of business within ADGM. Consultation Closing Date: 21 Sep 2026",
+        "affected": "Payments, legal, compliance, operations, and any business with an ADGM transfer-of-business exposure.",
+        "implication": "This is the only live response window in the edition: a concrete consultation close date creates a decision and evidence obligation now.",
+        "owner": "Accountable owner for market plumbing applicability and governance review.",
+        "action": "Name the response owner, assess applicability, and decide whether to submit a response before 21 September 2026.",
+        "evidence": "Approved response position, impact assessment, or a documented decision not to respond."
+      },
+      "score": 1.49,
+      "deadline": "2026-09-21",
+      "changeStatus": "changed",
+      "changeEvidence": {
+        "previousTitle": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+        "currentTitle": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+        "previousDeadline": null,
+        "currentDeadline": "2026-09-21"
+      },
+      "confidence": {
+        "score": 1,
+        "band": "high",
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.783,
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 1
+        }
+      },
+      "also": [],
+      "lane": "act",
+      "cluster": "adgm-transfer-schemes"
     },
     {
-      "title": "EIOPA completes Solvency II Review mandate with final guidelines and draft technical standards",
-      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
-      "source": "EIOPA",
+      "title": "Central Bank of Ireland publishes Supplemental Guidance on Prohibition Notices under the Fitness and Probity Regime",
+      "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-publishes-supplemental-guidance-prohibition-notices-under-the-f-and-p-regime-30-july-2026",
+      "source": "Central Bank of Ireland",
       "sourceStatus": "approved",
-      "date": "2026-07-15",
+      "jurisdictions": [
+        "Ireland",
+        "EU"
+      ],
+      "date": "2026-07-30",
       "type": "guidance",
       "riskAreas": [
-        "balance-sheet"
+        "boardroom-and-accountability"
       ],
-      "why": "EIOPA completed its Solvency II Review package, including liquidity-risk guidance and technical standards affecting risk margin, matching adjustment and reporting; the revised framework applies from 30 January 2027.",
-      "score": 1.38,
-      "deadline": "2027-01-30",
-      "also": []
+      "why": "A guidance from Central Bank of Ireland touching boardroom-and-accountability. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "Central Bank of Ireland has today published its Supplemental Guidance on Prohibition Notices under the Fitness and Probity Regime , and a related Feedback Statement on Consultation Paper 166 . The Consultation , which closed on 25 March 2026, received eight submissions from representative bodies and individuals. The Central Bank’s stakeholder webinar on the topic held during the course of the consultation was positively received by its 150 attendees. The Supplemental Guidance sets out the circumstances that a decision maker will consider when determining the nature, scope and duration of a prohibition – a measure that forbids a person from performing a controlled function in a regulated financial firm in order to protect users of financial services and the financial syste",
+        "affected": "Boards, senior managers, controlled-function holders, HR, compliance, and governance committees in Ireland and the EU.",
+        "implication": "The guidance clarifies how prohibition decisions are considered, making accountability, role-holder evidence, and escalation records more important.",
+        "owner": "Accountable owner for boardroom accountability applicability and governance review.",
+        "action": "Test current fitness-and-probity records, escalation routes, and decision evidence against the clarified expectations.",
+        "evidence": "Completed control mapping, accountable owner, and evidence of supervisory-readiness review."
+      },
+      "score": 1.14,
+      "deadline": null,
+      "changeStatus": "changed",
+      "changeEvidence": {
+        "previousTitle": "Central Bank of Ireland publishes Supplemental Guidance on Prohibition Notices under the Fitness and Probity Regime",
+        "currentTitle": "Central Bank of Ireland publishes Supplemental Guidance on Prohibition Notices under the Fitness and Probity Regime",
+        "previousDeadline": null,
+        "currentDeadline": null
+      },
+      "confidence": {
+        "score": 0.874,
+        "band": "high",
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 0.72,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "score": 0.621,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.7,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 1
+        }
+      },
+      "also": [],
+      "lane": "prepare",
+      "cluster": "fitness-and-probity"
     },
     {
-      "title": "FINMA guidance on quantum computing",
-      "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26/",
-      "source": "Swiss FINMA",
+      "title": "CVM publica Relatório da Atividade Sancionadora do 1º trimestre de 2026",
+      "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
+      "source": "Comissão de Valores Mobiliários",
       "sourceStatus": "approved",
-      "date": "2026-07-09",
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "date": "2026-07-29",
+      "type": "enforcement",
+      "riskAreas": [
+        "crime-and-sanctions"
+      ],
+      "why": "A enforcement from Comissão de Valores Mobiliários touching crime-and-sanctions. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "Comissão de Valores Mobiliários published a enforcement action on 2026-07-29.",
+        "affected": "Financial-crime, conduct, surveillance, and control owners with comparable Brazilian-market or cross-border exposure.",
+        "implication": "The report is not a new rule, but it is a useful enforcement read-across: recurring failure patterns should be tested against comparable exposure.",
+        "owner": "Accountable owner for crime and sanctions applicability and governance review.",
+        "action": "Review the reported enforcement themes against internal incidents, monitoring, escalation, and remediation evidence.",
+        "evidence": "Read-across memo, control findings, and remediation log where gaps are identified."
+      },
+      "score": 1.24,
+      "deadline": null,
+      "changeStatus": "unchanged",
+      "changeEvidence": {},
+      "confidence": {
+        "score": 0.874,
+        "band": "high",
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 0.72,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "score": 0.558,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.95,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "also": [],
+      "lane": "prepare",
+      "cluster": "cvm-enforcement-read-across"
+    },
+    {
+      "title": "令和８年７月29日　FATFによる「DeFiに係る規制上の課題に関する報告書」の公表について",
+      "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
+      "source": "Financial Action Task Force",
+      "sourceStatus": "approved",
+      "jurisdictions": [
+        "Global"
+      ],
+      "date": "2026-07-29",
       "type": "guidance",
       "riskAreas": [
-        "digital-resilience"
+        "crime-and-sanctions"
       ],
-      "why": "FINMA calls for forward-looking quantum-risk planning, including migration roadmaps, cryptographic inventories, protection against harvest-now-decrypt-later attacks and external-provider involvement.",
-      "score": 0.611,
+      "why": "A guidance from Financial Action Task Force touching crime-and-sanctions. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "Financial Action Task Force published a guidance note on 2026-07-29.",
+        "affected": "Digital-asset, AML, sanctions, product, risk, and third-party owners with DeFi or crypto-asset exposure.",
+        "implication": "The DeFi report is a forward-looking standards signal, useful for testing whether crypto-asset risk assumptions and control inventories are keeping pace.",
+        "owner": "Accountable owner for crime and sanctions applicability and governance review.",
+        "action": "Monitor the read-across and record whether current risk assessments, typologies, and control evidence need updating.",
+        "evidence": "Recorded monitoring decision, updated risk assessment where needed, and a named next review date."
+      },
+      "score": 1.14,
       "deadline": null,
-      "also": []
-    },
-    {
-      "title": "Modernising Payment Services Regulation",
-      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
-      "source": "HM Treasury",
-      "sourceStatus": "approved",
-      "date": "2026-07-14",
-      "type": "consultation",
-      "riskAreas": [
-        "digital-money"
-      ],
-      "why": "HM Treasury is seeking views on updating payment-services regulation for tokenised payments, Open Banking and agentic payments while maintaining consumer protections; responses close on 6 October 2026.",
-      "score": 1.346,
-      "deadline": "2026-10-06",
-      "also": []
-    },
-    {
-      "title": "AI Adoption Plan: Financial Services",
-      "url": "https://www.gov.uk/government/publications/ai-adoption-plan-financial-services",
-      "source": "HM Treasury",
-      "sourceStatus": "approved",
-      "date": "2026-07-14",
-      "type": "statement",
-      "riskAreas": [
-        "ai-and-models",
-        "market-plumbing"
-      ],
-      "why": "The independent plan makes ten recommendations spanning the regulatory framework, AI-enabled advice, resilience, skills and agentic payments; the government has accepted its recommendations for government.",
-      "score": 1.229,
-      "deadline": null,
-      "also": []
+      "changeStatus": "unchanged",
+      "changeEvidence": {},
+      "confidence": {
+        "score": 0.874,
+        "band": "high",
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 0.72,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "score": 0.496,
+        "band": "low",
+        "drivers": {
+          "regulatory_action": 0.7,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "also": [],
+      "lane": "monitor",
+      "cluster": "fatf-crypto-asset-reports"
     }
   ],
   "warnings": [
     {
       "type": "source-health",
-      "severity": "medium",
-      "message": "This reviewed edition contains material rows from three primary authorities. Quiet themes remain watch-listed because the wider source universe did not report cleanly enough to support a whole-market conclusion."
+      "severity": "low",
+      "message": "1 source(s) did not return usable items (no feed configured or fetch error): italy-consob",
+      "sourceIds": [
+        "italy-consob"
+      ]
     },
     {
-      "type": "source-concentration",
+      "type": "source-coverage",
       "severity": "medium",
-      "message": "HM Treasury supplies three of five material signals. Treat the bottom line as concentrated UK policy evidence rather than a complete cross-market view.",
-      "sourceId": "hmt",
-      "share": 0.6
+      "message": "Only 4 of 34 primary authorities contributed material rows in this edition. Treat quiet themes as unconfirmed, not inactive.",
+      "activeSources": [
+        "adgm-fsra",
+        "brazil-cvm",
+        "fatf",
+        "ireland-cbi"
+      ]
     }
   ],
-  "archives": [
-    "archive/2026-07-04.html"
-  ]
+  "reviewQueue": [],
+  "heldLowConfidence": 0,
+  "runMetrics": {
+    "durationSeconds": 82.16,
+    "sourcesConfigured": 34,
+    "sourcesHealthy": 33,
+    "sourcesFailed": 1,
+    "confidenceBands": {
+      "medium": 44,
+      "high": 5
+    },
+    "impactBands": {
+      "low": 45,
+      "medium": 3,
+      "high": 1
+    },
+    "themeCounts": {
+      "balance-sheet": 6,
+      "digital-resilience": 4,
+      "boardroom-and-accountability": 4,
+      "crime-and-sanctions": 3,
+      "market-plumbing": 2
+    },
+    "reviewQueue": 0,
+    "heldLowConfidence": 0,
+    "alerts": [
+      "source-health"
+    ]
+  },
+  "sourceHealth": [
+    {
+      "sourceId": "uk-fca",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "uk-fca-enforcement-notices",
+      "status": "ok",
+      "items": 3
+    },
+    {
+      "sourceId": "uk-boe-pra",
+      "status": "ok",
+      "items": 5
+    },
+    {
+      "sourceId": "ecb-supervision",
+      "status": "ok",
+      "items": 2
+    },
+    {
+      "sourceId": "eba",
+      "status": "ok",
+      "items": 1
+    },
+    {
+      "sourceId": "esma",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "eiopa",
+      "status": "ok",
+      "items": 2
+    },
+    {
+      "sourceId": "bis",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "fsb",
+      "status": "ok",
+      "items": 1
+    },
+    {
+      "sourceId": "sec",
+      "status": "ok",
+      "items": 2
+    },
+    {
+      "sourceId": "cftc",
+      "status": "ok",
+      "items": 3
+    },
+    {
+      "sourceId": "ofsi",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "fatf",
+      "status": "ok",
+      "items": 2
+    },
+    {
+      "sourceId": "fincen-enforcement",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "nist-ai-rmf",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "finma",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "japan-fsa",
+      "status": "ok",
+      "items": 4
+    },
+    {
+      "sourceId": "hkma",
+      "status": "ok",
+      "items": 12
+    },
+    {
+      "sourceId": "apra",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "asic",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "mas",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "osfi",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "india-sebi",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "korea-fsc",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "brazil-cvm",
+      "status": "ok",
+      "items": 5
+    },
+    {
+      "sourceId": "fr-amf",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "spain-cnmv",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "ireland-cbi",
+      "status": "ok",
+      "items": 1
+    },
+    {
+      "sourceId": "adgm-fsra",
+      "status": "ok",
+      "items": 1
+    },
+    {
+      "sourceId": "de-bafin",
+      "status": "ok",
+      "items": 4
+    },
+    {
+      "sourceId": "dubai-dfsa",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "mexico-cnbv",
+      "status": "ok",
+      "items": 0
+    },
+    {
+      "sourceId": "italy-consob",
+      "status": "blocked",
+      "items": 0,
+      "error": "blocked by anti-bot challenge at https://www.consob.it/web/consob/comunicati-stampa"
+    },
+    {
+      "sourceId": "saudi-cma",
+      "status": "ok",
+      "items": 1
+    }
+  ],
+  "trend": [
+    {
+      "edition": "2026-08-01",
+      "durationSeconds": 76.78,
+      "sourcesConfigured": 34,
+      "sourcesHealthy": 33,
+      "sourcesFailed": 1,
+      "confidenceBands": {
+        "medium": 44,
+        "high": 5
+      },
+      "impactBands": {
+        "low": 45,
+        "medium": 4
+      },
+      "themeCounts": {
+        "balance-sheet": 6,
+        "digital-resilience": 4,
+        "boardroom-and-accountability": 4,
+        "crime-and-sanctions": 3,
+        "market-plumbing": 2
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "alerts": [
+        "source-health"
+      ]
+    },
+    {
+      "edition": "2026-08-01",
+      "durationSeconds": 74.1,
+      "sourcesConfigured": 34,
+      "sourcesHealthy": 33,
+      "sourcesFailed": 1,
+      "confidenceBands": {
+        "medium": 44,
+        "high": 5
+      },
+      "impactBands": {
+        "low": 45,
+        "medium": 4
+      },
+      "themeCounts": {
+        "balance-sheet": 6,
+        "digital-resilience": 4,
+        "boardroom-and-accountability": 4,
+        "crime-and-sanctions": 3,
+        "market-plumbing": 2
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "alerts": [
+        "source-health"
+      ]
+    }
+  ],
+  "editorialReview": {
+    "edition": "2026-08-01",
+    "reviewStatus": "approved",
+    "reviewedAt": "2026-08-01",
+    "editor": "Ben St Georges",
+    "leadUrl": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+    "coverageCaveat": "Limited cross-market coverage this week: 4 of 34 primary authorities contributed material rows, and Consob was blocked by an anti-bot challenge.",
+    "topThree": {
+      "headline": "One live response window, one accountability clarification, and one enforcement read-across now deserve operating attention.",
+      "summary": "The immediate obligation is the ADGM transfer-schemes consultation. The next preparation step is to test fitness-and-probity evidence and comparable enforcement controls; the wider FATF material stays in monitor mode while coverage is limited.",
+      "evidence": "Ranked from the approved shortlist by response urgency, business consequence, and the quality of the primary-source evidence."
+    },
+    "shortlist": [
+      {
+        "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+        "rank": 1,
+        "lane": "act",
+        "cluster": "adgm-transfer-schemes",
+        "whyItMatters": "This is the only live response window in the edition: a concrete consultation close date creates a decision and evidence obligation now.",
+        "affected": "Payments, legal, compliance, operations, and any business with an ADGM transfer-of-business exposure.",
+        "action": "Name the response owner, assess applicability, and decide whether to submit a response before 21 September 2026.",
+        "evidence": "Approved response position, impact assessment, or a documented decision not to respond."
+      },
+      {
+        "url": "https://www.centralbank.ie/news/article/press-release-central-bank-of-ireland-publishes-supplemental-guidance-prohibition-notices-under-the-f-and-p-regime-30-july-2026",
+        "rank": 2,
+        "lane": "prepare",
+        "cluster": "fitness-and-probity",
+        "whyItMatters": "The guidance clarifies how prohibition decisions are considered, making accountability, role-holder evidence, and escalation records more important.",
+        "affected": "Boards, senior managers, controlled-function holders, HR, compliance, and governance committees in Ireland and the EU.",
+        "action": "Test current fitness-and-probity records, escalation routes, and decision evidence against the clarified expectations.",
+        "evidence": "Completed control mapping, accountable owner, and evidence of supervisory-readiness review."
+      },
+      {
+        "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
+        "rank": 3,
+        "lane": "prepare",
+        "cluster": "cvm-enforcement-read-across",
+        "whyItMatters": "The report is not a new rule, but it is a useful enforcement read-across: recurring failure patterns should be tested against comparable exposure.",
+        "affected": "Financial-crime, conduct, surveillance, and control owners with comparable Brazilian-market or cross-border exposure.",
+        "action": "Review the reported enforcement themes against internal incidents, monitoring, escalation, and remediation evidence.",
+        "evidence": "Read-across memo, control findings, and remediation log where gaps are identified."
+      },
+      {
+        "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
+        "rank": 4,
+        "lane": "monitor",
+        "cluster": "fatf-crypto-asset-reports",
+        "whyItMatters": "The DeFi report is a forward-looking standards signal, useful for testing whether crypto-asset risk assumptions and control inventories are keeping pace.",
+        "affected": "Digital-asset, AML, sanctions, product, risk, and third-party owners with DeFi or crypto-asset exposure.",
+        "action": "Monitor the read-across and record whether current risk assessments, typologies, and control evidence need updating.",
+        "evidence": "Recorded monitoring decision, updated risk assessment where needed, and a named next review date."
+      }
+    ],
+    "exclusions": [
+      {
+        "url": "https://www.fsa.go.jp/inter/fatf/20260716/20260716.html",
+        "reason": "Grouped into the FATF crypto-asset report cluster; retained as supporting source material rather than a separate public row."
+      }
+    ],
+    "excludedCount": 1
+  }
 }

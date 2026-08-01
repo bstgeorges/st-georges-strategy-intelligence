@@ -16,7 +16,7 @@ Project Virtual Officer scheduled intelligence is now framed for financial servi
 | Financial Services Control Lessons Digest | Wed 07:35 | Operational resilience, cyber, third-party, AI, conduct, and financial crime lessons | Practical control-owner questions |
 | Financial Services Content Engine | Mon 18:00 | Ideas for posts, articles, internal notes, client conversations, and speaking points | Useful thought leadership, not employer-specific positioning |
 | Financial Services Thought Leadership Radar | Sat 09:00 | Timely angles and source hooks for the week ahead | Public-facing perspectives for a professional network |
-| Weekly Public Refresh | Wed 08:30 | Prepare the refreshed Intelligence and AI Signals editions, archive the previous live pages, and run QA | Public website refresh using source-backed editorial judgement |
+| Weekly Public Refresh | After the Wednesday scan PR is reviewed and merged | Refresh the Intelligence and AI Signals editions, archive the previous live pages, and run QA | Public website refresh using source-backed editorial judgement |
 
 ## Delivery Rules
 

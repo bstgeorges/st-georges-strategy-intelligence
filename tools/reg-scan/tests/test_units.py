@@ -57,6 +57,12 @@ class TestDeadlines(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertEqual(self.extract(text, published), expected)
 
+    def test_extract_deadline_accepts_abbreviated_months(self):
+        self.assertEqual(
+            self.extract("Consultation closing date: 21 Sep 2026", "2026-07-01T00:00:00+00:00"),
+            "2026-09-21",
+        )
+
     def test_annotate_attaches_deadline(self):
         records = [
             {
@@ -122,6 +128,9 @@ class TestClassify(unittest.TestCase):
     def test_type_guidance(self):
         self.assertEqual(self.classify_type("PRA issues supervisory statement on model risk"), "guidance")
 
+    def test_guidance_on_prohibition_notices_is_guidance(self):
+        self.assertEqual(self.classify_type("Supplemental Guidance on Prohibition Notices under the Fitness and Probity Regime"), "guidance")
+
     def test_type_other(self):
         self.assertEqual(self.classify_type("Annual general meeting results announced"), "other")
 
@@ -168,6 +177,17 @@ class TestClassify(unittest.TestCase):
         text = "FATFによる市中協議文書「FATF改訂勧告16ガイダンス案」の公表について"
         self.assertEqual(self.classify_type(text), "consultation")
         self.assertIn("crime-and-sanctions", self.classify_risk_areas(text))
+
+    def test_japanese_report_is_not_a_final_rule(self):
+        self.assertEqual(self.classify_type("FATFによるVASP基準の実施状況に関する報告書の公表"), "guidance")
+
+    def test_regulatory_theme_mapping_covers_operating_rows(self):
+        areas = self.classify_risk_areas(
+            "Transfer schemes, sanctions activity, and prohibition notices under the Fitness and Probity Regime"
+        )
+        self.assertIn("market-plumbing", areas)
+        self.assertIn("crime-and-sanctions", areas)
+        self.assertIn("boardroom-and-accountability", areas)
 
     def test_german_instrument_classification(self):
         self.assertEqual(self.classify_type("BaFin eröffnet Konsultation zur MaRisk-Novelle"), "consultation")
@@ -506,6 +526,26 @@ class TestDb(unittest.TestCase):
 
 
 class TestWriter(unittest.TestCase):
+    def test_editorial_fields_cover_operating_decision(self):
+        from scan.writer import fmt_signal
+        signal = fmt_signal(
+            {
+                "source_id": "eba",
+                "title": "EBA consults",
+                "url": "https://eba.eu/item",
+                "summary": "EBA opens a consultation on reporting standards.",
+                "published_at": "2026-07-01T00:00:00+00:00",
+                "signal_type": "consultation",
+                "risk_areas": ["balance-sheet"],
+                "deadline": "2026-09-30",
+            },
+            {"id": "eba", "name": "EBA", "tier": "primary", "jurisdictions": ["EU"]},
+        )
+        self.assertEqual(signal["editorial"]["change"], "EBA opens a consultation on reporting standards.")
+        self.assertIn("2026-09-30", signal["editorial"]["action"])
+        for field in ("affected", "implication", "owner", "evidence"):
+            self.assertTrue(signal["editorial"][field])
+
     def test_write_json_roundtrip(self):
         import tempfile, json, pathlib
         from scan.writer import write_json

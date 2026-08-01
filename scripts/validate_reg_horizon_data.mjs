@@ -54,6 +54,12 @@ function validate(data) {
 
   assert(data.status === "published", "status must be published or withheld");
   assert(signals.length > 0 && signals.length <= 15, "published editions must contain 1–15 material signals");
+  assert(data.editorialReview?.reviewStatus === "approved", "published editions need an approved editorialReview");
+  assert(data.editorialReview?.edition === data.edition, "editorialReview edition must match the published edition");
+  assert(Array.isArray(data.editorialReview?.shortlist), "published editions need an editorial shortlist");
+  assert(data.editorialReview?.leadUrl && signals.some((signal) => signal.url === data.editorialReview.leadUrl), "editorialReview leadUrl must point to a published signal");
+  assert(Boolean(data.editorialReview?.topThree?.headline), "published editions need a top-three judgement headline");
+  assert(Boolean(data.editorialReview?.topThree?.summary), "published editions need a top-three judgement summary");
 
   const urls = new Set();
   const typeCounts = new Map();
@@ -70,15 +76,30 @@ function validate(data) {
       assert(Array.isArray(signal.jurisdictions) && signal.jurisdictions.length > 0, `${label} needs at least one jurisdiction`);
     }
     assert(signal.sourceStatus === "approved", `${label} source is not approved`);
+    assert(["act", "prepare", "monitor"].includes(signal.lane), `${label} needs an Act, Prepare, or Monitor lane`);
+    assert(Boolean(signal.cluster), `${label} needs an editorial cluster`);
     assert(/^\d{4}-\d{2}-\d{2}$/.test(signal.date || ""), `${label} date must use YYYY-MM-DD`);
     assert(ALLOWED_TYPES.has(signal.type), `${label} has unsupported type ${signal.type || "<missing>"}`);
     assert(!/review before \d{4}-\d{2}-\d{2}/i.test(signal.why || ""), `${label} contains a synthetic review deadline`);
+    // Newly generated scans include the editorial decision layer. Keep older
+    // reviewed editions publishable until the next successful scan regenerates
+    // every row with those fields; if the object is present, it must be complete.
+    if (signal.editorial) {
+      for (const field of ["change", "affected", "implication", "owner", "action", "evidence"]) {
+        assert(Boolean(signal.editorial?.[field]), `${label} editorial.${field} is required`);
+      }
+    }
     typeCounts.set(signal.type, (typeCounts.get(signal.type) || 0) + 1);
     sources.add(signal.source);
     for (const area of signal.riskAreas || []) {
       assert(KNOWN_RISK_AREAS.has(area), `${label} has unsupported risk area ${area}`);
       if (KNOWN_RISK_AREAS.has(area)) riskAreas.add(area);
     }
+  }
+
+  assert(data.editorialReview?.shortlist?.length === signals.length, "editorial shortlist must match published signals[] length");
+  for (const [index, selection] of (data.editorialReview?.shortlist || []).entries()) {
+    assert(urls.has(selection.url), `editorial shortlist item ${index + 1} is not published in signals[]`);
   }
 
   const dominantTypeCount = Math.max(0, ...typeCounts.values());
@@ -95,7 +116,7 @@ function validate(data) {
     assert(Number(coverage[1]) === sources.size, "coverage numerator must match distinct published sources");
     if (Number(coverage[2]) > 0 && Number(coverage[1]) / Number(coverage[2]) < 0.5) {
       assert(
-        warnings.some((warning) => warning.type === "source-health" && ["medium", "high"].includes(warning.severity)),
+        warnings.some((warning) => ["source-health", "source-coverage"].includes(warning.type) && ["medium", "high"].includes(warning.severity)),
         "coverage below 50% needs a medium- or high-severity source-health warning",
       );
     }

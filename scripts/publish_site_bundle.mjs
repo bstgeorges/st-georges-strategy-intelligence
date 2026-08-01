@@ -1372,12 +1372,48 @@ function renderHorizonOperatingReadout(horizonData) {
           <div><p class="eyebrow">Operating readout</p><h2>What this edition means</h2></div>
           <p>The reviewed edition separates response deadlines, implementation work and forward-looking governance signals so each can be given an accountable owner.</p>
         </div>
+        ${renderHorizonTopThreeJudgement(horizonData)}
         <div class="horizon-operating-grid">
           <article class="brief-card"><p class="meta">Response windows</p><h3>${escapeHtml(consultationLabel)}</h3><p>Assign response ownership early enough for product, legal, compliance and operations input.</p></article>
           <article class="brief-card"><p class="meta">Implementation</p><h3>${escapeHtml(implementationLabel)}</h3><p>Review applicability, implementation dates, and control or reporting dependencies before the item becomes a late calendar surprise.</p></article>
           <article class="brief-card"><p class="meta">Leading theme</p><h3>${escapeHtml(leadingThemeLabel)}</h3><p>${escapeHtml(leadingTheme ? `${leadingTheme[1]} reviewed signal${leadingTheme[1] === 1 ? "" : "s"} map to this theme.` : "No risk theme has enough reviewed evidence to lead this edition.")}</p></article>
           <article class="brief-card"><p class="meta">Coverage</p><h3>${escapeHtml(`${sources.length} primary authorities support this edition`)}</h3><p>${escapeHtml(warnings[0]?.message || "Quiet themes remain watch-listed until wider sources report cleanly.")}</p></article>
         </div>`;
+}
+
+function renderHorizonCoverageBanner(horizonData) {
+  if (horizonData.status === "withheld") {
+    return `<p><strong>Coverage confidence:</strong> This edition is withheld because the source and editorial checks did not clear publication.</p>`;
+  }
+  const warning = (horizonData.warnings || []).find((item) => item.type === "source-coverage") ||
+    (horizonData.warnings || []).find((item) => item.type === "source-health");
+  const caveat = horizonData.editorialReview?.coverageCaveat || warning?.message || "Coverage is sufficient for the reviewed shortlist; quiet themes remain watch-listed.";
+  const limited = Boolean(warning) || /limited|blocked|quiet themes|coverage/i.test(caveat);
+  return `<p><strong>${limited ? "Limited coverage:" : "Coverage confidence:"}</strong> ${escapeHtml(caveat)}</p>`;
+}
+
+function renderHorizonTopThreeJudgement(horizonData) {
+  const topThree = horizonData.editorialReview?.topThree;
+  if (!topThree) return "";
+  return `<div class="horizon-top-three"><p class="eyebrow">Top-three judgement</p><h3>${escapeHtml(topThree.headline || "The top three signals set this week's operating priority.")}</h3><p>${escapeHtml(topThree.summary || "")}</p><p class="horizon-top-three-evidence"><strong>Basis:</strong> ${escapeHtml(topThree.evidence || "Approved editorial ranking of the current source evidence.")}</p></div>`;
+}
+
+function renderHorizonActionLanes(horizonData) {
+  if (horizonData.status === "withheld") {
+    return `<article class="horizon-lane horizon-lane-monitor"><p class="eyebrow">Monitor</p><h3>Use the last reviewed edition</h3><p>No current rows are cleared for action while this edition is withheld.</p></article>`;
+  }
+  const definitions = {
+    act: { label: "Act", intro: "Dates or decisions now need an accountable response." },
+    prepare: { label: "Prepare", intro: "Translate the signal into an applicability and implementation view." },
+    monitor: { label: "Monitor", intro: "Keep the evidence in view while the position develops." },
+  };
+  return Object.entries(definitions).map(([lane, definition]) => {
+    const items = (horizonData.signals || []).filter((signal) => signal.lane === lane);
+    const rows = items.length
+      ? `<ol>${items.map((signal) => `<li><a href="${escapeHtml(signal.url)}">${escapeHtml(signal.title)}</a><span>${escapeHtml(signal.editorial?.action || "Review the latest evidence and confirm the next owner step.")}</span></li>`).join("")}</ol>`
+      : `<p class="horizon-lane-empty">No reviewed signal is in this lane this week.</p>`;
+    return `<article class="horizon-lane horizon-lane-${lane}"><p class="eyebrow">${definition.label}</p><h3>${definition.intro}</h3>${rows}</article>`;
+  }).join("");
 }
 
 function renderHorizonThemeCards(signals) {
@@ -1460,8 +1496,10 @@ function applyLiveEditionContent(out, horizonData) {
     escapeHtml(`Reviewed ${horizonData.generatedAt || "in the current weekly run"} across a ${horizonData.windowDays || 7}-day evidence window.`),
   );
   updated = replaceElementContent(updated, "div", "horizon-freshness-status", renderHorizonFreshnessStatus(horizonData));
+  updated = replaceElementContent(updated, "div", "horizon-coverage-banner", renderHorizonCoverageBanner(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-bottom-line", `<p>${escapeHtml(horizonData.bottomLine || "")}</p>`);
   updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDashboard(horizonData));
+  updated = replaceElementContent(updated, "div", "horizon-lanes", renderHorizonActionLanes(horizonData));
   updated = replaceElementContent(updated, "section", "horizon-operating-readout", renderHorizonOperatingReadout(horizonData));
   updated = replaceElementContent(
     updated,

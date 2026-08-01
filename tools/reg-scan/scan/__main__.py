@@ -167,6 +167,7 @@ def main():
         for item in recent:
             item["score"] = _score.score(item, source)
             item["confidence"] = _score.confidence(item, source)
+            item["business_impact"] = _score.business_impact(item, source)
         source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent)})
         all_items.extend(recent)
 
@@ -201,7 +202,7 @@ def main():
             item["change_status"] = "new"
 
     signals = _reconcile_sources(_deduplicate(all_items))
-    signals.sort(key=lambda x: x.get("score", 0), reverse=True)
+    signals.sort(key=lambda x: x.get("score", 0) + 0.3 * x.get("business_impact", {}).get("score", 0), reverse=True)
     signals = [item for item in signals if _score.is_material(item)][:_score.MAX_SIGNALS]
     review_queue = [item for item in signals if item.get("confidence", {}).get("band") == "medium"]
     held_low_confidence = [item for item in signals if item.get("confidence", {}).get("band") == "low"]

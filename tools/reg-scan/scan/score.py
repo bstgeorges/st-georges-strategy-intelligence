@@ -39,6 +39,18 @@ def confidence(item, source):
     return {"score": value, "band": band, "components": components}
 
 
+def business_impact(item, source):
+    """Return explainable business-impact score and drivers in [0, 1]."""
+    drivers = {}
+    drivers["regulatory_action"] = {"final-rule": 1.0, "enforcement": 0.95, "consultation": 0.8, "guidance": 0.7}.get(item.get("signal_type"), 0.35)
+    drivers["urgency"] = 1.0 if item.get("deadline") else 0.45
+    drivers["control_breadth"] = min(len(item.get("risk_areas", [])) / 3, 1.0)
+    drivers["jurisdiction_reach"] = min(len(source.get("jurisdictions", [])) / 2, 1.0)
+    value = round(sum(drivers.values()) / len(drivers), 3)
+    band = "high" if value >= 0.78 else "medium" if value >= 0.55 else "low"
+    return {"score": value, "band": band, "drivers": drivers}
+
+
 def score(item, source):
     """Compute a float relevance score for item from source."""
     tier_w = _TIER_WEIGHTS.get(source.get("tier", "press"), 0.55)

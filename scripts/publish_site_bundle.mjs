@@ -1398,6 +1398,16 @@ function renderHorizonTopThreeJudgement(horizonData) {
   return `<div class="horizon-top-three"><p class="eyebrow">Top-three judgement</p><h3>${escapeHtml(topThree.headline || "The top three signals set this week's operating priority.")}</h3><p>${escapeHtml(topThree.summary || "")}</p><p class="horizon-top-three-evidence"><strong>Basis:</strong> ${escapeHtml(topThree.evidence || "Approved editorial ranking of the current source evidence.")}</p></div>`;
 }
 
+function renderHorizonRollingCoverage(horizonData) {
+  const rolling = horizonData.rollingCoverage || {};
+  const runs = Number(rolling.windowRuns || 0);
+  const configured = Number(rolling.configuredSources || horizonData.kpis?.coverage?.split(" of ")[1] || 0);
+  const candidateSources = Number(rolling.candidateSources || 0);
+  const materialSources = Number(rolling.materialSources || 0);
+  if (!runs) return `<p>Rolling source participation will appear after the next scan records its funnel metrics.</p>`;
+  return `<p><strong>Last ${runs} run${runs === 1 ? "" : "s"}:</strong> ${candidateSources} of ${configured} authorities returned candidates, and ${materialSources} contributed material signals. This rolling view helps distinguish a quiet week from a weak intake path.</p>`;
+}
+
 function renderHorizonActionLanes(horizonData) {
   if (horizonData.status === "withheld") {
     return `<article class="horizon-lane horizon-lane-monitor"><p class="eyebrow">Monitor</p><h3>Use the last reviewed edition</h3><p>No current rows are cleared for action while this edition is withheld.</p></article>`;
@@ -1500,6 +1510,7 @@ function applyLiveEditionContent(out, horizonData) {
   updated = replaceElementContent(updated, "div", "horizon-bottom-line", `<p>${escapeHtml(horizonData.bottomLine || "")}</p>`);
   updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDashboard(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-lanes", renderHorizonActionLanes(horizonData));
+  updated = replaceElementContent(updated, "div", "horizon-rolling-coverage", renderHorizonRollingCoverage(horizonData));
   updated = replaceElementContent(updated, "section", "horizon-operating-readout", renderHorizonOperatingReadout(horizonData));
   updated = replaceElementContent(
     updated,
@@ -1528,6 +1539,7 @@ function applyLiveEditionContent(out, horizonData) {
   updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
   updated = replaceElementContent(updated, "div", "horizon-evidence-files", renderHorizonEvidenceFiles(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-review-items", renderHorizonReviewQueue(horizonData.reviewQueue || []));
+  updated = replaceElementContent(updated, "div", "horizon-trend-items", renderHorizonTrend(horizonData));
   updated = replaceElementContent(
     updated,
     "div",
@@ -1556,6 +1568,15 @@ function renderHorizonFreshnessStatus(horizonData) {
 function renderHorizonReviewQueue(entries) {
   if (!entries.length) return '<article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article>';
   return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(String(item.confidence?.score || ""))}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source_name || item.source_id || "Official source")}</span></article>`).join("");
+}
+
+function renderHorizonTrend(data) {
+  const trend = data.trend || [];
+  if (!trend.length) return '<article class="card"><p class="meta">Trend</p><h3>Building history</h3><p>Trend metrics will appear after recurring editions accumulate.</p></article>';
+  const latest = trend[trend.length - 1];
+  const previous = trend[trend.length - 2];
+  const delta = previous ? (latest.materialSignals || 0) - (previous.materialSignals || 0) : 0;
+  return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article>`;
 }
 
 function generateCurrentHorizonArchive(out, horizonData) {

@@ -96,6 +96,15 @@
     return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(item.confidence?.score || "")}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source || "Official source")}</span></article>`).join("");
   }
 
+  function renderTrend(data) {
+    const trend = data.trend || [];
+    if (!trend.length) return '<article class="card"><p class="meta">Trend</p><h3>Building history</h3><p>Trend metrics will appear after recurring editions accumulate.</p></article>';
+    const latest = trend[trend.length - 1];
+    const previous = trend[trend.length - 2];
+    const delta = previous ? (latest.materialSignals || 0) - (previous.materialSignals || 0) : 0;
+    return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article>`;
+  }
+
   function renderDashboard(data) {
     const signals = data.signals || [];
     const horizon = data.horizon || [];
@@ -174,6 +183,7 @@
     const materialTop5 = document.getElementById("horizon-material-top5");
     const materialAdditional = document.getElementById("horizon-material-additional");
     const reviewItems = document.getElementById("horizon-review-items");
+    const trendItems = document.getElementById("horizon-trend-items");
     const themes = document.getElementById("horizon-watch-themes");
     const evidence = document.getElementById("horizon-evidence-files");
     const coverageNotes = document.getElementById("horizon-coverage-notes");
@@ -200,6 +210,7 @@
       ? additional.map((item, index) => renderSignal(item, index + 5)).join("")
       : "<li class=\"horizon-empty\"><div><p class=\"eyebrow\">No additional rows</p><h3>The wider source universe was reviewed, but no further items met the materiality threshold.</h3><p>Continue monitoring approved sources; this is an intentional empty state, not a missing scan.</p></div></li>";
     if (reviewItems) reviewItems.innerHTML = renderReviewQueue(data.reviewQueue || []);
+    if (trendItems) trendItems.innerHTML = renderTrend(data);
     }
     if (themes) {
       const active = new Set((data.signals || []).flatMap((item) => item.riskAreas || []));

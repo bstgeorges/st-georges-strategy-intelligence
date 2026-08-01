@@ -11,6 +11,7 @@ import json
 import logging
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -111,6 +112,24 @@ def _semantic_change(old, item):
     return "unchanged"
 
 
+def _fetch_source_bundle(source_id, source):
+    feed_urls = _feeds.FEED_MAP.get(source_id)
+    page_configs = _feeds.PAGE_MAP.get(source_id)
+    sitemap_configs = _feeds.SITEMAP_MAP.get(source_id)
+    if not feed_urls and not page_configs and not sitemap_configs:
+        return source_id, source, [], None, "not-configured"
+    try:
+        if feed_urls:
+            items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
+        elif page_configs:
+            items, error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
+        else:
+            items, error = _fetch.fetch_sitemap_source(source, sitemap_configs, _feeds.SOURCE_FILTERS)
+        return source_id, source, items, error, None
+    except Exception as exc:
+        return source_id, source, [], str(exc), None
+
+
 def main():
     parser = argparse.ArgumentParser(description="Regulatory horizon signal scanner")
     parser.add_argument("--dry-run", action="store_true",
@@ -121,6 +140,8 @@ def main():
                         help="Limit source count for bounded validation runs (0 = all)")
     parser.add_argument("--source-offset", type=int, default=0,
                         help="Skip this many sources before applying --max-sources")
+    parser.add_argument("--skip-detail", action="store_true",
+                        help="Skip detail-page enrichment for full-universe health validation")
     args = parser.parse_args()
 
     started = time.monotonic()
@@ -139,21 +160,15 @@ def main():
     error_sources = []
     source_health = []
 
-    for source_id, source in sources_by_id.items():
-        feed_urls = _feeds.FEED_MAP.get(source_id)
-        page_configs = _feeds.PAGE_MAP.get(source_id)
-        sitemap_configs = _feeds.SITEMAP_MAP.get(source_id)
-        if not feed_urls and not page_configs and not sitemap_configs:
-            no_feed_sources.append(source_id)
-            source_health.append({"sourceId": source_id, "status": "not-configured", "items": 0})
-            continue
+    with ThreadPoolExecutor(max_workers=24) as pool:
+        futures = [pool.submit(_fetch_source_bundle, source_id, source) for source_id, source in sources_by_id.items()]
+        fetched_bundles = [future.result() for future in as_completed(futures)]
 
-        if feed_urls:
-            items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
-        elif page_configs:
-            items, error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)
-        else:
-            items, error = _fetch.fetch_sitemap_source(source, sitemap_configs, _feeds.SOURCE_FILTERS)
+    for source_id, source, items, error, not_configured in fetched_bundles:
+        if not_configured:
+            no_feed_sources.append(source_id)
+            source_health.append({"sourceId": source_id, "status": "not-configured", "items": 0, "fetchedItems": 0})
+            continue
         if error and not items:
             error_sources.append(source_id)
             if "blocked by anti-bot challenge" in error or "403 Client Error: Forbidden" in error:
@@ -162,7 +177,7 @@ def main():
                 status = "degraded"
             else:
                 status = "failed"
-            source_health.append({"sourceId": source_id, "status": status, "items": 0, "error": error})
+            source_health.append({"sourceId": source_id, "status": status, "items": 0, "fetchedItems": 0, "error": error})
             log.warning("no items from %s: %s", source_id, error)
             continue
 
@@ -172,13 +187,14 @@ def main():
             if _is_recent(item.get("published_at"), cutoff, generated_at):
                 recent.append(item)
 
-        _fetch.enrich_deadline_text(recent, max_items=2)
+        if not args.skip_detail:
+            _fetch.enrich_deadline_text(recent, max_items=2)
         _dl.annotate(recent)
         for item in recent:
             item["score"] = _score.score(item, source)
             item["confidence"] = _score.confidence(item, source)
             item["business_impact"] = _score.business_impact(item, source)
-        source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent)})
+        source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent), "fetchedItems": len(items)})
         all_items.extend(recent)
 
     if not args.dry_run and conn is not None:
@@ -211,12 +227,40 @@ def main():
         for item in all_items:
             item["change_status"] = "new"
 
-    signals = _reconcile_sources(_deduplicate(all_items))
-    signals.sort(key=lambda x: x.get("score", 0) + 0.3 * x.get("business_impact", {}).get("score", 0), reverse=True)
-    signals = [item for item in signals if _score.is_material(item)][:_score.MAX_SIGNALS]
-    review_queue = [item for item in signals if item.get("confidence", {}).get("band") == "medium"]
-    held_low_confidence = [item for item in signals if item.get("confidence", {}).get("band") == "low"]
-    signals = [item for item in signals if item.get("confidence", {}).get("band") == "high"]
+    reconciled = _reconcile_sources(_deduplicate(all_items))
+    reconciled.sort(key=lambda x: x.get("score", 0) + 0.3 * x.get("business_impact", {}).get("score", 0), reverse=True)
+    material_candidates = [item for item in reconciled if _score.is_material(item)][:_score.MAX_SIGNALS]
+    review_queue = [item for item in material_candidates if item.get("confidence", {}).get("band") == "medium"]
+    held_low_confidence = [item for item in material_candidates if item.get("confidence", {}).get("band") == "low"]
+    signals = [item for item in material_candidates if item.get("confidence", {}).get("band") == "high"]
+
+    health_by_id = {entry["sourceId"]: entry for entry in source_health}
+    for source_id, entry in health_by_id.items():
+        source_candidates = [item for item in all_items if item.get("source_id") == source_id]
+        source_reconciled = [item for item in reconciled if item.get("source_id") == source_id]
+        source_material = [item for item in material_candidates if item.get("source_id") == source_id]
+        source_published = [item for item in signals if item.get("source_id") == source_id]
+        entry.update({
+            "candidateItems": len(source_candidates),
+            "reconciledItems": len(source_reconciled),
+            "materialItems": len(source_material),
+            "publishedItems": len(source_published),
+        })
+
+    candidate_review = [
+        {
+            "sourceId": item.get("source_id"),
+            "source": item.get("source_name", item.get("source_id")),
+            "title": item.get("title"),
+            "url": item.get("url"),
+            "type": item.get("signal_type", "other"),
+            "score": item.get("score", 0),
+            "confidence": item.get("confidence", {}),
+            "riskAreas": item.get("risk_areas", []),
+        }
+        for item in reconciled
+        if not _score.is_material(item)
+    ][:20]
 
     warnings = []
     if review_queue:
@@ -292,6 +336,7 @@ def main():
         window_days=args.window,
     )
     data["sourceHealth"] = source_health
+    data["candidateReview"] = candidate_review
     data["reviewQueue"] = review_queue
     data["heldLowConfidence"] = len(held_low_confidence)
     confidence_bands = {}
@@ -313,9 +358,45 @@ def main():
         "themeCounts": theme_counts,
         "reviewQueue": len(review_queue),
         "heldLowConfidence": len(held_low_confidence),
+        "sourceParticipation": [
+            {
+                "sourceId": entry["sourceId"],
+                "status": entry.get("status"),
+                "recentItems": entry.get("items", 0),
+                "candidateItems": entry.get("candidateItems", 0),
+                "materialItems": entry.get("materialItems", 0),
+                "publishedItems": entry.get("publishedItems", 0),
+            }
+            for entry in source_health
+        ],
+        "funnel": {
+            "fetchedItems": sum(entry.get("fetchedItems", 0) for entry in source_health),
+            "recentItems": sum(entry.get("items", 0) for entry in source_health),
+            "candidateItems": len(all_items),
+            "reconciledItems": len(reconciled),
+            "materialItems": len(material_candidates),
+            "publishedItems": len(signals),
+        },
         "alerts": (["source-health"] if failed_health else []) + (["confidence-review"] if review_queue else []),
     }
     data["trend"] = _db.recent_metrics(conn) if conn is not None else []
+    recent_runs = [*data["trend"], data["runMetrics"]][-4:]
+    candidate_sources = set()
+    material_sources = set()
+    for run in recent_runs:
+        for participation in run.get("sourceParticipation", []):
+            if participation.get("candidateItems", 0) > 0:
+                candidate_sources.add(participation.get("sourceId"))
+            if participation.get("materialItems", 0) > 0:
+                material_sources.add(participation.get("sourceId"))
+    data["rollingCoverage"] = {
+        "windowRuns": len(recent_runs),
+        "candidateSources": len(candidate_sources),
+        "materialSources": len(material_sources),
+        "configuredSources": len(sources_by_id),
+        "sourceIdsWithCandidates": sorted(candidate_sources),
+        "sourceIdsWithMaterial": sorted(material_sources),
+    }
 
     log.info(
         "edition=%s  signals=%d  material=%d  horizon=%d  sources-with-feed=%d",

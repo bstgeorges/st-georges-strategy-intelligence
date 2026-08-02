@@ -1,0 +1,30 @@
+{
+  "version": "2026-08-02",
+  "purpose": "Governed discovery and research layer for Signals and AI Signals. Press is context and corroboration; primary and research sources remain the evidence standard.",
+  "provenanceRules": [
+    "Press reporting can surface or corroborate a claim, but does not replace a regulator, company, court, standards body, or paper where one exists.",
+    "Research items must link to the paper or abstract and state whether the evidence is peer reviewed, preprint, benchmark, or commentary.",
+    "Premium publishers are manual-or-licensed inputs; the site does not scrape paywalled content."
+  ],
+  "sources": [
+    { "id": "ft", "label": "Financial Times", "tier": "press", "role": "Market context and discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "reuters", "label": "Reuters", "tier": "press", "role": "Discovery and corroboration", "access": "manual or licensed feed", "automated": false },
+    { "id": "wsj", "label": "Wall Street Journal", "tier": "press", "role": "Market context and discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "economist", "label": "The Economist", "tier": "press", "role": "Macro, policy, and strategic context", "access": "manual or licensed feed", "automated": false },
+    { "id": "ap-news", "label": "AP News", "tier": "press", "role": "Incident and public-policy discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "the-atlantic", "label": "The Atlantic", "tier": "press", "role": "Society, technology, and workforce context", "access": "manual or licensed feed", "automated": false },
+    { "id": "risk-net", "label": "Risk.net", "tier": "specialist", "role": "Risk-management, derivatives, and market-plumbing context", "access": "manual or licensed feed", "automated": false },
+    { "id": "bloomberg", "label": "Bloomberg", "tier": "specialist", "role": "Market, regulatory, and financing discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "the-banker", "label": "The Banker", "tier": "specialist", "role": "Banking, capital, and supervisory context", "access": "manual or licensed feed", "automated": false },
+    { "id": "politico-pro", "label": "POLITICO Pro", "tier": "specialist", "role": "Policy pathway and implementation discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "mlex", "label": "MLex", "tier": "specialist", "role": "Digital regulation, competition, and enforcement discovery", "access": "manual or licensed feed", "automated": false },
+    { "id": "ieee-spectrum", "label": "IEEE Spectrum", "tier": "specialist", "role": "Technology, engineering, and research context", "access": "manual or licensed feed", "automated": false },
+    { "id": "arxiv-ai", "label": "arXiv", "tier": "research", "role": "Research evidence and early technical discovery", "access": "RSS plus paper-level review", "automated": true }
+  ],
+  "currentEvidence": [
+    { "title": "Kill-switch language enters the AI-finance debate", "source": "Financial Times", "tier": "press", "topic": "AI", "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568", "status": "existing citation" },
+    { "title": "AI infrastructure capex needs downside financing scenarios", "source": "Wall Street Journal", "tier": "press", "topic": "Markets", "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb", "status": "existing citation" },
+    { "title": "Agentic coding evidence broadens the adoption case", "source": "arXiv", "tier": "research", "topic": "AI", "url": "https://arxiv.org/abs/2606.26959", "status": "existing citation" },
+    { "title": "Reuters, Economist, AP News, and The Atlantic are now governed discovery inputs", "source": "News and Research Radar", "tier": "press", "topic": "All streams", "url": "/signals/", "status": "new intake path" }
+  ]
+}

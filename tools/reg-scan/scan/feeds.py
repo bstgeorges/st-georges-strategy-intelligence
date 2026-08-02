@@ -152,10 +152,10 @@ FEED_MAP = {
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
     "hong-kong-sfc": [{"url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements", "request_profile": "browser", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
-    "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "request_profile": "browser", "timeout": 12, "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "request_profile": "browser", "timeout": 20, "retries": 2, "item_selectors": ["article", ".card", ".views-row", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='/newsroom/']", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published", ".news-date"]}],
     "india-rbi": [{"url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx", "item_selectors": ["article", "table tr", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "singapore-sgx": [{"url": "https://www.sgx.com/regulation", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
-    "brazil-bcb": [{"url": "https://www.bcb.gov.br/en/pressreleasesbyyear?ano=2026", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "brazil-bcb": [{"url": "https://www.bcb.gov.br/en/pressreleasesbyyear?ano=2026", "request_profile": "browser", "timeout": 20, "retries": 2, "item_selectors": ["article", ".card", ".views-row", ".list-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='/en/pressreleases/']", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published", ".release-date"]}],
     "south-korea-fss": [{"url": "https://www.fss.or.kr/eng/main/main.do", "request_profile": "browser", "item_selectors": ["article", ".board-list li", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "switzerland-snb": [{"url": "https://www.snb.ch/en/news-publications/media-releases", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "uk-fca": [{
@@ -193,8 +193,8 @@ PAGE_MAP = {
         "request_profile": "browser",
         "timeout": 12,
         "retries": 2,
-        "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", ".teaser"],
-        "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='comunicato']"],
+        "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", ".teaser", "li"],
+        "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='comunicato']", "a[href*='comunicati']", "a[href]"],
         "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
     }, {
         "url": "https://www.consob.it/web/area-pubblica/consultazioni/in-corso",

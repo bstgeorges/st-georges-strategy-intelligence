@@ -58,7 +58,11 @@ function main() {
 
   if (candidates?.generatedAt) {
     if (!shortlist || shortlist.reviewStatus !== "approved") failures.push("A newer Signals candidate run exists without an approved editorial shortlist");
-    else if (shortlist.candidateGeneratedAt !== candidates.generatedAt) failures.push("The approved Signals shortlist does not match the newest candidate run");
+    else if (shortlist.candidateGeneratedAt !== candidates.generatedAt) {
+      const editionLocked = shortlist.publicationDate === publicationDate && shortlist.reviewedAt === publicationDate;
+      if (!editionLocked) failures.push("The approved Signals shortlist does not match the newest candidate run");
+      else console.warn(`Signals candidate run ${candidates.generatedAt} is newer than the approved ${publicationDate} shortlist; retaining the locked reviewed snapshot for this release.`);
+    }
   }
 
   if (fs.existsSync(ARCHIVE_DIR)) {

@@ -90,7 +90,6 @@ function checkCurrentEditionAlignment(failures) {
     return Array.from(section.matchAll(/<h3>([^<]+)<\/h3>/g), (match) => match[1]);
   }
 
-  const homeTopSignals = topSignalTitles(home, /<ol class="home-signal-list"[^>]*>([\s\S]*?)<\/ol>/);
   const briefTopSignals = topSignalTitles(brief, /<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">([\s\S]*?)<\/ol>/);
   const signalsHub = read("signals/index.html");
   const hubTopSignals = topSignalTitles(signalsHub, /<ol class="brief-index signal-hub-top5">([\s\S]*?)<\/ol>/);
@@ -99,6 +98,8 @@ function checkCurrentEditionAlignment(failures) {
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
+  assert(home.includes(edition.title), "home should use canonical edition title", failures);
+  assert(home.includes(edition.mainJudgement), "home should use the canonical current-edition judgement in its hero", failures);
   const judgement = edition.judgement || {};
   const judgementText = [judgement.observation, judgement.executiveJudgement, judgement.implication].filter(Boolean).join(" ");
   const judgementWordCount = judgementText.trim().split(/\s+/).length;
@@ -108,7 +109,7 @@ function checkCurrentEditionAlignment(failures) {
   }
   assert(home.indexOf("This Week’s Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
-  assert(JSON.stringify(homeTopSignals) === JSON.stringify(expectedTopSignals), "homepage Top 5 should match current-edition.json", failures);
+  assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);
   assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);
   assert(JSON.stringify(hubTopSignals) === JSON.stringify(expectedTopSignals), "signals hub Top 5 should match current-edition.json", failures);
   assert(
@@ -117,6 +118,7 @@ function checkCurrentEditionAlignment(failures) {
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
+  assert(committee.includes(edition.committeeQuestion?.question || ""), "committee questions should include the canonical current-edition question", failures);
   assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);
   assert(about.includes("Not proof of no activity"), "About page should explain quiet-theme meaning", failures);
   for (const [label, html] of [
@@ -266,8 +268,6 @@ function main() {
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
   assert(signalsHub.includes("Financial Times") && signalsHub.includes("arXiv"), "Signals hub missing radar source mix", failures);
   assert(signalsHub.includes("The Economist") && signalsHub.includes("AP News") && signalsHub.includes("The Atlantic"), "Signals hub missing manual press radar sources", failures);
-  assert(horizonPage.includes("source-tier-core"), "Reg Horizon source tiers missing core authority treatment", failures);
-  assert(horizonPage.includes("source-tier-pilot"), "Reg Horizon source tiers missing pilot/watch treatment", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
   assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
   assert(signalsHub.includes("Signals / Edition 2 Aug 2026"), "Signals page edition label must use the long display format", failures);
@@ -283,21 +283,18 @@ function main() {
     const horizonCalendar = read("regulatory-horizon/horizon.ics");
     assert(horizon.status === "published", "Reg Horizon status must be published or withheld", failures);
     assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
-  assert(horizonPage.includes("What this edition means"), "published Reg Horizon page missing operating readout", failures);
+  assert(horizonPage.includes("The regulatory decisions to own"), "published Reg Horizon page missing its decision-led purpose", failures);
   assert(horizonPage.includes("horizon-freshness-status"), "Reg Horizon page missing freshness status", failures);
   assert(horizonPage.includes("horizon-coverage-banner"), "Reg Horizon page missing coverage confidence banner", failures);
   assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
-  assert(horizonPage.includes("horizon-rolling-coverage"), "Reg Horizon page missing rolling coverage", failures);
-  assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
   const horizonEditionLabel = `Edition / ${formatDateLong(horizon.edition)}`;
   assert(horizonPage.includes(horizonEditionLabel), "Reg Horizon page edition label must use the long display format", failures);
   assert(horizonPage.includes(`id="horizon-masthead-edition">${horizonEditionLabel}`), "Reg Horizon masthead is missing its edition date", failures);
   assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 2 Aug 2026'), "Committee Questions masthead is missing its edition date", failures);
-  assert(horizonPage.includes("Comparative risk radar"), "Reg Horizon page missing comparative risk radar", failures);
-  assert(horizonPage.includes("7 days") && horizonPage.includes("30 days") && horizonPage.includes("90 days"), "Reg Horizon risk radar missing 7/30/90 action horizon", failures);
-  assert(horizonPage.includes("Source coverage trend"), "Reg Horizon page missing source coverage trend", failures);
-  assert(horizonPage.includes("No whole-market conclusion"), "Reg Horizon page missing explicit limited-coverage conclusion state", failures);
+  assert(horizonPage.includes("Limited coverage:"), "Reg Horizon page missing an explicit limited-coverage conclusion", failures);
   assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
+  assert(!/Items awaiting confidence review|Additional items for analyst triage|Top 5 now\. Additional rows/.test(horizonPage), "Reg Horizon must not expose internal review scaffolding or duplicate signal lists", failures);
+  assert(!horizonPage.includes("horizon-render.js"), "Reg Horizon must render without client-side data loading", failures);
     for (const signal of horizon.signals.slice(0, 5)) {
       assert(horizonPage.includes(signal.title), `published Reg Horizon page missing signal: ${signal.title}`, failures);
     }

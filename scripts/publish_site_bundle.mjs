@@ -1143,6 +1143,9 @@ function updateLiveEditionDateLabels(out, edition) {
       html.replace(
         /<p class="meta">Last updated [^<]+? &middot; drawn from the week of [^<]+<\/p>/,
         `<p class="meta">Edition date ${escapeHtml(label)}</p>`,
+      ).replace(
+        /(<p class="edition-line" id="committee-masthead-edition">)Edition \/ [^<]*(<\/p>)/,
+        `$1Edition / ${escapeHtml(label)}$2`,
       ),
     );
   }

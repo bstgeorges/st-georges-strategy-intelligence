@@ -11,6 +11,7 @@ import json
 import logging
 import re
 import time
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from difflib import SequenceMatcher
 from datetime import datetime, timedelta, timezone
@@ -61,8 +62,9 @@ def _reconcile_sources(items):
     """Cluster likely cross-source duplicates while preserving source trails."""
     clusters = []
     for item in items:
-        title = re.sub(r"[^a-z0-9 ]", " ", (item.get("title") or "").lower())
-        title = re.sub(r"\b(consultation|consultations|guidance|statement|final rule)\b", " ", title)
+        title = unicodedata.normalize("NFKD", item.get("title") or "").encode("ascii", "ignore").decode().lower()
+        title = re.sub(r"\b(consultation|consultations|consultazione|consultacao|consulta|consultation publique|guidance|orientamenti|statement|comunicado|communique|final rule|regla final)\b", " ", title)
+        title = re.sub(r"\b(the|der|die|das|la|le|les|el|los|las|de|des|del|du|and|und|et|y|e)\b", " ", title)
         title = re.sub(r"\s+", " ", title).strip()
         match = next((cluster for cluster in clusters if SequenceMatcher(None, title, cluster["key"]).ratio() >= 0.86), None)
         if not match:
@@ -273,6 +275,11 @@ def main():
             "score": item.get("score", 0),
             "confidence": item.get("confidence", {}),
             "riskAreas": item.get("risk_areas", []),
+            "recommendedActions": [
+                "verify-source-detail" if not item.get("detail_text") else "confirm-classification",
+                "confirm-deadline" if not item.get("deadline") else "confirm-business-impact",
+                "promote-to-material" if item.get("confidence", {}).get("band") == "high" else "retain-in-review",
+            ],
         }
         for item in reconciled
         if not _score.is_material(item)

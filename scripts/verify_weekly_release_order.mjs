@@ -55,6 +55,7 @@ function main() {
     else if (normalise(lead.title) !== normalise(signal.title)) failures.push(`Current edition top signal for ${signal.topic} does not match the Signals lead`);
   }
   if (new Set((edition.topSignals || []).map((signal) => signal.topic)).size !== 5) failures.push("Current edition must contain five distinct Signals topics");
+  if (new Set((edition.topSignals || []).map((signal) => normalise(signal.title))).size !== (edition.topSignals || []).length) failures.push("Current edition Top 5 must contain five distinct signal titles");
 
   if (candidates?.generatedAt) {
     if (!shortlist || shortlist.reviewStatus !== "approved") failures.push("A newer Signals candidate run exists without an approved editorial shortlist");

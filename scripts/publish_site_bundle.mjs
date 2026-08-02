@@ -1554,6 +1554,10 @@ function applyLiveEditionContent(out, horizonData) {
     /(<p class="eyebrow" id="horizon-edition">)Edition \/ [^<]*(<\/p>)/,
     `$1Edition / ${formatDateLong(horizonData.edition)}$2`,
   );
+  updated = updated.replace(
+    /(<p class="edition-line" id="horizon-masthead-edition">)Edition \/ [^<]*(<\/p>)/,
+    `$1Edition / ${formatDateLong(horizonData.edition)}$2`,
+  );
   updated = updated
     .replace(
       /"datePublished":\s*"\d{4}-\d{2}-\d{2}"/,

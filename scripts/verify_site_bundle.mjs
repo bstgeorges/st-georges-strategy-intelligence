@@ -266,8 +266,9 @@ function main() {
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
-  assert(signalsHub.includes("Financial Times") && signalsHub.includes("arXiv"), "Signals hub missing radar source mix", failures);
-  assert(signalsHub.includes("The Economist") && signalsHub.includes("AP News") && signalsHub.includes("The Atlantic"), "Signals hub missing manual press radar sources", failures);
+  assert(signalsHub.includes("How we use evidence"), "Signals hub missing concise public source standard", failures);
+  assert(signalsHub.includes("Primary sources") && signalsHub.includes("Paper-level review"), "Signals hub missing public evidence principles", failures);
+  assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
   assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
   assert(signalsHub.includes("Signals / Edition 2 Aug 2026"), "Signals page edition label must use the long display format", failures);
@@ -291,7 +292,9 @@ function main() {
   assert(horizonPage.includes(horizonEditionLabel), "Reg Horizon page edition label must use the long display format", failures);
   assert(horizonPage.includes(`id="horizon-masthead-edition">${horizonEditionLabel}`), "Reg Horizon masthead is missing its edition date", failures);
   assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 2 Aug 2026'), "Committee Questions masthead is missing its edition date", failures);
-  assert(horizonPage.includes("Limited coverage:"), "Reg Horizon page missing an explicit limited-coverage conclusion", failures);
+  assert(horizonPage.includes("Scope note:"), "Reg Horizon page missing its clear editorial scope note", failures);
+  assert(!horizonPage.includes("Limited coverage:"), "Reg Horizon should not lead with internal coverage mechanics", failures);
+  assert(!horizonPage.includes("Consob remains blocked"), "Reg Horizon should retain source-specific failures in the dated record, not the reader-facing summary", failures);
   assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
   assert(!/Items awaiting confidence review|Additional items for analyst triage|Top 5 now\. Additional rows/.test(horizonPage), "Reg Horizon must not expose internal review scaffolding or duplicate signal lists", failures);
   assert(!horizonPage.includes("horizon-render.js"), "Reg Horizon must render without client-side data loading", failures);

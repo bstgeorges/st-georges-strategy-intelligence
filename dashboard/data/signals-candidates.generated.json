@@ -1,6 +1,6 @@
 {
   "version": "2026-07-18",
-  "generatedAt": "2026-08-01T16:31:36.275Z",
+  "generatedAt": "2026-08-02T10:43:34.962Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -33,7 +33,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 69,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -62,7 +62,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -91,7 +91,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -120,7 +120,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -149,7 +149,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -178,7 +178,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -207,7 +207,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
@@ -236,7 +236,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -273,7 +273,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
+          "relevanceScore": 73,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
@@ -662,16 +662,78 @@
             "cloud",
             "service"
           ],
-          "relevanceScore": 86,
+          "relevanceScore": 85,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "0ea5bf68b0e7424d",
+          "topicId": "third-party",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-third-party-bridge",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-third-party-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "digital-resilience",
+            "ai-and-models",
+            "market-plumbing"
+          ],
+          "tags": [
+            "reg-horizon",
+            "third-party",
+            "dependency"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 66,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         }
       ]
     },
     {
       "id": "resilience",
       "candidates": [
+        {
+          "id": "d5aa75fe1f3a9998",
+          "topicId": "resilience",
+          "title": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
+          "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-resilience-bridge",
+          "sourceName": "Securities and Exchange Board of India",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-resilience-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "reg-horizon",
+            "resilience",
+            "impact-tolerance"
+          ],
+          "matchedKeywords": [
+            "resilience",
+            "recovery"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
+        },
         {
           "id": "78dfbcc6e97f5014",
           "topicId": "resilience",
@@ -709,10 +771,41 @@
             "disruption",
             "incident"
           ],
-          "relevanceScore": 90,
+          "relevanceScore": 89,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "0ea5bf68b0e7424d",
+          "topicId": "resilience",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-resilience-bridge",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-resilience-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "reg-horizon",
+            "resilience",
+            "impact-tolerance"
+          ],
+          "matchedKeywords": [
+            "resilience"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "99564d0857b39fea",
@@ -746,7 +839,7 @@
             "resilience"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Financial Services Agency of Japan via rss ingestion and matched the topic rules."
@@ -831,7 +924,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 84,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
@@ -862,7 +955,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
@@ -892,7 +985,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
@@ -922,7 +1015,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
@@ -1090,7 +1183,7 @@
             "cyber"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
@@ -1128,7 +1221,7 @@
             "phishing",
             "threat"
           ],
-          "relevanceScore": 71,
+          "relevanceScore": 70,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
@@ -1139,36 +1232,6 @@
           "title": "注意喚起: 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (更新)",
           "url": "https://www.jpcert.or.jp/at/2026/at260020.html",
           "publishedAt": "2026-07-31T09:00:00.000Z",
-          "sourceRegistryId": "jpcert",
-          "sourceName": "JPCERT Coordination Center",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "jpcert-alerts-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "alerts",
-            "vulnerabilities",
-            "japan",
-            "japanese-language"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ea7fb951ef393a24",
-          "topicId": "cyber",
-          "title": "注意喚起: Ruby on RailsのActive Storageにおけるリモートコード実行につながる脆弱性（CVE-2026-66066）に関する注意喚起  (公開)",
-          "url": "https://www.jpcert.or.jp/at/2026/at260021.html",
-          "publishedAt": "2026-07-30T08:03:00.000Z",
           "sourceRegistryId": "jpcert",
           "sourceName": "JPCERT Coordination Center",
           "sourceTier": "primary",
@@ -1219,10 +1282,40 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "ea7fb951ef393a24",
+          "topicId": "cyber",
+          "title": "注意喚起: Ruby on RailsのActive Storageにおけるリモートコード実行につながる脆弱性（CVE-2026-66066）に関する注意喚起  (公開)",
+          "url": "https://www.jpcert.or.jp/at/2026/at260021.html",
+          "publishedAt": "2026-07-30T08:03:00.000Z",
+          "sourceRegistryId": "jpcert",
+          "sourceName": "JPCERT Coordination Center",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "jpcert-alerts-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "alerts",
+            "vulnerabilities",
+            "japan",
+            "japanese-language"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 64,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
         },
         {
           "id": "fd7a3532fcfbe11a",
@@ -1301,10 +1394,70 @@
             "failure",
             "disruption"
           ],
-          "relevanceScore": 88,
+          "relevanceScore": 87,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "0ea5bf68b0e7424d",
+          "topicId": "technology-failure",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-technology-failure-bridge",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-technology-failure-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "reg-horizon",
+            "technology-failure",
+            "outage"
+          ],
+          "matchedKeywords": [
+            "ict"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
+        },
+        {
+          "id": "d5aa75fe1f3a9998",
+          "topicId": "technology-failure",
+          "title": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
+          "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
+          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-technology-failure-bridge",
+          "sourceName": "Securities and Exchange Board of India",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-technology-failure-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "reg-horizon",
+            "technology-failure",
+            "outage"
+          ],
+          "matchedKeywords": [
+            "recovery"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "220d5078a82f2ae9",
@@ -1420,7 +1573,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 98,
+          "relevanceScore": 97,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1452,7 +1605,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1484,7 +1637,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1516,7 +1669,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1550,10 +1703,40 @@
             "daten"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 81,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "0ea5bf68b0e7424d",
+          "topicId": "data",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "publishedAt": "2026-07-31T00:00:00.000Z",
+          "sourceRegistryId": "reg-horizon-data-bridge",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "generated",
+          "ingestSourceId": "reg-horizon-data-bridge",
+          "fetchType": "reg_horizon_json",
+          "riskAreas": [
+            "board-accountability"
+          ],
+          "tags": [
+            "reg-horizon",
+            "data",
+            "reporting"
+          ],
+          "matchedKeywords": [
+            "governance"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "b077fc8628fe6673",
@@ -1580,7 +1763,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1610,7 +1793,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1769,8 +1952,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 1,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 3,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -1778,8 +1961,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 0,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 2,
+      "acceptedCandidates": 2,
       "error": ""
     },
     {
@@ -1796,7 +1979,7 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 0,
+      "fetchedEntries": 2,
       "acceptedCandidates": 0,
       "error": ""
     },
@@ -1805,8 +1988,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 0,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 2,
+      "acceptedCandidates": 2,
       "error": ""
     },
     {
@@ -1814,8 +1997,8 @@
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
       "status": "ok",
-      "fetchedEntries": 0,
-      "acceptedCandidates": 0,
+      "fetchedEntries": 1,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -1937,7 +2120,6 @@
     }
   ],
   "warnings": [
-    "Thin coverage: third-party has only 1 candidate(s) in the current window.",
-    "Source concentration: data relies on ico-news-sitemap for 6/8 candidates."
+    "Thin coverage: third-party has only 2 candidate(s) in the current window."
   ]
 }

@@ -199,6 +199,7 @@
     const data = await response.json();
 
     const edition = document.getElementById("horizon-edition");
+    const mastheadEdition = document.getElementById("horizon-masthead-edition");
     const generated = document.getElementById("horizon-generated");
     const bottomLine = document.getElementById("horizon-bottom-line");
     const dashboard = document.getElementById("horizon-dashboard");
@@ -213,6 +214,7 @@
     const coverageNotes = document.getElementById("horizon-coverage-notes");
 
     if (edition) edition.textContent = `Edition / ${formatDateLong(data.edition || "")}`;
+    if (mastheadEdition) mastheadEdition.textContent = `Edition / ${formatDateLong(data.edition || "")}`;
     if (generated) generated.textContent = `Generated ${data.generatedAt || "from the current weekly run"} across a ${data.windowDays || 7}-day review window.`;
     if (bottomLine) bottomLine.innerHTML = `<p>${escapeHtml(data.bottomLine || "")}</p>`;
     if (dashboard) dashboard.innerHTML = renderDashboard(data);

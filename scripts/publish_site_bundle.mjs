@@ -689,6 +689,10 @@ function loadEditionRecord(failures) {
   for (const field of ["observation", "executiveJudgement", "implication"]) {
     assert(Boolean(record.judgement?.[field]), `current edition judgement missing ${field}`, failures);
   }
+  assert(record.committeeQuestion && typeof record.committeeQuestion === "object", "current edition must define committeeQuestion", failures);
+  for (const field of ["domain", "question", "why", "evidence"]) {
+    assert(Boolean(record.committeeQuestion?.[field]), `current edition committeeQuestion missing ${field}`, failures);
+  }
   const judgementWordCount = [record.judgement?.observation, record.judgement?.executiveJudgement, record.judgement?.implication]
     .filter(Boolean)
     .join(" ")
@@ -728,6 +732,61 @@ function renderHomepageJudgement(out, editionRecord) {
         </section>
         <!-- judgement:end -->`;
   write(file, html.replace(/<!-- judgement:start -->[\s\S]*?<!-- judgement:end -->/, block));
+}
+
+function committeeQuestionLinks(question) {
+  const routesById = {
+    brief: ["/brief/", "Current brief"],
+    ai: ["/signals/ai/", "AI signals"],
+    cyber: ["/signals/cyber/", "Cyber signals"],
+    "third-party": ["/signals/third-party/", "Third-party signals"],
+    resilience: ["/signals/resilience/", "Resilience signals"],
+    data: ["/signals/data/", "Data signals"],
+  };
+  return (question.links || [])
+    .map((id) => routesById[id])
+    .filter(Boolean)
+    .map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`)
+    .join("");
+}
+
+function renderCurrentEditionExperience(out, editionRecord, horizonData) {
+  if (!editionRecord) return;
+  const question = editionRecord.committeeQuestion || {};
+  const homeFile = path.join(out, "index.html");
+  if (fs.existsSync(homeFile)) {
+    const lead = editionRecord.topSignals?.[0] || {};
+    const firstDeadline = (horizonData?.horizon || [])[0];
+    const deadlineTitle = firstDeadline ? firstDeadline.title : "No reviewed response deadline this week";
+    const deadlineCopy = firstDeadline
+      ? `${formatDateShort(firstDeadline.date)} · ${firstDeadline.prompts?.action || "Assign an owner and record the decision."}`
+      : "The current regulatory view has no future date requiring a published owner decision.";
+    const bridge = `<!-- home-current:start -->
+        <section class="band home-current" aria-label="This edition at a glance">
+          <div class="section-heading">
+            <div><p class="eyebrow">This edition</p><h2>One judgement. Three useful next moves.</h2></div>
+            <p>The front door is deliberately brief. The full evidence lives in the Weekly Brief, the practical challenge in Committee Questions, and the source trail in Signals.</p>
+          </div>
+          <div class="grid-3 home-current-grid">
+            <a class="brief-card" href="/brief/"><p class="meta">Lead signal / ${escapeHtml(lead.label || "Current edition")}</p><h3>${escapeHtml(lead.title || "Read the full weekly brief")}</h3><p>${escapeHtml(lead.why || "Open the complete five-minute brief with the sources and evidence requests behind this week's call.")}</p></a>
+            <a class="brief-card" href="/committee-questions/"><p class="meta">This week’s question</p><h3>${escapeHtml(question.question || "Turn the judgement into challenge")}</h3><p>${escapeHtml(question.evidence || "Use the current question and the evergreen library to ask for evidence rather than reassurance.")}</p></a>
+            <a class="brief-card" href="/regulatory-horizon/"><p class="meta">Next decision point</p><h3>${escapeHtml(deadlineTitle)}</h3><p>${escapeHtml(deadlineCopy)}</p></a>
+          </div>
+          <div class="button-row"><a class="button secondary light" href="/brief/">Read the full brief</a><a class="button secondary light" href="/signals/">Explore the signal library</a></div>
+        </section>
+        <!-- home-current:end -->`;
+    let html = read(homeFile)
+      .replace(/<h1>[\s\S]*?<\/h1>/, `<h1>${escapeHtml(editionRecord.title)}</h1>`)
+      .replace(/<p class="hero-copy">[\s\S]*?<\/p>/, `<p class="hero-copy">${escapeHtml(editionRecord.mainJudgement || "What changed. Why it matters. What to ask for next — ready for Monday.")}</p>`)
+      .replace(/<!-- home-current:start -->[\s\S]*?<!-- home-current:end -->/, bridge);
+    write(homeFile, html);
+  }
+
+  const committeeFile = path.join(out, "committee-questions", "index.html");
+  if (fs.existsSync(committeeFile)) {
+    const content = `<div class="section-heading"><div><p class="eyebrow">This week’s question</p><h2>What should the committee ask for now?</h2></div><p>A current question gives the library a live entry point. The rest of the page stays useful beyond this week’s news cycle.</p></div><article class="committee-question-card featured-question"><p class="meta">${escapeHtml(question.domain || "Current edition")}</p><h3>${escapeHtml(question.question || "Ask for the current decision, owner and evidence.")}</h3><dl><div><dt>Why ask now</dt><dd>${escapeHtml(question.why || "The current edition identifies a live operating decision.")}</dd></div><div><dt>Evidence to request</dt><dd>${escapeHtml(question.evidence || "Ask for a dated decision trail and supporting evidence.")}</dd></div></dl><div class="source-row">${committeeQuestionLinks(question)}</div></article>`;
+    write(committeeFile, replaceElementContent(read(committeeFile), "section", "committee-current-question", content));
+  }
 }
 
 function validatePromotionSummary(failures) {
@@ -1485,11 +1544,15 @@ function renderHorizonActionLanes(horizonData) {
     prepare: { label: "Prepare", intro: "Translate the signal into an applicability and implementation view." },
     monitor: { label: "Monitor", intro: "Keep the evidence in view while the position develops." },
   };
-  return Object.entries(definitions).map(([lane, definition]) => {
+  const populated = Object.entries(definitions).filter(([lane]) =>
+    (horizonData.signals || []).some((signal) => signal.lane === lane),
+  );
+  if (!populated.length) {
+    return `<article class="horizon-lane horizon-lane-monitor"><p class="eyebrow">Monitor</p><h3>No reviewed action is published this week</h3><p>Use the dated archive and continue to watch the established source set.</p></article>`;
+  }
+  return populated.map(([lane, definition]) => {
     const items = (horizonData.signals || []).filter((signal) => signal.lane === lane);
-    const rows = items.length
-      ? `<ol>${items.map((signal) => `<li><a href="${escapeHtml(signal.url)}">${escapeHtml(signal.title)}</a><span>${escapeHtml(signal.editorial?.action || "Review the latest evidence and confirm the next owner step.")}</span></li>`).join("")}</ol>`
-      : `<p class="horizon-lane-empty">No reviewed signal is in this lane this week.</p>`;
+    const rows = `<ol>${items.map((signal) => `<li><a href="${escapeHtml(signal.url)}">${escapeHtml(signal.title)}</a><span>${escapeHtml(signal.editorial?.action || "Review the latest evidence and confirm the next owner step.")}</span></li>`).join("")}</ol>`;
     return `<article class="horizon-lane horizon-lane-${lane}"><p class="eyebrow">${definition.label}</p><h3>${definition.intro}</h3>${rows}</article>`;
   }).join("");
 }
@@ -1514,6 +1577,22 @@ function renderFreshnessTicks(retainedCount) {
 function replaceElementContent(html, tag, id, content) {
   const pattern = new RegExp(`(<${tag}[^>]*\\bid="${id}"[^>]*>)[\\s\\S]*?(</${tag}>)`);
   return html.replace(pattern, `$1\n          ${content}\n        $2`);
+}
+
+function removeSectionById(html, id) {
+  const pattern = new RegExp(`<section\\b[^>]*\\bid="${id}"[^>]*>[\\s\\S]*?<\\/section>\\s*`, "g");
+  return html.replace(pattern, "");
+}
+
+function renderHorizonDecisionDashboard(horizonData) {
+  const signals = horizonData.signals || [];
+  const deadlines = horizonData.horizon || [];
+  const sourceCount = new Set(signals.map((signal) => signal.source).filter(Boolean)).size;
+  const firstDeadline = deadlines[0];
+  if (horizonData.status !== "published") {
+    return `<article><p class="meta">Publication status</p><strong>Held</strong><span>Use the last reviewed edition while the next scan is assessed.</span></article><article><p class="meta">Current decision</p><strong>Monitor</strong><span>No new regulatory action is being presented as reviewed intelligence.</span></article><article><p class="meta">Record</p><strong>Archive</strong><span>The dated source record remains available for governance review.</span></article>`;
+  }
+  return `<article><p class="meta">Reviewed decisions</p><strong>${escapeHtml(String(signals.length))}</strong><span>Only source-backed items with a clear operating posture are shown.</span></article><article><p class="meta">Next owner decision</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "No reviewed future deadline in this edition.")}</span></article><article><p class="meta">Coverage context</p><strong>${escapeHtml(`${sourceCount} source${sourceCount === 1 ? "" : "s"}`)}</strong><span>${escapeHtml(horizonData.editorialReview?.coverageCaveat || "Coverage is stated before any whole-market conclusion is drawn.")}</span></article>`;
 }
 
 function assessPublisherWarnings(horizonData) {
@@ -1580,7 +1659,7 @@ function applyLiveEditionContent(out, horizonData) {
   updated = replaceElementContent(updated, "div", "horizon-freshness-status", renderHorizonFreshnessStatus(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-coverage-banner", renderHorizonCoverageBanner(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-bottom-line", `<p>${escapeHtml(horizonData.bottomLine || "")}</p>`);
-  updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDashboard(horizonData));
+  updated = replaceElementContent(updated, "div", "horizon-dashboard", renderHorizonDecisionDashboard(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-lanes", renderHorizonActionLanes(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-rolling-coverage", renderHorizonRollingCoverage(horizonData));
   updated = replaceElementContent(updated, "section", "horizon-operating-readout", renderHorizonOperatingReadout(horizonData));
@@ -1619,6 +1698,20 @@ function applyLiveEditionContent(out, horizonData) {
     "horizon-coverage-notes",
     `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" ") || "Source health checks passed for the current run.")}</p><p class="coverage-funnel"><strong>Funnel:</strong> ${escapeHtml(`${horizonData.runMetrics?.funnel?.candidateItems ?? 0} recent candidates from ${(horizonData.sourceHealth || []).filter((source) => source.candidateItems > 0).length} authorities; ${horizonData.runMetrics?.funnel?.materialItems ?? 0} cleared materiality; ${horizonData.kpis?.material ?? 0} published after editorial clustering.`)}</p>`,
   );
+  for (const id of [
+    "horizon-review-queue",
+    "horizon-trend",
+    "horizon-operating-readout",
+    "horizon-rolling-coverage-section",
+    "horizon-material-signals",
+    "horizon-source-coverage",
+    "horizon-watch-themes-section",
+    "horizon-read-across",
+    "horizon-governance-questions",
+  ]) updated = removeSectionById(updated, id);
+  updated = updated
+    .replace(/\s*<script src="\.\.\/horizon-date-status\.js"><\/script>/g, "")
+    .replace(/\s*<script src="horizon-render\.js"><\/script>/g, "");
   if (updated !== html) write(file, updated);
 }
 
@@ -2190,6 +2283,19 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     assert(entry.date > horizonData.edition, `Reg Horizon deadline ${entry.date} must be after edition ${horizonData.edition}`, failures);
   }
 
+  const editionRecord = readJson(EDITION_INPUT);
+  const homePage = read(path.join(out, "index.html"));
+  const briefPage = read(path.join(out, "brief", "index.html"));
+  const committeePage = read(path.join(out, "committee-questions", "index.html"));
+  assert(homePage.includes(editionRecord.title), "Homepage H1 must match the current edition title", failures);
+  assert(homePage.includes(editionRecord.mainJudgement), "Homepage hero copy must match the current edition judgement", failures);
+  assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
+  assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
+  assert(committeePage.includes(editionRecord.committeeQuestion?.question || ""), "Committee Questions must include the current edition question", failures);
+  assert(horizonPage.includes(`Edition / ${formatDateLong(horizonData.edition)}`), "Reg Horizon must show its reviewed edition date", failures);
+  assert(!/Items awaiting confidence review|Additional items for analyst triage|Top 5 now\. Additional rows/.test(horizonPage), "Reg Horizon must not expose internal review scaffolding or duplicate signal lists", failures);
+  assert(!horizonPage.includes("horizon-render.js"), "Reg Horizon must render its current edition without client-side data loading", failures);
+
   const signals = readJson(path.join(out, "data", "signals.json"));
   const signalsLatest = path.join(out, "signals", "latest.json");
   assert(fs.existsSync(signalsLatest), "Signals latest.json missing", failures);
@@ -2271,6 +2377,7 @@ function main() {
   renderCanonicalTopSignals(options.out, editionRecord);
   renderHomepageJudgement(options.out, editionRecord);
   applyLiveEditionContent(options.out, horizonData);
+  renderCurrentEditionExperience(options.out, editionRecord, horizonData);
   generateCurrentHorizonArchive(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to

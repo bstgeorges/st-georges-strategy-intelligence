@@ -1958,6 +1958,50 @@ a.tag:hover {
   font-weight: 600;
 }
 
+.home-current {
+  position: relative;
+  border-top: 1px solid var(--rule);
+}
+
+.home-current::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(180px, 22%);
+  height: 3px;
+  background: var(--accent);
+  content: "";
+}
+
+.home-current-grid .brief-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-current-grid .brief-card h3 {
+  max-width: 24ch;
+}
+
+.committee-current {
+  padding-top: clamp(46px, 6vw, 80px);
+  border-top: 3px solid var(--accent);
+}
+
+.committee-current .committee-question-card {
+  max-width: 1040px;
+  background: linear-gradient(135deg, rgba(160, 126, 46, 0.1), var(--paper-raised) 42%);
+}
+
+#horizon-current-edition .horizon-dashboard {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#horizon-current-edition .horizon-dashboard article:last-child strong {
+  color: var(--accent-readable);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

@@ -96,7 +96,9 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
-const TOP5_MAX_AGE_DAYS = 60;
+// A retained signal can remain in the current Top 5 when its control implication
+// is still live; the weekly editorial review remains the publication gate.
+const TOP5_MAX_AGE_DAYS = 90;
 const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const REG_HORIZON_ADDITIONAL_COUNT = 5;
@@ -609,7 +611,6 @@ function writeReleaseMetadata(out, releaseId, edition, editionRecord, signalsDat
     "sitemap.xml",
   ];
   const freshness = buildProductFreshness(editionRecord, signalsData, horizonData, out);
-  injectSiteFreshness(out, releaseId, freshness);
   const metadata = {
     contractVersion: "site.release.v2",
     release: releaseId,

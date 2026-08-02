@@ -261,10 +261,7 @@ function main() {
   for (const [, relative] of routes) {
     if (relative.includes("archive/")) continue;
     const page = read(relative);
-    const freshnessStrip = (page.match(/<aside class="site-freshness"[^>]*>[\s\S]*?<\/aside>/) || [""])[0];
-    assert(page.includes('class="site-freshness"'), `${relative} missing shared publication freshness strip`, failures);
-    assert(page.includes("22 Jul 2026") && page.includes("1 Aug 2026"), `${relative} freshness dates must use the long display format`, failures);
-    assert(!freshnessStrip.includes("Publication status · 2026-") && !/<strong>2026-\d{2}-\d{2}<\/strong>/.test(freshnessStrip), `${relative} freshness strip must not display ISO dates`, failures);
+    assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
   assert(signalsHub.includes("Financial Times") && signalsHub.includes("arXiv"), "Signals hub missing radar source mix", failures);
@@ -273,7 +270,7 @@ function main() {
   assert(horizonPage.includes("source-tier-pilot"), "Reg Horizon source tiers missing pilot/watch treatment", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
   assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
-  assert(signalsHub.includes("Signals / Edition 22 Jul 2026"), "Signals page edition label must use the long display format", failures);
+  assert(signalsHub.includes("Signals / Edition 2 Aug 2026"), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
   if (horizon.status === "withheld") {
@@ -294,7 +291,7 @@ function main() {
   assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
   assert(horizonPage.includes("Edition / 1 Aug 2026"), "Reg Horizon page edition label must use the long display format", failures);
   assert(horizonPage.includes('id="horizon-masthead-edition">Edition / 1 Aug 2026'), "Reg Horizon masthead is missing its edition date", failures);
-  assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 22 Jul 2026'), "Committee Questions masthead is missing its edition date", failures);
+  assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 2 Aug 2026'), "Committee Questions masthead is missing its edition date", failures);
   assert(horizonPage.includes("Comparative risk radar"), "Reg Horizon page missing comparative risk radar", failures);
   assert(horizonPage.includes("7 days") && horizonPage.includes("30 days") && horizonPage.includes("90 days"), "Reg Horizon risk radar missing 7/30/90 action horizon", failures);
   assert(horizonPage.includes("Source coverage trend"), "Reg Horizon page missing source coverage trend", failures);

@@ -1,6 +1,6 @@
 # Source Expansion Plan
 
-This plan expands the source base for the Wednesday Intelligence and AI Signals refresh.
+This plan expands the source base for the Sunday Intelligence and AI Signals refresh, ready for Monday distribution.
 
 ## Goal
 
@@ -24,7 +24,7 @@ Regulatory, legal, prudential, enforcement, deadline, and official policy claims
 
 ## Weekly Source Sweep
 
-Use the registry to cover these lanes every Wednesday:
+Use the registry to cover these lanes every Sunday:
 
 | Lane | Minimum coverage | Examples |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Do not include an item when:
 ## Expansion Backlog
 
 - Add RSS/feed URLs where available.
-- Add per-source fetch URLs and fallback search queries for the Wednesday packet.
+- Add per-source fetch URLs and fallback search queries for the Sunday packet.
 - Add source freshness checks for links cited in the live HTML.
 - Add a source diversity check so each refresh does not over-rely on one publication.
 - Add a watchlist for newsletters and podcasts only after they can be cited cleanly.

@@ -28,7 +28,9 @@ const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const DEFAULT_RETENTION_DAYS = 90;
 const EXTENDED_RETENTION_DAYS = 180;
-const TOP5_MAX_AGE_DAYS = 60;
+// Keep a wider window for retained control signals; editorial review decides
+// whether an older item still materially changes a live decision.
+const TOP5_MAX_AGE_DAYS = 90;
 const REQUIRED_EVIDENCE_FIELDS = [
   "sourceTitle",
   "organisation",

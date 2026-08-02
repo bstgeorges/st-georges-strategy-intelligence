@@ -61,7 +61,7 @@ Pass conditions:
 - PAT or Docker credential issue is fixed.
 - Publisher can commit and push generated data or content files.
 - A dry run proves that `latest.json`, `signals.json`, or the equivalent live input files can be updated without manual copy/paste. Status: local mockup dry run now generates `data/signals.json`; production live-data refresh still needs proof.
-- The recurring run is aligned to the Wednesday weekly site update window: Reg Horizon scan first, editorial review second, generated public pages third.
+- The recurring run is aligned to the Sunday weekly site update window: Reg Horizon scan first, editorial review second, generated public pages third.
 - Weekly refresh reaches every new public route: `/`, `/brief/`, `/signals/`, `/signals/ai/`, `/signals/resilience/`, `/signals/third-party/`, `/signals/market-structure/`, `/signals/financial-crime/`, `/signals/cyber/`, `/signals/technology-failure/`, `/signals/data/`, `/regulatory-horizon/`, `/archive/`, and `/about/` where applicable. Status: `npm run site:build` proves this locally from the site source.
 - The rendering pattern is decided once for Signals and Reg Horizon. Current decision: build-time generated HTML from JSON, with JSON retained as the source contract and optional client-side enhancement.
 - Failure mode is documented so go-live does not depend on one local machine state.
@@ -81,7 +81,7 @@ Pass conditions:
 - Pending scraper backlog is recorded separately from the public page.
 - Pipeline counters reconcile after any gate or source change.
 - The public page continues to avoid KPI tiles and pipeline-evidence sections.
-- Remaining production requirement: prove the same live run and commit/push flow in the repo-level recurring Wednesday GitHub Actions workflow.
+- Remaining production requirement: prove the same live run and commit/push flow in the repo-level recurring Sunday GitHub Actions workflow.
 
 ### Gate D: Site Identity And URL Decision
 
@@ -189,7 +189,7 @@ The weekly brief is now the strongest page. All eight signal streams now have to
 - Maintain the live Gate A score in `MIGRATION_READINESS_SCORECARD.md`.
 - Convert every remaining `No` or `Needs review` into a concrete content or QA task.
 - Resolve the GitHub/PAT/Docker publisher write-access issue in parallel.
-- Complete the remaining Gate C production requirement: recurring Wednesday live run and commit/push through the intended automation environment.
+- Complete the remaining Gate C production requirement: recurring Sunday live run and commit/push through the intended automation environment.
 - Horizon now has a mockup renderer that can consume the regulatory scan `latest.json`; production rendering pattern is decided as build-time generated HTML with JSON retained as the source contract.
 - Decide how financial crime, cyber, technology failure, and data refresh from source data rather than remaining static mockup pages.
 - Check the information density against the current intelligence homepage before any production route changes.
@@ -261,7 +261,7 @@ The local dry run now proves the route, archive, sitemap, redirect, header, and 
 
 Run cadence:
 
-- Wednesday is the weekly evidence and publication day.
+- Sunday is the weekly evidence and publication day, ready for Monday LinkedIn distribution.
 - Reg Horizon should run first, so `latest.json`, feed, calendar, and archive outputs are available before the brief and topic pages are generated.
 - Editorial review then confirms the consolidated Top 5, exclusions, caveats, and any cross-topic judgement.
 - The site publisher runs last and updates the root-level routes and archives together.

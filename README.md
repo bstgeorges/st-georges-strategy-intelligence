@@ -9,7 +9,7 @@ Starter framework and mock-up for designing a Virtual Operational Risk Officer f
 - `docs/persona-operational-risk-officer.md` - draft persona and operating principles.
 - `docs/task-catalogue.md` - initial task inventory for an Operational Risk officer.
 - `docs/scheduled-intelligence-cadence.md` - consolidated financial services intelligence schedule.
-- `docs/weekly-refresh-workflow.md` - Wednesday refresh workflow for Intelligence and AI Signals.
+- `docs/weekly-refresh-workflow.md` - Sunday refresh workflow for Intelligence and AI Signals, ready for Monday LinkedIn distribution.
 - `docs/weekly-refresh-packet-template.md` - weekly source packet and draft template.
 - `docs/source-expansion-plan.md` - source coverage model and signal-quality tests.
 - `docs/source-intake-gates.md` - candidate source scoring and promotion process.

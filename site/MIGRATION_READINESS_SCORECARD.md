@@ -12,7 +12,7 @@ This scorecard applies Gate A from `MIGRATION_PLAN.md`. A page is migration-read
 | Author byline and disclaimer | Yes | All mockup footers now include the Ben St Georges author context and the sector-wide illustrative / not investment, legal, compliance, or regulatory advice disclaimer. |
 | Site identity / root-domain decision | Working decision | Option 1 is selected for the mockup and staging plan: root-level tabs at `/`, `/brief/`, `/signals/`, `/regulatory-horizon/`, `/archive/`, and `/about/`. Production cutover still requires redirect, analytics, and staging QA approval. |
 | Rendering pattern | Yes | Decision recorded in `WEEKLY_PUBLISHER_CONTRACT.md`: production should use build-time generated HTML, with JSON retained as source contract and optional enhancement. |
-| Weekly refresh coverage | Partial | Required outputs and the Wednesday scan/publish cadence are specified in `WEEKLY_PUBLISHER_CONTRACT.md`. `npm run site:build` now proves a generated build with routes, archives, `signals.json`, feed/calendar files, sitemap, headers, redirects, and a publish report. Signals rows now render from `site/data/signals.json`. Production still needs live-data generation plus commit/push. |
+| Weekly refresh coverage | Partial | Required outputs and the Sunday scan/publish cadence are specified in `WEEKLY_PUBLISHER_CONTRACT.md`. `npm run site:build` now proves a generated build with routes, archives, `signals.json`, feed/calendar files, sitemap, headers, redirects, and a publish report. Signals rows now render from `site/data/signals.json`. Production still needs live-data generation plus commit/push. |
 
 ## Weekly Brief
 
@@ -209,7 +209,7 @@ Publisher/data pipeline readiness is partially specified and locally dry-run, bu
 - Still required: dry-run an update from live `latest.json`, `signals.json`, or equivalent live input files.
 - Still required: prove weekly refresh writes all required new routes in the production publisher: home, brief, Signals hub, eight topic streams, Reg Horizon, and archive surfaces.
 - Use the decided rendering pattern: build-time generated HTML, with JSON retained as the source contract and optional client-side enhancement.
-- Align the recurring run with the Wednesday weekly site update window: scan first, editorial review second, generated site publish third.
+- Align the recurring run with the Sunday weekly site update window: scan first, editorial review second, generated site publish third.
 - Run `npm run site:verify` before staging handoff.
 - Run `npm run site:build` before staging handoff and review `site-dist/publish-report.json`.
 - Document the failure mode and recovery path.

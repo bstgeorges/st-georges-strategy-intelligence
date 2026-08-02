@@ -1,4 +1,4 @@
-# Reg Scan Wednesday GitHub Actions Handoff
+# Reg Scan Sunday GitHub Actions Handoff
 
 Status date: 2026-07-05
 
@@ -19,14 +19,14 @@ npm run horizon:refresh
 
 ## Required Workflow Shape
 
-Use Wednesday as the evidence refresh day, before the site publisher runs.
+Use Sunday as the evidence refresh day, before the site publisher runs, so the approved edition is ready for Monday distribution.
 
 ```yaml
 name: weekly-scan
 
 on:
   schedule:
-    - cron: "0 6 * * 3"   # 06:00 UTC Wednesdays
+    - cron: "0 6 * * 0"   # 06:00 UTC Sundays
   workflow_dispatch:
 
 permissions:
@@ -74,4 +74,4 @@ jobs:
 
 ## Cutover Dependency
 
-The migration remains blocked until the repo-level workflow has completed at least one Wednesday run in GitHub Actions and pushed updated `tools/reg-scan/docs/`, `tools/reg-scan/state/scan.db`, and synced site artifacts.
+The migration remains blocked until the repo-level workflow has completed at least one Sunday run in GitHub Actions and pushed updated `tools/reg-scan/docs/`, `tools/reg-scan/state/scan.db`, and synced site artifacts.

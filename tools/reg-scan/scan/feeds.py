@@ -407,7 +407,7 @@ SOURCE_FILTERS = {
 # Signal production, cyber monitoring, AI labs, trade press and research feeds have
 # their own pipelines and must never compete with regulatory instruments here.
 REGULATORY_SOURCE_IDS = {
-    "uk-fca", "uk-fca-enforcement-notices", "uk-boe-pra", "ofsi",
+    "uk-fca", "uk-fca-enforcement-notices", "uk-boe-pra", "ofsi", "uk-nca",
     "ecb-supervision", "eba", "esma", "eiopa", "bis", "fsb", "fatf",
     "sec", "cftc", "fincen-enforcement", "nist-ai-rmf",
     "finma", "japan-fsa", "hkma",

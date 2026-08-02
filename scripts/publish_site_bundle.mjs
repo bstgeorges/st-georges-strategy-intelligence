@@ -1544,7 +1544,7 @@ function applyLiveEditionContent(out, horizonData) {
     updated,
     "div",
     "horizon-coverage-notes",
-    `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" "))}</p>`,
+    `<p>${escapeHtml((horizonData.warnings || []).map((warning) => warning.message || warning.type).join(" ") || "Source health checks passed for the current run.")}</p><p class="coverage-funnel"><strong>Funnel:</strong> ${escapeHtml(`${horizonData.runMetrics?.funnel?.candidateItems ?? 0} recent candidates from ${(horizonData.sourceHealth || []).filter((source) => source.candidateItems > 0).length} authorities; ${horizonData.runMetrics?.funnel?.materialItems ?? 0} cleared materiality; ${horizonData.kpis?.material ?? 0} published after editorial clustering.`)}</p>`,
   );
   if (updated !== html) write(file, updated);
 }
@@ -1576,7 +1576,8 @@ function renderHorizonTrend(data) {
   const latest = trend[trend.length - 1];
   const previous = trend[trend.length - 2];
   const delta = previous ? (latest.materialSignals || 0) - (previous.materialSignals || 0) : 0;
-  return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article>`;
+  const history = trend.slice(-4).map((run) => `<li><strong>${escapeHtml(run.edition || "")}</strong><span>${escapeHtml(String(run.materialSignals || 0))} material · ${escapeHtml(String(run.deadlines || 0))} deadlines</span></li>`).join("");
+  return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article><article class="card trend-history"><p class="meta">Recent editions</p><ul>${history}</ul></article>`;
 }
 
 function generateCurrentHorizonArchive(out, horizonData) {

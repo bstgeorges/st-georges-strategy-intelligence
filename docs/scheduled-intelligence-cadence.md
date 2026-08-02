@@ -16,7 +16,7 @@ Project Virtual Officer scheduled intelligence is now framed for financial servi
 | Financial Services Control Lessons Digest | Wed 07:35 | Operational resilience, cyber, third-party, AI, conduct, and financial crime lessons | Practical control-owner questions |
 | Financial Services Content Engine | Mon 18:00 | Ideas for posts, articles, internal notes, client conversations, and speaking points | Useful thought leadership, not employer-specific positioning |
 | Financial Services Thought Leadership Radar | Sat 09:00 | Timely angles and source hooks for the week ahead | Public-facing perspectives for a professional network |
-| Weekly Public Refresh | After the Wednesday scan PR is reviewed and merged | Refresh the Intelligence and AI Signals editions, archive the previous live pages, and run QA | Public website refresh using source-backed editorial judgement |
+| Weekly Public Refresh | After the Sunday scan PR is reviewed and merged | Refresh the Intelligence and AI Signals editions, archive the previous live pages, and run QA | Public website refresh using source-backed editorial judgement, ready for Monday LinkedIn distribution |
 
 ## Delivery Rules
 
@@ -45,4 +45,4 @@ Project Virtual Officer scheduled intelligence is now framed for financial servi
 - `Control Lessons Digest` starts from enforcement and incident primary sources, including FCA enforcement notices, FinCEN, OFAC, AMF sanctions, ECB sanctions, ESA DORA publications, and official incident statements. ORX, FT, Reuters, Bloomberg, Regulation Tomorrow, Sidley, and A&O Shearman are corroboration or interpretation sources, not lead citations for obligations.
 - `AI Signals` starts from Anthropic, OpenAI, Google DeepMind, Meta AI, Mistral, and xAI for model releases; TechCrunch, The Verge, and Ars Technica AI sections for industry news; Epoch AI, LMArena/Arena, and Stanford HAI AI Index for capability data; EU AI Act tracker and NIST AI RMF for governance overlap; and Import AI/The Batch as weekly curated sweeps that must be traced back to primary sources.
 - The dashboard should remain read-only for external viewers. Editing, publishing, and credential handling should stay in the private workspace or hosting pipeline.
-- The Wednesday public refresh workflow lives in `docs/weekly-refresh-workflow.md`; use `docs/weekly-refresh-packet-template.md` for the source packet and `npm run refresh:preflight -- --date YYYY-MM-DD` before deployment.
+- The Sunday public refresh workflow lives in `docs/weekly-refresh-workflow.md`; use `docs/weekly-refresh-packet-template.md` for the source packet and `npm run refresh:preflight -- --date YYYY-MM-DD` before deployment.

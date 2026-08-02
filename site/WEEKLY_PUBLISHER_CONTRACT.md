@@ -29,7 +29,7 @@ The publisher should read:
 
 ## Weekly Cadence
 
-Target cadence: run the Reg Horizon scan on Wednesday in the same working window as the weekly site update.
+Target cadence: run the Reg Horizon scan on Sunday in the same working window as the weekly site update, so the approved edition is ready for Monday LinkedIn distribution.
 
 Recommended sequence:
 
@@ -40,7 +40,7 @@ Recommended sequence:
 5. Run pre-publish checks and responsive QA.
 6. Commit and publish only after the generated site passes the migration verifier and canonical release workflow.
 
-The scan should not publish directly to the public site without the editorial/site generation step. The Wednesday run is the evidence refresh; the site publisher is the release step.
+The scan should not publish directly to the public site without the editorial/site generation step. The Sunday run is the evidence refresh; the site publisher is the release step.
 
 ## Weekly Outputs
 
@@ -114,5 +114,5 @@ Still not proven:
 
 - The production publisher can generate all root-level pages from live data inputs rather than the site source.
 - The production publisher can commit and push those generated outputs.
-- The repo-level Wednesday GitHub Actions workflow has been added at `.github/workflows/reg-scan-weekly.yml`; it still needs to run once successfully in GitHub and push the resulting scan/site artifacts.
+- The repo-level Sunday GitHub Actions workflow has been added at `.github/workflows/reg-scan-weekly.yml`; it still needs to run once successfully in GitHub and push the resulting scan/site artifacts.
 - The staging preview still needs a deploy with the real `CF_WEB_ANALYTICS_TOKEN` before analytics continuity passes.

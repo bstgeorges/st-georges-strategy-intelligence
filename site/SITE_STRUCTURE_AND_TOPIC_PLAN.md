@@ -138,7 +138,7 @@ Each topic page should publish:
 
 Recommended rendering model: build-time generated HTML, with JSON files preserved as evidence contracts and optional client-side enhancement only where useful.
 
-Operating cadence: Wednesday is the combined Reg Horizon scan and site update day. The scan should run before the brief/topic generation, so the weekly issue can absorb fresh horizon items before publication.
+Operating cadence: Sunday is the combined Reg Horizon scan and site update day. The scan should run before the brief/topic generation, so the approved weekly issue is ready for Monday LinkedIn distribution.
 
 Each weekly run should produce or update:
 

@@ -155,7 +155,7 @@ Cannot do alone:
 
 Before publication:
 
-- Run Reg Horizon first in the Wednesday weekly update window, then use its approved outputs as inputs to the brief, topic pages, and archive.
+- Run Reg Horizon first in the Sunday weekly update window, then use its approved outputs as inputs to the brief, topic pages, and archive.
 - Primary-source claims have primary links.
 - Press-only items are labelled as monitoring or market colour.
 - No source URL is dead.
@@ -203,4 +203,4 @@ Phase 3: production
   - archived weekly brief
   - archived topic pages
 - Editorial override file records inclusions, exclusions, ranking changes, and source caveats.
-- Wednesday cadence is the default operating rhythm: scan, review, generate, verify, then publish in one controlled weekly window.
+- Sunday cadence is the default operating rhythm: scan, review, generate, verify, then publish in one controlled weekly window before Monday LinkedIn distribution.

@@ -151,6 +151,7 @@ FEED_MAP = {
 # link and date selectors are evaluated within it. Multiple selectors allow the
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
+    "ico": [{"url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/", "item_selectors": ["article", ".card", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "uk-fca-regulatory-initiatives-grid": [{"url": "https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid", "request_profile": "browser", "item_selectors": ["article", ".search-item", ".card", ".document"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "ecb-ssm-newsletter": [{"url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
     "ecb-supervisory-priorities": [{"url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
@@ -419,7 +420,7 @@ REGULATORY_SOURCE_IDS = {
     "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "ofsi", "uk-nca",
     "ecb-supervision", "ecb-ssm-newsletter", "ecb-supervisory-priorities", "ecb-supervision-sanctions", "eba", "esma", "eiopa", "bis", "bcbs", "iosco", "fsb", "fatf",
     "sec", "cftc", "fincen-enforcement", "ofac-recent-actions", "nist-ai-rmf",
-    "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank",
+    "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank", "ico",
     "apra", "asic", "osfi", "mas", "india-sebi", "korea-fsc", "brazil-cvm", "fr-amf",
     "spain-cnmv", "ireland-cbi", "adgm-fsra",
     "de-bafin", "dubai-dfsa",

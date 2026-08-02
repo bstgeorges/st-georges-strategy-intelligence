@@ -13,6 +13,7 @@ const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
+const NEWS_RESEARCH_RADAR_INPUT = path.join(ROOT, "dashboard", "data", "news-research-radar.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
@@ -1539,6 +1540,7 @@ function applyLiveEditionContent(out, horizonData) {
   updated = replaceElementContent(updated, "div", "horizon-watch-themes", renderHorizonThemeCards(signals));
   updated = replaceElementContent(updated, "div", "horizon-evidence-files", renderHorizonEvidenceFiles(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-review-items", renderHorizonReviewQueue(horizonData.reviewQueue || []));
+  updated = replaceElementContent(updated, "div", "horizon-candidate-review", renderHorizonCandidateReview(horizonData.candidateReview || []));
   updated = replaceElementContent(updated, "div", "horizon-trend-items", renderHorizonTrend(horizonData));
   updated = replaceElementContent(
     updated,
@@ -1568,6 +1570,10 @@ function renderHorizonFreshnessStatus(horizonData) {
 function renderHorizonReviewQueue(entries) {
   if (!entries.length) return '<article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article>';
   return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(String(item.confidence?.score || ""))}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source_name || item.source_id || "Official source")}</span></article>`).join("");
+}
+function renderHorizonCandidateReview(entries) {
+  if (!entries.length) return "";
+  return `<div class="review-subheading"><p class="eyebrow">Near-threshold candidates</p><h3>Additional items for analyst triage</h3></div>` + entries.slice(0, 8).map((item) => `<article class="review-item"><div><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml((item.recommendedActions || []).join(" · "))}</p></div><span class="meta">${escapeHtml(item.source || "Source")} · ${escapeHtml(String(item.score || ""))}</span></article>`).join("");
 }
 
 function renderHorizonTrend(data) {
@@ -1830,6 +1836,7 @@ function renderSignalDecisionFramework(out, signalsData) {
 function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const file = path.join(out, "signals", "index.html");
   let html = read(file);
+  const radar = fs.existsSync(NEWS_RESEARCH_RADAR_INPUT) ? readJson(NEWS_RESEARCH_RADAR_INPUT) : { sources: [], currentEvidence: [] };
   const topicCards = signalsData.topics
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
@@ -1874,6 +1881,19 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
         </div>
         <div class="signal-overview-grid">
           ${topicCards}
+        </div>
+      </section>
+
+      <section class="band news-research-radar" id="news-research-radar">
+        <div class="section-heading">
+          <div><p class="eyebrow">News and research radar</p><h2>Context, corroboration, and the paper behind the claim</h2></div>
+          <p>Press helps us find and interpret developments; research helps us test them. Neither is silently treated as regulatory authority when a primary source is available.</p>
+        </div>
+        <div class="radar-source-grid">
+          ${(radar.sources || []).map((source) => `<article class="radar-source radar-source-${escapeHtml(source.tier)}"><p class="meta">${escapeHtml(source.tier)}${source.automated ? " / automated" : " / manual"}</p><h3>${escapeHtml(source.label)}</h3><p>${escapeHtml(source.role)}</p><span>${escapeHtml(source.access)}</span></article>`).join("\n          ")}
+        </div>
+        <div class="radar-evidence-grid">
+          ${(radar.currentEvidence || []).map((item) => `<a class="radar-evidence" href="${escapeHtml(item.url)}"><p class="meta">${escapeHtml(item.topic)} / ${escapeHtml(item.source)} / ${escapeHtml(item.status)}</p><h3>${escapeHtml(item.title)}</h3><span>${escapeHtml(item.tier)} evidence lane</span></a>`).join("\n          ")}
         </div>
       </section>
       <!-- publisher-lock:end:signals-editorial -->

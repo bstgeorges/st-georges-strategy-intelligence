@@ -95,6 +95,10 @@
     if (!entries.length) return '<article class="review-empty"><p class="eyebrow">Clear</p><h3>No items awaiting review</h3><p>This edition has no unresolved medium-confidence signals.</p></article>';
     return entries.map((item) => `<article class="review-item"><div><p class="eyebrow">Medium confidence · ${escapeHtml(item.confidence?.score || "")}</p><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>Review classification, deadline evidence, and business impact before publication.</p></div><span class="meta">${escapeHtml(item.source || "Official source")}</span></article>`).join("");
   }
+  function renderCandidateReview(entries) {
+    if (!entries.length) return "";
+    return `<div class="review-subheading"><p class="eyebrow">Near-threshold candidates</p><h3>Additional items for analyst triage</h3></div>` + entries.slice(0, 8).map((item) => `<article class="review-item"><div><h3><a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml((item.recommendedActions || []).join(" · "))}</p></div><span class="meta">${escapeHtml(item.source || "Source")} · ${escapeHtml(String(item.score || ""))}</span></article>`).join("");
+  }
 
   function renderTrend(data) {
     const trend = data.trend || [];
@@ -184,6 +188,7 @@
     const materialTop5 = document.getElementById("horizon-material-top5");
     const materialAdditional = document.getElementById("horizon-material-additional");
     const reviewItems = document.getElementById("horizon-review-items");
+    const candidateReview = document.getElementById("horizon-candidate-review");
     const trendItems = document.getElementById("horizon-trend-items");
     const themes = document.getElementById("horizon-watch-themes");
     const evidence = document.getElementById("horizon-evidence-files");
@@ -211,6 +216,7 @@
       ? additional.map((item, index) => renderSignal(item, index + 5)).join("")
       : "<li class=\"horizon-empty\"><div><p class=\"eyebrow\">No additional rows</p><h3>The wider source universe was reviewed, but no further items met the materiality threshold.</h3><p>Continue monitoring approved sources; this is an intentional empty state, not a missing scan.</p></div></li>";
     if (reviewItems) reviewItems.innerHTML = renderReviewQueue(data.reviewQueue || []);
+    if (candidateReview) candidateReview.innerHTML = renderCandidateReview(data.candidateReview || []);
     if (trendItems) trendItems.innerHTML = renderTrend(data);
     }
     if (themes) {

@@ -1,72 +1,12 @@
 {
   "version": "2026-07-18",
-  "generatedAt": "2026-08-02T15:35:00.018Z",
+  "generatedAt": "2026-08-02T16:07:11.810Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
     {
       "id": "ai",
       "candidates": [
-        {
-          "id": "47fb1c35deeeb68f",
-          "topicId": "ai",
-          "title": "Project Pilot: Can AI models fly drones?",
-          "url": "https://www.anthropic.com/research/project-pilot",
-          "publishedAt": "2026-07-24T15:38:58.000Z",
-          "sourceRegistryId": "anthropic",
-          "sourceName": "Anthropic",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "anthropic-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [
-            "ai model"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "f8ec64126bdac17b",
-          "topicId": "ai",
-          "title": "Advancing responsible AI across Europe",
-          "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
-          "publishedAt": "2026-07-31T15:00:00.000Z",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
         {
           "id": "cd88270c00622daf",
           "topicId": "ai",
@@ -95,35 +35,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8b96329aed14643e",
-          "topicId": "ai",
-          "title": "Investigating three real-world incidents in our cybersecurity evaluations",
-          "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-          "publishedAt": "2026-07-30T23:14:55.000Z",
-          "sourceRegistryId": "anthropic",
-          "sourceName": "Anthropic",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "anthropic-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         },
         {
           "id": "dca7adc62d79fe1c",
@@ -246,38 +157,6 @@
     {
       "id": "market-structure",
       "candidates": [
-        {
-          "id": "a4217c4671089d85",
-          "topicId": "market-structure",
-          "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
-          "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-          "publishedAt": "2026-07-27T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-market-bridge",
-          "sourceName": "Abu Dhabi Global Market Financial Services Regulatory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-market-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "balance-sheet",
-            "digital-money",
-            "market-plumbing"
-          ],
-          "tags": [
-            "reg-horizon",
-            "deadlines",
-            "market-structure"
-          ],
-          "matchedKeywords": [
-            "market"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 72,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
         {
           "id": "af528ea65cc6f195",
           "topicId": "market-structure",
@@ -666,74 +545,12 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "0ea5bf68b0e7424d",
-          "topicId": "third-party",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-third-party-bridge",
-          "sourceName": "European Insurance and Occupational Pensions Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-third-party-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "digital-resilience",
-            "ai-and-models",
-            "market-plumbing"
-          ],
-          "tags": [
-            "reg-horizon",
-            "third-party",
-            "dependency"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         }
       ]
     },
     {
       "id": "resilience",
       "candidates": [
-        {
-          "id": "d5aa75fe1f3a9998",
-          "topicId": "resilience",
-          "title": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
-          "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-resilience-bridge",
-          "sourceName": "Securities and Exchange Board of India",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-resilience-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "reg-horizon",
-            "resilience",
-            "impact-tolerance"
-          ],
-          "matchedKeywords": [
-            "resilience",
-            "recovery"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
         {
           "id": "78dfbcc6e97f5014",
           "topicId": "resilience",
@@ -775,74 +592,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "0ea5bf68b0e7424d",
-          "topicId": "resilience",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-resilience-bridge",
-          "sourceName": "European Insurance and Occupational Pensions Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-resilience-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "reg-horizon",
-            "resilience",
-            "impact-tolerance"
-          ],
-          "matchedKeywords": [
-            "resilience"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
-        {
-          "id": "99564d0857b39fea",
-          "topicId": "resilience",
-          "title": "Others,Publication of Analytical Report on IT Resilience in the Financial Sector",
-          "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
-          "sourceRegistryId": "japan-fsa",
-          "sourceName": "Financial Services Agency of Japan",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "japan-fsa-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "financial-regulation",
-            "supervision",
-            "technology-risk",
-            "japan"
-          ],
-          "matchedKeywords": [
-            "resilience"
-          ],
-          "titleMatchedKeywords": [
-            "resilience"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Financial Services Agency of Japan via rss ingestion and matched the topic rules."
         },
         {
           "id": "84f7e6fd6439aaf2",
@@ -898,38 +647,6 @@
       "id": "financial-crime",
       "candidates": [
         {
-          "id": "008eaacd3ce3bd04",
-          "topicId": "financial-crime",
-          "title": "Guidance: Check if an email or communication claiming to be from OFSI is genuine",
-          "url": "https://www.gov.uk/government/publications/check-if-an-email-or-communication-claiming-to-be-from-ofsi-is-genuine",
-          "publishedAt": "2026-07-24T09:32:01.000Z",
-          "sourceRegistryId": "ofsi",
-          "sourceName": "UK Office of Financial Sanctions Implementation",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "ingestSourceId": "ofsi-updates-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "sanctions",
-            "enforcement",
-            "licences",
-            "uk"
-          ],
-          "matchedKeywords": [
-            "scam",
-            "sanctions"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
-        },
-        {
           "id": "35064906f90e1e94",
           "topicId": "financial-crime",
           "title": "Campaign to protect viewers from romance fraud launched by National Crime Agency and Freeview channel Great Romance",
@@ -959,66 +676,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "bdc31e1e91e25f2a",
-          "topicId": "financial-crime",
-          "title": "CVM publica Relatório da Atividade Sancionadora do 1º trimestre de 2026",
-          "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
-          "publishedAt": "2026-07-29T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-financial-crime-bridge",
-          "sourceName": "Comissão de Valores Mobiliários",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-financial-crime-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "reg-horizon",
-            "financial-crime",
-            "sanctions"
-          ],
-          "matchedKeywords": [
-            "sanctions"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 76,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
-        {
-          "id": "5e9d690b7ea2781b",
-          "topicId": "financial-crime",
-          "title": "令和８年７月29日　FATFによる「DeFiに係る規制上の課題に関する報告書」の公表について",
-          "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
-          "publishedAt": "2026-07-29T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-financial-crime-bridge",
-          "sourceName": "Financial Action Task Force",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-financial-crime-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "reg-horizon",
-            "financial-crime",
-            "sanctions"
-          ],
-          "matchedKeywords": [
-            "sanctions"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 76,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "84919d04d9ff13ff",
@@ -1157,76 +814,6 @@
       "id": "cyber",
       "candidates": [
         {
-          "id": "635ff0da3d382dd7",
-          "topicId": "cyber",
-          "title": "When cyber attacks happen: helping organisations recover",
-          "url": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
-          "publishedAt": "2026-07-28T12:00:00.000Z",
-          "sourceRegistryId": "uk-ncsc",
-          "sourceName": "UK National Cyber Security Centre",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "ncsc-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "advisory",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 75,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "98f3a356bca73b1b",
-          "topicId": "cyber",
-          "title": "UK and partners expose Russian state-supported actors for new ‘zero-click’ phishing campaign targeting Western organisations",
-          "url": "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
-          "publishedAt": "2026-07-23T12:00:00.000Z",
-          "sourceRegistryId": "uk-ncsc",
-          "sourceName": "UK National Cyber Security Centre",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "ncsc-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "advisory",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "phishing",
-            "threat"
-          ],
-          "titleMatchedKeywords": [
-            "phishing"
-          ],
-          "summaryMatchedKeywords": [
-            "cyber",
-            "phishing",
-            "threat"
-          ],
-          "relevanceScore": 69,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "4921de5f45ed81fb",
           "topicId": "cyber",
           "title": "注意喚起: 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (更新)",
@@ -1252,36 +839,6 @@
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
           "relevanceScore": 66,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ea7fb951ef393a24",
-          "topicId": "cyber",
-          "title": "注意喚起: Ruby on RailsのActive Storageにおけるリモートコード実行につながる脆弱性（CVE-2026-66066）に関する注意喚起  (公開)",
-          "url": "https://www.jpcert.or.jp/at/2026/at260021.html",
-          "publishedAt": "2026-07-30T08:03:00.000Z",
-          "sourceRegistryId": "jpcert",
-          "sourceName": "JPCERT Coordination Center",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "jpcert-alerts-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "alerts",
-            "vulnerabilities",
-            "japan",
-            "japanese-language"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
@@ -1398,66 +955,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "0ea5bf68b0e7424d",
-          "topicId": "technology-failure",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-technology-failure-bridge",
-          "sourceName": "European Insurance and Occupational Pensions Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-technology-failure-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "reg-horizon",
-            "technology-failure",
-            "outage"
-          ],
-          "matchedKeywords": [
-            "ict"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
-        {
-          "id": "d5aa75fe1f3a9998",
-          "topicId": "technology-failure",
-          "title": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
-          "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-technology-failure-bridge",
-          "sourceName": "Securities and Exchange Board of India",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-technology-failure-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "reg-horizon",
-            "technology-failure",
-            "outage"
-          ],
-          "matchedKeywords": [
-            "recovery"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
         },
         {
           "id": "220d5078a82f2ae9",
@@ -1709,36 +1206,6 @@
           "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
         },
         {
-          "id": "0ea5bf68b0e7424d",
-          "topicId": "data",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "reg-horizon-data-bridge",
-          "sourceName": "European Insurance and Occupational Pensions Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "generated",
-          "ingestSourceId": "reg-horizon-data-bridge",
-          "fetchType": "reg_horizon_json",
-          "riskAreas": [
-            "board-accountability"
-          ],
-          "tags": [
-            "reg-horizon",
-            "data",
-            "reporting"
-          ],
-          "matchedKeywords": [
-            "governance"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from the live Reg Horizon signal set because the risk-area or keyword mapping points at this topic."
-        },
-        {
           "id": "b077fc8628fe6673",
           "topicId": "data",
           "title": "Multiple properties searched across UK after millions of car finance complaints",
@@ -1854,7 +1321,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "error": ""
     },
     {
@@ -1863,7 +1330,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -1908,7 +1375,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1944,7 +1411,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 1,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1953,7 +1420,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 3,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1962,7 +1429,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 2,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1971,7 +1438,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 2,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1989,7 +1456,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 2,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -1998,7 +1465,7 @@
       "fetchType": "reg_horizon_json",
       "status": "ok",
       "fetchedEntries": 1,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "error": ""
     },
     {
@@ -2070,7 +1537,7 @@
       "fetchType": "atom",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "error": ""
     },
     {
@@ -2088,7 +1555,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 1,
       "error": ""
     },
     {
@@ -2106,7 +1573,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "error": ""
     },
     {
@@ -2120,6 +1587,8 @@
     }
   ],
   "warnings": [
-    "Thin coverage: third-party has only 2 candidate(s) in the current window."
+    "Thin coverage: third-party has only 1 candidate(s) in the current window.",
+    "Thin coverage: resilience has only 2 candidate(s) in the current window.",
+    "Source concentration: data relies on ico-news-sitemap for 6/8 candidates."
   ]
 }

@@ -755,6 +755,9 @@ p {
 .review-item h3 a { color: var(--navy); }
 .review-item p:not(.eyebrow), .review-empty p:not(.eyebrow) { margin: 0; color: var(--ink-soft); }
 #horizon-trend .card { min-height: 150px; }
+.trend-history ul { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.trend-history li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--rule); padding-top: 8px; color: var(--ink-soft); font-size: 13px; }
+.trend-history li strong { color: var(--navy); font: 600 11px/1.2 var(--mono); }
 .band #horizon-material-top5 .rank,
 .band #horizon-material-additional .rank { color: var(--accent-readable); font: 600 14px/1 var(--mono); letter-spacing: .08em; }
 .band #horizon-material-top5 .horizon-signal-body h3,
@@ -1273,6 +1276,8 @@ a.tag:hover {
 .horizon-top-three > p:not(.eyebrow) { max-width: 72ch; margin: 0; color: var(--ink-soft); line-height: 1.55; }
 .horizon-top-three .horizon-top-three-evidence { margin-top: 12px; font-size: 13px; }
 .horizon-top-three-evidence strong { color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.coverage-funnel { margin-top: 10px !important; color: var(--ink-soft); font-size: 13px; }
+.coverage-funnel strong { color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 
 .horizon-lane-grid {
   display: grid;

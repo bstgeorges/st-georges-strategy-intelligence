@@ -151,6 +151,13 @@ FEED_MAP = {
 # link and date selectors are evaluated within it. Multiple selectors allow the
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
+    "hong-kong-sfc": [{"url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements", "request_profile": "browser", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "india-rbi": [{"url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx", "item_selectors": ["article", "table tr", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "singapore-sgx": [{"url": "https://www.sgx.com/regulation", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "brazil-bcb": [{"url": "https://www.bcb.gov.br/en/pressreleasesbyyear?ano=2026", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "south-korea-fss": [{"url": "https://www.fss.or.kr/eng/main/main.do", "request_profile": "browser", "item_selectors": ["article", ".board-list li", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "switzerland-snb": [{"url": "https://www.snb.ch/en/news-publications/media-releases", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "uk-fca": [{
         "url": "https://www.fca.org.uk/news/search-results?search_term=regulatory",
         "request_profile": "browser",
@@ -182,7 +189,7 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".date", ".published", ".fecha", ".small"],
     }],
     "italy-consob": [{
-        "url": "https://www.consob.it/web/consob/comunicati-stampa",
+        "url": "https://www.consob.it/web/area-pubblica/comunicati-stampa",
         "request_profile": "browser",
         "timeout": 12,
         "retries": 2,
@@ -247,13 +254,13 @@ PAGE_MAP = {
         "date_selectors": ["a[href]"],
     }],
     "fincen-enforcement": [{
-        "url": "https://www.fincen.gov/news/enforcement-actions",
+        "url": "https://www.fincen.gov/news/press-releases",
         "request_profile": "browser",
         "timeout": 15,
         "retries": 2,
-        "item_selectors": ["tbody tr"],
-        "link_selectors": ["td:first-of-type a[href]"],
-        "date_selectors": ["td:nth-of-type(2)"],
+        "item_selectors": ["article", ".views-row", ".node--type-news"],
+        "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href*='/news/']"],
+        "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"],
     }],
     "apra": [{
         "url": "https://www.apra.gov.au/news-and-publications?page=0",
@@ -399,5 +406,5 @@ REGULATORY_SOURCE_IDS = {
     "apra", "asic", "osfi", "mas", "india-sebi", "korea-fsc", "brazil-cvm", "fr-amf",
     "spain-cnmv", "ireland-cbi", "adgm-fsra",
     "de-bafin", "dubai-dfsa",
-    "mexico-cnbv", "italy-consob", "saudi-cma",
+    "mexico-cnbv", "italy-consob", "saudi-cma", "hong-kong-sfc", "south-africa-sarb", "india-rbi", "singapore-sgx", "brazil-bcb", "south-korea-fss", "switzerland-snb",
 }

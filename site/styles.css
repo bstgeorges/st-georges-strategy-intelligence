@@ -754,6 +754,8 @@ p {
 .review-item h3, .review-empty h3 { margin: 6px 0 8px; font: 500 clamp(22px, 2vw, 30px)/1.15 var(--serif); }
 .review-item h3 a { color: var(--navy); }
 .review-item p:not(.eyebrow), .review-empty p:not(.eyebrow) { margin: 0; color: var(--ink-soft); }
+.review-subheading { margin-top: 20px; }
+.review-subheading h3 { margin: 4px 0 0; font: 500 24px/1.15 var(--serif); }
 #horizon-trend .card { min-height: 150px; }
 .trend-history ul { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
 .trend-history li { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--rule); padding-top: 8px; color: var(--ink-soft); font-size: 13px; }

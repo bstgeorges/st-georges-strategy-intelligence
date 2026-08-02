@@ -196,6 +196,14 @@ PAGE_MAP = {
         "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", ".teaser"],
         "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='comunicato']"],
         "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
+    }, {
+        "url": "https://www.consob.it/web/area-pubblica/consultazioni/in-corso",
+        "request_profile": "browser",
+        "timeout": 12,
+        "retries": 1,
+        "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", "li"],
+        "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href]"],
+        "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4", "p"],
     }],
     "saudi-cma": [{
         "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx",

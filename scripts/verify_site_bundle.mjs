@@ -252,10 +252,28 @@ function main() {
   const horizonPage = read("regulatory-horizon/index.html");
   const styles = read("styles.css");
   const signalsHub = read("signals/index.html");
+  const release = readJson("data/release.json");
+  assert(release.contractVersion === "site.release.v2", "release metadata must use the shared site.release.v2 contract", failures);
+  assert(release.products && Object.keys(release.products).length === 4, "release metadata must publish freshness for all four products", failures);
+  for (const [name, product] of Object.entries(release.products || {})) {
+    assert(product.route && product.edition && product.status, `release metadata product ${name} is missing route, edition, or status`, failures);
+  }
+  for (const [, relative] of routes) {
+    if (relative.includes("archive/")) continue;
+    const page = read(relative);
+    const freshnessStrip = (page.match(/<aside class="site-freshness"[^>]*>[\s\S]*?<\/aside>/) || [""])[0];
+    assert(page.includes('class="site-freshness"'), `${relative} missing shared publication freshness strip`, failures);
+    assert(page.includes("22 Jul 2026") && page.includes("1 Aug 2026"), `${relative} freshness dates must use the long display format`, failures);
+    assert(!freshnessStrip.includes("Publication status · 2026-") && !/<strong>2026-\d{2}-\d{2}<\/strong>/.test(freshnessStrip), `${relative} freshness strip must not display ISO dates`, failures);
+  }
+  assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
+  assert(signalsHub.includes("Financial Times") && signalsHub.includes("arXiv"), "Signals hub missing radar source mix", failures);
+  assert(signalsHub.includes("The Economist") && signalsHub.includes("AP News") && signalsHub.includes("The Atlantic"), "Signals hub missing manual press radar sources", failures);
   assert(horizonPage.includes("source-tier-core"), "Reg Horizon source tiers missing core authority treatment", failures);
   assert(horizonPage.includes("source-tier-pilot"), "Reg Horizon source tiers missing pilot/watch treatment", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
   assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
+  assert(signalsHub.includes("Signals / Edition 22 Jul 2026"), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
   if (horizon.status === "withheld") {
@@ -274,6 +292,11 @@ function main() {
   assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
   assert(horizonPage.includes("horizon-rolling-coverage"), "Reg Horizon page missing rolling coverage", failures);
   assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
+  assert(horizonPage.includes("Edition / 1 Aug 2026"), "Reg Horizon page edition label must use the long display format", failures);
+  assert(horizonPage.includes("Comparative risk radar"), "Reg Horizon page missing comparative risk radar", failures);
+  assert(horizonPage.includes("7 days") && horizonPage.includes("30 days") && horizonPage.includes("90 days"), "Reg Horizon risk radar missing 7/30/90 action horizon", failures);
+  assert(horizonPage.includes("Source coverage trend"), "Reg Horizon page missing source coverage trend", failures);
+  assert(horizonPage.includes("No whole-market conclusion"), "Reg Horizon page missing explicit limited-coverage conclusion state", failures);
   assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
     for (const signal of horizon.signals.slice(0, 5)) {
       assert(horizonPage.includes(signal.title), `published Reg Horizon page missing signal: ${signal.title}`, failures);

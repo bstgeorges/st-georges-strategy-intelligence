@@ -14,6 +14,7 @@ const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
 const NEWS_RESEARCH_RADAR_INPUT = path.join(ROOT, "dashboard", "data", "news-research-radar.json");
+const HORIZON_EDITORIAL_INPUT = path.join(ROOT, "dashboard", "data", "regulatory-horizon-editorial.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
@@ -338,6 +339,12 @@ function copyHorizonArtifacts(out) {
   const latestOut = path.join(horizonOut, "latest.json");
   if (copyIfExists(latestIn, latestOut)) {
     const latest = readJson(latestOut);
+    if (fs.existsSync(HORIZON_EDITORIAL_INPUT)) {
+      const editorial = readJson(HORIZON_EDITORIAL_INPUT);
+      if (!latest.editorialReview || latest.editorialReview.edition === editorial.edition) {
+        latest.editorialReview = { ...(latest.editorialReview || {}), ...editorial };
+      }
+    }
     if (Array.isArray(latest.signals)) {
       latest.signals = latest.signals.slice(0, TOP5_COUNT + REG_HORIZON_ADDITIONAL_COUNT);
     }
@@ -550,7 +557,48 @@ function sha256(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 }
 
-function writeReleaseMetadata(out, releaseId, edition) {
+function buildProductFreshness(editionRecord, signalsData, horizonData, out) {
+  const asOf = process.env.SITE_AS_OF_DATE || new Date().toISOString().slice(0, 10);
+  const aiFile = path.join(out, "data", "ai-signals.json");
+  const aiData = fs.existsSync(aiFile) ? readJson(aiFile) : {};
+  const aiDate = String(aiData.generatedAt || "").slice(0, 10) || null;
+  const currentDate = editionRecord.publicationDate || null;
+  const signalDate = signalsData.edition || currentDate;
+  const horizonDate = horizonData.edition || null;
+  const ageDays = (date) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || "")) || !/^\d{4}-\d{2}-\d{2}$/.test(asOf)) return null;
+    return Math.max(0, Math.floor((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${date}T00:00:00Z`)) / 86400000));
+  };
+  const state = (date, threshold, base = "published") => {
+    const age = ageDays(date);
+    return age === null ? "unknown" : age > threshold ? "stale" : base;
+  };
+  const products = {
+    brief: { label: "Weekly Brief", route: "/brief/", edition: currentDate, generatedAt: currentDate, status: state(currentDate, 14, editionRecord.status === "current" ? "current" : editionRecord.status || "published") },
+    signals: { label: "Signals", route: "/signals/", edition: signalDate, generatedAt: signalsData.generatedAt || signalDate, status: state(signalDate, 14, "current"), topics: (signalsData.topics || []).length },
+    regulatoryHorizon: { label: "Reg Horizon", route: "/regulatory-horizon/", edition: horizonDate, generatedAt: horizonData.generatedAt || horizonDate, status: horizonData.status === "published" ? state(horizonDate, 8, "current") : "withheld", coverage: horizonData.kpis?.coverage || null, warnings: (horizonData.warnings || []).length },
+    aiSignals: { label: "AI Signals", route: "/signals/ai/", edition: aiDate, generatedAt: aiData.generatedAt || aiDate, status: state(aiDate, 14, "current") },
+  };
+  return { asOf, products };
+}
+
+function injectSiteFreshness(out, releaseId, freshness) {
+  const items = Object.values(freshness.products).map((product) => {
+    const date = product.edition || "date unavailable";
+    const displayDate = /^\d{4}-\d{2}-\d{2}$/.test(String(date)) ? formatDateLong(date) : date;
+    const status = product.status || "unknown";
+    return `<a class="site-freshness-item status-${escapeHtml(status)}" href="${product.route}"><span>${escapeHtml(product.label)}</span><strong>${escapeHtml(displayDate)}</strong><em>${escapeHtml(status)}</em></a>`;
+  }).join("");
+  const strip = `<aside class="site-freshness" data-release="${escapeHtml(releaseId)}" data-as-of="${escapeHtml(freshness.asOf)}" aria-label="Publication freshness"><div class="site-freshness-inner"><span class="site-freshness-label">Publication status · ${escapeHtml(formatDateLong(freshness.asOf))}</span><div class="site-freshness-items">${items}</div></div></aside>`;
+  for (const file of listFiles(out, ".html")) {
+    if (file.includes(`${path.sep}archive${path.sep}`) || file.endsWith(`${path.sep}404.html`)) continue;
+    let html = read(file).replace(/\s*<aside class="site-freshness"[\s\S]*?<\/aside>/g, "");
+    html = html.replace(/<main\b/, `${strip}\n    <main`);
+    write(file, html);
+  }
+}
+
+function writeReleaseMetadata(out, releaseId, edition, editionRecord, signalsData, horizonData) {
   const files = [
     "styles.css",
     "app.js",
@@ -560,10 +608,15 @@ function writeReleaseMetadata(out, releaseId, edition) {
     "data/signals.json",
     "sitemap.xml",
   ];
+  const freshness = buildProductFreshness(editionRecord, signalsData, horizonData, out);
+  injectSiteFreshness(out, releaseId, freshness);
   const metadata = {
+    contractVersion: "site.release.v2",
     release: releaseId,
     edition,
     generatedAt: new Date().toISOString(),
+    asOf: freshness.asOf,
+    products: freshness.products,
     files: Object.fromEntries(files.map((file) => [`/${file}`, sha256(path.join(out, file))])),
   };
   write(path.join(out, "data", "release.json"), `${JSON.stringify(metadata, null, 2)}\n`);
@@ -1374,6 +1427,7 @@ function renderHorizonOperatingReadout(horizonData) {
           <p>The reviewed edition separates response deadlines, implementation work and forward-looking governance signals so each can be given an accountable owner.</p>
         </div>
         ${renderHorizonTopThreeJudgement(horizonData)}
+        ${renderHorizonRiskRadar(horizonData)}
         <div class="horizon-operating-grid">
           <article class="brief-card"><p class="meta">Response windows</p><h3>${escapeHtml(consultationLabel)}</h3><p>Assign response ownership early enough for product, legal, compliance and operations input.</p></article>
           <article class="brief-card"><p class="meta">Implementation</p><h3>${escapeHtml(implementationLabel)}</h3><p>Review applicability, implementation dates, and control or reporting dependencies before the item becomes a late calendar surprise.</p></article>
@@ -1399,6 +1453,14 @@ function renderHorizonTopThreeJudgement(horizonData) {
   return `<div class="horizon-top-three"><p class="eyebrow">Top-three judgement</p><h3>${escapeHtml(topThree.headline || "The top three signals set this week's operating priority.")}</h3><p>${escapeHtml(topThree.summary || "")}</p><p class="horizon-top-three-evidence"><strong>Basis:</strong> ${escapeHtml(topThree.evidence || "Approved editorial ranking of the current source evidence.")}</p></div>`;
 }
 
+function renderHorizonRiskRadar(horizonData) {
+  const radar = horizonData.editorialReview?.riskRadar;
+  if (!radar) return "";
+  const actions = radar.actions || {};
+  const interactions = (radar.interactions || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  return `<div class="horizon-risk-radar"><div class="section-heading compact-heading"><div><p class="eyebrow">Comparative risk radar</p><h3>${escapeHtml(radar.headline || "The operating risk is changing across themes.")}</h3></div><p>Judgement is separated from the source list: compare the baseline, transmission path, affected areas, and confidence before acting.</p></div><div class="risk-radar-grid"><article><p class="meta">Change from baseline</p><p>${escapeHtml(radar.baseline || "Not stated")}</p></article><article><p class="meta">Transmission path</p><p>${escapeHtml(radar.transmission || "Not stated")}</p></article><article><p class="meta">Affected areas</p><p>${escapeHtml(radar.affected || "Not stated")}</p></article><article><p class="meta">Confidence and uncertainty</p><p><strong>${escapeHtml(radar.confidence || "Not stated")}</strong></p><p>${escapeHtml(radar.uncertainty || "")}</p></article></div><div class="risk-radar-lower"><div><p class="meta">Cross-theme interaction</p><ul>${interactions || "<li>No interaction has been recorded.</li>"}</ul></div><div><p class="meta">Action horizon</p><dl class="action-horizon"><div><dt>7 days</dt><dd>${escapeHtml(actions["7d"] || "No action recorded.")}</dd></div><div><dt>30 days</dt><dd>${escapeHtml(actions["30d"] || "No action recorded.")}</dd></div><div><dt>90 days</dt><dd>${escapeHtml(actions["90d"] || "No action recorded.")}</dd></div></dl></div></div></div>`;
+}
+
 function renderHorizonRollingCoverage(horizonData) {
   const rolling = horizonData.rollingCoverage || {};
   const runs = Number(rolling.windowRuns || 0);
@@ -1406,7 +1468,8 @@ function renderHorizonRollingCoverage(horizonData) {
   const candidateSources = Number(rolling.candidateSources || 0);
   const materialSources = Number(rolling.materialSources || 0);
   if (!runs) return `<p>Rolling source participation will appear after the next scan records its funnel metrics.</p>`;
-  return `<p><strong>Last ${runs} run${runs === 1 ? "" : "s"}:</strong> ${candidateSources} of ${configured} authorities returned candidates, and ${materialSources} contributed material signals. This rolling view helps distinguish a quiet week from a weak intake path.</p>`;
+  const limited = configured > 0 && materialSources / configured < 0.5;
+  return `<p class="${limited ? "coverage-no-conclusion" : ""}"><strong>${limited ? "No whole-market conclusion:" : "Last " + runs + " run" + (runs === 1 ? "" : "s") + ":"}</strong> ${candidateSources} of ${configured} authorities returned candidates, and ${materialSources} contributed material signals. ${limited ? "Source participation is too concentrated to treat quiet themes as inactive." : "This rolling view helps distinguish a quiet week from a weak intake path."}</p>`;
 }
 
 function renderHorizonActionLanes(horizonData) {
@@ -1489,7 +1552,7 @@ function applyLiveEditionContent(out, horizonData) {
   const additional = signals.slice(5, 15);
   let updated = html.replace(
     /(<p class="eyebrow" id="horizon-edition">)Edition \/ [^<]*(<\/p>)/,
-    `$1Edition / ${horizonData.edition}$2`,
+    `$1Edition / ${formatDateLong(horizonData.edition)}$2`,
   );
   updated = updated
     .replace(
@@ -1581,9 +1644,21 @@ function renderHorizonTrend(data) {
   if (!trend.length) return '<article class="card"><p class="meta">Trend</p><h3>Building history</h3><p>Trend metrics will appear after recurring editions accumulate.</p></article>';
   const latest = trend[trend.length - 1];
   const previous = trend[trend.length - 2];
-  const delta = previous ? (latest.materialSignals || 0) - (previous.materialSignals || 0) : 0;
-  const history = trend.slice(-4).map((run) => `<li><strong>${escapeHtml(run.edition || "")}</strong><span>${escapeHtml(String(run.materialSignals || 0))} material · ${escapeHtml(String(run.deadlines || 0))} deadlines</span></li>`).join("");
-  return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article><article class="card trend-history"><p class="meta">Recent editions</p><ul>${history}</ul></article>`;
+  const material = (run) => run.materialSignals ?? (run.edition === data.edition ? data.kpis?.material || 0 : 0);
+  const deadlines = (run) => run.deadlines ?? (run.edition === data.edition ? (data.horizon || []).length : 0);
+  const delta = previous ? material(latest) - material(previous) : 0;
+  const coverageRows = trend.slice(-6).map((run) => {
+    const participation = run.sourceParticipation || [];
+    const candidates = run.candidateSources ?? participation.filter((source) => (source.candidateItems || 0) > 0).length;
+    const materialSources = run.materialSources ?? participation.filter((source) => (source.materialItems || 0) > 0).length;
+    const configured = run.sourcesConfigured || data.rollingCoverage?.configuredSources || 0;
+    const ratio = configured ? Math.round((materialSources / configured) * 100) : 0;
+    return `<tr><th scope="row">${escapeHtml(run.edition || "Unknown")}</th><td>${escapeHtml(String(configured))}</td><td>${escapeHtml(String(candidates))}</td><td>${escapeHtml(String(materialSources))}</td><td>${escapeHtml(`${ratio}%`)}</td></tr>`;
+  }).join("");
+  const configured = data.rollingCoverage?.configuredSources || latest.sourcesConfigured || 0;
+  const currentMaterialSources = data.rollingCoverage?.materialSources || 0;
+  const noConclusion = configured > 0 && currentMaterialSources / configured < 0.5;
+  return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || data.edition || "Current")}</h3><p>${escapeHtml(String(material(latest)))} material signals; ${escapeHtml(String(deadlines(latest)))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior run.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article><article class="card trend-history"><p class="meta">Recent runs</p><ul>${trend.slice(-4).map((run) => `<li><strong>${escapeHtml(run.edition || "")}</strong><span>${escapeHtml(String(material(run)))} material · ${escapeHtml(String(deadlines(run)))} deadlines</span></li>`).join("")}</ul></article><article class="card horizon-coverage-trend"><p class="meta">Source coverage trend</p><h3 class="${noConclusion ? "coverage-no-conclusion" : ""}">${noConclusion ? "No whole-market conclusion" : "Coverage is trackable"}</h3><p>Material-source participation is shown by run. A low ratio is a coverage limit, not evidence of a quiet market.</p><div class="table-scroll"><table><thead><tr><th scope="col">Run</th><th scope="col">Configured</th><th scope="col">Candidates</th><th scope="col">Material</th><th scope="col">Material share</th></tr></thead><tbody>${coverageRows}</tbody></table></div></article>`;
 }
 
 function generateCurrentHorizonArchive(out, horizonData) {
@@ -1853,7 +1928,7 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const replacement = `<!-- publisher-lock:start:signals-editorial -->
       <section class="signals-hub-hero">
         <div>
-          <p class="eyebrow">Signals / Edition ${escapeHtml(signalsData.edition)}</p>
+          <p class="eyebrow">Signals / Edition ${escapeHtml(formatDateLong(signalsData.edition))}</p>
           <h1>What is moving now—and what still matters</h1>
           <p class="dek">A weekly editorial view of the five developments with the greatest current weight, supported by a curated memory of signals that remain relevant over the following three to six months.</p>
         </div>
@@ -2214,7 +2289,7 @@ function main() {
   normaliseHorizonArchiveLinks(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);
   injectReleaseId(options.out, RELEASE_ID);
-  writeReleaseMetadata(options.out, RELEASE_ID, edition);
+  writeReleaseMetadata(options.out, RELEASE_ID, edition, editionRecord, signalsData, horizonData);
   const publisherWarnings = assessPublisherWarnings(horizonData);
   verifyBuild(options.out, edition, sitemapUrls, failures);
   writeReport(options.out, edition, RELEASE_ID, sitemapUrls, analyticsInjected, failures, publisherWarnings);

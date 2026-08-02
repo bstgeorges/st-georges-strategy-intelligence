@@ -151,6 +151,15 @@ FEED_MAP = {
 # link and date selectors are evaluated within it. Multiple selectors allow the
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
+    "uk-fca-regulatory-initiatives-grid": [{"url": "https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid", "request_profile": "browser", "item_selectors": ["article", ".search-item", ".card", ".document"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "ecb-ssm-newsletter": [{"url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
+    "ecb-supervisory-priorities": [{"url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
+    "bcbs": [{"url": "https://www.bis.org/bcbs/publications.htm", "item_selectors": [".item", "article", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".pubdate"]}],
+    "iosco": [{"url": "https://www.iosco.org/news/", "item_selectors": ["article", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "ofac-recent-actions": [{"url": "https://ofac.treasury.gov/recent-actions", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"]}],
+    "amf-sanctions": [{"url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "ecb-supervision-sanctions": [{"url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
+    "de-bundesbank": [{"url": "https://www.bundesbank.de/de/aufgaben/themen", "item_selectors": ["article", ".teaser", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "hong-kong-sfc": [{"url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements", "request_profile": "browser", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "request_profile": "browser", "timeout": 20, "retries": 2, "item_selectors": ["article", ".card", ".views-row", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='/newsroom/']", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published", ".news-date"]}],
     "india-rbi": [{"url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx", "item_selectors": ["article", "table tr", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
@@ -407,10 +416,10 @@ SOURCE_FILTERS = {
 # Signal production, cyber monitoring, AI labs, trade press and research feeds have
 # their own pipelines and must never compete with regulatory instruments here.
 REGULATORY_SOURCE_IDS = {
-    "uk-fca", "uk-fca-enforcement-notices", "uk-boe-pra", "ofsi", "uk-nca",
-    "ecb-supervision", "eba", "esma", "eiopa", "bis", "fsb", "fatf",
-    "sec", "cftc", "fincen-enforcement", "nist-ai-rmf",
-    "finma", "japan-fsa", "hkma",
+    "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "ofsi", "uk-nca",
+    "ecb-supervision", "ecb-ssm-newsletter", "ecb-supervisory-priorities", "ecb-supervision-sanctions", "eba", "esma", "eiopa", "bis", "bcbs", "iosco", "fsb", "fatf",
+    "sec", "cftc", "fincen-enforcement", "ofac-recent-actions", "nist-ai-rmf",
+    "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank",
     "apra", "asic", "osfi", "mas", "india-sebi", "korea-fsc", "brazil-cvm", "fr-amf",
     "spain-cnmv", "ireland-cbi", "adgm-fsra",
     "de-bafin", "dubai-dfsa",

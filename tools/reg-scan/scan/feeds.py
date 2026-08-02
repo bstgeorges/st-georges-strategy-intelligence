@@ -152,7 +152,7 @@ FEED_MAP = {
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
     "hong-kong-sfc": [{"url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements", "request_profile": "browser", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
-    "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "request_profile": "browser", "timeout": 12, "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "india-rbi": [{"url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx", "item_selectors": ["article", "table tr", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "singapore-sgx": [{"url": "https://www.sgx.com/regulation", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "brazil-bcb": [{"url": "https://www.bcb.gov.br/en/pressreleasesbyyear?ano=2026", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
@@ -189,7 +189,7 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".date", ".published", ".fecha", ".small"],
     }],
     "italy-consob": [{
-        "url": "https://www.consob.it/web/area-pubblica/comunicati-stampa",
+        "url": "https://www.consob.it/web/area-pubblica/raccolta-comunicati-stampa-2026",
         "request_profile": "browser",
         "timeout": 12,
         "retries": 2,

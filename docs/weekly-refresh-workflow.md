@@ -39,12 +39,12 @@ This means the weekly process can start from the GitHub Actions artifact rather 
 Candidate collection and editorial approval are separate stages:
 
 1. The Sunday Reg Horizon scan creates a review PR. Do not treat the scan workflow's successful PR creation as publication; review and merge the PR first.
-2. The merge to `main` triggers `Signals candidates weekly refresh`, which collects and validates candidates, then generates `dashboard/data/signals-promotion-review.generated.json` with `reviewStatus: pending`.
+2. The merge to `main` triggers `Signals candidates weekly refresh`, which collects and validates candidates, then generates `dashboard/data/signals-promotion-review.generated.json` with `reviewStatus: pending`. Candidate generation never publishes the site.
 3. The successful candidates workflow triggers `Weekly editorial prep`. It checks out the merged `main` state and refuses to create an editorial pack if Reg Horizon is more than eight days old or withheld.
-4. A `main` push then triggers the single canonical `Site release (Cloudflare)` workflow. Its green exact-release checks are the publication proof.
-5. The editor reviews that file, copies only approved URLs and rationales into `dashboard/data/signals-promotion-shortlist.json`, preserves the exact `candidateGeneratedAt`, and sets `reviewStatus` to `approved`.
-6. The editor manually runs `Signals weekly publish draft`. It opens a draft PR; it does not publish the site.
-7. Promotion fails closed if the shortlist is pending or belongs to an older candidate run.
+4. The editor reviews the candidate pack, selects only supported URLs and rationales in `dashboard/data/signals-promotion-shortlist.json`, preserves the exact `candidateGeneratedAt`, and sets `reviewStatus` to `approved`.
+5. The editor runs `Signals weekly publish draft`. It promotes the approved Signals rows, drafts the Brief, and opens a PR. Update `site/data/current-edition.json` with the new judgement and committee questions in the same reviewed PR.
+6. Merge that PR only after Signals, Reg Horizon, the current judgement, Brief, Committee Questions, and homepage all agree on the new publication date and lead signals.
+7. The `Site release (Cloudflare)` workflow runs the ordered-release gate. It refuses publication when candidate generation is newer than the approved shortlist, Signals and Reg Horizon are not current, or the judgement is carried forward unchanged.
 
 This prevents ranking from being treated as editorial approval and prevents a previous week's shortlist from being reused silently.
 

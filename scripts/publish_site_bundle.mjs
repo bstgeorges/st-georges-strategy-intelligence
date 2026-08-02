@@ -1648,7 +1648,12 @@ function renderHorizonCandidateReview(entries) {
 }
 
 function renderHorizonTrend(data) {
-  const trend = data.trend || [];
+  const trendByEdition = new Map();
+  for (const run of data.trend || []) {
+    if (!run.edition) continue;
+    trendByEdition.set(run.edition, run);
+  }
+  const trend = [...trendByEdition.values()].sort((a, b) => String(a.edition).localeCompare(String(b.edition)));
   if (!trend.length) return '<article class="card"><p class="meta">Trend</p><h3>Building history</h3><p>Trend metrics will appear after recurring editions accumulate.</p></article>';
   const latest = trend[trend.length - 1];
   const previous = trend[trend.length - 2];

@@ -51,6 +51,13 @@
     return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
   }
 
+  function formatDateLong(value) {
+    if (!value) return "";
+    const date = new Date(`${value}T00:00:00Z`);
+    if (Number.isNaN(date.getTime())) return escapeHtml(value);
+    return date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+  }
+
   function typeLabel(type) {
     return String(type || "other").replace(/-/g, " ");
   }
@@ -105,9 +112,20 @@
     if (!trend.length) return '<article class="card"><p class="meta">Trend</p><h3>Building history</h3><p>Trend metrics will appear after recurring editions accumulate.</p></article>';
     const latest = trend[trend.length - 1];
     const previous = trend[trend.length - 2];
-    const delta = previous ? (latest.materialSignals || 0) - (previous.materialSignals || 0) : 0;
-    const history = trend.slice(-4).map((run) => `<li><strong>${escapeHtml(run.edition || "")}</strong><span>${escapeHtml(String(run.materialSignals || 0))} material · ${escapeHtml(String(run.deadlines || 0))} deadlines</span></li>`).join("");
-    return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || "Current")}</h3><p>${escapeHtml(String(latest.materialSignals || 0))} material signals; ${escapeHtml(String(latest.deadlines || 0))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior edition.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article><article class="card trend-history"><p class="meta">Recent editions</p><ul>${history}</ul></article>`;
+    const material = (run) => run.materialSignals ?? (run.edition === data.edition ? data.kpis?.material || 0 : 0);
+    const deadlines = (run) => run.deadlines ?? (run.edition === data.edition ? (data.horizon || []).length : 0);
+    const delta = previous ? material(latest) - material(previous) : 0;
+    const configured = data.rollingCoverage?.configuredSources || latest.sourcesConfigured || 0;
+    const currentMaterialSources = data.rollingCoverage?.materialSources || 0;
+    const noConclusion = configured > 0 && currentMaterialSources / configured < 0.5;
+    const rows = trend.slice(-6).map((run) => {
+      const participation = run.sourceParticipation || [];
+      const candidates = run.candidateSources ?? participation.filter((source) => (source.candidateItems || 0) > 0).length;
+      const materialSources = run.materialSources ?? participation.filter((source) => (source.materialItems || 0) > 0).length;
+      const share = configured ? Math.round((materialSources / configured) * 100) : 0;
+      return `<tr><th scope="row">${escapeHtml(run.edition || "Unknown")}</th><td>${configured}</td><td>${candidates}</td><td>${materialSources}</td><td>${share}%</td></tr>`;
+    }).join("");
+    return `<article class="card"><p class="meta">Latest edition</p><h3>${escapeHtml(latest.edition || data.edition || "Current")}</h3><p>${escapeHtml(String(material(latest)))} material signals; ${escapeHtml(String(deadlines(latest)))} deadlines.</p></article><article class="card"><p class="meta">Signal movement</p><h3>${delta > 0 ? "Accelerating" : delta < 0 ? "Cooling" : "Stable"}</h3><p>${escapeHtml(`${Math.abs(delta)} material-signal change versus the prior run.`)}</p></article><article class="card"><p class="meta">Theme activity</p><h3>${escapeHtml(String(Object.keys(latest.themeCounts || {}).length))} active themes</h3><p>Theme counts are retained for longitudinal review.</p></article><article class="card trend-history"><p class="meta">Recent runs</p><ul>${trend.slice(-4).map((run) => `<li><strong>${escapeHtml(run.edition || "")}</strong><span>${escapeHtml(String(material(run)))} material · ${escapeHtml(String(deadlines(run)))} deadlines</span></li>`).join("")}</ul></article><article class="card horizon-coverage-trend"><p class="meta">Source coverage trend</p><h3 class="${noConclusion ? "coverage-no-conclusion" : ""}">${noConclusion ? "No whole-market conclusion" : "Coverage is trackable"}</h3><p>Material-source participation is shown by run. A low ratio is a coverage limit, not evidence of a quiet market.</p><div class="table-scroll"><table><thead><tr><th>Run</th><th>Configured</th><th>Candidates</th><th>Material</th><th>Material share</th></tr></thead><tbody>${rows}</tbody></table></div></article>`;
   }
 
   function renderDashboard(data) {
@@ -194,7 +212,7 @@
     const evidence = document.getElementById("horizon-evidence-files");
     const coverageNotes = document.getElementById("horizon-coverage-notes");
 
-    if (edition) edition.textContent = `Edition / ${data.edition || ""}`;
+    if (edition) edition.textContent = `Edition / ${formatDateLong(data.edition || "")}`;
     if (generated) generated.textContent = `Generated ${data.generatedAt || "from the current weekly run"} across a ${data.windowDays || 7}-day review window.`;
     if (bottomLine) bottomLine.innerHTML = `<p>${escapeHtml(data.bottomLine || "")}</p>`;
     if (dashboard) dashboard.innerHTML = renderDashboard(data);

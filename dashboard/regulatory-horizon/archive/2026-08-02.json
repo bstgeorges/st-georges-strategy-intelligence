@@ -1,0 +1,1202 @@
+{
+  "edition": "2026-08-02",
+  "generatedAt": "2026-08-02 15:45 UTC",
+  "windowDays": 7,
+  "status": "withheld",
+  "kpis": {
+    "material": 0,
+    "themes": 0,
+    "sources": 0,
+    "jurisdictions": 0,
+    "coverage": "0 of 52"
+  },
+  "bottomLine": "No material signals this edition.",
+  "horizon": [],
+  "signals": [],
+  "warnings": [
+    {
+      "type": "source-health",
+      "severity": "high",
+      "message": "52 source(s) did not return usable items (no feed configured or fetch error): adgm-fsra, amf-sanctions, apra, asic, bcbs, bis, brazil-bcb, brazil-cvm, cftc, de-bafin, de-bundesbank, dubai-dfsa, eba, ecb-ssm-newsletter, ecb-supervision, ecb-supervision-sanctions, ecb-supervisory-priorities, eiopa, esma, fatf, fincen-enforcement, finma, fr-amf, fsb, hkma, hong-kong-sfc, ico, india-rbi, india-sebi, iosco, ireland-cbi, italy-consob, japan-fsa, korea-fsc, mas, mexico-cnbv, nist-ai-rmf, ofac-recent-actions, ofsi, osfi, saudi-cma, sec, singapore-sgx, south-africa-sarb, south-korea-fss, spain-cnmv, switzerland-snb, uk-boe-pra, uk-fca, uk-fca-enforcement-notices, uk-fca-regulatory-initiatives-grid, uk-nca",
+      "sourceIds": [
+        "adgm-fsra",
+        "amf-sanctions",
+        "apra",
+        "asic",
+        "bcbs",
+        "bis",
+        "brazil-bcb",
+        "brazil-cvm",
+        "cftc",
+        "de-bafin",
+        "de-bundesbank",
+        "dubai-dfsa",
+        "eba",
+        "ecb-ssm-newsletter",
+        "ecb-supervision",
+        "ecb-supervision-sanctions",
+        "ecb-supervisory-priorities",
+        "eiopa",
+        "esma",
+        "fatf",
+        "fincen-enforcement",
+        "finma",
+        "fr-amf",
+        "fsb",
+        "hkma",
+        "hong-kong-sfc",
+        "ico",
+        "india-rbi",
+        "india-sebi",
+        "iosco",
+        "ireland-cbi",
+        "italy-consob",
+        "japan-fsa",
+        "korea-fsc",
+        "mas",
+        "mexico-cnbv",
+        "nist-ai-rmf",
+        "ofac-recent-actions",
+        "ofsi",
+        "osfi",
+        "saudi-cma",
+        "sec",
+        "singapore-sgx",
+        "south-africa-sarb",
+        "south-korea-fss",
+        "spain-cnmv",
+        "switzerland-snb",
+        "uk-boe-pra",
+        "uk-fca",
+        "uk-fca-enforcement-notices",
+        "uk-fca-regulatory-initiatives-grid",
+        "uk-nca"
+      ]
+    },
+    {
+      "type": "source-coverage",
+      "severity": "high",
+      "message": "Only 0 of 52 primary authorities contributed material rows in this edition. Treat quiet themes as unconfirmed, not inactive.",
+      "activeSources": []
+    }
+  ],
+  "reviewQueue": [],
+  "heldLowConfidence": 0,
+  "runMetrics": {
+    "durationSeconds": 28.05,
+    "sourcesConfigured": 52,
+    "sourcesHealthy": 0,
+    "sourcesFailed": 52,
+    "confidenceBands": {
+      "unknown": 1
+    },
+    "impactBands": {
+      "unknown": 1
+    },
+    "themeCounts": {
+      "market-plumbing": 1
+    },
+    "reviewQueue": 0,
+    "heldLowConfidence": 0,
+    "sourceParticipation": [
+      {
+        "sourceId": "uk-fca-regulatory-initiatives-grid",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "eiopa",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "iosco",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ofac-recent-actions",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "bcbs",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ecb-supervision-sanctions",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ecb-supervisory-priorities",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fatf",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "amf-sanctions",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ecb-ssm-newsletter",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-fca-enforcement-notices",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ico",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "de-bundesbank",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "apra",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "asic",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "brazil-cvm",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "osfi",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "korea-fsc",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "mas",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "adgm-fsra",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 1,
+        "materialItems": 1,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "de-bafin",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "dubai-dfsa",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "mexico-cnbv",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "hong-kong-sfc",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "saudi-cma",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "india-rbi",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "singapore-sgx",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "south-korea-fss",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "switzerland-snb",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fincen-enforcement",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "brazil-bcb",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "south-africa-sarb",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "italy-consob",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ecb-supervision",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "bis",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "eba",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "esma",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-nca",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "sec",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-boe-pra",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fsb",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ofsi",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "finma",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "nist-ai-rmf",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-fca",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "japan-fsa",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "india-sebi",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "cftc",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "spain-cnmv",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ireland-cbi",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "hkma",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fr-amf",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      }
+    ],
+    "funnel": {
+      "fetchedItems": 0,
+      "recentItems": 0,
+      "candidateItems": 1,
+      "reconciledItems": 1,
+      "materialItems": 1,
+      "publishedItems": 0
+    },
+    "alerts": [
+      "source-health"
+    ]
+  },
+  "sourceHealth": [
+    {
+      "sourceId": "uk-fca-regulatory-initiatives-grid",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid: HTTPSConnectionPool(host='www.fca.org.uk', port=443): Max retries exceeded with url: /publications/corporate-documents/regulatory-initiatives-grid (Caused by NameResolutionError(\"HTTPSConnection(host='www.fca.org.uk', port=443): Failed to resolve 'www.fca.org.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "eiopa",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.eiopa.europa.eu/media_en: HTTPSConnectionPool(host='www.eiopa.europa.eu', port=443): Max retries exceeded with url: /media_en (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiopa.europa.eu', port=443): Failed to resolve 'www.eiopa.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "iosco",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.iosco.org/news/: HTTPSConnectionPool(host='www.iosco.org', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.iosco.org', port=443): Failed to resolve 'www.iosco.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ofac-recent-actions",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://ofac.treasury.gov/recent-actions: HTTPSConnectionPool(host='ofac.treasury.gov', port=443): Max retries exceeded with url: /recent-actions (Caused by NameResolutionError(\"HTTPSConnection(host='ofac.treasury.gov', port=443): Failed to resolve 'ofac.treasury.gov' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "bcbs",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bis.org/bcbs/publications.htm: HTTPSConnectionPool(host='www.bis.org', port=443): Max retries exceeded with url: /bcbs/publications.htm (Caused by NameResolutionError(\"HTTPSConnection(host='www.bis.org', port=443): Failed to resolve 'www.bis.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ecb-supervision-sanctions",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html: HTTPSConnectionPool(host='www.bankingsupervision.europa.eu', port=443): Max retries exceeded with url: /banking/sanctions/html/index.en.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.bankingsupervision.europa.eu', port=443): Failed to resolve 'www.bankingsupervision.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ecb-supervisory-priorities",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html: HTTPSConnectionPool(host='www.bankingsupervision.europa.eu', port=443): Max retries exceeded with url: /framework/priorities/html/index.en.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.bankingsupervision.europa.eu', port=443): Failed to resolve 'www.bankingsupervision.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "fatf",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fsa.go.jp/inter/fatf/fatf_menu.html: HTTPSConnectionPool(host='www.fsa.go.jp', port=443): Max retries exceeded with url: /inter/fatf/fatf_menu.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.fsa.go.jp', port=443): Failed to resolve 'www.fsa.go.jp' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "amf-sanctions",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases: HTTPSConnectionPool(host='www.amf-france.org', port=443): Max retries exceeded with url: /en/news-publications/news-releases/enforcement-committee-news-releases (Caused by NameResolutionError(\"HTTPSConnection(host='www.amf-france.org', port=443): Failed to resolve 'www.amf-france.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ecb-ssm-newsletter",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html: HTTPSConnectionPool(host='www.bankingsupervision.europa.eu', port=443): Max retries exceeded with url: /press/supervisory-newsletters/html/index.en.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.bankingsupervision.europa.eu', port=443): Failed to resolve 'www.bankingsupervision.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-fca-enforcement-notices",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fca.org.uk/news/search-results?search_term=enforcement&exclude_warnings=1: HTTPSConnectionPool(host='www.fca.org.uk', port=443): Max retries exceeded with url: /news/search-results?search_term=enforcement&exclude_warnings=1 (Caused by NameResolutionError(\"HTTPSConnection(host='www.fca.org.uk', port=443): Failed to resolve 'www.fca.org.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ico",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/: HTTPSConnectionPool(host='ico.org.uk', port=443): Max retries exceeded with url: /about-the-ico/media-centre/news-and-blogs/ (Caused by NameResolutionError(\"HTTPSConnection(host='ico.org.uk', port=443): Failed to resolve 'ico.org.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "de-bundesbank",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bundesbank.de/de/aufgaben/themen: HTTPSConnectionPool(host='www.bundesbank.de', port=443): Max retries exceeded with url: /de/aufgaben/themen (Caused by NameResolutionError(\"HTTPSConnection(host='www.bundesbank.de', port=443): Failed to resolve 'www.bundesbank.de' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "apra",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.apra.gov.au/news-and-publications?page=0: HTTPSConnectionPool(host='www.apra.gov.au', port=443): Max retries exceeded with url: /news-and-publications?page=0 (Caused by NameResolutionError(\"HTTPSConnection(host='www.apra.gov.au', port=443): Failed to resolve 'www.apra.gov.au' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "asic",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.asic.gov.au/regulatory-resources/find-a-document/regulatory-document-updates/regulatory-tracker/regulatory-tracker-2026/: HTTPSConnectionPool(host='www.asic.gov.au', port=443): Max retries exceeded with url: /regulatory-resources/find-a-document/regulatory-document-updates/regulatory-tracker/regulatory-tracker-2026/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.asic.gov.au', port=443): Failed to resolve 'www.asic.gov.au' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "brazil-cvm",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.gov.br/cvm/pt-br/assuntos/noticias/: HTTPSConnectionPool(host='www.gov.br', port=443): Max retries exceeded with url: /cvm/pt-br/assuntos/noticias/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.gov.br', port=443): Failed to resolve 'www.gov.br' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "osfi",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.osfi-bsif.gc.ca/en/news: HTTPSConnectionPool(host='www.osfi-bsif.gc.ca', port=443): Max retries exceeded with url: /en/news (Caused by NameResolutionError(\"HTTPSConnection(host='www.osfi-bsif.gc.ca', port=443): Failed to resolve 'www.osfi-bsif.gc.ca' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "korea-fsc",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fsc.go.kr/eng/pr010101?srchCtgry=1: HTTPSConnectionPool(host='www.fsc.go.kr', port=443): Max retries exceeded with url: /eng/pr010101?srchCtgry=1 (Caused by NameResolutionError(\"HTTPSConnection(host='www.fsc.go.kr', port=443): Failed to resolve 'www.fsc.go.kr' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "mas",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.mas.gov.sg/sitemap.xml: HTTPSConnectionPool(host='www.mas.gov.sg', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.mas.gov.sg', port=443): Failed to resolve 'www.mas.gov.sg' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "adgm-fsra",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.adgm.com/legal-framework/public-consultations: HTTPSConnectionPool(host='www.adgm.com', port=443): Max retries exceeded with url: /legal-framework/public-consultations (Caused by NameResolutionError(\"HTTPSConnection(host='www.adgm.com', port=443): Failed to resolve 'www.adgm.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 1,
+      "reconciledItems": 1,
+      "materialItems": 1,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "de-bafin",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://bafin.de/: HTTPSConnectionPool(host='bafin.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='bafin.de', port=443): Failed to resolve 'bafin.de' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "dubai-dfsa",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.dfsa.ae/news: HTTPSConnectionPool(host='www.dfsa.ae', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='www.dfsa.ae', port=443): Failed to resolve 'www.dfsa.ae' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "mexico-cnbv",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.gob.mx/cnbv/archivo/prensa?idiom=es-MX: HTTPSConnectionPool(host='www.gob.mx', port=443): Max retries exceeded with url: /cnbv/archivo/prensa?idiom=es-MX (Caused by NameResolutionError(\"HTTPSConnection(host='www.gob.mx', port=443): Failed to resolve 'www.gob.mx' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "hong-kong-sfc",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements: HTTPSConnectionPool(host='www.sfc.hk', port=443): Max retries exceeded with url: /en/News-and-announcements/Policy-statements-and-announcements (Caused by NameResolutionError(\"HTTPSConnection(host='www.sfc.hk', port=443): Failed to resolve 'www.sfc.hk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "saudi-cma",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://cma.gov.sa/en/MediaCenter/NEWS/Pages/default.aspx: HTTPSConnectionPool(host='cma.gov.sa', port=443): Max retries exceeded with url: /en/MediaCenter/NEWS/Pages/default.aspx (Caused by NameResolutionError(\"HTTPSConnection(host='cma.gov.sa', port=443): Failed to resolve 'cma.gov.sa' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "india-rbi",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx: HTTPSConnectionPool(host='www.rbi.org.in', port=443): Max retries exceeded with url: /Scripts/BS_PressReleaseDisplay.aspx (Caused by NameResolutionError(\"HTTPSConnection(host='www.rbi.org.in', port=443): Failed to resolve 'www.rbi.org.in' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "singapore-sgx",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.sgx.com/regulation: HTTPSConnectionPool(host='www.sgx.com', port=443): Max retries exceeded with url: /regulation (Caused by NameResolutionError(\"HTTPSConnection(host='www.sgx.com', port=443): Failed to resolve 'www.sgx.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "south-korea-fss",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fss.or.kr/eng/main/main.do: HTTPSConnectionPool(host='www.fss.or.kr', port=443): Max retries exceeded with url: /eng/main/main.do (Caused by NameResolutionError(\"HTTPSConnection(host='www.fss.or.kr', port=443): Failed to resolve 'www.fss.or.kr' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "switzerland-snb",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.snb.ch/en/news-publications/media-releases: HTTPSConnectionPool(host='www.snb.ch', port=443): Max retries exceeded with url: /en/news-publications/media-releases (Caused by NameResolutionError(\"HTTPSConnection(host='www.snb.ch', port=443): Failed to resolve 'www.snb.ch' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "fincen-enforcement",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fincen.gov/news/press-releases: HTTPSConnectionPool(host='www.fincen.gov', port=443): Max retries exceeded with url: /news/press-releases (Caused by NameResolutionError(\"HTTPSConnection(host='www.fincen.gov', port=443): Failed to resolve 'www.fincen.gov' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "brazil-bcb",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bcb.gov.br/en/pressreleasesbyyear?ano=2026: HTTPSConnectionPool(host='www.bcb.gov.br', port=443): Max retries exceeded with url: /en/pressreleasesbyyear?ano=2026 (Caused by NameResolutionError(\"HTTPSConnection(host='www.bcb.gov.br', port=443): Failed to resolve 'www.bcb.gov.br' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "south-africa-sarb",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.resbank.co.za/en/home/newsroom: HTTPSConnectionPool(host='www.resbank.co.za', port=443): Max retries exceeded with url: /en/home/newsroom (Caused by NameResolutionError(\"HTTPSConnection(host='www.resbank.co.za', port=443): Failed to resolve 'www.resbank.co.za' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "italy-consob",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.consob.it/web/area-pubblica/consultazioni/in-corso: HTTPSConnectionPool(host='www.consob.it', port=443): Max retries exceeded with url: /web/area-pubblica/consultazioni/in-corso (Caused by NameResolutionError(\"HTTPSConnection(host='www.consob.it', port=443): Failed to resolve 'www.consob.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ecb-supervision",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bankingsupervision.europa.eu/rss/press.html: HTTPSConnectionPool(host='www.bankingsupervision.europa.eu', port=443): Max retries exceeded with url: /rss/press.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.bankingsupervision.europa.eu', port=443): Failed to resolve 'www.bankingsupervision.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "bis",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bis.org/doclist/all_pressrels.rss: HTTPSConnectionPool(host='www.bis.org', port=443): Max retries exceeded with url: /doclist/all_pressrels.rss (Caused by NameResolutionError(\"HTTPSConnection(host='www.bis.org', port=443): Failed to resolve 'www.bis.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "eba",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.eba.europa.eu/rss.xml: HTTPSConnectionPool(host='www.eba.europa.eu', port=443): Max retries exceeded with url: /rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.eba.europa.eu', port=443): Failed to resolve 'www.eba.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "esma",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.esma.europa.eu/rss.xml: HTTPSConnectionPool(host='www.esma.europa.eu', port=443): Max retries exceeded with url: /rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.esma.europa.eu', port=443): Failed to resolve 'www.esma.europa.eu' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-nca",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.nationalcrimeagency.gov.uk/news.rss: HTTPSConnectionPool(host='www.nationalcrimeagency.gov.uk', port=443): Max retries exceeded with url: /news.rss (Caused by NameResolutionError(\"HTTPSConnection(host='www.nationalcrimeagency.gov.uk', port=443): Failed to resolve 'www.nationalcrimeagency.gov.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "sec",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.sec.gov/news/pressreleases.rss: HTTPSConnectionPool(host='www.sec.gov', port=443): Max retries exceeded with url: /news/pressreleases.rss (Caused by NameResolutionError(\"HTTPSConnection(host='www.sec.gov', port=443): Failed to resolve 'www.sec.gov' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-boe-pra",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bankofengland.co.uk/rss/publications: HTTPSConnectionPool(host='www.bankofengland.co.uk', port=443): Max retries exceeded with url: /rss/publications (Caused by NameResolutionError(\"HTTPSConnection(host='www.bankofengland.co.uk', port=443): Failed to resolve 'www.bankofengland.co.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "fsb",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fsb.org/feed/: HTTPSConnectionPool(host='www.fsb.org', port=443): Max retries exceeded with url: /feed/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fsb.org', port=443): Failed to resolve 'www.fsb.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ofsi",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation.atom: HTTPSConnectionPool(host='www.gov.uk', port=443): Max retries exceeded with url: /government/organisations/office-of-financial-sanctions-implementation.atom (Caused by NameResolutionError(\"HTTPSConnection(host='www.gov.uk', port=443): Failed to resolve 'www.gov.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "finma",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.finma.ch/en/rss/news/: HTTPSConnectionPool(host='www.finma.ch', port=443): Max retries exceeded with url: /en/rss/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.finma.ch', port=443): Failed to resolve 'www.finma.ch' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "nist-ai-rmf",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.nist.gov/blogs/cybersecurity-insights/rss.xml: HTTPSConnectionPool(host='www.nist.gov', port=443): Max retries exceeded with url: /blogs/cybersecurity-insights/rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.nist.gov', port=443): Failed to resolve 'www.nist.gov' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-fca",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fca.org.uk/news/rss.xml: HTTPSConnectionPool(host='www.fca.org.uk', port=443): Max retries exceeded with url: /news/rss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.fca.org.uk', port=443): Failed to resolve 'www.fca.org.uk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "japan-fsa",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.fsa.go.jp/fsaEnNewsList_rss2.xml: HTTPSConnectionPool(host='www.fsa.go.jp', port=443): Max retries exceeded with url: /fsaEnNewsList_rss2.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.fsa.go.jp', port=443): Failed to resolve 'www.fsa.go.jp' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "india-sebi",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.sebi.gov.in/sebirss.xml: HTTPSConnectionPool(host='www.sebi.gov.in', port=443): Max retries exceeded with url: /sebirss.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.sebi.gov.in', port=443): Failed to resolve 'www.sebi.gov.in' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "cftc",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.cftc.gov/RSS/RSSENF/rssenf.xml: HTTPSConnectionPool(host='www.cftc.gov', port=443): Max retries exceeded with url: /RSS/RSSENF/rssenf.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.cftc.gov', port=443): Failed to resolve 'www.cftc.gov' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "spain-cnmv",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.cnmv.es/portal/RSS/RSS.asmx/GetDatos?iID=4: HTTPSConnectionPool(host='www.cnmv.es', port=443): Max retries exceeded with url: /portal/RSS/RSS.asmx/GetDatos?iID=4 (Caused by NameResolutionError(\"HTTPSConnection(host='www.cnmv.es', port=443): Failed to resolve 'www.cnmv.es' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "ireland-cbi",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.centralbank.ie/feeds/markets-updates-feed: HTTPSConnectionPool(host='www.centralbank.ie', port=443): Max retries exceeded with url: /feeds/markets-updates-feed (Caused by NameResolutionError(\"HTTPSConnection(host='www.centralbank.ie', port=443): Failed to resolve 'www.centralbank.ie' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "hkma",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.hkma.gov.hk/eng/other-information/rss/rss_consultations.xml: HTTPSConnectionPool(host='www.hkma.gov.hk', port=443): Max retries exceeded with url: /eng/other-information/rss/rss_consultations.xml (Caused by NameResolutionError(\"HTTPSConnection(host='www.hkma.gov.hk', port=443): Failed to resolve 'www.hkma.gov.hk' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "fr-amf",
+      "status": "failed",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.amf-france.org/fr/flux-rss/display/24: HTTPSConnectionPool(host='www.amf-france.org', port=443): Max retries exceeded with url: /fr/flux-rss/display/24 (Caused by NameResolutionError(\"HTTPSConnection(host='www.amf-france.org', port=443): Failed to resolve 'www.amf-france.org' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    }
+  ],
+  "candidateReview": [],
+  "trend": [
+    {
+      "edition": "2026-08-01",
+      "durationSeconds": 76.78,
+      "sourcesConfigured": 34,
+      "sourcesHealthy": 33,
+      "sourcesFailed": 1,
+      "confidenceBands": {
+        "medium": 44,
+        "high": 5
+      },
+      "impactBands": {
+        "low": 45,
+        "medium": 4
+      },
+      "themeCounts": {
+        "balance-sheet": 6,
+        "digital-resilience": 4,
+        "boardroom-and-accountability": 4,
+        "crime-and-sanctions": 3,
+        "market-plumbing": 2
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "alerts": [
+        "source-health"
+      ]
+    },
+    {
+      "edition": "2026-08-01",
+      "durationSeconds": 74.1,
+      "sourcesConfigured": 34,
+      "sourcesHealthy": 33,
+      "sourcesFailed": 1,
+      "confidenceBands": {
+        "medium": 44,
+        "high": 5
+      },
+      "impactBands": {
+        "low": 45,
+        "medium": 4
+      },
+      "themeCounts": {
+        "balance-sheet": 6,
+        "digital-resilience": 4,
+        "boardroom-and-accountability": 4,
+        "crime-and-sanctions": 3,
+        "market-plumbing": 2
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "alerts": [
+        "source-health"
+      ]
+    },
+    {
+      "edition": "2026-08-01",
+      "durationSeconds": 82.16,
+      "sourcesConfigured": 34,
+      "sourcesHealthy": 33,
+      "sourcesFailed": 1,
+      "confidenceBands": {
+        "medium": 44,
+        "high": 5
+      },
+      "impactBands": {
+        "low": 45,
+        "medium": 3,
+        "high": 1
+      },
+      "themeCounts": {
+        "balance-sheet": 6,
+        "digital-resilience": 4,
+        "boardroom-and-accountability": 4,
+        "crime-and-sanctions": 3,
+        "market-plumbing": 2
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "alerts": [
+        "source-health"
+      ]
+    }
+  ],
+  "rollingCoverage": {
+    "windowRuns": 4,
+    "candidateSources": 1,
+    "materialSources": 1,
+    "configuredSources": 52,
+    "sourceIdsWithCandidates": [
+      "adgm-fsra"
+    ],
+    "sourceIdsWithMaterial": [
+      "adgm-fsra"
+    ]
+  }
+}

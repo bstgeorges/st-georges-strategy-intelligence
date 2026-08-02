@@ -1,6 +1,6 @@
 {
-  "edition": "2026-08-01",
-  "generatedAt": "2026-08-01 16:55 UTC",
+  "edition": "2026-08-02",
+  "generatedAt": "2026-08-02 16:55 UTC",
   "windowDays": 7,
   "status": "published",
   "kpis": {
@@ -10,7 +10,7 @@
     "jurisdictions": 7,
     "coverage": "6 of 34"
   },
-  "bottomLine": "The clearest trigger this edition is \"Consultation Paper No. 2 of 2026 – Transfer Schemes\" from Abu Dhabi Global Market Financial Services Regulatory Authority (consultation). Material signals span 4 of 8 watch themes. 1 open consultation(s) to influence - prioritise responses.",
+  "bottomLine": "The clearest trigger this edition is the ADGM transfer-schemes consultation, with frontier-AI ICT risk and IT resilience now forming the main preparation agenda. One live response window remains open; prioritise ownership and evidence.",
   "horizon": [
     {
       "date": "2026-09-21",
@@ -246,33 +246,34 @@
       "cluster": "cvm-enforcement-read-across"
     },
     {
-      "title": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
-      "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
-      "source": "Securities and Exchange Board of India",
+      "title": "Financial Services Agency publishes Analytical Report on IT Resilience in the Financial Sector",
+      "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
+      "source": "Financial Services Agency of Japan",
       "sourceStatus": "approved",
       "jurisdictions": [
-        "India"
+        "Japan",
+        "Global"
       ],
       "date": "2026-07-30",
-      "type": "enforcement",
+      "type": "guidance",
       "riskAreas": [
         "digital-resilience"
       ],
-      "why": "A enforcement from Securities and Exchange Board of India touching digital-resilience. No explicit implementation or response deadline was extracted from the official feed.",
+      "why": "A report from the Financial Services Agency of Japan touching digital-resilience and third-party-risk. It connects IT failure analysis with cyber, geopolitical and supplier dependence.",
       "editorial": {
-        "change": "SEBI Order for Compliance - Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel in the matter of Shree Surgovind Tradelink Limited.",
-        "affected": "Market-abuse surveillance, trading controls, compliance, and governance owners with Indian-market or comparable exposure.",
-        "implication": "This representative SEBI order sits within a wider cluster of recent recovery and manipulation actions, useful as an enforcement pattern rather than a standalone firm-specific event.",
-        "owner": "Accountable owner for digital resilience applicability and governance review.",
-        "action": "Monitor the clustered enforcement pattern and test whether surveillance, escalation, and remediation evidence covers comparable conduct.",
-        "evidence": "Cluster read-across note, surveillance control review, and documented decision on any remediation."
+        "change": "The FSA’s 2026 analytical report reviews IT resilience in the financial sector against growing geopolitical, cyber and third-party risks and increasing reliance on digital infrastructure.",
+        "affected": "Boards, technology, operational-resilience, cyber, third-party and important-service owners in financial firms.",
+        "implication": "Resilience is a business-led recovery and learning obligation, not only a technology availability metric.",
+        "owner": "Accountable owner for IT resilience and important-service recovery evidence.",
+        "action": "Map the report’s failure themes to important services, recovery priorities, supplier dependencies and the next resilience rehearsal.",
+        "evidence": "Updated service map, recovery test result, supplier dependency view and recorded remediation decisions."
       },
-      "score": 1.24,
+      "score": 1.15,
       "deadline": null,
       "changeStatus": "changed",
       "changeEvidence": {
-        "previousTitle": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
-        "currentTitle": "SEBI Order for Compliance -  Release Order for Recovery Certificate No. 4707 of 2022 against Ms. Kokilaben Patel  in the matter of Shree Surgovind Tradelink Limited.",
+        "previousTitle": "SEBI enforcement and recovery order",
+        "currentTitle": "Financial Services Agency publishes Analytical Report on IT Resilience in the Financial Sector",
         "previousDeadline": null,
         "currentDeadline": null
       },
@@ -288,23 +289,18 @@
         }
       },
       "businessImpact": {
-        "score": 0.558,
-        "band": "medium",
+        "score": 0.68,
+        "band": "high",
         "drivers": {
-          "regulatory_action": 0.95,
+          "regulatory_action": 0.7,
           "urgency": 0.45,
-          "control_breadth": 0.3333333333333333,
+          "control_breadth": 0.8,
           "jurisdiction_reach": 0.5
         }
       },
-      "also": [
-        {
-          "source": "Securities and Exchange Board of India",
-          "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-completion-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103268.html"
-        }
-      ],
-      "lane": "monitor",
-      "cluster": "sebi-enforcement-orders"
+      "also": [],
+      "lane": "prepare",
+      "cluster": "japan-it-resilience"
     },
     {
       "title": "令和８年７月29日　FATFによる「DeFiに係る規制上の課題に関する報告書」の公表について",
@@ -1176,7 +1172,7 @@
       "sourceId": "hkma",
       "source": "Hong Kong Monetary Authority",
       "title": "Joint Circular on the Cross-Sectoral Cyber Mapping Exercise",
-      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260729-1-EN",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/07/20260731-4",
       "type": "other",
       "score": 0.69,
       "confidence": {
@@ -1885,16 +1881,16 @@
     ]
   },
   "editorialReview": {
-    "edition": "2026-08-01",
+    "edition": "2026-08-02",
     "reviewStatus": "approved",
-    "reviewedAt": "2026-08-01",
+    "reviewedAt": "2026-08-02",
     "editor": "Ben St Georges",
     "leadUrl": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-    "coverageCaveat": "Coverage improved to 6 of 34 primary authorities contributing material rows, but Consob was blocked and quiet themes remain unconfirmed.",
+    "coverageCaveat": "Seven of 34 primary authorities contribute material rows in this reviewed edition; Consob remains blocked and quiet themes remain unconfirmed.",
     "topThree": {
-      "headline": "One live response window, two supervisory accountability signals, and a focused enforcement read-across now deserve operating attention.",
-      "summary": "The immediate obligation is the ADGM transfer-schemes consultation. The preparation work is to test frontier-AI governance, fitness-and-probity evidence, and comparable enforcement controls; the FATF material stays in monitor mode while coverage remains incomplete.",
-      "evidence": "Ranked from the approved shortlist by response urgency, business consequence, source authority, and the quality of the primary-source evidence."
+      "headline": "One live response window, frontier-AI ICT risk, and a fresh IT-resilience report now set the operating agenda.",
+      "summary": "The immediate obligation is the ADGM transfer-schemes consultation. Preparation should connect frontier-AI governance, critical-provider oversight, cyber recovery and IT-resilience evidence before the next committee review.",
+      "evidence": "Ranked from the reviewed shortlist by response urgency, business consequence, source authority and primary-source evidence quality."
     },
     "shortlist": [
       {
@@ -1938,14 +1934,14 @@
         "evidence": "Read-across memo, control findings, and remediation log where gaps are identified."
       },
       {
-        "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/jul-2026/sebi-order-for-compliance-release-order-for-recovery-certificate-no-4707-of-2022-against-ms-kokilaben-patel-in-the-matter-of-shree-surgovind-tradelink-limited-_103276.html",
+        "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
         "rank": 5,
-        "lane": "monitor",
-        "cluster": "sebi-enforcement-orders",
-        "whyItMatters": "This representative SEBI order sits within a wider cluster of recent recovery and manipulation actions, useful as an enforcement pattern rather than a standalone firm-specific event.",
-        "affected": "Market-abuse surveillance, trading controls, compliance, and governance owners with Indian-market or comparable exposure.",
-        "action": "Monitor the clustered enforcement pattern and test whether surveillance, escalation, and remediation evidence covers comparable conduct.",
-        "evidence": "Cluster read-across note, surveillance control review, and documented decision on any remediation."
+        "lane": "prepare",
+        "cluster": "japan-it-resilience",
+        "whyItMatters": "The report makes cyber, geopolitical and third-party dependence part of the financial-sector resilience conversation.",
+        "affected": "Boards, technology, operational-resilience, cyber, third-party and important-service owners.",
+        "action": "Map failure themes to important services, recovery priorities, supplier dependencies and the next resilience rehearsal.",
+        "evidence": "Updated service map, recovery test result, supplier dependency view and recorded remediation decisions."
       },
       {
         "url": "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html",
@@ -1972,6 +1968,24 @@
         "reason": "Grouped into the SEBI enforcement-orders cluster; retained as supporting source material rather than a separate public row."
       }
     ],
-    "excludedCount": 3
+    "excludedCount": 3,
+    "riskRadar": {
+      "headline": "Regulatory attention is converging on evidence across AI, resilience and critical providers.",
+      "baseline": "The baseline is shifting from policy presence to demonstrable operating control.",
+      "transmission": "Frontier-AI capability and cyber exposure travel through providers, important services, data and recovery paths.",
+      "affected": "Boards, technology, resilience, compliance, third-party, model-risk and regulatory-change owners.",
+      "confidence": "High on the named sources; limited on whole-market coverage.",
+      "uncertainty": "Consob remains blocked and quiet themes are not evidence of no activity.",
+      "interactions": [
+        "AI capability increases dependency and cyber exposure.",
+        "Provider failure becomes customer and supervisory risk.",
+        "Regulatory response requires the same owner and evidence discipline as incident recovery."
+      ],
+      "actions": {
+        "7d": "Name owners for the ADGM response, frontier-AI ICT mapping and critical-provider evidence.",
+        "30d": "Test AI permissions, recovery routes, supplier dependencies and threat-led remediation evidence.",
+        "90d": "Rehearse a correlated provider, cyber and model-control failure and report the decision trail to the committee."
+      }
+    }
   }
 }

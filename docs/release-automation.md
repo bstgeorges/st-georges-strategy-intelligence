@@ -62,4 +62,6 @@ npm run verify:legacy-routes
 
 The old `Cloudflare Workers emergency deploy` workflow is manual-only. It exists for route recovery, not routine publishing.
 
+The routine site release does not run from candidate generation. The release workflow only publishes a `main` or `dev` change after `npm run release:order` confirms that the approved Signals edition, reviewed Reg Horizon edition, current judgement, and downstream pages are aligned. A candidate refresh or Reg Horizon scan PR is preparation, not publication.
+
 The emergency local `npm run deploy:cloudflare` path has a checkout guard. It refuses to deploy unless the local branch is a clean `main` exactly aligned with `origin/main`, preventing a stale feature branch or leftover build directory from being uploaded.

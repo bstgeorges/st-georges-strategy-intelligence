@@ -38,7 +38,8 @@ Recommended sequence:
 3. Let the merge-triggered candidate refresh and editorial prep consume the merged `main` state; prep must fail if the reviewed Horizon edition is more than eight days old or withheld.
 4. Generate the Weekly Brief, Signals hub, eight topic pages, Reg Horizon page, and archive routes.
 5. Run pre-publish checks and responsive QA.
-6. Commit and publish only after the generated site passes the migration verifier and canonical release workflow.
+6. Run the ordered-release gate: Signals and Reg Horizon must be current and approved, the current edition's lead signals must match the Signals dataset, and the judgement must not repeat the prior archived edition.
+7. Commit and publish only after the generated site passes the migration verifier and canonical release workflow.
 
 The scan should not publish directly to the public site without the editorial/site generation step. The Sunday run is the evidence refresh; the site publisher is the release step.
 

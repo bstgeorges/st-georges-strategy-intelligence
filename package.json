@@ -46,6 +46,7 @@
     "verify:generated-links": "node scripts/verify_generated_links.mjs",
     "verify:responsive": "node scripts/verify_responsive_pages.mjs",
     "verify:edition-freshness": "node scripts/verify_edition_freshness.mjs",
+    "release:order": "node scripts/verify_weekly_release_order.mjs",
     "verify:deployed-release": "node scripts/verify_deployed_release.mjs",
     "verify:legacy-routes": "node scripts/verify_legacy_routes.mjs",
     "cloudflare:cache:purge": "node scripts/cloudflare_purge_site_cache.mjs",

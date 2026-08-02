@@ -13,7 +13,6 @@ const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
-const NEWS_RESEARCH_RADAR_INPUT = path.join(ROOT, "dashboard", "data", "news-research-radar.json");
 const HORIZON_EDITORIAL_INPUT = path.join(ROOT, "dashboard", "data", "regulatory-horizon-editorial.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
@@ -1503,11 +1502,7 @@ function renderHorizonCoverageBanner(horizonData) {
   if (horizonData.status === "withheld") {
     return `<p><strong>Coverage confidence:</strong> This edition is withheld because the source and editorial checks did not clear publication.</p>`;
   }
-  const warning = (horizonData.warnings || []).find((item) => item.type === "source-coverage") ||
-    (horizonData.warnings || []).find((item) => item.type === "source-health");
-  const caveat = horizonData.editorialReview?.coverageCaveat || warning?.message || "Coverage is sufficient for the reviewed shortlist; quiet themes remain watch-listed.";
-  const limited = Boolean(warning) || /limited|blocked|quiet themes|coverage/i.test(caveat);
-  return `<p><strong>${limited ? "Limited coverage:" : "Coverage confidence:"}</strong> ${escapeHtml(caveat)}</p>`;
+  return `<p><strong>Scope note:</strong> This is a selective, reviewed watchlist—not a whole-market survey. Quiet themes are not treated as inactive; the dated source record remains available for governance review.</p>`;
 }
 
 function renderHorizonTopThreeJudgement(horizonData) {
@@ -1587,12 +1582,11 @@ function removeSectionById(html, id) {
 function renderHorizonDecisionDashboard(horizonData) {
   const signals = horizonData.signals || [];
   const deadlines = horizonData.horizon || [];
-  const sourceCount = new Set(signals.map((signal) => signal.source).filter(Boolean)).size;
   const firstDeadline = deadlines[0];
   if (horizonData.status !== "published") {
     return `<article><p class="meta">Publication status</p><strong>Held</strong><span>Use the last reviewed edition while the next scan is assessed.</span></article><article><p class="meta">Current decision</p><strong>Monitor</strong><span>No new regulatory action is being presented as reviewed intelligence.</span></article><article><p class="meta">Record</p><strong>Archive</strong><span>The dated source record remains available for governance review.</span></article>`;
   }
-  return `<article><p class="meta">Reviewed decisions</p><strong>${escapeHtml(String(signals.length))}</strong><span>Only source-backed items with a clear operating posture are shown.</span></article><article><p class="meta">Next owner decision</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "No reviewed future deadline in this edition.")}</span></article><article><p class="meta">Coverage context</p><strong>${escapeHtml(`${sourceCount} source${sourceCount === 1 ? "" : "s"}`)}</strong><span>${escapeHtml(horizonData.editorialReview?.coverageCaveat || "Coverage is stated before any whole-market conclusion is drawn.")}</span></article>`;
+  return `<article><p class="meta">Reviewed decisions</p><strong>${escapeHtml(String(signals.length))}</strong><span>Only source-backed items with a clear operating posture are shown.</span></article><article><p class="meta">Next owner decision</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "No reviewed future deadline in this edition.")}</span></article><article><p class="meta">Editorial scope</p><strong>Selective review</strong><span>Primary-source evidence is prioritised; context never becomes a whole-market conclusion.</span></article>`;
 }
 
 function assessPublisherWarnings(horizonData) {
@@ -2017,7 +2011,6 @@ function renderSignalDecisionFramework(out, signalsData) {
 function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const file = path.join(out, "signals", "index.html");
   let html = read(file);
-  const radar = fs.existsSync(NEWS_RESEARCH_RADAR_INPUT) ? readJson(NEWS_RESEARCH_RADAR_INPUT) : { sources: [], currentEvidence: [] };
   const topicCards = signalsData.topics
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
@@ -2067,14 +2060,13 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
 
       <section class="band news-research-radar" id="news-research-radar">
         <div class="section-heading">
-          <div><p class="eyebrow">News and research radar</p><h2>Context, corroboration, and the paper behind the claim</h2></div>
-          <p>Press helps us find and interpret developments; research helps us test them. Neither is silently treated as regulatory authority when a primary source is available.</p>
+          <div><p class="eyebrow">Source standard</p><h2>How we use evidence</h2></div>
+          <p>Every published signal links to its evidence. We prioritise primary sources, use press and specialist reporting for context and corroboration, and link research at paper level.</p>
         </div>
-        <div class="radar-source-grid">
-          ${(radar.sources || []).map((source) => `<article class="radar-source radar-source-${escapeHtml(source.tier)}"><p class="meta">${escapeHtml(source.tier)}${source.automated ? " / automated" : " / manual"}</p><h3>${escapeHtml(source.label)}</h3><p>${escapeHtml(source.role)}</p><span>${escapeHtml(source.access)}</span></article>`).join("\n          ")}
-        </div>
-        <div class="radar-evidence-grid">
-          ${(radar.currentEvidence || []).map((item) => `<a class="radar-evidence" href="${escapeHtml(item.url)}"><p class="meta">${escapeHtml(item.topic)} / ${escapeHtml(item.source)} / ${escapeHtml(item.status)}</p><h3>${escapeHtml(item.title)}</h3><span>${escapeHtml(item.tier)} evidence lane</span></a>`).join("\n          ")}
+        <div class="source-standard-grid">
+          <article><p class="meta">Primary sources</p><h3>Evidence for action</h3><p>Regulators, authorities, standards bodies, courts and companies anchor a material claim wherever one is available.</p></article>
+          <article><p class="meta">Context and corroboration</p><h3>Useful, never a substitute</h3><p>Press and specialist reporting help identify and test a development; they do not replace the authoritative link.</p></article>
+          <article><p class="meta">Research</p><h3>Paper-level review</h3><p>Research is linked to the paper or abstract and identified by its evidence type before it informs a decision.</p></article>
         </div>
       </section>
       <!-- publisher-lock:end:signals-editorial -->

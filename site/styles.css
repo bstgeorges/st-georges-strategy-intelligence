@@ -1316,6 +1316,12 @@ a.tag:hover {
 .radar-evidence-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; }
 .radar-evidence { min-height: 150px; padding: 20px; background: var(--paper); color: var(--navy); text-decoration: none; }
 .radar-evidence:hover { background: var(--paper-raised); }
+
+.source-standard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 24px; background: var(--rule-strong); }
+.source-standard-grid article { min-height: 180px; padding: 24px; background: var(--paper-raised); border-top: 3px solid var(--navy); }
+.source-standard-grid article:nth-child(3) { border-top-color: var(--accent); }
+.source-standard-grid h3 { margin: 8px 0 12px; font: 500 23px/1.1 var(--serif); }
+.source-standard-grid p:not(.meta) { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
 .radar-evidence h3 { margin: 8px 0 12px; font: 500 20px/1.15 var(--serif); }
 .radar-evidence span { color: var(--accent-readable); font: 600 10px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
@@ -2400,6 +2406,7 @@ a.tag:hover {
   .radar-grid,
   .radar-source-grid,
   .radar-evidence-grid,
+  .source-standard-grid,
   .horizon-dashboard,
   .horizon-operating-grid,
   .method-strip,
@@ -2498,6 +2505,7 @@ a.tag:hover {
   .radar-grid,
   .radar-source-grid,
   .radar-evidence-grid,
+  .source-standard-grid,
   .horizon-dashboard,
   .horizon-operating-grid,
   .horizon-lane-grid,

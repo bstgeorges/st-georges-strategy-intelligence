@@ -1,50 +1,75 @@
 {
-  "version": "2026-07-22",
+  "version": "2026-08-02",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-07-22T04:14:55.283Z",
-  "reviewedAt": "2026-07-22",
-  "purpose": "Editorially selected Signals candidates. Promotion must use only these URLs; titles and evidence remain subject to final copy review.",
+  "candidateGeneratedAt": "2026-08-02T10:52:22.627Z",
+  "reviewedAt": "2026-08-02",
+  "purpose": "Editorially selected Signals candidates for the Sunday 2 August 2026 edition. Only the URLs below may be promoted; each promoted row receives final editorial significance before publication.",
   "criteria": ["materiality", "specificity", "decision value", "source authority", "duplication control"],
   "topics": [
     {
       "id": "ai",
-      "selectedUrls": ["https://openai.com/index/hugging-face-model-evaluation-security-incident"],
-      "editorialRationale": "A concrete model-evaluation security incident gives boards a timely control question: what data, access and disclosure safeguards apply when external evaluation partners are involved?"
+      "selectedUrls": [
+        "https://www.anthropic.com/research/project-pilot",
+        "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        "https://openai.com/index/advancing-responsible-ai-across-europe"
+      ],
+      "editorialRationale": "Select concrete model-evaluation and responsible-AI developments that create governance, access, incident and evidence questions rather than generic AI commentary."
     },
     {
       "id": "market-structure",
-      "selectedUrls": ["https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma"],
-      "editorialRationale": "FINMA's liquidity ordinance is a specific prudential development with direct relevance to bank and securities-firm liquidity governance."
+      "selectedUrls": [
+        "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+        "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma"
+      ],
+      "editorialRationale": "Select the live ADGM consultation and the FINMA liquidity ordinance because both create specific implementation or response decisions for affected firms."
     },
     {
       "id": "third-party",
-      "selectedUrls": ["https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF"],
-      "editorialRationale": "The resolved multi-region VMware incident provides current, observable evidence for cloud concentration, dependency mapping and supplier-assurance discussion."
+      "selectedUrls": [
+        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw"
+      ],
+      "editorialRationale": "Select the ESAs’ frontier-AI ICT-risk statement and the cloud incident as distinct evidence on critical-provider oversight and correlated infrastructure dependencies."
     },
     {
       "id": "resilience",
-      "selectedUrls": ["https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act"],
-      "editorialRationale": "ENISA's implementation-readiness view gives a distinct resilience signal without duplicating the cloud incident across the weekly lead set."
+      "selectedUrls": [
+        "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
+        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
+      ],
+      "editorialRationale": "Select the Japanese FSA IT-resilience report and the ESAs’ statement because they provide current, official evidence on recovery, cyber, third-party and digital-infrastructure resilience."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": ["https://www.gov.uk/government/publications/uk-financial-sanctions-faqs"],
-      "editorialRationale": "A current OFSI FAQ update is operationally useful for sanctions-screening, escalation and evidence owners; it is preferred to routine enforcement updates."
+      "selectedUrls": [
+        "https://www.gov.uk/government/publications/check-if-an-email-or-communication-claiming-to-be-from-ofsi-is-genuine",
+        "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
+        "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html"
+      ],
+      "editorialRationale": "Select current official sanctions-authenticity guidance, enforcement evidence and FATF DeFi analysis, while leaving routine fraud-awareness material out of the lead set."
     },
     {
       "id": "cyber",
-      "selectedUrls": ["https://www.cisa.gov/news-events/alerts/2026/07/21/cisa-adds-four-known-exploited-vulnerabilities-catalog"],
-      "editorialRationale": "Confirmed exploitation is the strongest current trigger for patch-priority and third-party asset-assurance decisions."
+      "selectedUrls": [
+        "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
+        "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
+        "https://www.jpcert.or.jp/at/2026/at260021.html"
+      ],
+      "editorialRationale": "Select current official recovery guidance, an exposed state-supported campaign and an actively exploited Rails vulnerability because each creates an actionable preparation or remediation decision."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": ["https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26"],
-      "editorialRationale": "FINMA's quantum-computing guidance frames a forward technology-risk issue as an inventory, migration and governance responsibility."
+      "selectedUrls": [
+        "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
+        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+        "https://www.jpcert.or.jp/at/2026/at260021.html"
+      ],
+      "editorialRationale": "Select official evidence on IT resilience, frontier-AI ICT risk and a high-severity application vulnerability to connect failure prevention with recovery and dependency governance."
     },
     {
       "id": "data",
-      "selectedUrls": ["https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures"],
-      "editorialRationale": "ASIC's systemic trade-reporting penalty is a current, specific reminder that data lineage, reconciliation and control ownership are conduct and market-integrity issues."
+      "selectedUrls": [],
+      "editorialRationale": "No new data candidate is promoted: the generated ICO rows point to 2024 pages with unreliable current dates. Retain the existing data signals and mark the gap for the next source-quality pass rather than publishing fabricated freshness."
     }
   ]
 }

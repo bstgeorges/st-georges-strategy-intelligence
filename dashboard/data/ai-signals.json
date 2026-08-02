@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08",
+  "generatedAt": "2026-08-02",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry, and governance signals",
   "status": "live",
@@ -8,32 +8,31 @@
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "8 Jul 2026",
-    "line": "Live edition / Updated 8 Jul 2026",
+    "displayDate": "2 Aug 2026",
+    "line": "Live edition / Updated 2 Aug 2026",
     "descriptor": "Sector-wide / Source-linked snapshot"
   },
-  "summary": "A running record of model releases, product and feature launches, and the funding and partnership news shaping the AI landscape.",
+  "summary": "AI is moving from experimentation into delegated action, critical-provider dependence and operational resilience. This edition tracks the control evidence that must move with it.",
   "sourceUniverse": {
     "modelReleases": [
-      "https://arxiv.org/abs/2606.26959",
-      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
-      "https://www.nist.gov/itl/ai-risk-management-framework",
-      "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"
+      "https://www.anthropic.com/research/project-pilot",
+      "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+      "https://openai.com/index/advancing-responsible-ai-across-europe"
     ],
     "industryNews": [
-      "https://www.ft.com/content/7f501320-9037-410f-b8e7-3111b9041311",
-      "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb"
+      "https://www.openai.com/index/unive",
+      "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
     ],
     "capabilityData": [
-      "https://workspace.google.com/solutions/ai/",
-      "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough"
+      "https://www.anthropic.com/research/project-pilot",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
     ],
     "governanceOverlap": [
-      "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
-      "https://www.thetimes.com/business/technology/article/bank-of-england-ai-agents-market-meltdown-h36jqjzc6"
+      "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
     ],
     "curatedWeeklySignals": [
-      "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector"
+      "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover"
     ]
   },
   "sections": [
@@ -43,63 +42,63 @@
       "label": "Model releases",
       "cards": [
         {
-          "title": "Agentic coding evidence broadens the adoption case",
-          "badge": "Research signal",
-          "body": "The new Codex working paper frames agentic AI as delegated work rather than better chat. The control implication is workflow ownership, approval discipline, and evidence of what the agent changed.",
-          "sourceName": "arXiv",
+          "title": "Project Pilot tests whether AI models can act in the physical world",
+          "badge": "Capability signal",
+          "body": "Anthropic’s Project Pilot makes delegated action concrete. The control question is how model capability changes permissions, human approval, monitoring, incident response and the evidence required before deployment.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-06-25",
+          "date": "2026-07-24",
           "source": {
-            "label": "The Shift to Agentic AI: Evidence from Codex",
-            "url": "https://arxiv.org/abs/2606.26959"
+            "label": "Project Pilot",
+            "url": "https://www.anthropic.com/research/project-pilot"
           }
         },
         {
-          "title": "EU AI Act turns deployment inventory into a live control obligation",
-          "badge": "Governance signal",
-          "body": "The AI Act makes firms classify use cases, roles, and obligations more explicitly. The operational pressure point is no longer AI policy alone but maintaining an inventory that can support legal and control decisions.",
-          "sourceName": "EUR-Lex",
+          "title": "Anthropic reviews three real-world incidents in cybersecurity evaluations",
+          "badge": "Security signal",
+          "body": "The incident review shows why evaluation environments need partner assurance, access logging, disclosure routes and a tested response when prompts, data or model behaviour are exposed.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-07-01",
+          "date": "2026-07-30",
           "source": {
-            "label": "Artificial Intelligence Act",
-            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+            "label": "Cybersecurity evaluations incident review",
+            "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
           }
         },
         {
-          "title": "NIST AI RMF remains a usable baseline for governance evidence",
+          "title": "Responsible AI in Europe becomes an operating-evidence question",
           "badge": "Governance signal",
-          "body": "For firms trying to keep AI governance practical, NIST still offers the cleanest baseline for mapping design, testing, monitoring, and accountability into an evidence pack.",
+          "body": "The responsible-AI conversation is moving from principles to use-case inventories, accountable owners, lawful data, monitoring and documented decisions when safety and speed conflict.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-07-31",
+          "source": {
+            "label": "Advancing responsible AI across Europe",
+            "url": "https://openai.com/index/advancing-responsible-ai-across-europe"
+          }
+        },
+        {
+          "title": "AI-ready workforces need workflow and accountability design",
+          "badge": "Adoption signal",
+          "body": "AI adoption is increasingly an operating-model choice. Firms need to identify where AI changes work allocation, review, escalation, data handling and the accountability of the final decision.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-07-31",
+          "source": {
+            "label": "Univé builds an AI-ready workforce",
+            "url": "https://openai.com/index/unive"
+          }
+        },
+        {
+          "title": "AI governance still needs a durable control baseline",
+          "badge": "Governance signal",
+          "body": "NIST’s AI Risk Management Framework remains useful as a practical bridge between model capability, risk identification, testing, monitoring and accountable governance evidence.",
           "sourceName": "NIST",
           "sourceType": "evergreen",
           "evergreenClassification": "framework",
           "source": {
             "label": "NIST AI Risk Management Framework",
             "url": "https://www.nist.gov/itl/ai-risk-management-framework"
-          }
-        },
-        {
-          "title": "AI and analytics need lawful, explainable, and controlled data inputs",
-          "badge": "Data signal",
-          "body": "The ICO's AI guidance keeps data provenance, lawful basis, explainability, and individual rights in the operational frame. That makes data discipline part of AI governance, not a separate privacy annex.",
-          "sourceName": "ICO",
-          "sourceType": "evergreen",
-          "evergreenClassification": "guidance",
-          "source": {
-            "label": "ICO AI and data protection guidance",
-            "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"
-          }
-        },
-        {
-          "title": "Enterprise AI features can enter production through existing tooling",
-          "badge": "Product signal",
-          "body": "The control challenge is not only greenfield AI deployment. AI capability now enters through tools firms already license, which raises inventory, permission, and change-control questions.",
-          "sourceName": "Google Workspace",
-          "sourceType": "evergreen",
-          "evergreenClassification": "product-page",
-          "source": {
-            "label": "Google Workspace AI",
-            "url": "https://workspace.google.com/solutions/ai/"
           }
         }
       ]
@@ -110,63 +109,63 @@
       "label": "Feature launches",
       "cards": [
         {
-          "title": "Kill-switch language enters the AI-finance debate",
-          "badge": "Market signal",
-          "body": "The Bank of England debate has moved AI control language into circuit breakers, kill switches, and accountable human override. That is a much more operational standard than generic AI principles.",
-          "sourceName": "Financial Times",
+          "title": "Delegated AI features need permissions outside the prompt",
+          "badge": "Control signal",
+          "body": "When tools can act across systems, prompt-level instructions are not enough. Technical boundaries, least privilege, monitoring and emergency stop paths need to be enforced in the workflow.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-06-30",
+          "date": "2026-07-24",
           "source": {
-            "label": "Financial Times",
-            "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568"
+            "label": "Project Pilot",
+            "url": "https://www.anthropic.com/research/project-pilot"
           }
         },
         {
-          "title": "Agentic commerce raises consent and liability questions",
-          "badge": "Payments signal",
-          "body": "As AI agents move toward payments and customer action, the live questions are who consented, who is liable, and what happens when an agent acts at speed across fragmented providers.",
-          "sourceName": "The Times",
-          "sourceType": "dated",
-          "date": "2026-06-30",
-          "source": {
-            "label": "The Times",
-            "url": "https://www.thetimes.com/business/technology/article/bank-of-england-ai-agents-market-meltdown-h36jqjzc6"
-          }
-        },
-        {
-          "title": "Vendor AI guardrails need technical controls outside the prompt",
+          "title": "AI security evaluation is becoming a product-readiness test",
           "badge": "Security signal",
-          "body": "Prompt-level instructions are not enough governance when AI is connected to real systems. Firms need technical boundaries, recovery plans, and incident communications around the workflow itself.",
-          "sourceName": "TechRadar",
+          "body": "The cybersecurity evaluation incidents underline that model and product launches need disclosure, partner controls, safe testing environments and a route to contain unexpected behaviour.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-06-22",
+          "date": "2026-07-30",
           "source": {
-            "label": "TechRadar Pro",
-            "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough"
+            "label": "Cybersecurity evaluations incident review",
+            "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
           }
         },
         {
-          "title": "Model providers are becoming critical third-party dependencies",
-          "badge": "Dependency signal",
-          "body": "Once AI capability is embedded in regulated workflows, model providers start to look like critical third parties. That shifts attention to concentration, substitution, and evidence of control.",
-          "sourceName": "FCA",
-          "sourceType": "evergreen",
-          "evergreenClassification": "guidance",
+          "title": "Frontier-AI oversight now includes critical ICT providers",
+          "badge": "Supervisory signal",
+          "body": "The ESAs connect frontier-AI cyber risk to governance, prevention, detection, response and oversight of critical ICT third parties. Product adoption therefore has a supervisory perimeter.",
+          "sourceName": "EBA / EIOPA / ESMA",
+          "sourceType": "dated",
+          "date": "2026-07-31",
           "source": {
-            "label": "FCA critical third parties policy",
-            "url": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector"
+            "label": "ESAs frontier-AI ICT risk statement",
+            "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
           }
         },
         {
-          "title": "AI RMF plus legal obligations is becoming the minimum viable control stack",
+          "title": "Responsible deployment needs an inventory that survives review",
           "badge": "Governance signal",
-          "body": "The governance challenge is convergence: firms need a practical bridge from high-level frameworks to legal obligations, deployment boundaries, monitoring, and evidence.",
-          "sourceName": "NIST / EUR-Lex",
+          "body": "A live inventory must connect use case, model, data, owner, permission, risk classification, testing, monitoring and exception decisions rather than sit as a static register.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-07-31",
+          "source": {
+            "label": "Advancing responsible AI across Europe",
+            "url": "https://openai.com/index/advancing-responsible-ai-across-europe"
+          }
+        },
+        {
+          "title": "Legal obligations remain the bridge between AI principles and control tests",
+          "badge": "Governance signal",
+          "body": "The EU AI Act provides a durable legal reference point for converting AI governance language into role, use-case, documentation and evidence questions.",
+          "sourceName": "EUR-Lex",
           "sourceType": "evergreen",
           "evergreenClassification": "framework",
           "source": {
-            "label": "NIST AI Risk Management Framework",
-            "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+            "label": "Artificial Intelligence Act",
+            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
           }
         }
       ]
@@ -177,63 +176,63 @@
       "label": "Industry news",
       "cards": [
         {
-          "title": "AI infrastructure capex needs downside financing and concentration scenarios",
-          "badge": "Market signal",
-          "body": "The AI build-out is becoming a financial-services watch item because concentration, leverage, and valuation sensitivity can travel quickly from technology optimism into credit and market exposure.",
-          "sourceName": "Wall Street Journal",
+          "title": "AI-ready workforces make accountability an operating-model choice",
+          "badge": "Industry signal",
+          "body": "The important shift is not only tool adoption. It is how firms redesign work, review, escalation and evidence when AI becomes part of ordinary delivery.",
+          "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-06-29",
+          "date": "2026-07-31",
           "source": {
-            "label": "Wall Street Journal",
-            "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb"
+            "label": "Univé builds an AI-ready workforce",
+            "url": "https://openai.com/index/unive"
           }
         },
         {
-          "title": "Supervisors are building AI capability to supervise AI-era threats",
+          "title": "Supervisors are framing frontier AI as a financial-sector ICT risk",
           "badge": "Supervisory signal",
-          "body": "The next step is not only AI regulation but AI-enabled supervision. That points to faster pattern detection, more data-led challenge, and a rising premium on clean internal evidence.",
-          "sourceName": "Financial Times",
+          "body": "The ESAs’ statement moves frontier AI into financial-sector resilience and critical-provider oversight, increasing the value of governance maps that connect models to important services.",
+          "sourceName": "EBA / EIOPA / ESMA",
           "sourceType": "dated",
-          "date": "2026-07-05",
+          "date": "2026-07-31",
           "source": {
-            "label": "Financial Times",
-            "url": "https://www.ft.com/content/7f501320-9037-410f-b8e7-3111b9041311"
+            "label": "ESAs frontier-AI ICT risk statement",
+            "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
           }
         },
         {
-          "title": "Coding agents are becoming organisational infrastructure",
-          "badge": "Adoption signal",
-          "body": "The adoption signal is that agent tools are beginning to alter how work is assigned and reviewed. That pushes governance from experimentation toward operating model design.",
-          "sourceName": "arXiv",
+          "title": "IT resilience is the practical test for AI-enabled financial services",
+          "badge": "Resilience signal",
+          "body": "Japan’s FSA report highlights cyber, geopolitical and third-party dependence. AI-enabled services need recovery priorities, service mapping and evidence that controls work during disruption.",
+          "sourceName": "Financial Services Agency of Japan",
           "sourceType": "dated",
-          "date": "2026-06-25",
+          "date": "2026-07-30",
           "source": {
-            "label": "The Shift to Agentic AI: Evidence from Codex",
-            "url": "https://arxiv.org/abs/2606.26959"
+            "label": "Analytical Report on IT Resilience in the Financial Sector",
+            "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html"
           }
         },
         {
-          "title": "AI use in finance is becoming a regulatory-powers question",
-          "badge": "Policy signal",
-          "body": "If AI-enabled products move faster than existing regulatory powers, firms should expect sharper debate about perimeter, accountability, consumer protection, and third-party oversight.",
-          "sourceName": "Financial Times",
+          "title": "Cyber recovery guidance is now part of AI operating readiness",
+          "badge": "Operational signal",
+          "body": "NCSC’s recovery framework emphasises governance, communications, minimum viable operations and rebuilding stronger. AI owners should test these paths for services that depend on model providers.",
+          "sourceName": "NCSC",
           "sourceType": "dated",
-          "date": "2026-07-05",
+          "date": "2026-07-28",
           "source": {
-            "label": "Financial Times",
-            "url": "https://www.ft.com/content/7f501320-9037-410f-b8e7-3111b9041311"
+            "label": "When cyber attacks happen: helping organisations recover",
+            "url": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover"
           }
         },
         {
-          "title": "Enterprise deployment now often arrives through incumbent software channels",
-          "badge": "Distribution signal",
-          "body": "The practical buying pattern matters: AI capability increasingly arrives through existing productivity and platform estates, which means governance has to watch defaults, permissions, and rollout paths.",
-          "sourceName": "Google Workspace",
+          "title": "AI and data protection remain inseparable control questions",
+          "badge": "Data signal",
+          "body": "The ICO’s AI guidance remains a practical reminder that provenance, lawful basis, explainability and individual rights belong inside AI delivery evidence rather than in a separate privacy annex.",
+          "sourceName": "ICO",
           "sourceType": "evergreen",
-          "evergreenClassification": "product-page",
+          "evergreenClassification": "guidance",
           "source": {
-            "label": "Google Workspace AI",
-            "url": "https://workspace.google.com/solutions/ai/"
+            "label": "ICO AI and data protection guidance",
+            "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"
           }
         }
       ]

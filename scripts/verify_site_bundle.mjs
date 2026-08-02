@@ -289,8 +289,9 @@ function main() {
   assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
   assert(horizonPage.includes("horizon-rolling-coverage"), "Reg Horizon page missing rolling coverage", failures);
   assert(horizonPage.includes("Top-three judgement"), "Reg Horizon page missing top-three judgement", failures);
-  assert(horizonPage.includes("Edition / 1 Aug 2026"), "Reg Horizon page edition label must use the long display format", failures);
-  assert(horizonPage.includes('id="horizon-masthead-edition">Edition / 1 Aug 2026'), "Reg Horizon masthead is missing its edition date", failures);
+  const horizonEditionLabel = `Edition / ${formatDateLong(horizon.edition)}`;
+  assert(horizonPage.includes(horizonEditionLabel), "Reg Horizon page edition label must use the long display format", failures);
+  assert(horizonPage.includes(`id="horizon-masthead-edition">${horizonEditionLabel}`), "Reg Horizon masthead is missing its edition date", failures);
   assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 2 Aug 2026'), "Committee Questions masthead is missing its edition date", failures);
   assert(horizonPage.includes("Comparative risk radar"), "Reg Horizon page missing comparative risk radar", failures);
   assert(horizonPage.includes("7 days") && horizonPage.includes("30 days") && horizonPage.includes("90 days"), "Reg Horizon risk radar missing 7/30/90 action horizon", failures);

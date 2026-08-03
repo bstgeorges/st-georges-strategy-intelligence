@@ -20,7 +20,7 @@ Public editorial principles are in `site/EDITORIAL_STYLE_GUIDE.md`, `site/WEEKLY
 
 ## Current production state
 
-The current edition is Sunday 2 August 2026. The latest production release was verified by the green `Site release (Cloudflare)` workflow run `30756659733`, for commit `a524e04`.
+The current edition is Sunday 2 August 2026. The latest production release was verified by the green `Site release (Cloudflare)` workflow run `30765426536`, for commit `ea57d05` (`Simplify public source and coverage disclosures`). The preceding site-reset release, commit `7d64882`, was verified by green workflow run `30761427602`.
 
 The current homepage Top 5 is intentionally distinct:
 
@@ -31,6 +31,29 @@ The current homepage Top 5 is intentionally distinct:
 5. Japan FSA publishes analytical report on IT resilience in the financial sector — Resilience
 
 The duplicate fourth/fifth item was corrected in the current edition, Resilience topic data, Brief, and dated archives. `scripts/verify_weekly_release_order.mjs` now fails if the weekly Top 5 contains duplicate titles.
+
+### August 2026 editorial and experience reset
+
+The site is intentionally organised as a small set of distinct editorial products, rather than four versions of the same weekly list:
+
+- **Home** is the current-edition front door: it introduces the judgement and routes readers to the Brief, Committee Questions, and Reg Horizon. It must not reproduce the full weekly Top 5 or the Brief's evidence blocks.
+- **Weekly Brief** remains the complete cross-theme editorial edition.
+- **Committee Questions** has a featured current question generated from `site/data/current-edition.json` (`committeeQuestion`), followed by its evergreen question library. Do not hand-edit the generated feature in `site-dist/`.
+- **Reg Horizon** is a selective, reviewed decision watchlist. Its core reader-facing structure is the bottom line, concise decision dashboard, populated Act / Prepare / Monitor lanes, deadlines, evidence trail, and archive. Do not restore empty analyst workflow, duplicate material-signal lists, empty watch-theme tiles, or repeated operating readouts to the public page.
+
+`scripts/publish_site_bundle.mjs` now makes Home, Committee Questions, and Reg Horizon draw on the canonical current edition and verifies the public bundle for stale or duplicate cross-page copy. `scripts/verify_site_bundle.mjs` is the reader-facing regression guard for this design.
+
+### Public source and coverage disclosures
+
+The detailed News and Research Radar source register—publisher names, access methods, and whether a source is manual/licensed/automated—is internal operating material in `dashboard/data/news-research-radar.json`. It must not be rendered as a public vendor inventory. The public Signals page instead carries a concise **How we use evidence** standard:
+
+- primary sources anchor material claims;
+- press and specialist reporting provide context and corroboration, not a substitute for authority;
+- research is linked and reviewed at paper or abstract level.
+
+Each published signal remains source-linked. Keep commercial/licensing detail and the full source register internal unless a specific governance or legal need requires disclosure.
+
+Reg Horizon must state its scope honestly without making transient scanner mechanics the reader-facing story. The current public wording is: **“Scope note: This is a selective, reviewed watchlist—not a whole-market survey. Quiet themes are not treated as inactive; the dated source record remains available for governance review.”** Do not lead the page with raw coverage counts or individual fetch failures (for example, “Consob remains blocked”). Those details remain in the dated Horizon data and archive for governance and troubleshooting. The build verifier explicitly protects this distinction.
 
 ## Source of truth and build model
 

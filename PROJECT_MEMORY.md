@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-02
+Last consolidated: 2026-08-03
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -161,3 +161,10 @@ Then read, in order:
 5. The task-specific workflow documentation
 
 Before making a public change, inspect the current edition, Signals, Reg Horizon, archive, and candidate state. Preserve user changes, validate locally, and use the guarded release workflow for publication proof.
+
+## Session memory — 2026-08-03
+
+- The user explicitly asked that the work be committed to project memory for future sessions.
+- `PROJECT_MEMORY.md` is the durable memory file and should be updated when a session creates an important decision, correction, workflow change, or release result.
+- The repository is clean relative to `origin/main` for tracked work. Existing unrelated untracked handover, generated audit, Beehiiv, packet, and mockup files were intentionally preserved.
+- The last public site release remains the verified 2 August 2026 edition. Memory-only changes do not require a site release unless public source or generated site files are changed.

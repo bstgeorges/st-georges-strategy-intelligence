@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-03
+Last consolidated: 2026-08-07
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -20,7 +20,7 @@ Public editorial principles are in `site/EDITORIAL_STYLE_GUIDE.md`, `site/WEEKLY
 
 ## Current production state
 
-The current edition is Sunday 2 August 2026. The latest production release was verified by the green `Site release (Cloudflare)` workflow run `30765426536`, for commit `ea57d05` (`Simplify public source and coverage disclosures`). The preceding site-reset release, commit `7d64882`, was verified by green workflow run `30761427602`.
+The current edition is Sunday 2 August 2026. The latest production release was verified by the green `Site release (Cloudflare)` workflow run `31189497602`, for commit `7f85bf8` (`Make generated link checks resilient`). It includes the 7 August release-control and reader-experience improvements in commit `6453291` (`Strengthen weekly intelligence release controls`).
 
 The current homepage Top 5 is intentionally distinct:
 
@@ -54,6 +54,18 @@ The detailed News and Research Radar source register—publisher names, access m
 Each published signal remains source-linked. Keep commercial/licensing detail and the full source register internal unless a specific governance or legal need requires disclosure.
 
 Reg Horizon must state its scope honestly without making transient scanner mechanics the reader-facing story. The current public wording is: **“Scope note: This is a selective, reviewed watchlist—not a whole-market survey. Quiet themes are not treated as inactive; the dated source record remains available for governance review.”** Do not lead the page with raw coverage counts or individual fetch failures (for example, “Consob remains blocked”). Those details remain in the dated Horizon data and archive for governance and troubleshooting. The build verifier explicitly protects this distinction.
+
+### 7 August release-control and simplification improvements
+
+The five-part improvement programme is complete and production-verified:
+
+- **Reg Horizon reliability:** `horizon-coverage.v1` is now derived from source participation and the reviewed shortlist. It separates configured authorities, successful fetches, candidate/material yield, reviewed/published authorities, published jurisdictions, and unavailable-source states. Do not hand-maintain these counts. `scripts/sync_reg_horizon.mjs`, `scripts/validate_reg_horizon_data.mjs`, and the scanner write/validate the same contract.
+- **Weekly release train:** `docs/weekly-release-contract.md` defines the one reviewed package: `current-edition.json`, Signals, Brief, Committee Questions, and a reviewed published Horizon. Sunday candidate generation and editorial preparation are scheduled separately; the editorial prep artefact now includes all canonical current-edition inputs. Preparation is never publication.
+- **Evidence and links:** `npm run signals:health:verify` blocks a Top 5 row whose source is neither machine-verifiable nor backed by a recent, dated manual verification with a reason. `npm run verify:generated-links` is a hard release gate. It retries transport failures and permits only two explicitly documented, reviewed official endpoints to be treated as temporarily restricted after repeated transport failures; HTTP failures and all other broken links still fail release.
+- **Reader experience:** The live Weekly Brief suppresses redundant coverage routing, repeated committee questions, and thought-leadership-radar blocks. The Signals hub suppresses repeated source-process and Horizon-feed blocks, retaining the concise public evidence standard. These changes happen in the publisher after archive capture so dated brief snapshots remain immutable.
+- **Build structure:** `scripts/publish_site_bundle.mjs` delegates current-edition Home/Committee markup and public editorial simplification to `scripts/lib/site-build/`. Keep future page-specific presentation logic in focused modules rather than expanding the publisher monolith.
+
+The weekly release order now accepts a coherent reviewed package for up to eight days, rather than blocking all mid-week reliability/presentation fixes because the publication date is not today. This does not permit a stale edition: `release:order` and `release:readiness` still require aligned Signals, Horizon, judgement, committee question, approval state, and bounded freshness.
 
 ## Source of truth and build model
 
@@ -106,6 +118,8 @@ npm run ai-signals:validate -- --date YYYY-MM-DD
 npm run signals:validate
 npm run reg-horizon:validate
 npm run release:order -- --as-of YYYY-MM-DD
+npm run release:readiness -- --as-of YYYY-MM-DD
+npm run signals:health:verify
 SGS_ARCHIVE_CORRECTION=1 npm run site:build
 npm run site:verify
 npm run verify:generated-links
@@ -191,3 +205,10 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - `PROJECT_MEMORY.md` is the durable memory file and should be updated when a session creates an important decision, correction, workflow change, or release result.
 - The repository is clean relative to `origin/main` for tracked work. Existing unrelated untracked handover, generated audit, Beehiiv, packet, and mockup files were intentionally preserved.
 - The last public site release remains the verified 2 August 2026 edition. Memory-only changes do not require a site release unless public source or generated site files are changed.
+
+## Session memory — 2026-08-07
+
+- The user requested significant, production-ready progress across Reg Horizon reliability, the weekly release train, evidence/link gates, reader-facing simplification, and build modularisation; all five areas were completed.
+- The first release attempt, workflow `31189042927`, stopped safely before deployment because the newly mandatory generated-link gate found two intermittent official-source transport failures. The checker was improved with retry and two exact, documented official-endpoint exceptions that do not mask HTTP failures. The corrected release passed workflow `31189497602`, including exact Pages/production SHA verification, redirects, and archive persistence.
+- A concurrent candidate-refresh commit (`1549d65`) arrived while the fix was being pushed. The release fix was rebased onto it and revalidated; the newer candidate scrape remains explicitly unapproved for the next editorial edition and did not replace the locked 2 August public edition.
+- Commits `6453291` and `7f85bf8` are on `main`; the protected production deployment is commit `7f85bf8`.

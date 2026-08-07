@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { deriveHorizonCoverage, legacyCoverageLabel } from "./lib/reg_horizon_coverage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REG_SCAN_DOCS = path.join(ROOT, "tools", "reg-scan", "docs");
@@ -109,6 +110,8 @@ function applyEditorialReview(target) {
     themes: new Set(selected.flatMap((signal) => signal.riskAreas || [])).size,
     sources: new Set(selected.map((signal) => signal.source).filter(Boolean)).size,
   };
+  latest.coverage = deriveHorizonCoverage(latest, selected);
+  latest.kpis.coverage = legacyCoverageLabel(latest.coverage);
   latest.editorialReview = { ...review, excludedCount: (review.exclusions || []).length };
   fs.writeFileSync(latestPath, `${JSON.stringify(latest, null, 2)}\n`);
 

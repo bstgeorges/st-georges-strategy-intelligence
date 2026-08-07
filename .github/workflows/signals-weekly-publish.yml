@@ -79,11 +79,11 @@ jobs:
           git push origin "${{ steps.vars.outputs.branch }}"
 
           {
-            echo "Auto-drafted weekly refresh for ${{ steps.vars.outputs.publication_date }}."
+            echo "Auto-drafted weekly refresh for ${{ steps.vars.outputs.publication_date }}. This is preparation, not a completed public edition."
             echo ""
             echo "This promotes fresh, allowlisted candidates into each topic's Top 5 (backfilling with existing rows where nothing fresh cleared review) and regenerates the weekly brief's masthead, so-what, and Top 5 list from the result."
             echo ""
-            echo "**The Executive pulse, Regulator watch, and Control lessons sections in the brief were left untouched and still need a human editorial pass before this is a finished issue.**"
+            echo "**Before merge, complete the weekly release contract: align `site/data/current-edition.json`, the committee question, the reviewed Reg Horizon edition, the brief judgement, and the evidence-backed Signals Top 5. Run `npm run release:readiness -- --as-of ${{ steps.vars.outputs.publication_date }}` once that editorial pass is complete.**"
             echo ""
             echo "### Promotion log"
             echo ""

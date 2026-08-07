@@ -402,6 +402,29 @@ def main():
         },
         "alerts": (["source-health"] if failed_health else []) + (["confidence-review"] if review_queue else []),
     }
+    participation = data["runMetrics"]["sourceParticipation"]
+    reviewed_sources = {signal.get("source") for signal in signals if signal.get("source")}
+    reviewed_jurisdictions = {
+        jurisdiction
+        for signal in signals
+        for jurisdiction in signal.get("jurisdictions", [])
+    }
+    configured = len(sources_by_id)
+    data["coverage"] = {
+        "version": "horizon-coverage.v1",
+        "configuredPrimaryAuthorities": configured,
+        "successfullyFetchedAuthorities": sum(1 for entry in participation if entry.get("status") == "ok"),
+        "authoritiesWithCandidates": sum(1 for entry in participation if entry.get("candidateItems", 0) > 0),
+        "authoritiesWithMaterialCandidates": sum(1 for entry in participation if entry.get("materialItems", 0) > 0),
+        "reviewedAuthorities": len(reviewed_sources),
+        "publishedAuthorities": len(reviewed_sources),
+        "publishedJurisdictions": len(reviewed_jurisdictions),
+        "blockedAuthorities": sum(1 for entry in participation if entry.get("status") == "blocked"),
+        "failedAuthorities": sum(1 for entry in participation if entry.get("status") == "failed"),
+        "degradedAuthorities": sum(1 for entry in participation if entry.get("status") in {"degraded", "not-configured"}),
+        "state": "limited" if configured and len(reviewed_sources) / configured < 0.5 else "broad",
+    }
+    data["kpis"]["coverage"] = f"{data['coverage']['publishedAuthorities']} of {configured}"
     data["trend"] = _db.recent_metrics(conn) if conn is not None else []
     recent_runs = [*data["trend"], data["runMetrics"]][-4:]
     candidate_sources = set()

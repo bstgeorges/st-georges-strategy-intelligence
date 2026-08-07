@@ -254,6 +254,7 @@ function main() {
   const horizonPage = read("regulatory-horizon/index.html");
   const styles = read("styles.css");
   const signalsHub = read("signals/index.html");
+  const briefPage = read("brief/index.html");
   const release = readJson("data/release.json");
   assert(release.contractVersion === "site.release.v2", "release metadata must use the shared site.release.v2 contract", failures);
   assert(release.products && Object.keys(release.products).length === 4, "release metadata must publish freshness for all four products", failures);
@@ -269,8 +270,10 @@ function main() {
   assert(signalsHub.includes("How we use evidence"), "Signals hub missing concise public source standard", failures);
   assert(signalsHub.includes("Primary sources") && signalsHub.includes("Paper-level review"), "Signals hub missing public evidence principles", failures);
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
+  assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
+  assert(briefPage.includes("The issue in four moves") && briefPage.includes("The full weekly readout") && briefPage.includes("Failure patterns to test internally"), "Weekly Brief is missing its core scan, readout, or control lesson", failures);
+  assert(!/How the eight streams fed the issue|Three questions from the week|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage, committee, or idea-development sections", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
-  assert(signalsHub.includes("data-affordance"), "Signals machine-readable link missing data affordance treatment", failures);
   assert(signalsHub.includes("Signals / Edition 2 Aug 2026"), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);

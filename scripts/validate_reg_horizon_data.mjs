@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { legacyCoverageLabel, validateHorizonCoverage } from "./lib/reg_horizon_coverage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_FILE = path.join(ROOT, "dashboard", "regulatory-horizon", "latest.json");
@@ -110,17 +111,14 @@ function validate(data) {
   assert(data.kpis?.material === signals.length, "kpis.material must match signals[] length");
   assert(data.kpis?.themes === riskAreas.size, "kpis.themes must match active risk areas");
   assert(data.kpis?.sources === sources.size, "kpis.sources must match distinct published sources");
-  const coverage = String(data.kpis?.coverage || "").match(/^(\d+) of (\d+)$/);
-  assert(Boolean(coverage), "kpis.coverage must use 'N of N'");
-  if (coverage) {
-    assert(Number(coverage[1]) === sources.size, "coverage numerator must match distinct published sources");
-    if (Number(coverage[2]) > 0 && Number(coverage[1]) / Number(coverage[2]) < 0.5) {
-      assert(
-        warnings.some((warning) => ["source-health", "source-coverage"].includes(warning.type) && ["medium", "high"].includes(warning.severity)),
-        "coverage below 50% needs a medium- or high-severity source-health warning",
-      );
-    }
+  validateHorizonCoverage(data, assert);
+  if (data.coverage?.state === "limited") {
+    assert(
+      warnings.some((warning) => ["source-health", "source-coverage"].includes(warning.type) && ["medium", "high"].includes(warning.severity)),
+      "limited coverage needs a medium- or high-severity source-health warning",
+    );
   }
+  assert(data.kpis?.coverage === legacyCoverageLabel(data.coverage || {}), "kpis.coverage must mirror the canonical coverage label");
 
   for (const [index, entry] of horizon.entries()) {
     const label = `deadline ${index + 1}`;

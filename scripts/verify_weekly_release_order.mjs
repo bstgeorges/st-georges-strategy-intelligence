@@ -40,7 +40,12 @@ function main() {
   const failures = [];
   const publicationDate = edition.publicationDate;
 
-  if (!publicationDate || ageDays(publicationDate, options.asOf) > 1 || ageDays(publicationDate, options.asOf) < 0) failures.push(`Publication date ${publicationDate || "<missing>"} is not the current Sunday release window ${options.asOf}`);
+  // This gate is invoked for every protected-site deployment, not just the Sunday
+  // editorial release. A correct, reviewed edition remains publishable for the
+  // seven-day cycle so a reliability or presentation fix cannot be stranded until
+  // the next edition. The cross-product checks below still prevent a stale or
+  // mismatched weekly package from being released.
+  if (!publicationDate || ageDays(publicationDate, options.asOf) > 8 || ageDays(publicationDate, options.asOf) < 0) failures.push(`Publication date ${publicationDate || "<missing>"} is outside the eight-day reviewed release window ending ${options.asOf}`);
   if (publicationDate !== signals.edition) failures.push(`Signals edition ${signals.edition || "<missing>"} does not match current edition ${publicationDate || "<missing>"}`);
   if (!String(signals.generatedAt || "").startsWith(`${publicationDate}T`)) failures.push(`Signals generatedAt ${signals.generatedAt || "<missing>"} does not belong to publication date ${publicationDate}`);
   if (horizon.status !== "published") failures.push(`Reg Horizon is ${horizon.status || "unknown"}; only a published reviewed edition may release`);

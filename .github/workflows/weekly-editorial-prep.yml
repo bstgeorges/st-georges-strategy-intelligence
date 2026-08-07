@@ -1,11 +1,8 @@
 name: Weekly editorial prep
 
 on:
-  workflow_run:
-    workflows:
-      - "Signals candidates weekly refresh"
-    types:
-      - completed
+  schedule:
+    - cron: "30 7 * * 0" # Sunday 07:30 UTC; candidates and Reg Horizon scan have both run
   workflow_dispatch:
     inputs:
       publication_date:
@@ -22,7 +19,6 @@ concurrency:
 
 jobs:
   build-editorial-pack:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -61,6 +57,9 @@ jobs:
       - name: Require a current reviewed Reg Horizon edition
         run: npm run reg-horizon:freshness -- --as-of "${{ steps.vars.outputs.publication_date }}" --max-age-days 8
 
+      - name: Require a complete current-edition release record
+        run: npm run release:readiness -- --as-of "${{ steps.vars.outputs.publication_date }}"
+
       - name: Generate weekly refresh packet
         run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"
 
@@ -76,8 +75,13 @@ jobs:
           cp dashboard/data/ai-signals.json editorial-pack/
           cp dashboard/regulatory-horizon/latest.json editorial-pack/regulatory-horizon-latest.json
           cp dashboard/regulatory-horizon/feed.xml editorial-pack/regulatory-horizon-feed.xml
+          cp site/data/current-edition.json editorial-pack/
+          cp site/data/signals.json editorial-pack/
+          cp site/brief/index.html editorial-pack/brief-current.html
+          cp site/committee-questions/index.html editorial-pack/committee-questions-current.html
           cp docs/weekly-refresh-workflow.md editorial-pack/
           cp docs/weekly-refresh-packet-template.md editorial-pack/
+          cp docs/weekly-release-contract.md editorial-pack/
 
       - name: Upload editorial prep artifact
         uses: actions/upload-artifact@v4

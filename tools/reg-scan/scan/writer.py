@@ -123,6 +123,7 @@ def _editorial_fields(item, source):
 
 def fmt_signal(item, source):
     return {
+        "authorityId": item["source_id"],
         "title": item["title"],
         "url": item["url"],
         "source": source.get("name", item["source_id"]),

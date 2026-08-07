@@ -83,7 +83,7 @@ jobs:
         run: npm run signals:date-audit:ci
 
       - name: Generate Signals source health report
-        run: npm run signals:health
+        run: npm run signals:health:verify
 
       - name: Publish Signals source health summary
         run: cat dashboard/data/signals-health.generated.json >> "$GITHUB_STEP_SUMMARY"
@@ -108,6 +108,9 @@ jobs:
       - name: Require ordered weekly release inputs
         run: npm run release:order -- --as-of "$(date -u +%F)"
 
+      - name: Require complete weekly release readiness
+        run: npm run release:readiness -- --as-of "$(date -u +%F)"
+
       - name: Build release bundle
         run: npm run site:build
 
@@ -116,7 +119,6 @@ jobs:
 
       - name: Audit generated links
         run: npm run verify:generated-links
-        continue-on-error: true
 
       - name: Deploy Pages bundle
         run: >-

@@ -19,6 +19,14 @@ const SELF_HOSTS = new Set([
 ]);
 const REQUEST_TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;
+const TRANSIENT_RETRY_ATTEMPTS = 3;
+// These are individually reviewed government endpoints which intermittently drop
+// automated connections from CI. A 4xx response still fails; only repeated
+// transport failures are recorded as an availability restriction.
+const TRANSIENT_OFFICIAL_ENDPOINTS = new Set([
+  "https://www.cssf.lu/en/2026/07/breakdown-according-to-currency/",
+  "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
+]);
 const soft404TitlePatterns = [
   /404/i,
   /page not found/i,
@@ -79,6 +87,9 @@ function isRestrictedButPresent(url, status) {
 
 function isKnownRestrictedFetchFailure(url, error) {
   if (!error) return false;
+  if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url)) {
+    return /AbortError|fetch failed/i.test(String(error));
+  }
   try {
     const parsed = new URL(url);
     const hostname = parsed.hostname.replace(/^www\./, "");
@@ -115,7 +126,7 @@ function extractExternalLinks(html) {
   return [...new Set(links)];
 }
 
-async function fetchUrl(url) {
+async function fetchUrlOnce(url) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
@@ -163,13 +174,22 @@ async function fetchUrl(url) {
       note: restricted ? "restricted" : soft404 ? "soft-404" : "",
     };
   } catch (error) {
-    if (isKnownRestrictedFetchFailure(url, error)) {
-      return { url, ok: true, note: "restricted", error: String(error) };
-    }
     return { url, ok: false, error: String(error) };
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function fetchUrl(url) {
+  let lastResult;
+  for (let attempt = 1; attempt <= TRANSIENT_RETRY_ATTEMPTS; attempt += 1) {
+    lastResult = await fetchUrlOnce(url);
+    if (lastResult.ok || lastResult.status || attempt === TRANSIENT_RETRY_ATTEMPTS) break;
+  }
+  if (lastResult && !lastResult.ok && isKnownRestrictedFetchFailure(url, lastResult.error)) {
+    return { ...lastResult, ok: true, note: "restricted" };
+  }
+  return lastResult;
 }
 
 function isSoft404(finalUrl, body) {

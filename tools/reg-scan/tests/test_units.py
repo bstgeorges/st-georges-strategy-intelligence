@@ -17,8 +17,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class TestDeadlines(unittest.TestCase):
     def setUp(self):
-        from scan.deadlines import extract_deadline, annotate, band, horizon
+        from scan.deadlines import extract_deadline, extract_deadline_evidence, annotate, band, horizon
         self.extract = extract_deadline
+        self.extract_evidence = extract_deadline_evidence
         self.annotate = annotate
         self.band = band
         self.horizon = horizon
@@ -83,6 +84,14 @@ class TestDeadlines(unittest.TestCase):
         }]
         self.annotate(records)
         self.assertEqual(records[0]["deadline"], "2026-10-15")
+
+    def test_deadline_evidence_records_cue_proximity(self):
+        evidence = self.extract_evidence(
+            "Consultation responses must be submitted by 2026-10-15.",
+            "2026-07-01T00:00:00+00:00",
+        )
+        self.assertEqual(evidence["date"], "2026-10-15")
+        self.assertLess(evidence["cueDistance"], 90)
 
     def test_band_boundaries(self):
         self.assertEqual(self.band(0), "0-30")
@@ -453,6 +462,7 @@ class TestSourcePerimeter(unittest.TestCase):
         self.assertNotIn("arxiv-ai", REGULATORY_SOURCE_IDS)
         self.assertNotIn("reuters", REGULATORY_SOURCE_IDS)
         self.assertNotIn("cisa", REGULATORY_SOURCE_IDS)
+        self.assertIn("uk-hm-treasury", REGULATORY_SOURCE_IDS)
         self.assertIn("hkma", REGULATORY_SOURCE_IDS)
         self.assertIn("apra", REGULATORY_SOURCE_IDS)
         self.assertIn("osfi", REGULATORY_SOURCE_IDS)

@@ -64,6 +64,20 @@
       ]
     },
     {
+      "id": "uk-hm-treasury",
+      "name": "HM Treasury",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://www.gov.uk/government/organisations/hm-treasury",
+      "cadence": "weekly",
+      "useFor": ["financial-services-policy", "payments", "crypto", "sanctions", "markets", "legislation"],
+      "signalQuestions": [
+        "Has HM Treasury changed the policy pathway, statutory timetable, or implementation direction for financial services?",
+        "Does a consultation, bill, response, or commencement decision require a named owner or a board-level planning assumption?"
+      ]
+    },
+    {
       "id": "ecb-supervision",
       "name": "European Central Bank Banking Supervision",
       "tier": "primary",

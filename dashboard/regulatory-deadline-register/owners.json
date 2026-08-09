@@ -1,0 +1,41 @@
+{
+  "version": "regulatory-deadline-owners.v1",
+  "default": {
+    "owners": ["Regulatory change lead", "Applicable business owner"],
+    "prepare": ["Confirm applicability", "Name an accountable owner", "Record the governing forum and decision date"]
+  },
+  "themes": {
+    "ai-and-models": {
+      "owners": ["Chief risk / model risk", "Technology and data governance"],
+      "prepare": ["Assess scope and model inventory impact", "Map the expectation to governance and evidence"]
+    },
+    "balance-sheet": {
+      "owners": ["Treasury", "Prudential policy"],
+      "prepare": ["Assess capital, liquidity and reporting implications", "Set an implementation or response plan"]
+    },
+    "boardroom-and-accountability": {
+      "owners": ["Company secretary", "Senior manager accountable for the area"],
+      "prepare": ["Confirm governance ownership", "Schedule the decision or committee read-across"]
+    },
+    "crime-and-sanctions": {
+      "owners": ["Financial crime", "Sanctions compliance"],
+      "prepare": ["Assess control and policy implications", "Confirm screening, escalation or reporting changes"]
+    },
+    "customer-outcomes": {
+      "owners": ["Conduct risk", "Customer and product owner"],
+      "prepare": ["Assess customer impact", "Confirm policy, communications and control evidence"]
+    },
+    "digital-money": {
+      "owners": ["Payments / digital assets", "Legal and compliance"],
+      "prepare": ["Confirm perimeter and product scope", "Map implementation dependencies"]
+    },
+    "digital-resilience": {
+      "owners": ["Operational resilience", "Technology risk"],
+      "prepare": ["Map to service, supplier and incident controls", "Confirm testing and evidence plan"]
+    },
+    "market-plumbing": {
+      "owners": ["Operations", "Markets or product control"],
+      "prepare": ["Assess operational and reporting impact", "Confirm market, client and system dependencies"]
+    }
+  }
+}

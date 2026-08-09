@@ -1,0 +1,72 @@
+{
+  "version": "regulatory-deadline-register.v1",
+  "visibility": "private",
+  "generatedAt": "2026-08-09T09:52:24.425Z",
+  "asOf": "2026-08-09",
+  "sourceEdition": "2026-08-02",
+  "carryForwardGraceDays": 30,
+  "items": [
+    {
+      "id": "3ff3ff741ca2b31e4aa6",
+      "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+      "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
+      "deadline": "2026-09-21",
+      "daysToDeadline": 43,
+      "stage": "consultation",
+      "authority": {
+        "id": "adgm-fsra",
+        "name": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Abu Dhabi",
+        "United Arab Emirates"
+      ],
+      "themes": [
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.783,
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": "2026-07-27",
+      "status": "ready-for-review",
+      "decision": null,
+      "evidence": {
+        "change": "The Financial Services Regulatory Authority has published this Consultation Paper to seek views on proposed enhancements to the framework governing the transfer of business within ADGM. Consultation Closing Date: 21 Sep 2026",
+        "detailChecked": true,
+        "deadlineCue": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-09",
+      "lastSeen": "2026-08-09",
+      "sourceEdition": "2026-08-02"
+    }
+  ]
+}

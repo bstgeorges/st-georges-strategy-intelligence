@@ -40,6 +40,11 @@ jobs:
       - name: Run live Reg Horizon scan
         run: REG_SCAN_PYTHON=python npm run reg-scan:run
 
+      - name: Build private deadline register and quality report
+        run: |
+          npm run deadline-register:build
+          npm run deadline-register:validate
+
       - name: Open generated scan for editorial review
         env:
           GH_TOKEN: ${{ github.token }}
@@ -48,7 +53,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           branch="automation/reg-horizon-${GITHUB_RUN_ID}"
           git switch -c "$branch"
-          git add tools/reg-scan/docs tools/reg-scan/state/scan.db
+          git add tools/reg-scan/docs tools/reg-scan/state/scan.db dashboard/regulatory-deadline-register
           if git diff --cached --quiet; then
             echo "No Reg Horizon changes to review."
             exit 0
@@ -59,4 +64,4 @@ jobs:
             --base main \
             --head "$branch" \
             --title "Review weekly Reg Horizon scan $(date -u +%F)" \
-            --body "Automated scan output for editorial review only. It has not touched the reviewed public Reg Horizon edition. Review classifications, source coverage, materiality, deadlines, and select the publication shortlist in dashboard/data/regulatory-horizon-editorial.json before running horizon:sync. A reviewed merge to main is required before the canonical site release can publish it."
+            --body "Automated scan output for editorial review only. It has not touched the public site, which currently redirects Regulatory Horizon to Archive. Review the private cumulative register, review queue, source health and qa report in dashboard/regulatory-deadline-register alongside classifications and source coverage. A future relaunch requires the private qa gate to pass and an explicit product decision; merging this PR never republishes the page."

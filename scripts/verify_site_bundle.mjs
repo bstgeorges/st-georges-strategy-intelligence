@@ -274,7 +274,7 @@ function main() {
   assert(briefPage.includes("The issue in four moves") && briefPage.includes("The full weekly readout") && briefPage.includes("Failure patterns to test internally"), "Weekly Brief is missing its core scan, readout, or control lesson", failures);
   assert(!/How the eight streams fed the issue|Three questions from the week|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage, committee, or idea-development sections", failures);
   assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
-  assert(signalsHub.includes("Signals / Edition 2 Aug 2026"), "Signals page edition label must use the long display format", failures);
+  assert(signalsHub.includes(`Signals / Edition ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
   if (horizon.status === "withheld") {
@@ -294,7 +294,7 @@ function main() {
   const horizonEditionLabel = `Edition / ${formatDateLong(horizon.edition)}`;
   assert(horizonPage.includes(horizonEditionLabel), "Reg Horizon page edition label must use the long display format", failures);
   assert(horizonPage.includes(`id="horizon-masthead-edition">${horizonEditionLabel}`), "Reg Horizon masthead is missing its edition date", failures);
-  assert(read("committee-questions/index.html").includes('id="committee-masthead-edition">Edition / 2 Aug 2026'), "Committee Questions masthead is missing its edition date", failures);
+  assert(read("committee-questions/index.html").includes(`id="committee-masthead-edition">Edition / ${formatDateLong(edition.publicationDate)}`), "Committee Questions masthead is missing its edition date", failures);
   assert(horizonPage.includes("Scope note:"), "Reg Horizon page missing its clear editorial scope note", failures);
   assert(!horizonPage.includes("Limited coverage:"), "Reg Horizon should not lead with internal coverage mechanics", failures);
   assert(!horizonPage.includes("Consob remains blocked"), "Reg Horizon should retain source-specific failures in the dated record, not the reader-facing summary", failures);

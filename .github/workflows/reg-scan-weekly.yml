@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  scan-and-sync:
+  scan-for-editorial-review:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -40,15 +40,6 @@ jobs:
       - name: Run live Reg Horizon scan
         run: REG_SCAN_PYTHON=python npm run reg-scan:run
 
-      - name: Sync Reg Horizon outputs into site
-        run: npm run horizon:sync
-
-      - name: Validate Reg Horizon publication data
-        run: npm run reg-horizon:validate
-
-      - name: Verify migration build
-        run: npm run site:build
-
       - name: Open generated scan for editorial review
         env:
           GH_TOKEN: ${{ github.token }}
@@ -57,7 +48,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           branch="automation/reg-horizon-${GITHUB_RUN_ID}"
           git switch -c "$branch"
-          git add tools/reg-scan/docs tools/reg-scan/state/scan.db dashboard/regulatory-horizon site/regulatory-horizon
+          git add tools/reg-scan/docs tools/reg-scan/state/scan.db
           if git diff --cached --quiet; then
             echo "No Reg Horizon changes to review."
             exit 0
@@ -68,4 +59,4 @@ jobs:
             --base main \
             --head "$branch" \
             --title "Review weekly Reg Horizon scan $(date -u +%F)" \
-            --body "Automated scan output. Review classifications, source coverage, materiality, deadlines, and public copy before merging. A merge to main is required before the canonical site release can publish it."
+            --body "Automated scan output for editorial review only. It has not touched the reviewed public Reg Horizon edition. Review classifications, source coverage, materiality, deadlines, and select the publication shortlist in dashboard/data/regulatory-horizon-editorial.json before running horizon:sync. A reviewed merge to main is required before the canonical site release can publish it."

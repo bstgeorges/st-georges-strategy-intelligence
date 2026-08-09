@@ -715,18 +715,20 @@ function loadEditionRecord(failures) {
 
 function renderHomepageJudgement(out, editionRecord) {
   const file = path.join(out, "index.html");
-  if (!fs.existsSync(file) || !editionRecord?.mainJudgement) return;
+  if (!fs.existsSync(file) || !editionRecord?.judgement) return;
   const html = read(file);
+  const { observation, executiveJudgement, implication } = editionRecord.judgement;
   const block = `<!-- judgement:start -->
-        <section class="home-judgement" aria-labelledby="weekly-decision-title">
+        <section class="home-judgement" aria-labelledby="weekly-judgement-title">
           <header class="judgement-header">
-            <p class="eyebrow">This week’s decision</p>
+            <p class="eyebrow">This Week’s Judgement</p>
             <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
           </header>
-          <h2 id="weekly-decision-title">The operating test to take into Monday</h2>
+          <h2 id="weekly-judgement-title" class="visually-hidden">This Week’s Judgement</h2>
           <div class="judgement-copy">
-            <p class="judgement-implication">${escapeHtml(editionRecord.mainJudgement)}</p>
-            <p class="judgement-route">The Weekly Brief holds the full analysis and evidence trail. Committee Questions turns it into a challenge for an accountable owner.</p>
+            <p>${escapeHtml(observation)}</p>
+            <p>${escapeHtml(executiveJudgement)}</p>
+            <p class="judgement-implication">${escapeHtml(implication)}</p>
           </div>
         </section>
         <!-- judgement:end -->`;
@@ -2223,8 +2225,9 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   const homePage = read(path.join(out, "index.html"));
   const briefPage = read(path.join(out, "brief", "index.html"));
   const committeePage = read(path.join(out, "committee-questions", "index.html"));
-  assert(homePage.includes(editionRecord.mainJudgement), "Homepage must surface the current edition's concise operating decision", failures);
-  assert(homePage.includes(editionRecord.mainJudgement), "Homepage hero copy must match the current edition judgement", failures);
+  for (const [field, value] of Object.entries(editionRecord.judgement)) {
+    assert(homePage.includes(value), `Homepage must include current edition judgement ${field}`, failures);
+  }
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
   assert(committeePage.includes(editionRecord.committeeQuestion?.question || ""), "Committee Questions must include the current edition question", failures);

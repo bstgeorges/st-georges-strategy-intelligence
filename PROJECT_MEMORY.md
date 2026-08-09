@@ -225,6 +225,6 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 
 ## Session memory — 2026-08-09: entry-surface differentiation
 
-- The public site now assigns distinct jobs to its core pages: Home is a short decision-and-routing surface; Weekly Brief is the complete weekly analysis; Signals is the source-backed pattern library; Committee Questions is the challenge-tool library; Archive is the dated discovery surface.
-- Do not restore the full 80–120-word editorial judgement or the edition-specific Brief headline to Home. Home displays the concise `mainJudgement` as **This week’s decision**, then routes to the Brief and Committee Questions for depth and action.
+- The public site now assigns distinct jobs to its core pages: Home is a decision-led entry surface with the signature full Weekly Judgement; Weekly Brief is the complete weekly analysis; Signals is the source-backed pattern library; Committee Questions is the challenge-tool library; Archive is the dated discovery surface.
+- Keep the full 80–120-word, three-part **This Week’s Judgement** on Home. It is a signature, shareable editorial feature used for LinkedIn. Home's general decision-led H1 should remain distinct from the edition-specific Brief headline, and the page should not duplicate the Brief's Top 5 detail.
 - Archive now starts with three clear paths: current Brief, past weekly briefs and topic trails. Keep it light and navigational; do not turn it into a second Brief or reintroduce withdrawn Reg Horizon material.

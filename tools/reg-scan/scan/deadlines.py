@@ -45,15 +45,21 @@ def _resolve_year(day, month, year, published):
     return base
 
 
-def extract_deadline(text, published_at):
-    """Return ISO date string for the first cued future date in text, else None."""
+def extract_deadline_evidence(text, published_at):
+    """Return the nearest-cue evidence for the earliest future deadline.
+
+    The scanner still uses deterministic regex extraction, but retaining the
+    cue distance makes a deadline reviewable rather than a black-box date.
+    """
     if not text or not published_at:
         return None
     published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
     best = None
     for m in DATE_RX.finditer(text):
-        ctx = text[max(0, m.start() - WINDOW): m.end() + WINDOW]
-        if not CUES.search(ctx):
+        ctx_start = max(0, m.start() - WINDOW)
+        ctx = text[ctx_start: m.end() + WINDOW]
+        cues = list(CUES.finditer(ctx))
+        if not cues:
             continue
         if m.group(1):
             day, month, year = int(m.group(1)), MONTHS[m.group(2).lower()], m.group(3)
@@ -72,16 +78,26 @@ def extract_deadline(text, published_at):
             continue
         if d < published.date():
             continue
-        if best is None or d < best:
-            best = d
-    return best.isoformat() if best else None
+        cue_distance = min(abs((m.start() - ctx_start) - cue.start()) for cue in cues)
+        candidate = {"date": d.isoformat(), "cueDistance": cue_distance, "context": ctx.strip()[:280]}
+        if best is None or candidate["date"] < best["date"] or (candidate["date"] == best["date"] and cue_distance < best["cueDistance"]):
+            best = candidate
+    return best
+
+
+def extract_deadline(text, published_at):
+    """Return ISO date string for the first cued future date, else None."""
+    evidence = extract_deadline_evidence(text, published_at)
+    return evidence["date"] if evidence else None
 
 
 def annotate(records):
     """Attach rec['deadline'] (ISO date or None) to each record in place."""
     for rec in records:
         text = f"{rec.get('title', '')}. {rec.get('summary', '')}. {rec.get('detail_text', '')}"
-        rec["deadline"] = extract_deadline(text, rec.get("published_at"))
+        evidence = extract_deadline_evidence(text, rec.get("published_at"))
+        rec["deadline"] = evidence["date"] if evidence else None
+        rec["deadline_evidence"] = evidence
         rec["deadline_stage"] = deadline_stage(text)
     return records
 

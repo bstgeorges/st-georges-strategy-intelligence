@@ -136,6 +136,7 @@ def fmt_signal(item, source):
         "editorial": _editorial_fields(item, source),
         "score": item.get("score", 0),
         "deadline": item.get("deadline"),
+        "deadlineEvidence": item.get("deadline_evidence"),
         "changeStatus": item.get("change_status", "new"),
         "changeEvidence": item.get("change_evidence", {}),
         "confidence": item.get("confidence", {"score": 0, "band": "unknown", "components": {}}),

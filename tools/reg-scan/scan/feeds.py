@@ -16,6 +16,9 @@ FEED_MAP = {
         "https://www.bankofengland.co.uk/rss/news",
         "https://www.bankofengland.co.uk/rss/publications",
     ],
+    "uk-hm-treasury": [
+        "https://www.gov.uk/government/organisations/hm-treasury.atom",
+    ],
     "ofsi": [
         "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation.atom",
     ],
@@ -417,7 +420,7 @@ SOURCE_FILTERS = {
 # Signal production, cyber monitoring, AI labs, trade press and research feeds have
 # their own pipelines and must never compete with regulatory instruments here.
 REGULATORY_SOURCE_IDS = {
-    "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "ofsi", "uk-nca",
+    "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "uk-hm-treasury", "ofsi", "uk-nca",
     "ecb-supervision", "ecb-ssm-newsletter", "ecb-supervisory-priorities", "ecb-supervision-sanctions", "eba", "esma", "eiopa", "bis", "bcbs", "iosco", "fsb", "fatf",
     "sec", "cftc", "fincen-enforcement", "ofac-recent-actions", "nist-ai-rmf",
     "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank", "ico",

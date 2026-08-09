@@ -1,11 +1,76 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-09T09:52:24.425Z",
+  "generatedAt": "2026-08-09T09:55:22.286Z",
   "asOf": "2026-08-09",
-  "sourceEdition": "2026-08-02",
+  "sourceEdition": "2026-08-09",
   "carryForwardGraceDays": 30,
   "items": [
+    {
+      "id": "c5ff81885169e3417ec7",
+      "title": "Public responses to consultation on Sound Practices for Responsible Adoption of Artificial Intelligence (AI)",
+      "url": "https://www.fsb.org/2026/08/public-responses-to-consultation-on-sound-practices-for-responsible-adoption-of-artificial-intelligence-ai",
+      "deadline": "2026-08-06",
+      "daysToDeadline": -3,
+      "stage": "consultation",
+      "authority": {
+        "id": "fsb",
+        "name": "Financial Stability Board",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Global"
+      ],
+      "themes": [
+        "ai-and-models"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.658,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-08-06",
+      "status": "ready-for-review",
+      "decision": null,
+      "evidence": {
+        "change": "On 10 June 2026, the FSB published Sound Practices for Responsible Adoption of Artificial Intelligence (AI): Consultation report. Interested parties were invited to provide written comments by 22 July 2026. The public comments received are available below. The FSB thanks those who took the time and effort to express their views. The FSB expects to […]",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-08-06",
+          "cueDistance": 71,
+          "context": "consultation on Sound Practices for Responsible Adoption of Artificial Intelligence (AI) 6 August 2026 Summary of document history Consultation Workshop Public responses Overview of responses"
+        }
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Chief risk / model risk",
+          "Technology and data governance"
+        ],
+        "prepare": [
+          "Assess scope and model inventory impact",
+          "Map the expectation to governance and evidence"
+        ]
+      },
+      "firstSeen": "2026-08-09",
+      "lastSeen": "2026-08-09",
+      "sourceEdition": "2026-08-09"
+    },
     {
       "id": "3ff3ff741ca2b31e4aa6",
       "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",

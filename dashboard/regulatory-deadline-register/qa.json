@@ -1,23 +1,22 @@
 {
   "version": "regulatory-deadline-qa.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-09T09:52:24.715Z",
-  "sourceEdition": "2026-08-02",
+  "generatedAt": "2026-08-09T09:55:22.420Z",
+  "sourceEdition": "2026-08-09",
   "asOf": "2026-08-09",
   "errors": [],
   "warnings": [
-    "core authority health not ok: uk-hm-treasury",
     "only 0 confirmed open deadlines; target is 10",
     "only 0 confirmed authorities; target is 4"
   ],
   "readiness": {
-    "score": 43,
+    "score": 50,
     "metrics": {
       "confirmedOpenDeadlines": 0,
       "confirmedAuthorities": 0,
-      "healthyCoreAuthorities": 6,
+      "healthyCoreAuthorities": 7,
       "stableCoreAuthorities": 0,
-      "sourceAgeDays": 7,
+      "sourceAgeDays": 0,
       "concentration": 0
     },
     "relaunchEligible": false,

@@ -1,76 +1,61 @@
 {
-  "version": "2026-08-02",
-  "publicationDate": "2026-08-02",
+  "version": "2026-08-09",
+  "publicationDate": "2026-08-09",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-08-02T15:35:00.018Z",
-  "reviewedAt": "2026-08-02",
-  "purpose": "Editorially selected Signals candidates for the Sunday 2 August 2026 edition. Only the URLs below may be promoted; each promoted row receives final editorial significance before publication.",
+  "candidateGeneratedAt": "2026-08-09T05:43:56.956Z",
+  "reviewedAt": "2026-08-09",
+  "purpose": "Editorially selected Signals candidates for the Sunday 9 August 2026 edition. Only the URLs below may be promoted; each promoted row receives final editorial significance before publication.",
   "criteria": ["materiality", "specificity", "decision value", "source authority", "duplication control"],
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://www.anthropic.com/research/project-pilot",
-        "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-        "https://openai.com/index/advancing-responsible-ai-across-europe"
+        "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities"
       ],
-      "editorialRationale": "Select concrete model-evaluation and responsible-AI developments that create governance, access, incident and evidence questions rather than generic AI commentary."
+      "editorialRationale": "Select OpenAI's explicit disclosure that it cannot rule out critical cyber capabilities in an upcoming model. It makes model-access controls, evaluation governance and intervention evidence an immediate executive issue rather than generic AI commentary."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-        "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma"
+        "https://www.esma.europa.eu/press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines"
       ],
-      "editorialRationale": "Select the live ADGM consultation and the FINMA liquidity ordinance because both create specific implementation or response decisions for affected firms."
+      "editorialRationale": "Select ESMA's T+1 readiness statement because it turns the 2027 transition into a dated 2026 operating programme across allocations, confirmations and the full settlement chain."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-        "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw"
-      ],
-      "editorialRationale": "Select the ESAs’ frontier-AI ICT-risk statement and the cloud incident as distinct evidence on critical-provider oversight and correlated infrastructure dependencies."
+      "selectedUrls": [],
+      "editorialRationale": "No new third-party candidate is promoted. Retain the reviewed current evidence rather than relabelling an already-covered cloud incident as a fresh development."
     },
     {
       "id": "resilience",
-      "selectedUrls": [
-        "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
-      ],
-      "editorialRationale": "Select the Japanese FSA IT-resilience report and the ESAs’ statement because they provide current, official evidence on recovery, cyber, third-party and digital-infrastructure resilience."
+      "selectedUrls": [],
+      "editorialRationale": "No new resilience candidate is promoted. The NCSC response is valuable context for the AI capability story, but is not duplicated as a separate public signal."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [
-        "https://www.gov.uk/government/publications/check-if-an-email-or-communication-claiming-to-be-from-ofsi-is-genuine",
-        "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
-        "https://www.fsa.go.jp/inter/fatf/20260721/20260721.html"
+        "https://www.gov.uk/government/publications/ofsi-general-licence-int20255635700"
       ],
-      "editorialRationale": "Select current official sanctions-authenticity guidance, enforcement evidence and FATF DeFi analysis, while leaving routine fraud-awareness material out of the lead set."
+      "editorialRationale": "Select OFSI's 6 August amendment to a Russia-related general licence. It is a specific current sanctions-control signal: firms need to identify whether a changed permission affects counterparties or activity, then retain a versioned applicability and decision record."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
-        "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
-        "https://www.jpcert.or.jp/at/2026/at260021.html"
+        "https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog"
       ],
-      "editorialRationale": "Select current official recovery guidance, an exposed state-supported campaign and an actively exploited Rails vulnerability because each creates an actionable preparation or remediation decision."
+      "editorialRationale": "Select CISA's newly added known-exploited vulnerability because active exploitation is a direct test of asset visibility, patch prioritisation, exception governance and recovery evidence."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [
-        "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-        "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-        "https://www.jpcert.or.jp/at/2026/at260021.html"
-      ],
-      "editorialRationale": "Select official evidence on IT resilience, frontier-AI ICT risk and a high-severity application vulnerability to connect failure prevention with recovery and dependency governance."
+      "selectedUrls": [],
+      "editorialRationale": "No new technology-failure candidate is promoted. Retain the reviewed failure and recovery evidence rather than promoting an already-covered incident."
     },
     {
       "id": "data",
-      "selectedUrls": [],
-      "editorialRationale": "No new data candidate is promoted: the generated ICO rows point to 2024 pages with unreliable current dates. Retain the existing data signals and mark the gap for the next source-quality pass rather than publishing fabricated freshness."
+      "selectedUrls": [
+        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/metropolitan-police-service-issued-with-enforcement-notice-and-reprimand-following-data-protection-failures"
+      ],
+      "editorialRationale": "Select the ICO enforcement notice because it provides a current, accountable data-governance read-across on security, records, retention and remedial evidence."
     }
   ]
 }

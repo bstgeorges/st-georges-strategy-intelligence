@@ -44,6 +44,7 @@ export function simplifyBriefExperience(html) {
     "Coverage read",
     "Executive challenge",
     "Thought leadership radar",
+    "Reg Horizon",
   ].reduce((result, eyebrow) => removeBandByEyebrow(result, eyebrow), html);
 }
 

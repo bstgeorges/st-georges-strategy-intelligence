@@ -1,12 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateHorizonCoverage } from "./lib/reg_horizon_coverage.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CURRENT_EDITION = path.join(ROOT, "site/data/current-edition.json");
 const SIGNALS = path.join(ROOT, "site/data/signals.json");
-const HORIZON = path.join(ROOT, "dashboard/regulatory-horizon/latest.json");
 const PROMOTION = path.join(ROOT, "dashboard/data/signals-promotion-summary.json");
 
 function readJson(file) {
@@ -33,7 +31,6 @@ function ageInDays(edition, asOf) {
 const options = parseArgs(process.argv.slice(2));
 const edition = readJson(CURRENT_EDITION);
 const signals = readJson(SIGNALS);
-const horizon = readJson(HORIZON);
 const promotion = readJson(PROMOTION);
 const failures = [];
 const assert = (condition, message) => {
@@ -45,26 +42,14 @@ assert(Number.isFinite(options.maxAgeDays) && options.maxAgeDays >= 1, "--max-ag
 assert(/^\d{4}-\d{2}-\d{2}$/.test(edition.publicationDate || ""), "current-edition publicationDate must use YYYY-MM-DD");
 assert(signals.edition === edition.publicationDate, "Signals edition must match current-edition publicationDate");
 assert(promotion.date === edition.publicationDate, "approved Signals promotion summary must match current-edition publicationDate");
-assert(["published", "withheld"].includes(horizon.status), "Reg Horizon status must be published or withheld");
-if (horizon.status === "published") {
-  assert(horizon.editorialReview?.reviewStatus === "approved", "published Reg Horizon must have approved editorial review");
-  assert(horizon.editorialReview?.edition === horizon.edition, "published Reg Horizon editorial review must match its edition");
-  validateHorizonCoverage(horizon, assert);
-} else {
-  assert(horizon.editorialReview?.reviewStatus === "withheld", "withheld Reg Horizon must record its editorial hold");
-  assert(/^\d{4}-\d{2}-\d{2}$/.test(horizon.lastReviewedEdition || ""), "withheld Reg Horizon must identify the last reviewed edition");
-  assert((horizon.warnings || []).some((warning) => warning.severity === "high"), "withheld Reg Horizon needs a high-severity publication warning");
-}
 assert(Boolean(edition.committeeQuestion?.question && edition.committeeQuestion?.why && edition.committeeQuestion?.evidence), "current-edition must include a complete featured Committee Question");
 assert(Array.isArray(edition.topSignals) && edition.topSignals.length === 5, "current-edition must contain exactly five cross-site signals");
 assert(ageInDays(edition.publicationDate, options.asOf) >= 0, "current-edition publicationDate cannot be in the future");
 assert(ageInDays(edition.publicationDate, options.asOf) <= options.maxAgeDays, "current-edition is overdue for its next weekly refresh");
-assert(ageInDays(horizon.edition, options.asOf) >= 0, "Reg Horizon edition cannot be in the future");
-assert(ageInDays(horizon.edition, options.asOf) <= options.maxAgeDays, "Reg Horizon is overdue for a reviewed refresh");
 if (failures.length) {
   console.error("Weekly release readiness failed:");
   for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log(`Weekly release readiness passed (${edition.publicationDate}; Reg Horizon ${horizon.edition}; as of ${options.asOf}).`);
+console.log(`Weekly release readiness passed (${edition.publicationDate}; as of ${options.asOf}).`);

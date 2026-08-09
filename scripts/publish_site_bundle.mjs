@@ -79,7 +79,6 @@ const routes = [
   ["/signals/cyber/", "signals/cyber/index.html"],
   ["/signals/technology-failure/", "signals/technology-failure/index.html"],
   ["/signals/data/", "signals/data/index.html"],
-  ["/regulatory-horizon/", "regulatory-horizon/index.html"],
   ["/committee-questions/", "committee-questions/index.html"],
   ["/archive/", "archive/index.html"],
   ["/about/", "about/index.html"],
@@ -123,14 +122,18 @@ const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|moni
 const redirects = [
   ["/intelligence/", "/brief/"],
   ["/intelligence/archive/", "/archive/"],
-  ["/intelligence/regulatory-horizon/", "/regulatory-horizon/"],
+  ["/regulatory-horizon/", "/archive/"],
+  ["/regulatory-horizon/*", "/archive/"],
+  ["/intelligence/regulatory-horizon/", "/archive/"],
+  ["/intelligence/regulatory-horizon/*", "/archive/"],
   ["/ai-signals/", "/signals/ai/"],
   ["/ai-signals/archive/", "/signals/ai/archive/"],
   ["/thevirtualofficer/", "/about/"],
   ["/thevirtualofficer/brief/", "/brief/"],
   ["/thevirtualofficer/signals/", "/signals/"],
   ["/thevirtualofficer/signals/ai/", "/signals/ai/"],
-  ["/thevirtualofficer/regulatory-horizon/", "/regulatory-horizon/"],
+  ["/thevirtualofficer/regulatory-horizon/", "/archive/"],
+  ["/thevirtualofficer/regulatory-horizon/*", "/archive/"],
 ];
 
 const RISK_AREA_LABELS = {
@@ -164,7 +167,6 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
-  ["/regulatory-horizon/", "Reg Horizon"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
   ["/about/", "About"],
@@ -560,14 +562,13 @@ function sha256(file) {
   return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 }
 
-function buildProductFreshness(editionRecord, signalsData, horizonData, out) {
+function buildProductFreshness(editionRecord, signalsData, out) {
   const asOf = process.env.SITE_AS_OF_DATE || new Date().toISOString().slice(0, 10);
   const aiFile = path.join(out, "data", "ai-signals.json");
   const aiData = fs.existsSync(aiFile) ? readJson(aiFile) : {};
   const aiDate = String(aiData.generatedAt || "").slice(0, 10) || null;
   const currentDate = editionRecord.publicationDate || null;
   const signalDate = signalsData.edition || currentDate;
-  const horizonDate = horizonData.edition || null;
   const ageDays = (date) => {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || "")) || !/^\d{4}-\d{2}-\d{2}$/.test(asOf)) return null;
     return Math.max(0, Math.floor((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${date}T00:00:00Z`)) / 86400000));
@@ -579,7 +580,6 @@ function buildProductFreshness(editionRecord, signalsData, horizonData, out) {
   const products = {
     brief: { label: "Weekly Brief", route: "/brief/", edition: currentDate, generatedAt: currentDate, status: state(currentDate, 14, editionRecord.status === "current" ? "current" : editionRecord.status || "published") },
     signals: { label: "Signals", route: "/signals/", edition: signalDate, generatedAt: signalsData.generatedAt || signalDate, status: state(signalDate, 14, "current"), topics: (signalsData.topics || []).length },
-    regulatoryHorizon: { label: "Reg Horizon", route: "/regulatory-horizon/", edition: horizonDate, generatedAt: horizonData.generatedAt || horizonDate, status: horizonData.status === "published" ? state(horizonDate, 8, "current") : "withheld", coverage: horizonData.kpis?.coverage || null, warnings: (horizonData.warnings || []).length },
     aiSignals: { label: "AI Signals", route: "/signals/ai/", edition: aiDate, generatedAt: aiData.generatedAt || aiDate, status: state(aiDate, 14, "current") },
   };
   return { asOf, products };
@@ -601,7 +601,7 @@ function injectSiteFreshness(out, releaseId, freshness) {
   }
 }
 
-function writeReleaseMetadata(out, releaseId, edition, editionRecord, signalsData, horizonData) {
+function writeReleaseMetadata(out, releaseId, edition, editionRecord, signalsData) {
   const files = [
     "styles.css",
     "app.js",
@@ -611,7 +611,7 @@ function writeReleaseMetadata(out, releaseId, edition, editionRecord, signalsDat
     "data/signals.json",
     "sitemap.xml",
   ];
-  const freshness = buildProductFreshness(editionRecord, signalsData, horizonData, out);
+  const freshness = buildProductFreshness(editionRecord, signalsData, out);
   const metadata = {
     contractVersion: "site.release.v2",
     release: releaseId,
@@ -1055,7 +1055,6 @@ function updateArchiveIndexCards(out, edition) {
 
   const signalsData = fs.existsSync(SIGNALS_INPUT) ? readJson(SIGNALS_INPUT) : { topics: [] };
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
-  const horizonEdition = horizonEditionLabel(out);
 
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
   const archiveMetaStart = "<!-- archive-meta:start -->";
@@ -1075,13 +1074,6 @@ function updateArchiveIndexCards(out, edition) {
       `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
     );
   }
-
-  const horizonHref = horizonEdition
-    ? `/regulatory-horizon/archive/${horizonEdition}.html`
-    : "/regulatory-horizon/";
-  cards.push(
-    `<a class="archive-card" href="${horizonHref}"><p class="meta">Reg Horizon</p><h3>Reg Horizon scan${horizonEdition ? ` / ${escapeHtml(horizonEdition)}` : ""}</h3><p>Public-source horizon scan with bottom line, deadline, material signals, and machine outputs.</p></a>`,
-  );
 
   let rebuilt = `${html.slice(0, start)}${startMarker}\n          ${cards.join("\n          ")}\n          ${html.slice(end)}`;
 
@@ -2094,11 +2086,6 @@ function generateSitemap(out, edition) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/archive/brief/${edition}/`, lastmod: edition });
   }
 
-  const horizonArchive = path.join(out, "regulatory-horizon", "archive", `${edition}.html`);
-  if (fs.existsSync(horizonArchive)) {
-    entries.push({ loc: `${PUBLIC_ORIGIN}/regulatory-horizon/archive/${edition}.html`, lastmod: edition });
-  }
-
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}
@@ -2106,6 +2093,10 @@ ${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmo
 `;
   write(path.join(out, "sitemap.xml"), xml);
   return entries.map(({ loc }) => loc);
+}
+
+function withdrawPublicRegHorizon(out) {
+  fs.rmSync(path.join(out, "regulatory-horizon"), { recursive: true, force: true });
 }
 
 function generateRedirects(out) {
@@ -2147,12 +2138,14 @@ function checkLocalLinks(out, failures) {
     for (const match of html.matchAll(/href="([^"]+)"/g)) {
       const href = match[1];
       if (/^(https?:|mailto:|#)/.test(href)) continue;
+      if (href.includes("regulatory-horizon")) continue;
       const clean = href.split("#")[0];
       if (!clean) continue;
       let target = clean.startsWith("/")
         ? path.normalize(path.join(out, clean.slice(1)))
         : path.normalize(path.join(path.dirname(file), clean));
       if (clean.endsWith("/") || !path.extname(target)) target = path.join(target, "index.html");
+      if (target.startsWith(path.join(out, "regulatory-horizon"))) continue;
       assert(fs.existsSync(target), `${path.relative(out, file)} links to missing ${href}`, failures);
     }
   }
@@ -2226,28 +2219,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     }
   }
 
-  const horizonFiles = ["latest.json", "feed.xml", "horizon.ics"];
-  for (const file of horizonFiles) {
-    assert(fs.existsSync(path.join(out, "regulatory-horizon", file)), `Reg Horizon ${file} missing`, failures);
-  }
-  const horizonData = readJson(path.join(out, "regulatory-horizon", "latest.json"));
-  const horizonArchive = path.join(out, "regulatory-horizon", "archive", `${horizonData.edition}.html`);
-  assert(fs.existsSync(horizonArchive), `Reg Horizon frozen edition archive/${horizonData.edition}.html missing`, failures);
-  assert(
-    (horizonData.archives || [])[0] === `archive/${horizonData.edition}.html`,
-    `Reg Horizon latest.json frozen edition should point to archive/${horizonData.edition}.html`,
-    failures,
-  );
-  const horizonPage = read(path.join(out, "regulatory-horizon", "index.html"));
-  assert(
-    horizonPage.includes(`href="archive/${horizonData.edition}.html"`) ||
-      horizonPage.includes(`href="/regulatory-horizon/archive/${horizonData.edition}.html"`),
-    "Reg Horizon page frozen-edition card should link to the current dated snapshot",
-    failures,
-  );
-  for (const entry of horizonData.horizon || []) {
-    assert(entry.date > horizonData.edition, `Reg Horizon deadline ${entry.date} must be after edition ${horizonData.edition}`, failures);
-  }
+  assert(!fs.existsSync(path.join(out, "regulatory-horizon")), "Reg Horizon must not be included in the public bundle", failures);
 
   const editionRecord = readJson(EDITION_INPUT);
   const homePage = read(path.join(out, "index.html"));
@@ -2258,9 +2230,6 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
   assert(committeePage.includes(editionRecord.committeeQuestion?.question || ""), "Committee Questions must include the current edition question", failures);
-  assert(horizonPage.includes(`Edition / ${formatDateLong(horizonData.edition)}`), "Reg Horizon must show its reviewed edition date", failures);
-  assert(!/Items awaiting confidence review|Additional items for analyst triage|Top 5 now\. Additional rows/.test(horizonPage), "Reg Horizon must not expose internal review scaffolding or duplicate signal lists", failures);
-  assert(!horizonPage.includes("horizon-render.js"), "Reg Horizon must render its current edition without client-side data loading", failures);
 
   const signals = readJson(path.join(out, "data", "signals.json"));
   const signalsLatest = path.join(out, "signals", "latest.json");
@@ -2329,22 +2298,18 @@ function main() {
   const options = parseArgs(process.argv.slice(2));
   const failures = [];
   copySite(options.out);
-  copyHorizonArtifacts(options.out);
-  decorateHorizonFeed(options.out);
+  copyIfExists(path.join(ROOT, "dashboard", "data", "ai-signals.json"), path.join(options.out, "data", "ai-signals.json"));
   normaliseMockupLinks(options.out);
-  normaliseHorizonArchiveLinks(options.out);
   const editionRecord = loadEditionRecord(failures);
   validatePromotionSummary(failures);
   const edition = latestEdition(options.out, options.edition, editionRecord);
-  const horizonData = loadHorizonData(options.out, failures);
+  const horizonData = null;
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
   renderSignalsHubFromData(options.out, signalsData, editionRecord);
   renderCanonicalTopSignals(options.out, editionRecord);
   renderHomepageJudgement(options.out, editionRecord);
-  applyLiveEditionContent(options.out, horizonData);
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
-  generateCurrentHorizonArchive(options.out, horizonData);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
   // its root-absolute form when the link target already exists on disk. Without this
@@ -2354,7 +2319,6 @@ function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
-  filterRenderedHorizonLists(options.out, edition);
   simplifyPublicEditorialSurfaces(options.out);
   renderSignalDecisionFramework(options.out, signalsData);
   updateLiveEditionDateLabels(options.out, edition);
@@ -2364,6 +2328,7 @@ function main() {
   generateArchiveHubPages(options.out, edition);
   updateArchiveIndexCards(options.out, edition);
   generateSignalsJson(options.out, signalsData);
+  withdrawPublicRegHorizon(options.out);
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);
   generateHeaders(options.out);
@@ -2373,11 +2338,10 @@ function main() {
   normaliseOgImage(options.out);
   normaliseFavicon(options.out);
   normaliseHtmlReferencesToRoot(options.out);
-  normaliseHorizonArchiveLinks(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);
   injectReleaseId(options.out, RELEASE_ID);
-  writeReleaseMetadata(options.out, RELEASE_ID, edition, editionRecord, signalsData, horizonData);
-  const publisherWarnings = assessPublisherWarnings(horizonData);
+  writeReleaseMetadata(options.out, RELEASE_ID, edition, editionRecord, signalsData);
+  const publisherWarnings = [];
   verifyBuild(options.out, edition, sitemapUrls, failures);
   writeReport(options.out, edition, RELEASE_ID, sitemapUrls, analyticsInjected, failures, publisherWarnings);
 

@@ -15,7 +15,6 @@ const PUBLIC_PAGES = [
   "https://stgeorgesstrategy.com/brief/",
   "https://stgeorgesstrategy.com/signals/",
   "https://stgeorgesstrategy.com/signals/ai/",
-  "https://stgeorgesstrategy.com/regulatory-horizon/",
   "https://stgeorgesstrategy.com/committee-questions/",
   "https://stgeorgesstrategy.com/archive/",
   "https://stgeorgesstrategy.com/about/",

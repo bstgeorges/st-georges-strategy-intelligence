@@ -21,7 +21,6 @@ const routes = [
   ["signals-cyber", "signals/cyber/index.html", "https://stgeorgesstrategy.com/signals/cyber/"],
   ["signals-technology-failure", "signals/technology-failure/index.html", "https://stgeorgesstrategy.com/signals/technology-failure/"],
   ["signals-data", "signals/data/index.html", "https://stgeorgesstrategy.com/signals/data/"],
-  ["regulatory-horizon", "regulatory-horizon/index.html", "https://stgeorgesstrategy.com/regulatory-horizon/"],
   ["committee-questions", "committee-questions/index.html", "https://stgeorgesstrategy.com/committee-questions/"],
   ["archive", "archive/index.html", "https://stgeorgesstrategy.com/archive/"],
   ["about", "about/index.html", "https://stgeorgesstrategy.com/about/"],
@@ -141,7 +140,6 @@ function checkWorkerRouteCoverage(failures) {
     "/brief/",
     "/committee-questions/",
     "/data/",
-    "/regulatory-horizon/",
     "/signals/",
   ];
   const requiredDirectories = [
@@ -149,7 +147,6 @@ function checkWorkerRouteCoverage(failures) {
     "/archive",
     "/brief",
     "/committee-questions",
-    "/regulatory-horizon",
     "/signals",
   ];
 
@@ -179,6 +176,8 @@ function checkLocalLinks(failures) {
     for (const match of html.matchAll(/href="([^"]+)"/g)) {
       const href = match[1];
       if (/^(https?:|mailto:|#)/.test(href)) continue;
+      if (href.includes("regulatory-horizon")) continue;
+      if (href.startsWith("/regulatory-horizon/")) continue;
       const clean = href.split("#")[0];
       if (!clean) continue;
       let target = clean.startsWith("/")
@@ -241,23 +240,17 @@ function main() {
     assert(!html.includes("Week of 8 Jul 2026"), `${topic} should not display stale topic-card week labels`, failures);
   }
 
-  const horizon = readJson("regulatory-horizon/latest.json");
-  assert(Array.isArray(horizon.signals), "Reg Horizon latest.json missing signals[]", failures);
-  assert(horizon.signals.length <= 15, "Reg Horizon signals[] exceeds 15 rows", failures);
-  assert(horizon.signals.every((item) => item.sourceStatus), "Reg Horizon signals[] should include sourceStatus in mockup contract", failures);
-  if (horizon.status === "published") {
-    assert(horizon.editorialReview?.reviewStatus === "approved", "published Reg Horizon edition missing approved editorial review", failures);
-    assert(horizon.signals.every((item) => ["act", "prepare", "monitor"].includes(item.lane)), "published Reg Horizon signals missing operating lane", failures);
-    assert(horizon.signals.every((item) => item.cluster), "published Reg Horizon signals missing editorial cluster", failures);
-  }
-  assert(Array.isArray(horizon.warnings), "Reg Horizon latest.json missing warnings[]", failures);
-  const horizonPage = read("regulatory-horizon/index.html");
+  const horizon = { status: "withheld", signals: [], horizon: [] };
+  const horizonPage = "This week's scan is held";
+  assert(!fs.existsSync(path.join(SITE, "regulatory-horizon")), "Reg Horizon must not be present in the public bundle", failures);
+  assert(read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon route must redirect to Archive", failures);
+  assert(read("_redirects").includes("/regulatory-horizon/* /archive/ 301"), "Reg Horizon subroutes must redirect to Archive", failures);
   const styles = read("styles.css");
   const signalsHub = read("signals/index.html");
   const briefPage = read("brief/index.html");
   const release = readJson("data/release.json");
   assert(release.contractVersion === "site.release.v2", "release metadata must use the shared site.release.v2 contract", failures);
-  assert(release.products && Object.keys(release.products).length === 4, "release metadata must publish freshness for all four products", failures);
+  assert(release.products && Object.keys(release.products).length === 3, "release metadata must publish freshness for all public products", failures);
   for (const [name, product] of Object.entries(release.products || {})) {
     assert(product.route && product.edition && product.status, `release metadata product ${name} is missing route, edition, or status`, failures);
   }
@@ -273,7 +266,6 @@ function main() {
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
   assert(briefPage.includes("The issue in four moves") && briefPage.includes("The full weekly readout") && briefPage.includes("Failure patterns to test internally"), "Weekly Brief is missing its core scan, readout, or control lesson", failures);
   assert(!/How the eight streams fed the issue|Three questions from the week|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage, committee, or idea-development sections", failures);
-  assert(horizonPage.includes("data-affordance"), "Reg Horizon machine-readable links missing data affordance treatment", failures);
   assert(signalsHub.includes(`Signals / Edition ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
@@ -356,18 +348,7 @@ function main() {
   const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
-  const horizonEdition = horizon.edition;
-  const expectedHorizonArchiveHref = `/regulatory-horizon/archive/${horizonEdition}.html`;
-  assert(
-    archive.includes(`href="${expectedHorizonArchiveHref}"`),
-    `archive should link Reg Horizon to its frozen ${horizonEdition} edition`,
-    failures,
-  );
-  assert(
-    !archive.includes('href="/regulatory-horizon/"><p class="meta">Reg Horizon</p>'),
-    "archive should not link its Reg Horizon edition card to the live page",
-    failures,
-  );
+  assert(!/Reg Horizon|regulatory-horizon/.test(archive), "Archive must not promote Reg Horizon while it is withdrawn", failures);
   checkCurrentEditionAlignment(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");

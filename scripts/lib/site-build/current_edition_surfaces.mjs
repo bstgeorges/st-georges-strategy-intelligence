@@ -56,8 +56,8 @@ export function renderCurrentEditionSurfaces({
         </section>
         <!-- home-current:end -->`;
     renderedHome = renderedHome
-      .replace(/<h1>[\s\S]*?<\/h1>/, `<h1>${escapeHtml(editionRecord.title)}</h1>`)
-      .replace(/<p class="hero-copy">[\s\S]*?<\/p>/, `<p class="hero-copy">${escapeHtml(editionRecord.mainJudgement || "What changed. Why it matters. What to ask for next — ready for Monday.")}</p>`)
+      .replace(/<h1>[\s\S]*?<\/h1>/, "<h1>The operating question for leaders this week</h1>")
+      .replace(/<p class="hero-copy">[\s\S]*?<\/p>/, "<p class=\"hero-copy\">A short route from public evidence to the internal decision, owner and proof a leadership team should ask for next.</p>")
       .replace(/<!-- home-current:start -->[\s\S]*?<!-- home-current:end -->/, bridge);
   }
 

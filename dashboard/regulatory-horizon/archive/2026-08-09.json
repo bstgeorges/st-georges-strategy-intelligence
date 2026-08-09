@@ -1,0 +1,389 @@
+{
+  "edition": "2026-08-09",
+  "generatedAt": "2026-08-09 00:00 UTC",
+  "windowDays": 7,
+  "status": "withheld",
+  "lastReviewedEdition": "2026-08-02",
+  "kpis": {
+    "material": 0,
+    "themes": 0,
+    "sources": 0,
+    "jurisdictions": 0,
+    "coverage": "0 of 34"
+  },
+  "coverage": {
+    "version": "horizon-coverage.v1",
+    "configuredPrimaryAuthorities": 34,
+    "successfullyFetchedAuthorities": 32,
+    "authoritiesWithCandidates": 17,
+    "authoritiesWithMaterialCandidates": 6,
+    "reviewedAuthorities": 0,
+    "publishedAuthorities": 0,
+    "publishedJurisdictions": 0,
+    "blockedAuthorities": 1,
+    "failedAuthorities": 1,
+    "degradedAuthorities": 0,
+    "state": "limited"
+  },
+  "bottomLine": "No new Reg Horizon edition is published this week. The latest scan is held for editorial review; use the last reviewed edition for current decision and deadline context.",
+  "horizon": [],
+  "signals": [],
+  "warnings": [
+    {
+      "type": "publication",
+      "severity": "high",
+      "message": "The current scan is held while source coverage, classification and materiality are reviewed. No new regulatory signals or deadlines are being presented as reviewed intelligence."
+    }
+  ],
+  "reviewQueue": [],
+  "heldLowConfidence": 0,
+  "runMetrics": {
+    "durationSeconds": 14.19,
+    "sourcesConfigured": 34,
+    "sourcesHealthy": 32,
+    "sourcesFailed": 2,
+    "confidenceBands": {
+      "medium": 50,
+      "high": 14
+    },
+    "impactBands": {
+      "low": 51,
+      "medium": 12,
+      "high": 1
+    },
+    "themeCounts": {
+      "balance-sheet": 6,
+      "digital-resilience": 11,
+      "boardroom-and-accountability": 4,
+      "crime-and-sanctions": 3,
+      "market-plumbing": 2
+    },
+    "reviewQueue": 0,
+    "heldLowConfidence": 0,
+    "sourceParticipation": [
+      {
+        "sourceId": "ofsi",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "japan-fsa",
+        "status": "ok",
+        "recentItems": 4,
+        "candidateItems": 4,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fsb",
+        "status": "ok",
+        "recentItems": 1,
+        "candidateItems": 1,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "ecb-supervision",
+        "status": "ok",
+        "recentItems": 2,
+        "candidateItems": 2,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "sec",
+        "status": "ok",
+        "recentItems": 2,
+        "candidateItems": 2,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "eba",
+        "status": "ok",
+        "recentItems": 1,
+        "candidateItems": 1,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "esma",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "cftc",
+        "status": "ok",
+        "recentItems": 3,
+        "candidateItems": 3,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-fca",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "nist-ai-rmf",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "bis",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "uk-boe-pra",
+        "status": "ok",
+        "recentItems": 5,
+        "candidateItems": 5,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "spain-cnmv",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "eiopa",
+        "status": "ok",
+        "recentItems": 2,
+        "candidateItems": 2,
+        "materialItems": 1,
+        "publishedItems": 1
+      },
+      {
+        "sourceId": "ireland-cbi",
+        "status": "ok",
+        "recentItems": 1,
+        "candidateItems": 1,
+        "materialItems": 1,
+        "publishedItems": 1
+      },
+      {
+        "sourceId": "italy-consob",
+        "status": "blocked",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "osfi",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "india-sebi",
+        "status": "ok",
+        "recentItems": 15,
+        "candidateItems": 15,
+        "materialItems": 3,
+        "publishedItems": 3
+      },
+      {
+        "sourceId": "finma",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "mexico-cnbv",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fr-amf",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "fatf",
+        "status": "ok",
+        "recentItems": 2,
+        "candidateItems": 2,
+        "materialItems": 2,
+        "publishedItems": 2
+      },
+      {
+        "sourceId": "uk-fca-enforcement-notices",
+        "status": "ok",
+        "recentItems": 3,
+        "candidateItems": 3,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "korea-fsc",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "dubai-dfsa",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "de-bafin",
+        "status": "ok",
+        "recentItems": 4,
+        "candidateItems": 4,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "brazil-cvm",
+        "status": "ok",
+        "recentItems": 5,
+        "candidateItems": 5,
+        "materialItems": 1,
+        "publishedItems": 1
+      },
+      {
+        "sourceId": "asic",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "hkma",
+        "status": "ok",
+        "recentItems": 12,
+        "candidateItems": 12,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "apra",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "adgm-fsra",
+        "status": "ok",
+        "recentItems": 1,
+        "candidateItems": 1,
+        "materialItems": 1,
+        "publishedItems": 1
+      },
+      {
+        "sourceId": "fincen-enforcement",
+        "status": "failed",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "saudi-cma",
+        "status": "ok",
+        "recentItems": 1,
+        "candidateItems": 1,
+        "materialItems": 0,
+        "publishedItems": 0
+      },
+      {
+        "sourceId": "mas",
+        "status": "ok",
+        "recentItems": 0,
+        "candidateItems": 0,
+        "materialItems": 0,
+        "publishedItems": 0
+      }
+    ],
+    "funnel": {
+      "fetchedItems": 1464,
+      "recentItems": 64,
+      "candidateItems": 64,
+      "reconciledItems": 62,
+      "materialItems": 9,
+      "publishedItems": 9
+    },
+    "alerts": [
+      "source-health"
+    ]
+  },
+  "rollingCoverage": {
+    "windowRuns": 4,
+    "candidateSources": 17,
+    "materialSources": 6,
+    "configuredSources": 34,
+    "sourceIdsWithCandidates": [
+      "adgm-fsra",
+      "brazil-cvm",
+      "cftc",
+      "de-bafin",
+      "eba",
+      "ecb-supervision",
+      "eiopa",
+      "fatf",
+      "fsb",
+      "hkma",
+      "india-sebi",
+      "ireland-cbi",
+      "japan-fsa",
+      "saudi-cma",
+      "sec",
+      "uk-boe-pra",
+      "uk-fca-enforcement-notices"
+    ],
+    "sourceIdsWithMaterial": [
+      "adgm-fsra",
+      "brazil-cvm",
+      "eiopa",
+      "fatf",
+      "india-sebi",
+      "ireland-cbi"
+    ]
+  },
+  "editorialReview": {
+    "edition": "2026-08-09",
+    "reviewStatus": "withheld",
+    "reviewedAt": "2026-08-09",
+    "editor": "St Georges Strategy editorial review",
+    "reason": "The current scan is held while source coverage, classification and materiality are reviewed. No new regulatory signals or deadlines are being presented as reviewed intelligence."
+  }
+}

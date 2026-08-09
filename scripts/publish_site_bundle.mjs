@@ -1466,7 +1466,7 @@ function renderHorizonOperatingReadout(horizonData) {
 
 function renderHorizonCoverageBanner(horizonData) {
   if (horizonData.status === "withheld") {
-    return `<p><strong>Coverage confidence:</strong> This edition is withheld because the source and editorial checks did not clear publication.</p>`;
+    return `<p><strong>Editorial status:</strong> This week's scan is held because the source record did not clear publication review.</p>`;
   }
   return `<p><strong>Scope note:</strong> This is a selective, reviewed watchlist—not a whole-market survey. Quiet themes are not treated as inactive; the dated source record remains available for governance review.</p>`;
 }
@@ -1545,7 +1545,7 @@ function renderHorizonDecisionDashboard(horizonData) {
   const deadlines = horizonData.horizon || [];
   const firstDeadline = deadlines[0];
   if (horizonData.status !== "published") {
-    return `<article><p class="meta">Publication status</p><strong>Held</strong><span>Use the last reviewed edition while the next scan is assessed.</span></article><article><p class="meta">Current decision</p><strong>Monitor</strong><span>No new regulatory action is being presented as reviewed intelligence.</span></article><article><p class="meta">Record</p><strong>Archive</strong><span>The dated source record remains available for governance review.</span></article>`;
+    return `<article><p class="meta">Publication status</p><strong>Held</strong><span>This week did not clear publication review.</span></article><article><p class="meta">Current decision</p><strong>Monitor</strong><span>No new regulatory action is being presented as reviewed intelligence.</span></article><article><p class="meta">Record</p><strong>Archive</strong><span>The dated publication decision is retained for governance review.</span></article>`;
   }
   return `<article><p class="meta">Reviewed decisions</p><strong>${escapeHtml(String(signals.length))}</strong><span>Only source-backed items with a clear operating posture are shown.</span></article><article><p class="meta">Next owner decision</p><strong>${escapeHtml(firstDeadline ? formatDateShort(firstDeadline.date) : "None")}</strong><span>${escapeHtml(firstDeadline ? firstDeadline.title : "No reviewed future deadline in this edition.")}</span></article><article><p class="meta">Editorial scope</p><strong>Selective review</strong><span>Primary-source evidence is prioritised; context never becomes a whole-market conclusion.</span></article>`;
 }
@@ -1609,7 +1609,9 @@ function applyLiveEditionContent(out, horizonData) {
     updated,
     "p",
     "horizon-generated",
-    escapeHtml(`Reviewed ${horizonData.generatedAt || "in the current weekly run"} across a ${horizonData.windowDays || 7}-day evidence window.`),
+    escapeHtml(horizonData.status === "withheld"
+      ? `Held ${horizonData.generatedAt || horizonData.edition} after the current scan and editorial review.`
+      : `Reviewed ${horizonData.generatedAt || "in the current weekly run"} across a ${horizonData.windowDays || 7}-day evidence window.`),
   );
   updated = replaceElementContent(updated, "div", "horizon-freshness-status", renderHorizonFreshnessStatus(horizonData));
   updated = replaceElementContent(updated, "div", "horizon-coverage-banner", renderHorizonCoverageBanner(horizonData));
@@ -1664,6 +1666,10 @@ function applyLiveEditionContent(out, horizonData) {
     "horizon-read-across",
     "horizon-governance-questions",
   ]) updated = removeSectionById(updated, id);
+  if (horizonData.status === "withheld") {
+    updated = removeSectionById(updated, "horizon-action-lanes");
+    updated = removeSectionById(updated, "horizon-deadlines-section");
+  }
   updated = updated
     .replace(/\s*<script src="\.\.\/horizon-date-status\.js"><\/script>/g, "")
     .replace(/\s*<script src="horizon-render\.js"><\/script>/g, "");
@@ -1674,7 +1680,8 @@ function renderHorizonFreshnessStatus(horizonData) {
   const asOf = process.env.SITE_AS_OF_DATE || new Date().toISOString().slice(0, 10);
   const edition = horizonData.edition || "unknown date";
   if (horizonData.status !== "published") {
-    return `<p><strong>Latest scan not published.</strong> This page is retaining the last reviewed edition (${escapeHtml(edition)}); the current scan did not clear publication checks.</p>`;
+    const lastReviewed = horizonData.lastReviewedEdition || edition;
+    return `<p><strong>This week's scan is held.</strong> Last reviewed edition: ${escapeHtml(lastReviewed)}. No unreviewed source material is being presented as a regulatory conclusion.</p>`;
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(edition) || !/^\d{4}-\d{2}-\d{2}$/.test(asOf)) {
     return `<p><strong>Review date:</strong> ${escapeHtml(edition)}. Freshness could not be calculated from the edition metadata.</p>`;

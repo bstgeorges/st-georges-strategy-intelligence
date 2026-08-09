@@ -40,6 +40,7 @@
     "reg-horizon:freshness": "node scripts/validate_reg_horizon_freshness.mjs",
     "horizon:sync": "node scripts/sync_reg_horizon.mjs",
     "horizon:refresh": "npm run reg-scan:run && npm run horizon:sync",
+    "horizon:withhold": "node scripts/withhold_reg_horizon_edition.mjs",
     "sitemap:generate": "node scripts/generate_sitemap.mjs",
     "predeploy:cloudflare": "npm run release:guard && npm run site:build && npm run verify:generated-links",
     "predeploy:cloudflare:preview": "npm run site:build && npm run verify:generated-links",

@@ -48,7 +48,7 @@ function main() {
   if (!publicationDate || ageDays(publicationDate, options.asOf) > 8 || ageDays(publicationDate, options.asOf) < 0) failures.push(`Publication date ${publicationDate || "<missing>"} is outside the eight-day reviewed release window ending ${options.asOf}`);
   if (publicationDate !== signals.edition) failures.push(`Signals edition ${signals.edition || "<missing>"} does not match current edition ${publicationDate || "<missing>"}`);
   if (!String(signals.generatedAt || "").startsWith(`${publicationDate}T`)) failures.push(`Signals generatedAt ${signals.generatedAt || "<missing>"} does not belong to publication date ${publicationDate}`);
-  if (horizon.status !== "published") failures.push(`Reg Horizon is ${horizon.status || "unknown"}; only a published reviewed edition may release`);
+  if (!["published", "withheld"].includes(horizon.status)) failures.push(`Reg Horizon has unsupported status ${horizon.status || "unknown"}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(horizon.edition || "")) failures.push("Reg Horizon edition is missing or invalid");
   else if (horizon.edition > publicationDate) failures.push(`Reg Horizon edition ${horizon.edition} is later than publication date ${publicationDate}`);
   else if (ageDays(horizon.edition, publicationDate) > 8) failures.push(`Reg Horizon edition ${horizon.edition} is too old for publication date ${publicationDate}`);

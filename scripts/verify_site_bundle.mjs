@@ -280,8 +280,9 @@ function main() {
   if (horizon.status === "withheld") {
     assert(horizon.signals.length === 0, "withheld Reg Horizon editions must publish zero material signals", failures);
     assert((horizon.horizon || []).length === 0, "withheld Reg Horizon editions must publish zero deadlines", failures);
-    assert(horizonPage.includes("Withheld"), "withheld Reg Horizon page must show its publication status", failures);
-    assert(horizonPage.includes("No material signals are published"), "withheld Reg Horizon page must not imply material rows were cleared", failures);
+    assert(horizonPage.includes("This week's scan is held"), "withheld Reg Horizon page must explain its publication status", failures);
+    assert(!horizonPage.includes('id="horizon-lanes"'), "withheld Reg Horizon page must not render empty operating lanes", failures);
+    assert(!horizonPage.includes('id="horizon-deadlines"'), "withheld Reg Horizon page must not render an empty deadline list", failures);
   } else {
     const horizonFeed = read("regulatory-horizon/feed.xml");
     const horizonCalendar = read("regulatory-horizon/horizon.ics");

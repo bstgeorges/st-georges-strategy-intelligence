@@ -21,10 +21,10 @@ function redirectTarget(requestUrl) {
     return `${TARGET_BASE}/signals/ai/${url.search}`;
   }
   if (path === "/thevirtualofficer/regulatory-horizon" || path === "/thevirtualofficer/regulatory-horizon/") {
-    return `${TARGET_BASE}/regulatory-horizon/${url.search}`;
+    return `${TARGET_BASE}/archive/${url.search}`;
   }
   if (path.startsWith("/thevirtualofficer/regulatory-horizon/")) {
-    return `${TARGET_BASE}/regulatory-horizon/${path.slice("/thevirtualofficer/regulatory-horizon/".length)}${url.search}`;
+    return `${TARGET_BASE}/archive/${url.search}`;
   }
 
   return `${TARGET_BASE}/about/${url.search}`;

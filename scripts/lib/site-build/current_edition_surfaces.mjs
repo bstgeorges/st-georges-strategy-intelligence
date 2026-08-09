@@ -41,11 +41,6 @@ export function renderCurrentEditionSurfaces({
 
   if (renderedHome) {
     const lead = editionRecord.topSignals?.[0] || {};
-    const firstDeadline = (horizonData?.horizon || [])[0];
-    const deadlineTitle = firstDeadline ? firstDeadline.title : "No reviewed response deadline this week";
-    const deadlineCopy = firstDeadline
-      ? `${formatDateShort(firstDeadline.date)} · ${firstDeadline.prompts?.action || "Assign an owner and record the decision."}`
-      : "The current regulatory view has no future date requiring a published owner decision.";
     const bridge = `<!-- home-current:start -->
         <section class="band home-current" aria-label="This edition at a glance">
           <div class="section-heading">
@@ -55,7 +50,7 @@ export function renderCurrentEditionSurfaces({
           <div class="grid-3 home-current-grid">
             <a class="brief-card" href="/brief/"><p class="meta">Lead signal / ${escapeHtml(lead.label || "Current edition")}</p><h3>${escapeHtml(lead.title || "Read the full weekly brief")}</h3><p>${escapeHtml(lead.why || "Open the complete five-minute brief with the sources and evidence requests behind this week's call.")}</p></a>
             <a class="brief-card" href="/committee-questions/"><p class="meta">This week’s question</p><h3>${escapeHtml(question.question || "Turn the judgement into challenge")}</h3><p>${escapeHtml(question.evidence || "Use the current question and the evergreen library to ask for evidence rather than reassurance.")}</p></a>
-            <a class="brief-card" href="/regulatory-horizon/"><p class="meta">Next decision point</p><h3>${escapeHtml(deadlineTitle)}</h3><p>${escapeHtml(deadlineCopy)}</p></a>
+            <a class="brief-card" href="/archive/"><p class="meta">Trace the record</p><h3>Read the judgement in context</h3><p>Use the dated brief and topic archives to follow the evidence and how the operating judgement changed.</p></a>
           </div>
           <div class="button-row"><a class="button secondary light" href="/brief/">Read the full brief</a><a class="button secondary light" href="/signals/">Explore the signal library</a></div>
         </section>

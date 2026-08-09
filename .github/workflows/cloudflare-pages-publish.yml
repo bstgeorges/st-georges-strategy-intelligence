@@ -72,9 +72,6 @@ jobs:
       - name: Validate published Signals data
         run: npm run signals:validate
 
-      - name: Validate Reg Horizon publication data
-        run: npm run reg-horizon:validate
-
       - name: Validate published Signals links
         run: npm run signals:validate:live
         continue-on-error: true

@@ -60,8 +60,11 @@ jobs:
           fi
           git commit -m "Weekly regulatory horizon scan $(date -u +%F)"
           git push --set-upstream origin "$branch"
-          gh pr create \
+          if ! gh pr create \
             --base main \
             --head "$branch" \
             --title "Review weekly Reg Horizon scan $(date -u +%F)" \
-            --body "Automated scan output for editorial review only. It has not touched the public site, which currently redirects Regulatory Horizon to Archive. Review the private cumulative register, review queue, source health and qa report in dashboard/regulatory-deadline-register alongside classifications and source coverage. A future relaunch requires the private qa gate to pass and an explicit product decision; merging this PR never republishes the page."
+            --body "Automated scan output for editorial review only. It has not touched the public site, which currently redirects Regulatory Horizon to Archive. Review the private cumulative register, review queue, source health and qa report in dashboard/regulatory-deadline-register alongside classifications and source coverage. A future relaunch requires the private qa gate to pass and an explicit product decision; merging this PR never republishes the page."; then
+            echo "::warning::Review branch was pushed, but this repository does not allow GitHub Actions to create pull requests. Open a PR manually from $branch into main."
+            echo "Review branch ready: $branch" >> "$GITHUB_STEP_SUMMARY"
+          fi

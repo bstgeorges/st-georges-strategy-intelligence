@@ -1,6 +1,6 @@
 {
   "version": "2026-07-18",
-  "generatedAt": "2026-08-07T14:44:05.921Z",
+  "generatedAt": "2026-08-09T05:43:56.956Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -33,7 +33,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
@@ -64,7 +64,36 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
+          "relevanceScore": 77,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "e66cc71d0943fe40",
+          "topicId": "ai",
+          "title": "Responding to the next frontier of critical cyber capabilities",
+          "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
+          "publishedAt": "2026-08-07T15:20:00.000Z",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -93,39 +122,39 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "deec56a13e2b9b57",
+          "id": "5d2e55417d4c463f",
           "topicId": "ai",
-          "title": "How we built a realtime system for responsive voice AI in six months",
-          "url": "https://openai.com/index/continuous-voice-interaction-with-gpt-live",
-          "publishedAt": "2026-08-03T07:00:00.000Z",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
+          "title": "A moral Turing test: How belief and source shape detection of and agreement with LLM judgments — Google DeepMind",
+          "url": "https://deepmind.google/research/publications/118955",
+          "publishedAt": "2026-08-07T00:00:00.000Z",
+          "sourceRegistryId": "google-deepmind",
+          "sourceName": "Google DeepMind",
           "sourceTier": "primary",
           "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
+          "ingestSourceId": "deepmind-sitemap",
+          "fetchType": "sitemap",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
+            "research",
+            "multimodal-ai",
+            "robotics",
             "safety"
           ],
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 62,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
         },
         {
           "id": "0bae4c01df723312",
@@ -151,7 +180,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 51,
+          "relevanceScore": 48,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
@@ -180,7 +209,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 51,
+          "relevanceScore": 47,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -221,10 +250,54 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "af528ea65cc6f195",
+          "topicId": "market-structure",
+          "title": "FINMA publishes a new ordinance on the liquidity of banks and securities firms",
+          "url": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
+          "publishedAt": "2026-07-07T08:00:00.000Z",
+          "sourceRegistryId": "finma",
+          "sourceName": "Swiss Financial Market Supervisory Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "finma-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "supervision",
+            "operational-risk",
+            "sanctions",
+            "technology",
+            "switzerland"
+          ],
+          "matchedKeywords": [
+            "market",
+            "liquidity",
+            "securities"
+          ],
+          "titleMatchedKeywords": [
+            "liquidity",
+            "securities"
+          ],
+          "summaryMatchedKeywords": [
+            "market",
+            "liquidity",
+            "securities"
+          ],
+          "relevanceScore": 72,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
         },
         {
           "id": "708c6cc84dc76280",
@@ -402,6 +475,45 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "657c5239aef56cf0",
+          "topicId": "market-structure",
+          "title": "FINMA welcomes the establishment of a working group on the “optimisation of financial market regulation”",
+          "url": "https://www.finma.ch/en/news/2026/07/20260701-mm-regopt",
+          "publishedAt": "2026-07-01T04:46:41.000Z",
+          "sourceRegistryId": "finma",
+          "sourceName": "Swiss Financial Market Supervisory Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "finma-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "supervision",
+            "operational-risk",
+            "sanctions",
+            "technology",
+            "switzerland"
+          ],
+          "matchedKeywords": [
+            "market"
+          ],
+          "titleMatchedKeywords": [
+            "market"
+          ],
+          "summaryMatchedKeywords": [
+            "market"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -444,7 +556,7 @@
             "cloud",
             "service"
           ],
-          "relevanceScore": 74,
+          "relevanceScore": 71,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
@@ -482,7 +594,7 @@
             "resilience"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
@@ -515,7 +627,7 @@
             "resilience"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
@@ -549,7 +661,7 @@
           "summaryMatchedKeywords": [
             "incident"
           ],
-          "relevanceScore": 79,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
@@ -591,7 +703,7 @@
             "disruption",
             "incident"
           ],
-          "relevanceScore": 78,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
@@ -632,7 +744,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
@@ -661,7 +773,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
@@ -692,7 +804,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
@@ -761,6 +873,40 @@
       "id": "cyber",
       "candidates": [
         {
+          "id": "5ef2eac225b7d24c",
+          "topicId": "cyber",
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "publishedAt": "2026-08-07T12:00:00.000Z",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisa-advisories-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "ransomware",
+            "critical-infrastructure"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 97,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "0a643ade91da917d",
           "topicId": "cyber",
           "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
@@ -789,7 +935,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 96,
+          "relevanceScore": 93,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
@@ -823,41 +969,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 94,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8698d528d3bfa483",
-          "topicId": "cyber",
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/03/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "publishedAt": "2026-08-03T12:00:00.000Z",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 92,
+          "relevanceScore": 91,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
@@ -889,7 +1001,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -922,7 +1034,7 @@
             "cyber"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
@@ -955,7 +1067,7 @@
             "cyber"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
@@ -986,7 +1098,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -1017,7 +1129,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -1048,7 +1160,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -1079,7 +1191,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -1110,7 +1222,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
@@ -1140,7 +1252,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 56,
+          "relevanceScore": 53,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
@@ -1185,10 +1297,49 @@
             "failure",
             "disruption"
           ],
-          "relevanceScore": 76,
+          "relevanceScore": 73,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "220d5078a82f2ae9",
+          "topicId": "technology-failure",
+          "title": "FINMA guidance on quantum computing",
+          "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
+          "publishedAt": "2026-07-09T08:00:00.000Z",
+          "sourceRegistryId": "finma",
+          "sourceName": "Swiss Financial Market Supervisory Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "finma-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "supervision",
+            "operational-risk",
+            "sanctions",
+            "technology",
+            "switzerland"
+          ],
+          "matchedKeywords": [
+            "quantum"
+          ],
+          "titleMatchedKeywords": [
+            "quantum"
+          ],
+          "summaryMatchedKeywords": [
+            "quantum"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1223,7 +1374,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 86,
+          "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1259,7 +1410,7 @@
           "summaryMatchedKeywords": [
             "daten"
           ],
-          "relevanceScore": 82,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
@@ -1291,7 +1442,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1323,7 +1474,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 71,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1355,37 +1506,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 71,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "b077fc8628fe6673",
-          "topicId": "data",
-          "title": "Multiple properties searched across UK after millions of car finance complaints",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/multiple-properties-searched-across-uk-after-millions-of-car-finance-complaints",
-          "publishedAt": "2026-07-31T14:46:19.000Z",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 57,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1435,6 +1556,36 @@
           "whyCandidate": "Pulled from Financial Conduct Authority via rss ingestion and matched the topic rules."
         },
         {
+          "id": "b077fc8628fe6673",
+          "topicId": "data",
+          "title": "Multiple properties searched across UK after millions of car finance complaints",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/multiple-properties-searched-across-uk-after-millions-of-car-finance-complaints",
+          "publishedAt": "2026-07-31T14:46:19.000Z",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 53,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
           "id": "2d45f5879b8d7996",
           "topicId": "data",
           "title": "Information Commissioner&#x2019;s Office seeks views on accuracy of generative AI models",
@@ -1459,7 +1610,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 56,
+          "relevanceScore": 53,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1492,7 +1643,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 3,
       "error": ""
     },
     {
@@ -1717,7 +1868,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 4,
       "error": ""
     },
     {
@@ -1741,7 +1892,7 @@
   ],
   "warnings": [
     "Thin coverage: third-party has only 1 candidate(s) in the current window.",
-    "Thin coverage: technology-failure has only 1 candidate(s) in the current window.",
+    "Thin coverage: technology-failure has only 2 candidate(s) in the current window.",
     "Source concentration: data relies on ico-news-sitemap for 6/8 candidates."
   ]
 }

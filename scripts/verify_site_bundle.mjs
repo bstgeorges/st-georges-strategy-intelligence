@@ -97,16 +97,11 @@ function checkCurrentEditionAlignment(failures) {
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
-  assert(home.includes(edition.title), "home should use canonical edition title", failures);
-  assert(home.includes(edition.mainJudgement), "home should use the canonical current-edition judgement in its hero", failures);
-  const judgement = edition.judgement || {};
-  const judgementText = [judgement.observation, judgement.executiveJudgement, judgement.implication].filter(Boolean).join(" ");
-  const judgementWordCount = judgementText.trim().split(/\s+/).length;
-  assert(judgementWordCount >= 80 && judgementWordCount <= 120, `current-edition judgement should be 80–120 words; found ${judgementWordCount}`, failures);
-  for (const paragraph of [judgement.observation, judgement.executiveJudgement, judgement.implication].filter(Boolean)) {
-    assert(home.includes(paragraph), "home should include every canonical current-edition judgement paragraph", failures);
-  }
-  assert(home.indexOf("This Week’s Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
+  assert(home.includes("The operating question for leaders this week"), "home should use its distinct decision-led entry headline", failures);
+  assert(home.includes(edition.mainJudgement), "home should surface the canonical current-edition decision", failures);
+  assert(home.includes("This week’s decision"), "home should present a concise decision rather than repeat the Brief analysis", failures);
+  assert(!home.includes(edition.judgement?.executiveJudgement || ""), "home should route to the Brief rather than repeat its full editorial judgement", failures);
+  assert(home.indexOf("This week’s decision") < home.indexOf('class="ticker"'), "weekly decision should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
   assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);
   assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);
@@ -349,6 +344,7 @@ function main() {
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
   assert(!/Reg Horizon|regulatory-horizon/.test(archive), "Archive must not promote Reg Horizon while it is withdrawn", failures);
+  assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");

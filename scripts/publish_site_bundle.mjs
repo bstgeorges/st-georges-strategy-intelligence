@@ -715,20 +715,18 @@ function loadEditionRecord(failures) {
 
 function renderHomepageJudgement(out, editionRecord) {
   const file = path.join(out, "index.html");
-  if (!fs.existsSync(file) || !editionRecord?.judgement) return;
+  if (!fs.existsSync(file) || !editionRecord?.mainJudgement) return;
   const html = read(file);
-  const { observation, executiveJudgement, implication } = editionRecord.judgement;
   const block = `<!-- judgement:start -->
-        <section class="home-judgement" aria-labelledby="weekly-judgement-title">
+        <section class="home-judgement" aria-labelledby="weekly-decision-title">
           <header class="judgement-header">
-            <p class="eyebrow">This Week’s Judgement</p>
+            <p class="eyebrow">This week’s decision</p>
             <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
           </header>
-          <h2 id="weekly-judgement-title" class="visually-hidden">This Week’s Judgement</h2>
+          <h2 id="weekly-decision-title">The operating test to take into Monday</h2>
           <div class="judgement-copy">
-            <p>${escapeHtml(observation)}</p>
-            <p>${escapeHtml(executiveJudgement)}</p>
-            <p class="judgement-implication">${escapeHtml(implication)}</p>
+            <p class="judgement-implication">${escapeHtml(editionRecord.mainJudgement)}</p>
+            <p class="judgement-route">The Weekly Brief holds the full analysis and evidence trail. Committee Questions turns it into a challenge for an accountable owner.</p>
           </div>
         </section>
         <!-- judgement:end -->`;
@@ -1064,14 +1062,14 @@ function updateArchiveIndexCards(out, edition) {
     : '<p class="meta">No dated editions archived yet</p>';
   const cards = [];
   cards.push(
-    `<a class="archive-card" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
+    `<a class="archive-card archive-brief" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
   );
 
   for (const topic of topics) {
     const meta = topicMeta.get(topic) || {};
     const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition);
     cards.push(
-      `<a class="archive-card" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
+      `<a class="archive-card archive-topic" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
     );
   }
 
@@ -2225,7 +2223,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   const homePage = read(path.join(out, "index.html"));
   const briefPage = read(path.join(out, "brief", "index.html"));
   const committeePage = read(path.join(out, "committee-questions", "index.html"));
-  assert(homePage.includes(editionRecord.title), "Homepage H1 must match the current edition title", failures);
+  assert(homePage.includes(editionRecord.mainJudgement), "Homepage must surface the current edition's concise operating decision", failures);
   assert(homePage.includes(editionRecord.mainJudgement), "Homepage hero copy must match the current edition judgement", failures);
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);

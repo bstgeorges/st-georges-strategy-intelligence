@@ -721,14 +721,23 @@ function renderHomepageJudgement(out, editionRecord) {
   const block = `<!-- judgement:start -->
         <section class="home-judgement" aria-labelledby="weekly-judgement-title">
           <header class="judgement-header">
-            <p class="eyebrow">This Week’s Judgement</p>
+            <p class="eyebrow">Weekly Judgement</p>
             <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
           </header>
-          <h2 id="weekly-judgement-title" class="visually-hidden">This Week’s Judgement</h2>
+          <h2 id="weekly-judgement-title">One test for the week</h2>
           <div class="judgement-copy">
-            <p>${escapeHtml(observation)}</p>
-            <p>${escapeHtml(executiveJudgement)}</p>
-            <p class="judgement-implication">${escapeHtml(implication)}</p>
+            <div class="judgement-beat">
+              <p class="judgement-label">What happened</p>
+              <p class="judgement-text">${escapeHtml(observation)}</p>
+            </div>
+            <div class="judgement-beat">
+              <p class="judgement-label">Why it matters</p>
+              <p class="judgement-text">${escapeHtml(executiveJudgement)}</p>
+            </div>
+            <div class="judgement-beat judgement-implication">
+              <p class="judgement-label">What to do</p>
+              <p class="judgement-text">${escapeHtml(implication)}</p>
+            </div>
           </div>
         </section>
         <!-- judgement:end -->`;

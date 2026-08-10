@@ -101,8 +101,9 @@ function checkCurrentEditionAlignment(failures) {
   for (const [field, value] of Object.entries(edition.judgement || {})) {
     assert(home.includes(value), `home should surface current edition judgement ${field}`, failures);
   }
-  assert(home.includes("This Week’s Judgement"), "home should label its full editorial judgement", failures);
-  assert(home.indexOf("This Week’s Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
+  assert(home.includes("Weekly Judgement"), "home should label its full editorial judgement", failures);
+  assert(home.includes("One test for the week"), "home judgement should state its plain-English operating test", failures);
+  assert(home.indexOf("Weekly Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
   assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);
   assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);

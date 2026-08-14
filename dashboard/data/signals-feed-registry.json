@@ -118,72 +118,180 @@
       "maxItems": 6
     },
     {
-      "id": "reg-horizon-market-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["market-structure"],
-      "riskAreas": ["balance-sheet", "digital-money", "market-plumbing"],
-      "tags": ["reg-horizon", "deadlines", "market-structure"],
+      "id": "hm-treasury-policy-atom",
+      "sourceRegistryId": "uk-hm-treasury",
+      "fetchType": "atom",
+      "fetchUrl": "https://www.gov.uk/government/organisations/hm-treasury.atom",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "digital-money", "crime-and-sanctions", "board-accountability"],
+      "tags": ["payments", "financial-services-policy", "sanctions", "reporting", "uk"],
+      "keywordHints": ["payment", "financial services", "crypto", "stablecoin", "market", "sanction", "money laundering", "reporting", "disclosure"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "financial services", "crypto", "stablecoin", "market"],
+        "financial-crime": ["sanction", "money laundering", "economic crime", "illicit finance"],
+        "data": ["reporting", "disclosure", "data", "transparency"]
+      },
+      "windowDays": 45,
       "maxItems": 10
     },
     {
-      "id": "reg-horizon-third-party-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["third-party"],
-      "riskAreas": ["digital-resilience", "ai-and-models", "market-plumbing"],
-      "tags": ["reg-horizon", "third-party", "dependency"],
-      "keywordHints": ["outsourcing", "third party", "critical third", "vendor", "supplier", "cloud", "processor", "model", "agent"],
+      "id": "boe-news-rss",
+      "sourceRegistryId": "uk-boe-pra",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.bankofengland.co.uk/rss/news",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "balance-sheet"],
+      "tags": ["prudential-policy", "payments", "operational-resilience", "uk"],
+      "keywordHints": ["payment", "settlement", "market", "operational resilience", "outsourcing", "third party", "technology", "system", "recovery"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "settlement", "market", "clearing"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "outage", "failure", "recovery"]
+      },
+      "windowDays": 45,
       "maxItems": 10
     },
     {
-      "id": "reg-horizon-resilience-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["resilience"],
+      "id": "boe-publications-rss",
+      "sourceRegistryId": "uk-boe-pra",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.bankofengland.co.uk/rss/publications",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "balance-sheet"],
+      "tags": ["prudential-policy", "supervision", "operational-resilience", "uk"],
+      "keywordHints": ["payment", "market", "operational resilience", "outsourcing", "third party", "technology", "system", "recovery"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "market", "clearing", "settlement"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "outage", "failure", "recovery"]
+      },
+      "windowDays": 60,
+      "maxItems": 10
+    },
+    {
+      "id": "sec-press-releases-rss",
+      "sourceRegistryId": "sec",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["markets", "enforcement", "disclosure", "crypto", "us"],
+      "keywordHints": ["market", "trading", "securities", "crypto", "fraud", "money laundering", "disclosure", "reporting", "data"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "trading", "securities", "crypto", "clearing"],
+        "financial-crime": ["fraud", "money laundering", "sanction", "insider trading"],
+        "data": ["disclosure", "reporting", "data", "recordkeeping"]
+      },
+      "windowDays": 45,
+      "maxItems": 10
+    },
+    {
+      "id": "cftc-market-rss",
+      "sourceRegistryId": "cftc",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cftc.gov/RSS/RSSGP/rssgp.xml",
+      "topics": ["market-structure", "financial-crime"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions"],
+      "tags": ["derivatives", "clearing", "market-conduct", "enforcement", "us"],
+      "keywordHints": ["clearing", "derivatives", "swap", "market", "fraud", "manipulation", "enforcement"],
+      "topicKeywordHints": {
+        "market-structure": ["clearing", "derivatives", "swap", "market", "trading"],
+        "financial-crime": ["fraud", "manipulation", "enforcement", "money laundering"]
+      },
+      "windowDays": 45,
+      "maxItems": 10
+    },
+    {
+      "id": "cftc-enforcement-rss",
+      "sourceRegistryId": "cftc",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cftc.gov/RSS/RSSENF/rssenf.xml",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["derivatives", "market-conduct", "enforcement", "recordkeeping", "us"],
+      "keywordHints": ["fraud", "manipulation", "spoofing", "money laundering", "recordkeeping", "reporting", "market"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "trading", "derivatives", "swap", "clearing"],
+        "financial-crime": ["fraud", "manipulation", "spoofing", "money laundering"],
+        "data": ["recordkeeping", "reporting", "data", "disclosure"]
+      },
+      "windowDays": 45,
+      "maxItems": 10
+    },
+    {
+      "id": "hkma-circulars-rss",
+      "sourceRegistryId": "hkma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.hkma.gov.hk/eng/other-information/rss/rss_circulars.xml",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions"],
+      "tags": ["banking-supervision", "payments", "outsourcing", "operational-resilience", "hong-kong"],
+      "keywordHints": ["payment", "market", "outsourcing", "third party", "operational resilience", "technology", "cyber", "sanctions", "money laundering"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "market", "clearing", "settlement"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "cyber", "recovery"],
+        "financial-crime": ["sanctions", "money laundering", "financial crime", "fraud"]
+      },
+      "windowDays": 60,
+      "maxItems": 10
+    },
+    {
+      "id": "hkma-consultations-rss",
+      "sourceRegistryId": "hkma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.hkma.gov.hk/eng/other-information/rss/rss_consultations.xml",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions", "board-accountability"],
+      "tags": ["consultations", "payments", "outsourcing", "data", "hong-kong"],
+      "keywordHints": ["payment", "market", "outsourcing", "third party", "resilience", "technology", "sanctions", "data", "reporting"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "market", "clearing", "settlement"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "cyber", "recovery"],
+        "financial-crime": ["sanctions", "money laundering", "financial crime", "fraud"],
+        "data": ["data", "reporting", "disclosure", "recordkeeping"]
+      },
+      "windowDays": 90,
+      "maxItems": 10
+    },
+    {
+      "id": "ecb-supervision-rss",
+      "sourceRegistryId": "ecb-supervision",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.bankingsupervision.europa.eu/rss/press.html",
+      "topics": ["third-party", "resilience", "technology-failure", "data"],
       "riskAreas": ["digital-resilience", "board-accountability"],
-      "tags": ["reg-horizon", "resilience", "impact-tolerance"],
-      "keywordHints": ["resilience", "outage", "impact tolerance", "important business service", "continuity"],
+      "tags": ["banking-supervision", "ict-risk", "operational-resilience", "eu"],
+      "keywordHints": ["ict", "technology", "operational resilience", "outsourcing", "third party", "data", "reporting", "cyber"],
+      "topicKeywordHints": {
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery"],
+        "technology-failure": ["ict", "technology", "system", "cyber"],
+        "data": ["data", "reporting", "disclosure"]
+      },
+      "windowDays": 60,
       "maxItems": 10
     },
     {
-      "id": "reg-horizon-financial-crime-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["financial-crime"],
-      "riskAreas": ["crime-and-sanctions"],
-      "tags": ["reg-horizon", "financial-crime", "sanctions"],
-      "keywordHints": ["fraud", "aml", "money laundering", "sanctions", "scam", "financial crime"],
-      "maxItems": 10
-    },
-    {
-      "id": "reg-horizon-cyber-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["cyber"],
-      "riskAreas": ["digital-resilience"],
-      "tags": ["reg-horizon", "cyber", "threat"],
-      "keywordHints": ["cyber", "ransomware", "vulnerability", "breach", "incident", "threat"],
-      "maxItems": 10
-    },
-    {
-      "id": "reg-horizon-technology-failure-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["technology-failure"],
-      "riskAreas": ["digital-resilience"],
-      "tags": ["reg-horizon", "technology-failure", "outage"],
-      "keywordHints": ["outage", "failure", "disruption", "ict", "technology", "recovery"],
-      "maxItems": 10
-    },
-    {
-      "id": "reg-horizon-data-bridge",
-      "fetchType": "reg_horizon_json",
-      "fetchUrl": "site/regulatory-horizon/latest.json",
-      "topics": ["data"],
-      "riskAreas": ["board-accountability"],
-      "tags": ["reg-horizon", "data", "reporting"],
-      "keywordHints": ["data", "reporting", "disclosure", "privacy", "record", "governance"],
+      "id": "sebi-regulatory-rss",
+      "sourceRegistryId": "india-sebi",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.sebi.gov.in/sebirss.xml",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["securities", "market-conduct", "investor-protection", "kyc", "india"],
+      "keywordHints": ["market", "securities", "fund", "trading", "broker", "kyc", "fraud", "money laundering", "disclosure", "reporting", "data"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "securities", "fund", "trading", "broker", "clearing"],
+        "financial-crime": ["kyc", "fraud", "money laundering", "insider trading", "manipulation"],
+        "data": ["disclosure", "reporting", "data", "recordkeeping"]
+      },
+      "windowDays": 45,
       "maxItems": 10
     },
     {

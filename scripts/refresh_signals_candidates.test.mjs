@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
+import { resolvePublishedSource } from "./lib/published_source_contract.mjs";
 import {
   assessCandidateQuality,
   canonicaliseUrl,
@@ -13,6 +14,25 @@ import {
   relevanceScore,
   topicRelevance,
 } from "./refresh_signals_candidates.mjs";
+
+test("new market and HKMA feeds resolve to approved primary citation sources", () => {
+  assert.equal(
+    resolvePublishedSource("https://www.sec.gov/newsroom/press-releases/2026-74")?.id,
+    "sec",
+  );
+  assert.equal(
+    resolvePublishedSource("https://www.cftc.gov/PressRoom/PressReleases/9282-26")?.id,
+    "cftc",
+  );
+  assert.equal(
+    resolvePublishedSource("https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260729-1-EN")?.id,
+    "hkma",
+  );
+  assert.equal(
+    resolvePublishedSource("https://www.sebi.gov.in/media-and-notifications/press-releases/aug-2026/kyc-update_103683.html")?.id,
+    "india-sebi",
+  );
+});
 
 test("missing feed dates can be recovered from official dated URLs", () => {
   assert.equal(inferDateFromUrl("https://www.fsa.go.jp/en/news/20260717/report.html"), "2026-07-17T00:00:00.000Z");

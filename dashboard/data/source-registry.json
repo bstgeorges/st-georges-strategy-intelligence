@@ -974,6 +974,62 @@
       ]
     },
     {
+      "id": "github-status",
+      "name": "GitHub Status",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://www.githubstatus.com/",
+      "cadence": "daily",
+      "useFor": ["developer-platform-incidents", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did a GitHub incident affect source-code access, CI/CD, identity, integrations, or a critical developer dependency?",
+        "What does the incident imply for supplier concentration, delivery continuity, fallback arrangements, and recovery evidence?"
+      ]
+    },
+    {
+      "id": "atlassian-status",
+      "name": "Atlassian Status",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://status.atlassian.com/",
+      "cadence": "daily",
+      "useFor": ["workflow-platform-incidents", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did an Atlassian incident affect service management, collaboration, change control, or a critical operational workflow?",
+        "What does it reveal about dependency mapping, manual workarounds, restoration decisions, and supplier oversight?"
+      ]
+    },
+    {
+      "id": "oracle-cloud-status",
+      "name": "Oracle Cloud Infrastructure Status",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://ocistatus.oraclecloud.com/",
+      "cadence": "daily",
+      "useFor": ["cloud-outages", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did an Oracle Cloud incident expose a material availability, data, network, or regional concentration dependency?",
+        "What does it imply for fallback arrangements, service ownership, recovery evidence, and third-party assurance?"
+      ]
+    },
+    {
+      "id": "digitalocean-status",
+      "name": "DigitalOcean Status",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://status.digitalocean.com/",
+      "cadence": "daily",
+      "useFor": ["cloud-outages", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did a DigitalOcean incident expose a material cloud, hosting, network, or developer-platform dependency?",
+        "What does it imply for supplier resilience, workload portability, restoration testing, and impact evidence?"
+      ]
+    },
+    {
       "id": "canada-cyber-centre",
       "name": "Canadian Centre for Cyber Security",
       "tier": "primary",

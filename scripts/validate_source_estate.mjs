@@ -9,7 +9,7 @@ const urls = new Set();
 if (data.metrics?.uniqueSourceRoutes < 200) failures.push(`expected at least 200 unique source routes; found ${data.metrics?.uniqueSourceRoutes || 0}`);
 if (data.metrics?.cataloguedRegulatoryAuthorities < 130) failures.push(`expected at least 130 catalogued regulatory authorities; found ${data.metrics?.cataloguedRegulatoryAuthorities || 0}`);
 if (data.metrics?.registeredPrimarySources < 70) failures.push(`expected at least 70 registered primary sources; found ${data.metrics?.registeredPrimarySources || 0}`);
-if (data.metrics?.activeSignalsFeeds < 35) failures.push(`expected at least 35 active Signals feeds; found ${data.metrics?.activeSignalsFeeds || 0}`);
+if (data.metrics?.activeSignalsFeeds < 50) failures.push(`expected at least 50 active Signals feeds; found ${data.metrics?.activeSignalsFeeds || 0}`);
 
 for (const route of data.routes || []) {
   if (!route.id || ids.has(route.id)) failures.push(`duplicate or missing route id: ${route.id || "<missing>"}`);

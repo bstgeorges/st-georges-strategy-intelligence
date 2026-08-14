@@ -862,6 +862,34 @@
       ]
     },
     {
+      "id": "aws-service-health",
+      "name": "AWS Service Health",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://status.aws.amazon.com/",
+      "cadence": "daily",
+      "useFor": ["cloud-outages", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did an AWS disruption expose a critical dependency, service concentration, or recovery weakness?",
+        "Is the incident material enough to require a named service owner, fallback decision, and evidence of restoration?"
+      ]
+    },
+    {
+      "id": "cloudflare-status",
+      "name": "Cloudflare Status",
+      "tier": "primary",
+      "category": "technology",
+      "jurisdictions": ["Global"],
+      "url": "https://www.cloudflarestatus.com/",
+      "cadence": "daily",
+      "useFor": ["network-incidents", "technology-failure", "resilience", "third-party"],
+      "signalQuestions": [
+        "Did a Cloudflare incident expose a material network, edge, DNS, or application dependency?",
+        "What does the incident imply for fallback arrangements, impact assessment, recovery evidence, and supplier oversight?"
+      ]
+    },
+    {
       "id": "canada-cyber-centre",
       "name": "Canadian Centre for Cyber Security",
       "tier": "primary",

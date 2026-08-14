@@ -37,6 +37,12 @@ _REPO_ROOT = _PKG_ROOT.parent.parent              # repo root
 _DOCS_DIR = _PKG_ROOT / "docs"
 _SOURCE_REGISTRY = _REPO_ROOT / "dashboard" / "data" / "source-registry.json"
 
+# Deadline evidence is more valuable to the private register than a broad
+# weekly-news ranking. Keep detail-page requests bounded, but inspect enough
+# qualifying rows that a busy authority does not hide a consultation simply
+# because it appeared after its first two notices.
+DEADLINE_DETAIL_PER_SOURCE = 6
+
 
 def _load_registry():
     with open(_SOURCE_REGISTRY, encoding="utf-8") as f:
@@ -196,7 +202,7 @@ def main():
                 recent.append(item)
 
         if not args.skip_detail:
-            _fetch.enrich_deadline_text(recent, max_items=2)
+            _fetch.enrich_deadline_text(recent, max_items=DEADLINE_DETAIL_PER_SOURCE)
         _dl.annotate(recent)
         for item in recent:
             item["score"] = _score.score(item, source)
@@ -284,6 +290,21 @@ def main():
         for item in reconciled
         if not _score.is_material(item)
     ][:20]
+    # A dated obligation should not disappear merely because it is too narrow
+    # to be one of the week's material signals. These rows are deliberately
+    # kept out of the public editorial shortlist and are consumed only by the
+    # private deadline register for human review.
+    private_deadline_candidates = [
+        _writer.fmt_signal(item, sources_by_id.get(item["source_id"], {}))
+        for item in reconciled
+        if (
+            item.get("deadline")
+            and item.get("confidence", {}).get("band") == "high"
+            and not _score.is_material(item)
+            and sources_by_id.get(item.get("source_id"), {}).get("tier") == "primary"
+            and sources_by_id.get(item.get("source_id"), {}).get("status", "approved") == "approved"
+        )
+    ]
 
     warnings = []
     if review_queue:
@@ -361,6 +382,7 @@ def main():
     data["sourceHealth"] = source_health
     data["candidateReview"] = candidate_review
     data["reviewQueue"] = review_queue
+    data["privateDeadlineCandidates"] = private_deadline_candidates
     data["heldLowConfidence"] = len(held_low_confidence)
     confidence_bands = {}
     impact_bands = {}

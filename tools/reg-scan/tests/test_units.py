@@ -328,6 +328,24 @@ class TestFetch(unittest.TestCase):
         headers = request.call_args.kwargs["headers"]
         self.assertIn("Mozilla/5.0", headers["User-Agent"])
 
+    def test_deadline_detail_enrichment_checks_six_eligible_rows_per_authority(self):
+        from unittest.mock import patch
+        from scan.__main__ import DEADLINE_DETAIL_PER_SOURCE
+        from scan.fetch import enrich_deadline_text
+
+        self.assertGreater(DEADLINE_DETAIL_PER_SOURCE, 2)
+        records = [
+            {"url": f"https://example.test/{index}", "signal_type": "consultation"}
+            for index in range(DEADLINE_DETAIL_PER_SOURCE + 1)
+        ]
+        response = type("Response", (), {"content": b"<html><body>Deadline detail</body></html>"})()
+        with patch("scan.fetch._get", return_value=response) as request:
+            enrich_deadline_text(records, max_items=DEADLINE_DETAIL_PER_SOURCE)
+
+        self.assertEqual(request.call_count, DEADLINE_DETAIL_PER_SOURCE)
+        self.assertTrue(all("detail_text" in record for record in records[:DEADLINE_DETAIL_PER_SOURCE]))
+        self.assertNotIn("detail_text", records[-1])
+
     def test_page_adapter_extracts_only_dated_filtered_official_entries(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

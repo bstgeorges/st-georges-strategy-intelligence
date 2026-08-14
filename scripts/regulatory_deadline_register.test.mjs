@@ -28,9 +28,14 @@ test("builds a cumulative private register and keeps every scanner candidate in 
   assert.equal(first.items.filter((item) => item.status === "confirmed").length, 0);
   assert.equal(first.items.filter((item) => item.status === "ready-for-review").length, 1);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "review.json"))).items.length, 2);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out, "changes.json"))).baseline, true);
   fs.writeFileSync(path.join(out, "approvals.json"), JSON.stringify({ decisions: [{ url: first.items[0].url, deadline: first.items[0].deadline, decision: "approve", reviewer: "Editorial lead", note: "Editorial check complete", decidedAt: "2026-08-09" }] }));
   assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-09"]).status, 0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.find((item) => item.authority.id === "uk-fca").status, "confirmed");
+  const approvalChange = JSON.parse(fs.readFileSync(path.join(out, "changes.json")));
+  assert.equal(approvalChange.baseline, false);
+  assert.equal(approvalChange.statusChanges.length, 1);
+  assert.equal(approvalChange.statusChanges[0].to, "confirmed");
   fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-16", signals: [], reviewQueue: [], sourceHealth: [], coverage: {} }));
   assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-16"]).status, 0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.length, 2);
@@ -103,4 +108,8 @@ test("supersedes an old deadline when the same authority changes the date", () =
   const items = JSON.parse(fs.readFileSync(path.join(out, "register.json")).toString()).items;
   assert.equal(items.find((item) => item.deadline === "2026-09-01").status, "superseded");
   assert.equal(items.find((item) => item.deadline === "2026-10-01").status, "ready-for-review");
+  const changes = JSON.parse(fs.readFileSync(path.join(out, "changes.json")));
+  assert.equal(changes.revisedDates.length, 1);
+  assert.equal(changes.revisedDates[0].from, "2026-09-01");
+  assert.equal(changes.revisedDates[0].to, "2026-10-01");
 });

@@ -257,6 +257,18 @@ function dedupeEntriesByTitle(entries, source) {
   });
 }
 
+function capCandidatesBySourceOwner(candidates, cap) {
+  if (!Number.isInteger(cap) || cap < 1) return candidates;
+  const counts = new Map();
+  return candidates.filter((candidate) => {
+    const ownerId = candidate.sourceRegistryId || candidate.ingestSourceId || "unknown";
+    const count = counts.get(ownerId) || 0;
+    if (count >= cap) return false;
+    counts.set(ownerId, count + 1);
+    return true;
+  });
+}
+
 function matchedTopicKeywords(entry, source, topicId) {
   const configured = source.topicKeywordHints?.[topicId];
   const keywords = Array.isArray(configured) && configured.length ? configured : TOPIC_KEYWORDS[topicId] || [];
@@ -532,9 +544,11 @@ async function main() {
 
   const topics = TOPICS.map((topicId) => ({
     id: topicId,
-    candidates: (topicBuckets.get(topicId) || [])
-      .sort((a, b) => b.relevanceScore - a.relevanceScore || String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))
-      .slice(0, feedRegistry.settings?.perTopicCap || 20),
+    candidates: capCandidatesBySourceOwner(
+      (topicBuckets.get(topicId) || [])
+        .sort((a, b) => b.relevanceScore - a.relevanceScore || String(b.publishedAt || "").localeCompare(String(a.publishedAt || ""))),
+      feedRegistry.settings?.perSourceOwnerTopicCap || 5,
+    ).slice(0, feedRegistry.settings?.perTopicCap || 20),
   }));
   warnings.push(...assessCandidateQuality(topics));
 
@@ -586,4 +600,4 @@ if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
   });
 }
 
-export { assessCandidateQuality, canonicaliseUrl, dedupeEntriesByTitle, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };
+export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };

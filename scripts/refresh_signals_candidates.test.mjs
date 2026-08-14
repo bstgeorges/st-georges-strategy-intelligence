@@ -5,6 +5,7 @@ import { resolvePublishedSource } from "./lib/published_source_contract.mjs";
 import {
   assessCandidateQuality,
   canonicaliseUrl,
+  capCandidatesBySourceOwner,
   dedupeEntriesByTitle,
   inferDateFromUrl,
   isRecent,
@@ -152,6 +153,16 @@ test("provider-status feeds collapse repeated updates with the same incident tit
     ["https://status.example/1", "https://status.example/3"],
   );
   assert.equal(dedupeEntriesByTitle(entries, {}).length, 3);
+});
+
+test("multi-feed source owners cannot crowd a topic queue", () => {
+  const candidates = [
+    { id: "a", sourceRegistryId: "owner-a", relevanceScore: 100 },
+    { id: "b", sourceRegistryId: "owner-a", relevanceScore: 99 },
+    { id: "c", sourceRegistryId: "owner-a", relevanceScore: 98 },
+    { id: "d", sourceRegistryId: "owner-b", relevanceScore: 97 },
+  ];
+  assert.deepEqual(capCandidatesBySourceOwner(candidates, 2).map((candidate) => candidate.id), ["a", "b", "d"]);
 });
 
 test("provider disruption wording routes to the thin dependency and failure topics", () => {

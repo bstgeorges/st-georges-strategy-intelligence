@@ -1,10 +1,11 @@
 {
-  "version": "2026-07-06",
+  "version": "2026-08-14",
   "purpose": "Phase-two candidate ingestion registry for Signals topics. These sources are used to generate reviewable candidates, not directly published rows.",
   "settings": {
     "windowDays": 14,
     "perSourceCap": 8,
-    "perTopicCap": 20
+    "perTopicCap": 20,
+    "perSourceOwnerTopicCap": 5
   },
   "sources": [
     {
@@ -260,6 +261,184 @@
       "maxItems": 10
     },
     {
+      "id": "hkma-press-releases-rss",
+      "sourceRegistryId": "hkma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.hkma.gov.hk/eng/other-information/rss/rss_press-release.xml",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions"],
+      "tags": ["banking-supervision", "payments", "operational-resilience", "hong-kong"],
+      "keywordHints": ["payment", "market", "outsourcing", "third party", "operational resilience", "technology", "cyber", "sanctions", "money laundering", "fraud"],
+      "topicKeywordHints": {
+        "market-structure": ["payment", "market", "clearing", "settlement"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "cyber", "recovery"],
+        "financial-crime": ["sanctions", "money laundering", "financial crime", "fraud"]
+      },
+      "windowDays": 45,
+      "maxItems": 10
+    },
+    {
+      "id": "hkma-guidelines-rss",
+      "sourceRegistryId": "hkma",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.hkma.gov.hk/eng/other-information/rss/rss_guidelines.xml",
+      "topics": ["third-party", "resilience", "technology-failure", "financial-crime", "data"],
+      "riskAreas": ["digital-resilience", "crime-and-sanctions", "board-accountability"],
+      "tags": ["supervisory-guidance", "outsourcing", "technology-risk", "hong-kong"],
+      "keywordHints": ["outsourcing", "third party", "operational resilience", "technology", "cyber", "sanctions", "data", "reporting"],
+      "topicKeywordHints": {
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "cyber", "recovery"],
+        "financial-crime": ["sanctions", "money laundering", "financial crime", "fraud"],
+        "data": ["data", "reporting", "disclosure", "recordkeeping"]
+      },
+      "windowDays": 180,
+      "maxItems": 6
+    },
+    {
+      "id": "amf-news-rss",
+      "sourceRegistryId": "fr-amf",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.amf-france.org/fr/flux-rss/display/31",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["markets", "asset-management", "enforcement", "france"],
+      "keywordHints": ["marché", "marchés", "crypto", "fonds", "investissement", "sanction", "fraude", "blanchiment", "reporting", "données", "transparence"],
+      "topicKeywordHints": {
+        "market-structure": ["marché", "marchés", "crypto", "fonds", "investissement"],
+        "financial-crime": ["sanction", "fraude", "blanchiment", "abus de marché"],
+        "data": ["reporting", "données", "information", "transparence"]
+      },
+      "windowDays": 45,
+      "maxItems": 12
+    },
+    {
+      "id": "amf-regulation-rss",
+      "sourceRegistryId": "fr-amf",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.amf-france.org/fr/flux-rss/display/23",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["rulemaking", "markets", "consultations", "france"],
+      "keywordHints": ["réglement", "doctrine", "instruction", "position", "marché", "crypto", "fonds", "reporting", "information", "données"],
+      "topicKeywordHints": {
+        "market-structure": ["marché", "crypto", "fonds", "investissement", "réglement"],
+        "financial-crime": ["sanction", "blanchiment", "fraude", "abus de marché"],
+        "data": ["reporting", "données", "information", "transparence"]
+      },
+      "windowDays": 90,
+      "maxItems": 12
+    },
+    {
+      "id": "amf-enforcement-rss",
+      "sourceRegistryId": "fr-amf",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.amf-france.org/fr/flux-rss/display/24",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["enforcement", "market-conduct", "france"],
+      "keywordHints": ["sanction", "commission des sanctions", "abus de marché", "fraude", "information", "reporting"],
+      "topicKeywordHints": {
+        "market-structure": ["marché", "marchés", "abus de marché", "investissement"],
+        "financial-crime": ["sanction", "fraude", "blanchiment", "abus de marché"],
+        "data": ["information", "reporting", "données", "transparence"]
+      },
+      "windowDays": 90,
+      "maxItems": 12
+    },
+    {
+      "id": "cnmv-news-rss",
+      "sourceRegistryId": "spain-cnmv",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cnmv.es/portal/RSS/RSS.asmx/GetDatos?iID=1",
+      "topics": ["market-structure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "crime-and-sanctions", "board-accountability"],
+      "tags": ["markets", "funds", "market-conduct", "spain"],
+      "keywordHints": ["mercado", "mercados", "valores", "inversión", "fondos", "cripto", "sanción", "fraude", "blanqueo", "información", "datos", "transparencia"],
+      "topicKeywordHints": {
+        "market-structure": ["mercado", "mercados", "valores", "inversión", "fondos", "cripto"],
+        "financial-crime": ["sanción", "fraude", "blanqueo", "abuso de mercado"],
+        "data": ["información", "datos", "transparencia", "reporting"]
+      },
+      "windowDays": 60,
+      "maxItems": 12
+    },
+    {
+      "id": "cbi-news-rss",
+      "sourceRegistryId": "ireland-cbi",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.centralbank.ie/feeds/news-media-feed",
+      "topics": ["market-structure", "third-party", "resilience", "technology-failure", "financial-crime", "data"],
+      "riskAreas": ["market-plumbing", "digital-resilience", "crime-and-sanctions", "board-accountability"],
+      "tags": ["prudential-policy", "supervision", "operational-resilience", "ireland"],
+      "keywordHints": ["market", "fund", "outsourcing", "third party", "operational resilience", "technology", "cyber", "financial crime", "sanctions", "data", "reporting", "disclosure"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "fund", "securities", "payment", "investment"],
+        "third-party": ["outsourcing", "third party", "service provider", "cloud"],
+        "resilience": ["operational resilience", "resilience", "recovery", "continuity"],
+        "technology-failure": ["technology", "system", "cyber", "recovery"],
+        "financial-crime": ["sanctions", "money laundering", "financial crime", "fraud"],
+        "data": ["data", "reporting", "disclosure", "recordkeeping"]
+      },
+      "windowDays": 60,
+      "maxItems": 12
+    },
+    {
+      "id": "cbi-markets-rss",
+      "sourceRegistryId": "ireland-cbi",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.centralbank.ie/feeds/markets-updates-feed",
+      "topics": ["market-structure", "data"],
+      "riskAreas": ["market-plumbing", "board-accountability"],
+      "tags": ["markets", "disclosure", "supervision", "ireland"],
+      "keywordHints": ["market", "securities", "fund", "investment", "reporting", "disclosure", "data", "transparency"],
+      "topicKeywordHints": {
+        "market-structure": ["market", "securities", "fund", "investment", "trading"],
+        "data": ["reporting", "disclosure", "data", "transparency"]
+      },
+      "windowDays": 90,
+      "maxItems": 12
+    },
+    {
+      "id": "nist-ai-rss",
+      "sourceRegistryId": "nist-ai-rmf",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["ai-governance", "risk-management", "standards", "us"],
+      "keywordHints": ["artificial intelligence", "machine learning", "generative", "foundation model", "ai risk", "model evaluation"],
+      "windowDays": 90,
+      "maxItems": 12
+    },
+    {
+      "id": "mistral-news-rss",
+      "sourceRegistryId": "mistral-ai",
+      "fetchType": "rss",
+      "fetchUrl": "https://mistral.ai/news/rss/",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["model-releases", "enterprise-ai", "ai-safety", "europe"],
+      "keywordHints": ["model", "agent", "enterprise", "safety", "security", "governance", "evaluation", "release"],
+      "windowDays": 60,
+      "maxItems": 12
+    },
+    {
+      "id": "arxiv-ai-rss",
+      "sourceRegistryId": "arxiv-ai",
+      "fetchType": "rss",
+      "fetchUrl": "https://export.arxiv.org/rss/cs.AI",
+      "topics": ["ai"],
+      "riskAreas": ["ai-and-models"],
+      "tags": ["research", "model-evaluation", "ai-safety", "technical-evidence"],
+      "keywordHints": ["language model", "large language", "foundation model", "agent", "agentic", "generative", "safety", "evaluation", "alignment", "cybersecurity"],
+      "windowDays": 30,
+      "maxItems": 15
+    },
+    {
       "id": "ecb-supervision-rss",
       "sourceRegistryId": "ecb-supervision",
       "fetchType": "rss",
@@ -426,6 +605,78 @@
       "topicKeywordHints": {
         "third-party": ["incident", "outage", "network", "connectivity", "performance", "unavailable", "degraded", "error", "5xx"],
         "technology-failure": ["incident", "outage", "network", "connectivity", "performance", "unavailable", "degraded", "error", "5xx"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
+      "id": "github-status-rss",
+      "sourceRegistryId": "github-status",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.githubstatus.com/history.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["developer-platform", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+        "technology-failure": ["incident", "outage", "degraded", "unavailable", "error", "disruption"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
+      "id": "atlassian-status-rss",
+      "sourceRegistryId": "atlassian-status",
+      "fetchType": "rss",
+      "fetchUrl": "https://status.atlassian.com/history.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["workflow-platform", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+        "technology-failure": ["incident", "outage", "degraded", "unavailable", "error", "disruption"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
+      "id": "oracle-cloud-status-rss",
+      "sourceRegistryId": "oracle-cloud-status",
+      "fetchType": "rss",
+      "fetchUrl": "https://ocistatus.oraclecloud.com/history.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cloud", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+        "technology-failure": ["incident", "outage", "degraded", "unavailable", "error", "disruption"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
+      "id": "digitalocean-status-rss",
+      "sourceRegistryId": "digitalocean-status",
+      "fetchType": "rss",
+      "fetchUrl": "https://status.digitalocean.com/history.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cloud", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["incident", "outage", "degraded", "unavailable", "error", "disruption"],
+        "technology-failure": ["incident", "outage", "degraded", "unavailable", "error", "disruption"]
       },
       "dedupeTitles": true,
       "windowDays": 30,

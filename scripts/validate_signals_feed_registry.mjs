@@ -23,7 +23,7 @@ function validateFeedRegistry(feedRegistry, sourceRegistry) {
   const sourceById = new Map((sourceRegistry.sources || []).map((source) => [source.id, source]));
   const ids = new Set();
 
-  if (feeds.length < 35) errors.push(`Signals intake has ${feeds.length} sources; minimum is 35.`);
+  if (feeds.length < 50) errors.push(`Signals intake has ${feeds.length} sources; minimum is 50.`);
   for (const feed of feeds) {
     if (!feed.id || ids.has(feed.id)) errors.push(`Duplicate or missing Signals source id: ${feed.id || "<missing>"}.`);
     ids.add(feed.id);

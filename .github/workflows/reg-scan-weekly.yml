@@ -44,6 +44,7 @@ jobs:
         run: |
           npm run deadline-register:build
           npm run deadline-register:validate
+          npm run deadline-dashboard:build
 
       - name: Open generated scan for editorial review
         env:

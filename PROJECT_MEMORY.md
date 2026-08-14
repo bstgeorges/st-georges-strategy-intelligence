@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-07
+Last consolidated: 2026-08-14
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -235,3 +235,14 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - Signals candidates now require a real source date before they can enter the reviewable pipeline. Every new candidate records whether the date came from a feed, URL inference, sitemap last-modified value or a reviewed Horizon record; undated candidates cannot be promoted. A public Signals row with unresolved editorial placeholder copy fails validation.
 - While Horizon is withheld, its seven Signals bridge sources must report `skipped` with reason `horizon-withheld`; they are not allowed to look like healthy zero-yield inputs. Candidate-output validation now checks timestamps, date provenance and source outcome states.
 - The private deadline register now validates approval records, preserves superseded dates as non-counting history, counts only confirmed future deadlines for relaunch, and requires a current-edition, named and dated editor/product-owner sign-off in `relaunch-approval.json`. This approval file is intentionally unapproved by default and never restores the public route on its own.
+
+## Session memory — 2026-08-14: regulatory source estate
+
+- Commit `4c0045c` (`Reconnect regulatory source discovery`) makes the source estate explicit in the private deadline dashboard. It is pushed to `main`; it is not evidence of a public-site release and Reg Horizon remains withdrawn.
+- The global source universe contains **135 catalogued authorities** in **139 jurisdictions**. It is a governed discovery perimeter, not a claim that all those authorities are being scanned or that they can create deadline records.
+- The active private deadline intake is **53 configured primary official sources** across **24 jurisdictions**. Its source-selection policy is `dashboard/data/regulatory-deadline-intake-policy.json`; the scanner loads this policy directly. Do not reintroduce a separate hard-coded source list.
+- `dashboard/regulatory-deadline-register/discovery.json` and the dashboard’s **Source estate** panel distinguish catalogue, active intake, and last completed scanner run. The 2 August saved run covered 34 sources, so it truthfully calls out the 19 configured sources not yet represented in that run.
+- The active policy specifies a **90-day deadline-discovery lookback**, deliberately separate from the seven-day editorial signal window. Always label it as a policy unless a run confirms it actually used that lookback.
+- `TestSourcePerimeter.test_deadline_intake_policy_matches_the_scanner_and_every_active_source_has_transport` prevents policy/scanner drift: it verifies all 53 declared sources have a configured feed, listing-page adapter, or sitemap transport.
+- Review-only 90-day batches demonstrated material source yield without changing any dashboard or public data. Do not aggregate per-batch editorial shortlist totals as a whole-universe judgement because each batch has its own materiality cap. Slow or blocked authorities (notably Consob) must remain visible as health exceptions; they must not be silently treated as quiet.
+- The next engineering objective is a full, scheduled 90-day active-intake run that can complete outside the local interactive time limit, followed by primary-source review of genuine deadline candidates. Do not inflate the register from catalogue rows, scanner candidates or press context.

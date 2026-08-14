@@ -42,8 +42,12 @@ function renderDashboard({ register, review, health, qa }) {
   const metrics = readiness.metrics || {};
   const sourceEdition = register?.sourceEdition || qa?.sourceEdition || "unknown";
   const asOf = register?.asOf || qa?.asOf || "";
+  // QA's wall-clock generation timestamp would make the dashboard differ on
+  // every local validation run without changing any reader-facing judgement.
+  const dashboardQa = { ...(qa || {}) };
+  delete dashboardQa.generatedAt;
   const data = {
-    register: { ...register, items }, review: review?.items || [], health: health?.sourceHealth || [], qa: qa || {},
+    register: { ...register, items }, review: review?.items || [], health: health?.sourceHealth || [], qa: dashboardQa,
   };
   const readinessScore = Number(readiness.score || 0);
   const sourceAge = Number(metrics.sourceAgeDays);

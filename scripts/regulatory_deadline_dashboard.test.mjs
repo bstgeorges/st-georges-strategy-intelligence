@@ -29,6 +29,7 @@ test("private dashboard renders the cumulative register and never turns review i
     health: { sourceHealth: [{ status: "ok" }, { status: "blocked" }] },
     qa: { readiness: { score: 43, relaunchEligible: false, metrics: { confirmedAuthorities: 0, confirmedOpenDeadlines: 0, stableCoreAuthorities: 0, sourceAgeDays: 0 }, relaunchReasons: ["not ready"] } },
     changes: { baseline: true, additions: [], revisedDates: [], statusChanges: [], reconfirmed: [], notReconfirmed: [] },
+    discovery: { catalogue: { authorities: 135, jurisdictions: 139 }, activeIntake: { sources: 53, primarySources: 53, jurisdictions: 24, deadlineLookbackDays: 90 }, latestScan: { edition: "2026-08-14", activeSourcesChecked: 53, unscannedActiveSources: [] }, nextActions: [] },
   });
 
   assert.match(html, /Private operating dashboard/);
@@ -41,4 +42,6 @@ test("private dashboard renders the cumulative register and never turns review i
   assert.match(html, /This is the first tracked run/);
   assert.match(html, /Evidence &amp; decision/);
   assert.match(html, /Copy decision template/);
+  assert.match(html, /Breadth, without false coverage/);
+  assert.match(html, /Authorities catalogued/);
 });

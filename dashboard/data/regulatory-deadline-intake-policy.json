@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Selection policy for the private regulatory deadline discovery and review process. This policy keeps the broad authority catalogue separate from source-checked deadline intake.",
+  "visibility": "private",
+  "catalogue": {
+    "description": "The global authority catalogue is a discovery perimeter. Catalogue membership does not imply a source is scanned or that it can create a deadline record."
+  },
+  "activeIntake": {
+    "description": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication.",
+    "deadlineLookbackDays": 90,
+    "sourceIds": [
+      "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "uk-hm-treasury", "ofsi", "uk-nca",
+      "ecb-supervision", "ecb-ssm-newsletter", "ecb-supervisory-priorities", "ecb-supervision-sanctions", "eba", "esma", "eiopa", "bis", "bcbs", "iosco", "fsb", "fatf",
+      "sec", "cftc", "fincen-enforcement", "ofac-recent-actions", "nist-ai-rmf",
+      "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank", "ico",
+      "apra", "asic", "osfi", "mas", "india-sebi", "korea-fsc", "brazil-cvm", "fr-amf",
+      "spain-cnmv", "ireland-cbi", "adgm-fsra", "de-bafin", "dubai-dfsa",
+      "mexico-cnbv", "italy-consob", "saudi-cma", "hong-kong-sfc", "south-africa-sarb", "india-rbi", "singapore-sgx", "brazil-bcb", "south-korea-fss", "switzerland-snb"
+    ]
+  },
+  "coreSourceIds": [
+    "uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"
+  ]
+}

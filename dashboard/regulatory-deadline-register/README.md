@@ -6,9 +6,13 @@ This directory is the internal operating layer for Regulatory Horizon while the 
 
 `verified-deadlines.json` is a small, source-verified carry-forward layer for current deadlines that pre-date the weekly scanner window. Every record must link to a primary authority, record the date of the direct source check and preserve the deadline wording. These records are still private and unapproved: they can increase the reviewable operating universe, but cannot increase the confirmed count or satisfy the public relaunch gate. Re-check a carry-forward record at least every 14 days; the QA report raises a warning when it becomes stale.
 
+`discovery.json` is the source-estate report. It distinguishes the global authority catalogue from the active primary-source intake and the last completed scanner run. Its purpose is to make coverage gaps visible; catalogue entries, scanner output and source health never confirm a deadline.
+
+The active-intake policy carries a 90-day discovery lookback. This is deliberately distinct from the seven-day editorial signal window: a deadline-discovery run must state the window it actually used, and the dashboard labels the policy rather than implying a run was completed at that depth.
+
 Run `npm run deadline-register:build` after a successful scanner run, then `npm run deadline-register:validate`. Decisions in `approvals.json` can promote or reject an individual item without changing the scanner's raw evidence.
 
-`npm run deadline-dashboard:build` creates the local `index.html` operating dashboard from the register, review, health and QA files. It has the cumulative deadline table, urgency outlook, review queue, relaunch gates, source health and a filtered CSV export. It is deliberately generated only inside this private directory and is not copied by the public site build.
+`npm run deadline-dashboard:build` refreshes `discovery.json` then creates the local `index.html` operating dashboard from the register, review, health, quality gate and source estate. It has the cumulative deadline table, urgency outlook, review queue, relaunch gates, source health and a filtered CSV export. It is deliberately generated only inside this private directory and is not copied by the public site build.
 
 `relaunch-approval.json` is deliberately blank by default. A relaunch needs a current scanner edition plus named, dated editor and product-owner approvals with a short rationale. Recording that approval never republishes the page; the public redirect stays in place until a separate product change is approved.
 

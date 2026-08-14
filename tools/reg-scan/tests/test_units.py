@@ -497,6 +497,20 @@ class TestSourcePerimeter(unittest.TestCase):
         self.assertIn("italy-consob", REGULATORY_SOURCE_IDS)
         self.assertIn("saudi-cma", REGULATORY_SOURCE_IDS)
 
+    def test_deadline_intake_policy_matches_the_scanner_and_every_active_source_has_transport(self):
+        import json
+        from pathlib import Path
+        from scan import feeds
+
+        policy_path = Path(__file__).resolve().parents[3] / "dashboard" / "data" / "regulatory-deadline-intake-policy.json"
+        policy = json.loads(policy_path.read_text(encoding="utf-8"))
+        policy_ids = set(policy["activeIntake"]["sourceIds"])
+        transport_ids = set(feeds.FEED_MAP) | set(feeds.PAGE_MAP) | set(feeds.SITEMAP_MAP)
+
+        self.assertEqual(policy_ids, set(feeds.REGULATORY_SOURCE_IDS))
+        self.assertEqual(len(policy_ids), 53)
+        self.assertFalse(policy_ids - transport_ids)
+
 
 class TestDb(unittest.TestCase):
     def test_url_hash_is_deterministic(self):

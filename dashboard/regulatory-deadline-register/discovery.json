@@ -1,0 +1,667 @@
+{
+  "version": "regulatory-deadline-discovery.v1",
+  "visibility": "private",
+  "generatedAt": "2026-08-14T16:37:36.681Z",
+  "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
+  "catalogue": {
+    "authorities": 135,
+    "jurisdictions": 139,
+    "endpoints": 184,
+    "status": "discovery-only",
+    "note": "Catalogue membership is a research perimeter, not automated deadline coverage."
+  },
+  "activeIntake": {
+    "sources": 53,
+    "primarySources": 53,
+    "jurisdictions": 24,
+    "deadlineLookbackDays": 90,
+    "sourceIds": [
+      "uk-fca",
+      "uk-fca-enforcement-notices",
+      "uk-fca-regulatory-initiatives-grid",
+      "uk-boe-pra",
+      "uk-hm-treasury",
+      "ofsi",
+      "uk-nca",
+      "ecb-supervision",
+      "ecb-ssm-newsletter",
+      "ecb-supervisory-priorities",
+      "ecb-supervision-sanctions",
+      "eba",
+      "esma",
+      "eiopa",
+      "bis",
+      "bcbs",
+      "iosco",
+      "fsb",
+      "fatf",
+      "sec",
+      "cftc",
+      "fincen-enforcement",
+      "ofac-recent-actions",
+      "nist-ai-rmf",
+      "finma",
+      "japan-fsa",
+      "hkma",
+      "amf-sanctions",
+      "de-bundesbank",
+      "ico",
+      "apra",
+      "asic",
+      "osfi",
+      "mas",
+      "india-sebi",
+      "korea-fsc",
+      "brazil-cvm",
+      "fr-amf",
+      "spain-cnmv",
+      "ireland-cbi",
+      "adgm-fsra",
+      "de-bafin",
+      "dubai-dfsa",
+      "mexico-cnbv",
+      "italy-consob",
+      "saudi-cma",
+      "hong-kong-sfc",
+      "south-africa-sarb",
+      "india-rbi",
+      "singapore-sgx",
+      "brazil-bcb",
+      "south-korea-fss",
+      "switzerland-snb"
+    ],
+    "sourceCategories": {
+      "regulation": 15,
+      "regulatory-horizon": 1,
+      "prudential": 15,
+      "financial-crime": 5,
+      "markets": 13,
+      "financial-stability": 3,
+      "ai-regulation": 1
+    },
+    "missingRegistrySources": [],
+    "status": "configured",
+    "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
+  },
+  "latestScan": {
+    "edition": "2026-08-02",
+    "configuredSources": 34,
+    "activeSourcesChecked": 34,
+    "health": {
+      "ok": 32,
+      "blocked": 1,
+      "failed": 1
+    },
+    "unscannedActiveSources": [
+      "uk-fca-regulatory-initiatives-grid",
+      "uk-hm-treasury",
+      "uk-nca",
+      "ecb-ssm-newsletter",
+      "ecb-supervisory-priorities",
+      "ecb-supervision-sanctions",
+      "bcbs",
+      "iosco",
+      "ofac-recent-actions",
+      "amf-sanctions",
+      "de-bundesbank",
+      "ico",
+      "hong-kong-sfc",
+      "south-africa-sarb",
+      "india-rbi",
+      "singapore-sgx",
+      "brazil-bcb",
+      "south-korea-fss",
+      "switzerland-snb"
+    ],
+    "coverageState": "limited",
+    "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
+  },
+  "nextActions": [
+    "Run the full active intake before judging source-health coverage; the recorded scan predates part of the configured estate.",
+    "Review 1 blocked source from the latest scan.",
+    "Review 1 failed source from the latest scan.",
+    "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
+  ],
+  "sourceStatus": [
+    {
+      "id": "adgm-fsra",
+      "name": "Abu Dhabi Global Market Financial Services Regulatory Authority",
+      "jurisdictions": [
+        "Abu Dhabi",
+        "United Arab Emirates"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "amf-sanctions",
+      "name": "AMF Enforcement Committee News Releases",
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "apra",
+      "name": "Australian Prudential Regulation Authority",
+      "jurisdictions": [
+        "Australia"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "asic",
+      "name": "Australian Securities and Investments Commission",
+      "jurisdictions": [
+        "Australia"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "fr-amf",
+      "name": "Autorité des marchés financiers",
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "brazil-bcb",
+      "name": "Banco Central do Brasil",
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "bis",
+      "name": "Bank for International Settlements",
+      "jurisdictions": [
+        "Global"
+      ],
+      "category": "financial-stability",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "uk-boe-pra",
+      "name": "Bank of England and Prudential Regulation Authority",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "bcbs",
+      "name": "Basel Committee on Banking Supervision",
+      "jurisdictions": [
+        "Global"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "de-bafin",
+      "name": "Bundesanstalt für Finanzdienstleistungsaufsicht",
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "saudi-cma",
+      "name": "Capital Market Authority of Saudi Arabia",
+      "jurisdictions": [
+        "Saudi Arabia"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "ireland-cbi",
+      "name": "Central Bank of Ireland",
+      "jurisdictions": [
+        "Ireland",
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "mexico-cnbv",
+      "name": "Comisión Nacional Bancaria y de Valores",
+      "jurisdictions": [
+        "Mexico"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "spain-cnmv",
+      "name": "Comisión Nacional del Mercado de Valores",
+      "jurisdictions": [
+        "Spain",
+        "EU"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "brazil-cvm",
+      "name": "Comissão de Valores Mobiliários",
+      "jurisdictions": [
+        "Brazil"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "italy-consob",
+      "name": "Commissione Nazionale per le Società e la Borsa",
+      "jurisdictions": [
+        "Italy",
+        "EU"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "blocked"
+    },
+    {
+      "id": "de-bundesbank",
+      "name": "Deutsche Bundesbank",
+      "jurisdictions": [
+        "Germany",
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "dubai-dfsa",
+      "name": "Dubai Financial Services Authority",
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "ecb-ssm-newsletter",
+      "name": "ECB Banking Supervision Newsletter",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "ecb-supervisory-priorities",
+      "name": "ECB Banking Supervision Priorities and Risks",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "ecb-supervision-sanctions",
+      "name": "ECB Banking Supervision Sanctions",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "eba",
+      "name": "European Banking Authority",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "ecb-supervision",
+      "name": "European Central Bank Banking Supervision",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "eiopa",
+      "name": "European Insurance and Occupational Pensions Authority",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "esma",
+      "name": "European Securities and Markets Authority",
+      "jurisdictions": [
+        "EU"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "fatf",
+      "name": "Financial Action Task Force",
+      "jurisdictions": [
+        "Global"
+      ],
+      "category": "financial-crime",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "uk-fca",
+      "name": "Financial Conduct Authority",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "uk-fca-enforcement-notices",
+      "name": "Financial Conduct Authority Enforcement Notices",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "japan-fsa",
+      "name": "Financial Services Agency of Japan",
+      "jurisdictions": [
+        "Japan"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "korea-fsc",
+      "name": "Financial Services Commission of Korea",
+      "jurisdictions": [
+        "South Korea"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "uk-fca-regulatory-initiatives-grid",
+      "name": "Financial Services Regulatory Initiatives Grid",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "regulatory-horizon",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "fsb",
+      "name": "Financial Stability Board",
+      "jurisdictions": [
+        "Global"
+      ],
+      "category": "financial-stability",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "south-korea-fss",
+      "name": "Financial Supervisory Service of Korea",
+      "jurisdictions": [
+        "South Korea"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "fincen-enforcement",
+      "name": "FinCEN Enforcement Actions",
+      "jurisdictions": [
+        "US"
+      ],
+      "category": "financial-crime",
+      "tier": "primary",
+      "latestStatus": "failed"
+    },
+    {
+      "id": "uk-hm-treasury",
+      "name": "HM Treasury",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "hkma",
+      "name": "Hong Kong Monetary Authority",
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "iosco",
+      "name": "IOSCO",
+      "jurisdictions": [
+        "Global"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "mas",
+      "name": "Monetary Authority of Singapore",
+      "jurisdictions": [
+        "Singapore"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "uk-nca",
+      "name": "National Crime Agency",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "financial-crime",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "nist-ai-rmf",
+      "name": "NIST AI Risk Management Framework",
+      "jurisdictions": [
+        "US",
+        "Global"
+      ],
+      "category": "ai-regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "ofac-recent-actions",
+      "name": "OFAC Recent Actions",
+      "jurisdictions": [
+        "US"
+      ],
+      "category": "financial-crime",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "osfi",
+      "name": "Office of the Superintendent of Financial Institutions",
+      "jurisdictions": [
+        "Canada"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "india-rbi",
+      "name": "Reserve Bank of India",
+      "jurisdictions": [
+        "India"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "india-sebi",
+      "name": "Securities and Exchange Board of India",
+      "jurisdictions": [
+        "India"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "hong-kong-sfc",
+      "name": "Securities and Futures Commission of Hong Kong",
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "singapore-sgx",
+      "name": "Singapore Exchange Regulation",
+      "jurisdictions": [
+        "Singapore"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "south-africa-sarb",
+      "name": "South African Reserve Bank",
+      "jurisdictions": [
+        "South Africa"
+      ],
+      "category": "prudential",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "finma",
+      "name": "Swiss Financial Market Supervisory Authority",
+      "jurisdictions": [
+        "Switzerland"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "switzerland-snb",
+      "name": "Swiss National Bank",
+      "jurisdictions": [
+        "Switzerland"
+      ],
+      "category": "financial-stability",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "ico",
+      "name": "UK Information Commissioner's Office",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "regulation",
+      "tier": "primary",
+      "latestStatus": "not-yet-scanned"
+    },
+    {
+      "id": "ofsi",
+      "name": "UK Office of Financial Sanctions Implementation",
+      "jurisdictions": [
+        "UK"
+      ],
+      "category": "financial-crime",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "cftc",
+      "name": "US Commodity Futures Trading Commission",
+      "jurisdictions": [
+        "US"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    },
+    {
+      "id": "sec",
+      "name": "US Securities and Exchange Commission",
+      "jurisdictions": [
+        "US"
+      ],
+      "category": "markets",
+      "tier": "primary",
+      "latestStatus": "ok"
+    }
+  ]
+}

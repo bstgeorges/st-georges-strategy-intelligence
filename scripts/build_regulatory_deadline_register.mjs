@@ -161,7 +161,10 @@ function run() {
   validateApprovals(approvals);
   const previous = readJson(path.join(outDir, "register.json"), { items: [] });
   const seen = new Set();
-  const candidates = [...(scanner.signals || []), ...(scanner.reviewQueue || [])]
+  // The weekly material shortlist is not the complete deadline universe.
+  // `privateDeadlineCandidates` carries high-confidence official dates that
+  // are too narrow to be promoted as a weekly signal, and must remain private.
+  const candidates = [...(scanner.signals || []), ...(scanner.reviewQueue || []), ...(scanner.privateDeadlineCandidates || [])]
     .map((signal) => asCandidate(signal, sourceById, sourceIdByName, owners, asOf, approvals.decisions || []))
     .filter((item) => item && !seen.has(item.id) && seen.add(item.id));
   const items = merge(previous.items || [], candidates, asOf, scanner.edition);

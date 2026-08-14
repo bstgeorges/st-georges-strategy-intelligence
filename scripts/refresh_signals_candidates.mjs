@@ -246,6 +246,17 @@ function matchesKeywords(entry, source) {
   return hints.some((hint) => haystack.includes(String(hint).toLowerCase()));
 }
 
+function dedupeEntriesByTitle(entries, source) {
+  if (source.dedupeTitles !== true) return entries;
+  const seenTitles = new Set();
+  return entries.filter((entry) => {
+    const key = String(entry.title || "").trim().toLowerCase().replace(/\s+/g, " ");
+    if (!key || seenTitles.has(key)) return false;
+    seenTitles.add(key);
+    return true;
+  });
+}
+
 function matchedTopicKeywords(entry, source, topicId) {
   const configured = source.topicKeywordHints?.[topicId];
   const keywords = Array.isArray(configured) && configured.length ? configured : TOPIC_KEYWORDS[topicId] || [];
@@ -460,6 +471,10 @@ async function main() {
         warnings.push(`Source ${source.id} skipped: ${collection.reason || "not-run"}.`);
         continue;
       }
+      // Provider status feeds can contain several updates for one incident. Keep
+      // the most recent titled update while preventing a review queue from being
+      // crowded with repeated status messages.
+      entries = dedupeEntriesByTitle(entries, source);
     } catch (error) {
       const message = `Source ${source.id} failed during candidate collection: ${error.message}`;
       warnings.push(message);
@@ -567,4 +582,4 @@ if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
   });
 }
 
-export { assessCandidateQuality, canonicaliseUrl, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };
+export { assessCandidateQuality, canonicaliseUrl, dedupeEntriesByTitle, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };

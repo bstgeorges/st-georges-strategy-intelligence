@@ -288,6 +288,42 @@
       "maxItems": 8
     },
     {
+      "id": "aws-service-health-rss",
+      "sourceRegistryId": "aws-service-health",
+      "fetchType": "rss",
+      "fetchUrl": "https://status.aws.amazon.com/rss/all.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["cloud", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["service disruption", "service impact", "connectivity", "increased error", "degraded", "unavailable", "outage"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["service disruption", "service impact", "connectivity", "increased error", "degraded", "unavailable", "outage"],
+        "technology-failure": ["service disruption", "service impact", "connectivity", "increased error", "degraded", "unavailable", "outage"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
+      "id": "cloudflare-status-rss",
+      "sourceRegistryId": "cloudflare-status",
+      "fetchType": "rss",
+      "fetchUrl": "https://www.cloudflarestatus.com/history.rss",
+      "topics": ["third-party", "technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["network", "provider-incident", "dependency", "service-disruption"],
+      "titleKeywordHints": ["incident", "outage", "network", "connectivity", "performance", "unavailable", "degraded", "error", "5xx"],
+      "excludeKeywordHints": ["maintenance", "scheduled"],
+      "topicKeywordHints": {
+        "third-party": ["incident", "outage", "network", "connectivity", "performance", "unavailable", "degraded", "error", "5xx"],
+        "technology-failure": ["incident", "outage", "network", "connectivity", "performance", "unavailable", "degraded", "error", "5xx"]
+      },
+      "dedupeTitles": true,
+      "windowDays": 30,
+      "maxItems": 20
+    },
+    {
       "id": "ofsi-updates-atom",
       "sourceRegistryId": "ofsi",
       "fetchType": "atom",

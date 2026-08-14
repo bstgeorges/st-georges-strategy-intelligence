@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   assessCandidateQuality,
   canonicaliseUrl,
+  dedupeEntriesByTitle,
   inferDateFromUrl,
   isRecent,
   matchesKeywords,
@@ -118,6 +119,32 @@ test("source title and exclusion hints suppress high-volume feed noise", () => {
   assert.equal(matchesKeywords({ title: "Known exploited vulnerabilities", summary: "" }, source), true);
   assert.equal(matchesKeywords({ title: "Industrial controller", summary: "Known exploited issue" }, source), false);
   assert.equal(matchesKeywords({ title: "Known exploited competition", summary: "" }, source), false);
+});
+
+test("provider-status feeds collapse repeated updates with the same incident title", () => {
+  const entries = [
+    { title: "Service disruption: Increased Error Rates", url: "https://status.example/1" },
+    { title: "Service disruption: Increased Error Rates", url: "https://status.example/2" },
+    { title: "Connectivity issue", url: "https://status.example/3" },
+  ];
+  assert.deepEqual(
+    dedupeEntriesByTitle(entries, { dedupeTitles: true }).map((entry) => entry.url),
+    ["https://status.example/1", "https://status.example/3"],
+  );
+  assert.equal(dedupeEntriesByTitle(entries, {}).length, 3);
+});
+
+test("provider disruption wording routes to the thin dependency and failure topics", () => {
+  const source = {
+    topics: ["third-party", "technology-failure"],
+    topicKeywordHints: {
+      "third-party": ["service disruption", "connectivity"],
+      "technology-failure": ["service disruption", "connectivity"],
+    },
+  };
+  const entry = { title: "Service disruption: Increased Connectivity Issues", summary: "" };
+  assert.equal(topicRelevance(entry, source, "third-party").accepted, true);
+  assert.equal(topicRelevance(entry, source, "technology-failure").accepted, true);
 });
 
 test("ranking rewards primary sources, freshness and stronger topic evidence", () => {

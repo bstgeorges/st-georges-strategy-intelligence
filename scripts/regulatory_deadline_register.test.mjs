@@ -36,6 +36,30 @@ test("builds a cumulative private register and keeps every scanner candidate in 
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.length, 2);
 });
 
+test("keeps high-confidence official deadlines below the weekly material threshold in private review", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
+  const input = path.join(tmp, "scan.json");
+  const out = path.join(tmp, "out");
+  fs.mkdirSync(out);
+  fs.copyFileSync(path.join(ROOT, "dashboard/regulatory-deadline-register/owners.json"), path.join(out, "owners.json"));
+  const candidate = { ...signal("esma", "2026-10-01"), score: 0.8 };
+  fs.writeFileSync(input, JSON.stringify({
+    edition: "2026-08-09",
+    signals: [],
+    reviewQueue: [],
+    privateDeadlineCandidates: [candidate],
+    sourceHealth: [],
+    coverage: {},
+  }));
+
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-09"]).status, 0);
+  const register = JSON.parse(fs.readFileSync(path.join(out, "register.json")));
+  assert.equal(register.items.length, 1);
+  assert.equal(register.items[0].authority.id, "esma");
+  assert.equal(register.items[0].status, "ready-for-review");
+  assert.equal(register.items[0].decision, null);
+});
+
 test("does not claim a relaunch without recorded human sign-off, even when numerical gates pass", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
   const authorities = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba"];

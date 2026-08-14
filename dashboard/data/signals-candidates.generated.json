@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-08-14T15:09:11.622Z",
+  "generatedAt": "2026-08-14T15:23:35.548Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -233,6 +233,47 @@
       "id": "third-party",
       "candidates": [
         {
+          "id": "83fd5066adee1934",
+          "topicId": "third-party",
+          "title": "Increased HTTP 5xx Errors in Kuwait, Bangkok, Jakarta and Dammam",
+          "url": "https://www.cloudflarestatus.com/incidents/jb87g814jw6z",
+          "publishedAt": "2026-08-14T05:37:17.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "error",
+            "5xx"
+          ],
+          "titleMatchedKeywords": [
+            "error",
+            "5xx"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "error",
+            "5xx"
+          ],
+          "relevanceScore": 100,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "78dfbcc6e97f5014",
           "topicId": "third-party",
           "title": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
@@ -455,7 +496,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
@@ -790,6 +831,47 @@
     {
       "id": "technology-failure",
       "candidates": [
+        {
+          "id": "83fd5066adee1934",
+          "topicId": "technology-failure",
+          "title": "Increased HTTP 5xx Errors in Kuwait, Bangkok, Jakarta and Dammam",
+          "url": "https://www.cloudflarestatus.com/incidents/jb87g814jw6z",
+          "publishedAt": "2026-08-14T05:37:17.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "error",
+            "5xx"
+          ],
+          "titleMatchedKeywords": [
+            "error",
+            "5xx"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "error",
+            "5xx"
+          ],
+          "relevanceScore": 100,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
         {
           "id": "536d296669046411",
           "topicId": "technology-failure",
@@ -1422,6 +1504,26 @@
       "error": ""
     },
     {
+      "sourceId": "aws-service-health-rss",
+      "sourceRegistryId": "aws-service-health",
+      "fetchType": "rss",
+      "status": "ok",
+      "fetchedEntries": 3,
+      "acceptedCandidates": 0,
+      "reason": "",
+      "error": ""
+    },
+    {
+      "sourceId": "cloudflare-status-rss",
+      "sourceRegistryId": "cloudflare-status",
+      "fetchType": "rss",
+      "status": "ok",
+      "fetchedEntries": 20,
+      "acceptedCandidates": 2,
+      "reason": "",
+      "error": ""
+    },
+    {
       "sourceId": "ofsi-updates-atom",
       "sourceRegistryId": "ofsi",
       "fetchType": "atom",
@@ -1491,7 +1593,7 @@
     "Source reg-horizon-technology-failure-bridge skipped: horizon-withheld.",
     "Source reg-horizon-data-bridge skipped: horizon-withheld.",
     "Coverage gap: market-structure has no candidates in the current window.",
-    "Thin coverage: third-party has only 1 candidate(s) in the current window.",
+    "Thin coverage: third-party has only 2 candidate(s) in the current window.",
     "Source concentration: financial-crime relies on ofsi-updates-atom for 3/3 candidates.",
     "Source concentration: data relies on ico-news-sitemap for 6/8 candidates."
   ]

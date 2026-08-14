@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-01",
+  "version": "2026-08-14",
   "purpose": "Source universe for the weekly St Georges Strategy Intelligence and AI Signals refresh.",
   "sourceTiers": {
     "primary": "Official regulator, central bank, standard-setter, company, academic, or government source.",
@@ -47,6 +47,34 @@
       "signalQuestions": [
         "Does an FCA notice reveal a repeatable conduct, governance, financial-crime, or control failure pattern?",
         "Does the notice create a control-owner question or deadline for remediation evidence?"
+      ]
+    },
+    {
+      "id": "uk-fca-consultation-papers",
+      "name": "Financial Conduct Authority Consultation Papers",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://www.fca.org.uk/publications",
+      "cadence": "weekly",
+      "useFor": ["consultations", "conduct", "consumer-duty", "market-integrity", "implementation-deadlines"],
+      "signalQuestions": [
+        "Does a consultation alter the policy direction, implementation timetable, or control design for firms?",
+        "Does the consultation need a named policy owner, response decision, or board planning assumption?"
+      ]
+    },
+    {
+      "id": "uk-fca-policy-statements",
+      "name": "Financial Conduct Authority Policy Statements",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["UK"],
+      "url": "https://www.fca.org.uk/what-we-publish",
+      "cadence": "weekly",
+      "useFor": ["final-rules", "conduct", "consumer-duty", "market-integrity", "implementation-deadlines"],
+      "signalQuestions": [
+        "Has the FCA finalised a rule, transitional provision, or implementation expectation?",
+        "Does the policy statement create a delivery date, evidence requirement, or senior-manager accountability question?"
       ]
     },
     {
@@ -162,6 +190,20 @@
       ]
     },
     {
+      "id": "eiopa-consultations",
+      "name": "European Insurance and Occupational Pensions Authority Consultations",
+      "tier": "primary",
+      "category": "regulation",
+      "jurisdictions": ["EU"],
+      "url": "https://www.eiopa.europa.eu/consultations_en",
+      "cadence": "weekly",
+      "useFor": ["consultations", "insurance", "pensions", "dora", "supervisory-reporting", "implementation-deadlines"],
+      "signalQuestions": [
+        "Does an EIOPA consultation change the direction of insurance, pension, resilience, or reporting expectations?",
+        "Does it require a response decision, an impact assessment, or a named implementation owner?"
+      ]
+    },
+    {
       "id": "bis",
       "name": "Bank for International Settlements",
       "tier": "primary",
@@ -232,6 +274,34 @@
       ]
     },
     {
+      "id": "sec-proposed-rules",
+      "name": "US Securities and Exchange Commission Proposed Rules",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["US"],
+      "url": "https://www.sec.gov/rules/proposed.shtml",
+      "cadence": "weekly",
+      "useFor": ["consultations", "market-structure", "disclosures", "asset-management", "crypto", "implementation-deadlines"],
+      "signalQuestions": [
+        "Does an SEC proposal indicate a material change in US market structure, disclosure, asset-management, or crypto expectations?",
+        "Does it create a policy-response, operating-model, or cross-border planning decision?"
+      ]
+    },
+    {
+      "id": "sec-final-rules",
+      "name": "US Securities and Exchange Commission Final Rules",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["US"],
+      "url": "https://www.sec.gov/rules/final.shtml",
+      "cadence": "weekly",
+      "useFor": ["final-rules", "market-structure", "disclosures", "asset-management", "crypto", "implementation-deadlines"],
+      "signalQuestions": [
+        "Has the SEC finalised a rule that changes control, disclosure, market, or operational expectations?",
+        "Does the final rule create a date, accountability assignment, or evidence requirement for affected firms?"
+      ]
+    },
+    {
       "id": "cftc",
       "name": "US Commodity Futures Trading Commission",
       "tier": "primary",
@@ -243,6 +313,20 @@
       "signalQuestions": [
         "Is there a derivatives, clearing, crypto, or commodity-market signal?",
         "Does it affect market conduct, surveillance, client risk, or margin assumptions?"
+      ]
+    },
+    {
+      "id": "cftc-rulemakings",
+      "name": "US Commodity Futures Trading Commission Rulemakings",
+      "tier": "primary",
+      "category": "markets",
+      "jurisdictions": ["US"],
+      "url": "https://www.cftc.gov/LawRegulation/RulemakingRecords/index.htm",
+      "cadence": "weekly",
+      "useFor": ["consultations", "final-rules", "derivatives", "clearing", "market-conduct", "implementation-deadlines"],
+      "signalQuestions": [
+        "Does a CFTC rulemaking alter derivatives, clearing, market-conduct, or crypto expectations?",
+        "Does it create a policy-response, implementation timetable, or control-owner decision?"
       ]
     },
     {

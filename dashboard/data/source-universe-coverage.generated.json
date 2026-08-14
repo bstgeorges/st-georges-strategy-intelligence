@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-01T16:13:17.743Z",
-  "registryVersion": "2026-07-01",
+  "generatedAt": "2026-08-14T17:14:18.582Z",
+  "registryVersion": "2026-08-14",
   "totals": {
-    "sources": 89,
-    "primary": 70,
+    "sources": 98,
+    "primary": 79,
     "jurisdictions": 24,
     "categories": 14
   },
@@ -11,15 +11,18 @@
     {
       "jurisdiction": "UK",
       "target": 3,
-      "sources": 8,
-      "primary": 8,
+      "sources": 11,
+      "primary": 11,
       "languages": [],
       "status": "covered",
       "sourceIds": [
         "uk-fca",
         "uk-fca-regulatory-initiatives-grid",
         "uk-fca-enforcement-notices",
+        "uk-fca-consultation-papers",
+        "uk-fca-policy-statements",
         "uk-boe-pra",
+        "uk-hm-treasury",
         "uk-nca",
         "ofsi",
         "uk-ncsc",
@@ -29,8 +32,8 @@
     {
       "jurisdiction": "EU",
       "target": 5,
-      "sources": 19,
-      "primary": 18,
+      "sources": 20,
+      "primary": 19,
       "languages": [
         "french-language",
         "german-language",
@@ -45,6 +48,7 @@
         "eba",
         "esma",
         "eiopa",
+        "eiopa-consultations",
         "amf-sanctions",
         "ecb-supervision-sanctions",
         "mistral-ai",
@@ -63,13 +67,16 @@
     {
       "jurisdiction": "US",
       "target": 4,
-      "sources": 6,
-      "primary": 6,
+      "sources": 9,
+      "primary": 9,
       "languages": [],
       "status": "covered",
       "sourceIds": [
         "sec",
+        "sec-proposed-rules",
+        "sec-final-rules",
         "cftc",
+        "cftc-rulemakings",
         "fincen-enforcement",
         "ofac-recent-actions",
         "cisa",

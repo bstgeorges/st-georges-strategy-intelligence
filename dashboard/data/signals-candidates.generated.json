@@ -1,6 +1,6 @@
 {
-  "version": "2026-07-18",
-  "generatedAt": "2026-08-09T10:24:22.140Z",
+  "version": "2026-08-14",
+  "generatedAt": "2026-08-14T15:09:11.622Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -8,11 +8,76 @@
       "id": "ai",
       "candidates": [
         {
+          "id": "6f8368ac763b7373",
+          "topicId": "ai",
+          "title": "The builder’s guide to GPT‑5.6",
+          "url": "https://openai.com/index/builders-guide-to-gpt-5-6",
+          "publishedAt": "2026-08-13T11:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [
+            "ai agent"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "e063daae6225e156",
+          "topicId": "ai",
+          "title": "From assistance to execution: How enterprises put AI to work",
+          "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
+          "publishedAt": "2026-08-12T06:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [
+            "agentic"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "ebc5821a44c45c7a",
           "topicId": "ai",
           "title": "AI model achieves breakthrough in forecasting cyclones — Google DeepMind",
           "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
-          "publishedAt": "2026-08-06T00:00:00.000Z",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "google-deepmind",
           "sourceName": "Google DeepMind",
           "sourceTier": "primary",
@@ -33,135 +98,18 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "c99ec862b4e71599",
+          "id": "f87e14ef06b6e708",
           "topicId": "ai",
-          "title": "Third-party cyber evaluations involving OpenAI models",
-          "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models",
-          "publishedAt": "2026-08-04T19:00:00.000Z",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [
-            "ai model"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 76,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "7347f06e7c916544",
-          "topicId": "ai",
-          "title": "How HSP GRUPPE builds AI capabilities for tax advisory",
-          "url": "https://openai.com/index/hsp-gruppe",
-          "publishedAt": "2026-08-07T09:00:00.000Z",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "5d2e55417d4c463f",
-          "topicId": "ai",
-          "title": "A moral Turing test: How belief and source shape detection of and agreement with LLM judgments — Google DeepMind",
-          "url": "https://deepmind.google/research/publications/118955",
-          "publishedAt": "2026-08-07T00:00:00.000Z",
-          "sourceRegistryId": "google-deepmind",
-          "sourceName": "Google DeepMind",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "deepmind-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "research",
-            "multimodal-ai",
-            "robotics",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "0bae4c01df723312",
-          "topicId": "ai",
-          "title": "Visual prompt engineering for video models — Google DeepMind",
-          "url": "https://deepmind.google/research/publications/264392",
-          "publishedAt": "2026-07-29T00:00:00.000Z",
-          "sourceRegistryId": "google-deepmind",
-          "sourceName": "Google DeepMind",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "deepmind-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "research",
-            "multimodal-ai",
-            "robotics",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 48,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "688b06fb84f51f17",
-          "topicId": "ai",
-          "title": "Our position on open-weights models",
-          "url": "https://www.anthropic.com/news/position-open-weights-models",
-          "publishedAt": "2026-07-28T15:25:50.000Z",
+          "title": "Patterns and problems in multiagent systems",
+          "url": "https://www.anthropic.com/research/multiagent-systems",
+          "publishedAt": "2026-08-13T01:33:05.000Z",
+          "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "anthropic",
           "sourceName": "Anthropic",
           "sourceTier": "primary",
@@ -180,313 +128,106 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 47,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "b19ec562c455e753",
+          "topicId": "ai",
+          "title": "Testing ads in ChatGPT",
+          "url": "https://openai.com/index/testing-ads-in-chatgpt",
+          "publishedAt": "2026-08-11T10:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 64,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "5d3aff0aba5d0b8a",
+          "topicId": "ai",
+          "title": "Daybreak models are now available on AWS",
+          "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws",
+          "publishedAt": "2026-08-11T10:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "openai-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 64,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "5d2e55417d4c463f",
+          "topicId": "ai",
+          "title": "A moral Turing test: How belief and source shape detection of and agreement with LLM judgments — Google DeepMind",
+          "url": "https://deepmind.google/research/publications/118955",
+          "publishedAt": "2026-08-07T00:00:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "google-deepmind",
+          "sourceName": "Google DeepMind",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "deepmind-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "research",
+            "multimodal-ai",
+            "robotics",
+            "safety"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
         }
       ]
     },
     {
       "id": "market-structure",
-      "candidates": [
-        {
-          "id": "54f51f5ca3f89f39",
-          "topicId": "market-structure",
-          "title": "26-183MR ASIC suspends AFS licence of CFD issuer GFA Capital Markets | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-183mr-asic-suspends-afs-licence-of-cfd-issuer-gfa-capital-markets",
-          "publishedAt": "2026-08-05T23:59:22.000Z",
-          "sourceRegistryId": "asic",
-          "sourceName": "Australian Securities and Investments Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "asic-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "markets",
-            "scams",
-            "reporting",
-            "australia"
-          ],
-          "matchedKeywords": [
-            "market"
-          ],
-          "titleMatchedKeywords": [
-            "market"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "af528ea65cc6f195",
-          "topicId": "market-structure",
-          "title": "FINMA publishes a new ordinance on the liquidity of banks and securities firms",
-          "url": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
-          "publishedAt": "2026-07-07T08:00:00.000Z",
-          "sourceRegistryId": "finma",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "finma-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "supervision",
-            "operational-risk",
-            "sanctions",
-            "technology",
-            "switzerland"
-          ],
-          "matchedKeywords": [
-            "market",
-            "liquidity",
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "liquidity",
-            "securities"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "liquidity",
-            "securities"
-          ],
-          "relevanceScore": 72,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "708c6cc84dc76280",
-          "topicId": "market-structure",
-          "title": "ESMA authorises EuroCTP as the Consolidated Tape Provider for shares and exchange-traded funds",
-          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-authorises-euroctp-consolidated-tape-provider-shares-and-exchange-traded",
-          "publishedAt": "",
-          "sourceRegistryId": "esma",
-          "sourceName": "European Securities and Markets Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "esma-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience"
-          ],
-          "tags": [
-            "markets",
-            "mica",
-            "trading",
-            "settlement"
-          ],
-          "matchedKeywords": [
-            "market",
-            "trading",
-            "securities",
-            "capital",
-            "fund"
-          ],
-          "titleMatchedKeywords": [
-            "fund"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "trading",
-            "securities",
-            "capital",
-            "fund"
-          ],
-          "relevanceScore": 63,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Securities and Markets Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ca152425a012e1e3",
-          "topicId": "market-structure",
-          "title": "FCA advances package of equity market transparency reforms",
-          "url": "https://www.fca.org.uk/news/press-releases/fca-advances-package-equity-market-transparency-reforms",
-          "publishedAt": "",
-          "sourceRegistryId": "uk-fca",
-          "sourceName": "Financial Conduct Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "fca-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "markets",
-            "crypto",
-            "outsourcing",
-            "resilience",
-            "ai",
-            "cyber"
-          ],
-          "matchedKeywords": [
-            "market",
-            "trading",
-            "liquidity",
-            "capital"
-          ],
-          "titleMatchedKeywords": [
-            "market"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "trading",
-            "liquidity",
-            "capital"
-          ],
-          "relevanceScore": 61,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Financial Conduct Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "df48a4c1d05c75f2",
-          "topicId": "market-structure",
-          "title": "ESMA calls on firms to finalise preparations ahead of T+1 settlement deadlines",
-          "url": "https://www.esma.europa.eu/press-news/esma-news/esma-calls-firms-finalise-preparations-ahead-t1-settlement-deadlines",
-          "publishedAt": "",
-          "sourceRegistryId": "esma",
-          "sourceName": "European Securities and Markets Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "esma-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience"
-          ],
-          "tags": [
-            "markets",
-            "mica",
-            "trading",
-            "settlement"
-          ],
-          "matchedKeywords": [
-            "market",
-            "trading",
-            "settlement",
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "settlement"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "trading",
-            "settlement",
-            "securities"
-          ],
-          "relevanceScore": 61,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Securities and Markets Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "1bde3cbe60f95e34",
-          "topicId": "market-structure",
-          "title": "FINMA concludes proceedings against Swiss Fund Management AG in liquidation and BZ Berater Zentrum AG and enforces rules of conduct in the financial services sector",
-          "url": "https://www.finma.ch/en/news/2026/06/20260629-mm-durchsetzung-verhaltensregeln",
-          "publishedAt": "2026-06-29T08:00:00.000Z",
-          "sourceRegistryId": "finma",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "finma-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "supervision",
-            "operational-risk",
-            "sanctions",
-            "technology",
-            "switzerland"
-          ],
-          "matchedKeywords": [
-            "market",
-            "fund"
-          ],
-          "titleMatchedKeywords": [
-            "fund"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "fund"
-          ],
-          "relevanceScore": 57,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "657c5239aef56cf0",
-          "topicId": "market-structure",
-          "title": "FINMA welcomes the establishment of a working group on the “optimisation of financial market regulation”",
-          "url": "https://www.finma.ch/en/news/2026/07/20260701-mm-regopt",
-          "publishedAt": "2026-07-01T04:46:41.000Z",
-          "sourceRegistryId": "finma",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "finma-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "supervision",
-            "operational-risk",
-            "sanctions",
-            "technology",
-            "switzerland"
-          ],
-          "matchedKeywords": [
-            "market"
-          ],
-          "titleMatchedKeywords": [
-            "market"
-          ],
-          "summaryMatchedKeywords": [
-            "market"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
-        }
-      ]
+      "candidates": []
     },
     {
       "id": "third-party",
@@ -497,6 +238,7 @@
           "title": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
           "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
           "publishedAt": "2026-07-25T13:16:55.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "google-cloud-status",
           "sourceName": "Google Cloud Service Health",
           "sourceTier": "primary",
@@ -527,7 +269,7 @@
             "cloud",
             "service"
           ],
-          "relevanceScore": 71,
+          "relevanceScore": 70,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
@@ -538,111 +280,12 @@
       "id": "resilience",
       "candidates": [
         {
-          "id": "b86b75b9a9feeae0",
-          "topicId": "resilience",
-          "title": "ENISA Cybersecurity Resilience and Market Conference: Joining forces for a cyber-secure and resilient digital single market | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-cybersecurity-resilience-and-market-conference-joining-forces-for-a-cyber-secure-and-resilient-digital-single-market",
-          "publishedAt": "2026-08-05T14:17:00.000Z",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "resilience"
-          ],
-          "titleMatchedKeywords": [
-            "resilience"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "5352af62c92af172",
-          "topicId": "resilience",
-          "title": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
-          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
-          "publishedAt": "2026-08-05T14:17:00.000Z",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "resilience"
-          ],
-          "titleMatchedKeywords": [
-            "resilience"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "3d1d6ecffa743c40",
-          "topicId": "resilience",
-          "title": "NCSC statement in response to recent incidents resulting from frontier AI evaluations",
-          "url": "https://www.ncsc.gov.uk/news/ncsc-statement-in-response-to-recent-incidents-resulting-from-frontier-ai-evaluations",
-          "publishedAt": "2026-08-04T12:00:00.000Z",
-          "sourceRegistryId": "uk-ncsc",
-          "sourceName": "UK National Cyber Security Centre",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "ncsc-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "advisory",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "incident"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [
-            "incident"
-          ],
-          "relevanceScore": 76,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "78dfbcc6e97f5014",
           "topicId": "resilience",
           "title": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
           "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
           "publishedAt": "2026-07-25T13:16:55.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "google-cloud-status",
           "sourceName": "Google Cloud Service Health",
           "sourceTier": "primary",
@@ -674,10 +317,113 @@
             "disruption",
             "incident"
           ],
-          "relevanceScore": 75,
+          "relevanceScore": 74,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "b86b75b9a9feeae0",
+          "topicId": "resilience",
+          "title": "ENISA Cybersecurity Resilience and Market Conference: Joining forces for a cyber-secure and resilient digital single market | ENISA",
+          "url": "https://www.enisa.europa.eu/news/enisa-cybersecurity-resilience-and-market-conference-joining-forces-for-a-cyber-secure-and-resilient-digital-single-market",
+          "publishedAt": "2026-08-05T14:17:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "enisa",
+          "sourceName": "European Union Agency for Cybersecurity",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "enisa-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "nis2",
+            "critical-sectors",
+            "supply-chain"
+          ],
+          "matchedKeywords": [
+            "resilience"
+          ],
+          "titleMatchedKeywords": [
+            "resilience"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 67,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "5352af62c92af172",
+          "topicId": "resilience",
+          "title": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
+          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
+          "publishedAt": "2026-08-05T14:17:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "enisa",
+          "sourceName": "European Union Agency for Cybersecurity",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "enisa-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "nis2",
+            "critical-sectors",
+            "supply-chain"
+          ],
+          "matchedKeywords": [
+            "resilience"
+          ],
+          "titleMatchedKeywords": [
+            "resilience"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 67,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "3d1d6ecffa743c40",
+          "topicId": "resilience",
+          "title": "NCSC statement in response to recent incidents resulting from frontier AI evaluations",
+          "url": "https://www.ncsc.gov.uk/news/ncsc-statement-in-response-to-recent-incidents-resulting-from-frontier-ai-evaluations",
+          "publishedAt": "2026-08-04T12:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "uk-ncsc",
+          "sourceName": "UK National Cyber Security Centre",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "ncsc-advisories-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "advisory",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "incident"
+          ],
+          "titleMatchedKeywords": [
+            "incident"
+          ],
+          "summaryMatchedKeywords": [
+            "incident"
+          ],
+          "relevanceScore": 65,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -685,42 +431,12 @@
       "id": "financial-crime",
       "candidates": [
         {
-          "id": "35064906f90e1e94",
+          "id": "f93e59d39d5e3eae",
           "topicId": "financial-crime",
-          "title": "Campaign to protect viewers from romance fraud launched by National Crime Agency and Freeview channel Great Romance",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/campaign-to-protect-viewers-from-romance-fraud-launched-by-national-crime-agency-and-freeview-channel-great-romance",
-          "publishedAt": "2026-07-29T08:38:30.000Z",
-          "sourceRegistryId": "uk-nca",
-          "sourceName": "National Crime Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "ingestSourceId": "nca-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "fraud",
-            "money-laundering",
-            "sanctions",
-            "organised-crime"
-          ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "aeb53a8adffe2906",
-          "topicId": "financial-crime",
-          "title": "Guidance: OFSI General licence INT/2025/5787748",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20255787748",
-          "publishedAt": "2026-07-16T15:03:10.000Z",
+          "title": "Guidance: OFSI General Licence INT/2025/7895596",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20257895596",
+          "publishedAt": "2026-08-12T15:09:20.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "ofsi",
           "sourceName": "UK Office of Financial Sanctions Implementation",
           "sourceTier": "primary",
@@ -739,17 +455,48 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 40,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         },
         {
-          "id": "66ae0259bce9ab59",
+          "id": "1a1457ecb28e9fb0",
           "topicId": "financial-crime",
-          "title": "Guidance: OFSI General Licence - INT/2025/6641960",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20256641960",
-          "publishedAt": "2026-07-13T15:06:07.000Z",
+          "title": "Guidance: OFSI General Licence INT/2025/8031092",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20258031092",
+          "publishedAt": "2026-08-12T15:09:02.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "ofsi",
+          "sourceName": "UK Office of Financial Sanctions Implementation",
+          "sourceTier": "primary",
+          "sourceCategory": "financial-crime",
+          "ingestSourceId": "ofsi-updates-atom",
+          "fetchType": "atom",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "sanctions",
+            "enforcement",
+            "licences",
+            "uk"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 66,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
+        },
+        {
+          "id": "aeb53a8adffe2906",
+          "topicId": "financial-crime",
+          "title": "Guidance: OFSI General licence INT/2025/5787748",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20255787748",
+          "publishedAt": "2026-07-16T15:03:10.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "ofsi",
           "sourceName": "UK Office of Financial Sanctions Implementation",
           "sourceTier": "primary",
@@ -779,25 +526,26 @@
       "id": "cyber",
       "candidates": [
         {
-          "id": "0a643ade91da917d",
+          "id": "34e3504b36bc6ad0",
           "topicId": "cyber",
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/05/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "publishedAt": "2026-08-05T12:00:00.000Z",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "title": "AL26-018 - Vulnerability affecting Cisco ASA and Secure Firewall Threat Defense Software Remote Access SSL VPN - CVE-2026-20349",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-018-vulnerability-affecting-cisco-asa-secure-firewall-threat-defense-software-remote-access-ssl-vpn-cve-2026-20349",
+          "publishedAt": "2026-08-13T13:14:19.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "canada-cyber-centre",
+          "sourceName": "Canadian Centre for Cyber Security",
           "sourceTier": "primary",
           "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
+          "ingestSourceId": "canada-cyber-centre-alerts",
           "fetchType": "rss",
           "riskAreas": [
             "digital-resilience"
           ],
           "tags": [
             "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
+            "alerts",
+            "actively-exploited",
+            "canada"
           ],
           "matchedKeywords": [
             "cyber",
@@ -807,51 +555,18 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 98,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Canadian Centre for Cyber Security via rss ingestion and matched the topic rules."
         },
         {
-          "id": "8bc48189119045da",
+          "id": "fa70f321c3e04d64",
           "topicId": "cyber",
-          "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/04/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "publishedAt": "2026-08-04T12:00:00.000Z",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "b560730e8cc9f8a3",
-          "topicId": "cyber",
-          "title": "Vulnérabilité dans Cisco Firewall Management Center (30 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0950",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
+          "title": "Multiples vulnérabilités dans OpenSSH (11 août 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0997",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "cert-fr",
           "sourceName": "CERT-FR / ANSSI",
           "sourceTier": "primary",
@@ -868,243 +583,54 @@
             "france"
           ],
           "matchedKeywords": [
-            "exploit",
             "vulnérabilité"
           ],
           "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "b86b75b9a9feeae0",
-          "topicId": "cyber",
-          "title": "ENISA Cybersecurity Resilience and Market Conference: Joining forces for a cyber-secure and resilient digital single market | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-cybersecurity-resilience-and-market-conference-joining-forces-for-a-cyber-secure-and-resilient-digital-single-market",
-          "publishedAt": "2026-08-05T14:17:00.000Z",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
           "summaryMatchedKeywords": [],
           "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "5352af62c92af172",
+          "id": "677fc8af127f5724",
           "topicId": "cyber",
-          "title": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
-          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
-          "publishedAt": "2026-08-05T14:17:00.000Z",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
+          "title": "Multiples vulnérabilités dans les produits SAP (11 août 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0998",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cert-fr",
+          "sourceName": "CERT-FR / ANSSI",
           "sourceTier": "primary",
           "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
+          "ingestSourceId": "cert-fr-rss",
+          "fetchType": "rss",
           "riskAreas": [
             "digital-resilience"
           ],
           "tags": [
             "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
+            "vulnerabilities",
+            "threat-intelligence",
+            "france"
           ],
           "matchedKeywords": [
-            "cyber"
+            "vulnérabilité"
           ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
+          "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
           "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "f5b567038e40be18",
-          "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans les produits IBM (31 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0958",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "3e156f000cfd4453",
+          "id": "245fc0139308553f",
           "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans le noyau Linux de Red Hat (31 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0955",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "d8f87a68b8a622e8",
-          "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans Progress MOVEit Transfer (31 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0951",
-          "publishedAt": "2026-07-31T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ff0f66fd4dad7499",
-          "topicId": "cyber",
-          "title": "Vulnérabilité dans Ruby on Rails activestorage (30 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0948",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "e8ec294e4f9eead8",
-          "topicId": "cyber",
-          "title": "Multiples vulnérabilités dans les produits VMware (30 juillet 2026)",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0949",
-          "publishedAt": "2026-07-30T00:00:00.000Z",
-          "sourceRegistryId": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cert-fr-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "threat-intelligence",
-            "france"
-          ],
-          "matchedKeywords": [
-            "vulnérabilité"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "4921de5f45ed81fb",
-          "topicId": "cyber",
-          "title": "注意喚起: 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (更新)",
-          "url": "https://www.jpcert.or.jp/at/2026/at260020.html",
-          "publishedAt": "2026-07-31T09:00:00.000Z",
+          "title": "注意喚起: MetabaseのSQLインジェクションの脆弱性（CVE-2026-72898）に関する注意喚起  (公開)",
+          "url": "https://www.jpcert.or.jp/at/2026/at260023.html",
+          "publishedAt": "2026-08-14T04:30:00.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "jpcert",
           "sourceName": "JPCERT Coordination Center",
           "sourceTier": "primary",
@@ -1124,7 +650,137 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 52,
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "b86b75b9a9feeae0",
+          "topicId": "cyber",
+          "title": "ENISA Cybersecurity Resilience and Market Conference: Joining forces for a cyber-secure and resilient digital single market | ENISA",
+          "url": "https://www.enisa.europa.eu/news/enisa-cybersecurity-resilience-and-market-conference-joining-forces-for-a-cyber-secure-and-resilient-digital-single-market",
+          "publishedAt": "2026-08-05T14:17:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "enisa",
+          "sourceName": "European Union Agency for Cybersecurity",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "enisa-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "nis2",
+            "critical-sectors",
+            "supply-chain"
+          ],
+          "matchedKeywords": [
+            "cyber"
+          ],
+          "titleMatchedKeywords": [
+            "cyber"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 67,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "5352af62c92af172",
+          "topicId": "cyber",
+          "title": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
+          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
+          "publishedAt": "2026-08-05T14:17:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "enisa",
+          "sourceName": "European Union Agency for Cybersecurity",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "enisa-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "nis2",
+            "critical-sectors",
+            "supply-chain"
+          ],
+          "matchedKeywords": [
+            "cyber"
+          ],
+          "titleMatchedKeywords": [
+            "cyber"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 67,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "92afcd602f389322",
+          "topicId": "cyber",
+          "title": "注意喚起: 2026年8月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (公開)",
+          "url": "https://www.jpcert.or.jp/at/2026/at260022.html",
+          "publishedAt": "2026-08-12T02:26:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "jpcert",
+          "sourceName": "JPCERT Coordination Center",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "jpcert-alerts-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "alerts",
+            "vulnerabilities",
+            "japan",
+            "japanese-language"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 65,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "4921de5f45ed81fb",
+          "topicId": "cyber",
+          "title": "注意喚起: 2026年7月マイクロソフトセキュリティ更新プログラムに関する注意喚起  (更新)",
+          "url": "https://www.jpcert.or.jp/at/2026/at260020.html",
+          "publishedAt": "2026-07-31T09:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "jpcert",
+          "sourceName": "JPCERT Coordination Center",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "jpcert-alerts-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "alerts",
+            "vulnerabilities",
+            "japan",
+            "japanese-language"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 42,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
@@ -1135,11 +791,86 @@
       "id": "technology-failure",
       "candidates": [
         {
+          "id": "536d296669046411",
+          "topicId": "technology-failure",
+          "title": "The external position of the Bundesbank, International reserves and foreign currceny liquidity of the Eurosystem",
+          "url": "https://www.bundesbank.de/en/statistics/external-sector/international-investment-position-and-external-debt/the-external-position-of-the-bundesbank-international-reserves-and-foreign-currceny-liquidity-of-the-eurosystem-794974",
+          "publishedAt": "2026-08-12T12:35:34.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "de-bundesbank",
+          "sourceName": "Deutsche Bundesbank",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "bundesbank-topics-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "ict-risk",
+            "banking-supervision",
+            "operational-risk",
+            "germany"
+          ],
+          "matchedKeywords": [
+            "system"
+          ],
+          "titleMatchedKeywords": [
+            "system"
+          ],
+          "summaryMatchedKeywords": [
+            "system"
+          ],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "e162bf8851b24a68",
+          "topicId": "technology-failure",
+          "title": "Auslandsposition der Bundesbank; Währungsreserven und Fremdwährungsliquidität des Eurosystems",
+          "url": "https://www.bundesbank.de/de/statistiken/aussenwirtschaft/auslandsvermoegen-und-verschuldung/auslandsposition-der-bundesbank-waehrungsreserven-und-fremdwaehrungsliquiditaet-des-eurosystems-775756",
+          "publishedAt": "2026-08-12T12:35:25.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "de-bundesbank",
+          "sourceName": "Deutsche Bundesbank",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "bundesbank-topics-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "ict-risk",
+            "banking-supervision",
+            "operational-risk",
+            "germany"
+          ],
+          "matchedKeywords": [
+            "system"
+          ],
+          "titleMatchedKeywords": [
+            "system"
+          ],
+          "summaryMatchedKeywords": [
+            "system"
+          ],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "78dfbcc6e97f5014",
           "topicId": "technology-failure",
           "title": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
           "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
           "publishedAt": "2026-07-25T13:16:55.000Z",
+          "dateSource": "feed",
           "sourceRegistryId": "google-cloud-status",
           "sourceName": "Google Cloud Service Health",
           "sourceTier": "primary",
@@ -1169,49 +900,10 @@
             "failure",
             "disruption"
           ],
-          "relevanceScore": 73,
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "220d5078a82f2ae9",
-          "topicId": "technology-failure",
-          "title": "FINMA guidance on quantum computing",
-          "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-          "publishedAt": "2026-07-09T08:00:00.000Z",
-          "sourceRegistryId": "finma",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "finma-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "supervision",
-            "operational-risk",
-            "sanctions",
-            "technology",
-            "switzerland"
-          ],
-          "matchedKeywords": [
-            "quantum"
-          ],
-          "titleMatchedKeywords": [
-            "quantum"
-          ],
-          "summaryMatchedKeywords": [
-            "quantum"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1219,112 +911,86 @@
       "id": "data",
       "candidates": [
         {
-          "id": "71f3eee412801c75",
+          "id": "9cac76bb44c7cc3e",
           "topicId": "data",
-          "title": "ICO joins global data protection and privacy enforcement programme",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/ico-joins-global-data-protection-and-privacy-enforcement-programme",
-          "publishedAt": "2026-07-31T12:27:11.000Z",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
+          "title": "26-194MR McPherson&#x2019;s liable for continuous disclosure failure and misleading investors, former CEO breached directors&#x2019; duties | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-194mr-mcpherson-s-liable-for-continuous-disclosure-failure-and-misleading-investors-former-ceo-breached-directors-duties",
+          "publishedAt": "2026-08-13T04:45:09.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "asic",
+          "sourceName": "Australian Securities and Investments Commission",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
+          "ingestSourceId": "asic-news-sitemap",
           "fetchType": "sitemap",
           "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
           ],
           "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
           ],
           "matchedKeywords": [
-            "data",
-            "privacy"
+            "disclosure"
           ],
-          "titleMatchedKeywords": [],
+          "titleMatchedKeywords": [
+            "disclosure"
+          ],
           "summaryMatchedKeywords": [],
           "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "33e6aadad3e1d742",
+          "id": "178ca93477d58f5b",
           "topicId": "data",
-          "title": "Mit Daten Verantwortung übernehmen | Direkteinstieg – Data Science",
-          "url": "https://www.bundesbank.de/de/karriere/arbeitgeber-bundesbank/jobstorys/arbeitgeberstory-1005064",
-          "publishedAt": "2026-08-05T22:00:00.000Z",
-          "sourceRegistryId": "de-bundesbank",
-          "sourceName": "Deutsche Bundesbank",
+          "title": "26-192MR Recruitment firm Hudson Global Resources (Aust) Pty Ltd fined $270,000 for breaching financial reporting obligations | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-192mr-recruitment-firm-hudson-global-resources-aust-pty-ltd-fined-270-000-for-breaching-financial-reporting-obligations",
+          "publishedAt": "2026-08-12T00:31:52.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "asic",
+          "sourceName": "Australian Securities and Investments Commission",
           "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "bundesbank-topics-rss",
-          "fetchType": "rss",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "asic-news-sitemap",
+          "fetchType": "sitemap",
           "riskAreas": [
-            "digital-resilience",
+            "market-plumbing",
+            "crime-and-sanctions",
             "board-accountability"
           ],
           "tags": [
-            "ict-risk",
-            "banking-supervision",
-            "operational-risk",
-            "germany"
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
           ],
           "matchedKeywords": [
-            "daten"
+            "reporting"
           ],
           "titleMatchedKeywords": [
-            "daten"
+            "reporting"
           ],
-          "summaryMatchedKeywords": [
-            "daten"
-          ],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "db2b65fbcf377323",
-          "topicId": "data",
-          "title": "ICO sets out priorities to protect children&#x27;s privacy online",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/ico-sets-out-priorities-to-protect-childrens-privacy-online",
-          "publishedAt": "2026-07-31T12:29:49.000Z",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [
-            "privacy"
-          ],
-          "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "779dcf0af2efb2f9",
+          "id": "8cea2442f10839bf",
           "topicId": "data",
-          "title": "New ICO campaign promotes sharing data to safeguard children",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/01/new-ico-campaign-promotes-sharing-data-to-safeguard-children",
-          "publishedAt": "2026-07-31T12:26:22.000Z",
+          "title": "Boost your business fitness - ICO offers new, free data protection training for SMEs",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/boost-your-business-fitness-ico-offers-new-free-data-protection-training-for-smes",
+          "publishedAt": "2026-08-11T13:07:37.000Z",
+          "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
@@ -1346,61 +1012,52 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "361ea7bf66de3730",
+          "id": "71f3eee412801c75",
           "topicId": "data",
-          "title": "FCA finalises rules to cut firms' transaction reporting costs by over £100m a year",
-          "url": "https://www.fca.org.uk/news/press-releases/fca-finalises-rules-cut-firms-transaction-reporting-costs-over-100m-year",
-          "publishedAt": "",
-          "sourceRegistryId": "uk-fca",
-          "sourceName": "Financial Conduct Authority",
+          "title": "ICO joins global data protection and privacy enforcement programme",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/ico-joins-global-data-protection-and-privacy-enforcement-programme",
+          "publishedAt": "2026-07-31T12:27:11.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "ingestSourceId": "fca-news-rss",
-          "fetchType": "rss",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
           "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "digital-resilience",
-            "crime-and-sanctions",
             "board-accountability",
             "ai-and-models"
           ],
           "tags": [
-            "markets",
-            "crypto",
-            "outsourcing",
-            "resilience",
-            "ai",
-            "cyber"
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
           ],
           "matchedKeywords": [
             "data",
-            "reporting"
+            "privacy"
           ],
-          "titleMatchedKeywords": [
-            "reporting"
-          ],
-          "summaryMatchedKeywords": [
-            "data",
-            "reporting"
-          ],
-          "relevanceScore": 57,
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Financial Conduct Authority via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "b077fc8628fe6673",
+          "id": "954820488977c2f6",
           "topicId": "data",
-          "title": "Multiple properties searched across UK after millions of car finance complaints",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/multiple-properties-searched-across-uk-after-millions-of-car-finance-complaints",
-          "publishedAt": "2026-07-31T14:46:19.000Z",
+          "title": "ACRO reprimanded following cyber security failings",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/acro-reprimanded-following-cyber-security-failings",
+          "publishedAt": "2026-08-12T10:07:54.000Z",
+          "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
@@ -1420,7 +1077,71 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 53,
+          "relevanceScore": 66,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "db2b65fbcf377323",
+          "topicId": "data",
+          "title": "ICO sets out priorities to protect children&#x27;s privacy online",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/ico-sets-out-priorities-to-protect-childrens-privacy-online",
+          "publishedAt": "2026-07-31T12:29:49.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [
+            "privacy"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 57,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "b077fc8628fe6673",
+          "topicId": "data",
+          "title": "Multiple properties searched across UK after millions of car finance complaints",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/multiple-properties-searched-across-uk-after-millions-of-car-finance-complaints",
+          "publishedAt": "2026-07-31T14:46:19.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 42,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1431,6 +1152,7 @@
           "title": "Information Commissioner&#x2019;s Office seeks views on accuracy of generative AI models",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/information-commissioner-s-office-seeks-views-on-accuracy-of-generative-ai-models",
           "publishedAt": "2026-07-31T12:28:59.000Z",
+          "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
@@ -1450,7 +1172,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 53,
+          "relevanceScore": 42,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -1465,7 +1187,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 4,
+      "reason": "",
       "error": ""
     },
     {
@@ -1475,6 +1198,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 1,
+      "reason": "",
       "error": ""
     },
     {
@@ -1483,7 +1207,8 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
+      "reason": "",
       "error": ""
     },
     {
@@ -1493,6 +1218,7 @@
       "status": "ok",
       "fetchedEntries": 6,
       "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1501,7 +1227,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1511,6 +1238,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1520,6 +1248,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 1,
+      "reason": "",
       "error": ""
     },
     {
@@ -1528,7 +1257,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1537,7 +1267,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1547,69 +1278,77 @@
       "status": "ok",
       "fetchedEntries": 6,
       "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-market-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-third-party-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-resilience-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-financial-crime-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-cyber-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-technology-failure-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
       "sourceId": "reg-horizon-data-bridge",
       "sourceRegistryId": "",
       "fetchType": "reg_horizon_json",
-      "status": "ok",
+      "status": "skipped",
       "fetchedEntries": 0,
       "acceptedCandidates": 0,
+      "reason": "horizon-withheld",
       "error": ""
     },
     {
@@ -1618,7 +1357,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1627,7 +1367,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 2,
+      "reason": "",
       "error": ""
     },
     {
@@ -1637,6 +1378,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 4,
+      "reason": "",
       "error": ""
     },
     {
@@ -1646,6 +1388,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1654,7 +1397,8 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 6,
+      "reason": "",
       "error": ""
     },
     {
@@ -1663,7 +1407,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 2,
+      "reason": "",
       "error": ""
     },
     {
@@ -1673,6 +1418,7 @@
       "status": "ok",
       "fetchedEntries": 1,
       "acceptedCandidates": 3,
+      "reason": "",
       "error": ""
     },
     {
@@ -1681,7 +1427,8 @@
       "fetchType": "atom",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 3,
+      "reason": "",
       "error": ""
     },
     {
@@ -1690,7 +1437,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 0,
+      "acceptedCandidates": 1,
+      "reason": "",
       "error": ""
     },
     {
@@ -1699,7 +1447,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 3,
+      "reason": "",
       "error": ""
     },
     {
@@ -1708,7 +1457,8 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1718,6 +1468,7 @@
       "status": "ok",
       "fetchedEntries": 8,
       "acceptedCandidates": 0,
+      "reason": "",
       "error": ""
     },
     {
@@ -1726,12 +1477,22 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 2,
+      "reason": "",
       "error": ""
     }
   ],
   "warnings": [
+    "Source reg-horizon-market-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-third-party-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-resilience-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-financial-crime-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-cyber-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-technology-failure-bridge skipped: horizon-withheld.",
+    "Source reg-horizon-data-bridge skipped: horizon-withheld.",
+    "Coverage gap: market-structure has no candidates in the current window.",
     "Thin coverage: third-party has only 1 candidate(s) in the current window.",
-    "Thin coverage: technology-failure has only 2 candidate(s) in the current window."
+    "Source concentration: financial-crime relies on ofsi-updates-atom for 3/3 candidates.",
+    "Source concentration: data relies on ico-news-sitemap for 6/8 candidates."
   ]
 }

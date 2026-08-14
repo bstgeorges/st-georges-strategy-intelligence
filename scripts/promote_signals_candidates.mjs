@@ -116,7 +116,7 @@ function buildEvidence(candidate, publishedSource, promotionDate) {
   return {
     sourceTitle: candidate.title,
     organisation: candidate.sourceName || publishedSource?.id || "Unknown",
-    publishedDate: candidate.publishedAt ? candidate.publishedAt.slice(0, 10) : promotionDate,
+    publishedDate: candidate.publishedAt.slice(0, 10),
     sourceType: inferSourceType(publishedSource),
     significance: "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
     sourceUrl: candidate.url,
@@ -140,6 +140,10 @@ function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
   for (const candidate of candidates) {
     if (freshRows.length >= MAX_FRESH_PROMOTIONS_PER_TOPIC) break;
     if (!candidate.title || !candidate.url) continue;
+    if (!candidate.publishedAt) {
+      skipped.push(`undated candidate excluded: ${candidate.url}`);
+      continue;
+    }
     if (existingUrls.has(candidate.url)) continue;
     if (seenFresh.has(candidate.url)) continue;
     const publishedSource = resolvePublishedSource(candidate.url, sourceMap);

@@ -47,6 +47,7 @@ const ALLOWED_SOURCE_TYPES = new Set([
   "other reporting",
 ]);
 const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|monitoring\s*\/\s*[^/]+?\s*\/\s*20\d{2}(?:-\d{2})?(?!-\d{2})\b/i;
+const EDITORIAL_PLACEHOLDER = /editorial_review_required|replace with a specific|auto[- ]promoted/i;
 
 function parseArgs(argv) {
   const options = { checkLive: false };
@@ -131,6 +132,9 @@ function validateEvidence(row, rowLabel, failures) {
   }
   if (evidence.sourceType && !ALLOWED_SOURCE_TYPES.has(evidence.sourceType)) {
     fail(`${rowLabel} evidence.sourceType is unsupported: ${evidence.sourceType}`, failures);
+  }
+  if (EDITORIAL_PLACEHOLDER.test(evidence.significance || "")) {
+    fail(`${rowLabel} evidence.significance contains an unresolved editorial placeholder.`, failures);
   }
   if (VAGUE_SOURCE_LABELS.test(row.source || "")) {
     fail(`${rowLabel} source label is vague; use organisation, source type, and exact date in evidence instead.`, failures);

@@ -147,6 +147,7 @@ function parseRssOrAtom(xml, source) {
         title: xmlField(block, "title"),
         url: xmlField(block, "link"),
         publishedAt: normalizeDate(xmlField(block, "pubDate") || xmlField(block, "dc:date") || xmlField(block, "published") || xmlField(block, "updated")),
+        dateSource: "feed",
         summary: xmlField(block, "description") || xmlField(block, "summary"),
       }))
     : [...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi)].map((match) => {
@@ -155,15 +156,17 @@ function parseRssOrAtom(xml, source) {
           title: xmlField(block, "title"),
           url: xmlAttr(block, "link", "href") || xmlField(block, "id"),
           publishedAt: normalizeDate(xmlField(block, "updated") || xmlField(block, "published")),
+          dateSource: "feed",
           summary: xmlField(block, "summary") || xmlField(block, "content"),
         };
       });
 
   return entries
-    .map((entry) => ({
-      ...entry,
-      publishedAt: entry.publishedAt || inferDateFromUrl(entry.url),
-    }))
+    .map((entry) => {
+      if (entry.publishedAt) return entry;
+      const inferred = inferDateFromUrl(entry.url);
+      return { ...entry, publishedAt: inferred, dateSource: inferred ? "url-inference" : "" };
+    })
     .filter((entry) => entry.title && entry.url)
     .slice(0, source.maxItems || 8);
 }
@@ -210,6 +213,7 @@ async function enrichSitemapEntries(entries) {
           title,
           url: entry.url,
           publishedAt: entry.lastmod,
+          dateSource: entry.lastmod ? "sitemap-lastmod" : "",
           summary: "",
         });
       }
@@ -221,9 +225,9 @@ async function enrichSitemapEntries(entries) {
 }
 
 function isRecent(iso, windowDays, now) {
-  if (!iso) return true;
+  if (!iso) return false;
   const published = new Date(iso);
-  if (Number.isNaN(published.getTime())) return true;
+  if (Number.isNaN(published.getTime())) return false;
   if (published.getTime() > now.getTime() + 24 * 60 * 60 * 1000) return false;
   return published.getTime() >= now.getTime() - windowDays * 24 * 60 * 60 * 1000;
 }
@@ -308,29 +312,35 @@ function loadSourceMeta(sourceRegistry, source) {
 async function collectSourceCandidates(source, context) {
   if (source.fetchType === "reg_horizon_json") {
     const horizon = readJson(HORIZON_PATH);
-    return (horizon.signals || [])
-      .filter((signal) => topicFromHorizonSignal(signal, source))
-      .slice(0, source.maxItems || 8)
-      .map((signal) => ({
-        title: signal.title,
-        url: signal.url,
-        publishedAt: signal.date ? `${signal.date}T00:00:00.000Z` : "",
-        summary: signal.why || "",
-        sourceName: signal.source || source.id,
-      }));
+    if (horizon.status === "withheld") return { entries: [], status: "skipped", reason: "horizon-withheld" };
+    return {
+      entries: (horizon.signals || [])
+        .filter((signal) => topicFromHorizonSignal(signal, source))
+        .slice(0, source.maxItems || 8)
+        .map((signal) => ({
+          title: signal.title,
+          url: signal.url,
+          publishedAt: signal.date ? `${signal.date}T00:00:00.000Z` : "",
+          dateSource: signal.date ? "reviewed-reg-horizon" : "",
+          summary: signal.why || "",
+          sourceName: signal.source || source.id,
+        })),
+      status: "ok",
+      reason: "",
+    };
   }
 
-  if (context.options.offline) return [];
+  if (context.options.offline) return { entries: [], status: "skipped", reason: "offline" };
 
   const xml = await fetchText(source.fetchUrl);
   if (source.fetchType === "rss" || source.fetchType === "atom") {
-    return parseRssOrAtom(xml, source);
+    return { entries: parseRssOrAtom(xml, source), status: "ok", reason: "" };
   }
   if (source.fetchType === "sitemap") {
     const sitemapEntries = parseSitemap(xml, source);
-    return enrichSitemapEntries(sitemapEntries);
+    return { entries: await enrichSitemapEntries(sitemapEntries), status: "ok", reason: "" };
   }
-  return [];
+  return { entries: [], status: "skipped", reason: "unsupported-fetch-type" };
 }
 
 function candidateRecord(entry, source, sourceMeta, topicId, relevance, now) {
@@ -341,6 +351,7 @@ function candidateRecord(entry, source, sourceMeta, topicId, relevance, now) {
     title: entry.title,
     url: canonicalUrl,
     publishedAt: entry.publishedAt || "",
+    dateSource: entry.dateSource || "",
     sourceRegistryId: sourceMeta.id,
     sourceName: entry.sourceName || sourceMeta.name,
     sourceTier: sourceMeta.tier,
@@ -433,7 +444,22 @@ async function main() {
     const sourceMeta = loadSourceMeta(sourceRegistry, source);
     let entries = [];
     try {
-      entries = await collectSourceCandidates(source, { options });
+      const collection = await collectSourceCandidates(source, { options });
+      entries = collection.entries || [];
+      if (collection.status === "skipped") {
+        sourceStats.push({
+          sourceId: source.id,
+          sourceRegistryId: source.sourceRegistryId || "",
+          fetchType: source.fetchType,
+          status: "skipped",
+          fetchedEntries: 0,
+          acceptedCandidates: 0,
+          reason: collection.reason || "not-run",
+          error: "",
+        });
+        warnings.push(`Source ${source.id} skipped: ${collection.reason || "not-run"}.`);
+        continue;
+      }
     } catch (error) {
       const message = `Source ${source.id} failed during candidate collection: ${error.message}`;
       warnings.push(message);
@@ -444,6 +470,7 @@ async function main() {
         status: "failed",
         fetchedEntries: 0,
         acceptedCandidates: 0,
+        reason: "",
         error: error.message,
       });
       continue;
@@ -481,6 +508,7 @@ async function main() {
       status: "ok",
       fetchedEntries: entries.length,
       acceptedCandidates,
+      reason: "",
       error: "",
     });
   }
@@ -494,7 +522,7 @@ async function main() {
   warnings.push(...assessCandidateQuality(topics));
 
   const output = {
-    version: "2026-07-18",
+    version: "2026-08-14",
     generatedAt,
     windowDays,
     mode: options.offline ? "offline" : "live",
@@ -523,6 +551,8 @@ async function main() {
   for (const stat of sourceStats) {
     if (stat.status === "failed") {
       console.log(`- ${stat.sourceId}: failed (${stat.error})`);
+    } else if (stat.status === "skipped") {
+      console.log(`- ${stat.sourceId}: skipped (${stat.reason})`);
     } else {
       console.log(`- ${stat.sourceId}: fetched ${stat.fetchedEntries}, accepted ${stat.acceptedCandidates}`);
     }

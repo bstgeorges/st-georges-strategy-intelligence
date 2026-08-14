@@ -28,6 +28,13 @@ function isoDate(value) {
   return match ? match[0] : null;
 }
 
+function isValidDate(value) {
+  const date = isoDate(value);
+  if (!date) return false;
+  const parsed = new Date(`${date}T00:00:00Z`);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === date;
+}
+
 function addDays(value, days) {
   const result = new Date(`${value}T00:00:00Z`);
   result.setUTCDate(result.getUTCDate() + days);
@@ -43,6 +50,18 @@ function approvalFor(decisions, id, url, deadline) {
     (decision.id && decision.id === id) ||
     (decision.url === url && (!decision.deadline || decision.deadline === deadline))
   ));
+}
+
+function validateApprovals(approvals) {
+  if (!Array.isArray(approvals?.decisions)) throw new Error("approvals.json must contain decisions[].");
+  for (const [index, decision] of approvals.decisions.entries()) {
+    const label = `approvals.json decision ${index + 1}`;
+    if (!decision?.id && !decision?.url) throw new Error(`${label} must identify a register item by id or URL.`);
+    if (!["approve", "reject"].includes(decision?.decision)) throw new Error(`${label} must be approve or reject.`);
+    if (!decision?.reviewer) throw new Error(`${label} must record a reviewer.`);
+    if (!isValidDate(decision?.decidedAt)) throw new Error(`${label} must record decidedAt as YYYY-MM-DD.`);
+    if (!decision?.note) throw new Error(`${label} must record the editorial evidence or reason.`);
+  }
 }
 
 function ownerGuidance(owners, themes) {
@@ -103,6 +122,16 @@ function merge(previous, candidates, asOf, edition) {
     if (item.deadline && item.deadline >= addDays(asOf, -GRACE_DAYS) && item.status !== "rejected") next.set(item.id, item);
   }
   for (const candidate of candidates) {
+    for (const old of next.values()) {
+      if (old.url === candidate.url && old.id !== candidate.id) {
+        next.set(old.id, {
+          ...old,
+          status: "superseded",
+          supersededAt: asOf,
+          supersededBy: candidate.id,
+        });
+      }
+    }
     const old = next.get(candidate.id);
     next.set(candidate.id, {
       ...old,
@@ -121,11 +150,15 @@ function run() {
   const asOf = argValue("--as-of", null) || new Date().toISOString().slice(0, 10);
   const scanner = readJson(inputFile, null);
   if (!scanner) throw new Error(`Scanner edition not found: ${inputFile}`);
+  if (!isValidDate(scanner.edition)) throw new Error("Scanner edition must be a valid YYYY-MM-DD date.");
+  if (!isValidDate(asOf)) throw new Error("Register as-of date must be a valid YYYY-MM-DD date.");
+  if (scanner.edition > asOf) throw new Error("Scanner edition cannot be after the register as-of date.");
   const sourceById = new Map((readJson(REGISTRY, { sources: [] }).sources || []).map((source) => [source.id, source]));
   const sourceIdByName = new Map([...sourceById.values()].map((source) => [source.name, source.id]));
   const owners = readJson(path.join(outDir, "owners.json"), readJson(path.join(DEFAULT_OUT, "owners.json"), null));
   if (!owners?.default) throw new Error("owners.json is required and must define a default owner route");
   const approvals = readJson(path.join(outDir, "approvals.json"), { decisions: [] });
+  validateApprovals(approvals);
   const previous = readJson(path.join(outDir, "register.json"), { items: [] });
   const seen = new Set();
   const candidates = [...(scanner.signals || []), ...(scanner.reviewQueue || [])]

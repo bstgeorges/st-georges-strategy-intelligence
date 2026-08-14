@@ -6,6 +6,8 @@ This directory is the internal operating layer for Regulatory Horizon while the 
 
 Run `npm run deadline-register:build` after a successful scanner run, then `npm run deadline-register:validate`. Decisions in `approvals.json` can promote or reject an individual item without changing the scanner's raw evidence.
 
+`npm run deadline-dashboard:build` creates the local `index.html` operating dashboard from the register, review, health and QA files. It has the cumulative deadline table, urgency outlook, review queue, relaunch gates, source health and a filtered CSV export. It is deliberately generated only inside this private directory and is not copied by the public site build.
+
 `relaunch-approval.json` is deliberately blank by default. A relaunch needs a current scanner edition plus named, dated editor and product-owner approvals with a short rationale. Recording that approval never republishes the page; the public redirect stays in place until a separate product change is approved.
 
 The register is private. Do not add it to `site/`, `site-dist/`, sitemap generation, or public release metadata without clearing the relaunch gates.

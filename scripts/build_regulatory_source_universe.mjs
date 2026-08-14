@@ -34,7 +34,7 @@ function parseDirectory(html) {
     const clean = decodeHtml(label.replace(/<[^>]+>/g, " ").replace(/\s+/g, " "));
     const split = clean.indexOf(" - ");
     return {orgId, jurisdiction: clean.slice(0, split), name: clean.slice(split + 3)};
-  }).filter(x => x.jurisdiction && x.name);
+  }).filter(x => x.orgId !== "0" && x.jurisdiction && x.name && x.jurisdiction !== "Jurisdiction" && x.name !== "Organization");
 }
 
 async function enrich(member) {

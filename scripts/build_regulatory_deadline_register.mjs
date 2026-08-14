@@ -103,7 +103,7 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
     businessImpact: signal.businessImpact || null,
     sourcePublishedAt: isoDate(signal.date),
     status: state,
-    decision: decision ? { decision: decision.decision, note: decision.note || "", decidedAt: decision.decidedAt || null } : null,
+    decision: decision ? { decision: decision.decision, reviewer: decision.reviewer || null, note: decision.note || "", decidedAt: decision.decidedAt || null } : null,
     evidence: {
       change: signal.editorial?.change || signal.why || "",
       detailChecked: Boolean(signal.confidence?.components?.detail),
@@ -144,6 +144,58 @@ function merge(previous, candidates, asOf, edition) {
   return [...next.values()].sort((a, b) => a.deadline.localeCompare(b.deadline) || a.title.localeCompare(b.title));
 }
 
+function buildChanges(previous, candidates, items, asOf, edition) {
+  const prior = previous.items || [];
+  const priorById = new Map(prior.map((item) => [item.id, item]));
+  const currentById = new Map(items.map((item) => [item.id, item]));
+  const seenIds = new Set(candidates.map((item) => item.id));
+  const additions = [];
+  const revisedDates = [];
+  const statusChanges = [];
+  const reconfirmed = [];
+
+  for (const candidate of candidates) {
+    const old = priorById.get(candidate.id);
+    const priorVersion = prior.find((item) => item.url === candidate.url && item.id !== candidate.id && item.status !== "superseded");
+    const current = currentById.get(candidate.id) || candidate;
+    if (priorVersion) {
+      revisedDates.push({
+        id: candidate.id,
+        title: candidate.title,
+        authority: candidate.authority,
+        url: candidate.url,
+        from: priorVersion.deadline,
+        to: candidate.deadline,
+      });
+    } else if (!old) {
+      additions.push({ id: candidate.id, title: candidate.title, authority: candidate.authority, deadline: candidate.deadline, url: candidate.url });
+    } else if (old.status !== current.status) {
+      statusChanges.push({ id: candidate.id, title: candidate.title, authority: candidate.authority, deadline: candidate.deadline, from: old.status, to: current.status, url: candidate.url });
+    } else {
+      reconfirmed.push({ id: candidate.id, title: candidate.title, authority: candidate.authority, deadline: candidate.deadline, url: candidate.url });
+    }
+  }
+
+  const notReconfirmed = prior
+    .filter((item) => !["rejected", "superseded"].includes(item.status) && !seenIds.has(item.id) && currentById.has(item.id))
+    .map((item) => ({ id: item.id, title: item.title, authority: item.authority, deadline: item.deadline, url: item.url }));
+
+  return {
+    version: "regulatory-deadline-changes.v1",
+    visibility: "private",
+    generatedAt: new Date().toISOString(),
+    asOf,
+    sourceEdition: edition,
+    baseline: prior.length === 0,
+    comparedWith: prior.length ? { asOf: previous.asOf || null, sourceEdition: previous.sourceEdition || null } : null,
+    additions,
+    revisedDates,
+    statusChanges,
+    reconfirmed,
+    notReconfirmed,
+  };
+}
+
 function run() {
   const inputFile = path.resolve(argValue("--input", DEFAULT_INPUT));
   const outDir = path.resolve(argValue("--out", DEFAULT_OUT));
@@ -168,6 +220,7 @@ function run() {
     .map((signal) => asCandidate(signal, sourceById, sourceIdByName, owners, asOf, approvals.decisions || []))
     .filter((item) => item && !seen.has(item.id) && seen.add(item.id));
   const items = merge(previous.items || [], candidates, asOf, scanner.edition);
+  const changes = buildChanges(previous, candidates, items, asOf, scanner.edition);
   const review = items.filter((item) => ["ready-for-review", "review"].includes(item.status));
   const register = {
     version: "regulatory-deadline-register.v1",
@@ -190,6 +243,7 @@ function run() {
   writeJson(path.join(outDir, "register.json"), register);
   writeJson(path.join(outDir, "review.json"), { version: "regulatory-deadline-review.v1", visibility: "private", generatedAt: register.generatedAt, sourceEdition: scanner.edition, items: review });
   writeJson(path.join(outDir, "health.json"), health);
+  writeJson(path.join(outDir, "changes.json"), changes);
   console.log(JSON.stringify({ sourceEdition: scanner.edition, asOf, openItems: items.length, confirmed: items.filter((item) => item.status === "confirmed").length, review: review.length }, null, 2));
 }
 

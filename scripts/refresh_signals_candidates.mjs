@@ -516,16 +516,18 @@ async function main() {
       }
     }
 
+    const noParseableEntries = entries.length === 0;
     sourceStats.push({
       sourceId: source.id,
       sourceRegistryId: source.sourceRegistryId || "",
       fetchType: source.fetchType,
-      status: "ok",
+      status: noParseableEntries ? "quiet" : "ok",
       fetchedEntries: entries.length,
       acceptedCandidates,
-      reason: "",
+      reason: noParseableEntries ? "no-parseable-entries" : "",
       error: "",
     });
+    if (noParseableEntries) warnings.push(`Source ${source.id} returned no parseable entries; check its feed format or availability.`);
   }
 
   const topics = TOPICS.map((topicId) => ({
@@ -568,6 +570,8 @@ async function main() {
       console.log(`- ${stat.sourceId}: failed (${stat.error})`);
     } else if (stat.status === "skipped") {
       console.log(`- ${stat.sourceId}: skipped (${stat.reason})`);
+    } else if (stat.status === "quiet") {
+      console.log(`- ${stat.sourceId}: quiet (${stat.reason})`);
     } else {
       console.log(`- ${stat.sourceId}: fetched ${stat.fetchedEntries}, accepted ${stat.acceptedCandidates}`);
     }

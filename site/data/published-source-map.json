@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-11",
+  "version": "2026-08-14",
   "purpose": "Allowed publisher-facing citation sources for Signals and AI Signals. Watch feeds and source-universe homepages are not valid published citations unless a specific article or guidance page is linked.",
   "tiers": {
     "primary": "Official regulator, government, company, standards, or academic source suitable for direct citation.",
@@ -29,6 +29,8 @@
     { "id": "ec-fisma", "label": "EU Commission Financial Stability", "tier": "primary", "hosts": ["finance.ec.europa.eu"] },
     { "id": "cssf", "label": "CSSF", "tier": "primary", "hosts": ["www.cssf.lu"] },
     { "id": "boe", "label": "Bank of England", "tier": "primary", "hosts": ["www.bankofengland.co.uk"] },
+    { "id": "sec", "label": "US Securities and Exchange Commission", "tier": "primary", "hosts": ["www.sec.gov"] },
+    { "id": "cftc", "label": "US Commodity Futures Trading Commission", "tier": "primary", "hosts": ["www.cftc.gov"] },
     { "id": "psr", "label": "Payment Systems Regulator", "tier": "primary", "hosts": ["www.psr.org.uk"] },
     { "id": "gov-uk", "label": "UK Government", "tier": "primary", "hosts": ["www.gov.uk"] },
     { "id": "fatf", "label": "FATF", "tier": "primary", "hosts": ["www.fatf-gafi.org"] },
@@ -57,7 +59,8 @@
     { "id": "jpcert", "label": "JPCERT/CC", "tier": "primary", "hosts": ["www.jpcert.or.jp"] },
     { "id": "finma", "label": "FINMA", "tier": "primary", "hosts": ["www.finma.ch"] },
     { "id": "japan-fsa", "label": "Japan FSA", "tier": "primary", "hosts": ["www.fsa.go.jp"] },
-    { "id": "hkma", "label": "HKMA", "tier": "primary", "hosts": ["www.hkma.gov.hk", "api.hkma.gov.hk"] },
+    { "id": "india-sebi", "label": "SEBI", "tier": "primary", "hosts": ["www.sebi.gov.in"] },
+    { "id": "hkma", "label": "HKMA", "tier": "primary", "hosts": ["www.hkma.gov.hk", "api.hkma.gov.hk", "brdr.hkma.gov.hk"] },
     { "id": "apra", "label": "APRA", "tier": "primary", "hosts": ["www.apra.gov.au"] },
     { "id": "osfi", "label": "OSFI", "tier": "primary", "hosts": ["www.osfi-bsif.gc.ca"] },
     { "id": "mas", "label": "MAS", "tier": "primary", "hosts": ["www.mas.gov.sg", "mas.gov.sg"] },

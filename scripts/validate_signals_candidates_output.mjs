@@ -17,7 +17,7 @@ const TOPICS = new Set([
   "data",
 ]);
 const ALLOWED_MODES = new Set(["live", "offline", "seed"]);
-const ALLOWED_SOURCE_STATUSES = new Set(["ok", "failed", "skipped"]);
+const ALLOWED_SOURCE_STATUSES = new Set(["ok", "quiet", "failed", "skipped"]);
 const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "reviewed-reg-horizon"]);
 
 function fail(message, failures) {
@@ -92,6 +92,7 @@ function main() {
     if (!Number.isInteger(stat.acceptedCandidates) || stat.acceptedCandidates < 0) fail(`${label} has invalid acceptedCandidates.`, failures);
     if (stat.status === "failed" && !stat.error) fail(`${label} failed without an error message.`, failures);
     if (stat.status === "skipped" && !stat.reason) fail(`${label} skipped without a reason.`, failures);
+    if (stat.status === "quiet" && !stat.reason) fail(`${label} is quiet without a reason.`, failures);
   }
 
   if (failures.length) {

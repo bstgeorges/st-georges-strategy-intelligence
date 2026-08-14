@@ -16,18 +16,40 @@ const TOPICS = new Set([
   "technology-failure",
   "data",
 ]);
+const ALLOWED_MODES = new Set(["live", "offline", "seed"]);
+const ALLOWED_SOURCE_STATUSES = new Set(["ok", "failed", "skipped"]);
+const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "reviewed-reg-horizon"]);
 
 function fail(message, failures) {
   failures.push(message);
 }
 
+function isIsoTimestamp(value) {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(value) && !Number.isNaN(Date.parse(value));
+}
+
+function parseArgs(argv) {
+  const options = { input: OUTPUT_PATH };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--input") options.input = path.resolve(argv[++index] || "");
+    else if (arg.startsWith("--input=")) options.input = path.resolve(arg.slice("--input=".length));
+    else throw new Error(`Unknown argument: ${arg}`);
+  }
+  return options;
+}
+
 function main() {
-  const data = JSON.parse(fs.readFileSync(OUTPUT_PATH, "utf8"));
+  const options = parseArgs(process.argv.slice(2));
+  const data = JSON.parse(fs.readFileSync(options.input, "utf8"));
   const failures = [];
   const requiresRankingMetadata = String(data.version || "") >= "2026-07-18";
+  const requiresProvenance = String(data.version || "") >= "2026-08-14";
 
-  if (!data.generatedAt && data.mode !== "seed") fail("signals-candidates.generated.json missing generatedAt.", failures);
+  if (!ALLOWED_MODES.has(data.mode)) fail(`signals-candidates.generated.json has unsupported mode: ${data.mode || "<missing>"}.`, failures);
+  if (data.mode !== "seed" && !isIsoTimestamp(data.generatedAt)) fail("signals-candidates.generated.json generatedAt must be an ISO timestamp.", failures);
   if (!Array.isArray(data.topics)) fail("signals-candidates.generated.json must contain topics[].", failures);
+  if (!Array.isArray(data.sourceStats)) fail("signals-candidates.generated.json must contain sourceStats[].", failures);
 
   const topicIds = new Set();
 
@@ -47,6 +69,8 @@ function main() {
         fail(`${topic.id} candidate ${index + 1} has an invalid relevanceScore.`, failures);
       }
       if (requiresRankingMetadata && !Array.isArray(candidate.matchedKeywords)) fail(`${topic.id} candidate ${index + 1} missing matchedKeywords[].`, failures);
+      if (requiresProvenance && !isIsoTimestamp(candidate.publishedAt)) fail(`${topic.id} candidate ${index + 1} must have a dated source publication timestamp.`, failures);
+      if (requiresProvenance && !ALLOWED_DATE_SOURCES.has(candidate.dateSource)) fail(`${topic.id} candidate ${index + 1} has an unsupported or missing dateSource.`, failures);
       if (candidate.url && urls.has(candidate.url)) fail(`${topic.id} contains duplicate candidate URL: ${candidate.url}`, failures);
       if (candidate.url) urls.add(candidate.url);
       if (candidate.url && !isSpecificPublishedSourceUrl(candidate.url)) {
@@ -59,6 +83,15 @@ function main() {
   }
   for (const topicId of TOPICS) {
     if (!topicIds.has(topicId)) fail(`Missing topic id: ${topicId}`, failures);
+  }
+  for (const [index, stat] of (data.sourceStats || []).entries()) {
+    const label = `sourceStats row ${index + 1}`;
+    if (!stat.sourceId || !stat.fetchType) fail(`${label} is missing source identity.`, failures);
+    if (!ALLOWED_SOURCE_STATUSES.has(stat.status)) fail(`${label} has unsupported status: ${stat.status || "<missing>"}.`, failures);
+    if (!Number.isInteger(stat.fetchedEntries) || stat.fetchedEntries < 0) fail(`${label} has invalid fetchedEntries.`, failures);
+    if (!Number.isInteger(stat.acceptedCandidates) || stat.acceptedCandidates < 0) fail(`${label} has invalid acceptedCandidates.`, failures);
+    if (stat.status === "failed" && !stat.error) fail(`${label} failed without an error message.`, failures);
+    if (stat.status === "skipped" && !stat.reason) fail(`${label} skipped without a reason.`, failures);
   }
 
   if (failures.length) {

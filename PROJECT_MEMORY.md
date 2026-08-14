@@ -229,3 +229,9 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - Keep the full 80–120-word, three-part **This Week’s Judgement** on Home. It is a signature, shareable editorial feature used for LinkedIn. Home's general decision-led H1 should remain distinct from the edition-specific Brief headline, and the page should not duplicate the Brief's Top 5 detail.
 - Present the Home judgement as a concise, reader-led three-beat: **What happened**, **Why it matters**, and **What to do**, under a plain-English operating-test title. Avoid a roll-call of source organisations and abstract AI/process language; the Weekly Brief carries detailed evidence and source names.
 - Archive now starts with three clear paths: current Brief, past weekly briefs and topic trails. Keep it light and navigational; do not turn it into a second Brief or reintroduce withdrawn Reg Horizon material.
+
+## Session memory — 2026-08-14: private engine hardening
+
+- Signals candidates now require a real source date before they can enter the reviewable pipeline. Every new candidate records whether the date came from a feed, URL inference, sitemap last-modified value or a reviewed Horizon record; undated candidates cannot be promoted. A public Signals row with unresolved editorial placeholder copy fails validation.
+- While Horizon is withheld, its seven Signals bridge sources must report `skipped` with reason `horizon-withheld`; they are not allowed to look like healthy zero-yield inputs. Candidate-output validation now checks timestamps, date provenance and source outcome states.
+- The private deadline register now validates approval records, preserves superseded dates as non-counting history, counts only confirmed future deadlines for relaunch, and requires a current-edition, named and dated editor/product-owner sign-off in `relaunch-approval.json`. This approval file is intentionally unapproved by default and never restores the public route on its own.

@@ -28,7 +28,7 @@ test("builds a cumulative private register and keeps every scanner candidate in 
   assert.equal(first.items.filter((item) => item.status === "confirmed").length, 0);
   assert.equal(first.items.filter((item) => item.status === "ready-for-review").length, 1);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "review.json"))).items.length, 2);
-  fs.writeFileSync(path.join(out, "approvals.json"), JSON.stringify({ decisions: [{ url: first.items[0].url, deadline: first.items[0].deadline, decision: "approve", note: "Editorial check complete", decidedAt: "2026-08-09" }] }));
+  fs.writeFileSync(path.join(out, "approvals.json"), JSON.stringify({ decisions: [{ url: first.items[0].url, deadline: first.items[0].deadline, decision: "approve", reviewer: "Editorial lead", note: "Editorial check complete", decidedAt: "2026-08-09" }] }));
   assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-09"]).status, 0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.find((item) => item.authority.id === "uk-fca").status, "confirmed");
   fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-16", signals: [], reviewQueue: [], sourceHealth: [], coverage: {} }));
@@ -36,14 +36,47 @@ test("builds a cumulative private register and keeps every scanner candidate in 
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.length, 2);
 });
 
-test("does not claim a relaunch until the hard gates have evidence", () => {
+test("does not claim a relaunch without recorded human sign-off, even when numerical gates pass", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
-  const register = { version: "regulatory-deadline-register.v1", visibility: "private", asOf: "2026-08-09", sourceEdition: "2026-08-09", items: [signal("uk-fca", "2026-09-01")] };
-  register.items[0] = { id: "a", url: register.items[0].url, title: "FCA consultation", deadline: "2026-09-01", status: "confirmed", authority: { id: "uk-fca" } };
+  const authorities = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba"];
+  const register = {
+    version: "regulatory-deadline-register.v1",
+    visibility: "private",
+    asOf: "2026-08-09",
+    sourceEdition: "2026-08-09",
+    items: Array.from({ length: 10 }, (_, index) => ({
+      id: `item-${index}`,
+      url: `https://example.test/${index}`,
+      title: `Consultation ${index}`,
+      deadline: `2026-09-${String(index + 1).padStart(2, "0")}`,
+      status: "confirmed",
+      authority: { id: authorities[index % authorities.length] },
+    })),
+  };
   fs.writeFileSync(path.join(tmp, "register.json"), JSON.stringify(register));
-  fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ sourceHealth: [{ sourceId: "uk-fca", status: "ok" }] }));
+  const core = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"];
+  fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ visibility: "private", sourceEdition: "2026-08-09", sourceHealth: core.map((sourceId) => ({ sourceId, status: "ok" })) }));
+  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-07-26", "2026-08-02", "2026-08-09"].map((sourceEdition) => ({ sourceEdition, healthyCore: core, errors: [], warnings: [] })) }));
   assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-08-09"]).status, 0);
   const qa = JSON.parse(fs.readFileSync(path.join(tmp, "qa.json")));
   assert.equal(qa.readiness.relaunchEligible, false);
-  assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("three consecutive")));
+  assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("editor and product owner")));
+  assert.equal(qa.errors.length, 0);
+});
+
+test("supersedes an old deadline when the same authority changes the date", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
+  const input = path.join(tmp, "scan.json");
+  const out = path.join(tmp, "out");
+  fs.mkdirSync(out);
+  fs.copyFileSync(path.join(ROOT, "dashboard/regulatory-deadline-register/owners.json"), path.join(out, "owners.json"));
+  const original = { ...signal("uk-fca", "2026-09-01"), url: "https://example.test/fca/consultation" };
+  fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-09", signals: [original], reviewQueue: [], sourceHealth: [], coverage: {} }));
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-09"]).status, 0);
+  const extended = { ...original, deadline: "2026-10-01" };
+  fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-16", signals: [extended], reviewQueue: [], sourceHealth: [], coverage: {} }));
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-16"]).status, 0);
+  const items = JSON.parse(fs.readFileSync(path.join(out, "register.json")).toString()).items;
+  assert.equal(items.find((item) => item.deadline === "2026-09-01").status, "superseded");
+  assert.equal(items.find((item) => item.deadline === "2026-10-01").status, "ready-for-review");
 });

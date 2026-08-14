@@ -23,10 +23,12 @@ test("RSS 1.0 dc:date fields are preserved for freshness checks", () => {
   assert.equal(parseRssOrAtom(xml, { maxItems: 8 })[0].publishedAt, "2026-06-02T00:00:00.000Z");
 });
 
-test("freshness accepts current records and rejects future-dated records", () => {
+test("freshness accepts current records and rejects future-dated or undated records", () => {
   const now = new Date("2026-07-18T12:00:00.000Z");
   assert.equal(isRecent("2026-07-10T00:00:00.000Z", 14, now), true);
   assert.equal(isRecent("2026-07-21T00:00:00.000Z", 14, now), false);
+  assert.equal(isRecent("", 14, now), false);
+  assert.equal(isRecent("not-a-date", 14, now), false);
 });
 
 test("candidate quality warnings expose empty, thin and concentrated topics", () => {

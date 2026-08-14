@@ -5,6 +5,9 @@ no-coverage in the scan warnings. Adding a new feed is as simple as adding
 an entry here - no other changes required.
 """
 
+import json
+from pathlib import Path
+
 # Each value is a list so a source can be covered by multiple feeds.
 FEED_MAP = {
 
@@ -417,15 +420,10 @@ SOURCE_FILTERS = {
 }
 
 # Regulatory Horizon is intentionally narrower than the shared source registry.
-# Signal production, cyber monitoring, AI labs, trade press and research feeds have
-# their own pipelines and must never compete with regulatory instruments here.
-REGULATORY_SOURCE_IDS = {
-    "uk-fca", "uk-fca-enforcement-notices", "uk-fca-regulatory-initiatives-grid", "uk-boe-pra", "uk-hm-treasury", "ofsi", "uk-nca",
-    "ecb-supervision", "ecb-ssm-newsletter", "ecb-supervisory-priorities", "ecb-supervision-sanctions", "eba", "esma", "eiopa", "bis", "bcbs", "iosco", "fsb", "fatf",
-    "sec", "cftc", "fincen-enforcement", "ofac-recent-actions", "nist-ai-rmf",
-    "finma", "japan-fsa", "hkma", "amf-sanctions", "de-bundesbank", "ico",
-    "apra", "asic", "osfi", "mas", "india-sebi", "korea-fsc", "brazil-cvm", "fr-amf",
-    "spain-cnmv", "ireland-cbi", "adgm-fsra",
-    "de-bafin", "dubai-dfsa",
-    "mexico-cnbv", "italy-consob", "saudi-cma", "hong-kong-sfc", "south-africa-sarb", "india-rbi", "singapore-sgx", "brazil-bcb", "south-korea-fss", "switzerland-snb",
-}
+# The source policy is also read by the private deadline dashboard, so the
+# declared discovery perimeter and the scanner selection cannot drift apart.
+# Signal production, cyber monitoring, AI labs, trade press and research feeds
+# have their own pipelines and must never compete with regulatory instruments.
+_POLICY_PATH = Path(__file__).resolve().parents[3] / "dashboard" / "data" / "regulatory-deadline-intake-policy.json"
+with _POLICY_PATH.open(encoding="utf-8") as _policy_file:
+    REGULATORY_SOURCE_IDS = frozenset(json.load(_policy_file)["activeIntake"]["sourceIds"])

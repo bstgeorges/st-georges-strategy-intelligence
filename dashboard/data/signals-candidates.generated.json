@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-08-14T15:48:33.414Z",
+  "generatedAt": "2026-08-14T16:38:47.108Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -237,7 +237,7 @@
           "topicId": "third-party",
           "title": "Increased network congestion in the Eastern US",
           "url": "https://www.cloudflarestatus.com/incidents/9qty28mt423v",
-          "publishedAt": "2026-08-14T15:34:21.000Z",
+          "publishedAt": "2026-08-14T16:28:22.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "cloudflare-status",
           "sourceName": "Cloudflare Status",
@@ -255,6 +255,7 @@
             "service-disruption"
           ],
           "matchedKeywords": [
+            "incident",
             "network",
             "error"
           ],
@@ -262,10 +263,11 @@
             "network"
           ],
           "summaryMatchedKeywords": [
+            "incident",
             "network",
             "error"
           ],
-          "relevanceScore": 87,
+          "relevanceScore": 89,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
@@ -564,41 +566,6 @@
       "id": "cyber",
       "candidates": [
         {
-          "id": "34e3504b36bc6ad0",
-          "topicId": "cyber",
-          "title": "AL26-018 - Vulnerability affecting Cisco ASA and Secure Firewall Threat Defense Software Remote Access SSL VPN - CVE-2026-20349",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-018-vulnerability-affecting-cisco-asa-secure-firewall-threat-defense-software-remote-access-ssl-vpn-cve-2026-20349",
-          "publishedAt": "2026-08-13T13:14:19.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "canada-cyber-centre",
-          "sourceName": "Canadian Centre for Cyber Security",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "canada-cyber-centre-alerts",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "alerts",
-            "actively-exploited",
-            "canada"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 98,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Canadian Centre for Cyber Security via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "fa70f321c3e04d64",
           "topicId": "cyber",
           "title": "Multiples vulnérabilités dans OpenSSH (11 août 2026)",
@@ -688,7 +655,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
+          "relevanceScore": 69,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
@@ -833,7 +800,7 @@
           "topicId": "technology-failure",
           "title": "Increased network congestion in the Eastern US",
           "url": "https://www.cloudflarestatus.com/incidents/9qty28mt423v",
-          "publishedAt": "2026-08-14T15:34:21.000Z",
+          "publishedAt": "2026-08-14T16:28:22.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "cloudflare-status",
           "sourceName": "Cloudflare Status",
@@ -851,6 +818,7 @@
             "service-disruption"
           ],
           "matchedKeywords": [
+            "incident",
             "network",
             "error"
           ],
@@ -858,10 +826,11 @@
             "network"
           ],
           "summaryMatchedKeywords": [
+            "incident",
             "network",
             "error"
           ],
-          "relevanceScore": 87,
+          "relevanceScore": 89,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
@@ -1533,7 +1502,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },

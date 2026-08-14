@@ -65,6 +65,31 @@ test("keeps high-confidence official deadlines below the weekly material thresho
   assert.equal(register.items[0].decision, null);
 });
 
+test("keeps source-verified backfill records private and does not mistake a repeated ledger row for a fresh scan", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
+  const input = path.join(tmp, "scan.json");
+  const out = path.join(tmp, "out");
+  fs.mkdirSync(out);
+  fs.copyFileSync(path.join(ROOT, "dashboard/regulatory-deadline-register/owners.json"), path.join(out, "owners.json"));
+  fs.copyFileSync(path.join(ROOT, "dashboard/regulatory-deadline-register/verified-deadlines.json"), path.join(out, "verified-deadlines.json"));
+  fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-14", signals: [], reviewQueue: [], privateDeadlineCandidates: [], sourceHealth: [], coverage: {} }));
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-14"]).status, 0);
+  const first = JSON.parse(fs.readFileSync(path.join(out, "register.json")));
+  assert.equal(first.items.length, 6);
+  assert.equal(first.items.filter((item) => item.status === "confirmed").length, 0);
+  assert.equal(first.items.filter((item) => item.intake === "verified-backfill").length, 6);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out, "changes.json"))).additions.length, 6);
+  assert.equal(spawnSync(process.execPath, [validate, "--dir", out, "--as-of", "2026-08-14", "--strict"]).status, 0);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out, "qa.json"))).errors.length, 0);
+  fs.writeFileSync(input, JSON.stringify({ edition: "2026-08-21", signals: [], reviewQueue: [], privateDeadlineCandidates: [], sourceHealth: [], coverage: {} }));
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-21"]).status, 0);
+  const second = JSON.parse(fs.readFileSync(path.join(out, "register.json")));
+  assert.equal(second.items.find((item) => item.authority.id === "eiopa").lastSeen, "2026-08-14");
+  const changes = JSON.parse(fs.readFileSync(path.join(out, "changes.json")));
+  assert.equal(changes.reconfirmed.length, 0);
+  assert.equal(changes.notReconfirmed.length, 0);
+});
+
 test("does not claim a relaunch without recorded human sign-off, even when numerical gates pass", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
   const authorities = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba"];

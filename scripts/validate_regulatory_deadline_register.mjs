@@ -51,6 +51,10 @@ function main() {
     seen.add(item.id);
     if (item.deadline > "2030-12-31") errors.push(`implausibly distant deadline ${item.id}`);
     if (!item.authority?.id) errors.push(`missing authority ${item.id}`);
+    if (item.intake === "verified-backfill") {
+      if (!isValidDate(item.evidence?.verifiedAt)) errors.push(`missing current primary-source verification date ${item.id}`);
+      if (!item.evidence?.verification) errors.push(`missing primary-source verification method ${item.id}`);
+    }
   }
   const sourceHealthSeen = new Set();
   for (const item of health.sourceHealth || []) {
@@ -71,6 +75,8 @@ function main() {
   if (confirmedOpen.length < 10) warnings.push(`only ${confirmedOpen.length} confirmed open deadlines; target is 10`);
   if (confirmedAuthorities.size < 4) warnings.push(`only ${confirmedAuthorities.size} confirmed authorities; target is 4`);
   if (concentration > 0.6) warnings.push(`confirmed register is concentrated in one authority (${Math.round(concentration * 100)}%)`);
+  const staleVerifications = (register.items || []).filter((item) => item.intake === "verified-backfill" && isValidDate(item.evidence?.verifiedAt) && dateDiff(today, item.evidence.verifiedAt) > 14);
+  if (staleVerifications.length) warnings.push(`${staleVerifications.length} verified carry-forward record(s) need a renewed primary-source check`);
   const run = { asOf: register.asOf, sourceEdition: register.sourceEdition, healthyCore, errors, warnings };
   const runs = [...(prior.runs || []).filter((item) => item.sourceEdition !== run.sourceEdition), run].slice(-12);
   const stableCore = CORE.filter((id) => runs.slice(-3).length === 3 && runs.slice(-3).every((entry) => entry.healthyCore.includes(id)));

@@ -1,17 +1,218 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-09T09:52:24.425Z",
-  "asOf": "2026-08-09",
+  "generatedAt": "2026-08-14T16:14:00.261Z",
+  "asOf": "2026-08-14",
   "sourceEdition": "2026-08-02",
   "carryForwardGraceDays": 30,
   "items": [
+    {
+      "id": "462c72374abb045944af",
+      "title": "Consultation Paper No. 174 – Miscellaneous changes",
+      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
+      "deadline": "2026-08-24",
+      "daysToDeadline": 10,
+      "stage": "consultation",
+      "authority": {
+        "id": "dubai-dfsa",
+        "name": "Dubai Financial Services Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "themes": [
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-07-09",
+      "status": "ready-for-review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding.",
+        "detailChecked": true,
+        "deadlineCue": "The DFSA notice states that comments are due on 24 August 2026.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source and underlying consultation document checked"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
+    },
+    {
+      "id": "2e61b9c6cd8a588f1b18",
+      "title": "Updating the Bank of England’s fee regime for recognised payment systems",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "deadline": "2026-08-31",
+      "daysToDeadline": 17,
+      "stage": "consultation",
+      "authority": {
+        "id": "uk-hm-treasury",
+        "name": "HM Treasury",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "UK"
+      ],
+      "themes": [
+        "digital-money",
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": "2026-07-15",
+      "status": "ready-for-review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "HM Treasury consultation on the Bank of England fee regime for recognised payment systems and digital settlement asset service providers.",
+        "detailChecked": true,
+        "deadlineCue": "The consultation document states that it closes on 31 August 2026.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source and underlying consultation document checked"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Payments / digital assets",
+          "Legal and compliance",
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Confirm perimeter and product scope",
+          "Map implementation dependencies",
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
+    },
+    {
+      "id": "6db1b6fc915cb80933f6",
+      "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
+      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
+      "deadline": "2026-09-07",
+      "daysToDeadline": 24,
+      "stage": "consultation",
+      "authority": {
+        "id": "dubai-dfsa",
+        "name": "Dubai Financial Services Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "themes": [
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-07-07",
+      "status": "ready-for-review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance.",
+        "detailChecked": true,
+        "deadlineCue": "The DFSA notice gives 7 September 2026 as the comment deadline.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control",
+          "Conduct risk",
+          "Customer and product owner"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies",
+          "Assess customer impact",
+          "Confirm policy, communications and control evidence"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
+    },
     {
       "id": "3ff3ff741ca2b31e4aa6",
       "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
       "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
       "deadline": "2026-09-21",
-      "daysToDeadline": 43,
+      "daysToDeadline": 38,
       "stage": "consultation",
       "authority": {
         "id": "adgm-fsra",
@@ -52,7 +253,9 @@
       "evidence": {
         "change": "The Financial Services Regulatory Authority has published this Consultation Paper to seek views on proposed enhancements to the framework governing the transfer of business within ADGM. Consultation Closing Date: 21 Sep 2026",
         "detailChecked": true,
-        "deadlineCue": null
+        "deadlineCue": null,
+        "verifiedAt": null,
+        "verification": null
       },
       "ownerGuidance": {
         "owners": [
@@ -65,8 +268,213 @@
         ]
       },
       "firstSeen": "2026-08-09",
-      "lastSeen": "2026-08-09",
-      "sourceEdition": "2026-08-02"
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-02",
+      "intake": "scanner"
+    },
+    {
+      "id": "447479f78f8e7b2729d5",
+      "title": "Modernising Payment Services Regulation",
+      "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
+      "deadline": "2026-10-06",
+      "daysToDeadline": 53,
+      "stage": "consultation",
+      "authority": {
+        "id": "uk-hm-treasury",
+        "name": "HM Treasury",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "UK"
+      ],
+      "themes": [
+        "digital-money",
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 1,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": "2026-07-14",
+      "status": "ready-for-review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "HM Treasury consultation spanning payments, electronic money, tokenised payments, Open Banking and agentic payments.",
+        "detailChecked": true,
+        "deadlineCue": "The consultation document states that it closes on 6 October 2026.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source and underlying consultation document checked"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Payments / digital assets",
+          "Legal and compliance",
+          "Operations",
+          "Markets or product control",
+          "Conduct risk",
+          "Customer and product owner"
+        ],
+        "prepare": [
+          "Confirm perimeter and product scope",
+          "Map implementation dependencies",
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies",
+          "Assess customer impact",
+          "Confirm policy, communications and control evidence"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
+    },
+    {
+      "id": "e5665ae225f5d4706d2d",
+      "title": "Solvency II Review guidelines and technical standards apply",
+      "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
+      "deadline": "2027-01-30",
+      "daysToDeadline": 169,
+      "stage": "implementation",
+      "authority": {
+        "id": "eiopa",
+        "name": "European Insurance and Occupational Pensions Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "EU"
+      ],
+      "themes": [
+        "balance-sheet",
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": "2026-07-15",
+      "status": "ready-for-review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "EIOPA’s Solvency II review package sets an implementation date for the amended framework and associated instruments.",
+        "detailChecked": true,
+        "deadlineCue": "EIOPA states that the legal changes and instruments apply from 30 January 2027.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Treasury",
+          "Prudential policy",
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Assess capital, liquidity and reporting implications",
+          "Set an implementation or response plan",
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
+    },
+    {
+      "id": "bde66a7c962b8ca0e916",
+      "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
+      "deadline": "2027-03-01",
+      "daysToDeadline": 199,
+      "stage": "implementation",
+      "authority": {
+        "id": "hkma",
+        "name": "Hong Kong Monetary Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "themes": [
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "medium",
+        "score": 0.8,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.67,
+          "urgency": 0.45,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.67
+        }
+      },
+      "sourcePublishedAt": "2026-06-05",
+      "status": "review",
+      "intake": "verified-backfill",
+      "decision": null,
+      "evidence": {
+        "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed.",
+        "detailChecked": true,
+        "deadlineCue": "HKMA and SFC say they aim to bring the amendments into effect on 1 March 2027.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked; date is an implementation aim, not a final legal commencement notice"
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-14",
+      "lastSeen": "2026-08-14",
+      "sourceEdition": "2026-08-14"
     }
   ]
 }

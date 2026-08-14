@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_INPUT = path.join(ROOT, "tools/reg-scan/docs/latest.json");
 const DEFAULT_OUT = path.join(ROOT, "dashboard/regulatory-deadline-register");
+const DEFAULT_VERIFIED = path.join(DEFAULT_OUT, "verified-deadlines.json");
 const REGISTRY = path.join(ROOT, "dashboard/data/source-registry.json");
 const GRACE_DAYS = 30;
 
@@ -103,16 +104,19 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
     businessImpact: signal.businessImpact || null,
     sourcePublishedAt: isoDate(signal.date),
     status: state,
+    intake: signal.intake || "scanner",
     decision: decision ? { decision: decision.decision, reviewer: decision.reviewer || null, note: decision.note || "", decidedAt: decision.decidedAt || null } : null,
     evidence: {
       change: signal.editorial?.change || signal.why || "",
       detailChecked: Boolean(signal.confidence?.components?.detail),
       deadlineCue: signal.deadlineEvidence || signal.deadline_evidence || null,
+      verifiedAt: isoDate(signal.verifiedAt),
+      verification: signal.verification || null,
     },
     ownerGuidance: ownerGuidance(owners, themes),
-    firstSeen: asOf,
-    lastSeen: asOf,
-    sourceEdition: null,
+    firstSeen: isoDate(signal.verifiedAt) || asOf,
+    lastSeen: isoDate(signal.verifiedAt) || asOf,
+    sourceEdition: isoDate(signal.verifiedAt) || null,
   };
 }
 
@@ -133,12 +137,13 @@ function merge(previous, candidates, asOf, edition) {
       }
     }
     const old = next.get(candidate.id);
+    const isVerifiedBackfill = candidate.intake === "verified-backfill";
     next.set(candidate.id, {
       ...old,
       ...candidate,
       firstSeen: old?.firstSeen || candidate.firstSeen,
-      lastSeen: asOf,
-      sourceEdition: edition,
+      lastSeen: isVerifiedBackfill ? old?.lastSeen || candidate.lastSeen : asOf,
+      sourceEdition: isVerifiedBackfill ? old?.sourceEdition || candidate.sourceEdition || edition : edition,
     });
   }
   return [...next.values()].sort((a, b) => a.deadline.localeCompare(b.deadline) || a.title.localeCompare(b.title));
@@ -148,7 +153,7 @@ function buildChanges(previous, candidates, items, asOf, edition) {
   const prior = previous.items || [];
   const priorById = new Map(prior.map((item) => [item.id, item]));
   const currentById = new Map(items.map((item) => [item.id, item]));
-  const seenIds = new Set(candidates.map((item) => item.id));
+  const seenIds = new Set(candidates.filter((item) => item.intake !== "verified-backfill").map((item) => item.id));
   const additions = [];
   const revisedDates = [];
   const statusChanges = [];
@@ -158,7 +163,9 @@ function buildChanges(previous, candidates, items, asOf, edition) {
     const old = priorById.get(candidate.id);
     const priorVersion = prior.find((item) => item.url === candidate.url && item.id !== candidate.id && item.status !== "superseded");
     const current = currentById.get(candidate.id) || candidate;
-    if (priorVersion) {
+    if (candidate.intake === "verified-backfill" && old) {
+      continue;
+    } else if (priorVersion) {
       revisedDates.push({
         id: candidate.id,
         title: candidate.title,
@@ -177,7 +184,7 @@ function buildChanges(previous, candidates, items, asOf, edition) {
   }
 
   const notReconfirmed = prior
-    .filter((item) => !["rejected", "superseded"].includes(item.status) && !seenIds.has(item.id) && currentById.has(item.id))
+    .filter((item) => item.intake !== "verified-backfill" && !["rejected", "superseded"].includes(item.status) && !seenIds.has(item.id) && currentById.has(item.id))
     .map((item) => ({ id: item.id, title: item.title, authority: item.authority, deadline: item.deadline, url: item.url }));
 
   return {
@@ -210,13 +217,17 @@ function run() {
   const owners = readJson(path.join(outDir, "owners.json"), readJson(path.join(DEFAULT_OUT, "owners.json"), null));
   if (!owners?.default) throw new Error("owners.json is required and must define a default owner route");
   const approvals = readJson(path.join(outDir, "approvals.json"), { decisions: [] });
+  const verified = readJson(
+    path.join(outDir, "verified-deadlines.json"),
+    outDir === DEFAULT_OUT ? readJson(DEFAULT_VERIFIED, { records: [] }) : { records: [] },
+  );
   validateApprovals(approvals);
   const previous = readJson(path.join(outDir, "register.json"), { items: [] });
   const seen = new Set();
   // The weekly material shortlist is not the complete deadline universe.
   // `privateDeadlineCandidates` carries high-confidence official dates that
   // are too narrow to be promoted as a weekly signal, and must remain private.
-  const candidates = [...(scanner.signals || []), ...(scanner.reviewQueue || []), ...(scanner.privateDeadlineCandidates || [])]
+  const candidates = [...(scanner.signals || []), ...(scanner.reviewQueue || []), ...(scanner.privateDeadlineCandidates || []), ...(verified.records || [])]
     .map((signal) => asCandidate(signal, sourceById, sourceIdByName, owners, asOf, approvals.decisions || []))
     .filter((item) => item && !seen.has(item.id) && seen.add(item.id));
   const items = merge(previous.items || [], candidates, asOf, scanner.edition);

@@ -2015,8 +2015,56 @@ a.tag:hover {
 }
 
 .committee-current .committee-question-card {
-  max-width: 1040px;
   background: linear-gradient(135deg, rgba(160, 126, 46, 0.1), var(--paper-raised) 42%);
+}
+
+.committee-current-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.committee-current-grid .committee-question-card h3 {
+  font-size: clamp(23px, 1.8vw, 30px);
+}
+
+.committee-use {
+  background: var(--paper-soft);
+}
+
+.committee-use-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  background: rgba(15, 34, 51, 0.16);
+}
+
+.committee-use-grid li {
+  min-height: 170px;
+  padding: 24px;
+  background: var(--paper-raised);
+}
+
+.committee-use-grid span {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--accent-readable);
+  font: 600 10.5px/1.4 var(--mono);
+  letter-spacing: 0.12em;
+}
+
+.committee-use-grid strong {
+  display: block;
+  color: var(--navy);
+  font: 600 20px/1.2 var(--serif);
+}
+
+.committee-use-grid p {
+  margin: 10px 0 0;
+  color: var(--muted);
 }
 
 #horizon-current-edition .horizon-dashboard {
@@ -2454,6 +2502,8 @@ a.tag:hover {
   .brief-scan-grid,
   .brief-theme-list,
   .committee-question-grid,
+  .committee-current-grid,
+  .committee-use-grid,
   .framework-chain,
   .archive-grid,
   .radar-grid,
@@ -2552,6 +2602,8 @@ a.tag:hover {
   .brief-scan-grid,
   .brief-theme-list,
   .committee-question-grid,
+  .committee-current-grid,
+  .committee-use-grid,
   .framework-chain,
   .archive-grid,
   .brief-columns,

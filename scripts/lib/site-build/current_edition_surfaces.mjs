@@ -22,6 +22,14 @@ function committeeQuestionLinks(question) {
     .join("");
 }
 
+function currentCommitteeQuestions(editionRecord) {
+  const questions = Array.isArray(editionRecord.committeeQuestions)
+    ? editionRecord.committeeQuestions.filter((question) => question?.question && question?.why && question?.evidence)
+    : [];
+  if (questions.length) return questions.slice(0, 3);
+  return editionRecord.committeeQuestion?.question ? [editionRecord.committeeQuestion] : [];
+}
+
 /**
  * Render the shared current-edition record onto the two public entry surfaces.
  * File I/O remains in the publisher; this module owns only the editorial markup.
@@ -35,7 +43,8 @@ export function renderCurrentEditionSurfaces({
   replaceElementContent,
 }) {
   if (!editionRecord) return { homeHtml, committeeHtml };
-  const question = editionRecord.committeeQuestion || {};
+  const questions = currentCommitteeQuestions(editionRecord);
+  const question = questions[0] || editionRecord.committeeQuestion || {};
   let renderedHome = homeHtml;
   let renderedCommittee = committeeHtml;
 
@@ -62,7 +71,8 @@ export function renderCurrentEditionSurfaces({
   }
 
   if (renderedCommittee) {
-    const content = `<div class="section-heading"><div><p class="eyebrow">This week’s question</p><h2>What should the committee ask for now?</h2></div><p>A current question gives the library a live entry point. The rest of the page stays useful beyond this week’s news cycle.</p></div><article class="committee-question-card featured-question"><p class="meta">${escapeHtml(question.domain || "Current edition")}</p><h3>${escapeHtml(question.question || "Ask for the current decision, owner and evidence.")}</h3><dl><div><dt>Why ask now</dt><dd>${escapeHtml(question.why || "The current edition identifies a live operating decision.")}</dd></div><div><dt>Evidence to request</dt><dd>${escapeHtml(question.evidence || "Ask for a dated decision trail and supporting evidence.")}</dd></div></dl><div class="source-row">${committeeQuestionLinks(question)}</div></article>`;
+    const cards = questions.map((item, index) => `<article class="committee-question-card ${index === 0 ? "featured-question" : ""}"><p class="meta">Question ${String(index + 1).padStart(2, "0")} / ${escapeHtml(item.domain || "Current edition")}</p><h3>${escapeHtml(item.question)}</h3><dl><div><dt>Why it matters now</dt><dd>${escapeHtml(item.why)}</dd></div><div><dt>Ask for</dt><dd>${escapeHtml(item.evidence)}</dd></div></dl><div class="source-row">${committeeQuestionLinks(item)}</div></article>`).join("");
+    const content = `<div class="section-heading"><div><p class="eyebrow">This week’s questions</p><h2>Three questions to take into the room</h2></div><p>Each week starts with a small set of live, copy-ready challenges. Use one, ask for the evidence, then assign the follow-up.</p></div><div class="committee-current-grid">${cards}</div>`;
     renderedCommittee = replaceElementContent(renderedCommittee, "section", "committee-current-question", content);
   }
 

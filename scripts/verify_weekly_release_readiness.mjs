@@ -43,6 +43,10 @@ assert(/^\d{4}-\d{2}-\d{2}$/.test(edition.publicationDate || ""), "current-editi
 assert(signals.edition === edition.publicationDate, "Signals edition must match current-edition publicationDate");
 assert(promotion.date === edition.publicationDate, "approved Signals promotion summary must match current-edition publicationDate");
 assert(Boolean(edition.committeeQuestion?.question && edition.committeeQuestion?.why && edition.committeeQuestion?.evidence), "current-edition must include a complete featured Committee Question");
+assert(Array.isArray(edition.committeeQuestions) && edition.committeeQuestions.length === 3, "current-edition must include exactly three Committee Questions");
+for (const [index, question] of (edition.committeeQuestions || []).entries()) {
+  assert(Boolean(question?.question && question?.why && question?.evidence), `current-edition Committee Question ${index + 1} must be complete`);
+}
 assert(Array.isArray(edition.topSignals) && edition.topSignals.length === 5, "current-edition must contain exactly five cross-site signals");
 assert(ageInDays(edition.publicationDate, options.asOf) >= 0, "current-edition publicationDate cannot be in the future");
 assert(ageInDays(edition.publicationDate, options.asOf) <= options.maxAgeDays, "current-edition is overdue for its next weekly refresh");

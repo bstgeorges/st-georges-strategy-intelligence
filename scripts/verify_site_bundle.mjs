@@ -114,7 +114,11 @@ function checkCurrentEditionAlignment(failures) {
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
-  assert(committee.includes(edition.committeeQuestion?.question || ""), "committee questions should include the canonical current-edition question", failures);
+  const committeeQuestions = edition.committeeQuestions || [edition.committeeQuestion];
+  assert(committeeQuestions.length === 3, "current edition should define three Committee Questions", failures);
+  for (const question of committeeQuestions) {
+    assert(committee.includes(question?.question || ""), "committee questions should include every canonical current-edition question", failures);
+  }
   assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);
   assert(about.includes("Not proof of no activity"), "About page should explain quiet-theme meaning", failures);
   for (const [label, html] of [

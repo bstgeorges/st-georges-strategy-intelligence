@@ -15,6 +15,29 @@
     "evidence": "Ask for one recent end-to-end example: the alert or evaluation, named owner, authority to intervene, control action, exception decision, recovery or remediation proof, and dated closure record.",
     "links": ["brief", "ai", "cyber", "data"]
   },
+  "committeeQuestions": [
+    {
+      "domain": "Intervention authority",
+      "question": "For one important AI-enabled workflow, who can stop or change it—and can management show that authority works?",
+      "why": "As systems move from assisting people to taking action, the practical control is not a policy. It is a named person, a real permission boundary and a route that works under pressure.",
+      "evidence": "The workflow, its permissions, the named intervention authority, the stop or rollback route and one recent test or decision record.",
+      "links": ["brief", "ai", "cyber"]
+    },
+    {
+      "domain": "Shared dependency",
+      "question": "Which important customer services would fail together if a shared cloud, identity, data or model provider were impaired—and when did we last test the fallback?",
+      "why": "Individual supplier assessments can miss a common dependency. A disruption becomes the firm’s problem when multiple important services depend on the same underlying provider or control plane.",
+      "evidence": "The service-and-dependency map, common points of failure, impact tolerance, fallback plan, test result and accountable owner.",
+      "links": ["third-party", "resilience"]
+    },
+    {
+      "domain": "Evidence and closure",
+      "question": "Can management trace one recent cyber or data issue from alert to closure, including the decision, action, exception and proof that the fix worked?",
+      "why": "Seeing an alert is not the same as controlling the risk. The committee needs confidence that an issue can be identified, owned, remedied and closed with evidence that survives scrutiny.",
+      "evidence": "The original alert, named owner, decision log, remediation record, any accepted exception, retest result and dated closure record.",
+      "links": ["cyber", "data"]
+    }
+  ],
   "judgement": {
     "observation": "This week’s AI, cyber, sanctions and data events all point to one management test: when a warning lands, can the firm turn it into a clear, evidenced decision?",
     "executiveJudgement": "The weakness is rarely seeing the alert. It is being able to show who could act, what they decided and whether the issue was closed properly. A policy or dashboard alone cannot do that.",

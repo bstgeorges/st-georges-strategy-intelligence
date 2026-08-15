@@ -694,6 +694,12 @@ function loadEditionRecord(failures) {
   for (const field of ["domain", "question", "why", "evidence"]) {
     assert(Boolean(record.committeeQuestion?.[field]), `current edition committeeQuestion missing ${field}`, failures);
   }
+  assert(Array.isArray(record.committeeQuestions) && record.committeeQuestions.length === 3, "current edition must define exactly three Committee Questions", failures);
+  for (const [index, question] of (record.committeeQuestions || []).entries()) {
+    for (const field of ["domain", "question", "why", "evidence"]) {
+      assert(Boolean(question?.[field]), `current edition committeeQuestions row ${index + 1} missing ${field}`, failures);
+    }
+  }
   const judgementWordCount = [record.judgement?.observation, record.judgement?.executiveJudgement, record.judgement?.implication]
     .filter(Boolean)
     .join(" ")
@@ -2239,7 +2245,9 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   }
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
-  assert(committeePage.includes(editionRecord.committeeQuestion?.question || ""), "Committee Questions must include the current edition question", failures);
+  for (const question of editionRecord.committeeQuestions || [editionRecord.committeeQuestion]) {
+    assert(committeePage.includes(question?.question || ""), "Committee Questions must include every current-edition question", failures);
+  }
 
   const signals = readJson(path.join(out, "data", "signals.json"));
   const signalsLatest = path.join(out, "signals", "latest.json");

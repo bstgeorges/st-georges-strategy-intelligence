@@ -2,15 +2,884 @@
   "version": "2026-08-14",
   "reviewStatus": "pending",
   "candidateGeneratedAt": "2026-08-16T09:34:29.066Z",
-  "preparedAt": "2026-08-16T09:35:28.996Z",
-  "instructions": "Review the proposed candidates, copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
+  "preparedAt": "2026-08-16T18:40:57.607Z",
+  "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
     "specificity",
     "decision value",
     "source authority",
-    "duplication control"
+    "duplication control",
+    "source diversity",
+    "regional balance",
+    "new versus continuing"
   ],
+  "editorial": {
+    "decisionTypeCounts": {
+      "rule-change": 2,
+      "enforcement": 3,
+      "active-threat": 0,
+      "outage": 3,
+      "research": 3,
+      "context": 55
+    },
+    "decisionTypeGroups": [
+      {
+        "id": "rule-change",
+        "label": "rule change",
+        "candidateCount": 2,
+        "candidates": [
+          {
+            "title": "Guidance: OFSI General Licence INT/2025/7895596",
+            "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20257895596",
+            "sourceName": "UK Office of Financial Sanctions Implementation",
+            "sourceOwner": "ofsi",
+            "publishedAt": "2026-08-12T15:09:20.000Z",
+            "relevanceScore": 63,
+            "decisionType": "rule-change",
+            "region": "UK/EMEA",
+            "topics": [
+              "financial-crime"
+            ]
+          },
+          {
+            "title": "Guidance: OFSI General Licence INT/2025/8031092",
+            "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20258031092",
+            "sourceName": "UK Office of Financial Sanctions Implementation",
+            "sourceOwner": "ofsi",
+            "publishedAt": "2026-08-12T15:09:02.000Z",
+            "relevanceScore": 63,
+            "decisionType": "rule-change",
+            "region": "UK/EMEA",
+            "topics": [
+              "financial-crime"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "enforcement",
+        "label": "enforcement",
+        "candidateCount": 3,
+        "candidates": [
+          {
+            "title": "26-192MR Recruitment firm Hudson Global Resources (Aust) Pty Ltd fined $270,000 for breaching financial reporting obligations | ASIC",
+            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-192mr-recruitment-firm-hudson-global-resources-aust-pty-ltd-fined-270-000-for-breaching-financial-reporting-obligations",
+            "sourceName": "Australian Securities and Investments Commission",
+            "sourceOwner": "asic",
+            "publishedAt": "2026-08-12T00:31:52.000Z",
+            "relevanceScore": 77,
+            "decisionType": "enforcement",
+            "region": "Global/other",
+            "topics": [
+              "data"
+            ]
+          },
+          {
+            "title": "ICO joins global data protection and privacy enforcement programme",
+            "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/ico-joins-global-data-protection-and-privacy-enforcement-programme",
+            "sourceName": "UK Information Commissioner's Office",
+            "sourceOwner": "ico",
+            "publishedAt": "2026-07-31T12:27:11.000Z",
+            "relevanceScore": 70,
+            "decisionType": "enforcement",
+            "region": "UK/EMEA",
+            "topics": [
+              "data"
+            ]
+          },
+          {
+            "title": "SEC Establishes Financial Reporting and Accounting Unit in Enforcement Division",
+            "url": "https://www.sec.gov/newsroom/press-releases/2026-72-sec-establishes-financial-reporting-accounting-unit-enforcement-division",
+            "sourceName": "US Securities and Exchange Commission",
+            "sourceOwner": "sec",
+            "publishedAt": "2026-08-05T18:30:00.000Z",
+            "relevanceScore": 64,
+            "decisionType": "enforcement",
+            "region": "US",
+            "topics": [
+              "data"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "outage",
+        "label": "outage",
+        "candidateCount": 3,
+        "candidates": [
+          {
+            "title": "Disruption with GHEC Team Sync",
+            "url": "https://www.githubstatus.com/incidents/pf25whpq58hh",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-13T18:27:54.000Z",
+            "relevanceScore": 84,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Disruption with Login and Release Asset downloads",
+            "url": "https://www.githubstatus.com/incidents/lsvy8xsf0gxv",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-12T22:56:39.000Z",
+            "relevanceScore": 83,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
+            "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
+            "sourceName": "Google Cloud Service Health",
+            "sourceOwner": "google-cloud-status",
+            "publishedAt": "2026-07-25T13:16:55.000Z",
+            "relevanceScore": 74,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "resilience",
+              "technology-failure",
+              "third-party"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "label": "research",
+        "candidateCount": 3,
+        "candidates": [
+          {
+            "title": "AI model achieves breakthrough in forecasting cyclones — Google DeepMind",
+            "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
+            "sourceName": "Google DeepMind",
+            "sourceOwner": "google-deepmind",
+            "publishedAt": "2026-08-11T00:00:00.000Z",
+            "relevanceScore": 75,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "NCSC statement in response to recent incidents resulting from frontier AI evaluations",
+            "url": "https://www.ncsc.gov.uk/news/ncsc-statement-in-response-to-recent-incidents-resulting-from-frontier-ai-evaluations",
+            "sourceName": "UK National Cyber Security Centre",
+            "sourceOwner": "uk-ncsc",
+            "publishedAt": "2026-08-04T12:00:00.000Z",
+            "relevanceScore": 62,
+            "decisionType": "research",
+            "region": "UK/EMEA",
+            "topics": [
+              "resilience"
+            ]
+          },
+          {
+            "title": "A moral Turing test: How belief and source shape detection of and agreement with LLM judgments — Google DeepMind",
+            "url": "https://deepmind.google/research/publications/118955",
+            "sourceName": "Google DeepMind",
+            "sourceOwner": "google-deepmind",
+            "publishedAt": "2026-08-07T00:00:00.000Z",
+            "relevanceScore": 52,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "context",
+        "label": "context",
+        "candidateCount": 55,
+        "candidates": [
+          {
+            "title": "Increased network congestion in the Eastern US",
+            "url": "https://www.cloudflarestatus.com/incidents/9qty28mt423v",
+            "sourceName": "Cloudflare Status",
+            "sourceOwner": "cloudflare-status",
+            "publishedAt": "2026-08-14T16:28:22.000Z",
+            "relevanceScore": 86,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Errors with the Fable 5 Model in Copilot",
+            "url": "https://www.githubstatus.com/incidents/24t8gsgqx2qb",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-13T15:47:22.000Z",
+            "relevanceScore": 84,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "SEC Charges Boiler Room Operator and Three Entities with Defrauding Retail Investors in $74 Million Pre-IPO Investment Scam",
+            "url": "https://www.sec.gov/newsroom/press-releases/2026-75-sec-charges-boiler-room-operator-three-entities-defrauding-retail-investors-74-million-pre-ipo",
+            "sourceName": "US Securities and Exchange Commission",
+            "sourceOwner": "sec",
+            "publishedAt": "2026-08-14T20:16:34.000Z",
+            "relevanceScore": 82,
+            "decisionType": "context",
+            "region": "US",
+            "topics": [
+              "financial-crime"
+            ]
+          },
+          {
+            "title": "Incident with Webhooks",
+            "url": "https://www.githubstatus.com/incidents/k8vbzwqjkxzn",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-13T15:36:34.000Z",
+            "relevanceScore": 82,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Incident with Pull Requests and Issues",
+            "url": "https://www.githubstatus.com/incidents/76t89hbfb09h",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-12T16:41:18.000Z",
+            "relevanceScore": 82,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "26-194MR McPherson&#x2019;s liable for continuous disclosure failure and misleading investors, former CEO breached directors&#x2019; duties | ASIC",
+            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-194mr-mcpherson-s-liable-for-continuous-disclosure-failure-and-misleading-investors-former-ceo-breached-directors-duties",
+            "sourceName": "Australian Securities and Investments Commission",
+            "sourceOwner": "asic",
+            "publishedAt": "2026-08-14T04:31:50.000Z",
+            "relevanceScore": 81,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "data"
+            ]
+          },
+          {
+            "title": "SEC Charges Toms River Trio in Connection with Alleged $47 Million Fraud Targeting Orthodox Jewish Communities",
+            "url": "https://www.sec.gov/newsroom/press-releases/2026-74-sec-charges-toms-river-trio-connection-alleged-47-million-fraud-targeting-orthodox-jewish",
+            "sourceName": "US Securities and Exchange Commission",
+            "sourceOwner": "sec",
+            "publishedAt": "2026-08-13T20:32:19.000Z",
+            "relevanceScore": 80,
+            "decisionType": "context",
+            "region": "US",
+            "topics": [
+              "financial-crime"
+            ]
+          },
+          {
+            "title": "HKICL alerts public of fraudulent website",
+            "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/08/20260814-5",
+            "sourceName": "Hong Kong Monetary Authority",
+            "sourceOwner": "hkma",
+            "publishedAt": "2026-08-13T16:00:00.000Z",
+            "relevanceScore": 80,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "financial-crime"
+            ]
+          },
+          {
+            "title": "The builder’s guide to GPT‑5.6",
+            "url": "https://openai.com/index/builders-guide-to-gpt-5-6",
+            "sourceName": "OpenAI",
+            "sourceOwner": "openai",
+            "publishedAt": "2026-08-13T11:00:00.000Z",
+            "relevanceScore": 80,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "CFTC Releases Advisory on Self-Certification of Incentive Programs for Prediction Markets",
+            "url": "https://www.cftc.gov/PressRoom/PressReleases/9282-26",
+            "sourceName": "US Commodity Futures Trading Commission",
+            "sourceOwner": "cftc",
+            "publishedAt": "2026-08-12T19:27:08.000Z",
+            "relevanceScore": 78,
+            "decisionType": "context",
+            "region": "US",
+            "topics": [
+              "market-structure"
+            ]
+          }
+        ]
+      }
+    ],
+    "diversity": {
+      "candidateRows": 80,
+      "uniqueCandidateEvents": 66,
+      "crossThemeDuplicatesCollapsed": 14,
+      "sourceOwnerConcentration": [
+        {
+          "sourceOwner": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "count": 10,
+          "share": 15.2
+        },
+        {
+          "sourceOwner": "cftc",
+          "sourceName": "US Commodity Futures Trading Commission",
+          "count": 6,
+          "share": 9.1
+        },
+        {
+          "sourceOwner": "sec",
+          "sourceName": "US Securities and Exchange Commission",
+          "count": 6,
+          "share": 9.1
+        },
+        {
+          "sourceOwner": "github-status",
+          "sourceName": "GitHub Status",
+          "count": 5,
+          "share": 7.6
+        },
+        {
+          "sourceOwner": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "count": 5,
+          "share": 7.6
+        },
+        {
+          "sourceOwner": "jpcert",
+          "sourceName": "JPCERT Coordination Center",
+          "count": 4,
+          "share": 6.1
+        },
+        {
+          "sourceOwner": "mistral-ai",
+          "sourceName": "Mistral AI",
+          "count": 4,
+          "share": 6.1
+        },
+        {
+          "sourceOwner": "openai",
+          "sourceName": "OpenAI",
+          "count": 4,
+          "share": 6.1
+        }
+      ],
+      "sourceOwnerConcentrationWarning": "",
+      "regionalBalance": [
+        {
+          "region": "UK/EMEA",
+          "count": 30,
+          "share": 45.5
+        },
+        {
+          "region": "US",
+          "count": 12,
+          "share": 18.2
+        },
+        {
+          "region": "Global/other",
+          "count": 24,
+          "share": 36.4
+        }
+      ],
+      "newVersusContinuing": {
+        "newCandidateEvents": 64,
+        "alreadyPublishedCandidates": 2,
+        "continuingPublishedEvents": 35,
+        "currentEditionTop5Events": 36
+      }
+    },
+    "sourceHealth": {
+      "runsRetained": 1,
+      "healthy": 48,
+      "watching": 1,
+      "investigate": 0,
+      "supplementary": 1,
+      "entries": [
+        {
+          "sourceId": "openai-news-rss",
+          "sourceRegistryId": "openai",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "anthropic-news-sitemap",
+          "sourceRegistryId": "anthropic",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "deepmind-sitemap",
+          "sourceRegistryId": "google-deepmind",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "microsoft-ai-rss",
+          "sourceRegistryId": "microsoft-ai",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "fca-news-rss",
+          "sourceRegistryId": "uk-fca",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "eba-rss",
+          "sourceRegistryId": "eba",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "ncsc-advisories-rss",
+          "sourceRegistryId": "uk-ncsc",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "nca-news-rss",
+          "sourceRegistryId": "uk-nca",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "esma-rss",
+          "sourceRegistryId": "esma",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "fsb-feed",
+          "sourceRegistryId": "fsb",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hm-treasury-policy-atom",
+          "sourceRegistryId": "uk-hm-treasury",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "boe-news-rss",
+          "sourceRegistryId": "uk-boe-pra",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "boe-publications-rss",
+          "sourceRegistryId": "uk-boe-pra",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "sec-press-releases-rss",
+          "sourceRegistryId": "sec",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cftc-market-rss",
+          "sourceRegistryId": "cftc",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cftc-enforcement-rss",
+          "sourceRegistryId": "cftc",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hkma-circulars-rss",
+          "sourceRegistryId": "hkma",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hkma-consultations-rss",
+          "sourceRegistryId": "hkma",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hkma-press-releases-rss",
+          "sourceRegistryId": "hkma",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hkma-guidelines-rss",
+          "sourceRegistryId": "hkma",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "amf-news-rss",
+          "sourceRegistryId": "fr-amf",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "amf-regulation-rss",
+          "sourceRegistryId": "fr-amf",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "amf-enforcement-rss",
+          "sourceRegistryId": "fr-amf",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cnmv-news-rss",
+          "sourceRegistryId": "spain-cnmv",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cbi-news-rss",
+          "sourceRegistryId": "ireland-cbi",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cbi-markets-rss",
+          "sourceRegistryId": "ireland-cbi",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "nist-ai-rss",
+          "sourceRegistryId": "nist-ai-rmf",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "mistral-news-rss",
+          "sourceRegistryId": "mistral-ai",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "arxiv-ai-rss",
+          "sourceRegistryId": "arxiv-ai",
+          "status": "quiet",
+          "consecutiveIssueRuns": 1,
+          "monitoring": "supplementary",
+          "action": "none",
+          "detail": "no-parseable-entries"
+        },
+        {
+          "sourceId": "ecb-supervision-rss",
+          "sourceRegistryId": "ecb-supervision",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "sebi-regulatory-rss",
+          "sourceRegistryId": "india-sebi",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cisa-advisories-rss",
+          "sourceRegistryId": "cisa",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cert-fr-rss",
+          "sourceRegistryId": "cert-fr",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "enisa-news-sitemap",
+          "sourceRegistryId": "enisa",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "bis-press-rss",
+          "sourceRegistryId": "bis",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "ico-news-sitemap",
+          "sourceRegistryId": "ico",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "bundesbank-topics-rss",
+          "sourceRegistryId": "de-bundesbank",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "google-cloud-status-atom",
+          "sourceRegistryId": "google-cloud-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "aws-service-health-rss",
+          "sourceRegistryId": "aws-service-health",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cloudflare-status-rss",
+          "sourceRegistryId": "cloudflare-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "github-status-rss",
+          "sourceRegistryId": "github-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "atlassian-status-rss",
+          "sourceRegistryId": "atlassian-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "oracle-cloud-status-rss",
+          "sourceRegistryId": "oracle-cloud-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "digitalocean-status-rss",
+          "sourceRegistryId": "digitalocean-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "ofsi-updates-atom",
+          "sourceRegistryId": "ofsi",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "canada-cyber-centre-alerts",
+          "sourceRegistryId": "canada-cyber-centre",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "jpcert-alerts-rss",
+          "sourceRegistryId": "jpcert",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "finma-news-rss",
+          "sourceRegistryId": "finma",
+          "status": "failed",
+          "consecutiveIssueRuns": 1,
+          "monitoring": "standard",
+          "action": "watch",
+          "detail": "fetch failed"
+        },
+        {
+          "sourceId": "japan-fsa-news-rss",
+          "sourceRegistryId": "japan-fsa",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "asic-news-sitemap",
+          "sourceRegistryId": "asic",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        }
+      ]
+    }
+  },
   "topics": [
     {
       "id": "ai",

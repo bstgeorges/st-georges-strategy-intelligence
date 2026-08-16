@@ -307,3 +307,11 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - `dashboard/data/signals-source-health-history.json` retains the last 12 live candidate runs. A standard feed that is `quiet` or `failed` in two consecutive runs is marked `investigate`; a single issue is `watch`. Do not count offline or skipped runs as evidence of a broken feed.
 - arXiv is explicitly a **supplementary research** input (`healthMonitoring: false`). It can support research discovery but must not be used to assert primary-source coverage or trigger a primary-feed health alert when quiet. FINMA had one failed run at this baseline and is on watch; investigate or repair its transport only if the next live run also has an issue.
 - Maintain the quality-first source strategy: 50 tested direct primary feeds are more valuable than an inflated total. The next Signals improvements should prioritise source reliability, materiality and duplication control, especially in thin resilience coverage, before any expansion of the active feed count.
+
+## Session memory — 2026-08-16: rendered design-drift pass
+
+- Claude’s source audit was checked against the actual production rendering at desktop and mobile widths. The drift was real: undefined `--ink-soft`, off-token colours, fragmented mono tracking, 10.5px mobile buttons, heavy/card shadows, paper gradients, and looping hero motion were present.
+- Fixed in source: token declarations and colour alignment, tracking tokens, 11px furniture floor, flat paper surfaces, shadow ceiling, shared `outline` button vocabulary, no negative Playfair tracking, and no looping hero animations.
+- The existing hero artwork and dot field were retained as a documented static hero device rather than removed.
+- Live rendered verification after deployment: 1280px and 375px; no horizontal overflow at 375px; mobile buttons render at 11px/44px; hero animations report none.
+- Production proof: green `Site release (Cloudflare)` run `31965773360`, exact deployed commit `73b5d14`.

@@ -103,6 +103,8 @@ Use only 700 for hero/page titles and large display numerals, and 600 for sectio
 
 ## Reverse drift — decisions for the design system
 
+Implementation decision for this pass: retain the hero artwork and static dot field as a named hero device, but remove the looping hero light sweep, image drift, and signal pulse/drift. The static device is documented in `site/styles.css`; reduced-motion behaviour remains intact.
+
 The site has moved ahead of parts of the written system. Decide and document rather than automatically reverting:
 
 1. `site/assets/hero.svg` now exists and may be a sanctioned hero asset.
@@ -111,6 +113,8 @@ The site has moved ahead of parts of the written system. Decide and document rat
 4. Reconcile navy text tokens between the site and written system.
 5. Decide whether unused `--violet-soft` belongs in the site or should be removed from the system.
 6. Decide whether hero loops are intentional brand motion. If retained, amend the no-loop rule and document duration, reduced-motion behaviour, and purpose. If not, remove the loops and keep transitions within 120–320ms.
+
+The current implementation chose the second option: no hero loops.
 
 ## Verification checklist
 
@@ -129,6 +133,10 @@ Before handing back:
 - [ ] The seven principal page families render consistently at 375px, 768px, and 1440px.
 - [ ] Run `npm run site:build`, `npm run site:verify`, and relevant data validation.
 - [ ] Publish only through the guarded `Site release (Cloudflare)` workflow; a green workflow with exact deployed SHA verification is the publication proof.
+
+## Applied status — 2026-08-16
+
+The confirmed drift was fixed in `site/styles.css`, `site/index.html`, `site/about/index.html`, and `site/signals/index.html`. The production release passed the guarded Cloudflare workflow and live rendered checks at 1280px and 375px. The current release uses tokenized colours/tracking, 11px minimum button furniture, shared `outline` button vocabulary, flat paper surfaces, documented static hero texture, and no looping hero animations.
 
 ## Browser-review note
 

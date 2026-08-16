@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-08-16T05:23:49.830Z",
+  "generatedAt": "2026-08-16T09:34:29.066Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -40,38 +40,6 @@
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "e8fd23c1732f8eda",
-          "topicId": "ai",
-          "title": "Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management",
-          "url": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-          "publishedAt": "2026-08-12T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "nist-ai-rmf",
-          "sourceName": "NIST AI Risk Management Framework",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-regulation",
-          "ingestSourceId": "nist-ai-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "ai-governance",
-            "risk-management",
-            "standards",
-            "us"
-          ],
-          "matchedKeywords": [
-            "artificial intelligence"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from NIST AI Risk Management Framework via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "e063daae6225e156",
           "topicId": "ai",
           "title": "From assistance to execution: How enterprises put AI to work",
@@ -98,7 +66,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -411,7 +379,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -447,7 +415,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -489,47 +457,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "38f8f73dccee8a9f",
-          "topicId": "market-structure",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "fonds",
-            "investissement"
-          ],
-          "titleMatchedKeywords": [
-            "fonds",
-            "investissement"
-          ],
-          "summaryMatchedKeywords": [
-            "fonds",
-            "investissement"
-          ],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         },
         {
           "id": "41223b96e8fc44fe",
@@ -575,8 +502,49 @@
         {
           "id": "f4d9a8888a8eb58d",
           "topicId": "market-structure",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "titleMatchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "summaryMatchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "38f8f73dccee8a9f",
+          "topicId": "market-structure",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "fr-amf",
@@ -728,7 +696,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 69,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -895,46 +863,6 @@
       "id": "third-party",
       "candidates": [
         {
-          "id": "e8d4e314c3c71b47",
-          "topicId": "third-party",
-          "title": "Outsourcing and competition in the banking sector: the rise of Cloud Service Providers",
-          "url": "https://www.bankofengland.co.uk/working-paper/2026/outsourcing-and-competition-in-the-banking-sector-the-rise-of-csps",
-          "publishedAt": "2026-08-14T13:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "uk-boe-pra",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "boe-publications-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
-          ],
-          "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "uk"
-          ],
-          "matchedKeywords": [
-            "outsourcing",
-            "service provider",
-            "cloud"
-          ],
-          "titleMatchedKeywords": [
-            "outsourcing",
-            "service provider",
-            "cloud"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "a0183df2d3924d75",
           "topicId": "third-party",
           "title": "Increased network congestion in the Eastern US",
@@ -1008,7 +936,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1438,7 +1366,7 @@
           "summaryMatchedKeywords": [
             "fraud"
           ],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -1477,7 +1405,7 @@
           "summaryMatchedKeywords": [
             "fraud"
           ],
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -1586,7 +1514,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -1623,7 +1551,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 75,
+          "relevanceScore": 74,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -1968,7 +1896,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 69,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from JPCERT Coordination Center via rss ingestion and matched the topic rules."
@@ -2213,7 +2141,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2743,41 +2671,10 @@
           "summaryMatchedKeywords": [
             "reporting"
           ],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "954820488977c2f6",
-          "topicId": "data",
-          "title": "ACRO reprimanded following cyber security failings",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/acro-reprimanded-following-cyber-security-failings",
-          "publishedAt": "2026-08-12T10:07:54.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         },
         {
           "id": "db2b65fbcf377323",
@@ -2811,80 +2708,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "38f8f73dccee8a9f",
-          "topicId": "data",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "information"
-          ],
-          "titleMatchedKeywords": [
-            "information"
-          ],
-          "summaryMatchedKeywords": [
-            "information"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "84ead3a73a38634b",
-          "topicId": "data",
-          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF - DOC-2014-01",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2014-01",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "information"
-          ],
-          "titleMatchedKeywords": [
-            "information"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         },
         {
           "id": "41223b96e8fc44fe",
@@ -2927,8 +2750,84 @@
         {
           "id": "f4d9a8888a8eb58d",
           "topicId": "data",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "information"
+          ],
+          "titleMatchedKeywords": [
+            "information"
+          ],
+          "summaryMatchedKeywords": [
+            "information"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "5ec8ef686f872f8d",
+          "topicId": "data",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'épargne salariale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-21",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "information"
+          ],
+          "titleMatchedKeywords": [
+            "information"
+          ],
+          "summaryMatchedKeywords": [
+            "information"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "38f8f73dccee8a9f",
+          "topicId": "data",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "fr-amf",
@@ -2968,6 +2867,37 @@
           "title": "Multiple properties searched across UK after millions of car finance complaints",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/07/multiple-properties-searched-across-uk-after-millions-of-car-finance-complaints",
           "publishedAt": "2026-07-31T14:46:19.000Z",
+          "dateSource": "sitemap-lastmod",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 40,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "2d45f5879b8d7996",
+          "topicId": "data",
+          "title": "Information Commissioner&#x2019;s Office seeks views on accuracy of generative AI models",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/04/information-commissioner-s-office-seeks-views-on-accuracy-of-generative-ai-models",
+          "publishedAt": "2026-07-31T12:28:59.000Z",
           "dateSource": "sitemap-lastmod",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
@@ -3123,7 +3053,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 1,
       "reason": "",
       "error": ""
     },
@@ -3263,7 +3193,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3353,7 +3283,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 5,
       "reason": "",
       "error": ""
     },
@@ -3471,11 +3401,11 @@
       "sourceId": "finma-news-rss",
       "sourceRegistryId": "finma",
       "fetchType": "rss",
-      "status": "ok",
-      "fetchedEntries": 8,
+      "status": "failed",
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "reason": "",
-      "error": ""
+      "error": "fetch failed"
     },
     {
       "sourceId": "japan-fsa-news-rss",
@@ -3501,6 +3431,7 @@
   "warnings": [
     "Source arxiv-ai-rss returned no parseable entries; check its feed format or availability.",
     "Dropped generic citation candidate: https://status.aws.amazon.com/",
-    "Dropped generic citation candidate: https://status.aws.amazon.com/"
+    "Dropped generic citation candidate: https://status.aws.amazon.com/",
+    "Source finma-news-rss failed during candidate collection: fetch failed"
   ]
 }

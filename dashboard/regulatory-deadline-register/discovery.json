@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-16T18:24:17.848Z",
+  "generatedAt": "2026-08-16T18:29:51.732Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -88,9 +88,9 @@
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "ok": 46,
-      "failed": 4,
+      "ok": 47,
       "blocked": 2,
+      "failed": 3,
       "degraded": 1
     },
     "unscannedActiveSources": [],
@@ -98,8 +98,8 @@
     "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
   },
   "nextActions": [
-    "Review 4 failed sources from the latest scan.",
     "Review 2 blocked sources from the latest scan.",
+    "Review 3 failed sources from the latest scan.",
     "Review 1 degraded source from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
   ],
@@ -216,7 +216,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "failed"
+      "latestStatus": "ok"
     },
     {
       "id": "ireland-cbi",

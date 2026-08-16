@@ -147,4 +147,14 @@ def log_metrics(conn: sqlite3.Connection, edition: str, metrics: dict) -> None:
 
 def recent_metrics(conn: sqlite3.Connection, limit: int = 12) -> list:
     rows = conn.execute("SELECT edition, metrics FROM run_metrics ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
-    return [{"edition": row["edition"], **json.loads(row["metrics"])} for row in reversed(rows)]
+    valid = []
+    for row in reversed(rows):
+        metrics = json.loads(row["metrics"])
+        configured = metrics.get("sourcesConfigured", 0)
+        healthy = metrics.get("sourcesHealthy", 0)
+        # Historic network-wide failures are retained in SQLite for forensic
+        # purposes, but must never be presented as a valid coverage trend.
+        if configured and healthy < max(1, (configured + 1) // 2):
+            continue
+        valid.append({"edition": row["edition"], **metrics})
+    return valid

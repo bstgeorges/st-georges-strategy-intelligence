@@ -80,6 +80,10 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
   const deadline = isoDate(signal.deadline);
   const authorityId = signal.authorityId || signal.sourceId || signal.source_id || sourceIdByName.get(signal.source);
   if (!deadline || !signal.url || !authorityId) return null;
+  // A longer discovery lookback is intended to find upcoming obligations,
+  // not to keep rediscovering historic consultations forever. Retain a short
+  // grace window for closure review, then let the record age out.
+  if (deadline < addDays(asOf, -GRACE_DAYS)) return null;
   const id = stableId(signal.url, deadline);
   const source = sourceById.get(authorityId) || {};
   const decision = approvalFor(decisions, id, signal.url, deadline);

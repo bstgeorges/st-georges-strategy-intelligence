@@ -1,12 +1,12 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-14T16:37:36.681Z",
+  "generatedAt": "2026-08-16T18:24:17.848Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
-    "authorities": 135,
-    "jurisdictions": 139,
-    "endpoints": 184,
+    "authorities": 134,
+    "jurisdictions": 138,
+    "endpoints": 198,
     "status": "discovery-only",
     "note": "Catalogue membership is a research perimeter, not automated deadline coverage."
   },
@@ -84,42 +84,23 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-08-02",
-    "configuredSources": 34,
-    "activeSourcesChecked": 34,
+    "edition": "2026-08-16",
+    "configuredSources": 53,
+    "activeSourcesChecked": 53,
     "health": {
-      "ok": 32,
-      "blocked": 1,
-      "failed": 1
+      "ok": 46,
+      "failed": 4,
+      "blocked": 2,
+      "degraded": 1
     },
-    "unscannedActiveSources": [
-      "uk-fca-regulatory-initiatives-grid",
-      "uk-hm-treasury",
-      "uk-nca",
-      "ecb-ssm-newsletter",
-      "ecb-supervisory-priorities",
-      "ecb-supervision-sanctions",
-      "bcbs",
-      "iosco",
-      "ofac-recent-actions",
-      "amf-sanctions",
-      "de-bundesbank",
-      "ico",
-      "hong-kong-sfc",
-      "south-africa-sarb",
-      "india-rbi",
-      "singapore-sgx",
-      "brazil-bcb",
-      "south-korea-fss",
-      "switzerland-snb"
-    ],
+    "unscannedActiveSources": [],
     "coverageState": "limited",
     "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
   },
   "nextActions": [
-    "Run the full active intake before judging source-health coverage; the recorded scan predates part of the configured estate.",
-    "Review 1 blocked source from the latest scan.",
-    "Review 1 failed source from the latest scan.",
+    "Review 4 failed sources from the latest scan.",
+    "Review 2 blocked sources from the latest scan.",
+    "Review 1 degraded source from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
   ],
   "sourceStatus": [
@@ -143,7 +124,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "apra",
@@ -184,7 +165,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "degraded"
     },
     {
       "id": "bis",
@@ -214,7 +195,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "de-bafin",
@@ -235,7 +216,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "failed"
     },
     {
       "id": "ireland-cbi",
@@ -299,7 +280,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "dubai-dfsa",
@@ -320,7 +301,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "ecb-supervisory-priorities",
@@ -330,7 +311,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "ecb-supervision-sanctions",
@@ -340,7 +321,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "eba",
@@ -440,7 +421,7 @@
       ],
       "category": "regulatory-horizon",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "fsb",
@@ -460,7 +441,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "fincen-enforcement",
@@ -470,7 +451,7 @@
       ],
       "category": "financial-crime",
       "tier": "primary",
-      "latestStatus": "failed"
+      "latestStatus": "ok"
     },
     {
       "id": "uk-hm-treasury",
@@ -480,7 +461,7 @@
       ],
       "category": "regulation",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "hkma",
@@ -500,7 +481,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "blocked"
     },
     {
       "id": "mas",
@@ -520,7 +501,7 @@
       ],
       "category": "financial-crime",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "failed"
     },
     {
       "id": "nist-ai-rmf",
@@ -541,7 +522,7 @@
       ],
       "category": "financial-crime",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "failed"
     },
     {
       "id": "osfi",
@@ -561,7 +542,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "india-sebi",
@@ -581,7 +562,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "singapore-sgx",
@@ -591,7 +572,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "south-africa-sarb",
@@ -601,7 +582,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "failed"
     },
     {
       "id": "finma",
@@ -621,7 +602,7 @@
       ],
       "category": "financial-stability",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "ico",
@@ -631,7 +612,7 @@
       ],
       "category": "regulation",
       "tier": "primary",
-      "latestStatus": "not-yet-scanned"
+      "latestStatus": "ok"
     },
     {
       "id": "ofsi",

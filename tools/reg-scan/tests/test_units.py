@@ -475,6 +475,12 @@ class TestFetch(unittest.TestCase):
 
 
 class TestSourcePerimeter(unittest.TestCase):
+    def test_scan_health_floor_rejects_network_wide_failure(self):
+        from scan.__main__ import _meets_health_floor
+        self.assertFalse(_meets_health_floor([{"status": "failed"}] * 53, 53))
+        self.assertFalse(_meets_health_floor([{"status": "ok"}] * 26 + [{"status": "failed"}] * 27, 53))
+        self.assertTrue(_meets_health_floor([{"status": "ok"}] * 27 + [{"status": "failed"}] * 26, 53))
+
     def test_regulatory_perimeter_excludes_research_press_and_cyber_alerts(self):
         from scan.feeds import REGULATORY_SOURCE_IDS
         self.assertNotIn("arxiv-ai", REGULATORY_SOURCE_IDS)
@@ -565,6 +571,16 @@ class TestDb(unittest.TestCase):
             upsert_items(conn, [item])
             urls = seen_urls(conn, "src")
             self.assertEqual(len(urls), 1)
+
+    def test_recent_metrics_excludes_a_network_wide_failure(self):
+        from scan.db import connect, log_metrics, recent_metrics
+        with tempfile.TemporaryDirectory() as tmpdir:
+            import pathlib
+            db_path = pathlib.Path(tmpdir) / "test.db"
+            conn = connect(db_path)
+            log_metrics(conn, "2026-08-09", {"sourcesConfigured": 53, "sourcesHealthy": 0})
+            log_metrics(conn, "2026-08-16", {"sourcesConfigured": 53, "sourcesHealthy": 46})
+            self.assertEqual([row["edition"] for row in recent_metrics(conn)], ["2026-08-16"])
 
 
 class TestWriter(unittest.TestCase):

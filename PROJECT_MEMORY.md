@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-14
+Last consolidated: 2026-08-16
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -13,8 +13,8 @@ St Georges Strategy is a public, source-backed intelligence site for financial-s
 - Signals hub and eight topic streams
 - AI Signals
 - Committee Questions
-- Regulatory Horizon
-- Dated weekly, topic, and horizon archives
+- private regulatory deadline register (Regulatory Horizon remains withdrawn)
+- dated weekly and topic archives
 
 Public editorial principles are in `site/EDITORIAL_STYLE_GUIDE.md`, `site/WEEKLY_PUBLISHER_CONTRACT.md`, and `docs/weekly-refresh-workflow.md`.
 
@@ -36,10 +36,10 @@ The duplicate fourth/fifth item was corrected in the current edition, Resilience
 
 The site is intentionally organised as a small set of distinct editorial products, rather than four versions of the same weekly list:
 
-- **Home** is the current-edition front door: it introduces the judgement and routes readers to the Brief, Committee Questions, and Reg Horizon. It must not reproduce the full weekly Top 5 or the Brief's evidence blocks.
+- **Home** is the current-edition front door: it introduces the judgement and routes readers to the Brief, Committee Questions and Archive. It must not reproduce the full weekly Top 5 or the Brief's evidence blocks.
 - **Weekly Brief** remains the complete cross-theme editorial edition.
 - **Committee Questions** has a featured current question generated from `site/data/current-edition.json` (`committeeQuestion`), followed by its evergreen question library. Do not hand-edit the generated feature in `site-dist/`.
-- **Reg Horizon** is a selective, reviewed decision watchlist. Its core reader-facing structure is the bottom line, concise decision dashboard, populated Act / Prepare / Monitor lanes, deadlines, evidence trail, and archive. Do not restore empty analyst workflow, duplicate material-signal lists, empty watch-theme tiles, or repeated operating readouts to the public page.
+- **Reg Horizon** is withdrawn from the public product. The private cumulative deadline register is an evidence and review tool, not a public watchlist; do not restore a public page until the documented relaunch criteria and explicit product decision are met.
 
 `scripts/publish_site_bundle.mjs` now makes Home, Committee Questions, and Reg Horizon draw on the canonical current edition and verifies the public bundle for stale or duplicate cross-page copy. `scripts/verify_site_bundle.mjs` is the reader-facing regression guard for this design.
 
@@ -84,7 +84,7 @@ Important data files:
 - `site/data/current-edition.json` — publication date, judgement, top signals, and homepage/brief canonical metadata
 - `site/data/signals.json` — eight topic streams, current Top 5, still-material rows, source evidence, and date verification
 - `dashboard/data/ai-signals.json` — current 15-card AI Signals edition
-- `dashboard/regulatory-horizon/latest.json` — reviewed Reg Horizon publication
+- `dashboard/regulatory-deadline-register/` — private deadline register, evidence, QA and relaunch state
 - `dashboard/data/signals-promotion-shortlist.json` — human-approved candidate URLs and rationales
 - `dashboard/data/signals-candidates.generated.json` — latest candidate scrape; candidates are not publication
 
@@ -92,16 +92,15 @@ Important data files:
 
 Always maintain this order:
 
-1. Refresh and validate Regulatory Horizon source evidence.
+1. Refresh and validate the private regulatory deadline register; never make it a public release input while Horizon is withdrawn.
 2. Review and approve Signals candidates.
-3. Promote approved Signals into `site/data/signals.json`.
-4. Update AI Signals data.
-5. Update `current-edition.json`, Weekly Brief, Committee Questions, homepage copy, and downstream pages.
-6. Archive the prior/current dated pages as appropriate.
-7. Build and run all relevant validation.
-8. Commit and push the approved release.
-9. Publish only through the guarded Cloudflare workflow.
-10. Confirm the workflow is green and exact deployed SHA verification passes.
+3. Promote approved Signals into `site/data/signals.json` and complete their editorial significance.
+4. Refresh the 15-card AI Signals edition.
+5. Update `current-edition.json`, the Weekly Brief, Committee Questions and downstream copy as one package.
+6. Build and run all relevant validation.
+7. Commit and push the approved release.
+8. Publish only through the guarded Cloudflare workflow.
+9. Confirm the workflow is green and exact deployed SHA verification passes.
 
 The release gate is deliberately strict: a date-only update is not a weekly refresh. Signals, Reg Horizon, judgement, Brief, Committee Questions, homepage, and archives must describe the same edition.
 

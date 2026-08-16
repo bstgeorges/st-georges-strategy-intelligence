@@ -20,17 +20,17 @@ Public editorial principles are in `site/EDITORIAL_STYLE_GUIDE.md`, `site/WEEKLY
 
 ## Current production state
 
-The current edition is Sunday 2 August 2026. The latest production release was verified by the green `Site release (Cloudflare)` workflow run `31189497602`, for commit `7f85bf8` (`Make generated link checks resilient`). It includes the 7 August release-control and reader-experience improvements in commit `6453291` (`Strengthen weekly intelligence release controls`).
+The current edition is Sunday 16 August 2026, **Edition 9**: *Automation is spreading faster than intervention plans*. Production was verified by the green `Site release (Cloudflare)` workflow run `31939390454`, for commit `04ce598326487de5474c820728343b655f4d4511` (`Release Edition 9`). The workflow completed the full release transaction: data and link gates, build and bundle verification, Pages and Workers deployment, cache purge, exact Pages and production SHA verification, redirects and archive persistence.
 
 The current homepage Top 5 is intentionally distinct:
 
-1. Project Pilot: Can AI models fly drones? — AI
-2. When cyber attacks happen: helping organisations recover — Cyber
-3. Consultation Paper No. 2 of 2026 – Transfer Schemes — Market structure
-4. EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector — Third-party
-5. Japan FSA publishes analytical report on IT resilience in the financial sector — Resilience
+1. Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management — AI and cyber control
+2. Outsourcing and competition in the banking sector: the rise of Cloud Service Providers — Third-party dependency
+3. ACRO reprimanded following cyber security failings — Data and closure
+4. CISA Adds One Known Exploited Vulnerability to Catalog — Continuing priority / cyber
+5. Japan FSA publishes analytical report on IT resilience in the financial sector — Continuing priority / resilience
 
-The duplicate fourth/fifth item was corrected in the current edition, Resilience topic data, Brief, and dated archives. `scripts/verify_weekly_release_order.mjs` now fails if the weekly Top 5 contains duplicate titles.
+Edition 9 intentionally promotes only three new, primary-source signals and labels the two retained items as continuing priorities. This protects editorial quality when a five-item weekly format would otherwise force weak novelty. `scripts/verify_weekly_release_order.mjs` fails if the weekly Top 5 contains duplicate titles.
 
 ### August 2026 editorial and experience reset
 
@@ -278,3 +278,14 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The public card format is fixed and intentionally simple: question, **Why it matters now**, and **Ask for**. Questions must request concrete evidence—maps, permissions, tests, decision logs, exceptions or closure records—not reassurance or framework descriptions.
 - `scripts/publish_site_bundle.mjs`, `scripts/verify_site_bundle.mjs` and `scripts/verify_weekly_release_readiness.mjs` now require all three current questions. The build keeps the Committee page, home and newsletter aligned without hand-editing `site-dist/`.
 - The repeatable process is documented in `docs/committee-weekly-cadence.md`. Use it after the Signals shortlist and Weekly Judgement are approved, then run the normal edition build and release checks.
+
+## Session memory — 2026-08-16: Edition 9 production and learning
+
+- **Edition 9 is live and production-verified.** Commit `04ce598326487de5474c820728343b655f4d4511` was released through green workflow run `31939390454`; do not describe it as merely pushed or committed. The dated Brief and all eight topic archive snapshots for 16 August were persisted.
+- The approved shortlist was based on the dated 14 August candidate run, giving editorial review time before Sunday. The later Sunday candidate refresh did not replace the approved selection. Keep this separation: candidate generation prepares an edition; approval locks its public evidence.
+- The edition selected three new primary sources—NIST on AI-enabled vulnerability management, Bank of England/PRA research on cloud-service-provider concentration, and the ICO ACRO reprimand—and retained CISA exploitation and Japan FSA resilience as explicitly labelled continuing priorities. Do not force five nominally new signals when the evidence is weaker.
+- The full Weekly Judgement now follows the reader-friendly three-beat format: **What happened**, **Why it matters**, **What to do**. It should remain plain English, decision-led and shareable on LinkedIn; detailed source exposition belongs in the Brief.
+- The three current Committee Questions are now part of the mandatory edition package. They must remain aligned to the weekly judgement and ask for concrete evidence: intervention authority, shared dependency/fallback, and evidence/closure.
+- Signals now operates from 50 active direct primary feeds (up from 35) and the 14 August validation produced 87 dated, source-linked candidates across all eight themes with no failed, skipped or quiet feed. The wider 213-route governed estate is discovery infrastructure, not a claim that 213 sources are scanned each week.
+- Reg Horizon remains private. Its improvement work must not become a reason to reintroduce a public page before the documented relaunch gate and an explicit product decision are complete.
+- For future Sunday releases, prepare the LinkedIn newsletter cover, draft and distribution copy as part of the Saturday release pack, not as post-release work.

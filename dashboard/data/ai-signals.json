@@ -1,239 +1,195 @@
 {
-  "generatedAt": "2026-08-02",
+  "generatedAt": "2026-08-16",
   "publication": "AI Signals",
-  "audience": "Financial services leaders tracking AI model, product, capability, industry, and governance signals",
+  "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
   "status": "live",
   "archiveDedupe": {
-    "rule": "Before writing a new edition, read the previous dated AI Signals archive and drop items already covered unless the model, product, capability score, governance status, or market consequence changed.",
+    "rule": "Before writing a new edition, compare the previous dated AI Signals archive and retain an item only when the model, product, capability, governance status or market consequence has changed.",
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "2 Aug 2026",
-    "line": "Live edition / Updated 2 Aug 2026",
-    "descriptor": "Sector-wide / Source-linked snapshot"
+    "displayDate": "16 Aug 2026",
+    "line": "Live edition / Updated 16 Aug 2026",
+    "descriptor": "15 source-linked signals / model, deployment and operating context"
   },
-  "summary": "AI is moving from experimentation into delegated action, critical-provider dependence and operational resilience. This edition tracks the control evidence that must move with it.",
+  "summary": "AI is moving from assistance into action, while the control perimeter now includes automated vulnerability decisions, cloud concentration, provider resilience and the authority to intervene. This edition separates the new developments from the durable control baselines.",
   "sourceUniverse": {
-    "modelReleases": [
+    "modelAndCapability": [
+      "https://openai.com/index/builders-guide-to-gpt-5-6",
+      "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
+      "https://mistral.ai/news/shieldstral",
       "https://www.anthropic.com/research/project-pilot",
-      "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
-      "https://openai.com/index/advancing-responsible-ai-across-europe"
+      "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities"
     ],
-    "industryNews": [
-      "https://www.openai.com/index/unive",
-      "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
+    "deploymentAndInfrastructure": [
+      "https://openai.com/index/daybreak-models-are-now-available-on-aws",
+      "https://mistral.ai/news/regional-inference-open-models-new-compute",
+      "https://openai.com/index/how-enterprises-put-ai-to-work",
+      "https://openai.com/index/testing-ads-in-chatgpt",
+      "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability"
     ],
-    "capabilityData": [
-      "https://www.anthropic.com/research/project-pilot",
-      "https://www.nist.gov/itl/ai-risk-management-framework"
-    ],
-    "governanceOverlap": [
+    "operatingContext": [
+      "https://www.anthropic.com/research/multiagent-systems",
       "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
-    ],
-    "curatedWeeklySignals": [
-      "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover"
+      "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
+      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
     ]
   },
   "sections": [
     {
       "id": "model",
       "order": "01",
-      "label": "Model releases",
+      "label": "Models and capabilities",
       "cards": [
         {
-          "title": "Project Pilot tests whether AI models can act in the physical world",
+          "title": "GPT-5.6 guidance makes agent design an implementation question",
           "badge": "Capability signal",
-          "body": "Anthropic’s Project Pilot makes delegated action concrete. The control question is how model capability changes permissions, human approval, monitoring, incident response and the evidence required before deployment.",
+          "body": "OpenAI’s builder guidance gives teams a practical signal that model use is moving into tool use and agentic workflows. The leadership test is whether permissions, human approval and stop paths are designed before capability is scaled.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-08-13",
+          "source": { "label": "The builder’s guide to GPT-5.6", "url": "https://openai.com/index/builders-guide-to-gpt-5-6" }
+        },
+        {
+          "title": "WeatherNext shows the operational reach of specialised AI models",
+          "badge": "Capability signal",
+          "body": "Google DeepMind’s cyclone-forecasting result is a reminder that high-impact AI use is broadening beyond text generation. Decision owners need to identify where model outputs affect safety, service continuity or customer decisions.",
+          "sourceName": "Google DeepMind",
+          "sourceType": "dated",
+          "date": "2026-08-11",
+          "source": { "label": "WeatherNext cyclone forecasting", "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones" }
+        },
+        {
+          "title": "Shieldstral keeps model-security controls close to deployment",
+          "badge": "Security signal",
+          "body": "Mistral’s security model announcement is a useful prompt to separate a safety feature from the firm’s own control responsibility. Inputs, outputs, access and escalation still need evidence around the deployed workflow.",
+          "sourceName": "Mistral AI",
+          "sourceType": "dated",
+          "date": "2026-08-04",
+          "source": { "label": "Introducing Shieldstral", "url": "https://mistral.ai/news/shieldstral" }
+        },
+        {
+          "title": "Project Pilot makes delegated action a real control scenario",
+          "badge": "Delegation signal",
+          "body": "Anthropic’s work on models acting in the physical world makes delegated action concrete. The relevant control question is not whether the model is impressive; it is who can authorise, supervise and interrupt the action.",
           "sourceName": "Anthropic",
           "sourceType": "dated",
           "date": "2026-07-24",
-          "source": {
-            "label": "Project Pilot",
-            "url": "https://www.anthropic.com/research/project-pilot"
-          }
+          "source": { "label": "Project Pilot", "url": "https://www.anthropic.com/research/project-pilot" }
         },
         {
-          "title": "Anthropic reviews three real-world incidents in cybersecurity evaluations",
-          "badge": "Security signal",
-          "body": "The incident review shows why evaluation environments need partner assurance, access logging, disclosure routes and a tested response when prompts, data or model behaviour are exposed.",
-          "sourceName": "Anthropic",
-          "sourceType": "dated",
-          "date": "2026-07-30",
-          "source": {
-            "label": "Cybersecurity evaluations incident review",
-            "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
-          }
-        },
-        {
-          "title": "Responsible AI in Europe becomes an operating-evidence question",
-          "badge": "Governance signal",
-          "body": "The responsible-AI conversation is moving from principles to use-case inventories, accountable owners, lawful data, monitoring and documented decisions when safety and speed conflict.",
+          "title": "Critical cyber capability remains a deployment-governance test",
+          "badge": "Continuing priority",
+          "body": "OpenAI’s disclosure that testing could not rule out critical cyber capability remains a live control signal. Evaluation thresholds, access controls, escalation and the decision to release must be reconstructable.",
           "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-07-31",
-          "source": {
-            "label": "Advancing responsible AI across Europe",
-            "url": "https://openai.com/index/advancing-responsible-ai-across-europe"
-          }
-        },
-        {
-          "title": "AI-ready workforces need workflow and accountability design",
-          "badge": "Adoption signal",
-          "body": "AI adoption is increasingly an operating-model choice. Firms need to identify where AI changes work allocation, review, escalation, data handling and the accountability of the final decision.",
-          "sourceName": "OpenAI",
-          "sourceType": "dated",
-          "date": "2026-07-31",
-          "source": {
-            "label": "Univé builds an AI-ready workforce",
-            "url": "https://openai.com/index/unive"
-          }
-        },
-        {
-          "title": "AI governance still needs a durable control baseline",
-          "badge": "Governance signal",
-          "body": "NIST’s AI Risk Management Framework remains useful as a practical bridge between model capability, risk identification, testing, monitoring and accountable governance evidence.",
-          "sourceName": "NIST",
-          "sourceType": "evergreen",
-          "evergreenClassification": "framework",
-          "source": {
-            "label": "NIST AI Risk Management Framework",
-            "url": "https://www.nist.gov/itl/ai-risk-management-framework"
-          }
+          "date": "2026-08-07",
+          "source": { "label": "Responding to the next frontier of critical cyber capabilities", "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities" }
         }
       ]
     },
     {
       "id": "feature",
       "order": "02",
-      "label": "Feature launches",
+      "label": "Deployment and infrastructure",
       "cards": [
         {
-          "title": "Delegated AI features need permissions outside the prompt",
-          "badge": "Control signal",
-          "body": "When tools can act across systems, prompt-level instructions are not enough. Technical boundaries, least privilege, monitoring and emergency stop paths need to be enforced in the workflow.",
-          "sourceName": "Anthropic",
-          "sourceType": "dated",
-          "date": "2026-07-24",
-          "source": {
-            "label": "Project Pilot",
-            "url": "https://www.anthropic.com/research/project-pilot"
-          }
-        },
-        {
-          "title": "AI security evaluation is becoming a product-readiness test",
-          "badge": "Security signal",
-          "body": "The cybersecurity evaluation incidents underline that model and product launches need disclosure, partner controls, safe testing environments and a route to contain unexpected behaviour.",
-          "sourceName": "Anthropic",
-          "sourceType": "dated",
-          "date": "2026-07-30",
-          "source": {
-            "label": "Cybersecurity evaluations incident review",
-            "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
-          }
-        },
-        {
-          "title": "Frontier-AI oversight now includes critical ICT providers",
-          "badge": "Supervisory signal",
-          "body": "The ESAs connect frontier-AI cyber risk to governance, prevention, detection, response and oversight of critical ICT third parties. Product adoption therefore has a supervisory perimeter.",
-          "sourceName": "EBA / EIOPA / ESMA",
-          "sourceType": "dated",
-          "date": "2026-07-31",
-          "source": {
-            "label": "ESAs frontier-AI ICT risk statement",
-            "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
-          }
-        },
-        {
-          "title": "Responsible deployment needs an inventory that survives review",
-          "badge": "Governance signal",
-          "body": "A live inventory must connect use case, model, data, owner, permission, risk classification, testing, monitoring and exception decisions rather than sit as a static register.",
+          "title": "Daybreak on AWS brings the provider chain into the AI decision",
+          "badge": "Infrastructure signal",
+          "body": "Availability through a major cloud platform can speed adoption, but it also adds a dependency chain. Teams should be able to map the model, platform, region, data path and fallback for important services.",
           "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-07-31",
-          "source": {
-            "label": "Advancing responsible AI across Europe",
-            "url": "https://openai.com/index/advancing-responsible-ai-across-europe"
-          }
+          "date": "2026-08-11",
+          "source": { "label": "Daybreak models are now available on AWS", "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws" }
         },
         {
-          "title": "Legal obligations remain the bridge between AI principles and control tests",
-          "badge": "Governance signal",
-          "body": "The EU AI Act provides a durable legal reference point for converting AI governance language into role, use-case, documentation and evidence questions.",
-          "sourceName": "EUR-Lex",
-          "sourceType": "evergreen",
-          "evergreenClassification": "framework",
-          "source": {
-            "label": "Artificial Intelligence Act",
-            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
-          }
+          "title": "Regional inference makes location and resilience design part of the product choice",
+          "badge": "Deployment signal",
+          "body": "Mistral’s regional-inference announcement is a reminder that data location, provider concentration and recovery arrangements are design choices, not details to settle after rollout.",
+          "sourceName": "Mistral AI",
+          "sourceType": "dated",
+          "date": "2026-08-11",
+          "source": { "label": "Regional inference and European infrastructure", "url": "https://mistral.ai/news/regional-inference-open-models-new-compute" }
+        },
+        {
+          "title": "Enterprise AI is moving from assistance to execution",
+          "badge": "Operating-model signal",
+          "body": "OpenAI’s enterprise discussion describes a shift from support to work execution. That makes workflow permissions, review thresholds, exception handling and the authority to reverse an action core operating controls.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-08-12",
+          "source": { "label": "From assistance to execution", "url": "https://openai.com/index/how-enterprises-put-ai-to-work" }
+        },
+        {
+          "title": "Advertising experiments make data and outcome governance visible",
+          "badge": "Data signal",
+          "body": "Testing ads in an AI product is not a financial-services event, but it is a useful public example of how product incentives can change data use, customer outcomes, testing and accountability requirements.",
+          "sourceName": "OpenAI",
+          "sourceType": "dated",
+          "date": "2026-08-11",
+          "source": { "label": "Testing ads in ChatGPT", "url": "https://openai.com/index/testing-ads-in-chatgpt" }
+        },
+        {
+          "title": "AI-enabled vulnerability management needs an override and evidence trail",
+          "badge": "Control signal",
+          "body": "NIST’s consultation on the future of the NVD puts automation into the vulnerability-management control plane. Firms need to know what data the priority relies on, who may override it and how the decision is recorded.",
+          "sourceName": "NIST",
+          "sourceType": "dated",
+          "date": "2026-08-12",
+          "source": { "label": "Shaping the NVD for AI-enabled vulnerability management", "url": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability" }
         }
       ]
     },
     {
       "id": "industry",
       "order": "03",
-      "label": "Industry news",
+      "label": "Operating context",
       "cards": [
         {
-          "title": "AI-ready workforces make accountability an operating-model choice",
-          "badge": "Industry signal",
-          "body": "The important shift is not only tool adoption. It is how firms redesign work, review, escalation and evidence when AI becomes part of ordinary delivery.",
-          "sourceName": "OpenAI",
+          "title": "Multiagent systems put coordination and intervention into focus",
+          "badge": "Research signal",
+          "body": "Anthropic’s research on multiagent patterns is useful because several agents can obscure the path from instruction to action. Firms should decide what activity needs a single owner, approval point and audit trail.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-07-31",
-          "source": {
-            "label": "Univé builds an AI-ready workforce",
-            "url": "https://openai.com/index/unive"
-          }
+          "date": "2026-08-13",
+          "source": { "label": "Patterns and problems in multiagent systems", "url": "https://www.anthropic.com/research/multiagent-systems" }
         },
         {
-          "title": "Supervisors are framing frontier AI as a financial-sector ICT risk",
+          "title": "European supervisors keep frontier AI inside the ICT risk perimeter",
           "badge": "Supervisory signal",
-          "body": "The ESAs’ statement moves frontier AI into financial-sector resilience and critical-provider oversight, increasing the value of governance maps that connect models to important services.",
-          "sourceName": "EBA / EIOPA / ESMA",
+          "body": "The European Supervisory Authorities connect frontier-AI risks to governance, prevention, detection, response and critical ICT oversight. The important control map links models to services and providers.",
+          "sourceName": "EBA, EIOPA and ESMA",
           "sourceType": "dated",
           "date": "2026-07-31",
-          "source": {
-            "label": "ESAs frontier-AI ICT risk statement",
-            "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en"
-          }
+          "source": { "label": "Frontier-AI ICT risk statement", "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en" }
         },
         {
-          "title": "IT resilience is the practical test for AI-enabled financial services",
+          "title": "IT resilience remains the test of AI-enabled services",
           "badge": "Resilience signal",
-          "body": "Japan’s FSA report highlights cyber, geopolitical and third-party dependence. AI-enabled services need recovery priorities, service mapping and evidence that controls work during disruption.",
+          "body": "Japan’s FSA frames resilience through cyber, geopolitical and third-party risk. AI-enabled services need service mapping, recovery priorities and exercised fallback evidence, not an availability metric alone.",
           "sourceName": "Financial Services Agency of Japan",
           "sourceType": "dated",
           "date": "2026-07-30",
-          "source": {
-            "label": "Analytical Report on IT Resilience in the Financial Sector",
-            "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html"
-          }
+          "source": { "label": "Analytical report on IT resilience", "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html" }
         },
         {
-          "title": "Cyber recovery guidance is now part of AI operating readiness",
-          "badge": "Operational signal",
-          "body": "NCSC’s recovery framework emphasises governance, communications, minimum viable operations and rebuilding stronger. AI owners should test these paths for services that depend on model providers.",
-          "sourceName": "NCSC",
-          "sourceType": "dated",
-          "date": "2026-07-28",
-          "source": {
-            "label": "When cyber attacks happen: helping organisations recover",
-            "url": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover"
-          }
-        },
-        {
-          "title": "AI and data protection remain inseparable control questions",
-          "badge": "Data signal",
-          "body": "The ICO’s AI guidance remains a practical reminder that provenance, lawful basis, explainability and individual rights belong inside AI delivery evidence rather than in a separate privacy annex.",
-          "sourceName": "ICO",
+          "title": "The EU AI Act remains the legal baseline for accountable deployment",
+          "badge": "Framework",
+          "body": "The AI Act remains a durable reference for turning broad AI-governance claims into specific questions about role, use case, documentation, risk management and evidence.",
+          "sourceName": "EUR-Lex",
           "sourceType": "evergreen",
-          "evergreenClassification": "guidance",
-          "source": {
-            "label": "ICO AI and data protection guidance",
-            "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/"
-          }
+          "evergreenClassification": "framework",
+          "source": { "label": "Artificial Intelligence Act", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" }
+        },
+        {
+          "title": "The NIST AI RMF remains a practical control baseline",
+          "badge": "Framework",
+          "body": "NIST’s framework is still a useful bridge from model capability to risk identification, testing, monitoring and accountable governance evidence. It belongs beside the current signals, not in place of them.",
+          "sourceName": "NIST",
+          "sourceType": "evergreen",
+          "evergreenClassification": "framework",
+          "source": { "label": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework" }
         }
       ]
     }

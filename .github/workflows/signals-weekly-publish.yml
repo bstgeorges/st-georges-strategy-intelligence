@@ -83,7 +83,7 @@ jobs:
             echo ""
             echo "This promotes fresh, allowlisted candidates into each topic's Top 5 (backfilling with existing rows where nothing fresh cleared review) and regenerates the weekly brief's masthead, so-what, and Top 5 list from the result."
             echo ""
-            echo "**Before merge, complete the weekly release contract: align `site/data/current-edition.json`, the committee question, the reviewed Reg Horizon edition, the brief judgement, and the evidence-backed Signals Top 5. Run `npm run release:readiness -- --as-of ${{ steps.vars.outputs.publication_date }}` once that editorial pass is complete.**"
+            echo "**Before merge, complete the weekly release contract: align `site/data/current-edition.json`, the three current Committee Questions, the brief judgement and the evidence-backed Signals Top 5. Regulatory Horizon remains a private deadline-register process until its relaunch gate and product decision are complete. Run `npm run release:readiness -- --as-of ${{ steps.vars.outputs.publication_date }}` once that editorial pass is complete.**"
             echo ""
             echo "### Promotion log"
             echo ""

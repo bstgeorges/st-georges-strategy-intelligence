@@ -265,7 +265,7 @@ function main() {
   assert(signalsHub.includes("Primary sources") && signalsHub.includes("Paper-level review"), "Signals hub missing public evidence principles", failures);
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
-  assert(briefPage.includes("The issue in four moves") && briefPage.includes("The full weekly readout") && briefPage.includes("Failure patterns to test internally"), "Weekly Brief is missing its core scan, readout, or control lesson", failures);
+  assert(briefPage.includes("The issue in four moves") && briefPage.includes("The full weekly readout") && briefPage.includes("Questions the public record puts on the table"), "Weekly Brief is missing its core scan, readout, or evidence watch", failures);
   assert(!/How the eight streams fed the issue|Three questions from the week|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage, committee, or idea-development sections", failures);
   assert(signalsHub.includes(`Signals / Edition ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);

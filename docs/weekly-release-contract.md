@@ -2,7 +2,7 @@
 
 The public edition is one reviewed package, not five independent page updates. Before merging a weekly refresh, update and review these together:
 
-1. `site/data/current-edition.json` — edition date, judgement, five distinct Top 5 signals, and a complete committee question.
+1. `site/data/current-edition.json` — edition date, judgement, five distinct Top 5 signals, and three complete current Committee Questions (with the first retained as the compact feature).
 2. `site/data/signals.json` — validated source-backed Top 5 by topic, with a current promotion summary.
 3. `site/brief/index.html` and `site/committee-questions/index.html` — reader-facing judgement and committee prompt that match the edition record.
 4. While Regulatory Horizon is withdrawn, `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record, QA report and relaunch approval state. This is not a public release input and cannot restore the route. Once the relaunch gate passes and a product decision is recorded, replace this item with a reviewed, published Horizon edition.

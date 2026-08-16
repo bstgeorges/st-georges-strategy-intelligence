@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "0 6 * * 0" # 06:00 UTC Sundays; ready for Monday distribution
   workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "Private deadline-discovery lookback in days (defaults to the governed 90-day policy)."
+        required: false
+        default: "90"
+        type: string
 
 permissions:
   contents: write
@@ -16,7 +22,7 @@ concurrency:
 jobs:
   scan-for-editorial-review:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -37,8 +43,18 @@ jobs:
       - name: Run reg-scan tests
         run: REG_SCAN_PYTHON=python npm run reg-scan:test
 
-      - name: Run live Reg Horizon scan
-        run: REG_SCAN_PYTHON=python npm run reg-scan:run
+      - name: Run live private deadline-discovery scan
+        env:
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '90' }}
+        run: |
+          case "$LOOKBACK_DAYS" in
+            ''|*[!0-9]*) echo "lookback_days must be a whole number" >&2; exit 1 ;;
+          esac
+          if [ "$LOOKBACK_DAYS" -lt 30 ] || [ "$LOOKBACK_DAYS" -gt 180 ]; then
+            echo "lookback_days must be between 30 and 180 days" >&2
+            exit 1
+          fi
+          REG_SCAN_PYTHON=python npm run reg-scan:run -- --window "$LOOKBACK_DAYS"
 
       - name: Build private deadline register and quality report
         run: |

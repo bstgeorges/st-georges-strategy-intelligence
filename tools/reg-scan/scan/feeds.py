@@ -205,6 +205,17 @@ PAGE_MAP = {
         "date_selectors": ["time[datetime]", ".date", ".published", ".fecha", ".small"],
     }],
     "italy-consob": [{
+        # The English collection is a simpler official page and provides a
+        # useful fallback when Consob's Italian public-area templates return
+        # an anti-bot challenge to the scanner.
+        "url": "https://www.consob.it/en/web/consob/2026-press-release-collection",
+        "request_profile": "browser",
+        "timeout": 20,
+        "retries": 3,
+        "item_selectors": ["article", ".card", ".asset-entry", ".journal-content-article", ".teaser", "li"],
+        "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='/w/']", "a[href]"],
+        "date_selectors": ["time[datetime]", ".date", ".metadata", ".publish-date", "h2", "h3", "h4"],
+    }, {
         "url": "https://www.consob.it/web/area-pubblica/raccolta-comunicati-stampa-2026",
         "request_profile": "browser",
         "timeout": 12,
@@ -278,13 +289,15 @@ PAGE_MAP = {
         "date_selectors": ["a[href]"],
     }],
     "fincen-enforcement": [{
-        "url": "https://www.fincen.gov/news/press-releases",
+        # This official dated index is lighter and more stable than the
+        # general press-release listing, which has repeatedly timed out.
+        "url": "https://www.fincen.gov/news/enforcement-actions",
         "request_profile": "browser",
-        "timeout": 15,
-        "retries": 2,
-        "item_selectors": ["article", ".views-row", ".node--type-news"],
-        "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href*='/news/']"],
-        "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"],
+        "timeout": 20,
+        "retries": 3,
+        "item_selectors": ["table tbody tr", "table tr", "article", ".views-row", ".node--type-news"],
+        "link_selectors": ["td a[href]", "h2 a[href]", "h3 a[href]", "a[href*='/news/']"],
+        "date_selectors": ["td:nth-of-type(2)", "time[datetime]", ".date", ".field--name-field-date"],
     }],
     "apra": [{
         "url": "https://www.apra.gov.au/news-and-publications?page=0",

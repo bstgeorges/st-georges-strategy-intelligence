@@ -4,7 +4,7 @@ Regulatory Horizon is withdrawn from the public site. The internal deadline regi
 
 ## Operating loop
 
-1. The weekly scanner fetches official sources and records source health.
+1. The weekly scanner fetches the active official sources over the governed 90-day discovery lookback and records source health. Manual runs may use 30–180 days; a shorter run is not valid evidence for relaunch.
 2. The private register carries open deadlines forward for 30 days after their date.
 3. Every candidate enters `review.json`. A high-confidence extraction is **ready for review**, never automatically editorially confirmed.
 4. An editor records an approve or reject decision in `approvals.json` using the register item ID.

@@ -42,6 +42,7 @@ _SOURCE_REGISTRY = _REPO_ROOT / "dashboard" / "data" / "source-registry.json"
 # qualifying rows that a busy authority does not hide a consultation simply
 # because it appeared after its first two notices.
 DEADLINE_DETAIL_PER_SOURCE = 6
+MIN_HEALTHY_SOURCE_SHARE = 0.5
 
 
 def _load_registry():
@@ -62,6 +63,15 @@ def _deduplicate(items):
             seen.add(url)
             out.append(item)
     return out
+
+
+def _meets_health_floor(source_health, configured_sources):
+    """Reject a network-wide failure before it can replace reviewed evidence."""
+    if configured_sources <= 0:
+        return False
+    healthy = sum(1 for entry in source_health if entry.get("status") == "ok")
+    required = max(1, (configured_sources + 1) // 2)
+    return healthy >= required
 
 
 def _reconcile_sources(items):
@@ -210,6 +220,19 @@ def main():
             item["business_impact"] = _score.business_impact(item, source)
         source_health.append({"sourceId": source_id, "status": "ok", "items": len(recent), "fetchedItems": len(items)})
         all_items.extend(recent)
+
+    # A local network outage or DNS failure must never overwrite the last
+    # reviewed scanner artifacts, private register input or health history.
+    # The scan fails closed before touching SQLite or generated output.
+    if not _meets_health_floor(source_health, len(sources_by_id)):
+        healthy = sum(1 for entry in source_health if entry.get("status") == "ok")
+        required = max(1, (len(sources_by_id) + 1) // 2)
+        if conn is not None:
+            conn.close()
+        raise RuntimeError(
+            f"refusing to persist degraded scan: {healthy} of {len(sources_by_id)} sources healthy; "
+            f"at least {required} are required"
+        )
 
     if not args.dry_run and conn is not None:
         prior = _db.previous_items(conn, [item["url"] for item in all_items])

@@ -65,6 +65,25 @@ test("keeps high-confidence official deadlines below the weekly material thresho
   assert.equal(register.items[0].decision, null);
 });
 
+test("does not reintroduce expired scanner deadlines outside the review grace window", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
+  const input = path.join(tmp, "scan.json");
+  const out = path.join(tmp, "out");
+  fs.mkdirSync(out);
+  fs.copyFileSync(path.join(ROOT, "dashboard/regulatory-deadline-register/owners.json"), path.join(out, "owners.json"));
+  fs.writeFileSync(input, JSON.stringify({
+    edition: "2026-08-16",
+    signals: [signal("uk-fca", "2026-06-15")],
+    reviewQueue: [],
+    privateDeadlineCandidates: [],
+    sourceHealth: [],
+    coverage: {},
+  }));
+
+  assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-16"]).status, 0);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.length, 0);
+});
+
 test("keeps source-verified backfill records private and does not mistake a repeated ledger row for a fresh scan", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
   const input = path.join(tmp, "scan.json");

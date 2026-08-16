@@ -17,6 +17,7 @@
     "signals:candidates:refresh:offline": "node scripts/refresh_signals_candidates.mjs --offline --include-seen --no-state-write",
     "signals:candidates:validate": "node scripts/validate_signals_candidates_output.mjs",
     "signals:candidates:test": "node --test scripts/refresh_signals_candidates.test.mjs",
+    "signals:review:test": "node --test scripts/signals_editorial_review.test.mjs",
     "signals:sources:validate": "node scripts/validate_signals_feed_registry.mjs",
     "signals:sources:test": "node --test scripts/validate_signals_feed_registry.test.mjs",
     "signals:shortlist:prepare": "node scripts/prepare_signals_shortlist_review.mjs",

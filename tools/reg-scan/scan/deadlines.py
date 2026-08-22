@@ -1,9 +1,8 @@
 """Deadline extraction and .ics calendar generation.
 
-Extracts consultation-close / in-force dates from item text with deterministic
-regexes (UK/EU date styles). No NLP — a date only counts if it sits near a
-deadline cue ("closes", "by", "until", "enters into force", "deadline",
-"responses", "comments", "feedback", "applies from", "takes effect").
+Extracts consultation-close / in-force dates from primary-document text with
+deterministic regexes (UK/EU date styles). No NLP — a date only counts when an
+explicit deadline or effective-date trigger occurs in the same bounded clause.
 """
 import re
 from datetime import date, datetime
@@ -14,12 +13,23 @@ MONTHS = {m.lower(): i + 1 for i, m in enumerate(
 MONTHS.update({m[:3].lower(): value for m, value in list(MONTHS.items())})
 _MONTH_RX = "|".join(MONTHS)
 
-CUES = re.compile(
-    r"(closes?|closing|by|until|before|deadline|respond|responses?|comments?|"
-    r"feedback|enters? into force|entry into force|takes? effect|applies from|"
-    r"applicable from|effective|due|submit|comments? due|responses? due|"
-    r"commentaires?|réponses?|jusqu(?:'|’|\s+au)|fecha límite|plazo|"
-    r"frist|stellungnahmen?|至|締切|截止|截止日期|まで)", re.I)
+# These are deliberately relationship phrases, not topic words.  In particular
+# a bare "by", "effective", "comments" or page date cannot create a deadline.
+# The date must appear in the same clause as one of these explicit triggers.
+EXPLICIT_TRIGGERS = re.compile(
+    r"\b(?:deadline|closing date)\b|"
+    r"\b(?:consultation|comment period|call for evidence)\s+(?:will\s+)?clos(?:e|es|ing)\b|"
+    r"\b(?:responses?|comments?|feedback|submissions?)\s+(?:must\s+be\s+)?(?:received|submitted|provided)\s+(?:by|before|no later than)\b|"
+    r"\b(?:responses?|comments?|feedback|submissions?)\s+(?:are|is)?\s*(?:due|close)\s+(?:by|on|before)\b|"
+    r"\b(?:due|deadline)\s+(?:by|on|before)\b|"
+    r"\b(?:effective|applicable)\s+(?:from|on)\b|"
+    r"\b(?:enters?|entry)\s+into\s+force(?:\s+(?:from|on))?\b|"
+    r"\btakes?\s+effect\s+(?:from|on)\b|"
+    r"\b(?:date\s+limite|échéance|fecha\s+l[ií]mite|plazo|frist)\b|"
+    r"(?:réponses?|commentaires?)\s+(?:jusqu(?:'|’|\s+au)|doivent\s+[êe]tre\s+re[çc]us)\b|"
+    r"(?:至|締切|截止|截止日期)|(?:まで)(?:\s|$)",
+    re.I,
+)
 
 # Accept the dominant official-publication forms globally: UK/EU text dates,
 # US month-first dates, ISO dates, dotted/slashed numeric dates, and Japanese
@@ -32,7 +42,15 @@ DATE_RX = re.compile(
     r"(?<!\d)(\d{4})年(\d{1,2})月(\d{1,2})日)"
     , re.I)
 
-WINDOW = 90  # chars of context around a date that must contain a cue
+CLAUSE_WINDOW = 160
+
+
+def _clause(text, start, end):
+    """Return a short clause around a date, stopping at sentence boundaries."""
+    left = max(text.rfind(mark, max(0, start - CLAUSE_WINDOW), start) for mark in ".!?;\n")
+    right_positions = [text.find(mark, end, min(len(text), end + CLAUSE_WINDOW)) for mark in ".!?;\n"]
+    right = min((pos for pos in right_positions if pos != -1), default=min(len(text), end + CLAUSE_WINDOW))
+    return text[left + 1:right].strip(), left + 1
 
 
 def _resolve_year(day, month, year, published):
@@ -46,20 +64,19 @@ def _resolve_year(day, month, year, published):
 
 
 def extract_deadline_evidence(text, published_at):
-    """Return the nearest-cue evidence for the earliest future deadline.
+    """Return explicit trigger evidence for the earliest future deadline.
 
-    The scanner still uses deterministic regex extraction, but retaining the
-    cue distance makes a deadline reviewable rather than a black-box date.
+    The function never treats a publication date as a deadline.  It records
+    the trigger and source quote so an editor can reproduce the finding.
     """
     if not text or not published_at:
         return None
     published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
     best = None
     for m in DATE_RX.finditer(text):
-        ctx_start = max(0, m.start() - WINDOW)
-        ctx = text[ctx_start: m.end() + WINDOW]
-        cues = list(CUES.finditer(ctx))
-        if not cues:
+        clause, clause_start = _clause(text, m.start(), m.end())
+        triggers = list(EXPLICIT_TRIGGERS.finditer(clause))
+        if not triggers:
             continue
         if m.group(1):
             day, month, year = int(m.group(1)), MONTHS[m.group(2).lower()], m.group(3)
@@ -76,11 +93,25 @@ def extract_deadline_evidence(text, published_at):
             d = date(year, month, day)
         except ValueError:
             continue
-        if d < published.date():
+        # A source page's publication date (including a same-day date) is never
+        # a deadline.  This conservative rule prevents a common false positive.
+        if d <= published.date():
             continue
-        cue_distance = min(abs((m.start() - ctx_start) - cue.start()) for cue in cues)
-        candidate = {"date": d.isoformat(), "cueDistance": cue_distance, "context": ctx.strip()[:280]}
-        if best is None or candidate["date"] < best["date"] or (candidate["date"] == best["date"] and cue_distance < best["cueDistance"]):
+        date_start = m.start() - clause_start
+        trigger = min(triggers, key=lambda cue: abs(date_start - cue.start()))
+        trigger_distance = abs(date_start - trigger.start())
+        # A trigger somewhere in a long clause is still not evidence that it
+        # governs this date.  Keep the relationship close and inspectable.
+        if trigger_distance > 100:
+            continue
+        candidate = {
+            "date": d.isoformat(),
+            "trigger": trigger.group(0),
+            "triggerDistance": trigger_distance,
+            "quote": clause[:360],
+            "source": "primary-document-detail",
+        }
+        if best is None or candidate["date"] < best["date"] or (candidate["date"] == best["date"] and trigger_distance < best["triggerDistance"]):
             best = candidate
     return best
 
@@ -94,7 +125,9 @@ def extract_deadline(text, published_at):
 def annotate(records):
     """Attach rec['deadline'] (ISO date or None) to each record in place."""
     for rec in records:
-        text = f"{rec.get('title', '')}. {rec.get('summary', '')}. {rec.get('detail_text', '')}"
+        # Listings and titles are discovery material; only successfully fetched
+        # primary-document text is allowed to create a scanner deadline.
+        text = rec.get("detail_text", "")
         evidence = extract_deadline_evidence(text, rec.get("published_at"))
         rec["deadline"] = evidence["date"] if evidence else None
         rec["deadline_evidence"] = evidence

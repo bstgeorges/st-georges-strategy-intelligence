@@ -10,7 +10,7 @@ This directory is the internal operating layer for Regulatory Horizon while the 
 
 The active-intake policy carries a 90-day discovery lookback. This is deliberately distinct from the seven-day editorial signal window: a deadline-discovery run must state the window it actually used, and the dashboard labels the policy rather than implying a run was completed at that depth.
 
-Run `npm run deadline-register:build` after a successful scanner run, then `npm run deadline-register:validate`. Decisions in `approvals.json` can promote or reject an individual item without changing the scanner's raw evidence.
+Run `npm run deadline-register:build` after a successful scanner run, then `npm run deadline-register:validate`. Scanner candidates need explicit deadline or effective-date wording from fetched primary-document text; a page date, title or nearby topic word is never enough. Decisions in `approvals.json` are `confirmed`, `rejected` or `not-applicable`, with a declared scope: `source-date-only` confirms the cited fact but does not imply firm applicability; `applicability` records that business judgement. Every unavailable source is governed in `source-exceptions.json` rather than disappearing from the process.
 
 `npm run deadline-dashboard:build` refreshes `discovery.json` then creates the local `index.html` operating dashboard from the register, review, health, quality gate and source estate. It has the cumulative deadline table, urgency outlook, review queue, relaunch gates, source health and a filtered CSV export. It is deliberately generated only inside this private directory and is not copied by the public site build.
 

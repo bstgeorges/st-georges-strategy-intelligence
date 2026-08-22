@@ -46,6 +46,16 @@ function stableId(url, deadline) {
   return crypto.createHash("sha256").update(`${url}|${deadline}`).digest("hex").slice(0, 20);
 }
 
+function hasExplicitPrimaryDeadlineEvidence(item) {
+  const evidence = item?.evidence?.deadlineCue;
+  return item?.intake !== "scanner" || (
+    item.evidence?.detailChecked === true
+    && evidence?.source === "primary-document-detail"
+    && typeof evidence?.trigger === "string"
+    && typeof evidence?.quote === "string"
+  );
+}
+
 function approvalFor(decisions, id, url, deadline) {
   return decisions.find((decision) => (
     (decision.id && decision.id === id) ||
@@ -58,10 +68,14 @@ function validateApprovals(approvals) {
   for (const [index, decision] of approvals.decisions.entries()) {
     const label = `approvals.json decision ${index + 1}`;
     if (!decision?.id && !decision?.url) throw new Error(`${label} must identify a register item by id or URL.`);
-    if (!["approve", "reject"].includes(decision?.decision)) throw new Error(`${label} must be approve or reject.`);
+    if (!["confirmed", "rejected", "not-applicable"].includes(decision?.decision)) throw new Error(`${label} must be confirmed, rejected, or not-applicable.`);
     if (!decision?.reviewer) throw new Error(`${label} must record a reviewer.`);
     if (!isValidDate(decision?.decidedAt)) throw new Error(`${label} must record decidedAt as YYYY-MM-DD.`);
     if (!decision?.note) throw new Error(`${label} must record the editorial evidence or reason.`);
+    if (!["source-date-only", "applicability"].includes(decision?.scope)) throw new Error(`${label} must set scope to source-date-only or applicability.`);
+    if (decision.decision === "confirmed" && (!decision?.evidence?.quote || !decision?.evidence?.url)) {
+      throw new Error(`${label} must include a primary-source quote and URL when confirmed.`);
+    }
   }
 }
 
@@ -91,8 +105,9 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
   // Confidence is evidence quality, not an editorial decision. No scanner
   // result becomes a confirmed operating deadline without a recorded review.
   let state = confidence === "high" ? "ready-for-review" : "review";
-  if (decision?.decision === "approve") state = "confirmed";
-  if (decision?.decision === "reject") state = "rejected";
+  if (decision?.decision === "confirmed") state = "confirmed";
+  if (decision?.decision === "rejected") state = "rejected";
+  if (decision?.decision === "not-applicable") state = "not-applicable";
   const themes = signal.riskAreas || [];
   return {
     id,
@@ -109,7 +124,7 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
     sourcePublishedAt: isoDate(signal.date),
     status: state,
     intake: signal.intake || "scanner",
-    decision: decision ? { decision: decision.decision, reviewer: decision.reviewer || null, note: decision.note || "", decidedAt: decision.decidedAt || null } : null,
+    decision: decision ? { decision: decision.decision, scope: decision.scope || null, reviewer: decision.reviewer || null, note: decision.note || "", decidedAt: decision.decidedAt || null, evidence: decision.evidence || null } : null,
     evidence: {
       change: signal.editorial?.change || signal.why || "",
       detailChecked: Boolean(signal.confidence?.components?.detail),
@@ -127,7 +142,7 @@ function asCandidate(signal, sourceById, sourceIdByName, owners, asOf, decisions
 function merge(previous, candidates, asOf, edition) {
   const next = new Map();
   for (const item of previous) {
-    if (item.deadline && item.deadline >= addDays(asOf, -GRACE_DAYS) && item.status !== "rejected") next.set(item.id, item);
+    if (item.deadline && item.deadline >= addDays(asOf, -GRACE_DAYS) && hasExplicitPrimaryDeadlineEvidence(item)) next.set(item.id, item);
   }
   for (const candidate of candidates) {
     for (const old of next.values()) {
@@ -188,7 +203,7 @@ function buildChanges(previous, candidates, items, asOf, edition) {
   }
 
   const notReconfirmed = prior
-    .filter((item) => item.intake !== "verified-backfill" && !["rejected", "superseded"].includes(item.status) && !seenIds.has(item.id) && currentById.has(item.id))
+    .filter((item) => item.intake !== "verified-backfill" && !["rejected", "not-applicable", "superseded"].includes(item.status) && !seenIds.has(item.id) && currentById.has(item.id))
     .map((item) => ({ id: item.id, title: item.title, authority: item.authority, deadline: item.deadline, url: item.url }));
 
   return {

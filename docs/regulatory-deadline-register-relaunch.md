@@ -7,7 +7,7 @@ Regulatory Horizon is withdrawn from the public site. The internal deadline regi
 1. The weekly scanner fetches the active official sources over the governed 90-day discovery lookback and records source health. Manual runs may use 30–180 days; a shorter run is not valid evidence for relaunch.
 2. The private register carries open deadlines forward for 30 days after their date.
 3. Every candidate enters `review.json`. A high-confidence extraction is **ready for review**, never automatically editorially confirmed.
-4. An editor records an approve or reject decision in `approvals.json` using the register item ID.
+4. A decision record in `approvals.json` is `confirmed`, `rejected` or `not-applicable`. It names the reviewer, date, decision scope and evidence. `source-date-only` confirms the primary-source fact only; it must not be represented as an applicability determination.
 5. The QA report records correctness, coverage, concentration, freshness and shadow-run history.
 
 ## Hard relaunch gate

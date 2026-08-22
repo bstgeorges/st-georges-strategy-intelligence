@@ -11,7 +11,7 @@ const build = path.join(ROOT, "scripts/build_regulatory_deadline_register.mjs");
 const validate = path.join(ROOT, "scripts/validate_regulatory_deadline_register.mjs");
 
 function signal(id, deadline, confidence = "high") {
-  return { authorityId: id, title: `${id} consultation`, url: `https://example.test/${id}/${deadline}`, date: "2026-08-09", deadline, type: "consultation", riskAreas: ["digital-resilience"], source: id, jurisdictions: ["UK"], confidence: { band: confidence, score: confidence === "high" ? 1 : 0.7, components: { detail: confidence === "high" ? 1 : 0 } }, businessImpact: { band: "high" }, editorial: { change: "Official consultation with a date." } };
+  return { authorityId: id, title: `${id} consultation`, url: `https://example.test/${id}/${deadline}`, date: "2026-08-09", deadline, type: "consultation", riskAreas: ["digital-resilience"], source: id, jurisdictions: ["UK"], confidence: { band: confidence, score: confidence === "high" ? 1 : 0.7, components: { detail: 1 } }, businessImpact: { band: "high" }, editorial: { change: "Official consultation with a date." }, deadlineEvidence: { date: deadline, trigger: "deadline", quote: `The deadline is ${deadline}.`, source: "primary-document-detail" } };
 }
 
 test("builds a cumulative private register and keeps every scanner candidate in review", () => {
@@ -29,7 +29,7 @@ test("builds a cumulative private register and keeps every scanner candidate in 
   assert.equal(first.items.filter((item) => item.status === "ready-for-review").length, 1);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "review.json"))).items.length, 2);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "changes.json"))).baseline, true);
-  fs.writeFileSync(path.join(out, "approvals.json"), JSON.stringify({ decisions: [{ url: first.items[0].url, deadline: first.items[0].deadline, decision: "approve", reviewer: "Editorial lead", note: "Editorial check complete", decidedAt: "2026-08-09" }] }));
+  fs.writeFileSync(path.join(out, "approvals.json"), JSON.stringify({ decisions: [{ url: first.items[0].url, deadline: first.items[0].deadline, decision: "confirmed", scope: "source-date-only", reviewer: "Editorial lead", note: "Primary-source deadline check complete; applicability has not been assessed.", decidedAt: "2026-08-09", evidence: { quote: "Responses must be received by 1 September 2026.", url: first.items[0].url } }] }));
   assert.equal(spawnSync(process.execPath, [build, "--input", input, "--out", out, "--as-of", "2026-08-09"]).status, 0);
   assert.equal(JSON.parse(fs.readFileSync(path.join(out, "register.json"))).items.find((item) => item.authority.id === "uk-fca").status, "confirmed");
   const approvalChange = JSON.parse(fs.readFileSync(path.join(out, "changes.json")));
@@ -123,6 +123,9 @@ test("does not claim a relaunch without recorded human sign-off, even when numer
       title: `Consultation ${index}`,
       deadline: `2026-09-${String(index + 1).padStart(2, "0")}`,
       status: "confirmed",
+      intake: "verified-backfill",
+      evidence: { verifiedAt: "2026-08-09", verification: "Primary source checked" },
+      decision: { decision: "confirmed", scope: "source-date-only", reviewer: "Editorial lead", decidedAt: "2026-08-09", note: "Primary source date confirmed.", evidence: { quote: "The consultation closes on the listed date.", url: `https://example.test/${index}` } },
       authority: { id: authorities[index % authorities.length] },
     })),
   };

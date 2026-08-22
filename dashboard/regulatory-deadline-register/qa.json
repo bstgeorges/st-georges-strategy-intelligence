@@ -1,27 +1,26 @@
 {
   "version": "regulatory-deadline-qa.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-16T18:29:51.223Z",
-  "sourceEdition": "2026-08-16",
-  "asOf": "2026-08-16",
+  "generatedAt": "2026-08-22T18:09:11.942Z",
+  "sourceEdition": "2026-08-22",
+  "asOf": "2026-08-22",
   "errors": [],
   "warnings": [
-    "only 0 confirmed open deadlines; target is 10",
-    "only 0 confirmed authorities; target is 4"
+    "only 2 confirmed open deadlines; target is 10",
+    "only 2 confirmed authorities; target is 4"
   ],
   "readiness": {
-    "score": 50,
+    "score": 66,
     "metrics": {
-      "confirmedOpenDeadlines": 0,
-      "confirmedAuthorities": 0,
+      "confirmedOpenDeadlines": 2,
+      "confirmedAuthorities": 2,
       "healthyCoreAuthorities": 7,
-      "stableCoreAuthorities": 0,
+      "stableCoreAuthorities": 6,
       "sourceAgeDays": 0,
-      "concentration": 0
+      "concentration": 0.5
     },
     "relaunchEligible": false,
     "relaunchReasons": [
-      "fewer than four core authorities have been healthy for three consecutive shadow runs",
       "fewer than ten confirmed open deadlines",
       "fewer than four contributing authorities",
       "editor and product owner have not recorded a current-edition relaunch approval"

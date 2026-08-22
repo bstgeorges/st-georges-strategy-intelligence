@@ -26,7 +26,7 @@ FEED_MAP = {
         "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation.atom",
     ],
     "uk-nca": [
-        "https://www.nationalcrimeagency.gov.uk/news.rss",
+        "https://www.nationalcrimeagency.gov.uk/news?format=feed&type=rss",
     ],
     "uk-ncsc": [
         "https://www.ncsc.gov.uk/api/1/services/v1/all-rss-feed.xml",
@@ -163,7 +163,7 @@ PAGE_MAP = {
     "ecb-supervisory-priorities": [{"url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
     "bcbs": [{"url": "https://www.bis.org/bcbs/publications.htm", "item_selectors": [".item", "article", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".pubdate"]}],
     "iosco": [{"url": "https://www.iosco.org/news/", "item_selectors": ["article", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
-    "ofac-recent-actions": [{"url": "https://ofac.treasury.gov/recent-actions", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"]}],
+    "ofac-recent-actions": [{"url": "https://ofac.treasury.gov/recent-actions", "timeout": 20, "retries": 2, "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"]}],
     "amf-sanctions": [{"url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "ecb-supervision-sanctions": [{"url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
     "de-bundesbank": [{"url": "https://www.bundesbank.de/de/aufgaben/themen", "item_selectors": ["article", ".teaser", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],

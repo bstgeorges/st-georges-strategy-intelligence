@@ -6,6 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DIR = path.join(ROOT, "dashboard/regulatory-deadline-register");
 const CORE = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"];
 const ALLOWED_SOURCE_HEALTH = new Set(["ok", "failed", "blocked", "degraded", "not-configured"]);
+const ALLOWED_ITEM_STATUS = new Set(["ready-for-review", "review", "confirmed", "rejected", "not-applicable", "superseded"]);
 
 function argValue(name, fallback) { const i = process.argv.indexOf(name); return i < 0 ? fallback : process.argv[i + 1]; }
 function json(file) { return JSON.parse(fs.readFileSync(file, "utf8")); }
@@ -32,7 +33,9 @@ function main() {
   const health = json(path.join(dir, "health.json"));
   const historyFile = path.join(dir, "qa-history.json");
   const approvalFile = path.join(dir, "relaunch-approval.json");
+  const exceptionsFile = path.join(dir, "source-exceptions.json");
   const relaunchApproval = fs.existsSync(approvalFile) ? json(approvalFile) : null;
+  const exceptions = fs.existsSync(exceptionsFile) ? json(exceptionsFile) : null;
   const prior = fs.existsSync(historyFile) ? json(historyFile) : { runs: [] };
   const today = asOf || new Date().toISOString().slice(0, 10);
   const errors = [];
@@ -47,6 +50,7 @@ function main() {
   const seen = new Set();
   for (const item of register.items || []) {
     if (!item.id || !item.url || !item.title || !isValidDate(item.deadline)) errors.push(`invalid item ${item.id || item.title || "unknown"}`);
+    if (!ALLOWED_ITEM_STATUS.has(item.status)) errors.push(`invalid item status ${item.id || item.title || "unknown"}`);
     if (seen.has(item.id)) errors.push(`duplicate item ${item.id}`);
     seen.add(item.id);
     if (item.deadline > "2030-12-31") errors.push(`implausibly distant deadline ${item.id}`);
@@ -54,6 +58,18 @@ function main() {
     if (item.intake === "verified-backfill") {
       if (!isValidDate(item.evidence?.verifiedAt)) errors.push(`missing current primary-source verification date ${item.id}`);
       if (!item.evidence?.verification) errors.push(`missing primary-source verification method ${item.id}`);
+    }
+    if (item.intake === "scanner") {
+      const evidence = item.evidence?.deadlineCue;
+      if (!item.evidence?.detailChecked || evidence?.source !== "primary-document-detail" || !evidence?.trigger || !evidence?.quote) {
+        errors.push(`scanner deadline lacks explicit primary-document evidence ${item.id}`);
+      }
+    }
+    if (item.status === "confirmed") {
+      const decision = item.decision;
+      if (decision?.decision !== "confirmed" || !decision?.scope || !decision?.reviewer || !isValidDate(decision?.decidedAt) || !decision?.note || !decision?.evidence?.quote || !decision?.evidence?.url) {
+        errors.push(`confirmed record lacks a complete decision trail ${item.id}`);
+      }
     }
   }
   const sourceHealthSeen = new Set();
@@ -63,6 +79,23 @@ function main() {
     sourceHealthSeen.add(item.sourceId);
   }
   const healthById = new Map((health.sourceHealth || []).map((item) => [item.sourceId, item]));
+  const unavailableSources = (health.sourceHealth || []).filter((item) => ["blocked", "failed", "degraded"].includes(item.status));
+  if (unavailableSources.length && !exceptions) errors.push("source-exceptions.json is required while any configured source is unavailable");
+  if (exceptions) {
+    if (exceptions.visibility !== "private" || !Array.isArray(exceptions.exceptions)) errors.push("source-exceptions.json must be a private exceptions list");
+    const exceptionById = new Map((exceptions.exceptions || []).map((item) => [item.sourceId, item]));
+    for (const source of unavailableSources) {
+      const exception = exceptionById.get(source.sourceId);
+      if (!exception || exception.expectedStatus !== source.status || !exception.issue || !exception.governance || !exception.nextCheck) {
+        errors.push(`unavailable source lacks governed exception ${source.sourceId}`);
+      }
+    }
+    for (const exception of exceptions.exceptions || []) {
+      if (!exception?.sourceId || !ALLOWED_SOURCE_HEALTH.has(exception.expectedStatus)) errors.push(`invalid source exception ${exception?.sourceId || "unknown"}`);
+      const actual = healthById.get(exception?.sourceId);
+      if (actual && actual.status !== exception.expectedStatus) errors.push(`source exception status drift ${exception.sourceId}: expected ${exception.expectedStatus}, got ${actual.status}`);
+    }
+  }
   const healthyCore = CORE.filter((id) => healthById.get(id)?.status === "ok");
   const unavailableCore = CORE.filter((id) => healthById.get(id)?.status !== "ok");
   const confirmedOpen = (register.items || []).filter((item) => item.status === "confirmed" && item.deadline >= today);

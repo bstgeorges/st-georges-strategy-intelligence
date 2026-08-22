@@ -1,4 +1,34 @@
 {
-  "version": "regulatory-deadline-approvals.v1",
-  "decisions": []
+  "version": "regulatory-deadline-approvals.v2",
+  "visibility": "private",
+  "decisions": [
+    {
+      "id": "462c72374abb045944af",
+      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
+      "deadline": "2026-08-24",
+      "decision": "confirmed",
+      "scope": "source-date-only",
+      "reviewer": "Codex primary-source verification",
+      "decidedAt": "2026-08-22",
+      "note": "The primary DFSA notice explicitly states the comment deadline. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+      "evidence": {
+        "quote": "The deadline for providing comments on this Consultation Paper is 24 August 2026.",
+        "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174"
+      }
+    },
+    {
+      "id": "2e61b9c6cd8a588f1b18",
+      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
+      "deadline": "2026-08-31",
+      "decision": "confirmed",
+      "scope": "source-date-only",
+      "reviewer": "Codex primary-source verification",
+      "decidedAt": "2026-08-22",
+      "note": "The linked HM Treasury consultation document explicitly states the close date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+      "evidence": {
+        "quote": "The consultation will close on 31 August 2026.",
+        "url": "https://assets.publishing.service.gov.uk/media/6a565ef42f6185941a9a64d8/Recognised_Payment_Systems_and_Digital_Settlement_Asset_Service_Providers_Fee_Regime_Consultation.pdf"
+      }
+    }
+  ]
 }

@@ -430,6 +430,23 @@ p {
   text-transform: uppercase;
 }
 
+/* Keep the hero CTA clear of the metric strip on compact laptop viewports. */
+@media (min-width: 1001px) and (max-width: 1400px) {
+  .hero-content {
+    padding-top: 56px;
+    padding-bottom: 184px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(58px, 5.6vw, 76px);
+  }
+
+  .hero-copy {
+    max-width: 52ch;
+    font-size: 20px;
+  }
+}
+
 .ticker {
   display: flex;
   gap: clamp(18px, 3vw, 42px);

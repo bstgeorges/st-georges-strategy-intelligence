@@ -17,3 +17,7 @@ npm run site:verify
 ```
 
 The production release workflow repeats these controls and treats link auditing as a release gate. The current reviewed package may be deployed for up to eight days, so a contained reliability or presentation fix can ship during the week without relabelling it as a new edition.
+
+## Responsive presentation gate
+
+Before a weekly production release, check the homepage at a compact laptop viewport (1366 × 768). The hero CTA row must remain fully visible above the publication-metric strip, with no visual overlap. Include any pending responsive source change in the reviewed release package and repeat this check on the routed production page after the release completes.

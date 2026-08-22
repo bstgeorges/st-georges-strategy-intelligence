@@ -315,3 +315,9 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The existing hero artwork and dot field were retained as a documented static hero device rather than removed.
 - Live rendered verification after deployment: 1280px and 375px; no horizontal overflow at 375px; mobile buttons render at 11px/44px; hero animations report none.
 - Production proof: green `Site release (Cloudflare)` run `31965773360`, exact deployed commit `73b5d14`.
+
+## Session memory — 2026-08-22: compact-laptop release requirement
+
+- A rendered 1366 × 768 homepage check identified a real collision: the hero’s CTA row overlapped the publication-metric strip. The source fix in `site/styles.css` reduces compact-laptop hero type and reserves space below the CTA row at 1001–1400px.
+- This change is intentionally queued for the next Sunday release. `docs/weekly-release-contract.md` and `docs/weekly-refresh-workflow.md` now make 1366 × 768 homepage verification a release gate: no CTA/metric overlap before release, and the same check again on production after release.
+- Do not describe the fix as live until the green `Site release (Cloudflare)` workflow verifies the exact production SHA.

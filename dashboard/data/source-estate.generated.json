@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-14T17:25:52.949Z",
+  "generatedAt": "2026-08-22T17:12:30.671Z",
   "purpose": "Governed discovery estate for Signals and regulatory research. Source routes are deduplicated by canonical publisher URL. Catalogue inclusion is not a claim of active scanning or weekly editorial use.",
   "metrics": {
-    "uniqueSourceRoutes": 213,
+    "uniqueSourceRoutes": 238,
     "cataloguedRegulatoryAuthorities": 134,
     "cataloguedAuthorityRoutes": 111,
-    "governedRegistrySources": 102,
-    "registeredPrimarySources": 83,
-    "activeSignalsFeeds": 50,
-    "activeSignalsSourceOwners": 42,
-    "uniquePrimaryRoutes": 194,
+    "governedRegistrySources": 127,
+    "registeredPrimarySources": 108,
+    "activeSignalsFeeds": 81,
+    "activeSignalsSourceOwners": 68,
+    "uniquePrimaryRoutes": 219,
     "specialistOrPressRoutes": 19,
     "jurisdictions": 138
   },
@@ -3336,6 +3336,38 @@
       ]
     },
     {
+      "id": "route-fe035526b88f255a",
+      "url": "https://aws.amazon.com/blogs/security",
+      "names": [
+        "AWS Security Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "aws-security"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "aws-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "aws-security"
+        }
+      ]
+    },
+    {
       "id": "route-65dec04f09426c2c",
       "url": "https://bafin.de/",
       "names": [
@@ -3371,6 +3403,102 @@
       ]
     },
     {
+      "id": "route-fe841c698637ffdf",
+      "url": "https://blog.checkpoint.com/",
+      "names": [
+        "Check Point Research"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "checkpoint"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "checkpoint-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "route-859b46bf108e3db4",
+      "url": "https://blog.cloudflare.com/",
+      "names": [
+        "Cloudflare Security Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "cloudflare-security"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "cloudflare-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "cloudflare-security"
+        }
+      ]
+    },
+    {
+      "id": "route-f5708aaf8b2fa46c",
+      "url": "https://blog.talosintelligence.com/",
+      "names": [
+        "Cisco Talos Intelligence Group"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "cisco-talos"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "cisco-talos-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "cisco-talos"
+        }
+      ]
+    },
+    {
       "id": "route-6b190c3b7a9e08e4",
       "url": "https://blogs.microsoft.com/ai",
       "names": [
@@ -3399,6 +3527,38 @@
         {
           "type": "source-registry",
           "sourceId": "microsoft-ai"
+        }
+      ]
+    },
+    {
+      "id": "route-c8840e5023b70e63",
+      "url": "https://cert.europa.eu/",
+      "names": [
+        "CERT-EU"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "cert-eu"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "cert-eu-advisories-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "cert-eu"
         }
       ]
     },
@@ -3561,6 +3721,38 @@
       ]
     },
     {
+      "id": "route-aa562fed8195cd92",
+      "url": "https://github.blog/",
+      "names": [
+        "GitHub Security Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "github-security"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "github-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "github-security"
+        }
+      ]
+    },
+    {
       "id": "route-cb3eafa4e1d06951",
       "url": "https://hai.stanford.edu/ai-index",
       "names": [
@@ -3681,7 +3873,9 @@
         "nvidia"
       ],
       "authorityIds": [],
-      "activeSignalsFeedIds": [],
+      "activeSignalsFeedIds": [
+        "nvidia-news-rss"
+      ],
       "provenance": [
         {
           "type": "source-registry",
@@ -3778,12 +3972,45 @@
       ],
       "authorityIds": [],
       "activeSignalsFeedIds": [
-        "openai-news-rss"
+        "openai-news-rss",
+        "openai-status-rss"
       ],
       "provenance": [
         {
           "type": "source-registry",
           "sourceId": "openai"
+        }
+      ]
+    },
+    {
+      "id": "route-795f78d189f5b9e0",
+      "url": "https://security.googleblog.com/",
+      "names": [
+        "Google Security Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "google-security"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "google-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "google-security"
         }
       ]
     },
@@ -3816,6 +4043,70 @@
         {
           "type": "regulatory-source-universe",
           "endpointId": "iosco-paraguay-superintendencia-de-valores-banco-central-del-paraguay-home"
+        }
+      ]
+    },
+    {
+      "id": "route-6ad81ab564e598b9",
+      "url": "https://slack-status.com/",
+      "names": [
+        "Slack Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "slack-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "slack-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "slack-status"
+        }
+      ]
+    },
+    {
+      "id": "route-53ae68e5d032e197",
+      "url": "https://snyk.io/blog",
+      "names": [
+        "Snyk Security Research"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "snyk"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "snyk-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "snyk"
         }
       ]
     },
@@ -3884,6 +4175,38 @@
       ]
     },
     {
+      "id": "route-d1fbb5ac69259f3e",
+      "url": "https://status.box.com/",
+      "names": [
+        "Box Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "box-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "box-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "box-status"
+        }
+      ]
+    },
+    {
       "id": "route-762e6fd5f0949c58",
       "url": "https://status.cloud.google.com/",
       "names": [
@@ -3912,6 +4235,38 @@
         {
           "type": "source-registry",
           "sourceId": "google-cloud-status"
+        }
+      ]
+    },
+    {
+      "id": "route-b1d7631ba69c9a33",
+      "url": "https://status.datadoghq.com/",
+      "names": [
+        "Datadog Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "datadog-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "datadog-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "datadog-status"
         }
       ]
     },
@@ -3948,6 +4303,262 @@
       ]
     },
     {
+      "id": "route-ce3a6a0be639a724",
+      "url": "https://status.dropbox.com/",
+      "names": [
+        "Dropbox Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "dropbox-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "dropbox-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "dropbox-status"
+        }
+      ]
+    },
+    {
+      "id": "route-03103ac368372f2f",
+      "url": "https://status.hubspot.com/",
+      "names": [
+        "HubSpot Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "hubspot-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "hubspot-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "hubspot-status"
+        }
+      ]
+    },
+    {
+      "id": "route-5157bc42f1d3c23d",
+      "url": "https://status.linode.com/",
+      "names": [
+        "Akamai Cloud Computing Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "linode-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "linode-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "linode-status"
+        }
+      ]
+    },
+    {
+      "id": "route-6370624e12b2f504",
+      "url": "https://status.mongodb.com/",
+      "names": [
+        "MongoDB Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "mongodb-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "mongodb-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "mongodb-status"
+        }
+      ]
+    },
+    {
+      "id": "route-e46bfa543776f7de",
+      "url": "https://status.newrelic.com/",
+      "names": [
+        "New Relic Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "newrelic-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "newrelic-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "newrelic-status"
+        }
+      ]
+    },
+    {
+      "id": "route-30a5d07746d6fc2d",
+      "url": "https://status.sentry.io/",
+      "names": [
+        "Sentry Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "sentry-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "sentry-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "sentry-status"
+        }
+      ]
+    },
+    {
+      "id": "route-82d9fed3c61cd756",
+      "url": "https://status.snowflake.com/",
+      "names": [
+        "Snowflake Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "snowflake-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "snowflake-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "snowflake-status"
+        }
+      ]
+    },
+    {
+      "id": "route-ab22773dc04d9f16",
+      "url": "https://status.twilio.com/",
+      "names": [
+        "Twilio Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "twilio-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "twilio-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "twilio-status"
+        }
+      ]
+    },
+    {
       "id": "route-693cb6406e0cfe49",
       "url": "https://techcrunch.com/category/artificial-intelligence",
       "names": [
@@ -3974,6 +4585,38 @@
         {
           "type": "source-registry",
           "sourceId": "techcrunch-ai"
+        }
+      ]
+    },
+    {
+      "id": "route-3acbef8dca90b9a9",
+      "url": "https://unit42.paloaltonetworks.com/",
+      "names": [
+        "Palo Alto Networks Unit 42"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "paloalto-unit42"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "paloalto-unit42-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "paloalto-unit42"
         }
       ]
     },
@@ -4109,7 +4752,8 @@
       ],
       "authorityIds": [],
       "activeSignalsFeedIds": [
-        "anthropic-news-sitemap"
+        "anthropic-news-sitemap",
+        "anthropic-status-rss"
       ],
       "provenance": [
         {
@@ -4416,7 +5060,8 @@
       "authorityIds": [],
       "activeSignalsFeedIds": [
         "boe-news-rss",
-        "boe-publications-rss"
+        "boe-publications-rss",
+        "boe-speeches-rss"
       ],
       "provenance": [
         {
@@ -4767,7 +5412,9 @@
       ],
       "authorityIds": [],
       "activeSignalsFeedIds": [
-        "cisa-advisories-rss"
+        "cisa-advisories-rss",
+        "cisa-alerts-rss",
+        "cisa-news-rss"
       ],
       "provenance": [
         {
@@ -4877,6 +5524,38 @@
         {
           "type": "source-registry",
           "sourceId": "italy-consob"
+        }
+      ]
+    },
+    {
+      "id": "route-6f2e860074e0bb46",
+      "url": "https://www.crowdstrike.com/en-us/blog",
+      "names": [
+        "CrowdStrike Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "crowdstrike"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "crowdstrike-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "crowdstrike"
         }
       ]
     },
@@ -6478,6 +7157,38 @@
       ]
     },
     {
+      "id": "route-06214cdec6cd8847",
+      "url": "https://www.microsoft.com/en-us/security/blog",
+      "names": [
+        "Microsoft Security Blog"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "microsoft-security"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "microsoft-security-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "microsoft-security"
+        }
+      ]
+    },
+    {
       "id": "route-c7633d6ceeff14c8",
       "url": "https://www.nationalcrimeagency.gov.uk/news",
       "names": [
@@ -6639,6 +7350,38 @@
         {
           "type": "source-registry",
           "sourceId": "osfi"
+        }
+      ]
+    },
+    {
+      "id": "route-eb25ff57f56a3c2f",
+      "url": "https://www.rapid7.com/blog",
+      "names": [
+        "Rapid7 Research"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "rapid7"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "rapid7-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "rapid7"
         }
       ]
     },
@@ -7015,6 +7758,38 @@
       ]
     },
     {
+      "id": "route-bf02ab439f78c4b3",
+      "url": "https://www.sentinelone.com/blog",
+      "names": [
+        "SentinelOne Labs"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "sentinelone"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "sentinelone-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "sentinelone"
+        }
+      ]
+    },
+    {
       "id": "route-408246b404dad3f9",
       "url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements",
       "names": [
@@ -7207,6 +7982,38 @@
         {
           "type": "source-registry",
           "sourceId": "the-verge-ai"
+        }
+      ]
+    },
+    {
+      "id": "route-8072d1e867b5a5b7",
+      "url": "https://www.zoomstatus.com/",
+      "names": [
+        "Zoom Status"
+      ],
+      "tiers": [
+        "primary"
+      ],
+      "jurisdictions": [
+        "Global"
+      ],
+      "categories": [
+        "ai-infrastructure"
+      ],
+      "roles": [
+        "governed-source-registry"
+      ],
+      "sourceRegistryIds": [
+        "zoom-status"
+      ],
+      "authorityIds": [],
+      "activeSignalsFeedIds": [
+        "zoom-status-rss"
+      ],
+      "provenance": [
+        {
+          "type": "source-registry",
+          "sourceId": "zoom-status"
         }
       ]
     },

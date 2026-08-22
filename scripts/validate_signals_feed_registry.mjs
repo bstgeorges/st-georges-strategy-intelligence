@@ -11,6 +11,7 @@ const SOURCES = path.join(ROOT, "dashboard", "data", "source-registry.json");
 const TOPIC_MINIMUMS = {
   "market-structure": 10,
   "third-party": 12,
+  resilience: 30,
   "technology-failure": 12,
   "financial-crime": 9,
   data: 9,
@@ -23,13 +24,19 @@ function validateFeedRegistry(feedRegistry, sourceRegistry) {
   const sourceById = new Map((sourceRegistry.sources || []).map((source) => [source.id, source]));
   const ids = new Set();
 
-  if (feeds.length < 50) errors.push(`Signals intake has ${feeds.length} sources; minimum is 50.`);
+  if (feeds.length < 80) errors.push(`Signals intake has ${feeds.length} sources; minimum is 80.`);
   for (const feed of feeds) {
     if (!feed.id || ids.has(feed.id)) errors.push(`Duplicate or missing Signals source id: ${feed.id || "<missing>"}.`);
     ids.add(feed.id);
     if (!ALLOWED_FETCH_TYPES.has(feed.fetchType)) errors.push(`${feed.id} has unsupported fetch type ${feed.fetchType || "<missing>"}.`);
     if (!/^https:\/\//.test(feed.fetchUrl || "")) errors.push(`${feed.id} must use a direct HTTPS source URL.`);
     if (!Array.isArray(feed.topics) || !feed.topics.length) errors.push(`${feed.id} must serve at least one Signals topic.`);
+    if (feed.tags?.includes("service-status")) {
+      if (!Array.isArray(feed.titleKeywordHints) || !feed.titleKeywordHints.length) {
+        errors.push(`${feed.id} must use headline-level materiality hints for service-status intake.`);
+      }
+      if (feed.dedupeTitles !== true) errors.push(`${feed.id} must deduplicate recurring service-status incident titles.`);
+    }
     const source = sourceById.get(feed.sourceRegistryId);
     if (!source) errors.push(`${feed.id} references an unknown source-registry entry ${feed.sourceRegistryId || "<missing>"}.`);
     else if (source.tier !== "primary") errors.push(`${feed.id} must be primary, not ${source.tier}.`);

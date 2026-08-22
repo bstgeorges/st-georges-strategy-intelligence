@@ -1434,6 +1434,281 @@
         "Has the SNB changed a financial-stability, macroprudential, payments, or systemic-risk assessment?",
         "What capital, liquidity, resilience, or governance response follows for Swiss and global firms?"
       ]
+    },
+    {
+      "id": "twilio-status",
+      "name": "Twilio Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.twilio.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has a material communications-service disruption exposed a customer or recovery dependency?", "Does the incident require a vendor, fallback, or service-map challenge?"]
+    },
+    {
+      "id": "slack-status",
+      "name": "Slack Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://slack-status.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has a collaboration-service disruption exposed a control-room or communications dependency?", "Does the incident require a fallback or resilience-evidence challenge?"]
+    },
+    {
+      "id": "zoom-status",
+      "name": "Zoom Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://www.zoomstatus.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has a communications-platform incident exposed a material service dependency?", "What recovery or vendor-assurance evidence should be requested?"]
+    },
+    {
+      "id": "datadog-status",
+      "name": "Datadog Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.datadoghq.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has an observability-platform incident weakened a firm's ability to detect or manage service failure?", "Does the incident justify a monitoring or fallback evidence request?"]
+    },
+    {
+      "id": "newrelic-status",
+      "name": "New Relic Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.newrelic.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has an observability-platform incident weakened operational detection or response?", "What resilience or third-party evidence should management produce?"]
+    },
+    {
+      "id": "sentry-status",
+      "name": "Sentry Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.sentry.io/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has an application-monitoring incident impaired fault detection or incident response?", "Does the disruption require a fallback or service-observability challenge?"]
+    },
+    {
+      "id": "linode-status",
+      "name": "Akamai Cloud Computing Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.linode.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience"],
+      "signalQuestions": ["Has a cloud-service incident exposed a material provider dependency?", "What service-map, recovery, or vendor-assurance evidence should be requested?"]
+    },
+    {
+      "id": "box-status",
+      "name": "Box Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.box.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience", "data-governance"],
+      "signalQuestions": ["Has a content-service disruption exposed a data-access or records dependency?", "Does the incident require a resilience, retention, or fallback evidence request?"]
+    },
+    {
+      "id": "dropbox-status",
+      "name": "Dropbox Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.dropbox.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience", "data-governance"],
+      "signalQuestions": ["Has a content-service disruption exposed a data-access or records dependency?", "What vendor, recovery, or information-resilience evidence should be requested?"]
+    },
+    {
+      "id": "mongodb-status",
+      "name": "MongoDB Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.mongodb.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience", "data-governance"],
+      "signalQuestions": ["Has a managed-data-service incident exposed a production data dependency?", "Does the incident require recovery, resilience, or data-integrity evidence?"]
+    },
+    {
+      "id": "hubspot-status",
+      "name": "HubSpot Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.hubspot.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience", "customer-outcomes"],
+      "signalQuestions": ["Has a customer-platform incident exposed a client-communication or data dependency?", "What customer-outcome, recovery, or vendor evidence should be requested?"]
+    },
+    {
+      "id": "snowflake-status",
+      "name": "Snowflake Status",
+      "tier": "primary",
+      "category": "ai-infrastructure",
+      "jurisdictions": ["Global"],
+      "url": "https://status.snowflake.com/",
+      "cadence": "daily",
+      "useFor": ["third-party-dependency", "technology-failure", "operational-resilience", "data-governance"],
+      "signalQuestions": ["Has a cloud-data-platform incident exposed a reporting or operational dependency?", "Does the incident require recovery, data-integrity, or vendor-assurance evidence?"]
+    },
+    {
+      "id": "cloudflare-security",
+      "name": "Cloudflare Security Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://blog.cloudflare.com/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "internet-resilience", "third-party-dependency"],
+      "signalQuestions": ["Does Cloudflare describe a material internet, attack, or resilience pattern?", "What exposure, detection, or dependency evidence should be requested?"]
+    },
+    {
+      "id": "google-security",
+      "name": "Google Security Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://security.googleblog.com/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "ai-security", "software-supply-chain"],
+      "signalQuestions": ["Does Google describe a material threat, vulnerability, or security-control change?", "What prevention, detection, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "cisco-talos",
+      "name": "Cisco Talos Intelligence Group",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://blog.talosintelligence.com/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "vulnerability-management", "incident-response"],
+      "signalQuestions": ["Does Talos identify a threat or vulnerability with an operational control implication?", "What detection, response, or patch-evidence question follows?"]
+    },
+    {
+      "id": "paloalto-unit42",
+      "name": "Palo Alto Networks Unit 42",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://unit42.paloaltonetworks.com/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "software-supply-chain", "incident-response"],
+      "signalQuestions": ["Does Unit 42 identify a threat, supply-chain, or control failure pattern worth testing?", "What preventive, detective, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "cert-eu",
+      "name": "CERT-EU",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["EU"],
+      "url": "https://cert.europa.eu/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "vulnerability-management", "eu-public-sector"],
+      "signalQuestions": ["Does a CERT-EU advisory identify a material vulnerability or threat affecting financial-services dependencies?", "What remediation or threat-hunting evidence should be requested?"]
+    },
+    {
+      "id": "aws-security",
+      "name": "AWS Security Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://aws.amazon.com/blogs/security/",
+      "cadence": "weekly",
+      "useFor": ["cloud-security", "third-party-dependency", "operational-resilience"],
+      "signalQuestions": ["Does AWS describe a cloud-security or control change with a financial-services dependency implication?", "What cloud-control, architecture, or assurance evidence should be requested?"]
+    },
+    {
+      "id": "microsoft-security",
+      "name": "Microsoft Security Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://www.microsoft.com/en-us/security/blog/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "cloud-security", "identity-security"],
+      "signalQuestions": ["Does Microsoft describe a material cloud, identity, or threat-development signal?", "What detection, identity, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "github-security",
+      "name": "GitHub Security Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://github.blog/",
+      "cadence": "weekly",
+      "useFor": ["software-supply-chain", "developer-platform-risk", "ai-security"],
+      "signalQuestions": ["Does GitHub describe a software-supply-chain, code-security, or AI-development risk with an operating implication?", "What control or assurance evidence should be requested?"]
+    },
+    {
+      "id": "snyk",
+      "name": "Snyk Security Research",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://snyk.io/blog/",
+      "cadence": "weekly",
+      "useFor": ["software-supply-chain", "vulnerability-management", "ai-security"],
+      "signalQuestions": ["Does Snyk identify a software-supply-chain or vulnerability-management development worth testing?", "What inventory, remediation, or assurance evidence should be requested?"]
+    },
+    {
+      "id": "crowdstrike",
+      "name": "CrowdStrike Blog",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://www.crowdstrike.com/en-us/blog/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "incident-response", "threat-intelligence"],
+      "signalQuestions": ["Does CrowdStrike identify a threat or incident-response pattern with a financial-services implication?", "What detection, response, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "rapid7",
+      "name": "Rapid7 Research",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://www.rapid7.com/blog/",
+      "cadence": "weekly",
+      "useFor": ["vulnerability-management", "cyber-threats", "incident-response"],
+      "signalQuestions": ["Does Rapid7 identify an exploited vulnerability or response pattern worth testing?", "What patching, exposure, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "sentinelone",
+      "name": "SentinelOne Labs",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://www.sentinelone.com/blog/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "incident-response", "threat-intelligence"],
+      "signalQuestions": ["Does SentinelOne identify a threat or response pattern with an operational implication?", "What detection, containment, or recovery evidence should be requested?"]
+    },
+    {
+      "id": "checkpoint",
+      "name": "Check Point Research",
+      "tier": "primary",
+      "category": "cyber",
+      "jurisdictions": ["Global"],
+      "url": "https://blog.checkpoint.com/",
+      "cadence": "weekly",
+      "useFor": ["cyber-threats", "ai-security", "cloud-security"],
+      "signalQuestions": ["Does Check Point identify a material cyber, AI-security, or cloud-control development?", "What preventive, detective, or recovery evidence should be requested?"]
     }
   ]
 }

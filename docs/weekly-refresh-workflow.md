@@ -20,7 +20,7 @@ The live pages should not auto-publish without a human editorial pass. The weekl
 GitHub Actions now prepares a weekly editorial pack automatically:
 
 - workflow: `Weekly editorial prep`
-- schedule: Sundays at 06:30 UTC
+- schedule: Sundays at 07:30 UTC
 - manual rerun: `Actions` -> `Weekly editorial prep` -> `Run workflow`
 
 The workflow produces an artifact named `weekly-editorial-prep-YYYY-MM-DD` containing:
@@ -174,4 +174,5 @@ Before publishing, confirm:
 - Paywalled sources are acceptable only where the URL is known to exist.
 - No article relies on unsupported precise claims.
 - No old live-edition dates remain in the live pages unless they are intentional source dates.
-- Mobile, small-mobile, tablet, and desktop responsive QA pass.
+- Mobile, small-mobile, tablet, desktop, and 1366 × 768 laptop responsive QA pass.
+- At 1366 × 768, the homepage hero CTA row remains fully visible above the publication-metric strip with no overlap.

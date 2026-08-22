@@ -187,7 +187,10 @@ def build_edition(
         "edition": edition,
         "generatedAt": generated_at.strftime("%Y-%m-%d %H:%M UTC"),
         "windowDays": window_days,
-        "status": "published" if material else "withheld",
+        # Scanner output is an internal evidence artefact. It is never a
+        # publication decision, including when its ranking finds material.
+        "visibility": "private",
+        "status": "private-review",
         "kpis": {
             "material": len(material),
             "themes": len(themes),

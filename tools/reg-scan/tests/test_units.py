@@ -69,6 +69,7 @@ class TestDeadlines(unittest.TestCase):
             {
                 "title": "Consultation closes 30 November 2026",
                 "summary": "Please submit feedback before the deadline.",
+                "detail_text": "The consultation closes on 30 November 2026.",
                 "published_at": "2026-07-01T00:00:00+00:00",
             }
         ]
@@ -85,13 +86,37 @@ class TestDeadlines(unittest.TestCase):
         self.annotate(records)
         self.assertEqual(records[0]["deadline"], "2026-10-15")
 
-    def test_deadline_evidence_records_cue_proximity(self):
+    def test_deadline_evidence_records_explicit_trigger_and_quote(self):
         evidence = self.extract_evidence(
             "Consultation responses must be submitted by 2026-10-15.",
             "2026-07-01T00:00:00+00:00",
         )
         self.assertEqual(evidence["date"], "2026-10-15")
-        self.assertLess(evidence["cueDistance"], 90)
+        self.assertEqual(evidence["source"], "primary-document-detail")
+        self.assertIn("responses must be submitted by", evidence["quote"].lower())
+
+    def test_publication_date_cannot_become_a_deadline(self):
+        text = "Published 9 July 2026. The consultation is open and comments are welcome."
+        self.assertIsNone(self.extract(text, "2026-07-09T00:00:00+00:00"))
+
+    def test_unrelated_cue_cannot_govern_a_page_date(self):
+        text = "This page was published on 9 July 2026; comments from last year were considered."
+        self.assertIsNone(self.extract(text, "2026-07-01T00:00:00+00:00"))
+
+    def test_explicit_deadline_in_same_clause_is_retained(self):
+        text = "Published 9 July 2026. Responses must be received by 31 August 2026."
+        evidence = self.extract_evidence(text, "2026-07-09T00:00:00+00:00")
+        self.assertEqual(evidence["date"], "2026-08-31")
+        self.assertIn("received by", evidence["trigger"].lower())
+
+    def test_annotate_requires_primary_detail_text(self):
+        records = [{
+            "title": "Consultation closes 30 November 2026",
+            "summary": "Responses must be submitted by 30 November 2026.",
+            "published_at": "2026-07-01T00:00:00+00:00",
+        }]
+        self.annotate(records)
+        self.assertIsNone(records[0]["deadline"])
 
     def test_band_boundaries(self):
         self.assertEqual(self.band(0), "0-30")

@@ -131,6 +131,11 @@ function main() {
   for (const file of REQUIRED) {
     assert(fs.existsSync(path.join(REG_SCAN_DOCS, file)), `tools/reg-scan/docs missing ${file}`);
   }
+  const scannerEdition = JSON.parse(fs.readFileSync(path.join(REG_SCAN_DOCS, "latest.json"), "utf8"));
+  assert(
+    scannerEdition.visibility !== "private" && scannerEdition.status !== "private-review",
+    "Private Reg Horizon scanner output cannot be synced to the public route. The public Horizon remains withheld until a separate approved relaunch.",
+  );
 
   for (const target of TARGETS) {
     copySelected(REG_SCAN_DOCS, target.path, target.files, target.copyArchive);

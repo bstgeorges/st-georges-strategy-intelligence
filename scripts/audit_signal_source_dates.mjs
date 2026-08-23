@@ -247,6 +247,19 @@ function applyEvergreenPolicy(result, row) {
   return result;
 }
 
+function applyManualVerificationPolicy(result, rows) {
+  if (result !== "mismatch") return result;
+  const verified = rows.every((row) => {
+    const verification = row.manualVerification;
+    return (
+      verification?.status === "manual-verified" &&
+      /^\d{4}-\d{2}-\d{2}$/.test(verification.verifiedDate || "") &&
+      Boolean(verification.reason?.trim())
+    );
+  });
+  return verified ? "manual-verified" : result;
+}
+
 async function auditUrl(item) {
   const expectedDates = Array.from(new Set(item.rows.flatMap((row) => row.displayedSourceDates || []).filter(Boolean)));
   if (!expectedDates.length) {
@@ -272,9 +285,10 @@ async function auditUrl(item) {
     const html = contentType.includes("text") || contentType.includes("html") || contentType.includes("xml") ? await response.text() : "";
     const candidates = html ? collectDates(html, response.url) : [];
     const best = chooseBestDate(candidates);
-    const result = item.rows.every((row) => row.section === "stillMaterial")
+    const classified = item.rows.every((row) => row.section === "stillMaterial")
       ? applyEvergreenPolicy(classify(expectedDates, best, candidates, response), item.rows[0])
       : classify(expectedDates, best, candidates, response);
+    const result = applyManualVerificationPolicy(classified, item.rows);
     return {
       url: item.url,
       finalUrl: response.url,

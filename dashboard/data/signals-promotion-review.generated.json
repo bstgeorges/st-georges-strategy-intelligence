@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-08-23T05:24:57.352Z",
-  "preparedAt": "2026-08-23T05:25:32.353Z",
+  "candidateGeneratedAt": "2026-08-23T10:23:49.866Z",
+  "preparedAt": "2026-08-23T10:24:57.572Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -18,10 +18,10 @@
     "decisionTypeCounts": {
       "rule-change": 3,
       "enforcement": 1,
-      "active-threat": 4,
-      "outage": 3,
-      "research": 1,
-      "context": 58
+      "active-threat": 13,
+      "outage": 6,
+      "research": 2,
+      "context": 60
     },
     "decisionTypeGroups": [
       {
@@ -93,8 +93,21 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 4,
+        "candidateCount": 13,
         "candidates": [
+          {
+            "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 34",
+            "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-34-8",
+            "sourceName": "SentinelOne Labs",
+            "sourceOwner": "sentinelone",
+            "publishedAt": "2026-08-21T13:00:56.000Z",
+            "relevanceScore": 97,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
           {
             "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
             "url": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
@@ -122,6 +135,45 @@
             ]
           },
           {
+            "title": "Identity Abuse Through Trusted Communication Channels",
+            "url": "https://unit42.paloaltonetworks.com/communication-channel-identity-risks",
+            "sourceName": "Palo Alto Networks Unit 42",
+            "sourceOwner": "paloalto-unit42",
+            "publishedAt": "2026-08-20T10:00:25.000Z",
+            "relevanceScore": 94,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "CVE-2026-19490: Critical Vulnerability Affecting Citrix NetScaler ADC and NetScaler Gateway",
+            "url": "https://www.rapid7.com/blog/post/etr-cve-2026-19490-critical-vulnerability-affecting-citrix-netscaler-adc-and-netscaler-gateway",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-19T16:46:06.000Z",
+            "relevanceScore": 93,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "Back-to-School Cyber Risks Surge as Education Remains the World&#8217;s Most Attacked Sector",
+            "url": "https://blog.checkpoint.com/research/back-to-school-cyber-risks-surge-as-education-remains-the-worlds-most-attacked-sector",
+            "sourceName": "Check Point Research",
+            "sourceOwner": "checkpoint",
+            "publishedAt": "2026-08-19T13:00:52.000Z",
+            "relevanceScore": 93,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
             "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
             "url": "https://www.cisa.gov/news-events/alerts/2026/08/19/cisa-adds-one-known-exploited-vulnerability-catalog",
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -130,6 +182,19 @@
             "relevanceScore": 93,
             "decisionType": "active-threat",
             "region": "US",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "New Report: AI threats are here. Why Q2 2026 signals the end of traditional patch cycles",
+            "url": "https://www.rapid7.com/blog/post/tr-new-report-ai-threats-q2-2026-ends-traditional-patch-cycles",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-18T12:49:46.000Z",
+            "relevanceScore": 91,
+            "decisionType": "active-threat",
+            "region": "Global/other",
             "topics": [
               "cyber"
             ]
@@ -146,13 +211,26 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "Operation ASTERIX: Anatomy of a Crypto Fraud Pipeline",
+            "url": "https://www.rapid7.com/blog/post/tr-operation-asterix-crypto-fraud-vishing-phishing",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-17T11:29:31.000Z",
+            "relevanceScore": 89,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       },
       {
         "id": "outage",
         "label": "outage",
-        "candidateCount": 3,
+        "candidateCount": 6,
         "candidates": [
           {
             "title": "Network connectivity issues in Dubai (DXB)",
@@ -169,12 +247,54 @@
             ]
           },
           {
+            "title": "Increased Errors for Durable Objects in the Hong Kong region",
+            "url": "https://www.cloudflarestatus.com/incidents/14kntn62njng",
+            "sourceName": "Cloudflare Status",
+            "sourceOwner": "cloudflare-status",
+            "publishedAt": "2026-08-21T15:19:56.000Z",
+            "relevanceScore": 86,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Service disruption on Claude services",
+            "url": "https://status.claude.com/incidents/qt14v73myyy5",
+            "sourceName": "Anthropic",
+            "sourceOwner": "anthropic",
+            "publishedAt": "2026-08-16T22:34:39.000Z",
+            "relevanceScore": 75,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "resilience",
+              "technology-failure"
+            ]
+          },
+          {
+            "title": "Service disruption on Claude Code on the web and related services",
+            "url": "https://status.claude.com/incidents/whnd2z49x3xf",
+            "sourceName": "Anthropic",
+            "sourceOwner": "anthropic",
+            "publishedAt": "2026-08-14T00:51:24.000Z",
+            "relevanceScore": 71,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "resilience",
+              "technology-failure"
+            ]
+          },
+          {
             "title": "Disruption with GHEC Team Sync",
             "url": "https://www.githubstatus.com/incidents/pf25whpq58hh",
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-08-13T18:27:54.000Z",
-            "relevanceScore": 71,
+            "relevanceScore": 70,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -201,8 +321,21 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 1,
+        "candidateCount": 2,
         "candidates": [
+          {
+            "title": "Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave",
+            "url": "https://blog.cloudflare.com/ddos-threat-report-2026-h1",
+            "sourceName": "Cloudflare Security Blog",
+            "sourceOwner": "cloudflare-security",
+            "publishedAt": "2026-08-11T13:00:00.000Z",
+            "relevanceScore": 77,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
           {
             "title": "AI model achieves breakthrough in forecasting cyclones — Google DeepMind",
             "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
@@ -221,7 +354,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 58,
+        "candidateCount": 60,
         "candidates": [
           {
             "title": "Elevated network errors for traffic routed between North America origins and SIN (Singapore) colo",
@@ -243,12 +376,25 @@
             "sourceName": "Cloudflare Status",
             "sourceOwner": "cloudflare-status",
             "publishedAt": "2026-08-21T19:39:57.000Z",
-            "relevanceScore": 100,
+            "relevanceScore": 99,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
               "technology-failure",
               "third-party"
+            ]
+          },
+          {
+            "title": "Rapid7 and Licencias OnLine Partner to Accelerate Cybersecurity Maturity across Latin America",
+            "url": "https://www.rapid7.com/blog/post/c-licencias-online-partnership-accelerates-latam-cybersecurity-maturity-latin-america",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-19T12:00:00.000Z",
+            "relevanceScore": 93,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
             ]
           },
           {
@@ -265,16 +411,42 @@
             ]
           },
           {
+            "title": "Africa’s Cybersecurity Challenge Is Bigger Than Access to Technology",
+            "url": "https://www.rapid7.com/blog/post/c-starlink-distribution-partnership-africa",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-17T08:00:00.000Z",
+            "relevanceScore": 88,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
             "title": "RESOLVED: We are investigating an issue where customers may experience timeouts, service degradations, errors, and elevated latencies across multiple products in the us-west1 region.",
             "url": "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf",
             "sourceName": "Google Cloud Service Health",
             "sourceOwner": "google-cloud-status",
             "publishedAt": "2026-08-20T19:37:41.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 84,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
               "third-party"
+            ]
+          },
+          {
+            "title": "Curiouser and Curiouser",
+            "url": "https://blog.talosintelligence.com/curiouser-and-curiouser",
+            "sourceName": "Cisco Talos Intelligence Group",
+            "sourceOwner": "cisco-talos",
+            "publishedAt": "2026-08-13T18:00:18.000Z",
+            "relevanceScore": 81,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
             ]
           },
           {
@@ -315,134 +487,94 @@
             "topics": [
               "cyber"
             ]
-          },
-          {
-            "title": "Swiss insurance sector continues to strengthen its resilience",
-            "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-            "sourceName": "Swiss Financial Market Supervisory Authority",
-            "sourceOwner": "finma",
-            "publishedAt": "2026-08-20T08:00:00.000Z",
-            "relevanceScore": 80,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "resilience"
-            ]
-          },
-          {
-            "title": "26-140MR Rex held accountable for continuous disclosure failure, three non-executive directors did not breach duties | ASIC",
-            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties",
-            "sourceName": "Australian Securities and Investments Commission",
-            "sourceOwner": "asic",
-            "publishedAt": "2026-08-20T01:36:01.000Z",
-            "relevanceScore": 79,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "data"
-            ]
-          },
-          {
-            "title": "Incident with GitHub.com",
-            "url": "https://www.githubstatus.com/incidents/zkxwbgr0cnmx",
-            "sourceName": "GitHub Status",
-            "sourceOwner": "github-status",
-            "publishedAt": "2026-08-17T21:15:46.000Z",
-            "relevanceScore": 79,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
-            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 82,
-      "uniqueCandidateEvents": 70,
-      "crossThemeDuplicatesCollapsed": 12,
+      "candidateRows": 99,
+      "uniqueCandidateEvents": 85,
+      "crossThemeDuplicatesCollapsed": 14,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
-          "count": 9,
-          "share": 12.9
+          "count": 10,
+          "share": 11.8
         },
         {
           "sourceOwner": "sec",
           "sourceName": "US Securities and Exchange Commission",
           "count": 7,
-          "share": 10
-        },
-        {
-          "sourceOwner": "cert-fr",
-          "sourceName": "CERT-FR / ANSSI",
-          "count": 5,
-          "share": 7.1
+          "share": 8.2
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 7.1
+          "share": 5.9
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 5,
-          "share": 7.1
+          "share": 5.9
+        },
+        {
+          "sourceOwner": "nvidia",
+          "sourceName": "NVIDIA Newsroom",
+          "count": 5,
+          "share": 5.9
+        },
+        {
+          "sourceOwner": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "count": 5,
+          "share": 5.9
         },
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 5,
-          "share": 7.1
+          "share": 5.9
         },
         {
-          "sourceOwner": "jpcert",
-          "sourceName": "JPCERT Coordination Center",
-          "count": 4,
-          "share": 5.7
-        },
-        {
-          "sourceOwner": "mistral-ai",
-          "sourceName": "Mistral AI",
-          "count": 4,
-          "share": 5.7
+          "sourceOwner": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "count": 5,
+          "share": 5.9
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 28,
-          "share": 40
+          "count": 24,
+          "share": 28.2
         },
         {
           "region": "US",
-          "count": 16,
-          "share": 22.9
+          "count": 17,
+          "share": 20
         },
         {
           "region": "Global/other",
-          "count": 26,
-          "share": 37.1
+          "count": 44,
+          "share": 51.8
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 70,
-        "alreadyPublishedCandidates": 0,
-        "continuingPublishedEvents": 35,
+        "newCandidateEvents": 77,
+        "alreadyPublishedCandidates": 8,
+        "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 36
       }
     },
     "sourceHealth": {
-      "runsRetained": 3,
-      "healthy": 48,
-      "watching": 1,
-      "investigate": 0,
+      "runsRetained": 4,
+      "healthy": 79,
+      "watching": 0,
+      "investigate": 1,
       "supplementary": 1,
       "entries": [
         {
@@ -476,9 +608,9 @@
           "sourceId": "microsoft-ai-rss",
           "sourceRegistryId": "microsoft-ai",
           "status": "failed",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "Fetch failed 403 for https://blogs.microsoft.com/feed/"
         },
         {
@@ -701,7 +833,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -894,6 +1026,285 @@
           "monitoring": "standard",
           "action": "none",
           "detail": ""
+        },
+        {
+          "sourceId": "openai-status-rss",
+          "sourceRegistryId": "openai",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "anthropic-status-rss",
+          "sourceRegistryId": "anthropic",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "twilio-status-rss",
+          "sourceRegistryId": "twilio-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "slack-status-rss",
+          "sourceRegistryId": "slack-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "zoom-status-rss",
+          "sourceRegistryId": "zoom-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "datadog-status-rss",
+          "sourceRegistryId": "datadog-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "newrelic-status-rss",
+          "sourceRegistryId": "newrelic-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "sentry-status-rss",
+          "sourceRegistryId": "sentry-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "linode-status-rss",
+          "sourceRegistryId": "linode-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "box-status-rss",
+          "sourceRegistryId": "box-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "dropbox-status-rss",
+          "sourceRegistryId": "dropbox-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "mongodb-status-rss",
+          "sourceRegistryId": "mongodb-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "hubspot-status-rss",
+          "sourceRegistryId": "hubspot-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "snowflake-status-rss",
+          "sourceRegistryId": "snowflake-status",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cloudflare-security-rss",
+          "sourceRegistryId": "cloudflare-security",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "google-security-rss",
+          "sourceRegistryId": "google-security",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cisco-talos-rss",
+          "sourceRegistryId": "cisco-talos",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "paloalto-unit42-rss",
+          "sourceRegistryId": "paloalto-unit42",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cert-eu-advisories-rss",
+          "sourceRegistryId": "cert-eu",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cisa-alerts-rss",
+          "sourceRegistryId": "cisa",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "cisa-news-rss",
+          "sourceRegistryId": "cisa",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "boe-speeches-rss",
+          "sourceRegistryId": "uk-boe-pra",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "nvidia-news-rss",
+          "sourceRegistryId": "nvidia",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "aws-security-rss",
+          "sourceRegistryId": "aws-security",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "microsoft-security-rss",
+          "sourceRegistryId": "microsoft-security",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "github-security-rss",
+          "sourceRegistryId": "github-security",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "snyk-security-rss",
+          "sourceRegistryId": "snyk",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "crowdstrike-rss",
+          "sourceRegistryId": "crowdstrike",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "rapid7-rss",
+          "sourceRegistryId": "rapid7",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "sentinelone-rss",
+          "sourceRegistryId": "sentinelone",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
+        },
+        {
+          "sourceId": "checkpoint-rss",
+          "sourceRegistryId": "checkpoint",
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
+          "monitoring": "standard",
+          "action": "none",
+          "detail": ""
         }
       ]
     }
@@ -919,25 +1330,25 @@
           "relevanceScore": 76
         },
         {
+          "title": "Bring the Fire: Play Games on GeForce NOW With New Firefox Browser Support",
+          "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-firefox",
+          "sourceName": "NVIDIA Newsroom",
+          "publishedAt": "2026-08-20T13:00:24.000Z",
+          "relevanceScore": 65
+        },
+        {
           "title": "Introducing AI Futures",
           "url": "https://openai.com/index/introducing-ai-futures",
           "sourceName": "OpenAI",
           "publishedAt": "2026-08-20T07:00:00.000Z",
-          "relevanceScore": 65
+          "relevanceScore": 64
         },
         {
           "title": "Offering Zero Data Retention for frontier models",
           "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
           "sourceName": "OpenAI",
           "publishedAt": "2026-08-19T19:00:00.000Z",
-          "relevanceScore": 64
-        },
-        {
-          "title": "Strengthening democratic oversight in national security",
-          "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
-          "sourceName": "OpenAI",
-          "publishedAt": "2026-08-18T19:00:00.000Z",
-          "relevanceScore": 62
+          "relevanceScore": 63
         }
       ]
     },
@@ -1007,21 +1418,21 @@
           "url": "https://www.cloudflarestatus.com/incidents/xl112dfsfz6q",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-08-21T19:39:57.000Z",
-          "relevanceScore": 100
+          "relevanceScore": 99
+        },
+        {
+          "title": "Increased Errors for Durable Objects in the Hong Kong region",
+          "url": "https://www.cloudflarestatus.com/incidents/14kntn62njng",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-08-21T15:19:56.000Z",
+          "relevanceScore": 86
         },
         {
           "title": "RESOLVED: We are investigating an issue where customers may experience timeouts, service degradations, errors, and elevated latencies across multiple products in the us-west1 region.",
           "url": "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf",
           "sourceName": "Google Cloud Service Health",
           "publishedAt": "2026-08-20T19:37:41.000Z",
-          "relevanceScore": 85
-        },
-        {
-          "title": "Incident with GitHub.com",
-          "url": "https://www.githubstatus.com/incidents/zkxwbgr0cnmx",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-17T21:15:46.000Z",
-          "relevanceScore": 79
+          "relevanceScore": 84
         }
       ]
     },
@@ -1035,7 +1446,21 @@
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "sourceName": "Swiss Financial Market Supervisory Authority",
           "publishedAt": "2026-08-20T08:00:00.000Z",
-          "relevanceScore": 80
+          "relevanceScore": 79
+        },
+        {
+          "title": "Service disruption on Claude services",
+          "url": "https://status.claude.com/incidents/qt14v73myyy5",
+          "sourceName": "Anthropic",
+          "publishedAt": "2026-08-16T22:34:39.000Z",
+          "relevanceScore": 75
+        },
+        {
+          "title": "Service disruption on Claude Code on the web and related services",
+          "url": "https://status.claude.com/incidents/whnd2z49x3xf",
+          "sourceName": "Anthropic",
+          "publishedAt": "2026-08-14T00:51:24.000Z",
+          "relevanceScore": 71
         }
       ]
     },
@@ -1056,7 +1481,7 @@
           "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
           "sourceName": "US Securities and Exchange Commission",
           "publishedAt": "2026-08-18T19:55:10.000Z",
-          "relevanceScore": 77
+          "relevanceScore": 76
         },
         {
           "title": "HKICL alerts public of fraudulent website",
@@ -1087,6 +1512,13 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 34",
+          "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-34-8",
+          "sourceName": "SentinelOne Labs",
+          "publishedAt": "2026-08-21T13:00:56.000Z",
+          "relevanceScore": 97
+        },
+        {
           "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
           "url": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -1101,25 +1533,18 @@
           "relevanceScore": 95
         },
         {
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/19/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "publishedAt": "2026-08-19T12:00:00.000Z",
+          "title": "Identity Abuse Through Trusted Communication Channels",
+          "url": "https://unit42.paloaltonetworks.com/communication-channel-identity-risks",
+          "sourceName": "Palo Alto Networks Unit 42",
+          "publishedAt": "2026-08-20T10:00:25.000Z",
+          "relevanceScore": 94
+        },
+        {
+          "title": "CVE-2026-19490: Critical Vulnerability Affecting Citrix NetScaler ADC and NetScaler Gateway",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-19490-critical-vulnerability-affecting-citrix-netscaler-adc-and-netscaler-gateway",
+          "sourceName": "Rapid7 Research",
+          "publishedAt": "2026-08-19T16:46:06.000Z",
           "relevanceScore": 93
-        },
-        {
-          "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "publishedAt": "2026-08-18T12:00:00.000Z",
-          "relevanceScore": 91
-        },
-        {
-          "title": "Managing the cyber risk of agentic AI",
-          "url": "https://www.ncsc.gov.uk/blogs/managing-the-cyber-risk-of-agentic-ai",
-          "sourceName": "UK National Cyber Security Centre",
-          "publishedAt": "2026-08-20T12:00:00.000Z",
-          "relevanceScore": 80
         }
       ]
     },
@@ -1147,21 +1572,21 @@
           "url": "https://www.cloudflarestatus.com/incidents/xl112dfsfz6q",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-08-21T19:39:57.000Z",
-          "relevanceScore": 100
+          "relevanceScore": 99
+        },
+        {
+          "title": "Increased Errors for Durable Objects in the Hong Kong region",
+          "url": "https://www.cloudflarestatus.com/incidents/14kntn62njng",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-08-21T15:19:56.000Z",
+          "relevanceScore": 86
         },
         {
           "title": "Incident with GitHub.com",
           "url": "https://www.githubstatus.com/incidents/zkxwbgr0cnmx",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-08-17T21:15:46.000Z",
-          "relevanceScore": 79
-        },
-        {
-          "title": "Incident with Actions",
-          "url": "https://www.githubstatus.com/incidents/gx7js8bd0jpz",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-18T10:23:23.000Z",
-          "relevanceScore": 76
+          "relevanceScore": 78
         }
       ]
     },
@@ -1199,8 +1624,8 @@
           "relevanceScore": 55
         },
         {
-          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé - DOC-2012-06",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
+          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF - DOC-2014-01",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2014-01",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 55

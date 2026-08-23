@@ -48,6 +48,10 @@ const ALLOWED_SOURCE_TYPES = new Set([
 ]);
 const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|monitoring\s*\/\s*[^/]+?\s*\/\s*20\d{2}(?:-\d{2})?(?!-\d{2})\b/i;
 const EDITORIAL_PLACEHOLDER = /editorial_review_required|replace with a specific|auto[- ]promoted/i;
+// Provider status lines are useful evidence, but they are not reader-facing
+// Signals headlines. Preserve that wording in evidence.sourceTitle and write
+// the published title as the operational or control implication instead.
+const RAW_OPERATIONAL_STATUS_HEADLINE = /^(?:\[?(?:resolved|investigating|monitoring|identified|update|incident)\]?\s*[:\-]|we\s+(?:are\s+)?(?:investigating|have identified|are monitoring)|customers\s+may\s+experience\b)/i;
 
 function parseArgs(argv) {
   const options = { checkLive: false };
@@ -141,6 +145,19 @@ function validateEvidence(row, rowLabel, failures) {
   }
 }
 
+function validateEditorialHeadline(row, rowLabel, failures) {
+  const title = String(row.title || "").trim();
+  if (RAW_OPERATIONAL_STATUS_HEADLINE.test(title)) {
+    fail(
+      `${rowLabel} must use an editorial signal headline, not raw provider or status copy; retain the exact wording in evidence.sourceTitle.`,
+      failures,
+    );
+  }
+  if (title.length > 180) {
+    fail(`${rowLabel} headline is too long for a key signal; write a concise editorial signal headline.`, failures);
+  }
+}
+
 function validateTop5Freshness(row, rowLabel, editionDate, failures) {
   if (!editionDate) return;
   const sourceDate = parseIsoDate(row.evidence?.publishedDate || extractExactDate(row.source));
@@ -199,6 +216,7 @@ async function main() {
       if (!row.title) fail(`${topicId} Top 5 row ${index + 1} is missing title.`, failures);
       if (!row.source) fail(`${topicId} Top 5 row ${index + 1} is missing source label.`, failures);
       if (!row.url) fail(`${topicId} Top 5 row ${index + 1} is missing citation URL.`, failures);
+      validateEditorialHeadline(row, rowLabel, failures);
       validateEvidence(row, rowLabel, failures);
       validateTop5Freshness(row, rowLabel, editionDate, failures);
     });

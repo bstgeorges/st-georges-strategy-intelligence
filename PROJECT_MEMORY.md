@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-16
+Last consolidated: 2026-08-23
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -95,6 +95,7 @@ Always maintain this order:
 1. Refresh and validate the private regulatory deadline register; never make it a public release input while Horizon is withdrawn.
 2. Review and approve Signals candidates.
 3. Promote approved Signals into `site/data/signals.json` and complete their editorial significance.
+   - The published Top 5 title is an editorial signal: it states the decision, control, dependency, or exposure revealed by the evidence. Do not use raw provider status or article copy as the display headline. Keep exact source wording in `evidence.sourceTitle`; the display title feeds the Signals hub, homepage, Weekly Brief, current-edition summary and LinkedIn copy.
 4. Refresh the 15-card AI Signals edition.
 5. Update `current-edition.json`, the Weekly Brief, Committee Questions and downstream copy as one package.
 6. Build and run all relevant validation.
@@ -338,3 +339,10 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The first distinct-day 90-day shadow run completed on 22 August across all 53 configured sources. The private register now has eight retained records: two confirmed source dates and six reviewable items. QA is 66/100 and correctly remains ineligible for relaunch: only two confirmed dates from two authorities and no human relaunch approval.
 - Exception governance is explicit in `dashboard/regulatory-deadline-register/source-exceptions.json`. The NCA feed repair and OFAC timeout adjustment were proven healthy on 22 August; IOSCO, Consob and Mexico CNBV remain blocked, Banco Central do Brasil remains degraded, and SARB remains failed. Do not hide, bypass or infer around these statuses.
 - Two more private-only shadow runs are scheduled for 08:30 BST / 07:30 UTC on 23 and 24 August. They must run the 90-day scan, rebuild/validate the private register and update only evidence-backed exception status. They must not sync, publish or push public Horizon content.
+
+## Session memory — 2026-08-23: Top 5 editorial signal-headline standard
+
+- A key Top 5 display title must read as a concise editorial signal: the decision, control, dependency, or exposure that the evidence reveals. It must not reproduce a provider's raw article, press-release, or incident-status line.
+- Preserve the literal provider wording in `evidence.sourceTitle` and retain the direct primary-source URL. The editorial display title is the shared source for Signals, the homepage, Weekly Brief, `current-edition.json`, and LinkedIn copy.
+- `npm run signals:validate` now rejects raw operational-status wrappers (for example, “RESOLVED: …”, “We are investigating …”, or “Customers may experience …”) and overlong key-signal headlines. Editorial review remains responsible for substance beyond those hard failure patterns.
+- The initial correction rewrote two Google Cloud status lines as “Google Cloud us-west1 disruption exposes the depth of shared dependencies” and “Google Cloud zonal outage tests cross-region failover readiness”; the underlying incident wording remains fully traceable in the evidence fields.

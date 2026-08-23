@@ -46,6 +46,8 @@ Candidate collection and editorial approval are separate stages:
 6. Merge that PR only after Signals, the current judgement, Brief, Committee Questions, and homepage all agree on the new publication date and lead signals. The withdrawn public Horizon must remain withdrawn.
 7. The `Site release (Cloudflare)` workflow runs the ordered-release gate. It refuses publication when candidate generation is newer than the approved shortlist, Signals are not current, or the judgement is carried forward unchanged. The private Horizon has its own shadow-quality and relaunch gates.
 
+`npm run reg-horizon:freshness` therefore treats `withheld` as a passing public state. Use `-- --require-published` only when testing a proposed Horizon relaunch; deadline-register validation remains the gate for its private evidence.
+
 This prevents ranking from being treated as editorial approval and prevents a previous week's shortlist from being reused silently.
 
 ## Refresh Packet

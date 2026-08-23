@@ -53,7 +53,7 @@ export function renderCurrentEditionSurfaces({
     const bridge = `<!-- home-current:start -->
         <section class="band home-current" aria-label="This edition at a glance">
           <div class="section-heading">
-            <div><p class="eyebrow">This edition</p><h2>One judgement. Three useful next moves.</h2></div>
+            <div><p class="eyebrow">This edition</p><h2>Start with the judgement.</h2></div>
             <p>The front door is deliberately brief. The full evidence lives in the Weekly Brief, the practical challenge in Committee Questions, and the source trail in Signals.</p>
           </div>
           <div class="grid-3 home-current-grid">

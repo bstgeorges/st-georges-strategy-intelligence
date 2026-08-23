@@ -791,6 +791,9 @@ function validatePromotionSummary(failures) {
 function renderCanonicalTopSignals(out, editionRecord) {
   const topSignals = editionRecord?.topSignals || [];
   if (topSignals.length !== TOP5_COUNT) return;
+  const signalsByTopic = new Map(
+    (readJson(SIGNALS_INPUT).topics || []).map((topic) => [topic.id, topic.top5?.[0]?.url || ""]),
+  );
 
   const homeFile = path.join(out, "index.html");
   if (fs.existsSync(homeFile)) {
@@ -820,7 +823,8 @@ function renderCanonicalTopSignals(out, editionRecord) {
     const rows = topSignals
       .map((signal, index) => {
         const rank = String(index + 1).padStart(2, "0");
-        return `<li><span class="rank">${rank}</span><a href="/signals/${escapeHtml(signal.topic)}/"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
+        const primarySourceUrl = signalsByTopic.get(signal.topic) || `/signals/${signal.topic}/`;
+        return `<li><span class="rank">${rank}</span><a href="${escapeHtml(primarySourceUrl)}"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
       })
       .join("\n          ");
     const html = read(briefFile);

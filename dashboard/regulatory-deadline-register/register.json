@@ -1,78 +1,11 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-16T18:29:50.916Z",
-  "asOf": "2026-08-16",
-  "sourceEdition": "2026-08-16",
+  "generatedAt": "2026-08-23T06:30:38.207Z",
+  "asOf": "2026-08-23",
+  "sourceEdition": "2026-08-23",
   "carryForwardGraceDays": 30,
   "items": [
-    {
-      "id": "0b44f63b72cd1b5da896",
-      "title": "CFTC Extends Public Comment Period on Proposed Rule on the Extension of Standard Futures Contracts to 24/7 Trading and on Perpetual Contracts Referencing Physically Delivered or Storable Energy Commodities",
-      "url": "https://www.cftc.gov/PressRoom/PressReleases/9271-26",
-      "deadline": "2026-07-23",
-      "daysToDeadline": -24,
-      "stage": "consultation",
-      "authority": {
-        "id": "cftc",
-        "name": "US Commodity Futures Trading Commission",
-        "tier": "primary"
-      },
-      "jurisdictions": [
-        "US"
-      ],
-      "themes": [],
-      "confidence": {
-        "band": "high",
-        "score": 1,
-        "components": {
-          "authority": 1,
-          "freshness": 1,
-          "classification": 1,
-          "date": 1,
-          "detail": 1
-        }
-      },
-      "businessImpact": {
-        "score": 0.575,
-        "band": "medium",
-        "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0,
-          "jurisdiction_reach": 0.5
-        }
-      },
-      "sourcePublishedAt": "2026-07-23",
-      "status": "ready-for-review",
-      "intake": "scanner",
-      "decision": null,
-      "evidence": {
-        "change": "US Commodity Futures Trading Commission published a consultation on 2026-07-23.",
-        "detailChecked": true,
-        "deadlineCue": {
-          "date": "2026-07-23",
-          "cueDistance": 72,
-          "context": "nd on Perpetual Contracts Referencing Physically Delivered or Storable Energy Commodities July 23, 2026 The Commodity Futures Trading Commission is extending the deadline for public comment on"
-        },
-        "verifiedAt": null,
-        "verification": null
-      },
-      "ownerGuidance": {
-        "owners": [
-          "Regulatory change lead",
-          "Applicable business owner"
-        ],
-        "prepare": [
-          "Confirm applicability",
-          "Name an accountable owner",
-          "Record the governing forum and decision date"
-        ]
-      },
-      "firstSeen": "2026-08-16",
-      "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16"
-    },
     {
       "id": "50b2433ac4e6a30cd8d3",
       "title": "Corporate Debt and Equity Issues, First Half 2026 Corporate financing through equity and debt issuance in the first half of 2026 amounted to KRW126.5754 trillion, down KRW23.3570 trillion or 15.6% from the same period a year earlier. By contrast, cor... 2026-08-04",
@@ -145,7 +78,7 @@
       "title": "Public responses to consultation on Sound Practices for Responsible Adoption of Artificial Intelligence (AI)",
       "url": "https://www.fsb.org/2026/08/public-responses-to-consultation-on-sound-practices-for-responsible-adoption-of-artificial-intelligence-ai",
       "deadline": "2026-08-06",
-      "daysToDeadline": -10,
+      "daysToDeadline": -17,
       "stage": "consultation",
       "authority": {
         "id": "fsb",
@@ -205,8 +138,8 @@
         ]
       },
       "firstSeen": "2026-08-16",
-      "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16"
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23"
     },
     {
       "id": "3ff990fc1ddfbd891b39",
@@ -276,11 +209,148 @@
       "sourceEdition": "2026-08-16"
     },
     {
+      "id": "4e7bb7794b474a906ea1",
+      "title": "HKMA and SFC conclude joint consultation on amendments to the Clearing Rules for over-the-counter derivative transactions",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
+      "deadline": "2026-08-19",
+      "daysToDeadline": -4,
+      "stage": "consultation",
+      "authority": {
+        "id": "hkma",
+        "name": "Hong Kong Monetary Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "themes": [
+        "market-plumbing"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.658,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-06-04",
+      "status": "superseded",
+      "intake": "scanner",
+      "decision": null,
+      "evidence": {
+        "change": "Hong Kong Monetary Authority published a consultation on 2026-06-04.",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-08-19",
+          "cueDistance": 8,
+          "context": "related to banks 20 Aug 2026 Beware of fraudulent document purported to be issued by HKMA 19 Aug 2026 HKICL alerts public of fraudulent website View All View All Last revision date : 05 June"
+        },
+        "verifiedAt": null,
+        "verification": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
+        ]
+      },
+      "firstSeen": "2026-08-23",
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23",
+      "supersededAt": "2026-08-23",
+      "supersededBy": "bde66a7c962b8ca0e916"
+    },
+    {
+      "id": "77082b8ada04b0fcbe55",
+      "title": "Delinquency Rate on Domestic Banks' WD Loans, June 2026 The delinquency rate on domestic banks’ won-denominated (WD) loans—calculated as the percentage of loans with principal or interest payments overdue for one month or longer—as of end-June 2026 stood a... 2026-08-21",
+      "url": "https://www.fss.or.kr/eng/bbs/B0000211/view.do?menuNo=400010&nttId=223992",
+      "deadline": "2026-08-21",
+      "daysToDeadline": -2,
+      "stage": "other",
+      "authority": {
+        "id": "south-korea-fss",
+        "name": "Financial Supervisory Service of Korea",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "South Korea"
+      ],
+      "themes": [],
+      "confidence": {
+        "band": "high",
+        "score": 0.84,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 0.55,
+          "date": 1,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "score": 0.463,
+        "band": "low",
+        "drivers": {
+          "regulatory_action": 0.35,
+          "urgency": 1,
+          "control_breadth": 0,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-08-21",
+      "status": "ready-for-review",
+      "intake": "scanner",
+      "decision": null,
+      "evidence": {
+        "change": "Financial Supervisory Service of Korea published a other on 2026-08-21.",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-08-21",
+          "cueDistance": 59,
+          "context": "cipal or interest payments overdue for one month or longer—as of end-June 2026 stood a... 2026-08-21. ."
+        },
+        "verifiedAt": null,
+        "verification": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Regulatory change lead",
+          "Applicable business owner"
+        ],
+        "prepare": [
+          "Confirm applicability",
+          "Name an accountable owner",
+          "Record the governing forum and decision date"
+        ]
+      },
+      "firstSeen": "2026-08-23",
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23"
+    },
+    {
       "id": "462c72374abb045944af",
       "title": "Notice of Consultation Paper Release: CP 174",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
       "deadline": "2026-08-24",
-      "daysToDeadline": 8,
+      "daysToDeadline": 1,
       "stage": "consultation",
       "authority": {
         "id": "dubai-dfsa",
@@ -340,15 +410,15 @@
         ]
       },
       "firstSeen": "2026-08-14",
-      "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16"
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23"
     },
     {
       "id": "2e61b9c6cd8a588f1b18",
       "title": "Updating the Bank of England’s fee regime for recognised payment systems",
       "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
       "deadline": "2026-08-31",
-      "daysToDeadline": 15,
+      "daysToDeadline": 8,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -416,7 +486,7 @@
       "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
       "deadline": "2026-09-07",
-      "daysToDeadline": 22,
+      "daysToDeadline": 15,
       "stage": "consultation",
       "authority": {
         "id": "dubai-dfsa",
@@ -485,7 +555,7 @@
       "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
       "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
       "deadline": "2026-09-21",
-      "daysToDeadline": 36,
+      "daysToDeadline": 29,
       "stage": "consultation",
       "authority": {
         "id": "adgm-fsra",
@@ -545,8 +615,8 @@
         ]
       },
       "firstSeen": "2026-08-09",
-      "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16",
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23",
       "intake": "scanner"
     },
     {
@@ -554,7 +624,7 @@
       "title": "Modernising Payment Services Regulation",
       "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
       "deadline": "2026-10-06",
-      "daysToDeadline": 51,
+      "daysToDeadline": 44,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -627,7 +697,7 @@
       "title": "PRA consults on updated guidance for friendly society amalgamations and transfers",
       "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers",
       "deadline": "2026-10-22",
-      "daysToDeadline": 67,
+      "daysToDeadline": 60,
       "stage": "consultation",
       "authority": {
         "id": "uk-boe-pra",
@@ -686,15 +756,15 @@
         ]
       },
       "firstSeen": "2026-08-16",
-      "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16"
+      "lastSeen": "2026-08-23",
+      "sourceEdition": "2026-08-23"
     },
     {
       "id": "e5665ae225f5d4706d2d",
       "title": "Solvency II Review guidelines and technical standards apply",
       "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
       "deadline": "2027-01-30",
-      "daysToDeadline": 167,
+      "daysToDeadline": 160,
       "stage": "implementation",
       "authority": {
         "id": "eiopa",
@@ -759,11 +829,11 @@
     },
     {
       "id": "bde66a7c962b8ca0e916",
-      "title": "HKMA and SFC conclude joint consultation on amendments to the Clearing Rules for over-the-counter derivative transactions",
+      "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
       "deadline": "2027-03-01",
-      "daysToDeadline": 197,
-      "stage": "consultation",
+      "daysToDeadline": 190,
+      "stage": "implementation",
       "authority": {
         "id": "hkma",
         "name": "Hong Kong Monetary Authority",
@@ -776,40 +846,35 @@
         "market-plumbing"
       ],
       "confidence": {
-        "band": "high",
-        "score": 1,
+        "band": "medium",
+        "score": 0.8,
         "components": {
           "authority": 1,
           "freshness": 1,
           "classification": 1,
           "date": 1,
-          "detail": 1
+          "detail": 0.65
         }
       },
       "businessImpact": {
-        "score": 0.658,
         "band": "medium",
         "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0.3333333333333333,
-          "jurisdiction_reach": 0.5
+          "regulatory_action": 0.67,
+          "urgency": 0.45,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.67
         }
       },
-      "sourcePublishedAt": "2026-06-04",
-      "status": "ready-for-review",
-      "intake": "scanner",
+      "sourcePublishedAt": "2026-06-05",
+      "status": "review",
+      "intake": "verified-backfill",
       "decision": null,
       "evidence": {
-        "change": "Hong Kong Monetary Authority published a consultation on 2026-06-04.",
+        "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2027-03-01",
-          "cueDistance": 15,
-          "context": "nation of Central Counterparties) Rules. Under the proposed approach to be effective from 1 March 2027 onwards, the Clearing Rules will be amended to designate two calendar periods, i.e., 1 Ma"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "HKMA and SFC say they aim to bring the amendments into effect on 1 March 2027.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked; date is an implementation aim, not a final legal commencement notice"
       },
       "ownerGuidance": {
         "owners": [
@@ -823,7 +888,9 @@
       },
       "firstSeen": "2026-08-14",
       "lastSeen": "2026-08-16",
-      "sourceEdition": "2026-08-16"
+      "sourceEdition": "2026-08-16",
+      "supersededAt": "2026-08-23",
+      "supersededBy": "4e7bb7794b474a906ea1"
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-08-23T10:23:49.866Z",
-  "preparedAt": "2026-08-23T10:24:57.572Z",
+  "candidateGeneratedAt": "2026-08-23T10:46:37.841Z",
+  "preparedAt": "2026-08-23T10:47:17.849Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -266,7 +266,7 @@
             "sourceName": "Anthropic",
             "sourceOwner": "anthropic",
             "publishedAt": "2026-08-16T22:34:39.000Z",
-            "relevanceScore": 75,
+            "relevanceScore": 74,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -571,7 +571,7 @@
       }
     },
     "sourceHealth": {
-      "runsRetained": 4,
+      "runsRetained": 5,
       "healthy": 79,
       "watching": 0,
       "investigate": 1,
@@ -608,7 +608,7 @@
           "sourceId": "microsoft-ai-rss",
           "sourceRegistryId": "microsoft-ai",
           "status": "failed",
-          "consecutiveIssueRuns": 2,
+          "consecutiveIssueRuns": 3,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "Fetch failed 403 for https://blogs.microsoft.com/feed/"
@@ -833,7 +833,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1453,7 +1453,7 @@
           "url": "https://status.claude.com/incidents/qt14v73myyy5",
           "sourceName": "Anthropic",
           "publishedAt": "2026-08-16T22:34:39.000Z",
-          "relevanceScore": 75
+          "relevanceScore": 74
         },
         {
           "title": "Service disruption on Claude Code on the web and related services",
@@ -1495,7 +1495,7 @@
           "url": "https://www.gov.uk/guidance/financial-sanctions-webinars-and-events",
           "sourceName": "UK Office of Financial Sanctions Implementation",
           "publishedAt": "2026-08-17T10:27:43.000Z",
-          "relevanceScore": 74
+          "relevanceScore": 73
         },
         {
           "title": "HKICL alerts public of fraudulent website",

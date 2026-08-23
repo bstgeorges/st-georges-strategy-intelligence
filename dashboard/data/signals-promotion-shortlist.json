@@ -1,60 +1,76 @@
 {
-  "version": "2026-08-16",
-  "publicationDate": "2026-08-16",
+  "version": "2026-08-23",
+  "publicationDate": "2026-08-23",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-08-14T17:26:34.266Z",
-  "reviewedAt": "2026-08-16",
-  "purpose": "Editorially selected Signals candidates for the Sunday 16 August 2026 edition. Only the URLs below may be promoted; each promoted row receives final editorial significance before publication.",
-  "criteria": ["materiality", "specificity", "decision value", "source authority", "duplication control"],
+  "candidateGeneratedAt": "2026-08-23T08:48:04.720Z",
+  "reviewedAt": "2026-08-23",
+  "purpose": "Editorially selected Signals candidates for the Sunday 23 August 2026 edition. Each selection is a distinct current development from an approved primary source; its decision and control significance is completed before publication.",
+  "criteria": [
+    "materiality",
+    "specificity",
+    "decision value",
+    "source authority",
+    "duplication control",
+    "source diversity",
+    "regional balance",
+    "new versus continuing"
+  ],
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability"
+        "https://mistral.ai/news/agentic-search"
       ],
-      "editorialRationale": "Select NIST's AI-enabled vulnerability-management consultation. It turns the AI discussion into an operating question: whether automation can improve asset and vulnerability decisions without obscuring data quality, intervention authority or accountability."
+      "editorialRationale": "Select Mistral's Agentic Search launch. Its direct relevance to financial filings, contracts and other complex internal material turns retrieval quality into a governance question: teams need evidence for what an agent accessed, verified and used in its answer."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
+        "https://www.cftc.gov/PressRoom/PressReleases/9286-26"
       ],
-      "editorialRationale": "No new market-structure candidate is promoted. The current queue contains potentially relevant CFTC items, but none adds enough verified EMEA leadership value to displace the existing reviewed evidence this week."
+      "editorialRationale": "Select the CFTC's request for comment on compute derivatives. It is a concrete supervisory signal that compute capacity is becoming a market-structure, liquidity, customer-protection and manipulation question—not merely a technology procurement issue."
     },
     {
       "id": "third-party",
       "selectedUrls": [
-        "https://www.bankofengland.co.uk/working-paper/2026/outsourcing-and-competition-in-the-banking-sector-the-rise-of-csps"
+        "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf"
       ],
-      "editorialRationale": "Select the Bank of England working paper on cloud-service-provider concentration. It is research rather than a new rule, but it gives financial-services leaders a strong current basis to test shared dependencies, substitutability and fallback evidence."
+      "editorialRationale": "Select the resolved Google Cloud us-west1 multi-product disruption for the shared-dependency lane. The reported optical-maintenance congestion gives a specific prompt to test whether resilience assumptions cover capacity and network dependencies below the application layer."
     },
     {
       "id": "resilience",
-      "selectedUrls": [],
-      "editorialRationale": "No new resilience candidate is promoted. The NCSC response is valuable context for the AI capability story, but is not duplicated as a separate public signal."
+      "selectedUrls": [
+        "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025"
+      ],
+      "editorialRationale": "Select FINMA's Swiss insurance-sector resilience assessment. It is an official cross-sector resilience signal and supports a leadership question about whether operational resilience evidence is being tested as part of financial strength rather than reported separately."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [
+        "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor"
       ],
-      "editorialRationale": "No new financial-crime candidate is promoted. The queue is dominated by individual enforcement and fraud notices that do not justify a new cross-firm operating call this week."
+      "editorialRationale": "Select the SEC's Tricolor charges because the alleged double-pledging of collateral and manipulated loan metrics is a clear control-evidence test for private-credit, securitisation and collateral-management governance."
     },
     {
       "id": "cyber",
       "selectedUrls": [
+        "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog"
       ],
-      "editorialRationale": "No new cyber candidate is promoted. Retain the active-exploitation priority rather than elevating a second item without a stronger direct management implication."
+      "editorialRationale": "Select only the latest CISA Known Exploited Vulnerabilities update. It retains the active-exploitation management signal without publishing several near-identical catalogue updates as separate cards."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [],
-      "editorialRationale": "No new technology-failure candidate is promoted. Retain the reviewed failure and recovery evidence rather than promoting an already-covered incident."
+      "selectedUrls": [
+        "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21"
+      ],
+      "editorialRationale": "Select Cloudflare's North America-to-Singapore network-error incident as a separate technology-failure event. It is not re-used in the third-party lane, which instead uses the distinct Google Cloud multi-product disruption."
     },
     {
       "id": "data",
       "selectedUrls": [
-        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/acro-reprimanded-following-cyber-security-failings"
+        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties"
       ],
-      "editorialRationale": "Select the ICO's ACRO reprimand because it offers a current, official read-across on cyber security, personal-data handling and the evidence required to show that corrective action has closed the gap."
+      "editorialRationale": "Select ASIC's Rex decision because continuous-disclosure control depends on evidence that forward-looking statements remain supported by timely, accurate management information and escalation."
     }
   ]
 }

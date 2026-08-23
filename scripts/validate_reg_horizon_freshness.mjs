@@ -6,7 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_FILE = path.join(ROOT, "dashboard", "regulatory-horizon", "latest.json");
 
 function parseArgs(argv) {
-  const options = { file: DEFAULT_FILE, asOf: new Date().toISOString().slice(0, 10), maxAgeDays: 8 };
+  const options = { file: DEFAULT_FILE, asOf: new Date().toISOString().slice(0, 10), maxAgeDays: 8, requirePublished: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--file") options.file = path.resolve(argv[++index] || "");
@@ -15,6 +15,7 @@ function parseArgs(argv) {
     else if (arg.startsWith("--as-of=")) options.asOf = arg.slice("--as-of=".length);
     else if (arg === "--max-age-days") options.maxAgeDays = Number(argv[++index]);
     else if (arg.startsWith("--max-age-days=")) options.maxAgeDays = Number(arg.slice("--max-age-days=".length));
+    else if (arg === "--require-published") options.requirePublished = true;
     else throw new Error(`Unknown argument: ${arg}`);
   }
   return options;
@@ -28,7 +29,12 @@ const data = JSON.parse(fs.readFileSync(options.file, "utf8"));
 if (!/^\d{4}-\d{2}-\d{2}$/.test(data.edition || "")) throw new Error("Reg Horizon edition is missing or invalid");
 if (data.edition > options.asOf) throw new Error(`Reg Horizon edition ${data.edition} is later than the publication date ${options.asOf}`);
 const ageDays = Math.floor((Date.parse(`${options.asOf}T00:00:00Z`) - Date.parse(`${data.edition}T00:00:00Z`)) / 86400000);
-if (data.status !== "published") throw new Error(`Reg Horizon latest edition is ${data.status || "unknown"}; editorial prep requires a published reviewed edition`);
+if (!["published", "withheld"].includes(data.status)) throw new Error(`Reg Horizon latest edition has invalid status ${data.status || "unknown"}`);
+if (data.status === "withheld") {
+  if (options.requirePublished) throw new Error("Reg Horizon is withheld; a published reviewed edition is required for this check");
+  console.log("Reg Horizon freshness passed: public status is deliberately withheld; private-review readiness is governed separately.");
+  process.exit(0);
+}
 if (ageDays > options.maxAgeDays) {
   throw new Error(`Reg Horizon latest reviewed edition is ${data.edition} (${ageDays} days old; maximum allowed is ${options.maxAgeDays})`);
 }

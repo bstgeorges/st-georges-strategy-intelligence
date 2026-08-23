@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-23T08:42:41.032Z",
+  "generatedAt": "2026-08-23T08:46:57.568Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -84,12 +84,12 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-08-22",
+    "edition": "2026-08-23",
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "blocked": 3,
       "ok": 48,
+      "blocked": 3,
       "degraded": 1,
       "failed": 1
     },

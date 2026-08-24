@@ -1197,6 +1197,19 @@ function updateLiveEditionDateLabels(out, edition) {
   }
 }
 
+function updateCurrentStructuredDataDates(out, edition) {
+  for (const [, relative] of routes) {
+    const file = routeFile(out, relative);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    const updated = html.replace(
+      /("dateModified":\s*")\d{4}-\d{2}-\d{2}(")/g,
+      `$1${edition}$2`,
+    );
+    if (updated !== html) write(file, updated);
+  }
+}
+
 // Committee Questions cross-links to the brief (§11) used a static "Source brief"
 // label that could silently point at the wrong week once a newer brief published.
 // Regenerating the label from the same edition data as the link removes that risk.
@@ -2131,7 +2144,7 @@ function generateHeaders(out) {
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
-  Cache-Control: no-cache, must-revalidate
+  Cache-Control: no-cache, max-age=0, s-maxage=0, must-revalidate
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -2186,6 +2199,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     const expected = `${PUBLIC_ORIGIN}${route}`;
     assert(canonical === expected, `${route} canonical should be ${expected}, got ${canonical}`, failures);
     assert(html.includes("Not investment, legal, compliance, or regulatory advice"), `${route} missing disclaimer`, failures);
+    assert(/<meta name="x-sgs-release" content="[^"]+">/.test(html), `${route} missing generated release marker`, failures);
   }
 
   for (const [route, relative] of routes) {
@@ -2344,6 +2358,7 @@ function main() {
   simplifyPublicEditorialSurfaces(options.out);
   renderSignalDecisionFramework(options.out, signalsData);
   updateLiveEditionDateLabels(options.out, edition);
+  updateCurrentStructuredDataDates(options.out, edition);
   updateHomepageEditionLine(options.out, edition);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);

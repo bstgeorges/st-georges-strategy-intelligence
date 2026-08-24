@@ -114,6 +114,11 @@ function checkCurrentEditionAlignment(failures) {
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
+  assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png"'), "committee questions should use the shared OG card", failures);
+  assert(!/Reg Horizon|regulatory-horizon/.test(committee), "committee questions should not promote withdrawn Reg Horizon", failures);
+  assert(committee.includes(`"dateModified": "${edition.publicationDate}"`), "committee questions structured data should use the current edition date", failures);
+  const aiSignals = read("signals/ai/index.html");
+  assert(aiSignals.includes(`"dateModified": "${edition.publicationDate}"`), "AI Signals structured data should use the current edition date", failures);
   const committeeQuestions = edition.committeeQuestions || [edition.committeeQuestion];
   assert(committeeQuestions.length === 3, "current edition should define three Committee Questions", failures);
   for (const question of committeeQuestions) {

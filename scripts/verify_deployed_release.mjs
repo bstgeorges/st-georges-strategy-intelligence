@@ -12,13 +12,14 @@ const DEFAULT_ORIGINS = [
 ];
 
 function parseArgs(argv) {
-  const options = { out: DEFAULT_OUT, origins: [], attempts: 12, delayMs: 5000 };
+  const options = { out: DEFAULT_OUT, origins: [], attempts: 12, delayMs: 5000, plainCrawl: false };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--out") options.out = path.resolve(argv[++index] || "");
     else if (arg === "--origin") options.origins.push((argv[++index] || "").replace(/\/$/, ""));
     else if (arg === "--attempts") options.attempts = Number(argv[++index]);
     else if (arg === "--delay-ms") options.delayMs = Number(argv[++index]);
+    else if (arg === "--plain-crawl") options.plainCrawl = true;
     else throw new Error(`Unknown argument: ${arg}`);
   }
   if (!options.origins.length) options.origins = DEFAULT_ORIGINS;
@@ -59,7 +60,41 @@ async function fetchBytes(url) {
   return { response, bytes };
 }
 
-async function checkOrigin(origin, report, releaseMetadata) {
+async function fetchPlainCrawlerBytes(url) {
+  const response = await fetch(url, {
+    redirect: "follow",
+    headers: {
+      accept: "text/html,application/xhtml+xml",
+      "user-agent": "StGeorgesStrategyPlainCrawlMonitor/1.0",
+    },
+  });
+  const bytes = Buffer.from(await response.arrayBuffer());
+  return { response, bytes };
+}
+
+async function checkPlainCrawlerResponses(origin, report) {
+  const failures = [];
+  const crawlerRoutes = ["/brief/", "/signals/ai/", "/committee-questions/"];
+  for (const route of crawlerRoutes) {
+    const url = new URL(route, `${origin}/`);
+    try {
+      const { response, bytes } = await fetchPlainCrawlerBytes(url);
+      const html = bytes.toString("utf8");
+      const cacheControl = response.headers.get("cache-control") || "<missing>";
+      if (!response.ok) failures.push(`${url} returned ${response.status} to a plain crawler request`);
+      else if (!html.includes(`<meta name="x-sgs-release" content="${report.release}">`)) {
+        failures.push(`${url} is not release ${report.release} for a plain crawler request (Cache-Control: ${cacheControl})`);
+      } else if (!/(?:no-cache|no-store|max-age=0)/i.test(cacheControl)) {
+        failures.push(`${url} has no crawler-safe cache policy (Cache-Control: ${cacheControl})`);
+      }
+    } catch (error) {
+      failures.push(`${url} could not be read as a plain crawler request: ${error.message}`);
+    }
+  }
+  return failures;
+}
+
+async function checkOrigin(origin, report, releaseMetadata, plainCrawl) {
   const failures = [];
   const shouldCheckNotFound = new URL(origin).hostname === "stgeorgesstrategy.com";
   if (shouldCheckNotFound) {
@@ -116,6 +151,8 @@ async function checkOrigin(origin, report, releaseMetadata) {
     }
   }
 
+  if (plainCrawl) failures.push(...await checkPlainCrawlerResponses(origin, report));
+
   return failures;
 }
 
@@ -130,7 +167,7 @@ async function main() {
   let outstanding = options.origins;
   let lastFailures = new Map();
   for (let attempt = 1; attempt <= options.attempts && outstanding.length; attempt += 1) {
-    const results = await Promise.all(outstanding.map(async (origin) => [origin, await checkOrigin(origin, report, releaseMetadata)]));
+    const results = await Promise.all(outstanding.map(async (origin) => [origin, await checkOrigin(origin, report, releaseMetadata, options.plainCrawl)]));
     outstanding = [];
     lastFailures = new Map();
     for (const [origin, failures] of results) {

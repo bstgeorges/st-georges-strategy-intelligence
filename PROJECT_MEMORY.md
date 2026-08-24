@@ -346,3 +346,10 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - Preserve the literal provider wording in `evidence.sourceTitle` and retain the direct primary-source URL. The editorial display title is the shared source for Signals, the homepage, Weekly Brief, `current-edition.json`, and LinkedIn copy.
 - `npm run signals:validate` now rejects raw operational-status wrappers (for example, “RESOLVED: …”, “We are investigating …”, or “Customers may experience …”) and overlong key-signal headlines. Editorial review remains responsible for substance beyond those hard failure patterns.
 - The initial correction rewrote two Google Cloud status lines as “Google Cloud us-west1 disruption exposes the depth of shared dependencies” and “Google Cloud zonal outage tests cross-region failover readiness”; the underlying incident wording remains fully traceable in the evidence fields.
+
+## Session memory — 2026-08-24: release freshness controls
+
+- Committee Questions is a generated current-edition surface. Its source template must use the shared OG card, the canonical navigation without Reg Horizon, and a neutral build-time edition placeholder; it must never be treated as proof of the public release marker.
+- The site publisher now updates `dateModified` structured data on every live route to the current edition date. It does not change `datePublished`, preserving the original publication date of evergreen pages.
+- The local bundle verifier requires the Committee Questions OG card, no Reg Horizon navigation, current structured-data dates on Committee Questions and AI Signals, and a generated `x-sgs-release` marker on every public route.
+- Production cache purge is a release gate: it retries three times and fails the workflow if it cannot complete. After the usual cache-busted integrity check, the workflow also requests `/brief/`, `/signals/ai/` and `/committee-questions/` as a plain crawler and requires the current release marker and a crawler-safe cache policy. A query-string success alone is not publication proof.

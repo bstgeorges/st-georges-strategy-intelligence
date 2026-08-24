@@ -147,8 +147,16 @@ jobs:
       - name: Purge production host caches
         id: purge
         if: steps.target.outputs.name == 'production'
-        run: npm run cloudflare:cache:purge
-        continue-on-error: true
+        run: |
+          for attempt in 1 2 3; do
+            if npm run cloudflare:cache:purge; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep $((attempt * 5))
+            fi
+          done
+          exit 1
 
       - name: Verify exact deployed release on dev
         if: steps.target.outputs.name == 'dev'
@@ -157,6 +165,10 @@ jobs:
       - name: Verify exact deployed release on Pages and production
         if: steps.target.outputs.name == 'production'
         run: npm run verify:deployed-release
+
+      - name: Verify plain crawler responses after cache purge
+        if: steps.target.outputs.name == 'production'
+        run: npm run verify:deployed-release -- --origin "https://stgeorgesstrategy.com" --plain-crawl
 
       - name: Verify legacy redirects
         if: steps.target.outputs.name == 'production'

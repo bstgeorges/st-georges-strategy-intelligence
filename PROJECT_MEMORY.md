@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-23
+Last consolidated: 2026-08-27
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -360,3 +360,16 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The private QA score is 88/100. Relaunch remains ineligible: six confirmed open records is below the minimum of ten, and no editor/product-owner relaunch approval exists. Do not treat source-date-only confirmations as applicability decisions.
 - The known source-exception record is now explicitly current to the 27 August scan, with next checks scheduled for 30 August. IOSCO, Consob and CNBV remain blocked; SARB is failed; Banco Central do Brasil is degraded. NCA and OFAC were healthy again.
 - `verify_edition_freshness.mjs` must check the static publisher labels (`Latest edition / …` and `Weekly brief / …`), not retired `Week of` copy. It remains a raw-crawler deployment check alongside the release-marker verifier.
+
+## Session memory — 2026-08-27: public-site edge simplification (implemented locally, not released)
+
+- The architecture review found that the public site was served through a Pages bundle plus eight overlapping route Workers. Several Workers proxied the Pages origin with caching disabled, adding a needless request hop and making route ownership, security headers and releases harder to reason about.
+- The source architecture has been simplified to one assets-backed Worker: `workers/site.mjs` serves `site-dist` directly through the `ASSETS` binding, applies the shared security/cache policy, injects the optional Cloudflare analytics beacon, and returns the branded `site/404.html` for misses. `workers/site-routes.mjs` centralises the canonical-host, legacy-subdomain, legacy-path and trailing-slash policy.
+- `wrangler.jsonc` intentionally retains the existing production script name, `st-georges-strategy-not-found-route`. Deploy it with `--keep-vars` so the already-configured `CF_WEB_ANALYTICS_TOKEN` remains available; do not rename or replace this Worker casually.
+- Pages remains part of the release path as the preview/release origin. The release workflows now validate the edge policy, deploy the one Worker, then use the guarded `scripts/apply_site_edge_routes.mjs` route reconciler. The reconciler only accepts known legacy route mappings and refuses unexpected or missing routes; it is not a general-purpose route editor.
+- The Pages-only `_headers` and `_redirects` files remain in the bundle for Pages previews. `scripts/publish_site_bundle.mjs` writes `site-dist/.assetsignore` so they, along with the Pages publish report, are excluded from the Worker asset upload.
+- Retired source Workers and `scripts/build_landing_worker.mjs` were removed. The legacy Workers may remain remotely as rollback artefacts, but the normal deployment path must map public routes only to the consolidated Worker.
+- Wrangler was upgraded to `^4.127.0`: the previous version could not accept the 2026-08-27 compatibility date. Relevant validation passed locally: Signals validation, site build, bundle verification, edge-route unit tests, syntax checks, dry-run Worker deploy, and local homepage/www-redirect/404 smoke tests. The outbound generated-link check reported 0 failures and 9 restricted/paywalled links.
+- Production Worker Logs are deliberately sampled at 1% (`head_sampling_rate: 0.01`), rather than collecting every public request. Zone WAF configuration and the optional `CF_WEB_ANALYTICS_TOKEN` remain Cloudflare-account settings; do not add either to source control or create broad traffic rules without reviewing live traffic.
+- The public deployment documentation now consistently describes the assets Worker rather than the retired Pages-proxy Workers, and links to this repository rather than the former Project Virtual Officer workspace.
+- No Git commit, push or production deployment has been made for this work. A source change is not public until the canonical `Site release (Cloudflare)` workflow is green and verifies the exact SHA at both the Pages origin and `stgeorgesstrategy.com`. Do not run a production Wrangler deployment from the Codex workspace.

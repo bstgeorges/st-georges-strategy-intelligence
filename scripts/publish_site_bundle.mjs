@@ -2164,6 +2164,12 @@ function generateHeaders(out) {
   write(path.join(out, "_headers"), headers);
 }
 
+function generateAssetsIgnore(out) {
+  // Pages consumes these files as deployment configuration. The assets-backed
+  // Worker does not, so keep build metadata and Pages-only controls private.
+  write(path.join(out, ".assetsignore"), "_headers\n_redirects\npublish-report.json\n");
+}
+
 function checkLocalLinks(out, failures) {
   for (const file of listFiles(out, ".html")) {
     const html = read(file);
@@ -2369,6 +2375,7 @@ function main() {
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);
   generateHeaders(options.out);
+  generateAssetsIgnore(options.out);
   enforceCanonicalNav(options.out);
   enforceSubscribeSection(options.out);
   materializeOgImage(options.out);

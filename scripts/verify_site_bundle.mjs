@@ -138,16 +138,9 @@ function checkCurrentEditionAlignment(failures) {
 }
 
 function checkWorkerRouteCoverage(failures) {
-  const routeWorker = readSource(path.join("..", "workers", "not-found-route.js"));
-  const requiredPrefixes = [
-    "/assets/",
-    "/about/",
-    "/archive/",
-    "/brief/",
-    "/committee-questions/",
-    "/data/",
-    "/signals/",
-  ];
+  const edgeWorker = readSource(path.join("..", "workers", "site.mjs"));
+  const routePolicy = readSource(path.join("..", "workers", "site-routes.mjs"));
+  const wrangler = readSource(path.join("..", "wrangler.jsonc"));
   const requiredDirectories = [
     "/about",
     "/archive",
@@ -156,12 +149,14 @@ function checkWorkerRouteCoverage(failures) {
     "/signals",
   ];
 
-  for (const route of requiredPrefixes) {
-    assert(routeWorker.includes(`"${route}"`), `not-found route worker missing prefix ${route}`, failures);
-  }
   for (const route of requiredDirectories) {
-    assert(routeWorker.includes(`"${route}"`), `not-found route worker missing directory redirect ${route}`, failures);
+    assert(routePolicy.includes(`"${route}"`), `site route policy missing directory redirect ${route}`, failures);
   }
+  assert(edgeWorker.includes("env.ASSETS.fetch(request)"), "site Worker must serve the generated asset bundle directly", failures);
+  assert(!edgeWorker.includes("pages.dev"), "site Worker must not proxy a Pages origin", failures);
+  assert(edgeWorker.includes("new HTMLRewriter()"), "site Worker must preserve the optional analytics beacon injection", failures);
+  assert(wrangler.includes('"run_worker_first": true'), "site Worker must run before static assets to enforce redirects and security headers", failures);
+  assert(wrangler.includes('"observability": {') && wrangler.includes('"head_sampling_rate": 0.01'), "site Worker must keep production observability sampled at 1%", failures);
 }
 
 function checkLocalLinks(failures) {
@@ -251,6 +246,8 @@ function main() {
   assert(!fs.existsSync(path.join(SITE, "regulatory-horizon")), "Reg Horizon must not be present in the public bundle", failures);
   assert(read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon route must redirect to Archive", failures);
   assert(read("_redirects").includes("/regulatory-horizon/* /archive/ 301"), "Reg Horizon subroutes must redirect to Archive", failures);
+  assert(fs.existsSync(path.join(SITE, ".assetsignore")), "Worker assets ignore file missing", failures);
+  assert(fs.existsSync(path.join(SITE, "404.html")), "Branded 404 page missing", failures);
   const styles = read("styles.css");
   const signalsHub = read("signals/index.html");
   const briefPage = read("brief/index.html");

@@ -39,7 +39,7 @@ That gives us:
 
 File:
 
-- [.github/workflows/cloudflare-pages-publish.yml](/Users/benstgai/Documents/Project%20Virtual%20Officer/.github/workflows/cloudflare-pages-publish.yml)
+- [.github/workflows/cloudflare-pages-publish.yml](/Users/benstgai/Documents/StGeorgesStrategy/.github/workflows/cloudflare-pages-publish.yml)
 
 Trigger:
 
@@ -57,7 +57,7 @@ What it does:
 
 File:
 
-- [.github/workflows/cloudflare-workers-deploy.yml](/Users/benstgai/Documents/Project%20Virtual%20Officer/.github/workflows/cloudflare-workers-deploy.yml)
+- [.github/workflows/cloudflare-workers-deploy.yml](/Users/benstgai/Documents/StGeorgesStrategy/.github/workflows/cloudflare-workers-deploy.yml)
 
 Trigger:
 
@@ -67,7 +67,8 @@ Trigger:
 What it does:
 
 1. `npm ci`
-2. redeploys the route Workers in sequence
+2. deploys the single assets-backed public-site Worker
+3. reassigns the existing apex, `www`, and legacy-host routes to that Worker after it is available
 
 ## Secrets Required In GitHub
 
@@ -83,20 +84,8 @@ If a same-day emergency deploy is needed outside GitHub Actions, run from Ben's 
 ```bash
 npm run site:build
 npm run site:verify
-npm run deploy:cloudflare
-```
-
-Then, if Worker code changed:
-
-```bash
-npm run deploy:cloudflare:landing-route
-npm run deploy:cloudflare:not-found-route
-npm run deploy:cloudflare:seo-route
-npm run deploy:cloudflare:www-route
-npm run deploy:cloudflare:route
-npm run deploy:cloudflare:subdomain-route
-npm run deploy:cloudflare:ai-signals-route
-npm run deploy:cloudflare:thevirtualofficer-route
+npm run deploy:cloudflare:edge
+npm run cloudflare:site:routes
 ```
 
 ## What This Fixes Permanently

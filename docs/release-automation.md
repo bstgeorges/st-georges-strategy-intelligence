@@ -10,7 +10,7 @@ Production releases now:
 2. audit legacy AI Signals data without allowing that legacy feed to block unrelated site changes;
 3. build and verify `site-dist/` with the Git SHA embedded in every HTML page;
 4. deploy the Pages production branch with the same commit SHA recorded in Cloudflare;
-5. deploy all route Workers from the same checkout;
+5. deploy one assets-backed public-site Worker from the same checkout, then assign every existing public route to it;
 6. purge the public hostnames from Cloudflare cache when the API token permits it;
 7. retry until every canonical route exposes the expected release marker and critical CSS, JavaScript, Signals JSON, and sitemap hashes match;
 8. verify the legacy redirects independently, without crawling third-party editorial links.
@@ -36,7 +36,7 @@ Recommended:
 
 - `CLOUDFLARE_ZONE_ID` (the cache script can discover it when omitted)
 
-The Cloudflare token needs Pages Write, Workers Scripts Edit, Workers Routes Edit, Zone Read, and Cache Purge for the full transaction. Cache purge is deliberately best-effort because Pages deploy invalidation and cache-bypassing Worker origin fetches are still followed by exact release verification; a stale response therefore cannot produce a green release.
+The Cloudflare token needs Pages Write, Workers Scripts Edit, Workers Routes Edit, Zone Read, and Cache Purge for the full transaction. The assets Worker is deployed under the existing `st-georges-strategy-not-found-route` script name with `--keep-vars`, preserving its configured Web Analytics token. Cache purge is deliberately best-effort because exact release verification follows every deployment; a stale response therefore cannot produce a green release.
 
 ## Local checks
 
@@ -55,7 +55,7 @@ npm run verify:legacy-routes
 ## Failure handling
 
 - Validation failure before deploy: nothing was released.
-- Pages or Worker deployment failure: the workflow fails and identifies the failed deployment step.
+- Pages deployment, Worker deployment, or route reassignment failure: the workflow fails and identifies the failed step. Existing route bindings are changed only after the new Worker version is available.
 - Cache purge failure: exact-release verification still determines whether the release is usable.
 - Exact-release failure: the workflow retries for up to one minute, then fails with each stale route or mismatched asset hash.
 - Archive snapshot push failure: the release remains valid and the workflow records the snapshot step separately; it does not invalidate already-verified production bytes.

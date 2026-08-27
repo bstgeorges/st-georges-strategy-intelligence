@@ -74,19 +74,16 @@
     "deploy:cloudflare:migration-preview": "npm run site:build && npx wrangler pages deploy site-dist --project-name st-georges-strategy-intelligence --branch migration-preview",
     "deploy:cloudflare": "npx wrangler pages deploy site-dist --project-name st-georges-strategy-intelligence --branch production",
     "deploy:cloudflare:preview": "npx wrangler pages deploy site-dist --project-name st-georges-strategy-intelligence --branch main",
-    "deploy:cloudflare:route": "npx wrangler deploy workers/intelligence-route.js --name st-georges-strategy-intelligence-route --route 'stgeorgesstrategy.com/intelligence*' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:subdomain-route": "npx wrangler deploy workers/intelligence-route.js --name st-georges-strategy-intelligence-subdomain-route --route 'intelligence.stgeorgesstrategy.com/*' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:ai-signals-route": "npx wrangler deploy workers/ai-signals-route.js --name st-georges-strategy-ai-signals-route --route 'stgeorgesstrategy.com/ai-signals*' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:landing-route": "npx wrangler deploy workers/landing-page.js --name st-georges-strategy-landing-route --route 'stgeorgesstrategy.com/' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:thevirtualofficer-route": "npx wrangler deploy workers/thevirtualofficer-page.js --name st-georges-strategy-thevirtualofficer-route --route 'stgeorgesstrategy.com/thevirtualofficer*' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:seo-route": "npx wrangler deploy workers/seo-files.js --name st-georges-strategy-seo-files-route --route 'stgeorgesstrategy.com/robots.txt' --route 'stgeorgesstrategy.com/sitemap.xml' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:not-found-route": "npx wrangler deploy workers/not-found-route.js --name st-georges-strategy-not-found-route --route 'stgeorgesstrategy.com/*' --compatibility-date 2026-06-27",
-    "deploy:cloudflare:www-route": "npx wrangler deploy workers/www-redirect.js --name st-georges-strategy-www-redirect --route 'www.stgeorgesstrategy.com/*' --compatibility-date 2026-06-27",
+    "deploy:cloudflare:edge": "npx wrangler deploy --config wrangler.jsonc --keep-vars",
+    "deploy:cloudflare:edge:dry-run": "npx wrangler deploy --config wrangler.jsonc --dry-run",
+    "cloudflare:site:routes": "node scripts/apply_site_edge_routes.mjs",
+    "cloudflare:site:routes:dry-run": "node scripts/apply_site_edge_routes.mjs --dry-run",
+    "site:edge:test": "node --test scripts/site_edge_routing.test.mjs",
     "cloudflare:www:list": "node scripts/cloudflare_www_redirect.mjs list",
     "cloudflare:www:apply": "node scripts/cloudflare_www_redirect.mjs apply",
     "deploy:netlify": "npx netlify deploy --dir dashboard --prod"
   },
   "devDependencies": {
-    "wrangler": "^4.107.0"
+    "wrangler": "^4.127.0"
   }
 }

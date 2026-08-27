@@ -4,7 +4,7 @@ Use this when connecting the St Georges Strategy site bundle to GitHub and Cloud
 
 Pair this with the deploy runbook:
 
-- [Deploy Surface Runbook](/Users/benstgai/Documents/Project%20Virtual%20Officer/docs/deploy-surface-runbook.md)
+- [Deploy Surface Runbook](/Users/benstgai/Documents/StGeorgesStrategy/docs/deploy-surface-runbook.md)
 
 ## Recommended Repo Model
 
@@ -13,7 +13,7 @@ Use the current repository as the source of truth.
 - Curated source pages live in `site/`
 - The generated public bundle is built into `site-dist/`
 - Cloudflare Pages should receive the generated bundle from GitHub Actions
-- Cloudflare Workers should be deployed from GitHub Actions when route code changes
+- The assets-backed Cloudflare Worker should be deployed from GitHub Actions with every production public-site release
 
 ## Files Safe To Publish
 
@@ -42,7 +42,7 @@ Use the current repository as the source of truth.
 - Deployment model: direct deploy from GitHub Actions
 - Build command in Cloudflare dashboard: none
 - Build output directory in Cloudflare dashboard: not used by direct deploy
-- Public routes: served at `stgeorgesstrategy.com` through Worker routes that proxy the Pages production deployment
+- Public routes: served at `stgeorgesstrategy.com` by the assets-backed Worker; Pages remains the release-preview origin
 
 ## GitHub Actions Workflows
 
@@ -53,7 +53,7 @@ Use the current repository as the source of truth.
   - should be treated as the default production deployment path
 
 - `.github/workflows/cloudflare-workers-deploy.yml`
-  - redeploys Worker routes when files under `workers/` change
+  - is manual-only emergency recovery for the public-site Worker and its controlled routes
 
 ## GitHub Actions Secrets
 
@@ -69,12 +69,13 @@ Recommended token scopes:
 - `Account > Workers Scripts > Read`
 - `Zone > Workers Routes > Edit`
 - `Zone > Zone > Read`
+- `Zone > Cache Purge > Purge`
 
 ## DNS And Routing Notes
 
 - Pages project URL: `https://st-georges-strategy-intelligence.pages.dev/`
 - Apex site routes are served by Worker routes on `stgeorgesstrategy.com`
-- Worker origins should point at `https://st-georges-strategy-intelligence.pages.dev`
+- The Worker serves the generated `site-dist/` asset bundle directly; it does not proxy the Pages URL
 
 ## Editorial Safety Guardrails
 

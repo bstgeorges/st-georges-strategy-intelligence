@@ -65,7 +65,7 @@ Live St Georges Strategy site:
 https://stgeorgesstrategy.com/
 ```
 
-The public site now uses root-level routes served from a generated Cloudflare Pages build, with legacy Worker routes redirecting older `/intelligence/`, `/ai-signals/`, and `/thevirtualofficer/` URLs into the new structure.
+The public site is served from one assets-backed Cloudflare Worker built from `site-dist/`. Cloudflare Pages remains the deployment preview/origin, while the Worker owns public security headers, canonical-host handling, the branded 404, analytics injection, and legacy redirects.
 
 About / method page:
 
@@ -101,7 +101,7 @@ Custom subdomain status:
 intelligence.stgeorgesstrategy.com
 ```
 
-Live. DNS resolves through Cloudflare and HTTPS returns the dashboard. The custom subdomain is served by a Cloudflare Worker route that proxies the known-good Pages deployment.
+Live. DNS resolves through Cloudflare and HTTPS retains old links through the public-site Worker; the legacy subdomain redirects visitors to the canonical Weekly Brief or Archive route.
 
 Cloudflare DNS record used:
 
@@ -132,11 +132,8 @@ Emergency-only local deploy commands:
 ```bash
 npm run deploy:cloudflare
 npm run deploy:cloudflare:preview
-npm run deploy:cloudflare:route
-npm run deploy:cloudflare:subdomain-route
-npm run deploy:cloudflare:ai-signals-route
-npm run deploy:cloudflare:landing-route
-npm run deploy:cloudflare:thevirtualofficer-route
+npm run deploy:cloudflare:edge
+npm run cloudflare:site:routes
 npm run deploy:netlify
 ```
 

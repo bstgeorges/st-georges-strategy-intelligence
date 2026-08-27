@@ -3,9 +3,8 @@
 // archived edition found on disk. Runs automatically before Pages deploys
 // via the predeploy:cloudflare / predeploy:cloudflare:preview npm hooks.
 //
-// The apex worker (workers/seo-files.js) proxies this file from the Pages
-// main branch, so the public sitemap stays current whenever the dashboard
-// is deployed — no worker redeploy needed.
+// The public assets Worker serves this generated file from the same release
+// bundle as the pages, so sitemap and page versions cannot drift.
 
 import { readdirSync, statSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";

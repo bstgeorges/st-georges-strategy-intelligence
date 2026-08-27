@@ -54,14 +54,11 @@ Cloudflare Pages preview command from the project root:
 npm run deploy:cloudflare:preview
 ```
 
-Cloudflare Worker routes from the project root:
+Cloudflare public-site Worker from the project root:
 
 ```bash
-npm run deploy:cloudflare:landing-route
-npm run deploy:cloudflare:thevirtualofficer-route
-npm run deploy:cloudflare:route
-npm run deploy:cloudflare:subdomain-route
-npm run deploy:cloudflare:ai-signals-route
+npm run deploy:cloudflare:edge
+npm run cloudflare:site:routes
 ```
 
 Netlify command from the project root:
@@ -149,8 +146,8 @@ Current custom-domain status:
 - DNS resolves through Cloudflare.
 - HTTPS returns HTTP 200 with the dashboard.
 - Cloudflare Pages custom-domain verification data reports `active`.
-- The public routes should proxy `https://st-georges-strategy-intelligence.pages.dev/`, which reflects the active production deployment.
-- Deploy public content with `npm run deploy:cloudflare:preview`, then refresh both Worker routes with `npm run deploy:cloudflare:route` and `npm run deploy:cloudflare:subdomain-route`.
+- The public routes are served by one assets-backed Worker from the same `site-dist/` release bundle; the Pages deployment remains the release-preview origin.
+- Deploy public content through `Site release (Cloudflare)`, which publishes the bundle, deploys the assets Worker, and updates the controlled route set.
 - After deploying public content, run `npm run verify:public-links`. Do not share the pages if the check reports a missing or errored source URL, raw `{{ ... }}` template bindings, or an `x-dc` template shell.
 
 DNS record:
@@ -182,26 +179,21 @@ A separate capability-page Worker route provides the Virtual Officer method page
 
 - `https://stgeorgesstrategy.com/thevirtualofficer/`
 
-Worker script:
+Public-site Worker script:
 
 ```text
-workers/intelligence-route.js
-workers/ai-signals-route.js
-workers/landing-page.js
-workers/thevirtualofficer-page.js
+workers/site.mjs
+workers/site-routes.mjs
 ```
 
-Redeploy routes:
+Redeploy the public edge:
 
 ```bash
-npm run deploy:cloudflare:landing-route
-npm run deploy:cloudflare:thevirtualofficer-route
-npm run deploy:cloudflare:route
-npm run deploy:cloudflare:subdomain-route
-npm run deploy:cloudflare:ai-signals-route
+npm run deploy:cloudflare:edge
+npm run cloudflare:site:routes
 ```
 
-The Worker proxies the existing Cloudflare Pages deployment, preserves `GET` and `HEAD` access, rewrites share metadata to the active public route, and redirects `/intelligence` to `/intelligence/` on the main domain.
+The Worker serves the generated static assets directly, preserves `GET` and `HEAD` access, applies the public security and cache headers, and owns canonical and legacy redirects.
 
 ## GitHub-Backed Publishing
 

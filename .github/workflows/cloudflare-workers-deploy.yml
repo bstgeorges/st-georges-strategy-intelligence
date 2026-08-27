@@ -17,6 +17,8 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+      SITE_RELEASE_ID: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,13 +26,12 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
-      - name: Deploy all route Workers
+      - name: Build and verify the edge asset bundle
         run: |
-          npm run deploy:cloudflare:landing-route
-          npm run deploy:cloudflare:not-found-route
-          npm run deploy:cloudflare:seo-route
-          npm run deploy:cloudflare:www-route
-          npm run deploy:cloudflare:route
-          npm run deploy:cloudflare:subdomain-route
-          npm run deploy:cloudflare:ai-signals-route
-          npm run deploy:cloudflare:thevirtualofficer-route
+          npm run site:build
+          npm run site:verify
+          npm run site:edge:test
+      - name: Deploy the public site assets Worker
+        run: |
+          npm run deploy:cloudflare:edge
+          npm run cloudflare:site:routes

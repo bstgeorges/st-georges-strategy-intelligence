@@ -114,6 +114,9 @@ jobs:
       - name: Verify release bundle
         run: npm run site:verify
 
+      - name: Test public-site edge routing
+        run: npm run site:edge:test
+
       - name: Audit generated links
         run: npm run verify:generated-links
 
@@ -132,17 +135,14 @@ jobs:
           --branch main
           --commit-hash "${{ github.sha }}"
 
-      - name: Deploy production route Workers
+      - name: Deploy the public site assets Worker
         if: steps.target.outputs.name == 'production'
         run: |
-          npm run deploy:cloudflare:landing-route
-          npm run deploy:cloudflare:not-found-route
-          npm run deploy:cloudflare:seo-route
-          npm run deploy:cloudflare:www-route
-          npm run deploy:cloudflare:route
-          npm run deploy:cloudflare:subdomain-route
-          npm run deploy:cloudflare:ai-signals-route
-          npm run deploy:cloudflare:thevirtualofficer-route
+          npm run deploy:cloudflare:edge
+
+      - name: Assign public routes to the site assets Worker
+        if: steps.target.outputs.name == 'production'
+        run: npm run cloudflare:site:routes
 
       - name: Purge production host caches
         id: purge

@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-27T19:04:28.712Z",
+  "generatedAt": "2026-08-27T20:15:12.167Z",
   "asOf": "2026-08-27",
   "sourceEdition": "2026-08-23",
   "carryForwardGraceDays": 30,
@@ -273,9 +273,19 @@
         }
       },
       "sourcePublishedAt": "2026-06-25",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "scanner",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The Bank of England page explicitly states the response deadline. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-27",
+        "evidence": {
+          "quote": "The deadline for responses is 11 September 2026.",
+          "url": "https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure"
+        }
+      },
       "evidence": {
         "change": "Today marks a major milestone in the modernisation of the UK's payments landscape, with the Retail Payments Infrastructure Board (RPIB) launching a consultation on the future design of the UK's next-generation retail payments infrastructure.",
         "detailChecked": true,
@@ -344,9 +354,19 @@
         }
       },
       "sourcePublishedAt": "2026-07-14",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "verified-backfill",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The GOV.UK consultation page explicitly states the close date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-27",
+        "evidence": {
+          "quote": "This consultation closes at 11:59pm on 6 October 2026.",
+          "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation"
+        }
+      },
       "evidence": {
         "change": "HM Treasury consultation spanning payments, electronic money, tokenised payments, Open Banking and agentic payments.",
         "detailChecked": true,
@@ -414,9 +434,19 @@
         }
       },
       "sourcePublishedAt": "2026-07-22",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "scanner",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The PRA notice explicitly states the consultation close date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-27",
+        "evidence": {
+          "quote": "The consultation closes on 22 October 2026.",
+          "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers"
+        }
+      },
       "evidence": {
         "change": "The proposals would provide more detail on the PRA’s approach to Part VIII transactions, helping firms plan amalgamations and transfers more efficiently.",
         "detailChecked": true,
@@ -485,9 +515,19 @@
         }
       },
       "sourcePublishedAt": "2026-07-15",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "verified-backfill",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The EIOPA release explicitly states the legal changes' application date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-27",
+        "evidence": {
+          "quote": "These instruments, together with the other legal changes introduced by the review, will apply from 30 January 2027.",
+          "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en"
+        }
+      },
       "evidence": {
         "change": "EIOPA’s Solvency II review package sets an implementation date for the amended framework and associated instruments.",
         "detailChecked": true,
@@ -553,9 +593,19 @@
         }
       },
       "sourcePublishedAt": "2026-06-04",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "scanner",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The HKMA release explicitly states the proposed effective date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-27",
+        "evidence": {
+          "quote": "Standard calculation periods for each year with effect from 1 March 2027.",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6"
+        }
+      },
       "evidence": {
         "change": "Hong Kong Monetary Authority published a consultation on 2026-06-04.",
         "detailChecked": true,

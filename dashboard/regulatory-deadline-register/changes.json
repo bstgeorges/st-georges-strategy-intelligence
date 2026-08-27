@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-changes.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-27T19:04:28.712Z",
+  "generatedAt": "2026-08-27T20:15:12.167Z",
   "asOf": "2026-08-27",
   "sourceEdition": "2026-08-23",
   "baseline": false,
@@ -11,8 +11,7 @@
   },
   "additions": [],
   "revisedDates": [],
-  "statusChanges": [],
-  "reconfirmed": [
+  "statusChanges": [
     {
       "id": "f6f1478cf6a55b1033be",
       "title": "The Retail Payments Infrastructure Board launches consultation on the next generation UK payments infrastructure",
@@ -22,6 +21,8 @@
         "tier": "primary"
       },
       "deadline": "2026-09-11",
+      "from": "ready-for-review",
+      "to": "confirmed",
       "url": "https://www.bankofengland.co.uk/news/2026/june/rpib-launches-consultation-on-next-generation-uk-payments-infrastructure"
     },
     {
@@ -33,18 +34,9 @@
         "tier": "primary"
       },
       "deadline": "2027-03-01",
+      "from": "ready-for-review",
+      "to": "confirmed",
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6"
-    },
-    {
-      "id": "462c72374abb045944af",
-      "title": "Notice of Consultation Paper Release: CP 174",
-      "authority": {
-        "id": "dubai-dfsa",
-        "name": "Dubai Financial Services Authority",
-        "tier": "primary"
-      },
-      "deadline": "2026-08-24",
-      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174"
     },
     {
       "id": "8ff53683d622320b599d",
@@ -55,7 +47,22 @@
         "tier": "primary"
       },
       "deadline": "2026-10-22",
+      "from": "ready-for-review",
+      "to": "confirmed",
       "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers"
+    }
+  ],
+  "reconfirmed": [
+    {
+      "id": "462c72374abb045944af",
+      "title": "Notice of Consultation Paper Release: CP 174",
+      "authority": {
+        "id": "dubai-dfsa",
+        "name": "Dubai Financial Services Authority",
+        "tier": "primary"
+      },
+      "deadline": "2026-08-24",
+      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174"
     }
   ],
   "notReconfirmed": []

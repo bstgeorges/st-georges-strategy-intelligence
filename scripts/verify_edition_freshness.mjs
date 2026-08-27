@@ -2,26 +2,21 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// §0 of the 10 Jul 2026 fix spec: "Add a post-publish check that diffs the edition
-// date in the raw HTML against the rendered page (a curl + grep for the 'Week of'
-// string is enough)." The root cause that prompted this (a stale prerendered HTML
-// snapshot served to crawlers while browsers saw a newer client-rendered page) has
-// been removed — the site is fully static HTML now, and the Cloudflare Worker/
-// _headers cache-bypass fix stops the edge from serving a stale deploy. What's left,
-// and what this script actually guards against going forward, is a *deploy* going
-// stale: it fetches the raw HTML straight off the public origin (no browser, no JS —
-// exactly what a crawler or link-preview bot would see) and confirms its "Week of"
-// dateline matches the edition this build just produced. Run this right after a
-// deploy; it is intentionally a live-network check, not part of the local build.
+// This is a deploy-freshness check. It fetches the raw public HTML — exactly what a
+// crawler or link-preview bot sees — and checks the current edition label emitted by
+// the static publisher. Run it right after a deploy; it is intentionally a live-
+// network check, not part of the local build.
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DEFAULT_ORIGIN = "https://stgeorgesstrategy.com";
 
 const CHECKS = [
-  { route: "/", label: "homepage" },
-  { route: "/brief/", label: "weekly brief" },
+  { route: "/", label: "homepage", editionPrefix: "Latest edition / " },
+  { route: "/brief/", label: "weekly brief", editionPrefix: "Weekly brief / " },
 ];
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 function parseArgs(argv) {
   const options = { out: DEFAULT_OUT, origin: DEFAULT_ORIGIN };
@@ -44,9 +39,17 @@ function expectedEdition(out) {
   return report.edition;
 }
 
-function extractWeekOf(html) {
-  const match = html.match(/Week of (\d{1,2}) ([A-Za-z]{3}) (\d{4})/);
-  return match ? match[0] : null;
+function formatEditionDate(edition) {
+  const match = String(edition).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) throw new Error(`Invalid edition date ${edition}.`);
+  const [, year, month, day] = match;
+  return `${Number(day)} ${MONTHS[Number(month) - 1]} ${year}`;
+}
+
+function extractEditionLabel(html, prefix) {
+  const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = html.match(new RegExp(`${escapedPrefix}[^<]+`));
+  return match ? match[0].trim() : null;
 }
 
 async function fetchRawHtml(url) {
@@ -60,6 +63,7 @@ async function fetchRawHtml(url) {
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const edition = expectedEdition(options.out);
+  const editionDate = formatEditionDate(edition);
   const failures = [];
 
   for (const check of CHECKS) {
@@ -71,14 +75,15 @@ async function main() {
       failures.push(`${check.label} (${url}) could not be fetched: ${error.message}`);
       continue;
     }
-    const weekOf = extractWeekOf(html);
-    if (!weekOf) {
-      failures.push(`${check.label} (${url}) has no "Week of" dateline in its raw HTML.`);
+    const expected = `${check.editionPrefix}${editionDate}`;
+    const actual = extractEditionLabel(html, check.editionPrefix);
+    if (!actual) {
+      failures.push(`${check.label} (${url}) has no current-edition label in its raw HTML.`);
       continue;
     }
-    if (!matchesEdition(weekOf, edition)) {
+    if (actual !== expected) {
       failures.push(
-        `${check.label} (${url}) raw HTML shows "${weekOf}" but this build's edition is ${edition}. The live deploy may be stale.`,
+        `${check.label} (${url}) raw HTML shows "${actual}" but expected "${expected}". The live deploy may be stale.`,
       );
     }
   }
@@ -90,18 +95,6 @@ async function main() {
   }
 
   console.log(`Edition freshness check passed: live raw HTML matches edition ${edition}.`);
-}
-
-const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-
-function matchesEdition(weekOfText, edition) {
-  const match = weekOfText.match(/Week of (\d{1,2}) ([A-Za-z]{3}) (\d{4})/);
-  if (!match) return false;
-  const [, day, monthAbbr, year] = match;
-  const month = MONTHS.indexOf(monthAbbr.toLowerCase()) + 1;
-  if (!month) return false;
-  const iso = `${year}-${String(month).padStart(2, "0")}-${day.padStart(2, "0")}`;
-  return iso === edition;
 }
 
 try {

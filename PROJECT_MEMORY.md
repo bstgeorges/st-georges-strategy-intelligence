@@ -353,3 +353,10 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The site publisher now updates `dateModified` structured data on every live route to the current edition date. It does not change `datePublished`, preserving the original publication date of evergreen pages.
 - The local bundle verifier requires the Committee Questions OG card, no Reg Horizon navigation, current structured-data dates on Committee Questions and AI Signals, and a generated `x-sgs-release` marker on every public route.
 - Production cache purge is a release gate: it retries three times and fails the workflow if it cannot complete. After the usual cache-busted integrity check, the workflow also requests `/brief/`, `/signals/ai/` and `/committee-questions/` as a plain crawler and requires the current release marker and a crawler-safe cache policy. A query-string success alone is not publication proof.
+
+## Session memory — 2026-08-27: private Horizon review progress
+
+- Reg Horizon remains publicly withheld. The 27 August private register has six confirmed open, source-date-only records across four authorities (HM Treasury, Bank of England/PRA, EIOPA and HKMA), with one DFSA record deliberately retained as ready for review because a fresh independent request was blocked.
+- The private QA score is 88/100. Relaunch remains ineligible: six confirmed open records is below the minimum of ten, and no editor/product-owner relaunch approval exists. Do not treat source-date-only confirmations as applicability decisions.
+- The known source-exception record is now explicitly current to the 27 August scan, with next checks scheduled for 30 August. IOSCO, Consob and CNBV remain blocked; SARB is failed; Banco Central do Brasil is degraded. NCA and OFAC were healthy again.
+- `verify_edition_freshness.mjs` must check the static publisher labels (`Latest edition / …` and `Weekly brief / …`), not retired `Week of` copy. It remains a raw-crawler deployment check alongside the release-marker verifier.

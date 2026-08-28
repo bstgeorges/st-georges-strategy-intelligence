@@ -1,6 +1,6 @@
 # St Georges Strategy — Project Memory
 
-Last consolidated: 2026-08-27
+Last consolidated: 2026-08-28
 
 This file is the current working memory for future Codex sessions. It supplements the older `CODEX_HANDOVER.md`, which was last updated on 2026-07-21. The repository remains the source of truth; this file records the decisions, workflows, failure lessons, and current state that are easy to lose between sessions.
 
@@ -20,9 +20,9 @@ Public editorial principles are in `site/EDITORIAL_STYLE_GUIDE.md`, `site/WEEKLY
 
 ## Current production state
 
-The current edition is Sunday 16 August 2026, **Edition 9**: *Automation is spreading faster than intervention plans*. Production was verified by the green `Site release (Cloudflare)` workflow run `31939390454`, for commit `04ce598326487de5474c820728343b655f4d4511` (`Release Edition 9`). The workflow completed the full release transaction: data and link gates, build and bundle verification, Pages and Workers deployment, cache purge, exact Pages and production SHA verification, redirects and archive persistence.
+The current edition is Sunday 23 August 2026, **Edition 10**: *When AI reads the record, evidence becomes a control*. Production was verified by the green `Site release (Cloudflare)` workflow run `33116677034`, for commit `0eabfa90b80dec1965654d6ad3c3e9e116975905`. The workflow completed the full release transaction: data and link gates, build and bundle verification, Pages and Workers deployment, cache purge, exact Pages and production SHA verification, plain-crawler checks, redirects and archive persistence.
 
-The current homepage Top 5 is intentionally distinct:
+The following Edition 9 homepage Top 5 record is historical:
 
 1. Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management — AI and cyber control
 2. Outsourcing and competition in the banking sector: the rise of Cloud Service Providers — Third-party dependency
@@ -361,7 +361,7 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - The known source-exception record is now explicitly current to the 27 August scan, with next checks scheduled for 30 August. IOSCO, Consob and CNBV remain blocked; SARB is failed; Banco Central do Brasil is degraded. NCA and OFAC were healthy again.
 - `verify_edition_freshness.mjs` must check the static publisher labels (`Latest edition / …` and `Weekly brief / …`), not retired `Week of` copy. It remains a raw-crawler deployment check alongside the release-marker verifier.
 
-## Session memory — 2026-08-27: public-site edge simplification (implemented locally, not released)
+## Session memory — 2026-08-27: public-site edge simplification
 
 - The architecture review found that the public site was served through a Pages bundle plus eight overlapping route Workers. Several Workers proxied the Pages origin with caching disabled, adding a needless request hop and making route ownership, security headers and releases harder to reason about.
 - The source architecture has been simplified to one assets-backed Worker: `workers/site.mjs` serves `site-dist` directly through the `ASSETS` binding, applies the shared security/cache policy, injects the optional Cloudflare analytics beacon, and returns the branded `site/404.html` for misses. `workers/site-routes.mjs` centralises the canonical-host, legacy-subdomain, legacy-path and trailing-slash policy.
@@ -372,4 +372,11 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - Wrangler was upgraded to `^4.127.0`: the previous version could not accept the 2026-08-27 compatibility date. Relevant validation passed locally: Signals validation, site build, bundle verification, edge-route unit tests, syntax checks, dry-run Worker deploy, and local homepage/www-redirect/404 smoke tests. The outbound generated-link check reported 0 failures and 9 restricted/paywalled links.
 - Production Worker Logs are deliberately sampled at 1% (`head_sampling_rate: 0.01`), rather than collecting every public request. Zone WAF configuration and the optional `CF_WEB_ANALYTICS_TOKEN` remain Cloudflare-account settings; do not add either to source control or create broad traffic rules without reviewing live traffic.
 - The public deployment documentation now consistently describes the assets Worker rather than the retired Pages-proxy Workers, and links to this repository rather than the former Project Virtual Officer workspace.
-- No Git commit, push or production deployment has been made for this work. A source change is not public until the canonical `Site release (Cloudflare)` workflow is green and verifies the exact SHA at both the Pages origin and `stgeorgesstrategy.com`. Do not run a production Wrangler deployment from the Codex workspace.
+- Commit `cf2426c` deployed this architecture. Green `Site release (Cloudflare)` run `33117266797` verified route assignment, cache purge, exact Pages and production SHA, plain-crawler responses, legacy redirects and archive persistence. This is the production proof; do not run a production Wrangler deployment from the Codex workspace.
+
+## Session memory — 2026-08-28: private Horizon and Sunday preparation
+
+- A fresh private 90-day Horizon scan completed on 27 August and was rebuilt and validated on 28 August. It saw 49 of 53 active sources complete normally: IOSCO and Consob remain blocked, SARB failed, and Banco Central do Brasil degraded. CNBV recovered without an access error; its exception record now expects `ok` while retaining a 30 August parser-health check because it returned no current candidate rows.
+- Primary-source review confirmed DFSA CP173's 7 September response date as **source-date-only**. The private register now has seven confirmed future records across five authorities; the score is **91/100**, with no correctness errors. It remains ineligible for public relaunch until it reaches ten confirmed open records and a named editor/product-owner relaunch decision is recorded. The public Horizon route remains withheld.
+- Commit `f34d5a4` (`Refresh private Horizon evidence and governance`) is rebased on the independently generated 27 August Signals candidate refresh (`ad08349`) and pushed to `main`. The candidate queue is valid but deliberately pending editorial approval; it must not alter the public edition before Sunday's review.
+- A non-persistent preparation pass found coverage in all eight Signals themes. Sunday must still rerun the official scheduled candidate workflow and select supported evidence deliberately. Current watch items include an ENISA resilience record, an official HM Treasury payments policy record, CISA exploited-vulnerability reporting and NCA sanctions-evasion forfeiture; provider-status and arXiv candidates need extra editorial scrutiny before any Top 5 use.

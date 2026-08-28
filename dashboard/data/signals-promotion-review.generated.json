@@ -2,7 +2,7 @@
   "version": "2026-08-14",
   "reviewStatus": "pending",
   "candidateGeneratedAt": "2026-08-27T21:15:22.577Z",
-  "preparedAt": "2026-08-27T21:16:10.854Z",
+  "preparedAt": "2026-08-28T05:53:51.762Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -16,71 +16,19 @@
   ],
   "editorial": {
     "decisionTypeCounts": {
-      "rule-change": 7,
+      "rule-change": 3,
       "enforcement": 2,
-      "active-threat": 11,
+      "active-threat": 4,
       "outage": 3,
-      "research": 6,
-      "context": 58
+      "research": 8,
+      "context": 67
     },
     "decisionTypeGroups": [
       {
         "id": "rule-change",
         "label": "rule change",
-        "candidateCount": 7,
+        "candidateCount": 3,
         "candidates": [
-          {
-            "title": "FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare",
-            "url": "https://arxiv.org/abs/2608.23643",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-08-27T04:00:00.000Z",
-            "relevanceScore": 99,
-            "decisionType": "rule-change",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Standard for AI Agents",
-            "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents",
-            "sourceName": "NVIDIA Newsroom",
-            "sourceOwner": "nvidia",
-            "publishedAt": "2026-08-24T15:00:19.000Z",
-            "relevanceScore": 94,
-            "decisionType": "rule-change",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "NIS Directive has Positive Effect, though Study Finds Gaps in Cybersecurity Investment Exist | ENISA",
-            "url": "https://www.enisa.europa.eu/news/enisa-news/nis-directive-has-positive-effect-though-study-finds-gaps-in-cybersecurity-investment-exist",
-            "sourceName": "European Union Agency for Cybersecurity",
-            "sourceOwner": "enisa",
-            "publishedAt": "2026-08-27T13:40:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "rule-change",
-            "region": "UK/EMEA",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Previewing the Model Hardware Standard",
-            "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
-            "sourceName": "Anthropic",
-            "sourceOwner": "anthropic",
-            "publishedAt": "2026-08-27T17:53:45.000Z",
-            "relevanceScore": 70,
-            "decisionType": "rule-change",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
           {
             "title": "SEC Proposes New Regulation Crypto Assets",
             "url": "https://www.sec.gov/newsroom/press-releases/2026-76-sec-proposes-new-regulation-crypto-assets",
@@ -128,16 +76,16 @@
         "candidateCount": 2,
         "candidates": [
           {
-            "title": "NVIDIA Announces Jetson Orin Nano 2 Robotics Computer to Redefine Entry-Level Edge AI",
-            "url": "https://nvidianews.nvidia.com/news/nvidia-announces-jetson-orin-nano-2-robotics-computer-to-redefine-entry-level-edge-ai",
-            "sourceName": "NVIDIA Newsroom",
-            "sourceOwner": "nvidia",
-            "publishedAt": "2026-08-25T15:00:00.000Z",
-            "relevanceScore": 66,
+            "title": "Millions forfeited by company linked to suspected money laundering and sanctions evasion",
+            "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
+            "sourceName": "National Crime Agency",
+            "sourceOwner": "uk-nca",
+            "publishedAt": "2026-08-27T11:48:03.000Z",
+            "relevanceScore": 100,
             "decisionType": "enforcement",
-            "region": "Global/other",
+            "region": "UK/EMEA",
             "topics": [
-              "ai"
+              "financial-crime"
             ]
           },
           {
@@ -158,21 +106,8 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 11,
+        "candidateCount": 4,
         "candidates": [
-          {
-            "title": "Identity-as-a-Service: Uncovering Dark Web Marketplaces Trading Executive SSNs",
-            "url": "https://www.rapid7.com/blog/post/tr-identity-as-a-service-dark-web-marketplaces-executive-ssn",
-            "sourceName": "Rapid7 Research",
-            "sourceOwner": "rapid7",
-            "publishedAt": "2026-08-27T13:51:55.000Z",
-            "relevanceScore": 100,
-            "decisionType": "active-threat",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
           {
             "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
             "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
@@ -182,45 +117,6 @@
             "relevanceScore": 100,
             "decisionType": "active-threat",
             "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "When AI infrastructure becomes the target: Securing gateways and control points",
-            "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points",
-            "sourceName": "Microsoft Security Blog",
-            "sourceOwner": "microsoft-security",
-            "publishedAt": "2026-08-26T16:43:53.000Z",
-            "relevanceScore": 98,
-            "decisionType": "active-threat",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "A Tale of Two SOCs: Insights From Two Red Team Assessments",
-            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-08-20T16:32:14.000Z",
-            "relevanceScore": 86,
-            "decisionType": "active-threat",
-            "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Identity Abuse Through Trusted Communication Channels",
-            "url": "https://unit42.paloaltonetworks.com/communication-channel-identity-risks",
-            "sourceName": "Palo Alto Networks Unit 42",
-            "sourceOwner": "paloalto-unit42",
-            "publishedAt": "2026-08-20T10:00:25.000Z",
-            "relevanceScore": 86,
-            "decisionType": "active-threat",
-            "region": "Global/other",
             "topics": [
               "cyber"
             ]
@@ -239,50 +135,24 @@
             ]
           },
           {
-            "title": "Back-to-School Cyber Risks Surge as Education Remains the World&#8217;s Most Attacked Sector",
-            "url": "https://blog.checkpoint.com/research/back-to-school-cyber-risks-surge-as-education-remains-the-worlds-most-attacked-sector",
-            "sourceName": "Check Point Research",
-            "sourceOwner": "checkpoint",
-            "publishedAt": "2026-08-19T13:00:52.000Z",
-            "relevanceScore": 84,
-            "decisionType": "active-threat",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Why Your AI Application Is Exposed Snyk",
-            "url": "https://snyk.io/blog/why-your-ai-application-is-exposed",
-            "sourceName": "Snyk Security Research",
-            "sourceOwner": "snyk",
-            "publishedAt": "2026-08-26T04:00:00.000Z",
-            "relevanceScore": 82,
-            "decisionType": "active-threat",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "New Report: AI threats are here. Why Q2 2026 signals the end of traditional patch cycles",
-            "url": "https://www.rapid7.com/blog/post/tr-new-report-ai-threats-q2-2026-ends-traditional-patch-cycles",
-            "sourceName": "Rapid7 Research",
-            "sourceOwner": "rapid7",
-            "publishedAt": "2026-08-18T12:49:46.000Z",
-            "relevanceScore": 82,
-            "decisionType": "active-threat",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
             "title": "Check Point Blocks Large-Scale Debt-Relief Email Phishing Campaign Targeting More Than 9,000 Organizations",
             "url": "https://blog.checkpoint.com/securing-user-and-access/check-point-blocks-large-scale-debt-relief-email-phishing-campaign-targeting-more-than-9000-organizations",
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-08-25T13:00:19.000Z",
+            "relevanceScore": 81,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "The State of AI-Enabled Malware August 2026: From Brand Abuse to Agentic Execution",
+            "url": "https://unit42.paloaltonetworks.com/ai-enabled-malware-analysis",
+            "sourceName": "Palo Alto Networks Unit 42",
+            "sourceOwner": "paloalto-unit42",
+            "publishedAt": "2026-08-25T10:00:57.000Z",
             "relevanceScore": 81,
             "decisionType": "active-threat",
             "region": "Global/other",
@@ -344,11 +214,24 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 6,
+        "candidateCount": 8,
         "candidates": [
           {
-            "title": "169 telecom incidents reported, extreme weather major factor | ENISA",
-            "url": "https://www.enisa.europa.eu/news/enisa-news/169-telecom-incidents-reported-extreme-weather-major-factor",
+            "title": "FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare",
+            "url": "https://arxiv.org/abs/2608.23643",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-08-27T04:00:00.000Z",
+            "relevanceScore": 99,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "NIS Directive has Positive Effect, though Study Finds Gaps in Cybersecurity Investment Exist | ENISA",
+            "url": "https://www.enisa.europa.eu/news/enisa-news/nis-directive-has-positive-effect-though-study-finds-gaps-in-cybersecurity-investment-exist",
             "sourceName": "European Union Agency for Cybersecurity",
             "sourceOwner": "enisa",
             "publishedAt": "2026-08-27T13:40:00.000Z",
@@ -356,7 +239,7 @@
             "decisionType": "research",
             "region": "UK/EMEA",
             "topics": [
-              "resilience"
+              "cyber"
             ]
           },
           {
@@ -383,6 +266,19 @@
             "region": "Global/other",
             "topics": [
               "ai"
+            ]
+          },
+          {
+            "title": "New Report: AI threats are here. Why Q2 2026 signals the end of traditional patch cycles",
+            "url": "https://www.rapid7.com/blog/post/tr-new-report-ai-threats-q2-2026-ends-traditional-patch-cycles",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-18T12:49:46.000Z",
+            "relevanceScore": 82,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
             ]
           },
           {
@@ -429,7 +325,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 58,
+        "candidateCount": 67,
         "candidates": [
           {
             "title": "Check Point Supports OpenAI’s Call for Collective Action on Cyber Defense",
@@ -445,16 +341,42 @@
             ]
           },
           {
-            "title": "Millions forfeited by company linked to suspected money laundering and sanctions evasion",
-            "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-            "sourceName": "National Crime Agency",
-            "sourceOwner": "uk-nca",
-            "publishedAt": "2026-08-27T11:48:03.000Z",
+            "title": "Identity-as-a-Service: Uncovering Dark Web Marketplaces Trading Executive SSNs",
+            "url": "https://www.rapid7.com/blog/post/tr-identity-as-a-service-dark-web-marketplaces-executive-ssn",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-27T13:51:55.000Z",
             "relevanceScore": 100,
             "decisionType": "context",
-            "region": "UK/EMEA",
+            "region": "Global/other",
             "topics": [
-              "financial-crime"
+              "cyber"
+            ]
+          },
+          {
+            "title": "When AI infrastructure becomes the target: Securing gateways and control points",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points",
+            "sourceName": "Microsoft Security Blog",
+            "sourceOwner": "microsoft-security",
+            "publishedAt": "2026-08-26T16:43:53.000Z",
+            "relevanceScore": 98,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Standard for AI Agents",
+            "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents",
+            "sourceName": "NVIDIA Newsroom",
+            "sourceOwner": "nvidia",
+            "publishedAt": "2026-08-24T15:00:19.000Z",
+            "relevanceScore": 94,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "ai"
             ]
           },
           {
@@ -486,6 +408,32 @@
             ]
           },
           {
+            "title": "A Tale of Two SOCs: Insights From Two Red Team Assessments",
+            "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-237a",
+            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+            "sourceOwner": "cisa",
+            "publishedAt": "2026-08-20T16:32:14.000Z",
+            "relevanceScore": 86,
+            "decisionType": "context",
+            "region": "US",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "Identity Abuse Through Trusted Communication Channels",
+            "url": "https://unit42.paloaltonetworks.com/communication-channel-identity-risks",
+            "sourceName": "Palo Alto Networks Unit 42",
+            "sourceOwner": "paloalto-unit42",
+            "publishedAt": "2026-08-20T10:00:25.000Z",
+            "relevanceScore": 86,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
             "title": "“Sorry, I can’t help with that”: How your guardrails might become the attacker’s best friend",
             "url": "https://blog.talosintelligence.com/sorry-i-cant-help-with-that-how-your-guardrails-might-become-the-attackers-best-friend",
             "sourceName": "Cisco Talos Intelligence Group",
@@ -499,8 +447,8 @@
             ]
           },
           {
-            "title": "A billion user hours lost in EU telecoms due to security incidents in 2019 | ENISA",
-            "url": "https://www.enisa.europa.eu/news/enisa-news/annual-report-on-telecom-security-incidents-in-2019",
+            "title": "169 telecom incidents reported, extreme weather major factor | ENISA",
+            "url": "https://www.enisa.europa.eu/news/enisa-news/169-telecom-incidents-reported-extreme-weather-major-factor",
             "sourceName": "European Union Agency for Cybersecurity",
             "sourceOwner": "enisa",
             "publishedAt": "2026-08-27T13:40:00.000Z",
@@ -509,59 +457,6 @@
             "region": "UK/EMEA",
             "topics": [
               "resilience"
-            ]
-          },
-          {
-            "title": "EU Boost against cyberattacks: EU Agency for Cybersecurity welcomes proposal for the Joint Cyber Unit | ENISA",
-            "url": "https://www.enisa.europa.eu/news/enisa-news/eu-boost-against-cyberattacks-eu-agency-for-cybersecurity-welcomes-proposal-for-the-joint-cyber-unit",
-            "sourceName": "European Union Agency for Cybersecurity",
-            "sourceOwner": "enisa",
-            "publishedAt": "2026-08-27T13:40:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "European Cyber Security Month: during October, find out how to be safe online | ENISA",
-            "url": "https://www.enisa.europa.eu/news/enisa-news/european-cyber-security-month-during-october-find-out-how-to-be-safe-online",
-            "sourceName": "European Union Agency for Cybersecurity",
-            "sourceOwner": "enisa",
-            "publishedAt": "2026-08-27T13:40:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Disruptive cyber activity highlights risk from internet-exposed systems and edge devices",
-            "url": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
-            "sourceName": "UK National Cyber Security Centre",
-            "sourceOwner": "uk-ncsc",
-            "publishedAt": "2026-08-27T12:00:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Incident with Actions",
-            "url": "https://www.githubstatus.com/incidents/y1t7p9fzrlj2",
-            "sourceName": "GitHub Status",
-            "sourceOwner": "github-status",
-            "publishedAt": "2026-08-26T18:01:30.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
             ]
           }
         ]

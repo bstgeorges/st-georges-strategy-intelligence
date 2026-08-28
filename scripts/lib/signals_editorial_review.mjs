@@ -8,22 +8,26 @@ const EMEA_JURISDICTIONS = new Set([
 ]);
 
 function text(candidate) {
-  // Source tags describe a feed, not necessarily the individual event. Keep
-  // classification grounded in the event headline and its specific match terms.
-  return `${candidate.title || ""} ${(candidate.matchedKeywords || []).join(" ")}`.toLowerCase();
+  // Discovery match terms describe why an item entered a topic. They are not
+  // necessarily words used by the individual event, and can misclassify it.
+  // Keep decision grouping grounded in the actual provider headline.
+  return String(candidate.title || "").toLowerCase();
 }
 
-function has(value, patterns) {
-  return patterns.some((pattern) => value.includes(pattern));
+function hasPhrase(value, patterns) {
+  return patterns.some((pattern) => {
+    const escaped = pattern.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+    return new RegExp(`\\b${escaped}\\b`, "i").test(value);
+  });
 }
 
 export function classifyDecisionType(candidate) {
   const value = text(candidate);
-  if (has(value, ["enforcement", "penalty", "reprimand", "fine", "charged", "prosecution", "sanctioned"])) return "enforcement";
-  if (has(value, ["known exploited", "vulnerability", "exploit", "ransomware", "malware", "phishing", "cyber attack", "zero-day"])) return "active-threat";
-  if (has(value, ["outage", "disruption", "service incident", "connectivity", "unavailable", "error rates", "service failure", "system failure", "cooling failure"])) return "outage";
-  if (has(value, ["consultation", "guideline", "guidance", "regulation", "directive", "policy", "standard", "rule", "supervisory", "requirements", "framework"])) return "rule-change";
-  if (candidate.sourceTier === "research" || (candidate.tags || []).includes("research") || has(value, ["research", "working paper", "report", "study", "evaluation", "analysis"])) return "research";
+  if (candidate.sourceTier === "research" || (candidate.tags || []).includes("research") || hasPhrase(value, ["research", "working paper", "report", "study", "evaluation", "analysis"])) return "research";
+  if (hasPhrase(value, ["enforcement", "penalty", "reprimand", "fine", "charged", "prosecution", "sanctioned", "forfeit", "forfeited", "forfeiture"])) return "enforcement";
+  if (hasPhrase(value, ["known exploited", "vulnerability", "exploit", "ransomware", "malware", "phishing", "cyber attack", "zero-day"])) return "active-threat";
+  if (hasPhrase(value, ["outage", "disruption", "service incident", "connectivity", "unavailable", "error rates", "service failure", "system failure", "cooling failure"])) return "outage";
+  if (hasPhrase(value, ["consultation", "guideline", "guidance", "regulation", "directive", "rulemaking", "supervisory", "requirements"])) return "rule-change";
   return "context";
 }
 

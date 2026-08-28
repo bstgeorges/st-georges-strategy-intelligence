@@ -6,9 +6,13 @@ import { appendHealthRun, buildEditorialReview, buildSourceHealth, classifyDecis
 test("decision types separate rules, enforcement, threats, outages and research", () => {
   assert.equal(classifyDecisionType({ title: "Authority opens consultation on reporting rules" }), "rule-change");
   assert.equal(classifyDecisionType({ title: "Firm receives a penalty for control failings" }), "enforcement");
+  assert.equal(classifyDecisionType({ title: "Millions forfeited in sanctions-evasion case" }), "enforcement");
   assert.equal(classifyDecisionType({ title: "Known exploited vulnerability added to catalog" }), "active-threat");
   assert.equal(classifyDecisionType({ title: "Regional cloud outage disrupts services" }), "outage");
   assert.equal(classifyDecisionType({ title: "New working paper on AI controls" }), "research");
+  assert.equal(classifyDecisionType({ title: "NVIDIA Announces Jetson Orin Nano 2 Robotics Computer to Redefine Entry-Level Edge AI" }), "context");
+  assert.equal(classifyDecisionType({ title: "FLARE: A Systematic, Uncertainty-Aware Framework for Evidence-Based Adoption of Artificial Intelligence in Healthcare", tags: ["research"] }), "research");
+  assert.equal(classifyDecisionType({ title: "New efficiency standard for AI agents" }), "context");
 });
 
 test("two consecutive quiet or failed runs trigger an investigation for monitored feeds", () => {

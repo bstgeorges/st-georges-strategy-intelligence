@@ -52,10 +52,10 @@
     },
     {
       "sourceId": "mexico-cnbv",
-      "expectedStatus": "blocked",
-      "issue": "The official CNBV press page returned a 403 response during the 27 August scan.",
-      "governance": "Do not bypass the control. Test a date-bearing official alternate publication page before changing transport; otherwise retain the blocked status.",
-      "lastChecked": "2026-08-27",
+      "expectedStatus": "ok",
+      "issue": "Recovered on the 27 August follow-up scan: the official CNBV page completed without a transport or access error, although it yielded no current candidate rows.",
+      "governance": "Retain the official page under normal health monitoring. Reopen this exception if an access error returns, or if repeated successful scans yield no date-bearing rows and the current official page structure requires a parser review.",
+      "lastChecked": "2026-08-28",
       "nextCheck": "2026-08-30"
     }
   ]

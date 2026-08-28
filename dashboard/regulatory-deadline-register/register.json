@@ -1,17 +1,17 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-27T20:15:12.167Z",
-  "asOf": "2026-08-27",
-  "sourceEdition": "2026-08-23",
+  "generatedAt": "2026-08-28T05:47:24.291Z",
+  "asOf": "2026-08-28",
+  "sourceEdition": "2026-08-27",
   "carryForwardGraceDays": 30,
   "items": [
     {
       "id": "462c72374abb045944af",
-      "title": "Notice of Consultation Paper Release: CP 174",
+      "title": "Consultation Paper No. 174 – Miscellaneous changes",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
       "deadline": "2026-08-24",
-      "daysToDeadline": -3,
+      "daysToDeadline": -4,
       "stage": "consultation",
       "authority": {
         "id": "dubai-dfsa",
@@ -22,7 +22,9 @@
         "Dubai",
         "United Arab Emirates"
       ],
-      "themes": [],
+      "themes": [
+        "market-plumbing"
+      ],
       "confidence": {
         "band": "high",
         "score": 1,
@@ -35,18 +37,17 @@
         }
       },
       "businessImpact": {
-        "score": 0.7,
         "band": "medium",
         "drivers": {
           "regulatory_action": 0.8,
           "urgency": 1,
-          "control_breadth": 0,
-          "jurisdiction_reach": 1
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
         }
       },
       "sourcePublishedAt": "2026-07-09",
       "status": "confirmed",
-      "intake": "scanner",
+      "intake": "verified-backfill",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -59,27 +60,20 @@
         }
       },
       "evidence": {
-        "change": "Notice of Consultation Paper",
+        "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2026-08-24",
-          "trigger": "deadline",
-          "triggerDistance": 63,
-          "quote": "174 – Miscellaneous changes The deadline for providing comments on this Consultation Paper is 24 August 2026",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "The DFSA notice states that comments are due on 24 August 2026.",
+        "verifiedAt": "2026-08-22",
+        "verification": "primary GOV.UK page and linked HM Treasury consultation document checked; the document states the consultation will close on 31 August 2026."
       },
       "ownerGuidance": {
         "owners": [
-          "Regulatory change lead",
-          "Applicable business owner"
+          "Operations",
+          "Markets or product control"
         ],
         "prepare": [
-          "Confirm applicability",
-          "Name an accountable owner",
-          "Record the governing forum and decision date"
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
         ]
       },
       "firstSeen": "2026-08-14",
@@ -91,7 +85,7 @@
       "title": "Updating the Bank of England’s fee regime for recognised payment systems",
       "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
       "deadline": "2026-08-31",
-      "daysToDeadline": 4,
+      "daysToDeadline": 3,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -169,7 +163,7 @@
       "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
       "deadline": "2026-09-07",
-      "daysToDeadline": 11,
+      "daysToDeadline": 10,
       "stage": "consultation",
       "authority": {
         "id": "dubai-dfsa",
@@ -205,9 +199,19 @@
         }
       },
       "sourcePublishedAt": "2026-07-07",
-      "status": "ready-for-review",
+      "status": "confirmed",
       "intake": "verified-backfill",
-      "decision": null,
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The DFSA notice explicitly states the comment deadline. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-08-28",
+        "evidence": {
+          "quote": "The deadline for providing comments on this Consultation Paper is 7 September 2026.",
+          "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173"
+        }
+      },
       "evidence": {
         "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance.",
         "detailChecked": true,
@@ -318,7 +322,7 @@
       "title": "Modernising Payment Services Regulation",
       "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
       "deadline": "2026-10-06",
-      "daysToDeadline": 40,
+      "daysToDeadline": 39,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -480,7 +484,7 @@
       "title": "Solvency II Review guidelines and technical standards apply",
       "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
       "deadline": "2027-01-30",
-      "daysToDeadline": 156,
+      "daysToDeadline": 155,
       "stage": "implementation",
       "authority": {
         "id": "eiopa",
@@ -555,11 +559,11 @@
     },
     {
       "id": "bde66a7c962b8ca0e916",
-      "title": "HKMA and SFC conclude joint consultation on amendments to the Clearing Rules for over-the-counter derivative transactions",
+      "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
       "deadline": "2027-03-01",
-      "daysToDeadline": 186,
-      "stage": "consultation",
+      "daysToDeadline": 185,
+      "stage": "implementation",
       "authority": {
         "id": "hkma",
         "name": "Hong Kong Monetary Authority",
@@ -572,29 +576,28 @@
         "market-plumbing"
       ],
       "confidence": {
-        "band": "high",
-        "score": 1,
+        "band": "medium",
+        "score": 0.8,
         "components": {
           "authority": 1,
           "freshness": 1,
           "classification": 1,
           "date": 1,
-          "detail": 1
+          "detail": 0.65
         }
       },
       "businessImpact": {
-        "score": 0.658,
         "band": "medium",
         "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0.3333333333333333,
-          "jurisdiction_reach": 0.5
+          "regulatory_action": 0.67,
+          "urgency": 0.45,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.67
         }
       },
-      "sourcePublishedAt": "2026-06-04",
+      "sourcePublishedAt": "2026-06-05",
       "status": "confirmed",
-      "intake": "scanner",
+      "intake": "verified-backfill",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -607,17 +610,11 @@
         }
       },
       "evidence": {
-        "change": "Hong Kong Monetary Authority published a consultation on 2026-06-04.",
+        "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2027-03-01",
-          "trigger": "effective from",
-          "triggerDistance": 16,
-          "quote": "Under the proposed approach to be effective from 1 March 2027 onwards, the Clearing Rules will be amended to designate two calendar periods, i",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "HKMA and SFC say they aim to bring the amendments into effect on 1 March 2027.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked; date is an implementation aim, not a final legal commencement notice"
       },
       "ownerGuidance": {
         "owners": [

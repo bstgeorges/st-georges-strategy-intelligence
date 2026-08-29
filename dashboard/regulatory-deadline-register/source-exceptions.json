@@ -11,7 +11,15 @@
       "nextCheck": "2026-08-30"
     },
     {
-      "sourceId": "italy-consob",
+    "sourceId": "bcbs",
+    "expectedStatus": "blocked",
+    "issue": "The official BCBS publications page returned a 403 anti-bot response during the 29 August scan.",
+    "governance": "Do not bypass the control. Test an official RSS, publications feed or published collection before changing transport; otherwise retain the blocked status.",
+    "lastChecked": "2026-08-29",
+    "nextCheck": "2026-09-01"
+  },
+  {
+    "sourceId": "italy-consob",
       "expectedStatus": "blocked",
       "issue": "The official collection was challenged by anti-bot protection during the latest scan.",
       "governance": "Use only an official alternate collection that returns date-bearing publication rows; otherwise retain the blocked status.",

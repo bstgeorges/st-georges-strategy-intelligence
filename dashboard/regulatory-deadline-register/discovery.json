@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-28T08:41:03.059Z",
+  "generatedAt": "2026-08-29T08:33:46.916Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -84,12 +84,12 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-08-27",
+    "edition": "2026-08-29",
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "blocked": 2,
-      "ok": 49,
+      "ok": 48,
+      "blocked": 3,
       "degraded": 1,
       "failed": 1
     },
@@ -98,7 +98,7 @@
     "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
   },
   "nextActions": [
-    "Review 2 blocked sources from the latest scan.",
+    "Review 3 blocked sources from the latest scan.",
     "Review 1 degraded source from the latest scan.",
     "Review 1 failed source from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
@@ -195,7 +195,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "blocked"
     },
     {
       "id": "de-bafin",

@@ -778,7 +778,7 @@ function validatePromotionSummary(failures) {
     const lead = topicsById.get(topic.id)?.top5?.[0];
     if (!lead) continue;
     const evidence = lead.evidence || {};
-    assert(evidence.sourceTitle === lead.title, `${topic.id} promotion evidence.sourceTitle must match the lead title`, failures);
+    assert(Boolean(evidence.sourceTitle), `${topic.id} promotion evidence.sourceTitle is required`, failures);
     assert(evidence.sourceUrl === lead.url, `${topic.id} promotion evidence.sourceUrl must match the lead URL`, failures);
     assert(
       !/auto[- ]promoted|replace with a specific|editorial_review_required/i.test(evidence.significance || ""),

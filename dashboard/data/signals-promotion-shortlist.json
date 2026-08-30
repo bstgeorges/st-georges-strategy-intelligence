@@ -1,10 +1,10 @@
 {
-  "version": "2026-08-23",
-  "publicationDate": "2026-08-23",
+  "version": "2026-08-30",
+  "publicationDate": "2026-08-30",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-08-23T10:23:49.866Z",
-  "reviewedAt": "2026-08-23",
-  "purpose": "Editorially selected Signals candidates for the Sunday 23 August 2026 edition. Each selection is a distinct current development from an approved primary source; its decision and control significance is completed before publication.",
+  "candidateGeneratedAt": "2026-08-30T19:22:49.337Z",
+  "reviewedAt": "2026-08-30",
+  "purpose": "Editorially selected Signals candidates for the Sunday 30 August 2026 edition. Each selection is a distinct, current development from an approved primary source; its decision and control significance is completed before publication.",
   "criteria": [
     "materiality",
     "specificity",
@@ -19,58 +19,53 @@
     {
       "id": "ai",
       "selectedUrls": [
-        "https://mistral.ai/news/agentic-search"
+        "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex"
       ],
-      "editorialRationale": "Select Mistral's Agentic Search launch. Its direct relevance to financial filings, contracts and other complex internal material turns retrieval quality into a governance question: teams need evidence for what an agent accessed, verified and used in its answer."
+      "editorialRationale": "Select OpenAI's announced wind-down of its Cursor model contract after a change of control. The source makes vendor ownership, contractual model access, migration and continuity a concrete governance question for firms that embed external AI models through intermediary platforms."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.cftc.gov/PressRoom/PressReleases/9286-26"
+        "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
+        "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england"
       ],
-      "editorialRationale": "Select the CFTC's request for comment on compute derivatives. It is a concrete supervisory signal that compute capacity is becoming a market-structure, liquidity, customer-protection and manipulation question—not merely a technology procurement issue."
+      "editorialRationale": "Select the CFTC event-contract enforcement action and HM Treasury's payments-innovation objective. Together they show that new market forms and payment infrastructure still depend on surveillance, conduct controls and financial-stability constraints."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf"
-      ],
-      "editorialRationale": "Select the resolved Google Cloud us-west1 multi-product disruption for the shared-dependency lane. The reported optical-maintenance congestion gives a specific prompt to test whether resilience assumptions cover capacity and network dependencies below the application layer."
+      "selectedUrls": [],
+      "editorialRationale": "No new third-party item cleared the materiality threshold. The 29 August Cloudflare incident was a resolved, local minor-impact event; retain the existing reviewed shared-dependency record rather than manufacture novelty."
     },
     {
       "id": "resilience",
-      "selectedUrls": [
-        "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025"
-      ],
-      "editorialRationale": "Select FINMA's Swiss insurance-sector resilience assessment. It is an official cross-sector resilience signal and supports a leadership question about whether operational resilience evidence is being tested as part of financial strength rather than reported separately."
+      "selectedUrls": [],
+      "editorialRationale": "No new resilience item cleared the threshold. The ENISA sitemap timestamp was corrected to its actual 2018 publication date and excluded; the current FINMA resilience assessment remains the relevant reviewed record."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [
-        "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor"
+        "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion"
       ],
-      "editorialRationale": "Select the SEC's Tricolor charges because the alleged double-pledging of collateral and manipulated loan metrics is a clear control-evidence test for private-credit, securitisation and collateral-management governance."
+      "editorialRationale": "Select the NCA forfeiture settlement because the official account identifies a route through UK electronic-money institutions and cryptocurrency involving suspected front companies and sanctions-linked funds. It creates a concrete source-of-funds, transaction-monitoring and escalation test."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog"
+        "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog"
       ],
-      "editorialRationale": "Select only the latest CISA Known Exploited Vulnerabilities update. It retains the active-exploitation management signal without publishing several near-identical catalogue updates as separate cards."
+      "editorialRationale": "Select the latest CISA Known Exploited Vulnerabilities update. It is a new, accountable active-exploitation signal and should be expressed as a patch-control priority rather than as raw catalogue wording."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [
-        "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21"
-      ],
-      "editorialRationale": "Select Cloudflare's North America-to-Singapore network-error incident as a separate technology-failure event. It is not re-used in the third-party lane, which instead uses the distinct Google Cloud multi-product disruption."
+      "selectedUrls": [],
+      "editorialRationale": "No new technology-failure item cleared the threshold. The 29 August Cloudflare incident was local, minor and resolved; retain the existing reviewed cross-network failure record rather than elevate a weak operating notice."
     },
     {
       "id": "data",
       "selectedUrls": [
-        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties"
+        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing"
       ],
-      "editorialRationale": "Select ASIC's Rex decision because continuous-disclosure control depends on evidence that forward-looking statements remain supported by timely, accurate management information and escalation."
+      "editorialRationale": "Select the ICO facial-recognition audit findings as a data-governance read-across. The source turns senior oversight, data provenance, retention, accuracy and bias testing into specific evidence asks for high-impact AI deployments."
     }
   ]
 }

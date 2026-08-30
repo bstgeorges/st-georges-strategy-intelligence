@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-08-30T10:14:39.384Z",
+  "generatedAt": "2026-08-30T19:22:49.337Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -34,7 +34,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 89,
+          "relevanceScore": 88,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -66,7 +66,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -160,7 +160,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -191,7 +191,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
+          "relevanceScore": 73,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -221,7 +221,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 69,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -253,7 +253,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Mistral AI via rss ingestion and matched the topic rules."
@@ -283,7 +283,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
@@ -313,7 +313,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
@@ -342,7 +342,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 61,
+          "relevanceScore": 60,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -476,7 +476,7 @@
             "trading"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 98,
+          "relevanceScore": 97,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -553,7 +553,7 @@
             "trading"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 73,
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
@@ -597,9 +597,50 @@
           "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
         },
         {
+          "id": "38f8f73dccee8a9f",
+          "topicId": "market-structure",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "titleMatchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "summaryMatchedKeywords": [
+            "fonds",
+            "investissement"
+          ],
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "41223b96e8fc44fe",
           "topicId": "market-structure",
-          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé - DOC-2012-06",
+          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
@@ -793,7 +834,7 @@
             "derivatives"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -834,7 +875,7 @@
             "securities",
             "crypto"
           ],
-          "relevanceScore": 64,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -946,42 +987,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "215909ae8be99acd",
-          "topicId": "market-structure",
-          "title": "Questions-réponses relatives au régime applicable aux conseillers en investissements financiers - DOC-2006-23",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2006-23",
-          "publishedAt": "2026-07-26T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "investissement"
-          ],
-          "titleMatchedKeywords": [
-            "investissement"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1024,41 +1029,7 @@
             "error",
             "5xx"
           ],
-          "relevanceScore": 100,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "c5bc0479f64aacfb",
-          "topicId": "third-party",
-          "title": "Network Issues in Montréal",
-          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
-          "publishedAt": "2026-08-29T17:33:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "network"
-          ],
-          "titleMatchedKeywords": [
-            "network"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 84,
+          "relevanceScore": 99,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
@@ -1144,6 +1115,40 @@
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
+          "id": "c5bc0479f64aacfb",
+          "topicId": "third-party",
+          "title": "Network Issues in Montréal",
+          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
+          "publishedAt": "2026-08-29T17:33:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "network"
+          ],
+          "titleMatchedKeywords": [
+            "network"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "752a6fda75661c3d",
           "topicId": "third-party",
           "title": "Incident with Copilot AI Model Providers",
@@ -1176,7 +1181,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1214,7 +1219,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1252,7 +1257,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1289,7 +1294,7 @@
           "summaryMatchedKeywords": [
             "incident"
           ],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1299,74 +1304,6 @@
     {
       "id": "resilience",
       "candidates": [
-        {
-          "id": "a9b61402c8be4e46",
-          "topicId": "resilience",
-          "title": "169 telecom incidents reported, extreme weather major factor | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-news/169-telecom-incidents-reported-extreme-weather-major-factor",
-          "publishedAt": "2026-08-27T13:40:00.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "incident"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "53bdedd9798bfcaa",
-          "topicId": "resilience",
-          "title": "A billion user hours lost in EU telecoms due to security incidents in 2019 | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-news/annual-report-on-telecom-security-incidents-in-2019",
-          "publishedAt": "2026-08-27T13:40:00.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "incident"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
         {
           "id": "c8ee6fb5eaea9f81",
           "topicId": "resilience",
@@ -1436,7 +1373,7 @@
           "summaryMatchedKeywords": [
             "degraded"
           ],
-          "relevanceScore": 61,
+          "relevanceScore": 60,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via rss ingestion and matched the topic rules."
@@ -1474,7 +1411,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
@@ -1514,7 +1451,7 @@
           "summaryMatchedKeywords": [
             "sanction"
           ],
-          "relevanceScore": 76,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from HM Treasury via atom ingestion and matched the topic rules."
@@ -1550,7 +1487,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 76,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
@@ -1586,7 +1523,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
+          "relevanceScore": 73,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
@@ -1623,7 +1560,7 @@
             "insider"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 73,
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
@@ -1692,7 +1629,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 60,
+          "relevanceScore": 59,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
@@ -2052,7 +1989,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
+          "relevanceScore": 96,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from SentinelOne Labs via rss ingestion and matched the topic rules."
@@ -2118,7 +2055,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -2154,7 +2091,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
@@ -2189,7 +2126,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
@@ -2221,7 +2158,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 92,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
@@ -2252,7 +2189,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
@@ -2283,7 +2220,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
@@ -2320,178 +2257,10 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "f6a008fc0a377a0c",
-          "topicId": "cyber",
-          "title": "“Sorry, I can’t help with that”: How your guardrails might become the attacker’s best friend",
-          "url": "https://blog.talosintelligence.com/sorry-i-cant-help-with-that-how-your-guardrails-might-become-the-attackers-best-friend",
-          "publishedAt": "2026-08-27T18:00:24.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisco-talos",
-          "sourceName": "Cisco Talos Intelligence Group",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisco-talos-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "399ce8ea2284e481",
-          "topicId": "cyber",
-          "title": "EU Boost against cyberattacks: EU Agency for Cybersecurity welcomes proposal for the Joint Cyber Unit | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-news/eu-boost-against-cyberattacks-eu-agency-for-cybersecurity-welcomes-proposal-for-the-joint-cyber-unit",
-          "publishedAt": "2026-08-27T13:40:00.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "6c39b347e7d47310",
-          "topicId": "cyber",
-          "title": "European Cyber Security Month: during October, find out how to be safe online | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-news/european-cyber-security-month-during-october-find-out-how-to-be-safe-online",
-          "publishedAt": "2026-08-27T13:40:00.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "ecf6c74f0ae983f3",
-          "topicId": "cyber",
-          "title": "NIS Directive has Positive Effect, though Study Finds Gaps in Cybersecurity Investment Exist | ENISA",
-          "url": "https://www.enisa.europa.eu/news/enisa-news/nis-directive-has-positive-effect-though-study-finds-gaps-in-cybersecurity-investment-exist",
-          "publishedAt": "2026-08-27T13:40:00.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "enisa",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "enisa-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "fb56227792f4bc87",
-          "topicId": "cyber",
-          "title": "Disruptive cyber activity highlights risk from internet-exposed systems and edge devices",
-          "url": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
-          "publishedAt": "2026-08-27T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "uk-ncsc",
-          "sourceName": "UK National Cyber Security Centre",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "ncsc-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "advisory",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [
-            "cyber"
-          ],
-          "summaryMatchedKeywords": [
-            "cyber"
-          ],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
         },
         {
           "id": "fcaa625a8dcc495d",
@@ -2526,50 +2295,17 @@
           "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
         },
         {
-          "id": "cfc105ec4c4948a3",
+          "id": "f6a008fc0a377a0c",
           "topicId": "cyber",
-          "title": "CVE-2026-19490: Critical Vulnerability Affecting Citrix NetScaler ADC and NetScaler Gateway",
-          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-19490-critical-vulnerability-affecting-citrix-netscaler-adc-and-netscaler-gateway",
-          "publishedAt": "2026-08-19T16:46:06.000Z",
+          "title": "“Sorry, I can’t help with that”: How your guardrails might become the attacker’s best friend",
+          "url": "https://blog.talosintelligence.com/sorry-i-cant-help-with-that-how-your-guardrails-might-become-the-attackers-best-friend",
+          "publishedAt": "2026-08-27T18:00:24.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
+          "sourceRegistryId": "cisco-talos",
+          "sourceName": "Cisco Talos Intelligence Group",
           "sourceTier": "primary",
           "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "a8e78faf0d93072d",
-          "topicId": "cyber",
-          "title": "Back-to-School Cyber Risks Surge as Education Remains the World&#8217;s Most Attacked Sector",
-          "url": "https://blog.checkpoint.com/research/back-to-school-cyber-risks-surge-as-education-remains-the-worlds-most-attacked-sector",
-          "publishedAt": "2026-08-19T13:00:52.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
+          "ingestSourceId": "cisco-talos-rss",
           "fetchType": "rss",
           "riskAreas": [
             "cyber-security",
@@ -2580,9 +2316,6 @@
             "threat-intelligence"
           ],
           "matchedKeywords": [
-            "cyber",
-            "exploit",
-            "phishing",
             "threat"
           ],
           "titleMatchedKeywords": [],
@@ -2590,39 +2323,42 @@
           "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
         },
         {
-          "id": "38501a6f51a8c6f4",
+          "id": "fb56227792f4bc87",
           "topicId": "cyber",
-          "title": "Rapid7 and Licencias OnLine Partner to Accelerate Cybersecurity Maturity across Latin America",
-          "url": "https://www.rapid7.com/blog/post/c-licencias-online-partnership-accelerates-latam-cybersecurity-maturity-latin-america",
-          "publishedAt": "2026-08-19T12:00:00.000Z",
+          "title": "Disruptive cyber activity highlights risk from internet-exposed systems and edge devices",
+          "url": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
+          "publishedAt": "2026-08-27T12:00:00.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
+          "sourceRegistryId": "uk-ncsc",
+          "sourceName": "UK National Cyber Security Centre",
           "sourceTier": "primary",
           "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
+          "ingestSourceId": "ncsc-advisories-rss",
           "fetchType": "rss",
           "riskAreas": [
-            "cyber-security",
             "digital-resilience"
           ],
           "tags": [
             "cyber",
-            "vulnerability-management"
+            "advisory",
+            "threat-intelligence"
           ],
           "matchedKeywords": [
-            "cyber",
-            "threat"
+            "cyber"
           ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
+          "titleMatchedKeywords": [
+            "cyber"
+          ],
+          "summaryMatchedKeywords": [
+            "cyber"
+          ],
           "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
         },
         {
           "id": "5aeeecd2c105af13",
@@ -2660,6 +2396,105 @@
           "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
         },
         {
+          "id": "cfc105ec4c4948a3",
+          "topicId": "cyber",
+          "title": "CVE-2026-19490: Critical Vulnerability Affecting Citrix NetScaler ADC and NetScaler Gateway",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-19490-critical-vulnerability-affecting-citrix-netscaler-adc-and-netscaler-gateway",
+          "publishedAt": "2026-08-19T16:46:06.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "a8e78faf0d93072d",
+          "topicId": "cyber",
+          "title": "Back-to-School Cyber Risks Surge as Education Remains the World&#8217;s Most Attacked Sector",
+          "url": "https://blog.checkpoint.com/research/back-to-school-cyber-risks-surge-as-education-remains-the-worlds-most-attacked-sector",
+          "publishedAt": "2026-08-19T13:00:52.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "exploit",
+            "phishing",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "38501a6f51a8c6f4",
+          "topicId": "cyber",
+          "title": "Rapid7 and Licencias OnLine Partner to Accelerate Cybersecurity Maturity across Latin America",
+          "url": "https://www.rapid7.com/blog/post/c-licencias-online-partnership-accelerates-latam-cybersecurity-maturity-latin-america",
+          "publishedAt": "2026-08-19T12:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "c15fb349ac7b350b",
           "topicId": "cyber",
           "title": "Why Your AI Application Is Exposed Snyk",
@@ -2685,10 +2520,104 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Snyk Security Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "9eaa2947cf9cf942",
+          "topicId": "cyber",
+          "title": "Check Point Blocks Large-Scale Debt-Relief Email Phishing Campaign Targeting More Than 9,000 Organizations",
+          "url": "https://blog.checkpoint.com/securing-user-and-access/check-point-blocks-large-scale-debt-relief-email-phishing-campaign-targeting-more-than-9000-organizations",
+          "publishedAt": "2026-08-25T13:00:19.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "phishing"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "dfb23e74b407b9b2",
+          "topicId": "cyber",
+          "title": "CISA Advisory Highlights Red Team Findings to Help Organizations Assess Risk, Identify Threats and Enable Effective Incident Response",
+          "url": "https://www.cisa.gov/news-events/news/cisa-advisory-highlights-red-team-findings-help-organizations-assess-risk-identify-threats-and",
+          "publishedAt": "2026-08-25T12:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisa-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "agency-news",
+            "us"
+          ],
+          "matchedKeywords": [
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "067e48baefc6b423",
+          "topicId": "cyber",
+          "title": "The State of AI-Enabled Malware August 2026: From Brand Abuse to Agentic Execution",
+          "url": "https://unit42.paloaltonetworks.com/ai-enabled-malware-analysis",
+          "publishedAt": "2026-08-25T10:00:57.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "paloalto-unit42",
+          "sourceName": "Palo Alto Networks Unit 42",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "paloalto-unit42-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "malware"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2731,41 +2660,7 @@
             "error",
             "5xx"
           ],
-          "relevanceScore": 100,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "c5bc0479f64aacfb",
-          "topicId": "technology-failure",
-          "title": "Network Issues in Montréal",
-          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
-          "publishedAt": "2026-08-29T17:33:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "network"
-          ],
-          "titleMatchedKeywords": [
-            "network"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 84,
+          "relevanceScore": 99,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
@@ -2811,6 +2706,40 @@
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
+          "id": "c5bc0479f64aacfb",
+          "topicId": "technology-failure",
+          "title": "Network Issues in Montréal",
+          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
+          "publishedAt": "2026-08-29T17:33:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "network"
+          ],
+          "titleMatchedKeywords": [
+            "network"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "752a6fda75661c3d",
           "topicId": "technology-failure",
           "title": "Incident with Copilot AI Model Providers",
@@ -2843,7 +2772,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2881,7 +2810,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2919,7 +2848,7 @@
             "incident",
             "degraded"
           ],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2956,7 +2885,7 @@
           "summaryMatchedKeywords": [
             "incident"
           ],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2992,7 +2921,7 @@
           "summaryMatchedKeywords": [
             "degraded"
           ],
-          "relevanceScore": 61,
+          "relevanceScore": 60,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Anthropic via rss ingestion and matched the topic rules."
@@ -3044,8 +2973,8 @@
           "topicId": "data",
           "title": "Facial recognition in policing: earning public trust through strong data protection governance",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-          "publishedAt": "2026-08-18T17:16:16.000Z",
-          "dateSource": "sitemap-lastmod",
+          "publishedAt": "2026-08-18T00:00:00.000Z",
+          "dateSource": "page-published",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
@@ -3068,7 +2997,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -3078,8 +3007,8 @@
           "topicId": "data",
           "title": "Boost your business fitness - ICO offers new, free data protection training for SMEs",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/boost-your-business-fitness-ico-offers-new-free-data-protection-training-for-smes",
-          "publishedAt": "2026-08-11T13:07:37.000Z",
-          "dateSource": "sitemap-lastmod",
+          "publishedAt": "2026-08-11T00:00:00.000Z",
+          "dateSource": "page-published",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "sourceTier": "primary",
@@ -3146,9 +3075,85 @@
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
         },
         {
+          "id": "5ec8ef686f872f8d",
+          "topicId": "data",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'épargne salariale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-21",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "information"
+          ],
+          "titleMatchedKeywords": [
+            "information"
+          ],
+          "summaryMatchedKeywords": [
+            "information"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "38f8f73dccee8a9f",
+          "topicId": "data",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "asset-management",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "information"
+          ],
+          "titleMatchedKeywords": [
+            "information"
+          ],
+          "summaryMatchedKeywords": [
+            "information"
+          ],
+          "relevanceScore": 55,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "84ead3a73a38634b",
           "topicId": "data",
-          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF - DOC-2014-01",
+          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2014-01",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
@@ -3184,7 +3189,7 @@
         {
           "id": "41223b96e8fc44fe",
           "topicId": "data",
-          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé - DOC-2012-06",
+          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
@@ -3224,44 +3229,6 @@
           "topicId": "data",
           "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "information"
-          ],
-          "titleMatchedKeywords": [
-            "information"
-          ],
-          "summaryMatchedKeywords": [
-            "information"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "5ec8ef686f872f8d",
-          "topicId": "data",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'épargne salariale -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-21",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "fr-amf",
@@ -3505,7 +3472,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 10,
+      "acceptedCandidates": 12,
       "reason": "",
       "error": ""
     },
@@ -3635,7 +3602,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -4112,6 +4079,7 @@
   ],
   "warnings": [
     "Source arxiv-ai-rss returned no parseable entries; check its feed format or availability.",
-    "Dropped unregistered citation host candidate: https://azure.microsoft.com/en-us/blog/the-patch-window-is-collapsing-why-security-needs-a-new-control-plane"
+    "Dropped unregistered citation host candidate: https://azure.microsoft.com/en-us/blog/the-patch-window-is-collapsing-why-security-needs-a-new-control-plane",
+    "Thin coverage: resilience has only 2 candidate(s) in the current window."
   ]
 }

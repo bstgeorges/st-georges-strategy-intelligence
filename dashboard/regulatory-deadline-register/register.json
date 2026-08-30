@@ -1,14 +1,14 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-08-30T08:30:53.830Z",
+  "generatedAt": "2026-08-30T19:19:57.585Z",
   "asOf": "2026-08-30",
-  "sourceEdition": "2026-08-29",
+  "sourceEdition": "2026-08-30",
   "carryForwardGraceDays": 30,
   "items": [
     {
       "id": "462c72374abb045944af",
-      "title": "Notice of Consultation Paper Release: CP 174",
+      "title": "Consultation Paper No. 174 – Miscellaneous changes",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
       "deadline": "2026-08-24",
       "daysToDeadline": -6,
@@ -22,7 +22,9 @@
         "Dubai",
         "United Arab Emirates"
       ],
-      "themes": [],
+      "themes": [
+        "market-plumbing"
+      ],
       "confidence": {
         "band": "high",
         "score": 1,
@@ -35,18 +37,17 @@
         }
       },
       "businessImpact": {
-        "score": 0.7,
         "band": "medium",
         "drivers": {
           "regulatory_action": 0.8,
           "urgency": 1,
-          "control_breadth": 0,
-          "jurisdiction_reach": 1
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
         }
       },
       "sourcePublishedAt": "2026-07-09",
       "status": "confirmed",
-      "intake": "scanner",
+      "intake": "verified-backfill",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -59,27 +60,20 @@
         }
       },
       "evidence": {
-        "change": "Notice of Consultation Paper",
+        "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2026-08-24",
-          "trigger": "deadline",
-          "triggerDistance": 63,
-          "quote": "174 – Miscellaneous changes The deadline for providing comments on this Consultation Paper is 24 August 2026",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "The DFSA notice states that comments are due on 24 August 2026.",
+        "verifiedAt": "2026-08-22",
+        "verification": "primary GOV.UK page and linked HM Treasury consultation document checked; the document states the consultation will close on 31 August 2026."
       },
       "ownerGuidance": {
         "owners": [
-          "Regulatory change lead",
-          "Applicable business owner"
+          "Operations",
+          "Markets or product control"
         ],
         "prepare": [
-          "Confirm applicability",
-          "Name an accountable owner",
-          "Record the governing forum and decision date"
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies"
         ]
       },
       "firstSeen": "2026-08-14",
@@ -565,11 +559,11 @@
     },
     {
       "id": "bde66a7c962b8ca0e916",
-      "title": "HKMA and SFC conclude joint consultation on amendments to the Clearing Rules for over-the-counter derivative transactions",
+      "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
       "deadline": "2027-03-01",
       "daysToDeadline": 183,
-      "stage": "consultation",
+      "stage": "implementation",
       "authority": {
         "id": "hkma",
         "name": "Hong Kong Monetary Authority",
@@ -582,29 +576,28 @@
         "market-plumbing"
       ],
       "confidence": {
-        "band": "high",
-        "score": 1,
+        "band": "medium",
+        "score": 0.8,
         "components": {
           "authority": 1,
           "freshness": 1,
           "classification": 1,
           "date": 1,
-          "detail": 1
+          "detail": 0.65
         }
       },
       "businessImpact": {
-        "score": 0.658,
         "band": "medium",
         "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0.3333333333333333,
-          "jurisdiction_reach": 0.5
+          "regulatory_action": 0.67,
+          "urgency": 0.45,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.67
         }
       },
-      "sourcePublishedAt": "2026-06-04",
+      "sourcePublishedAt": "2026-06-05",
       "status": "confirmed",
-      "intake": "scanner",
+      "intake": "verified-backfill",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -617,17 +610,11 @@
         }
       },
       "evidence": {
-        "change": "Hong Kong Monetary Authority published a consultation on 2026-06-04.",
+        "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2027-03-01",
-          "trigger": "effective from",
-          "triggerDistance": 16,
-          "quote": "Under the proposed approach to be effective from 1 March 2027 onwards, the Clearing Rules will be amended to designate two calendar periods, i",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "HKMA and SFC say they aim to bring the amendments into effect on 1 March 2027.",
+        "verifiedAt": "2026-08-14",
+        "verification": "primary source notice checked; date is an implementation aim, not a final legal commencement notice"
       },
       "ownerGuidance": {
         "owners": [

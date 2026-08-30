@@ -195,7 +195,35 @@ function parseSitemap(xml, source) {
 
   return urls
     .sort((a, b) => String(b.lastmod || "").localeCompare(String(a.lastmod || "")))
-    .slice(0, source.maxItems || 8);
+    .slice(0, source.maxItems || 8)
+    .map((entry) => ({ ...entry, requirePagePublishedDate: source.requirePagePublishedDate === true }));
+}
+
+function parsePublishedDate(value) {
+  const raw = String(value || "").trim();
+  // Newsrooms frequently print a date without a timezone. Interpret that
+  // calendar date as UTC so a workstation timezone cannot move it back a day.
+  const parsed = new Date(/^[A-Za-z]/.test(raw) ? `${raw} UTC` : raw);
+  return Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString();
+}
+
+function extractPagePublishedDate(html) {
+  const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
+  for (const tag of metaTags) {
+    if (!/(?:property|name)\s*=\s*["'](?:article:published_time|date|datepublished|publishdate|dc\.date)["']/i.test(tag)) continue;
+    const value = tag.match(/content\s*=\s*["']([^"']+)["']/i)?.[1];
+    const parsed = parsePublishedDate(value);
+    if (parsed) return parsed;
+  }
+  const timeValues = [...html.matchAll(/<time\b[^>]*>([\s\S]*?)<\/time>/gi)]
+    .map((match) => match[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
+  for (const value of timeValues) {
+    const parsed = parsePublishedDate(value);
+    if (parsed) return parsed;
+  }
+  const text = html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/\s+/g, " ");
+  const dateMatch = text.match(/(?:press release|published|publication date|date)\s*[:\-]?\s*([A-Z][a-z]{2,8}\s+\d{1,2},?\s*\d{4}|\d{1,2}\s+[A-Z][a-z]{2,8}\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
+  return parsePublishedDate(dateMatch?.[1]);
 }
 
 async function enrichSitemapEntries(entries) {
@@ -208,12 +236,13 @@ async function enrichSitemapEntries(entries) {
       const ogTag = metaTags.find((tag) => /(?:property|name)\s*=\s*["']og:title["']/i.test(tag));
       const ogTitle = ogTag?.match(/content\s*=\s*["']([^"']+)["']/i);
       const title = decodeXml((ogTitle?.[1] || titleMatch?.[1] || "").trim()).replace(/\s+/g, " ");
-      if (title) {
+      const pagePublishedAt = extractPagePublishedDate(html);
+      if (title && (pagePublishedAt || !entry.requirePagePublishedDate)) {
         enriched.push({
           title,
           url: entry.url,
-          publishedAt: entry.lastmod,
-          dateSource: entry.lastmod ? "sitemap-lastmod" : "",
+          publishedAt: pagePublishedAt || entry.lastmod,
+          dateSource: pagePublishedAt ? "page-published" : entry.lastmod ? "sitemap-lastmod" : "",
           summary: "",
         });
       }
@@ -600,4 +629,4 @@ if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
   });
 }
 
-export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };
+export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, extractPagePublishedDate, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };

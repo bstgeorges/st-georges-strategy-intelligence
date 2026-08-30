@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-08-30",
+  "generatedAt": "2026-08-23",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
-  "status": "live",
+  "status": "archived",
   "archiveDedupe": {
     "rule": "Before writing a new edition, compare the previous dated AI Signals archive and retain an item only when the model, product, capability, governance status or market consequence has changed.",
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "30 Aug 2026",
-    "line": "Live edition / Updated 30 Aug 2026",
-    "descriptor": "15 source-linked signals / model, deployment and operating context"
+    "displayDate": "23 Aug 2026",
+    "line": "Archived edition / 30 Aug 2026",
+    "descriptor": "Preserved snapshot / Source-linked"
   },
-  "summary": "This week turns AI supplier change into an operating-control test: model access, contractual protections, data paths, migration and evidence of a workable exit must be reassessed when an intermediary or owner changes. The same discipline applies to the market and cyber controls around AI-enabled services.",
+  "summary": "This week shifts the AI discussion from model capability to the evidence path around it: what an agent may retrieve, how providers handle sensitive content, how compute becomes market infrastructure and how a firm proves a decision can be challenged or recovered.",
   "sourceUniverse": {
     "modelAndCapability": [
-      "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+      "https://mistral.ai/news/agentic-search",
       "https://openai.com/index/pacing-model-development-cyber-capabilities",
       "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx",
       "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
@@ -29,9 +29,9 @@
       "https://openai.com/index/how-enterprises-put-ai-to-work"
     ],
     "operatingContext": [
-      "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
+      "https://www.cftc.gov/PressRoom/PressReleases/9286-26",
       "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-      "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
       "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
       "https://www.nist.gov/itl/ai-risk-management-framework"
     ]
@@ -43,13 +43,16 @@
       "label": "Models and capabilities",
       "cards": [
         {
-          "title": "A supplier acquisition can turn model access into a continuity event",
-          "badge": "Supplier-control signal",
-          "body": "OpenAI plans to wind down model access through Cursor after its acquisition. For firms using intermediary AI platforms, a supplier or ownership change should trigger a documented review of model access, contractual protections, data paths, migration dependencies and a workable fallback.",
-          "sourceName": "OpenAI",
+          "title": "Agentic Search turns retrieval into a traceable operating step",
+          "badge": "Capability signal",
+          "body": "Mistral’s new retrieval layer lets systems search, open, navigate, read and verify complex documents. For high-value financial workflows, the control question is whether the authorised corpus, access path and human challenge can be reconstructed with the answer.",
+          "sourceName": "Mistral AI",
           "sourceType": "dated",
-          "date": "2026-08-28",
-          "source": { "label": "Our decision on Cursor following its acquisition by SpaceX", "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" }
+          "date": "2026-08-20",
+          "source": {
+            "label": "Introducing Agentic Search",
+            "url": "https://mistral.ai/news/agentic-search"
+          }
         },
         {
           "title": "Cyber-critical capability is changing development governance",
@@ -58,7 +61,10 @@
           "sourceName": "OpenAI",
           "sourceType": "dated",
           "date": "2026-08-18",
-          "source": { "label": "Pacing model development in an era of cyber-critical capabilities", "url": "https://openai.com/index/pacing-model-development-cyber-capabilities" }
+          "source": {
+            "label": "Pacing model development in an era of cyber-critical capabilities",
+            "url": "https://openai.com/index/pacing-model-development-cyber-capabilities"
+          }
         },
         {
           "title": "Model routing makes a system of models a governance object",
@@ -67,7 +73,10 @@
           "sourceName": "NVIDIA",
           "sourceType": "dated",
           "date": "2026-08-11",
-          "source": { "label": "Nemotron 3.5 Lightning and NeMo Switchyard", "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx" }
+          "source": {
+            "label": "Nemotron 3.5 Lightning and NeMo Switchyard",
+            "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx"
+          }
         },
         {
           "title": "Specialised forecasting models widen the impact perimeter",
@@ -76,7 +85,10 @@
           "sourceName": "Google DeepMind",
           "sourceType": "dated",
           "date": "2026-08-11",
-          "source": { "label": "WeatherNext cyclone forecasting", "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones" }
+          "source": {
+            "label": "WeatherNext cyclone forecasting",
+            "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones"
+          }
         },
         {
           "title": "Safety tooling does not replace deployment accountability",
@@ -85,7 +97,10 @@
           "sourceName": "Mistral AI",
           "sourceType": "dated",
           "date": "2026-08-04",
-          "source": { "label": "Introducing Shieldstral", "url": "https://mistral.ai/news/shieldstral" }
+          "source": {
+            "label": "Introducing Shieldstral",
+            "url": "https://mistral.ai/news/shieldstral"
+          }
         }
       ]
     },
@@ -101,7 +116,10 @@
           "sourceName": "OpenAI",
           "sourceType": "dated",
           "date": "2026-08-19",
-          "source": { "label": "Offering Zero Data Retention for frontier models", "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models" }
+          "source": {
+            "label": "Offering Zero Data Retention for frontier models",
+            "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models"
+          }
         },
         {
           "title": "AI policy discussion is widening to agency and concentration",
@@ -110,7 +128,10 @@
           "sourceName": "OpenAI",
           "sourceType": "dated",
           "date": "2026-08-20",
-          "source": { "label": "Introducing AI Futures", "url": "https://openai.com/index/introducing-ai-futures" }
+          "source": {
+            "label": "Introducing AI Futures",
+            "url": "https://openai.com/index/introducing-ai-futures"
+          }
         },
         {
           "title": "AI capacity depends on land, power and networked infrastructure",
@@ -119,7 +140,10 @@
           "sourceName": "NVIDIA",
           "sourceType": "dated",
           "date": "2026-08-17",
-          "source": { "label": "Securing the Infrastructure of Intelligence", "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence" }
+          "source": {
+            "label": "Securing the Infrastructure of Intelligence",
+            "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence"
+          }
         },
         {
           "title": "Regional inference keeps location and recovery in product scope",
@@ -128,7 +152,10 @@
           "sourceName": "Mistral AI",
           "sourceType": "dated",
           "date": "2026-08-11",
-          "source": { "label": "Regional inference and European infrastructure", "url": "https://mistral.ai/news/regional-inference-open-models-new-compute" }
+          "source": {
+            "label": "Regional inference and European infrastructure",
+            "url": "https://mistral.ai/news/regional-inference-open-models-new-compute"
+          }
         },
         {
           "title": "Enterprise AI execution raises permission and reversal questions",
@@ -137,7 +164,10 @@
           "sourceName": "OpenAI",
           "sourceType": "dated",
           "date": "2026-08-12",
-          "source": { "label": "From assistance to execution", "url": "https://openai.com/index/how-enterprises-put-ai-to-work" }
+          "source": {
+            "label": "From assistance to execution",
+            "url": "https://openai.com/index/how-enterprises-put-ai-to-work"
+          }
         }
       ]
     },
@@ -147,13 +177,16 @@
       "label": "Operating context",
       "cards": [
         {
-          "title": "Event contracts bring market-abuse controls to an emerging venue",
+          "title": "Compute is entering a market-oversight conversation",
           "badge": "Market signal",
-          "body": "The CFTC's event-contract enforcement action shows that novel prediction-market venues still need surveillance, conflict controls and escalation that can detect misuse of material non-public information. New market structures do not reduce familiar integrity expectations.",
+          "body": "The CFTC is seeking comment on compute derivatives, including market size, liquidity, oversight, manipulation, customer protection and perpetual futures. Compute should now be watched as a risk-bearing market input as well as an infrastructure procurement decision.",
           "sourceName": "US Commodity Futures Trading Commission",
           "sourceType": "dated",
-          "date": "2026-08-28",
-          "source": { "label": "CFTC orders Gabriel Perez to pay for event-contract insider trading", "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26" }
+          "date": "2026-08-19",
+          "source": {
+            "label": "CFTC requests comment on compute derivatives",
+            "url": "https://www.cftc.gov/PressRoom/PressReleases/9286-26"
+          }
         },
         {
           "title": "Resilience remains a financial-strength question",
@@ -162,16 +195,22 @@
           "sourceName": "Swiss Financial Market Supervisory Authority",
           "sourceType": "dated",
           "date": "2026-08-20",
-          "source": { "label": "Swiss insurance sector continues to strengthen its resilience", "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025" }
+          "source": {
+            "label": "Swiss insurance sector continues to strengthen its resilience",
+            "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025"
+          }
         },
         {
           "title": "Active exploitation keeps the AI perimeter connected to cyber hygiene",
           "badge": "Cyber signal",
-          "body": "CISA's 27 August update adds three actively exploited vulnerabilities. Advanced AI cannot be separated from the basics: complete asset records, timely remediation, controlled exceptions and evidence that a vulnerability was removed from the live environment.",
+          "body": "CISA’s latest Known Exploited Vulnerabilities update is a practical reminder that advanced AI cannot be separated from the basics: complete asset records, timely remediation, controlled exceptions and evidence that a vulnerability was removed from the live environment.",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "sourceType": "dated",
-          "date": "2026-08-27",
-          "source": { "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" }
+          "date": "2026-08-21",
+          "source": {
+            "label": "CISA Adds One Known Exploited Vulnerability to Catalog",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog"
+          }
         },
         {
           "title": "The EU AI Act remains the accountability baseline",
@@ -180,7 +219,10 @@
           "sourceName": "EUR-Lex",
           "sourceType": "evergreen",
           "evergreenClassification": "framework",
-          "source": { "label": "Artificial Intelligence Act", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" }
+          "source": {
+            "label": "Artificial Intelligence Act",
+            "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+          }
         },
         {
           "title": "The NIST AI RMF remains a practical control baseline",
@@ -189,9 +231,13 @@
           "sourceName": "NIST",
           "sourceType": "evergreen",
           "evergreenClassification": "framework",
-          "source": { "label": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework" }
+          "source": {
+            "label": "NIST AI Risk Management Framework",
+            "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+          }
         }
       ]
     }
-  ]
+  ],
+  "archivedAt": "2026-08-30"
 }

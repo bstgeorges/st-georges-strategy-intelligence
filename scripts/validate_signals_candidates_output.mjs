@@ -18,7 +18,7 @@ const TOPICS = new Set([
 ]);
 const ALLOWED_MODES = new Set(["live", "offline", "seed"]);
 const ALLOWED_SOURCE_STATUSES = new Set(["ok", "quiet", "failed", "skipped"]);
-const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "reviewed-reg-horizon"]);
+const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "page-published", "reviewed-reg-horizon"]);
 
 function fail(message, failures) {
   failures.push(message);

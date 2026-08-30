@@ -1,83 +1,83 @@
 {
-  "editionNumber": "Edition 10",
-  "title": "When AI reads the record, evidence becomes a control",
-  "weekOf": "2026-08-17",
-  "publicationDate": "2026-08-23",
+  "editionNumber": "Edition 11",
+  "title": "When a supplier changes, the control boundary changes too",
+  "weekOf": "2026-08-24",
+  "publicationDate": "2026-08-30",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "When AI reads the record, evidence becomes a control.",
+  "mainJudgement": "When a supplier changes, the control boundary changes too.",
   "committeeQuestion": {
-    "domain": "Decision evidence",
-    "question": "For one AI-assisted decision, can management reconstruct what information the system accessed, what it relied on and who challenged the outcome?",
-    "why": "Agentic retrieval improves the ability to work through complex records, but it also makes the evidence path part of the control. A confident answer is not enough when a customer, regulator or committee needs to understand how it was reached.",
-    "evidence": "The approved source corpus, access permissions, retrieval and tool log, output, named reviewer, exception record and a sample challenge of the answer against the underlying record.",
-    "links": ["brief", "ai", "data"]
+    "domain": "Supplier control",
+    "question": "When an AI provider, intermediary or owner changes, who reassesses model access, contractual protections, data paths and the workable exit before a business workflow breaks?",
+    "why": "OpenAI's planned Cursor wind-down after a change of control makes a familiar third-party risk concrete. A vendor inventory is not enough if the model, integration or owner can change faster than the firm's continuity and governance response.",
+    "evidence": "The dependency map, change-of-control clauses, model and data-flow inventory, migration path, tested fallback, accountable executive and record of the latest supplier-change review.",
+    "links": ["brief", "ai", "third-party"]
   },
   "committeeQuestions": [
     {
-      "domain": "Decision evidence",
-      "question": "For one AI-assisted decision, can management reconstruct what information the system accessed, what it relied on and who challenged the outcome?",
-      "why": "Agentic retrieval improves the ability to work through complex records, but it also makes the evidence path part of the control. A confident answer is not enough when a customer, regulator or committee needs to understand how it was reached.",
-      "evidence": "The approved source corpus, access permissions, retrieval and tool log, output, named reviewer, exception record and a sample challenge of the answer against the underlying record.",
-      "links": ["brief", "ai", "data"]
+      "domain": "Supplier control",
+      "question": "When an AI provider, intermediary or owner changes, who reassesses model access, contractual protections, data paths and the workable exit before a business workflow breaks?",
+      "why": "OpenAI's planned Cursor wind-down after a change of control makes a familiar third-party risk concrete. A vendor inventory is not enough if the model, integration or owner can change faster than the firm's continuity and governance response.",
+      "evidence": "The dependency map, change-of-control clauses, model and data-flow inventory, migration path, tested fallback, accountable executive and record of the latest supplier-change review.",
+      "links": ["brief", "ai", "third-party"]
     },
     {
-      "domain": "Shared infrastructure",
-      "question": "If a cloud region or network path degrades, which important services fail together and can the firm show the recovery route actually works?",
-      "why": "This week’s provider incident evidence shows that a disruption can originate below the application layer. A service map that stops at the named provider misses capacity, routing, identity and operational dependencies that shape customer impact.",
-      "evidence": "The service-and-dependency map, regional and network assumptions, impact tolerance, recovery design, last exercised test, customer communication plan and accountable owner.",
-      "links": ["third-party", "technology-failure", "resilience"]
+      "domain": "Market integrity",
+      "question": "As new payment systems and event-contract markets grow, can the firm show that surveillance, conflict controls and escalation are keeping pace with the product?",
+      "why": "The CFTC's event-contract enforcement action and the UK's new payments-innovation objective point in the same direction: innovation does not reduce the need for market integrity and financial-stability controls.",
+      "evidence": "The product perimeter, market-abuse and conflict scenarios, surveillance coverage, escalation thresholds, governance minutes and an accountable product-and-risk owner.",
+      "links": ["market-structure", "brief", "data"]
     },
     {
-      "domain": "Market disclosure",
-      "question": "When a material assumption changes, who re-tests the statement, decides whether escalation is needed and records why the disclosure remains accurate?",
-      "why": "The Rex decision is a useful reminder that forward-looking statements depend on current, supportable information. Data quality, management challenge and the escalation route need to work before a market announcement becomes difficult to defend.",
-      "evidence": "The forecast or disclosure, underlying management information, challenge record, escalation threshold, legal and finance sign-off, subsequent changes and retained decision log.",
-      "links": ["data", "market-structure", "financial-crime"]
+      "domain": "Evidence and intervention",
+      "question": "For one high-impact automated decision, can management produce the data lineage, accuracy testing, human intervention route and closure evidence without reconstructing it from memory?",
+      "why": "The ICO's facial-recognition findings show that strong governance is visible in data provenance, oversight, accuracy and retained records. Those are the same evidence demands that make high-impact automation defensible.",
+      "evidence": "The approved data sources, retention and sharing record, accuracy and bias tests, named accountable owner, intervention log, exceptions, remediation actions and retest evidence.",
+      "links": ["data", "ai", "committee-questions"]
     }
   ],
   "judgement": {
-    "observation": "Mistral’s Agentic Search puts retrieval, reading and verification into records, while the CFTC asks how compute markets should be overseen. Google Cloud and Cloudflare incidents show infrastructure can fail across regions.",
-    "executiveJudgement": "The strategic question is whether the firm can reconstruct an answer’s evidence path, control what the system may reach and keep the supporting service dependable. Those are linked responsibilities across data, technology, risk and the business—not separate workstreams.",
-    "implication": "Choose one AI-assisted decision or research workflow. Trace its approved sources, permissions, retrieval path, human challenge and fallback if the provider or route fails. Then test one material assumption in a customer or market disclosure. If the evidence cannot be reproduced quickly, the control is not ready for scale."
+    "observation": "OpenAI plans to wind down Cursor access after a change of control. The CFTC has acted on misuse of non-public information in event contracts. HM Treasury is extending an innovation objective to payment systems; the NCA traced suspected sanctions-linked funds through UK EMIs and crypto.",
+    "executiveJudgement": "Acquisitions, new venues, reforms and funds routes can move an external boundary faster than permissions, surveillance, contracts and evidence are refreshed. A vendor inventory or annual review is not enough when a material workflow depends on a changing intermediary.",
+    "implication": "Choose one dependency or product. Re-perform the assessment: map the supplier, data and decision path, dependent controls, intervention authority, exit and escalation. Put the result, exceptions, named owner and tested evidence in the next committee pack."
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Agentic Search. More accurate and efficient results from your AI systems.",
-      "label": "AI and evidence control",
-      "why": "Agentic retrieval can inspect and verify complex documents, making the approved corpus, access boundaries, retrieval path and human challenge direct control evidence.",
-      "source": "Mistral AI · Primary source · 2026-08-20"
+      "title": "OpenAI's Cursor exit turns a supplier acquisition into a model-access control test",
+      "label": "AI supplier control",
+      "why": "A planned model-supply wind-down after a change of control makes contractual access, data paths, migration and fallback evidence immediate governance questions for AI-enabled workflows.",
+      "source": "OpenAI · Primary source · 2026-08-28"
     },
     {
       "topic": "market-structure",
-      "title": "CFTC Requests Comment on the Listing of Compute Derivatives Contracts",
-      "label": "Market structure",
-      "why": "The CFTC’s request puts compute capacity into a market-oversight frame that includes liquidity, manipulation, customer protection and risk management.",
-      "source": "US Commodity Futures Trading Commission · Primary source · 2026-08-19"
-    },
-    {
-      "topic": "third-party",
-      "title": "Google Cloud us-west1 disruption exposes the depth of shared dependencies",
-      "label": "Shared dependency",
-      "why": "Google Cloud’s reported multi-product disruption is a concrete test of whether dependency maps and recovery plans reach capacity and network assumptions below the application layer.",
-      "source": "Google Cloud Service Health · Primary source · 2026-08-20"
-    },
-    {
-      "topic": "cyber",
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-      "label": "Active-exploitation control",
-      "why": "The latest CISA update keeps asset visibility, exception authority and verified remediation at the front of the cyber-control agenda.",
-      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-08-21"
+      "title": "CFTC event-contract case brings market-abuse controls to prediction markets",
+      "label": "Market integrity",
+      "why": "The enforcement action shows that novel event-contract venues still need surveillance, conflict controls and escalation that can detect misuse of material non-public information.",
+      "source": "US Commodity Futures Trading Commission · Primary source · 2026-08-28"
     },
     {
       "topic": "financial-crime",
-      "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
-      "label": "Collateral and data integrity",
-      "why": "The SEC’s allegations make collateral eligibility, lien verification, loan-data lineage and independent challenge a clear private-credit and securitisation control test.",
-      "source": "US Securities and Exchange Commission · Primary source · 2026-08-18"
+      "title": "NCA forfeiture shows how sanctions-linked funds can move through EMIs and crypto",
+      "label": "Source-of-funds control",
+      "why": "The NCA account links suspected front companies, UK electronic-money institutions and crypto conversion—an evidence-led test for source-of-funds, monitoring and escalation controls.",
+      "source": "National Crime Agency · Primary source · 2026-08-27"
+    },
+    {
+      "topic": "cyber",
+      "title": "CISA adds three live-exploitation priorities to the patch-control queue",
+      "label": "Active-exploitation control",
+      "why": "The latest update makes asset visibility, exception authority and independently verified remediation the immediate control question.",
+      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-08-27"
+    },
+    {
+      "topic": "data",
+      "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
+      "label": "High-impact data governance",
+      "why": "The audit findings make provenance, accuracy, retention, senior accountability and human intervention concrete evidence asks for high-impact automated decisions.",
+      "source": "UK Information Commissioner's Office · Primary source · 2026-08-18"
     }
   ]
 }

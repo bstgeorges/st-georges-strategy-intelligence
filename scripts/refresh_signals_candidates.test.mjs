@@ -7,6 +7,7 @@ import {
   canonicaliseUrl,
   capCandidatesBySourceOwner,
   dedupeEntriesByTitle,
+  extractPagePublishedDate,
   inferDateFromUrl,
   isRecent,
   matchesKeywords,
@@ -91,6 +92,11 @@ test("sitemap ingestion ranks recent entries before applying the source cap", ()
     <url><loc>https://example.com/research/new</loc><lastmod>2026-07-17</lastmod></url>
   </urlset>`;
   assert.deepEqual(parseSitemap(xml, { maxItems: 1 }).map((row) => row.url), ["https://example.com/research/new"]);
+});
+
+test("sitemap sources can use the page's publication date instead of a misleading sitemap lastmod", () => {
+  const html = `<html><body><p>Press Release Aug 31, 2018</p><h1>Incident report</h1></body></html>`;
+  assert.equal(extractPagePublishedDate(html), "2018-08-31T00:00:00.000Z");
 });
 
 test("multi-topic feeds only route an entry to topics supported by its text", () => {

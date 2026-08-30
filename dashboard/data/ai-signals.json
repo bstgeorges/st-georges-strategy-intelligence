@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23",
+  "generatedAt": "2026-08-30",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
   "status": "live",
@@ -8,14 +8,14 @@
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "23 Aug 2026",
-    "line": "Live edition / Updated 23 Aug 2026",
+    "displayDate": "30 Aug 2026",
+    "line": "Live edition / Updated 30 Aug 2026",
     "descriptor": "15 source-linked signals / model, deployment and operating context"
   },
-  "summary": "This week shifts the AI discussion from model capability to the evidence path around it: what an agent may retrieve, how providers handle sensitive content, how compute becomes market infrastructure and how a firm proves a decision can be challenged or recovered.",
+  "summary": "This week turns AI supplier change into an operating-control test: model access, contractual protections, data paths, migration and evidence of a workable exit must be reassessed when an intermediary or owner changes. The same discipline applies to the market and cyber controls around AI-enabled services.",
   "sourceUniverse": {
     "modelAndCapability": [
-      "https://mistral.ai/news/agentic-search",
+      "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
       "https://openai.com/index/pacing-model-development-cyber-capabilities",
       "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx",
       "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
@@ -29,9 +29,9 @@
       "https://openai.com/index/how-enterprises-put-ai-to-work"
     ],
     "operatingContext": [
-      "https://www.cftc.gov/PressRoom/PressReleases/9286-26",
+      "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
       "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-      "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
       "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
       "https://www.nist.gov/itl/ai-risk-management-framework"
     ]
@@ -43,13 +43,13 @@
       "label": "Models and capabilities",
       "cards": [
         {
-          "title": "Agentic Search turns retrieval into a traceable operating step",
-          "badge": "Capability signal",
-          "body": "Mistral’s new retrieval layer lets systems search, open, navigate, read and verify complex documents. For high-value financial workflows, the control question is whether the authorised corpus, access path and human challenge can be reconstructed with the answer.",
-          "sourceName": "Mistral AI",
+          "title": "A supplier acquisition can turn model access into a continuity event",
+          "badge": "Supplier-control signal",
+          "body": "OpenAI plans to wind down model access through Cursor after its acquisition. For firms using intermediary AI platforms, a supplier or ownership change should trigger a documented review of model access, contractual protections, data paths, migration dependencies and a workable fallback.",
+          "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-08-20",
-          "source": { "label": "Introducing Agentic Search", "url": "https://mistral.ai/news/agentic-search" }
+          "date": "2026-08-28",
+          "source": { "label": "Our decision on Cursor following its acquisition by SpaceX", "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" }
         },
         {
           "title": "Cyber-critical capability is changing development governance",
@@ -147,13 +147,13 @@
       "label": "Operating context",
       "cards": [
         {
-          "title": "Compute is entering a market-oversight conversation",
+          "title": "Event contracts bring market-abuse controls to an emerging venue",
           "badge": "Market signal",
-          "body": "The CFTC is seeking comment on compute derivatives, including market size, liquidity, oversight, manipulation, customer protection and perpetual futures. Compute should now be watched as a risk-bearing market input as well as an infrastructure procurement decision.",
+          "body": "The CFTC's event-contract enforcement action shows that novel prediction-market venues still need surveillance, conflict controls and escalation that can detect misuse of material non-public information. New market structures do not reduce familiar integrity expectations.",
           "sourceName": "US Commodity Futures Trading Commission",
           "sourceType": "dated",
-          "date": "2026-08-19",
-          "source": { "label": "CFTC requests comment on compute derivatives", "url": "https://www.cftc.gov/PressRoom/PressReleases/9286-26" }
+          "date": "2026-08-28",
+          "source": { "label": "CFTC orders Gabriel Perez to pay for event-contract insider trading", "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26" }
         },
         {
           "title": "Resilience remains a financial-strength question",
@@ -167,11 +167,11 @@
         {
           "title": "Active exploitation keeps the AI perimeter connected to cyber hygiene",
           "badge": "Cyber signal",
-          "body": "CISA’s latest Known Exploited Vulnerabilities update is a practical reminder that advanced AI cannot be separated from the basics: complete asset records, timely remediation, controlled exceptions and evidence that a vulnerability was removed from the live environment.",
+          "body": "CISA's 27 August update adds three actively exploited vulnerabilities. Advanced AI cannot be separated from the basics: complete asset records, timely remediation, controlled exceptions and evidence that a vulnerability was removed from the live environment.",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "sourceType": "dated",
-          "date": "2026-08-21",
-          "source": { "label": "CISA Adds One Known Exploited Vulnerability to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog" }
+          "date": "2026-08-27",
+          "source": { "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" }
         },
         {
           "title": "The EU AI Act remains the accountability baseline",

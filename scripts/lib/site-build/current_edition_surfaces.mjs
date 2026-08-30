@@ -65,8 +65,8 @@ export function renderCurrentEditionSurfaces({
         </section>
         <!-- home-current:end -->`;
     renderedHome = renderedHome
-      .replace(/<h1>[\s\S]*?<\/h1>/, "<h1>The operating question for leaders this week</h1>")
-      .replace(/<p class="hero-copy">[\s\S]*?<\/p>/, "<p class=\"hero-copy\">A short route from public evidence to the internal decision, owner and proof a leadership team should ask for next.</p>")
+      .replace(/<h1>[\s\S]*?<\/h1>/, "<h1>What should a leadership team get ahead of this week?</h1>")
+      .replace(/<p class="hero-copy">[\s\S]*?<\/p>/, "<p class=\"hero-copy\">A quick read from the public record to the decision that needs an owner, and the evidence that will stand up when someone asks.</p>")
       .replace(/<!-- home-current:start -->[\s\S]*?<!-- home-current:end -->/, bridge);
   }
 

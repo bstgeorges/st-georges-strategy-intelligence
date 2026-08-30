@@ -97,12 +97,12 @@ function checkCurrentEditionAlignment(failures) {
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
-  assert(home.includes("The operating question for leaders this week"), "home should use its distinct decision-led entry headline", failures);
+  assert(home.includes("What should a leadership team get ahead of this week?"), "home should use its distinct, reader-led entry headline", failures);
   for (const [field, value] of Object.entries(edition.judgement || {})) {
     assert(home.includes(value), `home should surface current edition judgement ${field}`, failures);
   }
   assert(home.includes("Weekly Judgement"), "home should label its full editorial judgement", failures);
-  assert(home.includes("One test for the week"), "home judgement should state its plain-English operating test", failures);
+  assert(home.includes("A note for the week"), "home judgement should frame the weekly editorial note", failures);
   assert(home.indexOf("Weekly Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
   assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);

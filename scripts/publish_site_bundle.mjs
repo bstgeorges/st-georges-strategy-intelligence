@@ -730,18 +730,18 @@ function renderHomepageJudgement(out, editionRecord) {
             <p class="eyebrow">Weekly Judgement</p>
             <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
           </header>
-          <h2 id="weekly-judgement-title">One test for the week</h2>
+          <h2 id="weekly-judgement-title">A note for the week</h2>
           <div class="judgement-copy">
             <div class="judgement-beat">
-              <p class="judgement-label">What happened</p>
+              <p class="judgement-label">The headlines</p>
               <p class="judgement-text">${escapeHtml(observation)}</p>
             </div>
             <div class="judgement-beat">
-              <p class="judgement-label">Why it matters</p>
+              <p class="judgement-label">The underlying issue</p>
               <p class="judgement-text">${escapeHtml(executiveJudgement)}</p>
             </div>
             <div class="judgement-beat judgement-implication">
-              <p class="judgement-label">What to do</p>
+              <p class="judgement-label">One thing to check</p>
               <p class="judgement-text">${escapeHtml(implication)}</p>
             </div>
           </div>

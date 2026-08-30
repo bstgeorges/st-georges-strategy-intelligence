@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-08-30T19:22:49.337Z",
-  "preparedAt": "2026-08-30T19:24:13.308Z",
+  "candidateGeneratedAt": "2026-08-30T19:39:12.484Z",
+  "preparedAt": "2026-08-30T19:40:02.007Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -17,11 +17,11 @@
   "editorial": {
     "decisionTypeCounts": {
       "rule-change": 3,
-      "enforcement": 2,
-      "active-threat": 5,
+      "enforcement": 1,
+      "active-threat": 4,
       "outage": 3,
       "research": 1,
-      "context": 65
+      "context": 62
     },
     "decisionTypeGroups": [
       {
@@ -73,21 +73,8 @@
       {
         "id": "enforcement",
         "label": "enforcement",
-        "candidateCount": 2,
+        "candidateCount": 1,
         "candidates": [
-          {
-            "title": "Millions forfeited by company linked to suspected money laundering and sanctions evasion",
-            "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-            "sourceName": "National Crime Agency",
-            "sourceOwner": "uk-nca",
-            "publishedAt": "2026-08-27T11:48:03.000Z",
-            "relevanceScore": 94,
-            "decisionType": "enforcement",
-            "region": "UK/EMEA",
-            "topics": [
-              "financial-crime"
-            ]
-          },
           {
             "title": "SEC Establishes Financial Reporting and Accounting Unit in Enforcement Division",
             "url": "https://www.sec.gov/newsroom/press-releases/2026-72-sec-establishes-financial-reporting-accounting-unit-enforcement-division",
@@ -106,7 +93,7 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 5,
+        "candidateCount": 4,
         "candidates": [
           {
             "title": "PaperCut NG/MF Critical Zero-Day Exploited in the Wild",
@@ -117,19 +104,6 @@
             "relevanceScore": 96,
             "decisionType": "active-threat",
             "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-08-27T12:00:00.000Z",
-            "relevanceScore": 94,
-            "decisionType": "active-threat",
-            "region": "US",
             "topics": [
               "cyber"
             ]
@@ -247,7 +221,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 65,
+        "candidateCount": 62,
         "candidates": [
           {
             "title": "Increased HTTP 5xx Errors in Singapore",
@@ -261,19 +235,6 @@
             "topics": [
               "technology-failure",
               "third-party"
-            ]
-          },
-          {
-            "title": "CFTC Orders Gabriel Perez to Pay $172,000 for  Insider Trading of Mention Market Event Contracts",
-            "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-            "sourceName": "US Commodity Futures Trading Commission",
-            "sourceOwner": "cftc",
-            "publishedAt": "2026-08-28T22:59:51.000Z",
-            "relevanceScore": 97,
-            "decisionType": "context",
-            "region": "US",
-            "topics": [
-              "market-structure"
             ]
           },
           {
@@ -380,91 +341,104 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "Metasploit Wrap Up: Payloads and Exploits, and Scanners, Oh my!",
+            "url": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-payloads-exploits-scanners",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-08-28T14:57:18.000Z",
+            "relevanceScore": 81,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 91,
-      "uniqueCandidateEvents": 79,
+      "candidateRows": 86,
+      "uniqueCandidateEvents": 74,
       "crossThemeDuplicatesCollapsed": 12,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 10,
-          "share": 12.7
-        },
-        {
-          "sourceOwner": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "count": 6,
-          "share": 7.6
+          "share": 13.5
         },
         {
           "sourceOwner": "sec",
           "sourceName": "US Securities and Exchange Commission",
           "count": 6,
-          "share": 7.6
+          "share": 8.1
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 6.3
+          "share": 6.8
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 6.3
+          "share": 6.8
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 6.3
+          "share": 6.8
+        },
+        {
+          "sourceOwner": "cftc",
+          "sourceName": "US Commodity Futures Trading Commission",
+          "count": 5,
+          "share": 6.8
         },
         {
           "sourceOwner": "mistral-ai",
           "sourceName": "Mistral AI",
           "count": 4,
-          "share": 5.1
+          "share": 5.4
         },
         {
           "sourceOwner": "anthropic",
           "sourceName": "Anthropic",
           "count": 3,
-          "share": 3.8
+          "share": 4.1
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 25,
-          "share": 31.6
+          "count": 22,
+          "share": 29.7
         },
         {
           "region": "US",
-          "count": 15,
-          "share": 19
+          "count": 14,
+          "share": 18.9
         },
         {
           "region": "Global/other",
-          "count": 39,
-          "share": 49.4
+          "count": 38,
+          "share": 51.4
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 74,
+        "newCandidateEvents": 69,
         "alreadyPublishedCandidates": 5,
         "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 36
       }
     },
     "sourceHealth": {
-      "runsRetained": 9,
+      "runsRetained": 10,
       "healthy": 80,
       "watching": 0,
       "investigate": 0,
@@ -726,7 +700,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 2,
+          "consecutiveIssueRuns": 3,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1216,13 +1190,6 @@
           "relevanceScore": 88
         },
         {
-          "title": "Our decision on Cursor following its acquisition by SpaceX",
-          "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-          "sourceName": "OpenAI",
-          "publishedAt": "2026-08-28T06:00:00.000Z",
-          "relevanceScore": 80
-        },
-        {
           "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
           "url": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory",
           "sourceName": "NVIDIA Newsroom",
@@ -1242,6 +1209,13 @@
           "sourceName": "OpenAI",
           "publishedAt": "2026-08-26T00:00:00.000Z",
           "relevanceScore": 76
+        },
+        {
+          "title": "With Groq 3 LPX in Full Production, NVIDIA Extends Vera Rubin Inference for Agents",
+          "url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion",
+          "sourceName": "NVIDIA Newsroom",
+          "publishedAt": "2026-08-24T15:00:41.000Z",
+          "relevanceScore": 73
         }
       ]
     },
@@ -1250,20 +1224,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "CFTC Orders Gabriel Perez to Pay $172,000 for  Insider Trading of Mention Market Event Contracts",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "publishedAt": "2026-08-28T22:59:51.000Z",
-          "relevanceScore": 97
-        },
-        {
-          "title": "Ministers to boost innovation in payments with new objective for Bank of England",
-          "url": "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england",
-          "sourceName": "HM Treasury",
-          "publishedAt": "2026-08-27T09:04:34.000Z",
-          "relevanceScore": 79
-        },
         {
           "title": "26-069MR Former Big Un CEO pleads guilty in insider trading case | ASIC",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-069mr-former-big-un-ceo-pleads-guilty-in-insider-trading-case",
@@ -1281,6 +1241,20 @@
         {
           "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "relevanceScore": 70
+        },
+        {
+          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "relevanceScore": 70
+        },
+        {
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 70
@@ -1356,13 +1330,6 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Millions forfeited by company linked to suspected money laundering and sanctions evasion",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-          "sourceName": "National Crime Agency",
-          "publishedAt": "2026-08-27T11:48:03.000Z",
-          "relevanceScore": 94
-        },
-        {
           "title": "Chancellor statement on Iran sanctions",
           "url": "https://www.gov.uk/government/news/chancellor-statement-on-iran-sanctions",
           "sourceName": "HM Treasury",
@@ -1389,6 +1356,13 @@
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-08-24T02:09:12.000Z",
           "relevanceScore": 72
+        },
+        {
+          "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
+          "sourceName": "US Securities and Exchange Commission",
+          "publishedAt": "2026-08-18T19:55:10.000Z",
+          "relevanceScore": 62
         }
       ]
     },
@@ -1426,11 +1400,11 @@
           "relevanceScore": 94
         },
         {
-          "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "publishedAt": "2026-08-27T12:00:00.000Z",
-          "relevanceScore": 94
+          "title": "When AI infrastructure becomes the target: Securing gateways and control points",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points",
+          "sourceName": "Microsoft Security Blog",
+          "publishedAt": "2026-08-26T16:43:53.000Z",
+          "relevanceScore": 92
         }
       ]
     },
@@ -1482,13 +1456,6 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Facial recognition in policing: earning public trust through strong data protection governance",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-          "sourceName": "UK Information Commissioner's Office",
-          "publishedAt": "2026-08-18T00:00:00.000Z",
-          "relevanceScore": 75
-        },
-        {
           "title": "Boost your business fitness - ICO offers new, free data protection training for SMEs",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/boost-your-business-fitness-ico-offers-new-free-data-protection-training-for-smes",
           "sourceName": "UK Information Commissioner's Office",
@@ -1512,6 +1479,13 @@
         {
           "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "relevanceScore": 55
+        },
+        {
+          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2014-01",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 55

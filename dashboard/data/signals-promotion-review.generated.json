@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-08-30T19:39:12.484Z",
-  "preparedAt": "2026-08-30T19:40:02.007Z",
+  "candidateGeneratedAt": "2026-08-30T20:12:01.438Z",
+  "preparedAt": "2026-08-30T20:12:38.300Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -160,7 +160,7 @@
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-08-27T19:44:08.000Z",
-            "relevanceScore": 84,
+            "relevanceScore": 83,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -438,7 +438,7 @@
       }
     },
     "sourceHealth": {
-      "runsRetained": 10,
+      "runsRetained": 11,
       "healthy": 80,
       "watching": 0,
       "investigate": 0,
@@ -700,7 +700,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1281,17 +1281,17 @@
           "relevanceScore": 84
         },
         {
-          "title": "Disruption with GitHub Billing",
-          "url": "https://www.githubstatus.com/incidents/5bn0vk444m1w",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-27T19:44:08.000Z",
-          "relevanceScore": 84
-        },
-        {
           "title": "Network Issues in Montréal",
           "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-08-29T17:33:44.000Z",
+          "relevanceScore": 83
+        },
+        {
+          "title": "Disruption with GitHub Billing",
+          "url": "https://www.githubstatus.com/incidents/5bn0vk444m1w",
+          "sourceName": "GitHub Status",
+          "publishedAt": "2026-08-27T19:44:08.000Z",
           "relevanceScore": 83
         },
         {
@@ -1313,7 +1313,7 @@
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "sourceName": "Swiss Financial Market Supervisory Authority",
           "publishedAt": "2026-08-20T08:00:00.000Z",
-          "relevanceScore": 65
+          "relevanceScore": 64
         },
         {
           "title": "Service disruption on Claude services",
@@ -1362,7 +1362,7 @@
           "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
           "sourceName": "US Securities and Exchange Commission",
           "publishedAt": "2026-08-18T19:55:10.000Z",
-          "relevanceScore": 62
+          "relevanceScore": 61
         }
       ]
     },
@@ -1421,17 +1421,17 @@
           "relevanceScore": 99
         },
         {
-          "title": "Disruption with GitHub Billing",
-          "url": "https://www.githubstatus.com/incidents/5bn0vk444m1w",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-27T19:44:08.000Z",
-          "relevanceScore": 84
-        },
-        {
           "title": "Network Issues in Montréal",
           "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-08-29T17:33:44.000Z",
+          "relevanceScore": 83
+        },
+        {
+          "title": "Disruption with GitHub Billing",
+          "url": "https://www.githubstatus.com/incidents/5bn0vk444m1w",
+          "sourceName": "GitHub Status",
+          "publishedAt": "2026-08-27T19:44:08.000Z",
           "relevanceScore": 83
         },
         {

@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-08-30T19:39:12.484Z",
+  "generatedAt": "2026-08-30T20:12:01.438Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -964,6 +964,40 @@
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
         },
         {
+          "id": "c5bc0479f64aacfb",
+          "topicId": "third-party",
+          "title": "Network Issues in Montréal",
+          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
+          "publishedAt": "2026-08-29T17:33:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "network"
+          ],
+          "titleMatchedKeywords": [
+            "network"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "923da694e9a6ce86",
           "topicId": "third-party",
           "title": "Disruption with GitHub Billing",
@@ -998,44 +1032,10 @@
             "error",
             "disruption"
           ],
-          "relevanceScore": 84,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "c5bc0479f64aacfb",
-          "topicId": "third-party",
-          "title": "Network Issues in Montréal",
-          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
-          "publishedAt": "2026-08-29T17:33:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "network"
-          ],
-          "titleMatchedKeywords": [
-            "network"
-          ],
-          "summaryMatchedKeywords": [],
           "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
           "id": "752a6fda75661c3d",
@@ -1226,7 +1226,7 @@
             "resilience"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
@@ -1453,7 +1453,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -2521,6 +2521,40 @@
           "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
         },
         {
+          "id": "c5bc0479f64aacfb",
+          "topicId": "technology-failure",
+          "title": "Network Issues in Montréal",
+          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
+          "publishedAt": "2026-08-29T17:33:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cloudflare-status",
+          "sourceName": "Cloudflare Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "cloudflare-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "network",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "network"
+          ],
+          "titleMatchedKeywords": [
+            "network"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "923da694e9a6ce86",
           "topicId": "technology-failure",
           "title": "Disruption with GitHub Billing",
@@ -2555,44 +2589,10 @@
             "error",
             "disruption"
           ],
-          "relevanceScore": 84,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "c5bc0479f64aacfb",
-          "topicId": "technology-failure",
-          "title": "Network Issues in Montréal",
-          "url": "https://www.cloudflarestatus.com/incidents/z557s71pzcj1",
-          "publishedAt": "2026-08-29T17:33:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "network"
-          ],
-          "titleMatchedKeywords": [
-            "network"
-          ],
-          "summaryMatchedKeywords": [],
           "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
           "id": "752a6fda75661c3d",

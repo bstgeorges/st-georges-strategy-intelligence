@@ -14,6 +14,7 @@ import {
   parseRssOrAtom,
   parseSitemap,
   relevanceScore,
+  shouldAbortLiveRefresh,
   topicRelevance,
 } from "./refresh_signals_candidates.mjs";
 
@@ -63,6 +64,23 @@ test("candidate quality warnings expose empty, thin and concentrated topics", ()
   assert.ok(warnings.some((warning) => warning.includes("technology-failure has no candidates")));
   assert.ok(warnings.some((warning) => warning.includes("data has only 1")));
   assert.ok(warnings.some((warning) => warning.includes("cyber relies on ncsc for 4/4")));
+});
+
+test("a total live-feed outage preserves the last usable candidate pack", () => {
+  assert.equal(
+    shouldAbortLiveRefresh({ offline: false }, [
+      { fetchType: "rss", status: "failed" },
+      { fetchType: "sitemap", status: "failed" },
+    ]),
+    true,
+  );
+  assert.equal(
+    shouldAbortLiveRefresh({ offline: false }, [
+      { fetchType: "rss", status: "failed" },
+      { fetchType: "atom", status: "quiet" },
+    ]),
+    false,
+  );
 });
 
 test("canonicaliseUrl removes tracking parameters without removing useful query data", () => {

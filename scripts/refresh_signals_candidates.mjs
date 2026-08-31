@@ -469,6 +469,12 @@ function assessCandidateQuality(topics) {
   return warnings;
 }
 
+function shouldAbortLiveRefresh(options, sourceStats) {
+  if (options.offline) return false;
+  const remoteSources = sourceStats.filter((source) => source.fetchType !== "reg_horizon_json");
+  return remoteSources.length > 0 && remoteSources.every((source) => source.status === "failed");
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const feedRegistry = readJson(FEED_REGISTRY_PATH);
@@ -571,6 +577,15 @@ async function main() {
     if (noParseableEntries) warnings.push(`Source ${source.id} returned no parseable entries; check its feed format or availability.`);
   }
 
+  // A collection outage is not evidence of a quiet week. Leave the last valid
+  // candidate pack intact so the editorial team never has to distinguish a
+  // genuine empty queue from a failed refresh.
+  if (shouldAbortLiveRefresh(options, sourceStats)) {
+    throw new Error(
+      `All ${sourceStats.length} remote Signals feeds failed; the previous candidate pack was preserved.`,
+    );
+  }
+
   const topics = TOPICS.map((topicId) => ({
     id: topicId,
     candidates: capCandidatesBySourceOwner(
@@ -629,4 +644,4 @@ if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
   });
 }
 
-export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, extractPagePublishedDate, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, topicRelevance };
+export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, extractPagePublishedDate, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, shouldAbortLiveRefresh, topicRelevance };

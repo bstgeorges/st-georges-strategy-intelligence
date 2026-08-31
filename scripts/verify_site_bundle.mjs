@@ -103,6 +103,7 @@ function checkCurrentEditionAlignment(failures) {
   }
   assert(home.includes("Weekly Judgement"), "home should label its full editorial judgement", failures);
   assert(home.includes("A note for the week"), "home judgement should frame the weekly editorial note", failures);
+  assert(home.includes("What happened") && home.includes("Why it matters") && home.includes("What to do"), "home judgement should retain its clear reader signposts", failures);
   assert(home.indexOf("Weekly Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
   assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);

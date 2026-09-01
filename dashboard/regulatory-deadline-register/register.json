@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-01T08:31:34.722Z",
+  "generatedAt": "2026-09-01T21:12:44.896Z",
   "asOf": "2026-09-01",
   "sourceEdition": "2026-08-30",
   "carryForwardGraceDays": 30,
@@ -633,6 +633,84 @@
       "firstSeen": "2026-08-14",
       "lastSeen": "2026-08-14",
       "sourceEdition": "2026-08-14"
+    },
+    {
+      "id": "204f4535ee6336df4840",
+      "title": "CP26/28: The UK AIFM Regime",
+      "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-28-uk-aifm-regime",
+      "deadline": "2026-10-22",
+      "daysToDeadline": 51,
+      "stage": "consultation",
+      "authority": {
+        "id": "uk-fca",
+        "name": "Financial Conduct Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "UK"
+      ],
+      "themes": [
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.8,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": "2026-07-14",
+      "status": "confirmed",
+      "intake": "verified-backfill",
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The FCA consultation page explicitly gives the extended deadline for the consultation paper and prudential discussion chapter. This confirms the cited date only; organisation-specific applicability remains unassessed.",
+        "decidedAt": "2026-09-01",
+        "evidence": {
+          "quote": "We have extended the deadline for responses to the CP and to the discussion chapter on prudential reforms is 22 October 2026.",
+          "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-28-uk-aifm-regime"
+        }
+      },
+      "evidence": {
+        "change": "FCA consultation on a new, proportionate UK regime for alternative investment fund managers, including prudential reform discussion chapters.",
+        "detailChecked": true,
+        "deadlineCue": "The FCA states: ‘We have extended the deadline for responses to the CP and to the discussion chapter on prudential reforms is 22 October 2026.’",
+        "verifiedAt": "2026-09-01",
+        "verification": "primary FCA consultation page checked; it explicitly records 22 October 2026 as the extended deadline for responses to the consultation paper and prudential discussion chapter."
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Operations",
+          "Markets or product control",
+          "Conduct risk",
+          "Customer and product owner"
+        ],
+        "prepare": [
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies",
+          "Assess customer impact",
+          "Confirm policy, communications and control evidence"
+        ]
+      },
+      "firstSeen": "2026-09-01",
+      "lastSeen": "2026-09-01",
+      "sourceEdition": "2026-09-01"
     },
     {
       "id": "8ff53683d622320b599d",

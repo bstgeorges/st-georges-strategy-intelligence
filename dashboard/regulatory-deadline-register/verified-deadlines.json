@@ -164,6 +164,24 @@
       "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
       "businessImpact": { "band": "medium", "drivers": { "regulatory_action": 0.8, "urgency": 0.8, "control_breadth": 0.67, "jurisdiction_reach": 1 } },
       "editorial": { "change": "EBA consultation on the methodology for setting MiCA fines, relevant to cryptoasset-issuer and service-provider enforcement exposure." }
+    },
+    {
+      "intake": "verified-backfill",
+      "verifiedAt": "2026-09-01",
+      "verification": "primary FCA consultation page checked; it explicitly records 22 October 2026 as the extended deadline for responses to the consultation paper and prudential discussion chapter.",
+      "authorityId": "uk-fca",
+      "source": "Financial Conduct Authority",
+      "title": "CP26/28: The UK AIFM Regime",
+      "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-28-uk-aifm-regime",
+      "date": "2026-07-14",
+      "deadline": "2026-10-22",
+      "deadlineEvidence": "The FCA states: ‘We have extended the deadline for responses to the CP and to the discussion chapter on prudential reforms is 22 October 2026.’",
+      "type": "consultation",
+      "riskAreas": ["market-plumbing", "customer-outcomes"],
+      "jurisdictions": ["UK"],
+      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
+      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 1, "urgency": 0.67, "control_breadth": 0.8, "jurisdiction_reach": 1 } },
+      "editorial": { "change": "FCA consultation on a new, proportionate UK regime for alternative investment fund managers, including prudential reform discussion chapters." }
     }
   ]
 }

@@ -14,6 +14,7 @@ import {
   parseRssOrAtom,
   parseSitemap,
   relevanceScore,
+  mapWithConcurrency,
   shouldAbortLiveRefresh,
   topicRelevance,
 } from "./refresh_signals_candidates.mjs";
@@ -81,6 +82,14 @@ test("a total live-feed outage preserves the last usable candidate pack", () => 
     ]),
     false,
   );
+});
+
+test("bounded collection preserves source ordering", async () => {
+  const output = await mapWithConcurrency([1, 2, 3, 4], 2, async (value) => {
+    await new Promise((resolve) => setTimeout(resolve, (5 - value) * 2));
+    return value * 10;
+  });
+  assert.deepEqual(output, [10, 20, 30, 40]);
 });
 
 test("canonicaliseUrl removes tracking parameters without removing useful query data", () => {

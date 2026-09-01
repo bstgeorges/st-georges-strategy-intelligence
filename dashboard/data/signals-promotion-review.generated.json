@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-08-31T21:48:47.518Z",
-  "preparedAt": "2026-08-31T21:49:30.267Z",
+  "candidateGeneratedAt": "2026-09-01T21:15:22.240Z",
+  "preparedAt": "2026-09-01T21:15:30.892Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -17,11 +17,11 @@
   "editorial": {
     "decisionTypeCounts": {
       "rule-change": 3,
-      "enforcement": 1,
+      "enforcement": 0,
       "active-threat": 4,
-      "outage": 2,
-      "research": 1,
-      "context": 60
+      "outage": 1,
+      "research": 6,
+      "context": 63
     },
     "decisionTypeGroups": [
       {
@@ -35,7 +35,7 @@
             "sourceName": "US Securities and Exchange Commission",
             "sourceOwner": "sec",
             "publishedAt": "2026-08-18T17:15:48.000Z",
-            "relevanceScore": 61,
+            "relevanceScore": 59,
             "decisionType": "rule-change",
             "region": "US",
             "topics": [
@@ -71,26 +71,6 @@
         ]
       },
       {
-        "id": "enforcement",
-        "label": "enforcement",
-        "candidateCount": 1,
-        "candidates": [
-          {
-            "title": "SEC Establishes Financial Reporting and Accounting Unit in Enforcement Division",
-            "url": "https://www.sec.gov/newsroom/press-releases/2026-72-sec-establishes-financial-reporting-accounting-unit-enforcement-division",
-            "sourceName": "US Securities and Exchange Commission",
-            "sourceOwner": "sec",
-            "publishedAt": "2026-08-05T18:30:00.000Z",
-            "relevanceScore": 55,
-            "decisionType": "enforcement",
-            "region": "US",
-            "topics": [
-              "data"
-            ]
-          }
-        ]
-      },
-      {
         "id": "active-threat",
         "label": "active threat",
         "candidateCount": 4,
@@ -101,7 +81,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-08-31T12:00:00.000Z",
-            "relevanceScore": 100,
+            "relevanceScore": 98,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -114,7 +94,7 @@
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-08-31T10:00:36.000Z",
-            "relevanceScore": 100,
+            "relevanceScore": 98,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -127,7 +107,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-08-28T10:09:12.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 92,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -140,7 +120,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-08-19T16:46:06.000Z",
-            "relevanceScore": 76,
+            "relevanceScore": 74,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -152,7 +132,7 @@
       {
         "id": "outage",
         "label": "outage",
-        "candidateCount": 2,
+        "candidateCount": 1,
         "candidates": [
           {
             "title": "Disruption with GitHub Billing",
@@ -167,35 +147,86 @@
               "technology-failure",
               "third-party"
             ]
-          },
-          {
-            "title": "Service disruption on Claude services",
-            "url": "https://status.claude.com/incidents/qt14v73myyy5",
-            "sourceName": "Anthropic",
-            "sourceOwner": "anthropic",
-            "publishedAt": "2026-08-16T22:34:39.000Z",
-            "relevanceScore": 58,
-            "decisionType": "outage",
-            "region": "Global/other",
-            "topics": [
-              "resilience",
-              "technology-failure"
-            ]
           }
         ]
       },
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 1,
+        "candidateCount": 6,
         "candidates": [
+          {
+            "title": "Integrating Triaxial IMU Sensors and Ensemble Learning for Effective Parkinson Disease Severity Classification",
+            "url": "https://arxiv.org/abs/2608.28602",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-09-01T04:00:00.000Z",
+            "relevanceScore": 99,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "Expert-validated STEM QA",
+            "url": "https://arxiv.org/abs/2608.28591",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-09-01T04:00:00.000Z",
+            "relevanceScore": 84,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "Statutory AI: Aligning Large Language Models With Legal Norms",
+            "url": "https://arxiv.org/abs/2608.28593",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-09-01T04:00:00.000Z",
+            "relevanceScore": 84,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "From Question-First to Analyst-First: Domain-Expert Skills and Verified Knowledge Compilation for Proactive Enterprise Analytics",
+            "url": "https://arxiv.org/abs/2608.28594",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-09-01T04:00:00.000Z",
+            "relevanceScore": 84,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
+          {
+            "title": "The Race between Agentic AI Capabilities and Data Quality Control in Online Surveys",
+            "url": "https://arxiv.org/abs/2608.28597",
+            "sourceName": "arXiv AI and machine learning research",
+            "sourceOwner": "arxiv-ai",
+            "publishedAt": "2026-09-01T04:00:00.000Z",
+            "relevanceScore": 84,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
+            ]
+          },
           {
             "title": "Piloting the world's first double-blind AI evaluations — Google DeepMind",
             "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations",
             "sourceName": "Google DeepMind",
             "sourceOwner": "google-deepmind",
             "publishedAt": "2026-08-27T00:00:00.000Z",
-            "relevanceScore": 61,
+            "relevanceScore": 59,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -207,7 +238,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 60,
+        "candidateCount": 63,
         "candidates": [
           {
             "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 35",
@@ -215,7 +246,7 @@
             "sourceName": "SentinelOne Labs",
             "sourceOwner": "sentinelone",
             "publishedAt": "2026-08-28T16:01:30.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 92,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -228,7 +259,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-08-27T17:18:56.000Z",
-            "relevanceScore": 92,
+            "relevanceScore": 90,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -241,19 +272,6 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-08-27T13:51:55.000Z",
-            "relevanceScore": 92,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "When AI infrastructure becomes the target: Securing gateways and control points",
-            "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points",
-            "sourceName": "Microsoft Security Blog",
-            "sourceOwner": "microsoft-security",
-            "publishedAt": "2026-08-26T16:43:53.000Z",
             "relevanceScore": 90,
             "decisionType": "context",
             "region": "Global/other",
@@ -262,25 +280,37 @@
             ]
           },
           {
-            "title": "Elevated rate of errors for OpenAI models provided by Copilot",
-            "url": "https://www.githubstatus.com/incidents/7fxts6gmq5gr",
-            "sourceName": "GitHub Status",
-            "sourceOwner": "github-status",
-            "publishedAt": "2026-08-31T09:58:14.000Z",
+            "title": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
+            "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+            "sourceName": "Google Cloud Service Health",
+            "sourceOwner": "google-cloud-status",
+            "publishedAt": "2026-09-01T19:12:35.000Z",
             "relevanceScore": 89,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
-              "technology-failure",
               "third-party"
             ]
           },
           {
-            "title": "SEC and FDA Announce MOU to Bolster Cooperation and Ensure Market Integrity",
-            "url": "https://www.sec.gov/newsroom/press-releases/2026-80-sec-fda-announce-mou-bolster-cooperation-ensure-market-integrity",
+            "title": "When AI infrastructure becomes the target: Securing gateways and control points",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points",
+            "sourceName": "Microsoft Security Blog",
+            "sourceOwner": "microsoft-security",
+            "publishedAt": "2026-08-26T16:43:53.000Z",
+            "relevanceScore": 88,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
+            "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
             "sourceName": "US Securities and Exchange Commission",
             "sourceOwner": "sec",
-            "publishedAt": "2026-08-31T18:24:32.000Z",
+            "publishedAt": "2026-09-01T19:17:39.000Z",
             "relevanceScore": 87,
             "decisionType": "context",
             "region": "US",
@@ -289,11 +319,39 @@
             ]
           },
           {
-            "title": "We invited a direct competitor into Security Hub Extended. Here’s why.",
-            "url": "https://aws.amazon.com/blogs/security/we-invited-a-direct-competitor-into-security-hub-extended-heres-why",
-            "sourceName": "AWS Security Blog",
-            "sourceOwner": "aws-security",
-            "publishedAt": "2026-08-31T19:00:07.000Z",
+            "title": "Requests from wrangler or other OAuth clients may experience elevated errors",
+            "url": "https://www.cloudflarestatus.com/incidents/3mjmdcmm86nx",
+            "sourceName": "Cloudflare Status",
+            "sourceOwner": "cloudflare-status",
+            "publishedAt": "2026-09-01T12:05:52.000Z",
+            "relevanceScore": 87,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+            "url": "https://www.githubstatus.com/incidents/7fxts6gmq5gr",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-08-31T09:58:14.000Z",
+            "relevanceScore": 87,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
+            "title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss",
+            "sourceName": "Microsoft Security Blog",
+            "sourceOwner": "microsoft-security",
+            "publishedAt": "2026-09-01T18:55:35.000Z",
             "relevanceScore": 85,
             "decisionType": "context",
             "region": "Global/other",
@@ -302,129 +360,103 @@
             ]
           },
           {
-            "title": "Automate IAM Identity Center governance with continuous discovery and reporting",
-            "url": "https://aws.amazon.com/blogs/security/automate-iam-identity-center-governance-with-continuous-discovery-and-reporting",
-            "sourceName": "AWS Security Blog",
-            "sourceOwner": "aws-security",
-            "publishedAt": "2026-08-31T17:18:31.000Z",
+            "title": "How AI-native companies turn workflows into operating capability",
+            "url": "https://openai.com/index/ai-native-company-workflows",
+            "sourceName": "OpenAI",
+            "sourceOwner": "openai",
+            "publishedAt": "2026-09-01T17:00:00.000Z",
             "relevanceScore": 85,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Introducing Adaptive Intelligence: Undermining the economics of every bot attack",
-            "url": "https://blog.cloudflare.com/introducing-adaptive-intelligence",
-            "sourceName": "Cloudflare Security Blog",
-            "sourceOwner": "cloudflare-security",
-            "publishedAt": "2026-08-31T12:59:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Daten, Analysen und Veröffentlichungen",
-            "url": "https://www.bundesbank.de/de/bundesbank/hauptverwaltungen-filialen/bns/daten-analysen-und-veroeffentlichungen/daten-analysen-und-veroeffentlichungen-748120",
-            "sourceName": "Deutsche Bundesbank",
-            "sourceOwner": "de-bundesbank",
-            "publishedAt": "2026-08-31T06:55:13.000Z",
-            "relevanceScore": 84,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
+              "ai"
             ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 80,
-      "uniqueCandidateEvents": 71,
+      "candidateRows": 86,
+      "uniqueCandidateEvents": 77,
       "crossThemeDuplicatesCollapsed": 9,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 9,
-          "share": 12.7
+          "share": 11.7
         },
         {
           "sourceOwner": "sec",
           "sourceName": "US Securities and Exchange Commission",
-          "count": 7,
-          "share": 9.9
+          "count": 6,
+          "share": 7.8
+        },
+        {
+          "sourceOwner": "arxiv-ai",
+          "sourceName": "arXiv AI and machine learning research",
+          "count": 5,
+          "share": 6.5
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 7
+          "share": 6.5
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 7
+          "share": 6.5
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 7
+          "share": 6.5
         },
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 5,
-          "share": 7
-        },
-        {
-          "sourceOwner": "mistral-ai",
-          "sourceName": "Mistral AI",
-          "count": 4,
-          "share": 5.6
+          "share": 6.5
         },
         {
           "sourceOwner": "anthropic",
           "sourceName": "Anthropic",
-          "count": 3,
-          "share": 4.2
+          "count": 4,
+          "share": 5.2
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 22,
-          "share": 31
+          "count": 18,
+          "share": 23.4
         },
         {
           "region": "US",
-          "count": 14,
-          "share": 19.7
+          "count": 13,
+          "share": 16.9
         },
         {
           "region": "Global/other",
-          "count": 35,
-          "share": 49.3
+          "count": 46,
+          "share": 59.7
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 66,
-        "alreadyPublishedCandidates": 5,
+        "newCandidateEvents": 73,
+        "alreadyPublishedCandidates": 4,
         "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 36
       }
     },
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 80,
+      "healthy": 81,
       "watching": 0,
       "investigate": 0,
       "supplementary": 1,
@@ -684,11 +716,11 @@
         {
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
-          "status": "quiet",
-          "consecutiveIssueRuns": 5,
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
           "monitoring": "supplementary",
           "action": "none",
-          "detail": "no-parseable-entries"
+          "detail": ""
         },
         {
           "sourceId": "ecb-supervision-rss",
@@ -1168,39 +1200,39 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
-          "url": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory",
-          "sourceName": "NVIDIA Newsroom",
-          "publishedAt": "2026-08-26T21:05:30.000Z",
-          "relevanceScore": 75
+          "title": "Integrating Triaxial IMU Sensors and Ensemble Learning for Effective Parkinson Disease Severity Classification",
+          "url": "https://arxiv.org/abs/2608.28602",
+          "sourceName": "arXiv AI and machine learning research",
+          "publishedAt": "2026-09-01T04:00:00.000Z",
+          "relevanceScore": 99
         },
         {
-          "title": "AWS and NVIDIA to Deliver 2 Million Additional GPUs and Next-Generation Infrastructure for Agentic and Physical AI",
-          "url": "https://nvidianews.nvidia.com/news/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai",
-          "sourceName": "NVIDIA Newsroom",
-          "publishedAt": "2026-08-26T21:05:00.000Z",
-          "relevanceScore": 75
-        },
-        {
-          "title": "The Hugging Face incident and the road ahead",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+          "title": "How AI-native companies turn workflows into operating capability",
+          "url": "https://openai.com/index/ai-native-company-workflows",
           "sourceName": "OpenAI",
-          "publishedAt": "2026-08-26T00:00:00.000Z",
-          "relevanceScore": 74
+          "publishedAt": "2026-09-01T17:00:00.000Z",
+          "relevanceScore": 85
         },
         {
-          "title": "With Groq 3 LPX in Full Production, NVIDIA Extends Vera Rubin Inference for Agents",
-          "url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion",
-          "sourceName": "NVIDIA Newsroom",
-          "publishedAt": "2026-08-24T15:00:41.000Z",
-          "relevanceScore": 71
+          "title": "Path to Astra: critical capabilities and frontier safeguards",
+          "url": "https://openai.com/index/path-to-astra",
+          "sourceName": "OpenAI",
+          "publishedAt": "2026-09-01T13:00:00.000Z",
+          "relevanceScore": 85
         },
         {
-          "title": "NVIDIA and MediaTek Deepen Long-Standing Partnership to Build AI Edge to Cloud Computing Platforms",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms",
-          "sourceName": "NVIDIA Newsroom",
-          "publishedAt": "2026-08-31T12:30:00.000Z",
-          "relevanceScore": 70
+          "title": "Expert-validated STEM QA",
+          "url": "https://arxiv.org/abs/2608.28591",
+          "sourceName": "arXiv AI and machine learning research",
+          "publishedAt": "2026-09-01T04:00:00.000Z",
+          "relevanceScore": 84
+        },
+        {
+          "title": "Statutory AI: Aligning Large Language Models With Legal Norms",
+          "url": "https://arxiv.org/abs/2608.28593",
+          "sourceName": "arXiv AI and machine learning research",
+          "publishedAt": "2026-09-01T04:00:00.000Z",
+          "relevanceScore": 84
         }
       ]
     },
@@ -1210,11 +1242,18 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
+          "sourceName": "US Securities and Exchange Commission",
+          "publishedAt": "2026-09-01T19:17:39.000Z",
+          "relevanceScore": 87
+        },
+        {
           "title": "SEC and FDA Announce MOU to Bolster Cooperation and Ensure Market Integrity",
           "url": "https://www.sec.gov/newsroom/press-releases/2026-80-sec-fda-announce-mou-bolster-cooperation-ensure-market-integrity",
           "sourceName": "US Securities and Exchange Commission",
           "publishedAt": "2026-08-31T18:24:32.000Z",
-          "relevanceScore": 87
+          "relevanceScore": 85
         },
         {
           "title": "La CNMV considera que la estabilidad financiera de los mercados españoles es sólida, pero los riesgos tecnológicos y de implantación de la Inteligencia Artificial requieren seguimiento",
@@ -1224,22 +1263,15 @@
           "relevanceScore": 70
         },
         {
-          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé - DOC-2012-06",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
-          "sourceName": "Autorité des marchés financiers",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "relevanceScore": 70
-        },
-        {
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
-          "sourceName": "Autorité des marchés financiers",
-          "publishedAt": "2026-07-22T22:00:00.000Z",
-          "relevanceScore": 70
-        },
-        {
           "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "relevanceScore": 70
+        },
+        {
+          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 70
@@ -1252,18 +1284,25 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
+          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+          "sourceName": "Google Cloud Service Health",
+          "publishedAt": "2026-09-01T19:12:35.000Z",
+          "relevanceScore": 89
+        },
+        {
+          "title": "Requests from wrangler or other OAuth clients may experience elevated errors",
+          "url": "https://www.cloudflarestatus.com/incidents/3mjmdcmm86nx",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-09-01T12:05:52.000Z",
+          "relevanceScore": 87
+        },
+        {
           "title": "Elevated rate of errors for OpenAI models provided by Copilot",
           "url": "https://www.githubstatus.com/incidents/7fxts6gmq5gr",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-08-31T09:58:14.000Z",
-          "relevanceScore": 89
-        },
-        {
-          "title": "RESOLVED: We are investigating an issue where customers may experience timeouts, service degradations, errors, and elevated latencies across multiple products in the us-west1 region.",
-          "url": "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf",
-          "sourceName": "Google Cloud Service Health",
-          "publishedAt": "2026-08-27T21:45:02.000Z",
-          "relevanceScore": 81
+          "relevanceScore": 87
         },
         {
           "title": "Disruption with GitHub Billing",
@@ -1278,13 +1317,6 @@
           "sourceName": "GitHub Status",
           "publishedAt": "2026-08-27T12:12:58.000Z",
           "relevanceScore": 79
-        },
-        {
-          "title": "Incident with Actions and Pull Requests",
-          "url": "https://www.githubstatus.com/incidents/kfspvrz14xr0",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-27T00:26:44.000Z",
-          "relevanceScore": 78
         }
       ]
     },
@@ -1298,14 +1330,7 @@
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "sourceName": "Swiss Financial Market Supervisory Authority",
           "publishedAt": "2026-08-20T08:00:00.000Z",
-          "relevanceScore": 62
-        },
-        {
-          "title": "Service disruption on Claude services",
-          "url": "https://status.claude.com/incidents/qt14v73myyy5",
-          "sourceName": "Anthropic",
-          "publishedAt": "2026-08-16T22:34:39.000Z",
-          "relevanceScore": 58
+          "relevanceScore": 60
         }
       ]
     },
@@ -1315,38 +1340,38 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "UK leads way in disrupting shadowy Russian sanctions evasion network",
+          "url": "https://www.gov.uk/government/news/uk-leads-way-in-disrupting-shadowy-russian-sanctions-evasion-network",
+          "sourceName": "HM Treasury",
+          "publishedAt": "2026-08-31T21:58:43.000Z",
+          "relevanceScore": 84
+        },
+        {
+          "title": "HKICL alerts public of fraudulent websites",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260901-5",
+          "sourceName": "Hong Kong Monetary Authority",
+          "publishedAt": "2026-08-31T16:00:00.000Z",
+          "relevanceScore": 83
+        },
+        {
           "title": "HKICL alerts public of fraudulent website",
           "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/08/20260831-8",
           "sourceName": "Hong Kong Monetary Authority",
           "publishedAt": "2026-08-30T16:00:00.000Z",
-          "relevanceScore": 83
-        },
-        {
-          "title": "Chancellor statement on Iran sanctions",
-          "url": "https://www.gov.uk/government/news/chancellor-statement-on-iran-sanctions",
-          "sourceName": "HM Treasury",
-          "publishedAt": "2026-08-25T18:31:00.000Z",
-          "relevanceScore": 73
+          "relevanceScore": 81
         },
         {
           "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
           "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
           "sourceName": "US Securities and Exchange Commission",
           "publishedAt": "2026-08-18T19:55:10.000Z",
-          "relevanceScore": 59
+          "relevanceScore": 57
         },
         {
           "title": "Financial sanctions webinars and events",
           "url": "https://www.gov.uk/guidance/financial-sanctions-webinars-and-events",
           "sourceName": "UK Office of Financial Sanctions Implementation",
           "publishedAt": "2026-08-17T10:27:43.000Z",
-          "relevanceScore": 57
-        },
-        {
-          "title": "SEC Charges Boiler Room Operator and Three Entities with Defrauding Retail Investors in $74 Million Pre-IPO Investment Scam",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-75-sec-charges-boiler-room-operator-three-entities-defrauding-retail-investors-74-million-pre-ipo",
-          "sourceName": "US Securities and Exchange Commission",
-          "publishedAt": "2026-08-14T20:16:34.000Z",
           "relevanceScore": 55
         }
       ]
@@ -1361,35 +1386,35 @@
           "url": "https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "publishedAt": "2026-08-31T12:00:00.000Z",
-          "relevanceScore": 100
+          "relevanceScore": 98
         },
         {
           "title": "Spring Ring: An Inside Look at Voice Phishing Campaigns in Microsoft Teams",
           "url": "https://unit42.paloaltonetworks.com/spring-ring-voice-phishing-campaigns",
           "sourceName": "Palo Alto Networks Unit 42",
           "publishedAt": "2026-08-31T10:00:36.000Z",
-          "relevanceScore": 100
+          "relevanceScore": 98
         },
         {
           "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 35",
           "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-35-8",
           "sourceName": "SentinelOne Labs",
           "publishedAt": "2026-08-28T16:01:30.000Z",
-          "relevanceScore": 94
+          "relevanceScore": 92
         },
         {
           "title": "PaperCut NG/MF Critical Zero-Day Exploited in the Wild",
           "url": "https://www.rapid7.com/blog/post/etr-papercut-ng-mf-critical-zero-day-exploited-in-the-wild",
           "sourceName": "Rapid7 Research",
           "publishedAt": "2026-08-28T10:09:12.000Z",
-          "relevanceScore": 94
+          "relevanceScore": 92
         },
         {
           "title": "Check Point Supports OpenAI’s Call for Collective Action on Cyber Defense",
           "url": "https://blog.checkpoint.com/ai-security/check-point-supports-openais-call-for-collective-action-on-cyber-defense",
           "sourceName": "Check Point Research",
           "publishedAt": "2026-08-27T17:18:56.000Z",
-          "relevanceScore": 92
+          "relevanceScore": 90
         }
       ]
     },
@@ -1399,11 +1424,18 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Requests from wrangler or other OAuth clients may experience elevated errors",
+          "url": "https://www.cloudflarestatus.com/incidents/3mjmdcmm86nx",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-09-01T12:05:52.000Z",
+          "relevanceScore": 87
+        },
+        {
           "title": "Elevated rate of errors for OpenAI models provided by Copilot",
           "url": "https://www.githubstatus.com/incidents/7fxts6gmq5gr",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-08-31T09:58:14.000Z",
-          "relevanceScore": 89
+          "relevanceScore": 87
         },
         {
           "title": "Disruption with GitHub Billing",
@@ -1424,14 +1456,7 @@
           "url": "https://www.githubstatus.com/incidents/kfspvrz14xr0",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-08-27T00:26:44.000Z",
-          "relevanceScore": 78
-        },
-        {
-          "title": "Incident with Actions",
-          "url": "https://www.githubstatus.com/incidents/y1t7p9fzrlj2",
-          "sourceName": "GitHub Status",
-          "publishedAt": "2026-08-26T18:01:30.000Z",
-          "relevanceScore": 77
+          "relevanceScore": 76
         }
       ]
     },
@@ -1441,13 +1466,6 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Daten, Analysen und Veröffentlichungen",
-          "url": "https://www.bundesbank.de/de/bundesbank/hauptverwaltungen-filialen/bns/daten-analysen-und-veroeffentlichungen/daten-analysen-und-veroeffentlichungen-748120",
-          "sourceName": "Deutsche Bundesbank",
-          "publishedAt": "2026-08-31T06:55:13.000Z",
-          "relevanceScore": 84
-        },
-        {
           "title": "Boost your business fitness - ICO offers new, free data protection training for SMEs",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/boost-your-business-fitness-ico-offers-new-free-data-protection-training-for-smes",
           "sourceName": "UK Information Commissioner's Office",
@@ -1455,21 +1473,28 @@
           "relevanceScore": 55
         },
         {
-          "title": "SEC Establishes Financial Reporting and Accounting Unit in Enforcement Division",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-72-sec-establishes-financial-reporting-accounting-unit-enforcement-division",
-          "sourceName": "US Securities and Exchange Commission",
-          "publishedAt": "2026-08-05T18:30:00.000Z",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un prospectus et information périodique des fonds d'investissement à vocation générale, fonds de fonds alternatifs et fonds professionnels à vocation générale -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-20",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 55
         },
         {
-          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé - DOC-2012-06",
+          "title": "Programme d'activité des prestataires de services d'investissement et information de l'AMF -",
+          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2014-01",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-22T22:00:00.000Z",
+          "relevanceScore": 55
+        },
+        {
+          "title": "Modalités de déclaration, de modifications, établissement d'un prospectus et informations périodiques des fonds professionnels spécialisés, des fonds professionnels de capital investissement et des organismes de financement spécialisé -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2012-06",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",
           "relevanceScore": 55
         },
         {
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
+          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
           "sourceName": "Autorité des marchés financiers",
           "publishedAt": "2026-07-22T22:00:00.000Z",

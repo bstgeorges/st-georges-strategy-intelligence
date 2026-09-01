@@ -27,6 +27,7 @@ const TOPICS = [
   "data",
 ];
 const TRACKING_PARAMS = new Set(["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "fbclid", "gclid"]);
+const COLLECTION_CONCURRENCY = 6;
 const TOPIC_KEYWORDS = {
   ai: ["artificial intelligence", "ai model", "ai agent", "agentic", "algorithm", "copilot", "machine learning"],
   "market-structure": ["market", "trading", "settlement", "securities", "liquidity", "capital", "fund", "crypto", "stablecoin", "mica", "custody"],
@@ -46,6 +47,7 @@ function parseArgs(argv) {
     out: OUTPUT_PATH,
     state: STATE_PATH,
     windowDaysOverride: null,
+    sourceIds: new Set(),
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -59,6 +61,8 @@ function parseArgs(argv) {
     else if (arg.startsWith("--state=")) options.state = path.resolve(arg.slice("--state=".length));
     else if (arg === "--window-days") options.windowDaysOverride = Number(argv[++index] || "");
     else if (arg.startsWith("--window-days=")) options.windowDaysOverride = Number(arg.slice("--window-days=".length));
+    else if (arg === "--source") options.sourceIds.add(argv[++index] || "");
+    else if (arg.startsWith("--source=")) options.sourceIds.add(arg.slice("--source=".length));
     else throw new Error(`Unknown argument: ${arg}`);
   }
 
@@ -475,6 +479,20 @@ function shouldAbortLiveRefresh(options, sourceStats) {
   return remoteSources.length > 0 && remoteSources.every((source) => source.status === "failed");
 }
 
+async function mapWithConcurrency(items, limit, worker) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (nextIndex < items.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      results[index] = await worker(items[index]);
+    }
+  });
+  await Promise.all(runners);
+  return results;
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const feedRegistry = readJson(FEED_REGISTRY_PATH);
@@ -498,11 +516,35 @@ async function main() {
   const warnings = [];
   const sourceStats = [];
 
-  for (const source of feedRegistry.sources || []) {
+  const configuredSources = (feedRegistry.sources || []).filter((source) => (
+    options.sourceIds.size === 0 || options.sourceIds.has(source.id)
+  ));
+  if (options.sourceIds.size && configuredSources.length !== options.sourceIds.size) {
+    const found = new Set(configuredSources.map((source) => source.id));
+    const missing = [...options.sourceIds].filter((id) => !found.has(id));
+    throw new Error(`Unknown Signals source id(s): ${missing.join(", ")}`);
+  }
+
+  const collectedById = new Map((await mapWithConcurrency(
+    configuredSources,
+    COLLECTION_CONCURRENCY,
+    async (source) => {
+      try {
+        return { sourceId: source.id, collection: await collectSourceCandidates(source, { options }), error: null };
+      } catch (error) {
+        return { sourceId: source.id, collection: null, error };
+      }
+    },
+  )).map((result) => [result.sourceId, result]));
+
+  for (const source of configuredSources) {
     const sourceMeta = loadSourceMeta(sourceRegistry, source);
     let entries = [];
     try {
-      const collection = await collectSourceCandidates(source, { options });
+      const collected = collectedById.get(source.id);
+      if (collected?.error) throw collected.error;
+      const collection = collected?.collection;
+      if (!collection) throw new Error("collection result missing");
       entries = collection.entries || [];
       if (collection.status === "skipped") {
         sourceStats.push({
@@ -644,4 +686,4 @@ if (path.resolve(process.argv[1] || "") === fileURLToPath(import.meta.url)) {
   });
 }
 
-export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, extractPagePublishedDate, inferDateFromUrl, isRecent, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, shouldAbortLiveRefresh, topicRelevance };
+export { assessCandidateQuality, canonicaliseUrl, capCandidatesBySourceOwner, dedupeEntriesByTitle, extractPagePublishedDate, inferDateFromUrl, isRecent, mapWithConcurrency, matchedTopicKeywords, matchesKeywords, parseRssOrAtom, parseSitemap, relevanceScore, shouldAbortLiveRefresh, topicRelevance };

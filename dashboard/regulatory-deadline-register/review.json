@@ -1,7 +1,77 @@
 {
   "version": "regulatory-deadline-review.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-02T08:32:54.520Z",
-  "sourceEdition": "2026-08-30",
-  "items": []
+  "generatedAt": "2026-09-03T08:31:28.482Z",
+  "sourceEdition": "2026-09-02",
+  "items": [
+    {
+      "id": "cb35cc0bb665af1d7f0d",
+      "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
+      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
+      "deadline": "2026-08-28",
+      "daysToDeadline": -6,
+      "stage": "consultation",
+      "authority": {
+        "id": "hkma",
+        "name": "Hong Kong Monetary Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "themes": [],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.575,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-08-27",
+      "status": "ready-for-review",
+      "intake": "scanner",
+      "decision": null,
+      "evidence": {
+        "change": "Hong Kong Monetary Authority published a consultation on 2026-08-27.",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-08-28",
+          "trigger": "Consultation Close",
+          "triggerDistance": 11,
+          "quote": "Issue Date: 28 Aug 2026 Consultation Status: OPEN Consultation Open Date: 28 Aug 2026 Consultation Close Date: 28 Sep 2026 20260827-3-EN",
+          "source": "primary-document-detail"
+        },
+        "verifiedAt": null,
+        "verification": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Regulatory change lead",
+          "Applicable business owner"
+        ],
+        "prepare": [
+          "Confirm applicability",
+          "Name an accountable owner",
+          "Record the governing forum and decision date"
+        ]
+      },
+      "firstSeen": "2026-09-03",
+      "lastSeen": "2026-09-03",
+      "sourceEdition": "2026-09-02"
+    }
+  ]
 }

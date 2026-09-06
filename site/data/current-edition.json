@@ -1,26 +1,26 @@
 {
   "editionNumber": "Edition 12",
-  "title": "The control is only as good as the handoff",
+  "title": "The work that slips has no date",
   "weekOf": "2026-08-31",
   "publicationDate": "2026-09-06",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "The control is only as good as the handoff.",
+  "mainJudgement": "The work that slips has no date.",
   "committeeQuestion": {
     "domain": "Continuous control",
-    "question": "When an alert lands outside the normal operating day, who can assess it, intervene and show why the decision was made?",
-    "why": "The SEC's 24-hour-market agenda and Anthropic's new enterprise safeguards make the same practical point: a control needs a named recipient, real authority and an evidence trail when the usual team is not in the room.",
-    "evidence": "One recent out-of-hours alert, its time-stamped triage and escalation record, intervention authority, decision maker, customer or market-impact assessment, remediation action and closure evidence.",
+    "question": "Which live control has no implementation date, but still needs a named owner, decision rights and a tested response?",
+    "why": "The CFTC's clearing change has an effective date and an implementation path. Anthropic's announced safeguards and an exploited vulnerability do not give a firm the same clock, even though each requires preparatory decisions now.",
+    "evidence": "The inventory of date-less control changes, named accountable owner, decision rights, readiness milestone, cost or resource assumption, escalation path, test result and closure record.",
     "links": ["brief", "ai", "resilience"]
   },
   "committeeQuestions": [
     {
       "domain": "Continuous control",
-      "question": "When an alert lands outside the normal operating day, who can assess it, intervene and show why the decision was made?",
-      "why": "The SEC's 24-hour-market agenda and Anthropic's new enterprise safeguards make the same practical point: a control needs a named recipient, real authority and an evidence trail when the usual team is not in the room.",
-      "evidence": "One recent out-of-hours alert, its time-stamped triage and escalation record, intervention authority, decision maker, customer or market-impact assessment, remediation action and closure evidence.",
+      "question": "Which live control has no implementation date, but still needs a named owner, decision rights and a tested response?",
+      "why": "The CFTC's clearing change has an effective date and an implementation path. Anthropic's announced safeguards and an exploited vulnerability do not give a firm the same clock, even though each requires preparatory decisions now.",
+      "evidence": "The inventory of date-less control changes, named accountable owner, decision rights, readiness milestone, cost or resource assumption, escalation path, test result and closure record.",
       "links": ["brief", "ai", "resilience"]
     },
     {
@@ -32,23 +32,23 @@
     },
     {
       "domain": "Evidence and closure",
-      "question": "Can the firm reconstruct one cyber or AI-related alert from the original event to closure without relying on someone’s memory?",
-      "why": "CISA's exploited-vulnerability update and AWS's CloudTrail investigation guidance point to the same discipline: asset ownership, logs, exception decisions and proof of remediation must still be available after the technical work is done.",
-      "evidence": "The original alert, relevant logs, named system owner, vulnerability or model decision, accepted exception if any, remediation evidence, independent retest and dated closure record.",
+      "question": "Can the firm identify whether LiteLLM or Kestra is in its estate, decide what to do and prove the exposure is closed?",
+      "why": "CISA added exploited vulnerabilities in LiteLLM and Kestra to its catalogue. For firms using AI gateways or workflow orchestration, the first control question is not the catalogue entry; it is whether asset coverage and response ownership already exist.",
+      "evidence": "The service and dependency inventory, internet-exposure assessment, named system owner, remediation or compensating-control decision, accepted exception if any, independent retest and dated closure record.",
       "links": ["cyber", "ai", "resilience"]
     }
   ],
   "judgement": {
-    "observation": "Anthropic's new safeguards put AI activity logs under customer control. The CFTC changed clearing requirements for certain CAD and MXN swaps. Ireland's central bank reports payment-fraud losses up 27%, and CISA has added another exploited vulnerability.",
-    "executiveJudgement": "These are all handoff problems: who receives a signal, who can act, and can the firm later show what happened? That is where an otherwise sound process often thins out—overnight, across teams, or when a payment or incident needs a decision now.",
-    "implication": "Choose one control that cannot wait for office hours. Follow a recent alert through detection, decision, intervention and closure. If the owner, permission or record is vague, fix it."
+    "observation": "Anthropic announced Enterprise Frontier Safeguards, with phased rollout from autumn and customer-held activity data. CISA added exploited LiteLLM and Kestra flaws. Ireland's central bank reports payment-fraud losses up 27%, while the CFTC's CAD- and MXN-swap clearing change has a fixed effective date.",
+    "executiveJudgement": "The CFTC change is easy to govern: dated, scheduled and owned. The other developments arrive without the same clock. A vendor control is not yet usable; fraud loss measures a customer-authorised decision; exploitation enters the catalogue overnight. The failure is work that matters now but has no deadline, owner or readiness test.",
+    "implication": "List three live changes without a mandated date. Name their owner, decision rights, resource and cost assumption, readiness milestone and evidence of a tested response."
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Anthropic makes customer-held AI logs a deployment control",
+      "title": "Anthropic announces customer-held AI monitoring, with rollout still phased",
       "label": "AI evidence and custody",
-      "why": "The design puts activity data, encryption keys and human review under the customer's control—an immediate test for who can see, investigate and evidence a sensitive AI workflow.",
+      "why": "EFS is announced, not yet generally available. It would place activity data in the customer's cloud account under its keys and route automated flags to its team; the customer also bears cloud storage, read/write and egress charges.",
       "source": "Anthropic · Primary source · 2026-09-01"
     },
     {
@@ -67,10 +67,10 @@
     },
     {
       "topic": "cyber",
-      "title": "CISA's latest exploited vulnerability tests whether patch decisions have an owner",
-      "label": "Active-exploitation control",
-      "why": "A live-exploitation update is a practical check on asset ownership, exception authority, remediation speed and independently verified closure.",
-      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-09-04"
+      "title": "CISA adds exploited LiteLLM and Kestra flaws to the priority list",
+      "label": "AI and workflow orchestration exposure",
+      "why": "The 2 September additions make AI-gateway authentication and workflow-orchestration exposure a concrete inventory, response and closure test—not a generic vulnerability-counting exercise.",
+      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-09-02"
     },
     {
       "topic": "resilience",

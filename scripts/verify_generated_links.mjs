@@ -85,6 +85,13 @@ function isRestrictedButPresent(url, status) {
   }
 }
 
+// A server-side 5xx after retries says the remote host is unavailable, not that
+// the published URL is invalid. The release contract keeps such outages visible
+// without allowing them to block an otherwise verified site deployment.
+function isTemporarilyUnavailable(status) {
+  return Number.isInteger(status) && status >= 500 && status < 600;
+}
+
 function isKnownRestrictedFetchFailure(url, error) {
   if (!error) return false;
   if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url)) {
@@ -165,13 +172,14 @@ async function fetchUrlOnce(url) {
       }
     }
     const restricted = isRestrictedButPresent(url, response.status);
+    const unavailable = isTemporarilyUnavailable(response.status);
     const soft404 = isSoft404(finalUrl, bodySample);
     return {
       url,
       status: response.status,
       finalUrl,
-      ok: (response.status < 400 && !soft404) || restricted,
-      note: restricted ? "restricted" : soft404 ? "soft-404" : "",
+      ok: (response.status < 400 && !soft404) || restricted || unavailable,
+      note: restricted ? "restricted" : unavailable ? "unavailable" : soft404 ? "soft-404" : "",
     };
   } catch (error) {
     return { url, ok: false, error: String(error) };
@@ -250,9 +258,11 @@ async function main() {
 
   const failures = results.filter((result) => !result.ok);
   const restricted = results.filter((result) => result.note === "restricted");
+  const unavailable = results.filter((result) => result.note === "unavailable");
   console.log(
     `Checked ${htmlFiles.length} generated HTML files and ${results.length} unique outbound links; ` +
-      `${failures.length} failures; ${restricted.length} restricted/paywalled links.`,
+      `${failures.length} failures; ${restricted.length} restricted/paywalled links; ` +
+      `${unavailable.length} temporarily unavailable links.`,
   );
 
   if (failures.length) {

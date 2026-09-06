@@ -49,7 +49,7 @@
     "deadline-register:test": "node --test scripts/regulatory_deadline_register.test.mjs",
     "deadline-discovery:build": "node scripts/build_regulatory_deadline_discovery.mjs",
     "deadline-discovery:test": "node --test scripts/regulatory_deadline_discovery.test.mjs",
-    "deadline-dashboard:build": "npm run deadline-discovery:build && node scripts/render_regulatory_deadline_dashboard.mjs",
+    "deadline-dashboard:build": "npm run deadline-discovery:build && node scripts/render_regulatory_deadline_dashboard.mjs && node scripts/render_regulatory_horizon_preview.mjs",
     "deadline-dashboard:test": "node --test scripts/regulatory_deadline_dashboard.test.mjs",
     "horizon:sync": "node scripts/sync_reg_horizon.mjs",
     "horizon:refresh": "npm run reg-scan:run -- --window 90 && npm run deadline-register:build && npm run deadline-register:validate && npm run deadline-dashboard:build",

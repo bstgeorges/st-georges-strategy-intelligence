@@ -289,8 +289,7 @@ def write_html(data, path):
 </table>
 <h2>Horizon</h2>
 <table>
-  <tr><th>Date</th><th>Band</th><th>Title</th><th>Source</th></tr>
-  {horizon_rows}
+  <tr><th>Date</th><th>Band</th><th>Title</th><th>Source</th></tr>{horizon_rows}
 </table>
 </body>
 </html>"""

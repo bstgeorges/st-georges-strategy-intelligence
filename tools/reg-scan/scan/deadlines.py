@@ -98,10 +98,32 @@ def extract_deadline_evidence(text, published_at):
         if d <= published.date():
             continue
         date_start = m.start() - clause_start
-        trigger = min(triggers, key=lambda cue: abs(date_start - cue.start()))
-        trigger_distance = abs(date_start - trigger.start())
+        # A deadline cue must govern a date that follows it.  This prevents a
+        # structured page such as "Consultation Open Date: 28 Aug ...
+        # Consultation Close Date: 28 Sep" from assigning the opening date to
+        # the later close-date label merely because both occur in one scraped
+        # clause. Conservative omission is safer than inventing a deadline.
+        preceding = [cue for cue in triggers if cue.end() <= date_start]
+        if preceding:
+            trigger = min(preceding, key=lambda cue: date_start - cue.end())
+            trigger_distance = date_start - trigger.end()
+        else:
+            # Japanese, Chinese and Korean deadline grammar can place an
+            # unambiguous postfix cue directly after the date (for example,
+            # "2026年9月30日まで"). Keep that narrow exception rather than
+            # permitting arbitrary later "deadline" text to govern a date.
+            date_end = m.end() - clause_start
+            postfix = [
+                cue for cue in triggers
+                if re.fullmatch(r"(?:至|締切|截止|截止日期|まで)", cue.group(0))
+                and 0 <= cue.start() - date_end <= 24
+            ]
+            if not postfix:
+                continue
+            trigger = min(postfix, key=lambda cue: cue.start() - date_end)
+            trigger_distance = trigger.start() - date_end
         # A trigger somewhere in a long clause is still not evidence that it
-        # governs this date.  Keep the relationship close and inspectable.
+        # governs this date. Keep the relationship close and inspectable.
         if trigger_distance > 100:
             continue
         candidate = {

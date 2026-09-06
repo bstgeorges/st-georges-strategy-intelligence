@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-09-06T10:02:36.428Z",
+  "generatedAt": "2026-09-06T10:24:03.971Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -311,36 +311,6 @@
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "id": "b085c7f1762bfee8",
-          "topicId": "ai",
-          "title": "Developing Enterprise Frontier Safeguards with our customers",
-          "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-          "publishedAt": "2026-09-02T19:11:21.000Z",
-          "dateSource": "sitemap-lastmod",
-          "sourceRegistryId": "anthropic",
-          "sourceName": "Anthropic",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "anthropic-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
-        },
-        {
           "id": "8ed1599eb95bc766",
           "topicId": "ai",
           "title": "Improving our alignment and security practices",
@@ -558,83 +528,6 @@
       "id": "market-structure",
       "candidates": [
         {
-          "id": "03bf08305d9e3c35",
-          "topicId": "market-structure",
-          "title": "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-          "publishedAt": "2026-09-02T16:04:52.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cftc-market-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "derivatives",
-            "clearing",
-            "market-conduct",
-            "enforcement",
-            "us"
-          ],
-          "matchedKeywords": [
-            "clearing",
-            "swap"
-          ],
-          "titleMatchedKeywords": [
-            "clearing",
-            "swap"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "69fa5cf6c7b1ea05",
-          "topicId": "market-structure",
-          "title": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "publishedAt": "2026-09-04T09:01:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "ireland-cbi",
-          "sourceName": "Central Bank of Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "cbi-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "payment"
-          ],
-          "titleMatchedKeywords": [
-            "payment"
-          ],
-          "summaryMatchedKeywords": [
-            "payment"
-          ],
-          "relevanceScore": 81,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Central Bank of Ireland via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "a34a44d83efd09ef",
           "topicId": "market-structure",
           "title": "HKMA reminds public to stay alert to phishing scams targeting binding of payment cards to contactless mobile payment services",
@@ -706,47 +599,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "2d7e58c53f41bc21",
-          "topicId": "market-structure",
-          "title": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-          "publishedAt": "2026-09-01T19:17:39.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "sec",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "sec-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "matchedKeywords": [
-            "trading",
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "trading"
-          ],
-          "summaryMatchedKeywords": [
-            "trading",
-            "securities"
-          ],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
         },
         {
           "id": "78fa58be510538a8",
@@ -1062,7 +914,7 @@
         {
           "id": "215909ae8be99acd",
           "topicId": "market-structure",
-          "title": "Questions-réponses relatives au régime applicable aux conseillers en investissements financiers -",
+          "title": "Questions-réponses relatives au régime applicable aux conseillers en investissements financiers - DOC-2006-23",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2006-23",
           "publishedAt": "2026-07-26T22:00:00.000Z",
           "dateSource": "feed",
@@ -1567,41 +1419,6 @@
           "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
         },
         {
-          "id": "2992670006f6b06a",
-          "topicId": "resilience",
-          "title": "Incident response guide for AWS CloudTrail investigations – Part 1",
-          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
-          "publishedAt": "2026-09-03T21:15:39.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "aws-security",
-          "sourceName": "AWS Security Blog",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "aws-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "cloud-security"
-          ],
-          "matchedKeywords": [
-            "incident"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [
-            "incident"
-          ],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "c8ee6fb5eaea9f81",
           "topicId": "resilience",
           "title": "Swiss insurance sector continues to strengthen its resilience",
@@ -1644,45 +1461,6 @@
     {
       "id": "financial-crime",
       "candidates": [
-        {
-          "id": "69fa5cf6c7b1ea05",
-          "topicId": "financial-crime",
-          "title": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "publishedAt": "2026-09-04T09:01:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "ireland-cbi",
-          "sourceName": "Central Bank of Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "cbi-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [
-            "fraud"
-          ],
-          "summaryMatchedKeywords": [
-            "fraud"
-          ],
-          "relevanceScore": 81,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Central Bank of Ireland via rss ingestion and matched the topic rules."
-        },
         {
           "id": "54346efc0416752c",
           "topicId": "financial-crime",
@@ -1861,38 +1639,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "8fc5a70781e5198b",
-          "topicId": "financial-crime",
-          "title": "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch",
-          "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
-          "publishedAt": "2026-09-02T09:22:20.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "ofsi",
-          "sourceName": "UK Office of Financial Sanctions Implementation",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "ingestSourceId": "ofsi-updates-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "sanctions",
-            "enforcement",
-            "licences",
-            "uk"
-          ],
-          "matchedKeywords": [
-            "sanctions"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         },
         {
           "id": "119b59901316cbf6",
@@ -2289,41 +2035,6 @@
       "id": "cyber",
       "candidates": [
         {
-          "id": "b10acc2d72c5f7d1",
-          "topicId": "cyber",
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "publishedAt": "2026-09-04T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "94f8cb8130a55752",
           "topicId": "cyber",
           "title": "DPRK APTs: Ted backdoor and curlRAT target South Korean media and automotive sectors",
@@ -2683,7 +2394,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
@@ -2950,6 +2661,37 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "11ef1d22aa18a155",
+          "topicId": "cyber",
+          "title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss",
+          "publishedAt": "2026-09-01T18:55:35.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "microsoft-security",
+          "sourceName": "Microsoft Security Blog",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "microsoft-security-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "cyber"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 76,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -3398,7 +3140,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -3518,7 +3260,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },
@@ -3528,7 +3270,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },
@@ -3628,7 +3370,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3698,7 +3440,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3828,7 +3570,7 @@
       "fetchType": "atom",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },
@@ -4118,7 +3860,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 7,
+      "acceptedCandidates": 6,
       "reason": "",
       "error": ""
     },

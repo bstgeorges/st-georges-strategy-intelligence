@@ -42,6 +42,8 @@ function removeBandByEyebrow(html, eyebrow) {
 export function simplifyBriefExperience(html) {
   return [
     "Coverage read",
+    "Executive pulse",
+    "Evidence watch",
     "Control lessons",
     "Executive challenge",
     "Thought leadership radar",

@@ -1,83 +1,83 @@
 {
-  "editionNumber": "Edition 11",
-  "title": "When a supplier changes, the control boundary changes too",
-  "weekOf": "2026-08-24",
-  "publicationDate": "2026-08-30",
+  "editionNumber": "Edition 12",
+  "title": "The control is only as good as the handoff",
+  "weekOf": "2026-08-31",
+  "publicationDate": "2026-09-06",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "When a supplier changes, the control boundary changes too.",
+  "mainJudgement": "The control is only as good as the handoff.",
   "committeeQuestion": {
-    "domain": "Supplier control",
-    "question": "When an AI provider, intermediary or owner changes, who reassesses model access, contractual protections, data paths and the workable exit before a business workflow breaks?",
-    "why": "OpenAI's planned Cursor wind-down after a change of control makes a familiar third-party risk concrete. A vendor inventory is not enough if the model, integration or owner can change faster than the firm's continuity and governance response.",
-    "evidence": "The dependency map, change-of-control clauses, model and data-flow inventory, migration path, tested fallback, accountable executive and record of the latest supplier-change review.",
-    "links": ["brief", "ai", "third-party"]
+    "domain": "Continuous control",
+    "question": "When an alert lands outside the normal operating day, who can assess it, intervene and show why the decision was made?",
+    "why": "The SEC's 24-hour-market agenda and Anthropic's new enterprise safeguards make the same practical point: a control needs a named recipient, real authority and an evidence trail when the usual team is not in the room.",
+    "evidence": "One recent out-of-hours alert, its time-stamped triage and escalation record, intervention authority, decision maker, customer or market-impact assessment, remediation action and closure evidence.",
+    "links": ["brief", "ai", "resilience"]
   },
   "committeeQuestions": [
     {
-      "domain": "Supplier control",
-      "question": "When an AI provider, intermediary or owner changes, who reassesses model access, contractual protections, data paths and the workable exit before a business workflow breaks?",
-      "why": "OpenAI's planned Cursor wind-down after a change of control makes a familiar third-party risk concrete. A vendor inventory is not enough if the model, integration or owner can change faster than the firm's continuity and governance response.",
-      "evidence": "The dependency map, change-of-control clauses, model and data-flow inventory, migration path, tested fallback, accountable executive and record of the latest supplier-change review.",
-      "links": ["brief", "ai", "third-party"]
+      "domain": "Continuous control",
+      "question": "When an alert lands outside the normal operating day, who can assess it, intervene and show why the decision was made?",
+      "why": "The SEC's 24-hour-market agenda and Anthropic's new enterprise safeguards make the same practical point: a control needs a named recipient, real authority and an evidence trail when the usual team is not in the room.",
+      "evidence": "One recent out-of-hours alert, its time-stamped triage and escalation record, intervention authority, decision maker, customer or market-impact assessment, remediation action and closure evidence.",
+      "links": ["brief", "ai", "resilience"]
     },
     {
-      "domain": "Market integrity",
-      "question": "As new payment systems and event-contract markets grow, can the firm show that surveillance, conflict controls and escalation are keeping pace with the product?",
-      "why": "The CFTC's event-contract enforcement action and the UK's new payments-innovation objective point in the same direction: innovation does not reduce the need for market integrity and financial-stability controls.",
-      "evidence": "The product perimeter, market-abuse and conflict scenarios, surveillance coverage, escalation thresholds, governance minutes and an accountable product-and-risk owner.",
-      "links": ["market-structure", "brief", "data"]
+      "domain": "Payment intervention",
+      "question": "For a high-value payment that looks wrong, how quickly can the firm stop it, contact the customer and record the decision?",
+      "why": "The Central Bank of Ireland reports that payment-fraud value rose 27.2% in 2025, with authorised push-payment fraud and cross-border transfers carrying a growing share of loss. Detection is only useful if the intervention route works in time.",
+      "evidence": "The fraud scenario, alert thresholds, hold or release authority, contact path, decision record, recovery outcome and a recent test of the customer-support handoff.",
+      "links": ["brief", "cyber", "data"]
     },
     {
-      "domain": "Evidence and intervention",
-      "question": "For one high-impact automated decision, can management produce the data lineage, accuracy testing, human intervention route and closure evidence without reconstructing it from memory?",
-      "why": "The ICO's facial-recognition findings show that strong governance is visible in data provenance, oversight, accuracy and retained records. Those are the same evidence demands that make high-impact automation defensible.",
-      "evidence": "The approved data sources, retention and sharing record, accuracy and bias tests, named accountable owner, intervention log, exceptions, remediation actions and retest evidence.",
-      "links": ["data", "ai", "committee-questions"]
+      "domain": "Evidence and closure",
+      "question": "Can the firm reconstruct one cyber or AI-related alert from the original event to closure without relying on someone’s memory?",
+      "why": "CISA's exploited-vulnerability update and AWS's CloudTrail investigation guidance point to the same discipline: asset ownership, logs, exception decisions and proof of remediation must still be available after the technical work is done.",
+      "evidence": "The original alert, relevant logs, named system owner, vulnerability or model decision, accepted exception if any, remediation evidence, independent retest and dated closure record.",
+      "links": ["cyber", "ai", "resilience"]
     }
   ],
   "judgement": {
-    "observation": "The headlines look unrelated: OpenAI is winding down Cursor access after its acquisition; the CFTC has acted in event contracts; the Treasury wants more innovation in payments; and the NCA has traced funds through EMIs and crypto.",
-    "executiveJudgement": "Put together, they are a reminder that risk rarely waits for the next governance cycle. A supplier changes hands, a product evolves or a new route opens up — and the firm has to decide, quickly, whether its controls still fit reality.",
-    "implication": "Take one dependency that matters. If it changed tomorrow, would the right people know, decide what to do and show that a real fallback exists?"
+    "observation": "Anthropic's new safeguards put AI activity logs under customer control. The CFTC changed clearing requirements for certain CAD and MXN swaps. Ireland's central bank reports payment-fraud losses up 27%, and CISA has added another exploited vulnerability.",
+    "executiveJudgement": "These are all handoff problems: who receives a signal, who can act, and can the firm later show what happened? That is where an otherwise sound process often thins out—overnight, across teams, or when a payment or incident needs a decision now.",
+    "implication": "Choose one control that cannot wait for office hours. Follow a recent alert through detection, decision, intervention and closure. If the owner, permission or record is vague, fix it."
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "OpenAI's Cursor exit turns a supplier acquisition into a model-access control test",
-      "label": "AI supplier control",
-      "why": "A planned model-supply wind-down after a change of control makes contractual access, data paths, migration and fallback evidence immediate governance questions for AI-enabled workflows.",
-      "source": "OpenAI · Primary source · 2026-08-28"
+      "title": "Anthropic makes customer-held AI logs a deployment control",
+      "label": "AI evidence and custody",
+      "why": "The design puts activity data, encryption keys and human review under the customer's control—an immediate test for who can see, investigate and evidence a sensitive AI workflow.",
+      "source": "Anthropic · Primary source · 2026-09-01"
     },
     {
       "topic": "market-structure",
-      "title": "CFTC event-contract case brings market-abuse controls to prediction markets",
-      "label": "Market integrity",
-      "why": "The enforcement action shows that novel event-contract venues still need surveillance, conflict controls and escalation that can detect misuse of material non-public information.",
-      "source": "US Commodity Futures Trading Commission · Primary source · 2026-08-28"
+      "title": "CFTC clearing rule resets rate-swap implementation checks",
+      "label": "Clearing implementation",
+      "why": "The final rule changes the scope and associated compliance dates for certain CAD- and MXN-denominated interest-rate swaps, creating a direct trade, clearing, reporting and documentation implementation test.",
+      "source": "US Commodity Futures Trading Commission · Primary source · 2026-09-02"
     },
     {
       "topic": "financial-crime",
-      "title": "NCA forfeiture shows how sanctions-linked funds can move through EMIs and crypto",
-      "label": "Source-of-funds control",
-      "why": "The NCA account links suspected front companies, UK electronic-money institutions and crypto conversion—an evidence-led test for source-of-funds, monitoring and escalation controls.",
-      "source": "National Crime Agency · Primary source · 2026-08-27"
+      "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
+      "label": "Payment intervention",
+      "why": "Fraudulent-payment value rose 27.2% in 2025, with authorised push-payment fraud and cross-border transfers central to the loss picture—testing detection, intervention and customer support.",
+      "source": "Central Bank of Ireland · Primary source · 2026-09-04"
     },
     {
       "topic": "cyber",
-      "title": "CISA adds three live-exploitation priorities to the patch-control queue",
+      "title": "CISA's latest exploited vulnerability tests whether patch decisions have an owner",
       "label": "Active-exploitation control",
-      "why": "The latest update makes asset visibility, exception authority and independently verified remediation the immediate control question.",
-      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-08-27"
+      "why": "A live-exploitation update is a practical check on asset ownership, exception authority, remediation speed and independently verified closure.",
+      "source": "US Cybersecurity and Infrastructure Security Agency · Primary source · 2026-09-04"
     },
     {
-      "topic": "data",
-      "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
-      "label": "High-impact data governance",
-      "why": "The audit findings make provenance, accuracy, retention, senior accountability and human intervention concrete evidence asks for high-impact automated decisions.",
-      "source": "UK Information Commissioner's Office · Primary source · 2026-08-18"
+      "topic": "resilience",
+      "title": "CloudTrail turns incident response into an evidence test",
+      "label": "Forensic readiness",
+      "why": "The guide shows the evidence needed to investigate suspicious cloud activity, turning logs, decision trails and tested investigation paths into a management question.",
+      "source": "AWS Security Blog · Primary source · 2026-09-03"
     }
   ]
 }

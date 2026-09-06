@@ -498,7 +498,12 @@
             "sourceType": "regulator",
             "significance": "The SEC's 24-hour-trading roundtable explicitly covers overnight surveillance, clearing and settlement, failover, capacity, market-data continuity, cyber resilience and staffing. Firms do not need to offer continuous trading to ask whether their control model has an owner when the normal day ends.",
             "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-            "accessedDate": "2026-09-06"
+            "accessedDate": "2026-09-06",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-06",
+              "reason": "The SEC release itself displays 1 September 2026. Its HTML exposes an unrelated legacy date to the automated date extractor, so the date was checked directly against the primary release before publication."
+            }
           }
         },
         {
@@ -1043,23 +1048,17 @@
           }
         },
         {
-          "rank": 6,
-          "title": "Incident reporting should be connected to customer impact and remediation evidence",
-          "url": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
-          "source": "Official expectations / FCA incident reporting",
+          "title": "Cloudflare R2 errors expose a regional storage-dependency test",
+          "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+          "source": "Primary / Cloudflare Status / 2026-09-05",
           "evidence": {
-            "sourceTitle": "Incident reporting should be connected to customer impact and remediation evidence",
-            "organisation": "FCA",
-            "publishedDate": "2026-07-09",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
-            "accessedDate": "2026-07-09",
-            "sourceDateVerification": {
-              "status": "evergreen",
-              "reviewedDate": "2026-07-21",
-              "reason": "FCA incident-reporting expectations are maintained supervisory guidance and remain relevant as a control baseline."
-            }
+            "sourceTitle": "Elevated number of R2 503 errors in Eastern North America region",
+            "organisation": "Cloudflare Status",
+            "publishedDate": "2026-09-05",
+            "sourceType": "company announcement",
+            "significance": "Cloudflare reported elevated R2 storage errors in Eastern North America. Treat a regional storage disruption as a practical test of dependency mapping, customer-impact detection, routing or fallback options, and the record of who decided the service was safe to resume.",
+            "sourceUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+            "accessedDate": "2026-09-06"
           }
         }
       ],

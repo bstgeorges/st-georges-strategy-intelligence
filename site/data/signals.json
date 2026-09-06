@@ -1,6 +1,6 @@
 {
-  "edition": "2026-08-30",
-  "generatedAt": "2026-08-30T00:00:00.000Z",
+  "edition": "2026-09-06",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,20 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
+        {
+          "title": "Anthropic makes customer-held AI logs a deployment control",
+          "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+          "source": "Primary / Anthropic / 2026-09-01",
+          "evidence": {
+            "sourceTitle": "Developing Enterprise Frontier Safeguards with our customers",
+            "organisation": "Anthropic",
+            "publishedDate": "2026-09-01",
+            "sourceType": "company announcement",
+            "significance": "Anthropic's proposed safeguards keep activity data in the customer's cloud account and send monitoring flags to the customer's own team. For regulated AI, the practical questions are who holds the keys, who can see the logs, who reviews a flag and how that decision is evidenced.",
+            "sourceUrl": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+            "accessedDate": "2026-09-06"
+          }
+        },
         {
           "title": "OpenAI's Cursor exit turns a supplier acquisition into a model-access control test",
           "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
@@ -74,20 +88,6 @@
               "reason": "The OpenAI publication was checked directly and displays 7 August 2026; the automated release crawler receives a restricted response from this host."
             }
           }
-        },
-        {
-          "title": "Project Pilot: Can AI models fly drones?",
-          "url": "https://www.anthropic.com/research/project-pilot",
-          "source": "Primary / Anthropic / 2026-07-24",
-          "evidence": {
-            "sourceTitle": "Project Pilot: Can AI models fly drones?",
-            "organisation": "Anthropic",
-            "publishedDate": "2026-07-24",
-            "sourceType": "company announcement",
-            "significance": "Project Pilot makes delegated model action a control question: firms need to know which permissions, data boundaries, human approvals and intervention routes apply when a model can operate in the physical world.",
-            "sourceUrl": "https://www.anthropic.com/research/project-pilot",
-            "accessedDate": "2026-08-02"
-          }
         }
       ],
       "stillMaterial": [
@@ -145,6 +145,20 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
+          "title": "CloudTrail turns incident response into an evidence test",
+          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
+          "source": "Primary / AWS Security Blog / 2026-09-03",
+          "evidence": {
+            "sourceTitle": "Incident response guide for AWS CloudTrail investigations – Part 1",
+            "organisation": "AWS Security Blog",
+            "publishedDate": "2026-09-03",
+            "sourceType": "company announcement",
+            "significance": "AWS's guide shows the CloudTrail evidence needed to investigate cross-account access, cryptomining and AI-service abuse. The useful management test is whether an incident team can assemble that evidence, make a defensible decision and preserve the trail without starting from scratch.",
+            "sourceUrl": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
           "title": "Swiss insurance sector continues to strengthen its resilience",
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-08-20",
@@ -199,20 +213,6 @@
             "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
             "accessedDate": "2026-07-18"
           }
-        },
-        {
-          "title": "ENISA finds SMEs still face Cyber Resilience Act readiness barriers",
-          "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
-          "source": "Primary / European Union Agency for Cybersecurity / 2026-07-13",
-          "evidence": {
-            "sourceTitle": "Where do SMEs stand in preparing for the Cyber Resilience Act? | ENISA",
-            "organisation": "European Union Agency for Cybersecurity",
-            "publishedDate": "2026-07-13",
-            "sourceType": "regulator",
-            "significance": "The readiness gap matters beyond manufacturers because regulated firms depend on smaller technology suppliers. Procurement and third-party teams should identify affected products, test suppliers' vulnerability-handling evidence and avoid treating compliance declarations as operational assurance.",
-            "sourceUrl": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
-            "accessedDate": "2026-07-18"
-          }
         }
       ],
       "stillMaterial": [
@@ -241,6 +241,8 @@
           "title": "HSBC Australia penalty keeps complaint ageing in the resilience narrative",
           "url": "https://www.ft.com/content/32b5af43-6ceb-452d-ac2f-d4cda3f4938c",
           "source": "Financial reporting / Financial Times / 2026-06-01",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a current six-month anchor for the connection between service performance, complaint ageing and customer-outcome evidence.",
           "evidence": {
             "sourceTitle": "HSBC Australia penalty keeps complaint ageing in the resilience narrative",
             "organisation": "Financial Times",
@@ -472,6 +474,34 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
+          "title": "CFTC clearing rule resets rate-swap implementation checks",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
+          "source": "Primary / US Commodity Futures Trading Commission / 2026-09-02",
+          "evidence": {
+            "sourceTitle": "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps",
+            "organisation": "US Commodity Futures Trading Commission",
+            "publishedDate": "2026-09-02",
+            "sourceType": "regulator",
+            "significance": "The CFTC has changed which CAD- and MXN-denominated interest-rate swaps must be cleared, alongside associated compliance dates. Affected firms need a documented scope assessment across trade capture, clearing, reporting, client documentation and implementation ownership.",
+            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
+          "title": "SEC puts overnight surveillance and failover on the 24-hour-market agenda",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
+          "source": "Primary / US Securities and Exchange Commission / 2026-09-01",
+          "evidence": {
+            "sourceTitle": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
+            "organisation": "US Securities and Exchange Commission",
+            "publishedDate": "2026-09-01",
+            "sourceType": "regulator",
+            "significance": "The SEC's 24-hour-trading roundtable explicitly covers overnight surveillance, clearing and settlement, failover, capacity, market-data continuity, cyber resilience and staffing. Firms do not need to offer continuous trading to ask whether their control model has an owner when the normal day ends.",
+            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
           "title": "CFTC event-contract case brings market-abuse controls to prediction markets",
           "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
           "source": "Primary / US Commodity Futures Trading Commission / 2026-08-28",
@@ -511,39 +541,6 @@
             "significance": "The CFTC is seeking input on compute-market size, liquidity, oversight, manipulation, customer protection and perpetual futures. Firms exposed to AI infrastructure should watch how compute becomes a traded market input with its own conduct and risk-management expectations.",
             "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9286-26",
             "accessedDate": "2026-08-23"
-          }
-        },
-        {
-          "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
-          "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-          "source": "Primary / Abu Dhabi Global Market Financial Services Regulatory Authority / 2026-07-27",
-          "evidence": {
-            "sourceTitle": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
-            "organisation": "Abu Dhabi Global Market Financial Services Regulatory Authority",
-            "publishedDate": "2026-07-27",
-            "sourceType": "regulator",
-            "significance": "The ADGM transfer-schemes consultation creates a live response decision. Affected firms need an applicability assessment, named owner, response position and evidence for the decision to respond or not.",
-            "sourceUrl": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-            "accessedDate": "2026-08-02",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-08-02",
-              "reason": "The official ADGM consultation PDF and publication listing were checked directly and identify Consultation Paper No. 2 of 2026 as published 27 July 2026; the PDF does not expose a machine-readable date to the release crawler."
-            }
-          }
-        },
-        {
-          "title": "FINMA resets liquidity rules for Swiss banks and securities firms",
-          "url": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
-          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-07-07",
-          "evidence": {
-            "sourceTitle": "FINMA publishes a new ordinance on the liquidity of banks and securities firms",
-            "organisation": "Swiss Financial Market Supervisory Authority",
-            "publishedDate": "2026-07-07",
-            "sourceType": "regulator",
-            "significance": "The ordinance changes the Swiss liquidity framework and implementation baseline. Affected firms should map rule changes into treasury assumptions, reporting, limit governance and board risk appetite rather than treating the update as a legal-only exercise.",
-            "sourceUrl": "https://www.finma.ch/en/news/2026/07/20260707-mm-liqv-finma",
-            "accessedDate": "2026-07-18"
           }
         }
       ],
@@ -634,6 +631,34 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
+          "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
+          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
+          "source": "Primary / Central Bank of Ireland / 2026-09-04",
+          "evidence": {
+            "sourceTitle": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
+            "organisation": "Central Bank of Ireland",
+            "publishedDate": "2026-09-04",
+            "sourceType": "regulator",
+            "significance": "The Central Bank of Ireland reports fraudulent-payment value rose 27.2% to €179.04 million in 2025, with authorised push-payment fraud making up 45% of value and cross-border payments 69.8%. That is a direct test of payment monitoring, intervention speed, customer support and the evidence behind each decision.",
+            "sourceUrl": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
+          "title": "OFSI penalty puts sanctions-payment controls back under scrutiny",
+          "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-09-02",
+          "evidence": {
+            "sourceTitle": "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-09-02",
+            "sourceType": "regulator",
+            "significance": "OFSI has imposed a £4.73 million penalty on Citibank's London branch for a financial-sanctions breach. The practical read-across is to test screening, payment release, escalation, exception authority and the contemporaneous record of why a payment was allowed or stopped.",
+            "sourceUrl": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
           "title": "NCA forfeiture shows how sanctions-linked funds can move through EMIs and crypto",
           "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
           "source": "Primary / National Crime Agency / 2026-08-27",
@@ -678,39 +703,6 @@
             "significance": "OFSI amended a Russia-related general licence on 6 August. Firms with relevant counterparties or activity should identify the change, record the applicability decision, update the sanctions-control evidence and retain the versioned rationale.",
             "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int20255635700",
             "accessedDate": "2026-08-09"
-          }
-        },
-        {
-          "title": "Guidance: Check if an email or communication claiming to be from OFSI is genuine",
-          "url": "https://www.gov.uk/government/publications/check-if-an-email-or-communication-claiming-to-be-from-ofsi-is-genuine",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-07-24",
-          "evidence": {
-            "sourceTitle": "Guidance: Check if an email or communication claiming to be from OFSI is genuine",
-            "organisation": "UK Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-07-24",
-            "sourceType": "regulator",
-            "significance": "OFSI’s authenticity guidance is a small but practical sanctions control: firms need staff and screening teams to recognise official communications, avoid spoofing, and preserve escalation evidence when instructions change.",
-            "sourceUrl": "https://www.gov.uk/government/publications/check-if-an-email-or-communication-claiming-to-be-from-ofsi-is-genuine",
-            "accessedDate": "2026-08-02"
-          }
-        },
-        {
-          "title": "CVM publica Relatório da Atividade Sancionadora do 1º trimestre de 2026",
-          "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
-          "source": "Primary / Comissão de Valores Mobiliários / 2026-07-29",
-          "evidence": {
-            "sourceTitle": "CVM publica Relatório da Atividade Sancionadora do 1º trimestre de 2026",
-            "organisation": "Comissão de Valores Mobiliários",
-            "publishedDate": "2026-07-29",
-            "sourceType": "regulator",
-            "significance": "CVM’s enforcement report is a read-across, not a new rule. The value is testing whether recurring conduct, surveillance, financial-crime and remediation weaknesses have comparable internal exposure.",
-            "sourceUrl": "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
-            "accessedDate": "2026-08-02",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-08-02",
-              "reason": "The official CVM publication page was checked directly and identifies the enforcement activity report as published 29 July 2026; the government site intermittently returns a fetch error to the release crawler."
-            }
           }
         }
       ],
@@ -779,6 +771,8 @@
           "title": "JMLSG consults on Part I amendments covering MLRO cross-border oversight and bank-insolvency exceptions",
           "url": "https://www.jmlsg.org.uk/latest-news/jmlsg-consultation-part-i-2/",
           "source": "Industry guidance / JMLSG / 2026-06-01",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a current six-month anchor for MLRO cross-border oversight and financial-crime governance changes pending the next JMLSG update.",
           "evidence": {
             "sourceTitle": "JMLSG consults on Part I amendments covering MLRO cross-border oversight and bank-insolvency exceptions",
             "organisation": "JMLSG",
@@ -817,6 +811,20 @@
       "title": "Threats, vulnerabilities, identity, and response.",
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
+        {
+          "title": "CISA's latest exploited vulnerability tests whether patch decisions have an owner",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-04",
+          "evidence": {
+            "sourceTitle": "CISA Adds One Known Exploited Vulnerability to Catalog",
+            "organisation": "US Cybersecurity and Infrastructure Security Agency",
+            "publishedDate": "2026-09-04",
+            "sourceType": "regulator",
+            "significance": "CISA has added another actively exploited vulnerability to its Known Exploited Vulnerabilities catalogue. The signal is not the catalogue entry itself; it is whether asset ownership, remediation authority, time-bound exceptions and independent closure evidence are ready when exploitation is already live.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+            "accessedDate": "2026-09-06"
+          }
+        },
         {
           "title": "CISA adds three live-exploitation priorities to the patch-control queue",
           "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
@@ -870,20 +878,6 @@
             "sourceType": "regulator",
             "significance": "NCSC recovery guidance emphasises governance, communications, minimum viable operations and rebuilding stronger. Recovery plans become credible only when firms practise them against business-led priorities.",
             "sourceUrl": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
-            "accessedDate": "2026-08-02"
-          }
-        },
-        {
-          "title": "UK and partners expose Russian state-supported actors for new ‘zero-click’ phishing campaign targeting Western organisations",
-          "url": "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
-          "source": "Primary / UK National Cyber Security Centre / 2026-07-23",
-          "evidence": {
-            "sourceTitle": "UK and partners expose Russian state-supported actors for new ‘zero-click’ phishing campaign targeting Western organisations",
-            "organisation": "UK National Cyber Security Centre",
-            "publishedDate": "2026-07-23",
-            "sourceType": "regulator",
-            "significance": "The campaign reinforces that identity and user-exposure controls need threat-led testing, rapid detection and clear ownership across internal teams and suppliers.",
-            "sourceUrl": "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign",
             "accessedDate": "2026-08-02"
           }
         }
@@ -1049,17 +1043,23 @@
           }
         },
         {
-          "title": "Bank of England's July Financial Stability Report reassesses technology and third-party failure risk",
-          "url": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-          "source": "Primary / Bank of England / 2026-07-07",
+          "rank": 6,
+          "title": "Incident reporting should be connected to customer impact and remediation evidence",
+          "url": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
+          "source": "Official expectations / FCA incident reporting",
           "evidence": {
-            "sourceTitle": "Cloud assurance should cover architecture, identity, logging, data recovery, and operational responsibility",
-            "organisation": "NCSC",
-            "publishedDate": "2026-07-07",
+            "sourceTitle": "Incident reporting should be connected to customer impact and remediation evidence",
+            "organisation": "FCA",
+            "publishedDate": "2026-07-09",
             "sourceType": "regulator",
-            "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026",
-            "accessedDate": "2026-07-09"
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "FCA incident-reporting expectations are maintained supervisory guidance and remain relevant as a control baseline."
+            }
           }
         }
       ],
@@ -1124,6 +1124,8 @@
           "title": "ESAs' first DORA incident report finds a third of major ICT incidents have cross-border impact",
           "url": "https://www.esma.europa.eu/press-news/esma-news/esas-publish-first-report-dora-major-ict-related-incidents",
           "source": "Primary / ESAs (EBA, EIOPA, ESMA) / 2026-06-03",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a current six-month anchor for the cross-border-impact evidence in the first DORA incident report.",
           "evidence": {
             "sourceTitle": "ESAs' first DORA incident report finds a third of major ICT incidents have cross-border impact",
             "organisation": "ESMA",
@@ -1234,6 +1236,8 @@
           "title": "Bank of England's Statistics Taxonomy v1.3.1 update retires the Statistical Utility tool firms relied on for XBRL filings",
           "url": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
           "source": "Primary / Bank of England / 2026-06-03",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a current six-month anchor because affected reporting teams may still depend on the retired tool's replacement controls and evidence.",
           "evidence": {
             "sourceTitle": "Bank of England's Statistics Taxonomy v1.3.1 update retires the Statistical Utility tool firms relied on for XBRL filings",
             "organisation": "Bank of England",

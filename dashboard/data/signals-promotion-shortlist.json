@@ -1,10 +1,10 @@
 {
-  "version": "2026-08-30",
-  "publicationDate": "2026-08-30",
+  "version": "2026-09-06",
+  "publicationDate": "2026-09-06",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-08-30T19:22:49.337Z",
-  "reviewedAt": "2026-08-30",
-  "purpose": "Editorially selected Signals candidates for the Sunday 30 August 2026 edition. Each selection is a distinct, current development from an approved primary source; its decision and control significance is completed before publication.",
+  "candidateGeneratedAt": "2026-09-06T10:02:36.428Z",
+  "reviewedAt": "2026-09-06",
+  "purpose": "Editorially selected Signals candidates for the Sunday 6 September 2026 edition. The selection avoids routine provider-status notices and weak sitemap dates; each item is a current, primary-source development with a concrete operating, control or evidence implication.",
   "criteria": [
     "materiality",
     "specificity",
@@ -19,17 +19,17 @@
     {
       "id": "ai",
       "selectedUrls": [
-        "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex"
+        "https://www.anthropic.com/news/enterprise-frontier-safeguards"
       ],
-      "editorialRationale": "Select OpenAI's announced wind-down of its Cursor model contract after a change of control. The source makes vendor ownership, contractual model access, migration and continuity a concrete governance question for firms that embed external AI models through intermediary platforms."
+      "editorialRationale": "Select Anthropic's Enterprise Frontier Safeguards announcement. It makes an immediately useful distinction for regulated deployments: who holds the activity data, encryption keys and review authority when monitoring detects possible misuse."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-        "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england"
+        "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
+        "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading"
       ],
-      "editorialRationale": "Select the CFTC event-contract enforcement action and HM Treasury's payments-innovation objective. Together they show that new market forms and payment infrastructure still depend on surveillance, conduct controls and financial-stability constraints."
+      "editorialRationale": "Select the CFTC's final clearing-rule change and the SEC's 24-hour-trading agenda. They are distinct but complementary implementation signals: clearing scope, overnight surveillance, failover, maintenance windows and staffing all need owned evidence rather than a generic market-readiness claim."
     },
     {
       "id": "third-party",
@@ -38,22 +38,25 @@
     },
     {
       "id": "resilience",
-      "selectedUrls": [],
-      "editorialRationale": "No new resilience item cleared the threshold. The ENISA sitemap timestamp was corrected to its actual 2018 publication date and excluded; the current FINMA resilience assessment remains the relevant reviewed record."
+      "selectedUrls": [
+        "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1"
+      ],
+      "editorialRationale": "Select AWS's CloudTrail investigation guide as a practical evidence signal, not a product announcement. It shows the fields and investigative route needed to establish cross-account access, mining activity or AI-service abuse after an alert."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [
-        "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion"
+        "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
+        "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch"
       ],
-      "editorialRationale": "Select the NCA forfeiture settlement because the official account identifies a route through UK electronic-money institutions and cryptocurrency involving suspected front companies and sanctions-linked funds. It creates a concrete source-of-funds, transaction-monitoring and escalation test."
+      "editorialRationale": "Select the Central Bank of Ireland's payment-fraud statistics and OFSI's Citibank London penalty notice. One makes the changing economics and routes of payment fraud visible; the other is a current sanctions-enforcement outcome. Both justify a precise review of detection, intervention and decision records."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog"
+        "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog"
       ],
-      "editorialRationale": "Select the latest CISA Known Exploited Vulnerabilities update. It is a new, accountable active-exploitation signal and should be expressed as a patch-control priority rather than as raw catalogue wording."
+      "editorialRationale": "Select the latest CISA Known Exploited Vulnerabilities update. An actively exploited flaw is a useful test of whether asset ownership, remediation authority, exception handling and independent closure evidence are genuinely current."
     },
     {
       "id": "technology-failure",
@@ -63,9 +66,8 @@
     {
       "id": "data",
       "selectedUrls": [
-        "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing"
       ],
-      "editorialRationale": "Select the ICO facial-recognition audit findings as a data-governance read-across. The source turns senior oversight, data provenance, retention, accuracy and bias testing into specific evidence asks for high-impact AI deployments."
+      "editorialRationale": "No new data item cleared the threshold. The ASIC candidate has a sitemap-derived date that does not establish a current publication date, and the ICO training announcement is not material enough for a fresh Top 5 placement. Retain the existing reviewed data-governance records rather than manufacture novelty."
     }
   ]
 }

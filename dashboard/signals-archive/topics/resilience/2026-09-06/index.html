@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Operational Resilience Signals | The Virtual Officer</title>
+    <meta name="description" content="Operational resilience signals covering failure paths, fallback evidence, customer impact, third-party dependencies, and control tests.">
+    <link rel="canonical" href="https://stgeorgesstrategy.com/signals/resilience/archive/2026-09-06/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="Operational Resilience Signals | The Virtual Officer">
+    <meta property="og:description" content="Operational resilience signals covering failure paths, fallback evidence, customer impact, third-party dependencies, and control tests.">
+    <meta property="og:url" content="https://stgeorgesstrategy.com/signals/resilience/archive/2026-09-06/">
+    <meta property="og:image" content="https://stgeorgesstrategy.com/assets/hero.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Operational Resilience Signals | The Virtual Officer">
+    <meta name="twitter:description" content="Operational resilience signals covering failure paths, fallback evidence, customer impact, third-party dependencies, and control tests.">
+    <script type="application/ld+json">
+      {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Operational Resilience Signals",
+            "description": "Operational resilience signals covering failure paths, fallback evidence, customer impact, third-party dependencies, and control tests.",
+            "author": {
+                  "@type": "Person",
+                  "name": "Ben St Georges",
+                  "email": "ben@stgeorgesstrategy.com",
+                  "sameAs": "https://www.linkedin.com/in/benstgeorges/"
+            },
+            "publisher": {
+                  "@type": "Organization",
+                  "name": "St Georges Strategy"
+            },
+            "datePublished": "2026-07-04",
+            "dateModified": "2026-07-04",
+            "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://stgeorgesstrategy.com/signals/resilience/archive/2026-09-06/"
+            }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="/"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/brief/">Weekly Brief</a>
+          <a href="/signals/" aria-current="page">Signals</a>
+          <a href="/regulatory-horizon/">Reg Horizon</a>
+          <a href="/committee-questions/">Committee Questions</a>
+          <a href="/archive/">Archive</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="masthead">
+        <p class="eyebrow">Signals / Operational resilience</p>
+        <h1>Failure paths, fallback evidence, and customer impact</h1>
+        <p class="dek">The exploded resilience page behind the weekly brief. It turns outages and control failures into internal tests of ownership, telemetry, tolerance, and recovery.</p>
+      </section>
+
+      <section class="band">
+        <div class="topic-layout">
+          <aside class="display-card">
+            <p class="meta">This week</p>
+            <h3>Top 5 resilience signals</h3>
+            <p>These are drawn from this week's live dashboard control-failure sources and turned into resilience tests.</p>
+            <ul class="mini-list">
+              <li class="signal-lead"><span class="signal-rank">01</span><div class="signal-current-copy"><span class="signal-status">New this week</span><a href="https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1">CloudTrail turns incident response into an evidence test</a><span class="top-source">Primary / AWS Security Blog / 2026-09-03</span></div></li>
+              <li><span class="signal-rank">02</span><div class="signal-current-copy"><span class="signal-status">Developing</span><a href="https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025">Swiss insurance sector continues to strengthen its resilience</a><span class="top-source">Primary / Swiss Financial Market Supervisory Authority / 2026-08-20</span></div></li>
+              <li><span class="signal-rank">03</span><div class="signal-current-copy"><span class="signal-status">Continuing priority</span><a href="https://www.fsa.go.jp/en/news/2026/20260730/20260730.html">Japan FSA publishes analytical report on IT resilience in the financial sector</a><span class="top-source">Primary / Financial Services Agency of Japan / 2026-07-30</span></div></li>
+              <li><span class="signal-rank">04</span><div class="signal-current-copy"><span class="signal-status">Continuing priority</span><a href="https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en">EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector</a><span class="top-source">Primary / European Insurance and Occupational Pensions Authority / 2026-07-31</span></div></li>
+              <li><span class="signal-rank">05</span><div class="signal-current-copy"><span class="signal-status">Continuing priority</span><a href="https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw">Cooling failure disrupts multiple Google Cloud services in one European zone</a><span class="top-source">Primary / Google Cloud Service Health / 2026-07-17</span></div></li>
+            </ul>
+          </aside>
+          <section>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Curated memory</p>
+                <h2>Still material</h2>
+              </div>
+              <p>These signals remain live after editorial review. Most stay for up to 90 days; exceptional structural anchors can remain for six months with a recorded reason.</p>
+            </div>
+            <ol class="brief-index evidence-list still-material-list">
+              <li><div class="signal-retention-meta"><span>Structural reference</span><span>Reviewed 2 Aug</span></div><a href="https://www.fca.org.uk/firms/operational-resilience"><h3>Important business services still need third-party evidence packs</h3></a><span class="meta">Official expectations / FCA operational resilience</span></li>
+              <li><div class="signal-retention-meta"><span>Longer-term anchor</span><span>Reviewed 2 Aug</span></div><a href="https://www.ft.com/content/32b5af43-6ceb-452d-ac2f-d4cda3f4938c"><h3>HSBC Australia penalty keeps complaint ageing in the resilience narrative</h3></a><span class="meta">Financial reporting / Financial Times / 2026-06-01</span></li>
+              <li><div class="signal-retention-meta"><span>90-day window</span><span>Reviewed 2 Aug</span></div><a href="https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough"><h3>Agent guardrails need operational recovery and incident communications</h3></a><span class="meta">Other reporting / TechRadar / 2026-06-22</span></li>
+              <li><div class="signal-retention-meta"><span>90-day window</span><span>Reviewed 2 Aug</span></div><a href="https://www.techradar.com/news/live/x-and-reddit-down-june-2026"><h3>Regional network degradation can create uneven customer impact</h3></a><span class="meta">Other reporting / TechRadar / 2026-06-22</span></li>
+              <li><div class="signal-retention-meta"><span>90-day window</span><span>Reviewed 2 Aug</span></div><a href="https://www.wired.com/story/cisa-ai-vulnerability-directive"><h3>Patch SLAs are compressing as AI changes vulnerability discovery</h3></a><span class="meta">Other reporting / WIRED / 2026-06-10</span></li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Why it made the weekly brief</p>
+            <h2>The editorial judgement</h2>
+          </div>
+          <p>Resilience signals matter when they reveal an internal control test: whether a firm understands its customer-visible failure paths and can evidence recovery under stress.</p>
+        </div>
+        <div class="grid-3">
+          <article class="brief-card">
+            <p class="meta">So what</p>
+            <h3>Availability is not the same as service continuity</h3>
+            <p>A platform can be technically up while customers cannot pay, trade, access, complain, or recover. The test is the journey, not the component.</p>
+          </article>
+          <article class="brief-card">
+            <p class="meta">Who cares</p>
+            <h3>COO, CIO, CISO, payments, complaints, conduct, and resilience teams</h3>
+            <p>Operational resilience belongs across business services, customer outcomes, third parties, cyber, incident response, and governance.</p>
+          </article>
+          <article class="brief-card">
+            <p class="meta">Evidence needed</p>
+            <h3>Dependency maps, tolerance tests, telemetry, and rehearsed fallback</h3>
+            <p>The weekly brief should push readers toward evidence that failure paths have been tested, not simply documented.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Resilience evidence checklist</p>
+            <h2>What the reader should ask for</h2>
+          </div>
+          <p>Resilience pages should end in practical evidence prompts that can be handed to a service owner or control owner.</p>
+        </div>
+        <ul class="horizon-list">
+          <li><time>Journey</time><span>Which customer journeys would visibly fail if the named provider, network route, or process degraded tonight?</span><span class="owner">Service</span></li>
+          <li><time>Map</time><span>Do dependency maps cover processors, telecoms, cloud, CDN, identity, data, staff, and manual workarounds?</span><span class="owner">Dependency</span></li>
+          <li><time>Measure</time><span>Is there customer-edge telemetry for each important business service, not only internal platform uptime?</span><span class="owner">Telemetry</span></li>
+          <li><time>Fallback</time><span>Have fallback routes been tested against volume, staffing, permissions, data access, and communications?</span><span class="owner">Recovery</span></li>
+          <li><time>Govern</time><span>Are lessons from incidents tied to accountable owners, dates, evidence, and committee visibility?</span><span class="owner">Owner</span></li>
+        </ul>
+      </section>
+
+      <section class="band">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Archive and source trail</p>
+            <h2>How this topic should compound over time</h2>
+          </div>
+          <p>Resilience is especially valuable as an archive because incidents repeat in patterns. The archive should preserve the pattern, not only the incident.</p>
+        </div>
+        <div class="archive-grid">
+          <a class="archive-card" href="/brief/"><p class="meta">Week of 1 Jul 2026</p><h3>Payment fallback and customer-edge telemetry</h3><p>Included as weekly control lessons.</p></a>
+          <a class="archive-card" href="/brief/"><p class="meta">Source trail</p><h3>Outages, penalties, supervisory updates, and incident reporting</h3><p>The weekly brief preserves the Guardian, FT, Wired, TechRadar, and official-source trail.</p></a>
+          <a class="archive-card" href="https://www.fca.org.uk/firms/operational-resilience"><p class="meta">Official baseline</p><h3>FCA operational resilience expectations</h3><p>Use as the standing reference for impact tolerances, important business services, and evidence.</p></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">Operational Resilience</div>
+        <div class="footer-note">Source-backed topic page.</div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

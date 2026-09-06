@@ -1,16 +1,17 @@
-# Signals promotion log — 2026-08-30
+# Signals promotion log — 2026-09-06
 
 - ai: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Our decision on Cursor following its acquisition by SpaceX" — Primary / OpenAI / 2026-08-28 — https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex
-- resilience: promoted 0 fresh candidate(s), kept 5 existing row(s)
+    + "Developing Enterprise Frontier Safeguards with our customers" — Primary / Anthropic / 2026-09-02 — https://www.anthropic.com/news/enterprise-frontier-safeguards
+- resilience: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "Incident response guide for AWS CloudTrail investigations – Part 1" — Primary / AWS Security Blog / 2026-09-03 — https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1
 - third-party: promoted 0 fresh candidate(s), kept 5 existing row(s)
 - market-structure: promoted 2 fresh candidate(s), kept 3 existing row(s)
-    + "CFTC Orders Gabriel Perez to Pay $172,000 for  Insider Trading of Mention Market Event Contracts" — Primary / US Commodity Futures Trading Commission / 2026-08-28 — https://www.cftc.gov/PressRoom/PressReleases/9289-26
-    + "Ministers to boost innovation in payments with new objective for Bank of England" — Primary / HM Treasury / 2026-08-27 — https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england
-- financial-crime: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Millions forfeited by company linked to suspected money laundering and sanctions evasion" — Primary / National Crime Agency / 2026-08-27 — https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion
+    + "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps" — Primary / US Commodity Futures Trading Commission / 2026-09-02 — https://www.cftc.gov/PressRoom/PressReleases/9292-26
+    + "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading" — Primary / US Securities and Exchange Commission / 2026-09-01 — https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading
+- financial-crime: promoted 2 fresh candidate(s), kept 3 existing row(s)
+    + "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds" — Primary / Central Bank of Ireland / 2026-09-04 — https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds
+    + "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch" — Primary / UK Office of Financial Sanctions Implementation / 2026-09-02 — https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch
 - cyber: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "CISA Adds Three Known Exploited Vulnerabilities to Catalog" — Primary / US Cybersecurity and Infrastructure Security Agency / 2026-08-27 — https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog
-- technology-failure: promoted 0 fresh candidate(s), kept 5 existing row(s)
-- data: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Facial recognition in policing: earning public trust through strong data protection governance" — Primary / UK Information Commissioner's Office / 2026-08-18 — https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing
+    + "CISA Adds One Known Exploited Vulnerability to Catalog" — Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-04 — https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog
+- technology-failure: promoted 0 fresh candidate(s), kept 5 existing row(s); skipped 1 (stale backfill excluded: https://www.bankofengland.co.uk/financial-stability-report/2026/july-2026)
+- data: promoted 0 fresh candidate(s), kept 5 existing row(s)

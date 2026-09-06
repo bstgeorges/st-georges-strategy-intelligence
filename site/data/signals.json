@@ -10,7 +10,7 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
-          "title": "Anthropic makes customer-held AI logs a deployment control",
+          "title": "Anthropic announces customer-held AI monitoring, with rollout still phased",
           "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
           "source": "Primary / Anthropic / 2026-09-01",
           "evidence": {
@@ -18,7 +18,7 @@
             "organisation": "Anthropic",
             "publishedDate": "2026-09-01",
             "sourceType": "company announcement",
-            "significance": "Anthropic's proposed safeguards keep activity data in the customer's cloud account and send monitoring flags to the customer's own team. For regulated AI, the practical questions are who holds the keys, who can see the logs, who reviews a flag and how that decision is evidenced.",
+            "significance": "Anthropic announced Enterprise Frontier Safeguards; it says rollout will be phased starting later this autumn. If adopted, the design would keep monitoring data in the customer's cloud account under its own encryption keys and send flags to its team, while the customer incurs its cloud storage, read/write and egress charges. For regulated AI, the immediate question is whether the firm has an owner, cost model and review path ready before the control is available.",
             "sourceUrl": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
             "accessedDate": "2026-09-06"
           }
@@ -817,16 +817,16 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
-          "title": "CISA's latest exploited vulnerability tests whether patch decisions have an owner",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-04",
+          "title": "CISA adds exploited LiteLLM and Kestra flaws to the priority list",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-02",
           "evidence": {
-            "sourceTitle": "CISA Adds One Known Exploited Vulnerability to Catalog",
+            "sourceTitle": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog",
             "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-09-04",
+            "publishedDate": "2026-09-02",
             "sourceType": "regulator",
-            "significance": "CISA has added another actively exploited vulnerability to its Known Exploited Vulnerabilities catalogue. The signal is not the catalogue entry itself; it is whether asset ownership, remediation authority, time-bound exceptions and independent closure evidence are ready when exploitation is already live.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+            "significance": "CISA's 2 September Known Exploited Vulnerabilities additions include improper authentication in BerriAI LiteLLM and OS command injection in Kestra OSS. For firms using AI gateways or workflow orchestration, the management test is whether asset coverage, internet-exposure assessment, remediation authority and independently verified closure are ready when exploitation is already live.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
             "accessedDate": "2026-09-06"
           }
         },

@@ -53,8 +53,11 @@ function renderDashboard({ register, review, health, qa, changes, discovery }) {
   const sourceAge = Number(metrics.sourceAgeDays);
   const readinessTone = readiness.relaunchEligible ? "good" : readinessScore >= 70 ? "watch" : "hold";
   const statusText = readiness.relaunchEligible ? "Relaunch criteria met" : "Private shadow mode";
-  const coverageText = `${metrics.confirmedAuthorities || 0} of 4 confirmed authorities`;
+  const coverageText = `${metrics.confirmedAuthorities || 0} confirmed authorities · threshold 4`;
   const healthText = `${healthCounts.ok || 0} healthy sources`;
+  const attentionCount = Object.entries(healthCounts)
+    .filter(([status]) => status !== "ok")
+    .reduce((sum, [, count]) => sum + Number(count || 0), 0);
 
   return `<!doctype html>
 <html lang="en">
@@ -94,7 +97,7 @@ function renderDashboard({ register, review, health, qa, changes, discovery }) {
         <article class="status-card primary"><span class="label">Operating mode</span><strong>${escapeHtml(statusText)}</strong><p>${readiness.relaunchEligible ? "Quality criteria are satisfied." : "The public Horizon remains withdrawn while evidence accumulates."}</p></article>
         <article class="status-card"><span class="label">Confirmed open dates</span><strong>${confirmed.length}</strong><p>${items.length} cumulative record${items.length === 1 ? "" : "s"} currently retained.</p></article>
         <article class="status-card tone-${readinessTone}"><span class="label">Readiness</span><strong>${readinessScore} / 100</strong><p>${coverageText} · ${sourceAge >= 0 ? `${sourceAge} day-old source edition` : "source age pending"}</p></article>
-        <article class="status-card"><span class="label">Source health</span><strong>${escapeHtml(String(healthCounts.ok || 0))}</strong><p>${healthText}; ${(healthCounts.blocked || 0) + (healthCounts.failed || 0)} need attention.</p></article>
+        <article class="status-card"><span class="label">Source health</span><strong>${escapeHtml(String(healthCounts.ok || 0))}</strong><p>${healthText}; ${attentionCount} need attention.</p></article>
       </section>
 
       <section class="panel panel-pad source-estate" aria-labelledby="source-estate-title">

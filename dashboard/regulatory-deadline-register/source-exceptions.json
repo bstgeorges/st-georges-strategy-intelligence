@@ -5,66 +5,42 @@
     {
       "sourceId": "iosco",
       "expectedStatus": "blocked",
-      "issue": "The official news page returned a 403 anti-bot response during the latest scan.",
+      "issue": "The official IOSCO news page returned a 403 anti-bot response in the 6 September scan.",
       "governance": "Do not bypass the control. Test an official RSS, newsroom API or published collection before changing transport; otherwise retain the blocked status.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
+      "lastChecked": "2026-09-06",
+      "nextCheck": "2026-09-13"
     },
     {
-    "sourceId": "bcbs",
-    "expectedStatus": "blocked",
-    "issue": "The official BCBS publications page returned a 403 anti-bot response during the 29 August scan.",
-    "governance": "Do not bypass the control. Test an official RSS, publications feed or published collection before changing transport; otherwise retain the blocked status.",
-    "lastChecked": "2026-08-29",
-    "nextCheck": "2026-09-01"
-  },
-  {
-    "sourceId": "italy-consob",
+      "sourceId": "bcbs",
       "expectedStatus": "blocked",
-      "issue": "The official collection was challenged by anti-bot protection during the latest scan.",
+      "issue": "The official BCBS publications page returned a 403 anti-bot response in the 6 September scan.",
+      "governance": "Do not bypass the control. Test an official RSS, publications feed or published collection before changing transport; otherwise retain the blocked status.",
+      "lastChecked": "2026-09-06",
+      "nextCheck": "2026-09-13"
+    },
+    {
+      "sourceId": "italy-consob",
+      "expectedStatus": "blocked",
+      "issue": "The official Consob press-release and consultation collections were blocked by anti-bot protection in the 6 September scan.",
       "governance": "Use only an official alternate collection that returns date-bearing publication rows; otherwise retain the blocked status.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
-    },
-    {
-      "sourceId": "uk-nca",
-      "expectedStatus": "ok",
-      "issue": "Resolved on 22 August and healthy again on 27 August: the retired news.rss endpoint was replaced with the official news feed, which returned parseable entries.",
-      "governance": "Keep the corrected official feed under normal health monitoring; reopen this exception if it fails or returns no usable rows.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
-    },
-    {
-      "sourceId": "ofac-recent-actions",
-      "expectedStatus": "ok",
-      "issue": "Resolved on 22 August and healthy again on 27 August: the official page completed after a bounded timeout and retry adjustment.",
-      "governance": "Keep the official page under normal health monitoring; reopen this exception if the page times out or stops yielding usable rows.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
-    },
-    {
-      "sourceId": "south-africa-sarb",
-      "expectedStatus": "failed",
-      "issue": "The official newsroom connection timed out.",
-      "governance": "Retry the official newsroom with the browser profile and bounded timeout. Do not infer inactivity from a failed connection.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
+      "lastChecked": "2026-09-06",
+      "nextCheck": "2026-09-13"
     },
     {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
-      "issue": "The official publication page returned no recognisable rows to the current parser.",
-      "governance": "Repair selectors only after validating current official page structure and date extraction; keep degraded until rows are proven.",
-      "lastChecked": "2026-08-27",
-      "nextCheck": "2026-08-30"
+      "issue": "The official Banco Central do Brasil publication page returned no recognisable rows to the current parser.",
+      "governance": "Repair selectors only after validating the current official page structure and date extraction; keep degraded until rows are proven.",
+      "lastChecked": "2026-09-06",
+      "nextCheck": "2026-09-13"
     },
     {
-      "sourceId": "mexico-cnbv",
-      "expectedStatus": "ok",
-      "issue": "Recovered on the 27 August follow-up scan: the official CNBV page completed without a transport or access error, although it yielded no current candidate rows.",
-      "governance": "Retain the official page under normal health monitoring. Reopen this exception if an access error returns, or if repeated successful scans yield no date-bearing rows and the current official page structure requires a parser review.",
-      "lastChecked": "2026-08-28",
-      "nextCheck": "2026-08-30"
+      "sourceId": "south-africa-sarb",
+      "expectedStatus": "failed",
+      "issue": "The official South African Reserve Bank newsroom connection timed out in the 6 September scan.",
+      "governance": "Retry the official newsroom with the browser request profile and bounded timeout. Do not infer inactivity from a failed connection.",
+      "lastChecked": "2026-09-06",
+      "nextCheck": "2026-09-13"
     }
   ]
 }

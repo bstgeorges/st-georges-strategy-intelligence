@@ -64,6 +64,16 @@ class TestDeadlines(unittest.TestCase):
             "2026-09-21",
         )
 
+    def test_consultation_close_date_does_not_select_open_date(self):
+        text = (
+            "Issue Date: 28 Aug 2026 Consultation Status: OPEN "
+            "Consultation Open Date: 28 Aug 2026 "
+            "Consultation Close Date: 28 Sep 2026"
+        )
+        evidence = self.extract_evidence(text, "2026-08-27T00:00:00+00:00")
+        self.assertEqual(evidence["date"], "2026-09-28")
+        self.assertEqual(evidence["trigger"], "Consultation Close")
+
     def test_annotate_attaches_deadline(self):
         records = [
             {

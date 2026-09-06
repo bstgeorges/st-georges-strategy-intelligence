@@ -1,9 +1,9 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-06T09:33:00.639Z",
+  "generatedAt": "2026-09-06T13:48:41.464Z",
   "asOf": "2026-09-06",
-  "sourceEdition": "2026-09-04",
+  "sourceEdition": "2026-09-06",
   "carryForwardGraceDays": 30,
   "items": [
     {
@@ -64,7 +64,7 @@
         "deadlineCue": {
           "date": "2026-08-24",
           "trigger": "deadline",
-          "triggerDistance": 63,
+          "triggerDistance": 55,
           "quote": "174 – Miscellaneous changes The deadline for providing comments on this Consultation Paper is 24 August 2026",
           "source": "primary-document-detail"
         },
@@ -84,7 +84,7 @@
       },
       "firstSeen": "2026-08-14",
       "lastSeen": "2026-09-06",
-      "sourceEdition": "2026-09-04"
+      "sourceEdition": "2026-09-06"
     },
     {
       "id": "cb35cc0bb665af1d7f0d",
@@ -124,7 +124,7 @@
         }
       },
       "sourcePublishedAt": "2026-08-27",
-      "status": "ready-for-review",
+      "status": "superseded",
       "intake": "scanner",
       "decision": null,
       "evidence": {
@@ -153,7 +153,9 @@
       },
       "firstSeen": "2026-09-03",
       "lastSeen": "2026-09-06",
-      "sourceEdition": "2026-09-04"
+      "sourceEdition": "2026-09-04",
+      "supersededAt": "2026-09-06",
+      "supersededBy": "c607f1858dcfd5cb23f0"
     },
     {
       "id": "2e61b9c6cd8a588f1b18",
@@ -212,8 +214,8 @@
         "change": "HM Treasury consultation on the Bank of England fee regime for recognised payment systems and digital settlement asset service providers.",
         "detailChecked": true,
         "deadlineCue": "The consultation document states that it closes on 31 August 2026.",
-        "verifiedAt": "2026-08-22",
-        "verification": "primary GOV.UK page and linked HM Treasury consultation document checked; the document states the consultation will close on 31 August 2026."
+        "verifiedAt": "2026-09-06",
+        "verification": "primary GOV.UK consultation page rechecked; it is now marked Closed. The original linked HM Treasury consultation document remains the source-date evidence for the 31 August 2026 close."
       },
       "ownerGuidance": {
         "owners": [
@@ -371,7 +373,7 @@
         "deadlineCue": {
           "date": "2026-09-11",
           "trigger": "deadline",
-          "triggerDistance": 27,
+          "triggerDistance": 19,
           "quote": "The deadline for responses is 11 September 2026",
           "source": "primary-document-detail"
         },
@@ -390,7 +392,7 @@
       },
       "firstSeen": "2026-08-22",
       "lastSeen": "2026-09-06",
-      "sourceEdition": "2026-09-04"
+      "sourceEdition": "2026-09-06"
     },
     {
       "id": "71180740b5070ae27d93",
@@ -627,6 +629,75 @@
       "sourceEdition": "2026-08-31"
     },
     {
+      "id": "c607f1858dcfd5cb23f0",
+      "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
+      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
+      "deadline": "2026-09-28",
+      "daysToDeadline": 22,
+      "stage": "consultation",
+      "authority": {
+        "id": "hkma",
+        "name": "Hong Kong Monetary Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "themes": [],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.575,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-08-27",
+      "status": "ready-for-review",
+      "intake": "scanner",
+      "decision": null,
+      "evidence": {
+        "change": "Hong Kong Monetary Authority published a consultation on 2026-08-27.",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-09-28",
+          "trigger": "Consultation Close",
+          "triggerDistance": 8,
+          "quote": "Issue Date: 28 Aug 2026 Consultation Status: OPEN Consultation Open Date: 28 Aug 2026 Consultation Close Date: 28 Sep 2026 20260827-3-EN",
+          "source": "primary-document-detail"
+        },
+        "verifiedAt": null,
+        "verification": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Regulatory change lead",
+          "Applicable business owner"
+        ],
+        "prepare": [
+          "Confirm applicability",
+          "Name an accountable owner",
+          "Record the governing forum and decision date"
+        ]
+      },
+      "firstSeen": "2026-09-06",
+      "lastSeen": "2026-09-06",
+      "sourceEdition": "2026-09-06"
+    },
+    {
       "id": "447479f78f8e7b2729d5",
       "title": "Modernising Payment Services Regulation",
       "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
@@ -844,7 +915,7 @@
         "deadlineCue": {
           "date": "2026-10-22",
           "trigger": "consultation closes",
-          "triggerDistance": 24,
+          "triggerDistance": 5,
           "quote": "The consultation closes on 22 October 2026",
           "source": "primary-document-detail"
         },
@@ -864,7 +935,7 @@
       },
       "firstSeen": "2026-08-16",
       "lastSeen": "2026-09-06",
-      "sourceEdition": "2026-09-04"
+      "sourceEdition": "2026-09-06"
     },
     {
       "id": "e5665ae225f5d4706d2d",

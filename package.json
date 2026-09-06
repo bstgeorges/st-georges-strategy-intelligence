@@ -52,7 +52,7 @@
     "deadline-dashboard:build": "npm run deadline-discovery:build && node scripts/render_regulatory_deadline_dashboard.mjs",
     "deadline-dashboard:test": "node --test scripts/regulatory_deadline_dashboard.test.mjs",
     "horizon:sync": "node scripts/sync_reg_horizon.mjs",
-    "horizon:refresh": "npm run reg-scan:run && npm run horizon:sync",
+    "horizon:refresh": "npm run reg-scan:run -- --window 90 && npm run deadline-register:build && npm run deadline-register:validate && npm run deadline-dashboard:build",
     "horizon:withhold": "node scripts/withhold_reg_horizon_edition.mjs",
     "sitemap:generate": "node scripts/generate_sitemap.mjs",
     "predeploy:cloudflare": "npm run release:guard && npm run site:build && npm run verify:generated-links",

@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-06T10:02:36.428Z",
-  "preparedAt": "2026-09-06T10:02:48.267Z",
+  "candidateGeneratedAt": "2026-09-06T10:24:03.971Z",
+  "preparedAt": "2026-09-06T10:24:15.032Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -17,11 +17,11 @@
   "editorial": {
     "decisionTypeCounts": {
       "rule-change": 3,
-      "enforcement": 2,
-      "active-threat": 7,
+      "enforcement": 1,
+      "active-threat": 6,
       "outage": 3,
-      "research": 3,
-      "context": 67
+      "research": 2,
+      "context": 64
     },
     "decisionTypeGroups": [
       {
@@ -73,7 +73,7 @@
       {
         "id": "enforcement",
         "label": "enforcement",
-        "candidateCount": 2,
+        "candidateCount": 1,
         "candidates": [
           {
             "title": "26-042MR Brisbane financial advisor and auditor, Sunny Prakash, charged with multiple counts of stealing and fraud | ASIC",
@@ -87,40 +87,14 @@
             "topics": [
               "financial-crime"
             ]
-          },
-          {
-            "title": "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch",
-            "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
-            "sourceName": "UK Office of Financial Sanctions Implementation",
-            "sourceOwner": "ofsi",
-            "publishedAt": "2026-09-02T09:22:20.000Z",
-            "relevanceScore": 77,
-            "decisionType": "enforcement",
-            "region": "UK/EMEA",
-            "topics": [
-              "financial-crime"
-            ]
           }
         ]
       },
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "candidates": [
-          {
-            "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-09-04T12:00:00.000Z",
-            "relevanceScore": 97,
-            "decisionType": "active-threat",
-            "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
           {
             "title": "An AI-Assisted Cyber Attack: Inside a Unit 42 Investigation",
             "url": "https://unit42.paloaltonetworks.com/ai-assisted-cyber-attack-inside-a-unit-42-investigation",
@@ -166,7 +140,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-08-28T10:09:12.000Z",
-            "relevanceScore": 83,
+            "relevanceScore": 82,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -253,22 +227,8 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 3,
+        "candidateCount": 2,
         "candidates": [
-          {
-            "title": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-            "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-            "sourceName": "Central Bank of Ireland",
-            "sourceOwner": "ireland-cbi",
-            "publishedAt": "2026-09-04T09:01:00.000Z",
-            "relevanceScore": 81,
-            "decisionType": "research",
-            "region": "UK/EMEA",
-            "topics": [
-              "financial-crime",
-              "market-structure"
-            ]
-          },
           {
             "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
             "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
@@ -300,7 +260,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 67,
+        "candidateCount": 64,
         "candidates": [
           {
             "title": "DPRK APTs: Ted backdoor and curlRAT target South Korean media and automotive sectors",
@@ -352,19 +312,6 @@
             "region": "Global/other",
             "topics": [
               "cyber"
-            ]
-          },
-          {
-            "title": "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps",
-            "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-            "sourceName": "US Commodity Futures Trading Commission",
-            "sourceOwner": "cftc",
-            "publishedAt": "2026-09-02T16:04:52.000Z",
-            "relevanceScore": 93,
-            "decisionType": "context",
-            "region": "US",
-            "topics": [
-              "market-structure"
             ]
           },
           {
@@ -433,84 +380,97 @@
             "topics": [
               "third-party"
             ]
+          },
+          {
+            "title": "The Good, the Bad and the Ugly in Cybersecurity – Week 35 (2026)",
+            "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-35-8",
+            "sourceName": "SentinelOne Labs",
+            "sourceOwner": "sentinelone",
+            "publishedAt": "2026-08-28T16:01:30.000Z",
+            "relevanceScore": 83,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 95,
-      "uniqueCandidateEvents": 85,
-      "crossThemeDuplicatesCollapsed": 10,
+      "candidateRows": 88,
+      "uniqueCandidateEvents": 79,
+      "crossThemeDuplicatesCollapsed": 9,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 9.4
+          "share": 10.1
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.9
+          "share": 6.3
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 5,
-          "share": 5.9
+          "share": 6.3
+        },
+        {
+          "sourceOwner": "microsoft-security",
+          "sourceName": "Microsoft Security Blog",
+          "count": 5,
+          "share": 6.3
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.9
+          "share": 6.3
         },
         {
           "sourceOwner": "openai",
           "sourceName": "OpenAI",
           "count": 5,
-          "share": 5.9
-        },
-        {
-          "sourceOwner": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "count": 5,
-          "share": 5.9
+          "share": 6.3
         },
         {
           "sourceOwner": "asic",
           "sourceName": "Australian Securities and Investments Commission",
           "count": 4,
-          "share": 4.7
+          "share": 5.1
         },
         {
-          "sourceOwner": "aws-security",
-          "sourceName": "AWS Security Blog",
+          "sourceOwner": "checkpoint",
+          "sourceName": "Check Point Research",
           "count": 4,
-          "share": 4.7
+          "share": 5.1
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 22,
-          "share": 25.9
+          "count": 20,
+          "share": 25.3
         },
         {
           "region": "US",
-          "count": 10,
-          "share": 11.8
+          "count": 7,
+          "share": 8.9
         },
         {
           "region": "Global/other",
-          "count": 53,
-          "share": 62.4
+          "count": 52,
+          "share": 65.8
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 81,
+        "newCandidateEvents": 75,
         "alreadyPublishedCandidates": 4,
         "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 36
@@ -779,7 +739,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1304,20 +1264,6 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "publishedAt": "2026-09-02T16:04:52.000Z",
-          "relevanceScore": 93
-        },
-        {
-          "title": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "sourceName": "Central Bank of Ireland",
-          "publishedAt": "2026-09-04T09:01:00.000Z",
-          "relevanceScore": 81
-        },
-        {
           "title": "HKMA reminds public to stay alert to phishing scams targeting binding of payment cards to contactless mobile payment services",
           "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260904-6",
           "sourceName": "Hong Kong Monetary Authority",
@@ -1332,11 +1278,25 @@
           "relevanceScore": 79
         },
         {
-          "title": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
+          "title": "SEC and FDA Announce MOU to Bolster Cooperation and Ensure Market Integrity",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-80-sec-fda-announce-mou-bolster-cooperation-ensure-market-integrity",
           "sourceName": "US Securities and Exchange Commission",
-          "publishedAt": "2026-09-01T19:17:39.000Z",
-          "relevanceScore": 78
+          "publishedAt": "2026-08-31T18:24:32.000Z",
+          "relevanceScore": 76
+        },
+        {
+          "title": "La CNMV considera que la estabilidad financiera de los mercados españoles es sólida, pero los riesgos tecnológicos y de implantación de la Inteligencia Artificial requieren seguimiento",
+          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
+          "sourceName": "Comisión Nacional del Mercado de Valores",
+          "publishedAt": "2026-07-30T10:00:00.000Z",
+          "relevanceScore": 70
+        },
+        {
+          "title": "L'AMF et l'ACPR mettent en garde le public contre plusieurs acteurs proposant en France des investissements sur le marché des devises non régulé (Forex) et sur des produits dérivés sur crypto-actifs, sans y être autorisés",
+          "url": "https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/lamf-et-lacpr-mettent-en-garde-le-public-contre-plusieurs-acteurs-proposant-en-france-des-1",
+          "sourceName": "Autorité des marchés financiers",
+          "publishedAt": "2026-07-09T12:30:04.000Z",
+          "relevanceScore": 70
         }
       ]
     },
@@ -1402,13 +1362,6 @@
           "relevanceScore": 80
         },
         {
-          "title": "Incident response guide for AWS CloudTrail investigations – Part 1",
-          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
-          "sourceName": "AWS Security Blog",
-          "publishedAt": "2026-09-03T21:15:39.000Z",
-          "relevanceScore": 80
-        },
-        {
           "title": "Swiss insurance sector continues to strengthen its resilience",
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "sourceName": "Swiss Financial Market Supervisory Authority",
@@ -1422,13 +1375,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "sourceName": "Central Bank of Ireland",
-          "publishedAt": "2026-09-04T09:01:00.000Z",
-          "relevanceScore": 81
-        },
         {
           "title": "26-042MR Brisbane financial advisor and auditor, Sunny Prakash, charged with multiple counts of stealing and fraud | ASIC",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-042mr-brisbane-financial-advisor-and-auditor-sunny-prakash-charged-with-multiple-counts-of-stealing-and-fraud",
@@ -1456,6 +1402,13 @@
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-03T00:29:21.000Z",
           "relevanceScore": 79
+        },
+        {
+          "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+          "sourceName": "Australian Securities and Investments Commission",
+          "publishedAt": "2026-09-02T23:00:58.000Z",
+          "relevanceScore": 79
         }
       ]
     },
@@ -1464,13 +1417,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "publishedAt": "2026-09-04T12:00:00.000Z",
-          "relevanceScore": 97
-        },
         {
           "title": "DPRK APTs: Ted backdoor and curlRAT target South Korean media and automotive sectors",
           "url": "https://www.rapid7.com/blog/post/tr-dprk-apts-ted-backdoor-curlrat-target-south-korean-media-automotive-sectors",
@@ -1498,6 +1444,13 @@
           "sourceName": "Rapid7 Research",
           "publishedAt": "2026-09-02T16:58:45.000Z",
           "relevanceScore": 93
+        },
+        {
+          "title": "An AI-Assisted Cyber Attack: Inside a Unit 42 Investigation",
+          "url": "https://unit42.paloaltonetworks.com/ai-assisted-cyber-attack-inside-a-unit-42-investigation",
+          "sourceName": "Palo Alto Networks Unit 42",
+          "publishedAt": "2026-09-02T10:00:46.000Z",
+          "relevanceScore": 92
         }
       ]
     },

@@ -29,7 +29,7 @@ function titleCase(value) {
   return String(value || "Other").replace(/-/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
-function renderPreview({ register, health, discovery }) {
+function renderPreview({ register, health }) {
   const asOf = register.asOf || "";
   const asOfTime = /^\d{4}-\d{2}-\d{2}$/.test(asOf) ? new Date(`${asOf}T00:00:00Z`).valueOf() : Date.now();
   const confirmed = (register.items || [])
@@ -40,12 +40,6 @@ function renderPreview({ register, health, discovery }) {
   const sourceHealth = health.sourceHealth || [];
   const healthy = sourceHealth.filter((source) => source.status === "ok").length;
   const sourceCount = sourceHealth.length;
-  const themes = new Map();
-  for (const item of confirmed) for (const theme of item.themes || []) themes.set(theme, (themes.get(theme) || 0) + 1);
-  const themeRows = [...themes.entries()].sort((a, b) => b[1] - a[1]);
-  const maxTheme = Math.max(1, ...themeRows.map(([, count]) => count));
-  const categories = Object.entries(discovery.activeIntake?.sourceCategories || {}).sort((a, b) => b[1] - a[1]);
-  const maxCategory = Math.max(1, ...categories.map(([, count]) => count));
   const deadlineCards = confirmed.slice(0, 5).map((item) => {
     const days = Math.round((new Date(`${item.deadline}T00:00:00Z`).valueOf() - asOfTime) / 86400000);
     return `<article class="deadline-card"><p class="date">${escapeHtml(formatDate(item.deadline))}</p><p class="days">${escapeHtml(String(days))} days</p><h3><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.authority?.name || "Official source")} · ${escapeHtml(titleCase(item.stage))}</p></article>`;
@@ -69,9 +63,8 @@ function renderPreview({ register, health, discovery }) {
       <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day evidence window · official sources only</p></div><aside class="hero-note"><p class="eyebrow">This week’s picture</p><p>${escapeHtml(String(dueIn30.length))} confirmed dates fall within the next 30 days, across ${escapeHtml(String(authorities.size))} authorities. The purpose is not to predict every change; it is to make the next relevant decision window visible.</p></aside></section>
       <section class="metric-grid" aria-label="Regulatory Horizon overview"><article class="metric"><span>Confirmed dates</span><strong>${escapeHtml(String(confirmed.length))}</strong><p>Future dates retained with primary-source evidence.</p></article><article class="metric"><span>Next 30 days</span><strong>${escapeHtml(String(dueIn30.length))}</strong><p>Dates that should already have an owner or a monitoring decision.</p></article><article class="metric"><span>Authorities represented</span><strong>${escapeHtml(String(authorities.size))}</strong><p>Official bodies behind the confirmed current horizon.</p></article><article class="metric"><span>Source coverage</span><strong>${escapeHtml(String(healthy))}/${escapeHtml(String(sourceCount))}</strong><p>Official sources returning usable material in the latest scan.</p></article></section>
       <section class="section"><div class="section-head"><div><p class="eyebrow">Calendar ahead</p><h2>The next decision windows</h2></div><p>Each card leads to the primary record. It does not imply that the item applies to every organisation.</p></div><div class="deadline-grid">${deadlineCards || '<article class="deadline-card"><h3>No confirmed future dates are currently available.</h3></article>'}</div></section>
-      <section class="section insight-grid"><article class="panel"><p class="eyebrow">Horizon profile</p><h2>Where the current dates are concentrated</h2><p>The profile reflects confirmed upcoming dates, rather than the volume of unreviewed publications.</p><div class="bar-list">${themeRows.map(([theme,count])=>`<div class="bar"><span>${escapeHtml(titleCase(theme))}</span><div class="track"><div class="fill" style="width:${Math.round((count/maxTheme)*100)}%"></div></div><b>${escapeHtml(String(count))}</b></div>`).join("") || '<p>No thematic classification is available yet.</p>'}</div></article><article class="panel method"><p class="eyebrow">Method</p><h2>Useful, but not falsely complete.</h2><p>This reader view shows confirmed future dates only. It deliberately excludes source failures, scanner candidates and internal approval records.</p><ul><li>${escapeHtml(String(discovery.activeIntake?.sources || sourceCount))} configured primary sources across ${escapeHtml(String(discovery.activeIntake?.jurisdictions || "multiple"))} jurisdictions.</li><li>Direct links to the official source for every displayed date.</li><li>Organisation-specific applicability remains a separate decision.</li></ul></article></section>
       <section class="section"><div class="section-head"><div><p class="eyebrow">Full horizon</p><h2>Confirmed upcoming dates</h2></div><p>Use this as a clear starting point for discussion, ownership and evidence—not as a substitute for legal or regulatory advice.</p></div><div class="table-wrap"><table><thead><tr><th>Due</th><th>Official item</th><th>Authority</th><th>Stage</th></tr></thead><tbody>${tableRows || '<tr><td colspan="4">No confirmed future dates are currently available.</td></tr>'}</tbody></table></div></section>
-      <p class="footer">Private preview generated from the regulatory deadline register. It has not been released to the public site.</p>
+      <p class="footer">Every date links directly to its official source. This private preview has not been released to the public site.</p>
     </main>
   </body>
 </html>`;
@@ -80,9 +73,8 @@ function renderPreview({ register, health, discovery }) {
 function run() {
   const register = readJson(path.join(REGISTER_DIR, "register.json"), { items: [] });
   const health = readJson(path.join(REGISTER_DIR, "health.json"), { sourceHealth: [] });
-  const discovery = readJson(path.join(REGISTER_DIR, "discovery.json"), {});
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), `${renderPreview({ register, health, discovery })}\n`);
+  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), `${renderPreview({ register, health })}\n`);
   console.log(`Regulatory Horizon product preview rendered: ${path.relative(ROOT, path.join(OUTPUT_DIR, "index.html"))}`);
 }
 

@@ -40,15 +40,17 @@ function removeBandByEyebrow(html, eyebrow) {
  * reader's first pass through the weekly edition.
  */
 export function simplifyBriefExperience(html) {
+  const compact = removeSectionById(
+    removeSectionById(html, "brief-supporting-analysis"),
+    "brief-evidence-watch",
+  );
   return [
     "Coverage read",
-    "Executive pulse",
-    "Evidence watch",
     "Control lessons",
     "Executive challenge",
     "Thought leadership radar",
     "Reg Horizon",
-  ].reduce((result, eyebrow) => removeBandByEyebrow(result, eyebrow), html);
+  ].reduce((result, eyebrow) => removeBandByEyebrow(result, eyebrow), compact);
 }
 
 export function simplifySignalsExperience(html) {

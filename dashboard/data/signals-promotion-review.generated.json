@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-06T10:24:03.971Z",
-  "preparedAt": "2026-09-06T10:24:15.032Z",
+  "candidateGeneratedAt": "2026-09-06T20:49:55.389Z",
+  "preparedAt": "2026-09-06T20:50:07.139Z",
   "instructions": "Start with decision-type groups and diversity controls, then review the proposed candidates by theme. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -19,9 +19,9 @@
       "rule-change": 3,
       "enforcement": 1,
       "active-threat": 6,
-      "outage": 3,
-      "research": 2,
-      "context": 64
+      "outage": 4,
+      "research": 3,
+      "context": 61
     },
     "decisionTypeGroups": [
       {
@@ -81,7 +81,7 @@
             "sourceName": "Australian Securities and Investments Commission",
             "sourceOwner": "asic",
             "publishedAt": "2026-09-04T06:49:49.000Z",
-            "relevanceScore": 81,
+            "relevanceScore": 80,
             "decisionType": "enforcement",
             "region": "Global/other",
             "topics": [
@@ -153,7 +153,7 @@
             "sourceName": "Hong Kong Monetary Authority",
             "sourceOwner": "hkma",
             "publishedAt": "2026-09-03T16:00:00.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 79,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -166,7 +166,7 @@
             "sourceName": "Microsoft Security Blog",
             "sourceOwner": "microsoft-security",
             "publishedAt": "2026-09-03T16:00:00.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 79,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -178,15 +178,29 @@
       {
         "id": "outage",
         "label": "outage",
-        "candidateCount": 3,
+        "candidateCount": 4,
         "candidates": [
+          {
+            "title": "Service Connectivity Issues in Canberra",
+            "url": "https://www.cloudflarestatus.com/incidents/htwds1qczkzd",
+            "sourceName": "Cloudflare Status",
+            "sourceOwner": "cloudflare-status",
+            "publishedAt": "2026-09-06T18:27:01.000Z",
+            "relevanceScore": 87,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
           {
             "title": "Disruption with Copilot Code Review",
             "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-09-04T22:26:46.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 84,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -200,7 +214,7 @@
             "sourceName": "Dropbox Status",
             "sourceOwner": "dropbox-status",
             "publishedAt": "2026-09-04T05:02:56.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 84,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -214,7 +228,7 @@
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-08-27T19:44:08.000Z",
-            "relevanceScore": 72,
+            "relevanceScore": 71,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -227,7 +241,7 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 2,
+        "candidateCount": 3,
         "candidates": [
           {
             "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
@@ -235,11 +249,24 @@
             "sourceName": "Australian Securities and Investments Commission",
             "sourceOwner": "asic",
             "publishedAt": "2026-09-02T23:00:58.000Z",
-            "relevanceScore": 79,
+            "relevanceScore": 78,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
               "financial-crime"
+            ]
+          },
+          {
+            "title": "Research acceleration: The view inside OpenAI",
+            "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+            "sourceName": "OpenAI",
+            "sourceOwner": "openai",
+            "publishedAt": "2026-09-06T08:00:00.000Z",
+            "relevanceScore": 69,
+            "decisionType": "research",
+            "region": "Global/other",
+            "topics": [
+              "ai"
             ]
           },
           {
@@ -248,7 +275,7 @@
             "sourceName": "Google DeepMind",
             "sourceOwner": "google-deepmind",
             "publishedAt": "2026-08-27T00:00:00.000Z",
-            "relevanceScore": 50,
+            "relevanceScore": 49,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -260,7 +287,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 64,
+        "candidateCount": 61,
         "candidates": [
           {
             "title": "DPRK APTs: Ted backdoor and curlRAT target South Korean media and automotive sectors",
@@ -268,7 +295,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-04T12:00:00.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 96,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -294,7 +321,7 @@
             "sourceName": "Cisco Talos Intelligence Group",
             "sourceOwner": "cisco-talos",
             "publishedAt": "2026-09-03T18:00:13.000Z",
-            "relevanceScore": 95,
+            "relevanceScore": 94,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -307,7 +334,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-02T16:58:45.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -333,7 +360,7 @@
             "sourceName": "Microsoft Security Blog",
             "sourceOwner": "microsoft-security",
             "publishedAt": "2026-09-01T22:48:28.000Z",
-            "relevanceScore": 92,
+            "relevanceScore": 91,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -346,20 +373,6 @@
             "sourceName": "Cloudflare Status",
             "sourceOwner": "cloudflare-status",
             "publishedAt": "2026-09-05T00:42:07.000Z",
-            "relevanceScore": 85,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
-            ]
-          },
-          {
-            "title": "Cache Purging Errors",
-            "url": "https://www.cloudflarestatus.com/incidents/ff0yvx1d6tby",
-            "sourceName": "Cloudflare Status",
-            "sourceOwner": "cloudflare-status",
-            "publishedAt": "2026-09-04T16:58:46.000Z",
             "relevanceScore": 84,
             "decisionType": "context",
             "region": "Global/other",
@@ -374,7 +387,7 @@
             "sourceName": "Google Cloud Service Health",
             "sourceOwner": "google-cloud-status",
             "publishedAt": "2026-09-03T17:47:02.000Z",
-            "relevanceScore": 84,
+            "relevanceScore": 83,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -387,56 +400,70 @@
             "sourceName": "SentinelOne Labs",
             "sourceOwner": "sentinelone",
             "publishedAt": "2026-08-28T16:01:30.000Z",
-            "relevanceScore": 83,
+            "relevanceScore": 82,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
               "cyber"
+            ]
+          },
+          {
+            "title": "Incident with Grok Copilot AI Model Provider",
+            "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-09-03T17:11:47.000Z",
+            "relevanceScore": 81,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
             ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 88,
-      "uniqueCandidateEvents": 79,
+      "candidateRows": 87,
+      "uniqueCandidateEvents": 78,
       "crossThemeDuplicatesCollapsed": 9,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 10.1
+          "share": 10.3
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 6.3
+          "share": 6.4
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 5,
-          "share": 6.3
+          "share": 6.4
         },
         {
           "sourceOwner": "microsoft-security",
           "sourceName": "Microsoft Security Blog",
           "count": 5,
-          "share": 6.3
+          "share": 6.4
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 6.3
+          "share": 6.4
         },
         {
           "sourceOwner": "openai",
           "sourceName": "OpenAI",
           "count": 5,
-          "share": 6.3
+          "share": 6.4
         },
         {
           "sourceOwner": "asic",
@@ -455,31 +482,31 @@
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 20,
-          "share": 25.3
+          "count": 19,
+          "share": 24.4
         },
         {
           "region": "US",
           "count": 7,
-          "share": 8.9
+          "share": 9
         },
         {
           "region": "Global/other",
           "count": 52,
-          "share": 65.8
+          "share": 66.7
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 75,
-        "alreadyPublishedCandidates": 4,
+        "newCandidateEvents": 73,
+        "alreadyPublishedCandidates": 5,
         "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 36
       }
     },
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 80,
-      "watching": 0,
+      "healthy": 79,
+      "watching": 1,
       "investigate": 0,
       "supplementary": 1,
       "entries": [
@@ -739,7 +766,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 2,
+          "consecutiveIssueRuns": 3,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -792,11 +819,11 @@
         {
           "sourceId": "bis-press-rss",
           "sourceRegistryId": "bis",
-          "status": "ok",
-          "consecutiveIssueRuns": 0,
+          "status": "failed",
+          "consecutiveIssueRuns": 1,
           "monitoring": "standard",
-          "action": "none",
-          "detail": ""
+          "action": "watch",
+          "detail": "Fetch failed 503 for https://www.bis.org/doclist/all_pressrels.rss"
         },
         {
           "sourceId": "ico-news-sitemap",
@@ -1222,39 +1249,39 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "How AI-native companies turn workflows into operating capability",
-          "url": "https://openai.com/index/ai-native-company-workflows",
+          "title": "Research acceleration: The view inside OpenAI",
+          "url": "https://openai.com/index/research-acceleration-view-inside-openai",
           "sourceName": "OpenAI",
-          "publishedAt": "2026-09-01T17:00:00.000Z",
-          "relevanceScore": 76
-        },
-        {
-          "title": "Path to Astra: critical capabilities and frontier safeguards",
-          "url": "https://openai.com/index/path-to-astra",
-          "sourceName": "OpenAI",
-          "publishedAt": "2026-09-01T13:00:00.000Z",
-          "relevanceScore": 76
+          "publishedAt": "2026-09-06T08:00:00.000Z",
+          "relevanceScore": 69
         },
         {
           "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
           "url": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark",
           "sourceName": "NVIDIA Newsroom",
           "publishedAt": "2026-09-03T16:00:59.000Z",
-          "relevanceScore": 65
+          "relevanceScore": 64
         },
         {
           "title": "‘NBA 2K27’ With NVIDIA DLSS 5 Leads 26 New Games Coming to GeForce NOW",
           "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list",
           "sourceName": "NVIDIA Newsroom",
           "publishedAt": "2026-09-03T13:00:35.000Z",
-          "relevanceScore": 65
+          "relevanceScore": 64
+        },
+        {
+          "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+          "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
+          "sourceName": "OpenAI",
+          "publishedAt": "2026-09-03T12:00:00.000Z",
+          "relevanceScore": 64
         },
         {
           "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
           "url": "https://openai.com/index/playco-game-prototyping-with-astra",
           "sourceName": "OpenAI",
           "publishedAt": "2026-09-03T12:00:00.000Z",
-          "relevanceScore": 65
+          "relevanceScore": 64
         }
       ]
     },
@@ -1268,21 +1295,21 @@
           "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260904-6",
           "sourceName": "Hong Kong Monetary Authority",
           "publishedAt": "2026-09-03T16:00:00.000Z",
-          "relevanceScore": 80
+          "relevanceScore": 79
         },
         {
           "title": "26-207MR Former Beacon Minerals project manager Alexander McCulloch sentenced for insider trading | ASIC",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-03T00:29:21.000Z",
-          "relevanceScore": 79
+          "relevanceScore": 78
         },
         {
           "title": "SEC and FDA Announce MOU to Bolster Cooperation and Ensure Market Integrity",
           "url": "https://www.sec.gov/newsroom/press-releases/2026-80-sec-fda-announce-mou-bolster-cooperation-ensure-market-integrity",
           "sourceName": "US Securities and Exchange Commission",
           "publishedAt": "2026-08-31T18:24:32.000Z",
-          "relevanceScore": 76
+          "relevanceScore": 75
         },
         {
           "title": "La CNMV considera que la estabilidad financiera de los mercados españoles es sólida, pero los riesgos tecnológicos y de implantación de la Inteligencia Artificial requieren seguimiento",
@@ -1306,24 +1333,24 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Service Connectivity Issues in Canberra",
+          "url": "https://www.cloudflarestatus.com/incidents/htwds1qczkzd",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-09-06T18:27:01.000Z",
+          "relevanceScore": 87
+        },
+        {
           "title": "Elevated number of R2 503 errors in Eastern North America region",
           "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-09-05T00:42:07.000Z",
-          "relevanceScore": 85
+          "relevanceScore": 84
         },
         {
           "title": "Disruption with Copilot Code Review",
           "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-09-04T22:26:46.000Z",
-          "relevanceScore": 85
-        },
-        {
-          "title": "Cache Purging Errors",
-          "url": "https://www.cloudflarestatus.com/incidents/ff0yvx1d6tby",
-          "sourceName": "Cloudflare Status",
-          "publishedAt": "2026-09-04T16:58:46.000Z",
           "relevanceScore": 84
         },
         {
@@ -1331,14 +1358,14 @@
           "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
           "sourceName": "Google Cloud Service Health",
           "publishedAt": "2026-09-03T17:47:02.000Z",
-          "relevanceScore": 84
+          "relevanceScore": 83
         },
         {
           "title": "Incident with Grok Copilot AI Model Provider",
           "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-09-03T17:11:47.000Z",
-          "relevanceScore": 82
+          "relevanceScore": 81
         }
       ]
     },
@@ -1352,7 +1379,7 @@
           "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
           "sourceName": "Dropbox Status",
           "publishedAt": "2026-09-04T05:02:56.000Z",
-          "relevanceScore": 85
+          "relevanceScore": 84
         },
         {
           "title": "Incident response guide for AWS CloudTrail investigations – Part 2",
@@ -1380,35 +1407,35 @@
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-042mr-brisbane-financial-advisor-and-auditor-sunny-prakash-charged-with-multiple-counts-of-stealing-and-fraud",
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-04T06:49:49.000Z",
-          "relevanceScore": 81
+          "relevanceScore": 80
         },
         {
           "title": "Two sentenced as part of investigation into fraudulent Covid 19 vaccination records",
           "url": "https://www.nationalcrimeagency.gov.uk/news/two-sentenced-as-part-of-investigation-into-fraudulent-covid-19-vaccination-records",
           "sourceName": "National Crime Agency",
           "publishedAt": "2026-09-03T16:20:41.000Z",
-          "relevanceScore": 80
+          "relevanceScore": 79
         },
         {
           "title": "HKICL alerts public of fraudulent website",
           "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260904-5",
           "sourceName": "Hong Kong Monetary Authority",
           "publishedAt": "2026-09-03T16:00:00.000Z",
-          "relevanceScore": 80
+          "relevanceScore": 79
         },
         {
           "title": "26-207MR Former Beacon Minerals project manager Alexander McCulloch sentenced for insider trading | ASIC",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-03T00:29:21.000Z",
-          "relevanceScore": 79
+          "relevanceScore": 78
         },
         {
           "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-02T23:00:58.000Z",
-          "relevanceScore": 79
+          "relevanceScore": 78
         }
       ]
     },
@@ -1422,7 +1449,7 @@
           "url": "https://www.rapid7.com/blog/post/tr-dprk-apts-ted-backdoor-curlrat-target-south-korean-media-automotive-sectors",
           "sourceName": "Rapid7 Research",
           "publishedAt": "2026-09-04T12:00:00.000Z",
-          "relevanceScore": 97
+          "relevanceScore": 96
         },
         {
           "title": "Check Point Brings OpenAI Daybreak Models Across Its Security Platform to Help Defenders Find, Validate, and Remediate Risk",
@@ -1436,14 +1463,14 @@
           "url": "https://blog.talosintelligence.com/the-story-behind-the-intelligence",
           "sourceName": "Cisco Talos Intelligence Group",
           "publishedAt": "2026-09-03T18:00:13.000Z",
-          "relevanceScore": 95
+          "relevanceScore": 94
         },
         {
           "title": "Critical SonicWall SMA1000 Vulnerabilities CVE-2026-83548, CVE-2026-83549 Exploited in the Wild",
           "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
           "sourceName": "Rapid7 Research",
           "publishedAt": "2026-09-02T16:58:45.000Z",
-          "relevanceScore": 93
+          "relevanceScore": 92
         },
         {
           "title": "An AI-Assisted Cyber Attack: Inside a Unit 42 Investigation",
@@ -1460,31 +1487,31 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Service Connectivity Issues in Canberra",
+          "url": "https://www.cloudflarestatus.com/incidents/htwds1qczkzd",
+          "sourceName": "Cloudflare Status",
+          "publishedAt": "2026-09-06T18:27:01.000Z",
+          "relevanceScore": 87
+        },
+        {
           "title": "Elevated number of R2 503 errors in Eastern North America region",
           "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
           "sourceName": "Cloudflare Status",
           "publishedAt": "2026-09-05T00:42:07.000Z",
-          "relevanceScore": 85
+          "relevanceScore": 84
         },
         {
           "title": "Disruption with Copilot Code Review",
           "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-09-04T22:26:46.000Z",
-          "relevanceScore": 85
+          "relevanceScore": 84
         },
         {
           "title": "Customer support via telephone may be unavailable for some users",
           "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
           "sourceName": "Dropbox Status",
           "publishedAt": "2026-09-04T05:02:56.000Z",
-          "relevanceScore": 85
-        },
-        {
-          "title": "Cache Purging Errors",
-          "url": "https://www.cloudflarestatus.com/incidents/ff0yvx1d6tby",
-          "sourceName": "Cloudflare Status",
-          "publishedAt": "2026-09-04T16:58:46.000Z",
           "relevanceScore": 84
         },
         {
@@ -1492,7 +1519,7 @@
           "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
           "sourceName": "GitHub Status",
           "publishedAt": "2026-09-03T17:11:47.000Z",
-          "relevanceScore": 82
+          "relevanceScore": 81
         }
       ]
     },
@@ -1506,7 +1533,7 @@
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-166mr-federal-court-finds-former-noumi-ceo-breached-directors-duties-and-financial-reporting-obligations",
           "sourceName": "Australian Securities and Investments Commission",
           "publishedAt": "2026-09-02T02:30:58.000Z",
-          "relevanceScore": 77
+          "relevanceScore": 76
         },
         {
           "title": "Boost your business fitness - ICO offers new, free data protection training for SMEs",

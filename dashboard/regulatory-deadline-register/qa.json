@@ -1,11 +1,13 @@
 {
   "version": "regulatory-deadline-qa.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-05T08:31:20.707Z",
+  "generatedAt": "2026-09-06T09:33:00.946Z",
   "sourceEdition": "2026-09-04",
-  "asOf": "2026-09-05",
+  "asOf": "2026-09-06",
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "1 verified carry-forward record(s) need a renewed primary-source check"
+  ],
   "readiness": {
     "score": 100,
     "metrics": {
@@ -13,7 +15,7 @@
       "confirmedAuthorities": 7,
       "healthyCoreAuthorities": 7,
       "stableCoreAuthorities": 7,
-      "sourceAgeDays": 1,
+      "sourceAgeDays": 2,
       "concentration": 0.3
     },
     "relaunchEligible": false,

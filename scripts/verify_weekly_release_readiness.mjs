@@ -6,6 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CURRENT_EDITION = path.join(ROOT, "site/data/current-edition.json");
 const SIGNALS = path.join(ROOT, "site/data/signals.json");
 const PROMOTION = path.join(ROOT, "dashboard/data/signals-promotion-summary.json");
+const SIGNALS_HEALTH = path.join(ROOT, "dashboard/data/signals-health.generated.json");
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -32,6 +33,7 @@ const options = parseArgs(process.argv.slice(2));
 const edition = readJson(CURRENT_EDITION);
 const signals = readJson(SIGNALS);
 const promotion = readJson(PROMOTION);
+const signalsHealth = fs.existsSync(SIGNALS_HEALTH) ? readJson(SIGNALS_HEALTH) : null;
 const failures = [];
 const assert = (condition, message) => {
   if (!condition) failures.push(message);
@@ -42,6 +44,18 @@ assert(Number.isFinite(options.maxAgeDays) && options.maxAgeDays >= 1, "--max-ag
 assert(/^\d{4}-\d{2}-\d{2}$/.test(edition.publicationDate || ""), "current-edition publicationDate must use YYYY-MM-DD");
 assert(signals.edition === edition.publicationDate, "Signals edition must match current-edition publicationDate");
 assert(promotion.date === edition.publicationDate, "approved Signals promotion summary must match current-edition publicationDate");
+assert(Boolean(signalsHealth), "Signals evidence-health report is missing. Run npm run signals:health:verify before release:readiness.");
+if (signalsHealth) {
+  assert(signalsHealth.edition === edition.publicationDate, "Signals evidence-health report must match current-edition publicationDate");
+  assert(signalsHealth.status === "ready", "Signals evidence-health report must have status ready");
+  assert(Array.isArray(signalsHealth.top5Unresolved) && signalsHealth.top5Unresolved.length === 0, "Signals evidence-health report must have no unresolved Top 5 sources");
+  const healthDate = String(signalsHealth.generatedAt || "").slice(0, 10);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(healthDate), "Signals evidence-health report must include generatedAt");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(healthDate)) {
+    const healthAge = ageInDays(healthDate, options.asOf);
+    assert(healthAge >= 0 && healthAge <= 1, "Signals evidence-health report must be generated no more than one UTC day before release readiness");
+  }
+}
 assert(Boolean(edition.committeeQuestion?.question && edition.committeeQuestion?.why && edition.committeeQuestion?.evidence), "current-edition must include a complete featured Committee Question");
 assert(Array.isArray(edition.committeeQuestions) && edition.committeeQuestions.length === 3, "current-edition must include exactly three Committee Questions");
 for (const [index, question] of (edition.committeeQuestions || []).entries()) {

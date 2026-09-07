@@ -54,6 +54,18 @@ const PARTIAL_DATE_PATTERN = /\b(19|20)\d{2}(-\d{2})?\b/;
 
 let publishedSourceMapCache = null;
 
+// These are first-party corporate records, not regulatory publications. Keep
+// their classification in the source contract so promotion and validation agree.
+const COMPANY_ANNOUNCEMENT_SOURCE_IDS = new Set([
+  "openai", "anthropic", "google-deepmind", "meta-ai", "mistral-ai", "xai", "microsoft-ai", "nvidia",
+  "google-workspace", "google-cloud-status", "aws-service-health", "cloudflare-status", "github-status",
+  "atlassian-status", "oracle-cloud-status", "digitalocean-status", "twilio-status", "slack-status",
+  "zoom-status", "datadog-status", "newrelic-status", "sentry-status", "linode-status", "box-status",
+  "dropbox-status", "mongodb-status", "hubspot-status", "snowflake-status", "cloudflare-security",
+  "google-security", "cisco-talos", "paloalto-unit42", "aws-security", "microsoft-security",
+  "github-security", "snyk", "crowdstrike", "rapid7", "sentinelone", "checkpoint",
+]);
+
 export function loadPublishedSourceMap() {
   if (!publishedSourceMapCache) {
     publishedSourceMapCache = JSON.parse(fs.readFileSync(PUBLISHED_SOURCE_MAP, "utf8"));
@@ -90,6 +102,12 @@ export function resolvePublishedSource(value, map = loadPublishedSourceMap()) {
     }
   }
   return null;
+}
+
+export function expectedEvidenceSourceType(value, map = loadPublishedSourceMap()) {
+  const source = typeof value === "string" ? resolvePublishedSource(value, map) : value;
+  if (!source || !COMPANY_ANNOUNCEMENT_SOURCE_IDS.has(source.id)) return null;
+  return "company announcement";
 }
 
 export function summarisePublishedSourceCoverage(rows, resolveRowUrl) {

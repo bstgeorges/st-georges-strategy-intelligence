@@ -1081,6 +1081,99 @@
       "maxItems": 10
     },
     {
+      "id": "eiopa-resilience-data-sitemap",
+      "sourceRegistryId": "eiopa",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.eiopa.europa.eu/sitemap.xml",
+      "topics": ["resilience", "data"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["insurance-supervision", "dora", "reporting", "eu"],
+      "pathPatterns": ["/publications/", "/consultations/", "/tools-and-data/"],
+      "keywordHints": ["resilience", "operational", "cyber", "ict", "technology", "risk management", "reporting", "disclosure", "data", "digital"],
+      "topicKeywordHints": {
+        "resilience": ["resilience", "operational", "cyber", "ict", "technology", "risk management", "dora"],
+        "data": ["reporting", "disclosure", "data", "digital", "taxonomy", "xbrl"]
+      },
+      "windowDays": 45,
+      "maxItems": 20,
+      "requirePagePublishedDate": true,
+      "allowSummaryOnlyTopicMatch": true
+    },
+    {
+      "id": "apra-resilience-data-sitemap",
+      "sourceRegistryId": "apra",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.apra.gov.au/sitemap.xml?page=1",
+      "topics": ["resilience", "data"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["prudential-supervision", "operational-risk", "reporting", "australia"],
+      "pathPatterns": ["/news-and-publications/", "/consultations/"],
+      "keywordHints": ["operational", "resilience", "risk", "technology", "cyber", "governance", "reporting", "data", "disclosure", "APRA Connect"],
+      "topicKeywordHints": {
+        "resilience": ["operational", "resilience", "risk", "technology", "cyber", "governance"],
+        "data": ["reporting", "data", "disclosure", "APRA Connect"]
+      },
+      "windowDays": 45,
+      "maxItems": 20,
+      "requirePagePublishedDate": true,
+      "allowSummaryOnlyTopicMatch": true
+    },
+    {
+      "id": "osfi-resilience-data-sitemap",
+      "sourceRegistryId": "osfi",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.osfi-bsif.gc.ca/sitemap.xml?page=1",
+      "topics": ["resilience", "data"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["prudential-supervision", "operational-risk", "reporting", "canada"],
+      "pathPatterns": ["/en/guidance/", "/en/news/", "/en/data-forms/"],
+      "keywordHints": ["operational", "resilience", "technology", "cyber", "risk", "reporting", "data", "disclosure", "governance"],
+      "topicKeywordHints": {
+        "resilience": ["operational", "resilience", "technology", "cyber", "risk"],
+        "data": ["reporting", "data", "disclosure"]
+      },
+      "windowDays": 45,
+      "maxItems": 12,
+      "requirePagePublishedDate": true,
+      "allowSummaryOnlyTopicMatch": true
+    },
+    {
+      "id": "ireland-dpc-data-sitemap",
+      "sourceRegistryId": "ireland-dpc",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.dataprotection.ie/sitemap.xml",
+      "topics": ["data"],
+      "riskAreas": ["board-accountability", "ai-and-models"],
+      "tags": ["privacy", "data-protection", "enforcement", "ireland"],
+      "pathPatterns": ["/en/news-media/", "/en/dpc-guidance/"],
+      "keywordHints": ["data protection", "personal data", "GDPR", "privacy", "enforcement", "decision", "artificial intelligence", "health"],
+      "topicKeywordHints": {
+        "data": ["data protection", "personal data", "gdpr", "privacy", "enforcement", "decision", "artificial intelligence", "health"]
+      },
+      "windowDays": 45,
+      "maxItems": 12,
+      "requirePagePublishedDate": true,
+      "allowFirstPageDate": true
+    },
+    {
+      "id": "cnil-data-sitemap",
+      "sourceRegistryId": "fr-cnil",
+      "fetchType": "sitemap",
+      "fetchUrl": "https://www.cnil.fr/fr/sitemap.xml",
+      "topics": ["data"],
+      "riskAreas": ["board-accountability", "ai-and-models"],
+      "tags": ["privacy", "data-protection", "enforcement", "france"],
+      "pathPatterns": ["/fr/"],
+      "keywordHints": ["données", "protection", "rgpd", "data", "privacy", "sanction", "intelligence artificielle", "contrôle"],
+      "topicKeywordHints": {
+        "data": ["données", "protection", "rgpd", "data", "privacy", "sanction", "intelligence artificielle", "contrôle"]
+      },
+      "windowDays": 45,
+      "maxItems": 12,
+      "requirePagePublishedDate": true,
+      "allowFirstPageDate": true
+    },
+    {
       "id": "nvidia-news-rss",
       "sourceRegistryId": "nvidia",
       "fetchType": "rss",

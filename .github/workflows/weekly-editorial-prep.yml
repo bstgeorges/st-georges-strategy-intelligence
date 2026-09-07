@@ -45,6 +45,9 @@ jobs:
           fi
           echo "publication_date=$publication_date" >> "$GITHUB_OUTPUT"
 
+      - name: Verify published Signals evidence health
+        run: npm run signals:health:verify
+
       - name: Build site bundle
         run: npm run site:build
 
@@ -68,6 +71,8 @@ jobs:
           cp dashboard/data/signals-promotion-review.generated.json editorial-pack/
           cp dashboard/data/signals-candidate-state.json editorial-pack/
           cp dashboard/data/signals-source-health-history.json editorial-pack/
+          cp dashboard/data/signals-health.generated.json editorial-pack/
+          cp dashboard/data/signal-source-date-audit.generated.json editorial-pack/
           cp dashboard/data/source-registry.json editorial-pack/
           cp dashboard/data/signals-feed-registry.json editorial-pack/
           cp dashboard/data/ai-signals.json editorial-pack/

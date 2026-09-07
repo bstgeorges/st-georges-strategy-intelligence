@@ -28,6 +28,7 @@ The workflow produces an artifact named `weekly-editorial-prep-YYYY-MM-DD` conta
 - a dated weekly refresh packet
 - current AI Signals JSON
 - current candidate signals JSON and state
+- a current Signals source-date audit and health report
 - a pending, dated Signals promotion review generated from the five highest-ranked candidates in each topic
 - current Reg Horizon JSON and feed
 - the weekly workflow and packet template docs
@@ -44,7 +45,8 @@ Candidate collection and editorial approval are separate stages:
 4. The editor reviews the candidate pack, starts with any source-health `investigate` actions, checks concentration and duplication, then selects only supported URLs and rationales in `dashboard/data/signals-promotion-shortlist.json`. Preserve the exact `candidateGeneratedAt` and set `reviewStatus` to `approved`. Every published Top 5 title must read as a concise editorial signal—the decision, control, dependency, or exposure it reveals—not as raw article, press-release, or incident-status copy. Retain the literal provider wording in `evidence.sourceTitle` and link directly to the source. arXiv is a supplementary research input: it may inform research discovery, but a quiet run does not create a primary-source coverage claim.
 5. The editor runs `Signals weekly publish draft`. It promotes the approved Signals rows, drafts the Brief, and opens a PR. Update `site/data/current-edition.json` with the new judgement and committee questions in the same reviewed PR.
 6. Merge that PR only after Signals, the current judgement, Brief, Committee Questions, and homepage all agree on the new publication date and lead signals. The withdrawn public Horizon must remain withdrawn.
-7. The `Site release (Cloudflare)` workflow runs the ordered-release gate. It refuses publication when candidate generation is newer than the approved shortlist, Signals are not current, or the judgement is carried forward unchanged. The private Horizon has its own shadow-quality and relaunch gates.
+7. Run `npm run signals:health:verify` after selecting the five Signals and before the release-readiness check. A restricted or date-inextractable Top 5 source requires a dated, reasoned `manual-verified` record in `evidence.sourceDateVerification`; otherwise the gate fails. The record is a controlled exception, not a substitute for a primary source, and expires after 28 days. The weekly editorial-prep and production-release workflows both enforce this check.
+8. The `Site release (Cloudflare)` workflow runs the ordered-release gate. It refuses publication when candidate generation is newer than the approved shortlist, Signals are not current, the health report is absent, stale or unresolved, or the judgement is carried forward unchanged. The private Horizon has its own shadow-quality and relaunch gates.
 
 `npm run reg-horizon:freshness` therefore treats `withheld` as a passing public state. Use `-- --require-published` only when testing a proposed Horizon relaunch; deadline-register validation remains the gate for its private evidence.
 
@@ -138,6 +140,7 @@ npm run ai-signals:validate -- --date YYYY-MM-DD
 6. Run local preflight:
 
 ```bash
+npm run signals:health:verify
 npm run refresh:preflight -- --date YYYY-MM-DD
 ```
 

@@ -191,7 +191,10 @@ function parseSitemap(xml, source) {
     .map((match) => {
       const block = match[0];
       return {
-        url: xmlField(block, "loc"),
+        // Some official sitemap generators still emit HTTP URLs even though the
+        // corresponding page redirects to HTTPS. Published Signals links must
+        // remain secure and pass the citation contract, so normalise here.
+        url: xmlField(block, "loc").replace(/^http:\/\//i, "https://"),
         lastmod: normalizeDate(xmlField(block, "lastmod")),
       };
     })
@@ -205,13 +208,21 @@ function parseSitemap(xml, source) {
 
 function parsePublishedDate(value) {
   const raw = String(value || "").trim();
+  const frenchMonths = {
+    janvier: "January", "février": "February", fevrier: "February", mars: "March", avril: "April",
+    mai: "May", juin: "June", juillet: "July", "août": "August", aout: "August", septembre: "September",
+    octobre: "October", novembre: "November", "décembre": "December", decembre: "December",
+  };
+  const normalized = raw
+    .replace(/(\d{1,2})(?:st|nd|rd|th)\b/gi, "$1")
+    .replace(/\b([A-Za-zÀ-ÿ]+)\b/gi, (month) => frenchMonths[month.toLowerCase()] || month);
   // Newsrooms frequently print a date without a timezone. Interpret that
   // calendar date as UTC so a workstation timezone cannot move it back a day.
-  const parsed = new Date(/^[A-Za-z]/.test(raw) ? `${raw} UTC` : raw);
+  const parsed = new Date(/^[A-Za-z]/.test(normalized) ? `${normalized} UTC` : normalized);
   return Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString();
 }
 
-function extractPagePublishedDate(html) {
+function extractPagePublishedDate(html, options = {}) {
   const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
   for (const tag of metaTags) {
     if (!/(?:property|name)\s*=\s*["'](?:article:published_time|date|datepublished|publishdate|dc\.date)["']/i.test(tag)) continue;
@@ -226,11 +237,19 @@ function extractPagePublishedDate(html) {
     if (parsed) return parsed;
   }
   const text = html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/\s+/g, " ");
-  const dateMatch = text.match(/(?:press release|published|publication date|date)\s*[:\-]?\s*([A-Z][a-z]{2,8}\s+\d{1,2},?\s*\d{4}|\d{1,2}\s+[A-Z][a-z]{2,8}\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
-  return parsePublishedDate(dateMatch?.[1]);
+  const dateMatch = text.match(/(?:press release|published|publication date|date)\s*[:\-]?\s*([A-ZÀ-Ÿ][A-Za-zÀ-ÿ]{2,8}\s+\d{1,2},?\s*\d{4}|\d{1,2}(?:st|nd|rd|th)?\s+[A-ZÀ-Ÿ][A-Za-zÀ-ÿ]{2,8}\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
+  const labelledDate = parsePublishedDate(dateMatch?.[1]);
+  if (labelledDate || !options.allowFirstPageDate) return labelledDate;
+
+  // A few official authorities put the article date immediately below the H1
+  // without a "published" label. Enable this only per source, after testing
+  // the site's page structure, rather than treating arbitrary page dates as
+  // publication dates globally.
+  const firstVisibleDate = text.match(/\b(\d{1,2}(?:st|nd|rd|th)?\s+[A-ZÀ-Ÿ][A-Za-zÀ-ÿ]{2,8}\s+\d{4}|[A-ZÀ-Ÿ][A-Za-zÀ-ÿ]{2,8}\s+\d{1,2},?\s*\d{4})\b/i);
+  return parsePublishedDate(firstVisibleDate?.[1]);
 }
 
-async function enrichSitemapEntries(entries) {
+async function enrichSitemapEntries(entries, source) {
   const enriched = [];
   for (const entry of entries) {
     try {
@@ -239,15 +258,17 @@ async function enrichSitemapEntries(entries) {
       const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
       const ogTag = metaTags.find((tag) => /(?:property|name)\s*=\s*["']og:title["']/i.test(tag));
       const ogTitle = ogTag?.match(/content\s*=\s*["']([^"']+)["']/i);
+      const descriptionTag = metaTags.find((tag) => /(?:property|name)\s*=\s*["'](?:og:description|description)["']/i.test(tag));
+      const description = descriptionTag?.match(/content\s*=\s*["']([^"']+)["']/i)?.[1] || "";
       const title = decodeXml((ogTitle?.[1] || titleMatch?.[1] || "").trim()).replace(/\s+/g, " ");
-      const pagePublishedAt = extractPagePublishedDate(html);
+      const pagePublishedAt = extractPagePublishedDate(html, { allowFirstPageDate: source.allowFirstPageDate === true });
       if (title && (pagePublishedAt || !entry.requirePagePublishedDate)) {
         enriched.push({
           title,
           url: entry.url,
           publishedAt: pagePublishedAt || entry.lastmod,
           dateSource: pagePublishedAt ? "page-published" : entry.lastmod ? "sitemap-lastmod" : "",
-          summary: "",
+          summary: decodeXml(description).replace(/\s+/g, " ").trim(),
         });
       }
     } catch {
@@ -394,7 +415,7 @@ async function collectSourceCandidates(source, context) {
   }
   if (source.fetchType === "sitemap") {
     const sitemapEntries = parseSitemap(xml, source);
-    return { entries: await enrichSitemapEntries(sitemapEntries), status: "ok", reason: "" };
+    return { entries: await enrichSitemapEntries(sitemapEntries, source), status: "ok", reason: "" };
   }
   return { entries: [], status: "skipped", reason: "unsupported-fetch-type" };
 }

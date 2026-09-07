@@ -208,7 +208,7 @@
             "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
             "organisation": "Google Cloud Service Health",
             "publishedDate": "2026-07-17",
-            "sourceType": "regulator",
+            "sourceType": "company announcement",
             "significance": "A physical cooling failure affected VMware, storage and bare-metal services together. Resilience owners should test whether zone design, recovery priorities and customer-impact evidence reflect correlated infrastructure failures rather than assuming service independence.",
             "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
             "accessedDate": "2026-07-18"
@@ -307,17 +307,17 @@
       "stillMaterialReviewedAt": "2026-08-02",
       "top5": [
         {
-          "title": "Google Cloud us-west1 disruption exposes the depth of shared dependencies",
-          "url": "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf",
-          "source": "Primary / Google Cloud Service Health / 2026-08-20",
+          "title": "Google Cloud network degradation tests the shared service boundary",
+          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+          "source": "Primary / Google Cloud Service Health / 2026-09-03",
           "evidence": {
-            "sourceTitle": "RESOLVED: We are investigating an issue where customers may experience timeouts, service degradations, errors, and elevated latencies across multiple products in the us-west1 region.",
+            "sourceTitle": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
             "organisation": "Google Cloud Service Health",
-            "publishedDate": "2026-08-20",
-            "sourceType": "regulator",
-            "significance": "Google Cloud reported a multi-product us-west1 disruption caused by unexpected congestion during planned optical maintenance. Dependency mapping and scenario tests should extend below an application or availability zone to network capacity, restoration sequencing and provider communications.",
-            "sourceUrl": "https://status.cloud.google.com/incidents/utF3FMFdQfwBzJcGG6vf",
-            "accessedDate": "2026-08-23"
+            "publishedDate": "2026-09-03",
+            "sourceType": "company announcement",
+            "significance": "Google Cloud reported network degradation affecting multiple products in one zone. The useful test is whether the firm can identify shared network dependencies, assess the customer impact, invoke a viable fallback and record the decision before a provider restores service.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+            "accessedDate": "2026-09-07"
           }
         },
         {
@@ -363,17 +363,22 @@
           }
         },
         {
-          "title": "Google Cloud cooling failure exposes correlated supplier dependencies",
-          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-          "source": "Primary / Google Cloud Service Health / 2026-07-17",
+          "title": "GitHub Copilot provider incident makes AI-service fallback a supplier-control test",
+          "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
+          "source": "Primary / GitHub Status / 2026-09-03",
           "evidence": {
-            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
-            "organisation": "Google Cloud Service Health",
-            "publishedDate": "2026-07-17",
-            "sourceType": "regulator",
-            "significance": "One physical event disrupted several services in the same zone, showing that separately contracted capabilities may share a failure domain. Third-party owners should validate dependency maps, concentration assumptions, contractual incident evidence and workable alternatives.",
-            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-            "accessedDate": "2026-07-18"
+            "sourceTitle": "Incident with Grok Copilot AI Model Provider",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-09-03",
+            "sourceType": "company announcement",
+            "significance": "GitHub reported an incident involving a Copilot AI-model provider. Where a workflow depends on an external model, the practical test is whether the firm knows the affected use cases, can invoke a fallback, communicate the impact and evidence the recovery decision.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
+            "accessedDate": "2026-09-07",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-07",
+              "reason": "GitHub's official status RSS records the incident on 3 September 2026; the individual incident page does not expose a machine-readable publication date to the source-date audit."
+            }
           }
         }
       ],
@@ -535,17 +540,17 @@
           }
         },
         {
-          "title": "CFTC Requests Comment on the Listing of Compute Derivatives Contracts",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9286-26",
-          "source": "Primary / US Commodity Futures Trading Commission / 2026-08-19",
+          "title": "ASIC insider-trading sentence turns project-information controls into a market-integrity test",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
+          "source": "Primary / Australian Securities and Investments Commission / 2026-09-03",
           "evidence": {
-            "sourceTitle": "CFTC Requests Comment on the Listing of Compute Derivatives Contracts",
-            "organisation": "US Commodity Futures Trading Commission",
-            "publishedDate": "2026-08-19",
+            "sourceTitle": "Former Beacon Minerals project manager Alexander McCulloch sentenced for insider trading",
+            "organisation": "Australian Securities and Investments Commission",
+            "publishedDate": "2026-09-03",
             "sourceType": "regulator",
-            "significance": "The CFTC is seeking input on compute-market size, liquidity, oversight, manipulation, customer protection and perpetual futures. Firms exposed to AI infrastructure should watch how compute becomes a traded market input with its own conduct and risk-management expectations.",
-            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9286-26",
-            "accessedDate": "2026-08-23"
+            "significance": "ASIC's insider-trading outcome makes the control question practical: can the firm identify who received price-sensitive project information, restrict its use, retain the decision trail and challenge unusual trading before an external investigation reconstructs it?",
+            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
+            "accessedDate": "2026-09-07"
           }
         }
       ],
@@ -845,31 +850,31 @@
           }
         },
         {
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-08-21",
+          "title": "Exploited SonicWall flaws shorten the window for appliance exposure checks",
+          "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
+          "source": "Primary / Rapid7 Research / 2026-09-02",
           "evidence": {
-            "sourceTitle": "CISA Adds One Known Exploited Vulnerability to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-08-21",
-            "sourceType": "regulator",
-            "significance": "CISA's latest Known Exploited Vulnerabilities update is an active-exploitation management signal, not a catalogue-reading exercise. Technology leaders need a complete asset view, a named exception authority, time-bound remediation and proof that the exposure has actually been removed.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/08/21/cisa-adds-one-known-exploited-vulnerability-catalog",
-            "accessedDate": "2026-08-23"
+            "sourceTitle": "Critical SonicWall SMA1000 vulnerabilities exploited in the wild",
+            "organisation": "Rapid7 Research",
+            "publishedDate": "2026-09-02",
+            "sourceType": "company announcement",
+            "significance": "Rapid7 reports exploitation of two critical SonicWall SMA1000 vulnerabilities. The management question is whether appliance ownership, internet exposure, emergency-change authority and independent confirmation of remediation are already known before an external alert arrives.",
+            "sourceUrl": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
+            "accessedDate": "2026-09-07"
           }
         },
         {
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-08-07",
+          "title": "Counterfeit installers expose the weak point in download and endpoint controls",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
+          "source": "Primary / Microsoft Security Blog / 2026-09-01",
           "evidence": {
-            "sourceTitle": "CISA Adds One Known Exploited Vulnerability to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-08-07",
-            "sourceType": "regulator",
-            "significance": "A new CISA Known Exploited Vulnerability entry is evidence of active exploitation. Prioritise asset discovery, patch and compensating-control decisions, exception ownership and recovery proof over generic vulnerability reporting.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/08/07/cisa-adds-one-known-exploited-vulnerability-catalog",
-            "accessedDate": "2026-08-09"
+            "sourceTitle": "Counterfeit installers to system compromise: Tracking a deceptive software download campaign",
+            "organisation": "Microsoft Security Blog",
+            "publishedDate": "2026-09-01",
+            "sourceType": "company announcement",
+            "significance": "Microsoft describes a campaign using counterfeit installers to reach system compromise. Treat it as a control test for approved-software routes, download controls, endpoint detection, user escalation and the evidence that a suspicious installation was contained.",
+            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
+            "accessedDate": "2026-09-07"
           }
         },
         {
@@ -999,7 +1004,7 @@
             "sourceTitle": "Elevated network errors for traffic routed between North America origins and SIN (Singapore) colo",
             "organisation": "Cloudflare Status",
             "publishedDate": "2026-08-23",
-            "sourceType": "regulator",
+            "sourceType": "company announcement",
             "significance": "Cloudflare reported elevated network errors on traffic between North American origins and its Singapore location. The incident is a distinct technology-failure prompt: teams should test traffic routing, regional dependency assumptions, customer-impact detection and communications under cross-region degradation.",
             "sourceUrl": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
             "accessedDate": "2026-08-23"
@@ -1027,7 +1032,7 @@
             "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
             "organisation": "Google Cloud Service Health",
             "publishedDate": "2026-07-17",
-            "sourceType": "regulator",
+            "sourceType": "company announcement",
             "significance": "The incident is a reminder that cloud failures can begin below the software layer and affect several services together. Technology owners should test zonal failover, data recovery and restoration sequencing against correlated physical-infrastructure loss.",
             "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
             "accessedDate": "2026-07-18"
@@ -1187,31 +1192,36 @@
           }
         },
         {
-          "title": "ACRO reprimanded following cyber security failings",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/acro-reprimanded-following-cyber-security-failings",
-          "source": "Primary / UK Information Commissioner's Office / 2026-08-12",
+          "title": "CNIL health-data sanction tests breach response and accountability evidence",
+          "url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
+          "source": "Primary / CNIL / 2026-09-03",
           "evidence": {
-            "sourceTitle": "ACRO reprimanded following cyber security failings",
-            "organisation": "UK Information Commissioner's Office",
-            "publishedDate": "2026-08-12",
+            "sourceTitle": "Violation de données en matière de santé : sanction de 500 000 euros à l’encontre de l’HÔPITAL PRIVÉ DE LA LOIRE",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-09-03",
             "sourceType": "regulator",
-            "significance": "The ICO reprimand is a current read-across on cyber and data-control evidence. A firm should be able to reconstruct the alert, accountable owner, remediation, retest and dated closure for a comparable issue.",
-            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/acro-reprimanded-following-cyber-security-failings",
-            "accessedDate": "2026-08-16"
+            "significance": "CNIL's enforcement action over a health-data breach makes the accountability test concrete: preserve the incident timeline, decision authority, remediation evidence and proof that a sensitive-data control has been retested before the regulator has to reconstruct the case.",
+            "sourceUrl": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
+            "accessedDate": "2026-09-07",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-07",
+              "reason": "The CNIL page displays 3 September 2026 directly below the article headline; its French date markup is not recognised by the generic audit extractor."
+            }
           }
         },
         {
-          "title": "Metropolitan Police Service issued with enforcement notice and reprimand following data protection failures",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/metropolitan-police-service-issued-with-enforcement-notice-and-reprimand-following-data-protection-failures",
-          "source": "Primary / UK Information Commissioner's Office / 2026-08-05",
+          "title": "Irish DPC decision puts sensitive-data remediation under formal scrutiny",
+          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
+          "source": "Primary / Data Protection Commission Ireland / 2026-09-02",
           "evidence": {
-            "sourceTitle": "Metropolitan Police Service issued with enforcement notice and reprimand following data protection failures",
-            "organisation": "UK Information Commissioner's Office",
-            "publishedDate": "2026-08-05",
+            "sourceTitle": "Data Protection Commission announces final decision following inquiry into the Health Service Executive",
+            "organisation": "Data Protection Commission Ireland",
+            "publishedDate": "2026-09-02",
             "sourceType": "regulator",
-            "significance": "The ICO enforcement action is a current data-governance read-across. Test whether access, retention, security, incident handling and remediation decisions are traceable and supported by evidence before an authority has to reconstruct them.",
-            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/metropolitan-police-service-issued-with-enforcement-notice-and-reprimand-following-data-protection-failures",
-            "accessedDate": "2026-08-09"
+            "significance": "The Irish DPC's final decision on the HSE inquiry is a useful reminder that sensitive-data remediation needs more than a project plan. Firms should be able to show the factual record, accountable owner, corrective actions, independent challenge and retained evidence of closure.",
+            "sourceUrl": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
+            "accessedDate": "2026-09-07"
           }
         },
         {

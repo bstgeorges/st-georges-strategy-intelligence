@@ -3,7 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { loadPublishedSourceMap, resolvePublishedSource } from "./lib/published_source_contract.mjs";
+import {
+  expectedEvidenceSourceType,
+  loadPublishedSourceMap,
+  resolvePublishedSource,
+} from "./lib/published_source_contract.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SIGNALS_PATH = path.join(ROOT, "site", "data", "signals.json");
@@ -96,17 +100,12 @@ function isFreshTop5Row(row, editionDate) {
   return ageDays >= 0 && ageDays <= TOP5_MAX_AGE_DAYS;
 }
 
-// source IDs from published-source-map.json that are commercial AI companies
-const TECH_COMPANY_SOURCE_IDS = new Set([
-  "openai", "anthropic", "google-deepmind", "meta-ai", "mistral-ai", "xai", "microsoft-ai", "nvidia",
-]);
-
 function inferSourceType(publishedSource) {
   if (!publishedSource) return "other reporting";
   const { id = "", tier = "" } = publishedSource;
   if (tier === "research") return "research";
   if (tier === "press" || tier === "specialist") return "other reporting";
-  if (TECH_COMPANY_SOURCE_IDS.has(id)) return "company announcement";
+  if (expectedEvidenceSourceType(publishedSource)) return "company announcement";
   return "regulator";
 }
 

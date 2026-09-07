@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
+  expectedEvidenceSourceType,
   isSpecificPublishedSourceUrl,
   validatePublishedRows,
   validatePublishedRowsLiveness,
@@ -136,6 +137,13 @@ function validateEvidence(row, rowLabel, failures) {
   }
   if (evidence.sourceType && !ALLOWED_SOURCE_TYPES.has(evidence.sourceType)) {
     fail(`${rowLabel} evidence.sourceType is unsupported: ${evidence.sourceType}`, failures);
+  }
+  const expectedSourceType = expectedEvidenceSourceType(evidence.sourceUrl);
+  if (expectedSourceType && evidence.sourceType !== expectedSourceType) {
+    fail(
+      `${rowLabel} evidence.sourceType must be ${expectedSourceType} for this first-party company source, not ${evidence.sourceType || "missing"}.`,
+      failures,
+    );
   }
   if (EDITORIAL_PLACEHOLDER.test(evidence.significance || "")) {
     fail(`${rowLabel} evidence.significance contains an unresolved editorial placeholder.`, failures);

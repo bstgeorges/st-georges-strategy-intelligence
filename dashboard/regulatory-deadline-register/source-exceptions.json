@@ -19,26 +19,10 @@
       "nextCheck": "2026-09-13"
     },
     {
-      "sourceId": "italy-consob",
-      "expectedStatus": "blocked",
-      "issue": "The official Consob press-release and consultation collections were blocked by anti-bot protection in the 6 September scan.",
-      "governance": "Use only an official alternate collection that returns date-bearing publication rows; otherwise retain the blocked status.",
-      "lastChecked": "2026-09-06",
-      "nextCheck": "2026-09-13"
-    },
-    {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
       "issue": "The official Banco Central do Brasil publication page returned no recognisable rows to the current parser.",
       "governance": "Repair selectors only after validating the current official page structure and date extraction; keep degraded until rows are proven.",
-      "lastChecked": "2026-09-06",
-      "nextCheck": "2026-09-13"
-    },
-    {
-      "sourceId": "south-africa-sarb",
-      "expectedStatus": "failed",
-      "issue": "The official South African Reserve Bank newsroom connection timed out in the 6 September scan.",
-      "governance": "Retry the official newsroom with the browser request profile and bounded timeout. Do not infer inactivity from a failed connection.",
       "lastChecked": "2026-09-06",
       "nextCheck": "2026-09-13"
     }

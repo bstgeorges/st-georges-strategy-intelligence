@@ -1,15 +1,15 @@
 {
   "version": "regulatory-deadline-review.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-07T08:34:18.040Z",
-  "sourceEdition": "2026-09-07",
+  "generatedAt": "2026-09-08T09:54:14.723Z",
+  "sourceEdition": "2026-09-08",
   "items": [
     {
       "id": "c607f1858dcfd5cb23f0",
       "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
       "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
       "deadline": "2026-09-28",
-      "daysToDeadline": 21,
+      "daysToDeadline": 20,
       "stage": "consultation",
       "authority": {
         "id": "hkma",
@@ -70,8 +70,77 @@
         ]
       },
       "firstSeen": "2026-09-06",
-      "lastSeen": "2026-09-07",
-      "sourceEdition": "2026-09-07"
+      "lastSeen": "2026-09-08",
+      "sourceEdition": "2026-09-08"
+    },
+    {
+      "id": "c58f01da7ad8afe2b4e0",
+      "title": "Consultation on Phase 2B prototype of Hong Kong Taxonomy for Sustainable Finance",
+      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260819-7-EN",
+      "deadline": "2026-10-07",
+      "daysToDeadline": 29,
+      "stage": "consultation",
+      "authority": {
+        "id": "hkma",
+        "name": "Hong Kong Monetary Authority",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "themes": [],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "score": 0.575,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "sourcePublishedAt": "2026-09-06",
+      "status": "ready-for-review",
+      "intake": "scanner",
+      "decision": null,
+      "evidence": {
+        "change": "Hong Kong Monetary Authority published a consultation on 2026-09-06.",
+        "detailChecked": true,
+        "deadlineCue": {
+          "date": "2026-10-07",
+          "trigger": "Consultation Close",
+          "triggerDistance": 7,
+          "quote": "HKMA Banking Regulatory Document Repository 繁 简 A A A Main Page Legislation Supervisory Policy Manual (SPM) Guide to Authorization Resolution – Code of Practice Language Eng 繁 简 Font Size A- A A+ The input contains invalid search syntax, please see tooltip for more information on search operators. Advanced Search Search Please select at least one document ty",
+          "source": "primary-document-detail"
+        },
+        "verifiedAt": null,
+        "verification": null
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Regulatory change lead",
+          "Applicable business owner"
+        ],
+        "prepare": [
+          "Confirm applicability",
+          "Name an accountable owner",
+          "Record the governing forum and decision date"
+        ]
+      },
+      "firstSeen": "2026-09-08",
+      "lastSeen": "2026-09-08",
+      "sourceEdition": "2026-09-08"
     }
   ]
 }

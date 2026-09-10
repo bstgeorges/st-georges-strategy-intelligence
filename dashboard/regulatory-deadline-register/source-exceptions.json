@@ -25,6 +25,22 @@
       "governance": "Repair selectors only after validating the current official page structure and date extraction; keep degraded until rows are proven.",
       "lastChecked": "2026-09-06",
       "nextCheck": "2026-09-13"
+    },
+    {
+      "sourceId": "italy-consob",
+      "expectedStatus": "blocked",
+      "issue": "The official Consob consultation page presented an anti-bot challenge in the 10 September scan.",
+      "governance": "Do not bypass the control. Test an official RSS, published collection or alternative official transport before changing the source; otherwise retain the blocked status.",
+      "lastChecked": "2026-09-10",
+      "nextCheck": "2026-09-17"
+    },
+    {
+      "sourceId": "adgm-fsra",
+      "expectedStatus": "failed",
+      "issue": "The official ADGM FSRA consultations page timed out in the 10 September scan.",
+      "governance": "Re-test the official page on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
+      "lastChecked": "2026-09-10",
+      "nextCheck": "2026-09-17"
     }
   ]
 }

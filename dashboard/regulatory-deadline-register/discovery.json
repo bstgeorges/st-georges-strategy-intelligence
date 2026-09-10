@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-09T08:33:06.681Z",
+  "generatedAt": "2026-09-10T10:42:55.538Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -84,21 +84,23 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-09-08",
+    "edition": "2026-09-10",
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "ok": 50,
-      "blocked": 2,
-      "degraded": 1
+      "ok": 48,
+      "blocked": 3,
+      "degraded": 1,
+      "failed": 1
     },
     "unscannedActiveSources": [],
     "coverageState": "limited",
     "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
   },
   "nextActions": [
-    "Review 2 blocked sources from the latest scan.",
+    "Review 3 blocked sources from the latest scan.",
     "Review 1 degraded source from the latest scan.",
+    "Review 1 failed source from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
   ],
   "sourceStatus": [
@@ -111,7 +113,7 @@
       ],
       "category": "regulation",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "failed"
     },
     {
       "id": "amf-sanctions",
@@ -267,7 +269,7 @@
       ],
       "category": "markets",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "blocked"
     },
     {
       "id": "de-bundesbank",

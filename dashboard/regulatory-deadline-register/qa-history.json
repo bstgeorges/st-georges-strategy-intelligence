@@ -3,43 +3,6 @@
   "visibility": "private",
   "runs": [
     {
-      "asOf": "2026-08-14",
-      "sourceEdition": "2026-08-02",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [],
-      "warnings": [
-        "scanner edition is 12 days old",
-        "core authority health not ok: uk-hm-treasury",
-        "only 0 confirmed open deadlines; target is 10",
-        "only 0 confirmed authorities; target is 4"
-      ]
-    },
-    {
-      "asOf": "2026-08-16",
-      "sourceEdition": "2026-08-16",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "uk-hm-treasury",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [],
-      "warnings": [
-        "only 0 confirmed open deadlines; target is 10",
-        "only 0 confirmed authorities; target is 4"
-      ]
-    },
-    {
       "asOf": "2026-08-23",
       "sourceEdition": "2026-08-22",
       "healthyCore": [
@@ -194,6 +157,40 @@
     {
       "asOf": "2026-09-09",
       "sourceEdition": "2026-09-08",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
+      "errors": [],
+      "warnings": [
+        "only 9 confirmed open deadlines; target is 10"
+      ]
+    },
+    {
+      "asOf": "2026-09-10",
+      "sourceEdition": "2026-09-09",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
+      "errors": [],
+      "warnings": [
+        "only 9 confirmed open deadlines; target is 10"
+      ]
+    },
+    {
+      "asOf": "2026-09-10",
+      "sourceEdition": "2026-09-10",
       "healthyCore": [
         "uk-fca",
         "uk-boe-pra",

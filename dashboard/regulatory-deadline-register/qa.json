@@ -1,26 +1,23 @@
 {
   "version": "regulatory-deadline-qa.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-12T12:05:27.483Z",
+  "generatedAt": "2026-09-12T12:15:47.547Z",
   "sourceEdition": "2026-09-12",
   "asOf": "2026-09-12",
   "errors": [],
-  "warnings": [
-    "only 8 confirmed open deadlines; target is 10"
-  ],
+  "warnings": [],
   "readiness": {
-    "score": 94,
+    "score": 100,
     "metrics": {
-      "confirmedOpenDeadlines": 8,
+      "confirmedOpenDeadlines": 10,
       "confirmedAuthorities": 6,
       "healthyCoreAuthorities": 7,
       "stableCoreAuthorities": 7,
       "sourceAgeDays": 0,
-      "concentration": 0.375
+      "concentration": 0.3
     },
     "relaunchEligible": false,
     "relaunchReasons": [
-      "fewer than ten confirmed open deadlines",
       "editor and product owner have not recorded a current-edition relaunch approval"
     ]
   }

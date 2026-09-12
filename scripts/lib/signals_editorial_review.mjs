@@ -1,4 +1,5 @@
 const DECISION_TYPE_ORDER = ["rule-change", "enforcement", "active-threat", "outage", "research", "context"];
+const MINIMUM_CANDIDATE_COUNTS = { resilience: 3 };
 
 const EMEA_JURISDICTIONS = new Set([
   "UK", "EU", "France", "Germany", "Ireland", "Spain", "Italy", "Switzerland",
@@ -111,6 +112,23 @@ export function buildSourceHealth(sourceStats, historyRuns, feedRegistry) {
   };
 }
 
+export function buildTopicReadiness(topics) {
+  return (topics || []).map((topic) => {
+    const candidateCount = (topic.candidates || []).length;
+    const minimumCandidateCount = MINIMUM_CANDIDATE_COUNTS[topic.id] || 1;
+    const isResilience = topic.id === "resilience";
+    return {
+      id: topic.id,
+      candidateCount,
+      minimumCandidateCount,
+      status: candidateCount >= minimumCandidateCount ? "editorial-review-required" : "manual-research-required",
+      instruction: isResilience
+        ? "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
+        : "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition.",
+    };
+  });
+}
+
 export function buildEditorialReview({ candidates, currentSignals, sourceRegistry, feedRegistry, historyRuns }) {
   const flattened = uniqueRows((candidates.topics || []).flatMap((topic) => topic.candidates || []));
   const currentTop5Urls = countPublishedRows(currentSignals, "top5");
@@ -159,6 +177,7 @@ export function buildEditorialReview({ candidates, currentSignals, sourceRegistr
         currentEditionTop5Events: currentTop5Urls.size,
       },
     },
+    topicReadiness: buildTopicReadiness(candidates.topics),
     sourceHealth: buildSourceHealth(candidates.sourceStats, historyRuns, feedRegistry),
   };
 }

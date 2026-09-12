@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { appendHealthRun, buildEditorialReview, buildSourceHealth, classifyDecisionType } from "./lib/signals_editorial_review.mjs";
+import { appendHealthRun, buildEditorialReview, buildSourceHealth, buildTopicReadiness, classifyDecisionType } from "./lib/signals_editorial_review.mjs";
 
 test("decision types separate rules, enforcement, threats, outages and research", () => {
   assert.equal(classifyDecisionType({ title: "Authority opens consultation on reporting rules" }), "rule-change");
@@ -60,4 +60,16 @@ test("health history adds each generated candidate run only once", () => {
   const once = appendHealthRun({ runs: [] }, candidates);
   assert.equal(once.runs.length, 1);
   assert.equal(appendHealthRun(once, candidates).runs.length, 1);
+});
+
+test("thin Resilience coverage requires manual research rather than a weak promotion", () => {
+  const readiness = buildTopicReadiness([
+    { id: "resilience", candidates: [{}, {}] },
+    { id: "data", candidates: [] },
+  ]);
+  const resilience = readiness.find((entry) => entry.id === "resilience");
+  assert.equal(resilience.minimumCandidateCount, 3);
+  assert.equal(resilience.status, "manual-research-required");
+  assert.match(resilience.instruction, /Do not promote a Resilience item merely to fill coverage/);
+  assert.equal(readiness.find((entry) => entry.id === "data").status, "manual-research-required");
 });

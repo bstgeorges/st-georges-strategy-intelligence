@@ -35,12 +35,20 @@
       "nextCheck": "2026-09-17"
     },
     {
-      "sourceId": "adgm-fsra",
+      "sourceId": "finma",
       "expectedStatus": "failed",
-      "issue": "The official ADGM FSRA consultations page timed out in the 10 September scan.",
+      "issue": "The official FINMA news RSS timed out in the 12 September scan.",
+      "governance": "Re-test the official feed on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
+      "lastChecked": "2026-09-12",
+      "nextCheck": "2026-09-19"
+    },
+    {
+      "sourceId": "south-africa-sarb",
+      "expectedStatus": "failed",
+      "issue": "The official South African Reserve Bank newsroom timed out in the 12 September scan.",
       "governance": "Re-test the official page on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
-      "lastChecked": "2026-09-10",
-      "nextCheck": "2026-09-17"
+      "lastChecked": "2026-09-12",
+      "nextCheck": "2026-09-19"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-10T10:42:55.538Z",
+  "generatedAt": "2026-09-12T10:56:37.128Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -84,14 +84,14 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-09-10",
+    "edition": "2026-09-12",
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "ok": 48,
+      "ok": 47,
       "blocked": 3,
       "degraded": 1,
-      "failed": 1
+      "failed": 2
     },
     "unscannedActiveSources": [],
     "coverageState": "limited",
@@ -100,7 +100,7 @@
   "nextActions": [
     "Review 3 blocked sources from the latest scan.",
     "Review 1 degraded source from the latest scan.",
-    "Review 1 failed source from the latest scan.",
+    "Review 2 failed sources from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
   ],
   "sourceStatus": [
@@ -113,7 +113,7 @@
       ],
       "category": "regulation",
       "tier": "primary",
-      "latestStatus": "failed"
+      "latestStatus": "ok"
     },
     {
       "id": "amf-sanctions",
@@ -582,7 +582,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "failed"
     },
     {
       "id": "finma",
@@ -592,7 +592,7 @@
       ],
       "category": "regulation",
       "tier": "primary",
-      "latestStatus": "ok"
+      "latestStatus": "failed"
     },
     {
       "id": "switzerland-snb",

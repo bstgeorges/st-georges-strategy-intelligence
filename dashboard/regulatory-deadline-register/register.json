@@ -1,14 +1,14 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-12T10:56:36.292Z",
+  "generatedAt": "2026-09-12T12:05:25.624Z",
   "asOf": "2026-09-12",
   "sourceEdition": "2026-09-12",
   "carryForwardGraceDays": 30,
   "items": [
     {
       "id": "462c72374abb045944af",
-      "title": "Consultation Paper No. 174 – Miscellaneous changes",
+      "title": "Notice of Consultation Paper Release: CP 174",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-174",
       "deadline": "2026-08-24",
       "daysToDeadline": -19,
@@ -22,9 +22,7 @@
         "Dubai",
         "United Arab Emirates"
       ],
-      "themes": [
-        "market-plumbing"
-      ],
+      "themes": [],
       "confidence": {
         "band": "high",
         "score": 1,
@@ -37,17 +35,18 @@
         }
       },
       "businessImpact": {
+        "score": 0.7,
         "band": "medium",
         "drivers": {
           "regulatory_action": 0.8,
           "urgency": 1,
-          "control_breadth": 0.5,
-          "jurisdiction_reach": 0.5
+          "control_breadth": 0,
+          "jurisdiction_reach": 1
         }
       },
       "sourcePublishedAt": "2026-07-09",
       "status": "confirmed",
-      "intake": "verified-backfill",
+      "intake": "scanner",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -60,25 +59,32 @@
         }
       },
       "evidence": {
-        "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding.",
+        "change": "Notice of Consultation Paper",
         "detailChecked": true,
-        "deadlineCue": "The DFSA notice states that comments are due on 24 August 2026.",
-        "verifiedAt": "2026-09-06",
-        "verification": "primary DFSA notice rechecked; it states that comments were due on 24 August 2026. The response window is now closed."
+        "deadlineCue": {
+          "date": "2026-08-24",
+          "trigger": "deadline",
+          "triggerDistance": 55,
+          "quote": "174 – Miscellaneous changes The deadline for providing comments on this Consultation Paper is 24 August 2026",
+          "source": "primary-document-detail"
+        },
+        "verifiedAt": null,
+        "verification": null
       },
       "ownerGuidance": {
         "owners": [
-          "Operations",
-          "Markets or product control"
+          "Regulatory change lead",
+          "Applicable business owner"
         ],
         "prepare": [
-          "Assess operational and reporting impact",
-          "Confirm market, client and system dependencies"
+          "Confirm applicability",
+          "Name an accountable owner",
+          "Record the governing forum and decision date"
         ]
       },
       "firstSeen": "2026-08-14",
       "lastSeen": "2026-09-12",
-      "sourceEdition": "2026-09-10"
+      "sourceEdition": "2026-09-12"
     },
     {
       "id": "cb35cc0bb665af1d7f0d",
@@ -231,7 +237,7 @@
     },
     {
       "id": "6db1b6fc915cb80933f6",
-      "title": "Notice of Consultation Paper Release: CP 173",
+      "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
       "deadline": "2026-09-07",
       "daysToDeadline": -5,
@@ -245,7 +251,10 @@
         "Dubai",
         "United Arab Emirates"
       ],
-      "themes": [],
+      "themes": [
+        "market-plumbing",
+        "customer-outcomes"
+      ],
       "confidence": {
         "band": "high",
         "score": 1,
@@ -258,18 +267,17 @@
         }
       },
       "businessImpact": {
-        "score": 0.7,
         "band": "medium",
         "drivers": {
           "regulatory_action": 0.8,
           "urgency": 1,
-          "control_breadth": 0,
-          "jurisdiction_reach": 1
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
         }
       },
       "sourcePublishedAt": "2026-07-07",
       "status": "confirmed",
-      "intake": "scanner",
+      "intake": "verified-backfill",
       "decision": {
         "decision": "confirmed",
         "scope": "source-date-only",
@@ -282,27 +290,24 @@
         }
       },
       "evidence": {
-        "change": "Notice of Consultation Paper",
+        "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance.",
         "detailChecked": true,
-        "deadlineCue": {
-          "date": "2026-09-07",
-          "trigger": "deadline",
-          "triggerDistance": 55,
-          "quote": "173 – Proposals to enhance DFSA’s Collective Investment Funds Framework The deadline for providing comments on this Consultation Paper is 7 September 2026",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
+        "deadlineCue": "The DFSA notice gives 7 September 2026 as the comment deadline.",
+        "verifiedAt": "2026-08-31",
+        "verification": "primary DFSA notice rechecked; it explicitly states that comments are due on 7 September 2026."
       },
       "ownerGuidance": {
         "owners": [
-          "Regulatory change lead",
-          "Applicable business owner"
+          "Operations",
+          "Markets or product control",
+          "Conduct risk",
+          "Customer and product owner"
         ],
         "prepare": [
-          "Confirm applicability",
-          "Name an accountable owner",
-          "Record the governing forum and decision date"
+          "Assess operational and reporting impact",
+          "Confirm market, client and system dependencies",
+          "Assess customer impact",
+          "Confirm policy, communications and control evidence"
         ]
       },
       "firstSeen": "2026-08-14",

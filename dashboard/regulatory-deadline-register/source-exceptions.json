@@ -3,6 +3,14 @@
   "visibility": "private",
   "exceptions": [
     {
+      "sourceId": "ecb-ssm-newsletter",
+      "expectedStatus": "failed",
+      "issue": "The official ECB Banking Supervision newsletter index could not be resolved in the 12 September scan.",
+      "governance": "Re-test the official page on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
+      "lastChecked": "2026-09-12",
+      "nextCheck": "2026-09-19"
+    },
+    {
       "sourceId": "iosco",
       "expectedStatus": "blocked",
       "issue": "The official IOSCO news page returned a 403 anti-bot response in the 6 September scan.",
@@ -33,14 +41,6 @@
       "governance": "Do not bypass the control. Test an official RSS, published collection or alternative official transport before changing the source; otherwise retain the blocked status.",
       "lastChecked": "2026-09-10",
       "nextCheck": "2026-09-17"
-    },
-    {
-      "sourceId": "finma",
-      "expectedStatus": "failed",
-      "issue": "The official FINMA news RSS timed out in the 12 September scan.",
-      "governance": "Re-test the official feed on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
-      "lastChecked": "2026-09-12",
-      "nextCheck": "2026-09-19"
     },
     {
       "sourceId": "south-africa-sarb",

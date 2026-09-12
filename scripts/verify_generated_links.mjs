@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 // blob diff so the path-filtered workflow actually re-fires.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DIR = path.join(ROOT, "site-dist");
+const SIGNALS_PATH = path.join(ROOT, "site", "data", "signals.json");
 const USER_AGENT =
   "ProjectVirtualOfficerGeneratedLinkVerifier/1.0 (+https://stgeorgesstrategy.com/)";
 const restrictedButPresentStatuses = new Set([401, 403, 415]);
@@ -94,6 +95,12 @@ function isTemporarilyUnavailable(status) {
 
 function isKnownRestrictedFetchFailure(url, error) {
   if (!error) return false;
+  // `signals:health:verify` runs before this audit in the release workflow. A
+  // Top 5 source with a current manual-verification record has already been
+  // checked against its primary page when automated transport is unavailable.
+  // Preserve the hard failure for HTTP 4xx/soft-404 responses; this exception
+  // only covers repeated connection failures from the link checker itself.
+  if (isManuallyVerifiedFetchFailure(url, error)) return true;
   if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url)) {
     return /AbortError|fetch failed/i.test(String(error));
   }
@@ -110,6 +117,32 @@ function isKnownRestrictedFetchFailure(url, error) {
     return false;
   }
   return false;
+}
+
+function isManuallyVerifiedFetchFailure(url, error) {
+  return Boolean(error)
+    && manuallyVerifiedSourceUrls().has(url)
+    && /AbortError|fetch failed/i.test(String(error));
+}
+
+let manualVerificationUrlCache = null;
+
+function manuallyVerifiedSourceUrls() {
+  if (manualVerificationUrlCache) return manualVerificationUrlCache;
+  const urls = new Set();
+  if (!fs.existsSync(SIGNALS_PATH)) return urls;
+  const signals = JSON.parse(fs.readFileSync(SIGNALS_PATH, "utf8"));
+  for (const topic of signals.topics || []) {
+    for (const section of ["top5", "stillMaterial"]) {
+      for (const row of topic[section] || []) {
+        if (row.evidence?.sourceDateVerification?.status === "manual-verified" && row.evidence?.sourceUrl) {
+          urls.add(row.evidence.sourceUrl);
+        }
+      }
+    }
+  }
+  manualVerificationUrlCache = urls;
+  return urls;
 }
 
 function extractExternalLinks(html) {
@@ -195,7 +228,11 @@ async function fetchUrl(url) {
     if (lastResult.ok || lastResult.status || attempt === TRANSIENT_RETRY_ATTEMPTS) break;
   }
   if (lastResult && !lastResult.ok && isKnownRestrictedFetchFailure(url, lastResult.error)) {
-    return { ...lastResult, ok: true, note: "restricted" };
+    return {
+      ...lastResult,
+      ok: true,
+      note: isManuallyVerifiedFetchFailure(url, lastResult.error) ? "manual-verified" : "restricted",
+    };
   }
   return lastResult;
 }
@@ -258,10 +295,12 @@ async function main() {
 
   const failures = results.filter((result) => !result.ok);
   const restricted = results.filter((result) => result.note === "restricted");
+  const manuallyVerified = results.filter((result) => result.note === "manual-verified");
   const unavailable = results.filter((result) => result.note === "unavailable");
   console.log(
     `Checked ${htmlFiles.length} generated HTML files and ${results.length} unique outbound links; ` +
       `${failures.length} failures; ${restricted.length} restricted/paywalled links; ` +
+      `${manuallyVerified.length} manually verified transport exception(s); ` +
       `${unavailable.length} temporarily unavailable links.`,
   );
 

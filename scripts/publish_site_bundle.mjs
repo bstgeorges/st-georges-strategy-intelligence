@@ -738,13 +738,14 @@ function renderHomepageJudgement(out, editionRecord) {
   if (!fs.existsSync(file) || !editionRecord?.judgement) return;
   const html = read(file);
   const { observation, executiveJudgement, implication } = editionRecord.judgement;
+  const judgementTitle = editionRecord.judgement.title || "A note for the week";
   const block = `<!-- judgement:start -->
         <section class="home-judgement" aria-labelledby="weekly-judgement-title">
           <header class="judgement-header">
             <p class="eyebrow">Weekly Judgement</p>
             <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
           </header>
-          <h2 id="weekly-judgement-title">A note for the week</h2>
+          <h2 id="weekly-judgement-title">${escapeHtml(judgementTitle)}</h2>
           <div class="judgement-copy">
             <div class="judgement-beat">
               <p class="judgement-label">What happened</p>
@@ -766,6 +767,8 @@ function renderHomepageJudgement(out, editionRecord) {
 
 function weeklyJudgementArchiveBlock(editionRecord) {
   const { observation, executiveJudgement, implication } = editionRecord?.judgement || {};
+  const judgementTitle = editionRecord?.judgement?.title || "A note for the week";
+  const archiveCorrection = editionRecord?.judgement?.archiveCorrection;
   if (![observation, executiveJudgement, implication].every(Boolean)) return "";
   return `      <!-- archive-weekly-judgement:start -->
       <section class="band home-judgement archived-weekly-judgement" aria-labelledby="archived-weekly-judgement-title">
@@ -773,8 +776,9 @@ function weeklyJudgementArchiveBlock(editionRecord) {
           <p class="eyebrow">Weekly Judgement</p>
           <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
         </header>
-        <h2 id="archived-weekly-judgement-title">A note for the week</h2>
+        <h2 id="archived-weekly-judgement-title">${escapeHtml(judgementTitle)}</h2>
         <p class="meta">Archive record · The Weekly Judgement published with this edition is retained here in full.</p>
+        ${archiveCorrection ? `<p class="archive-correction-note">${escapeHtml(archiveCorrection)}</p>` : ""}
         <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>
@@ -2394,15 +2398,18 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   const briefPage = read(path.join(out, "brief", "index.html"));
   const archivedBrief = read(path.join(out, "archive", "brief", edition, "index.html"));
   const committeePage = read(path.join(out, "committee-questions", "index.html"));
-  for (const [field, value] of Object.entries(editionRecord.judgement)) {
+  for (const field of ["title", "observation", "executiveJudgement", "implication"]) {
+    const value = editionRecord.judgement[field];
     assert(homePage.includes(value), `Homepage must include current edition judgement ${field}`, failures);
   }
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
   assert(archivedBrief.includes("Weekly Judgement"), "Archived Brief must retain the Weekly Judgement", failures);
   assert(archivedBrief.includes(`Week ending ${formatDateLong(editionRecord.publicationDate)} · ${editionRecord.editionNumber}`), "Archived Brief Weekly Judgement edition line mismatch", failures);
-  assert(archivedBrief.includes("A note for the week"), "Archived Brief must retain the Weekly Judgement heading", failures);
-  for (const value of Object.values(editionRecord.judgement || {})) {
+  assert(archivedBrief.includes(editionRecord.judgement.title || "A note for the week"), "Archived Brief must retain the Weekly Judgement heading", failures);
+  for (const field of ["title", "observation", "executiveJudgement", "implication", "archiveCorrection"]) {
+    const value = editionRecord.judgement?.[field];
+    if (!value) continue;
     assert(archivedBrief.includes(value), "Archived Brief must retain the full Weekly Judgement", failures);
   }
   if (editionRecord.deepDive) {

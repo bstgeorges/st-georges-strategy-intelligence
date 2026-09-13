@@ -26,6 +26,14 @@ Use these names when the section performs the matching job.
 - Remove draft notes, migration language, and internal process scaffolding from public pages.
 - Use secondary reporting only when it is labelled and the first-party source is unavailable or insufficient.
 
+## Weekly Judgement distinctness
+
+- Keep **What happened / Why it matters / What to do** as the reader structure, but give each edition a genuinely different operating decision.
+- Before approval, compare the proposed Judgement and LinkedIn copy with the previous three published editions. Record the new `editorialAngle` and `distinctFromPrevious` fields in `site/data/current-edition.json`.
+- Reject a draft that merely restates the previous action grammar or reuses the default assurance bundle of owner, map, dependency, test, intervention, exception and closure. That may be useful evidence elsewhere, but it is not a Weekly Judgement.
+- Lead with a concrete observed behaviour or changed boundary, not a roll-call of sources. The Brief and Signals pages carry the detailed source trail.
+- Make **What to do** one specific next move. When the evidence points to a proof gap, ask for the relevant test result or unresolved difference — not another generic control pack.
+
 ## Date and archive discipline
 
 - Do not change genuine historical publication dates to reflect later layout or scanability improvements.

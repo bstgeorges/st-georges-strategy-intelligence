@@ -123,11 +123,12 @@ function checkCurrentEditionAlignment(failures) {
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
   assert(home.includes("What should a leadership team get ahead of this week?"), "home should use its distinct, reader-led entry headline", failures);
-  for (const [field, value] of Object.entries(edition.judgement || {})) {
+  for (const field of ["title", "observation", "executiveJudgement", "implication"]) {
+    const value = edition.judgement?.[field];
     assert(home.includes(value), `home should surface current edition judgement ${field}`, failures);
   }
   assert(home.includes("Weekly Judgement"), "home should label its full editorial judgement", failures);
-  assert(home.includes("A note for the week"), "home judgement should frame the weekly editorial note", failures);
+  assert(home.includes(edition.judgement?.title || "A note for the week"), "home judgement should frame the weekly editorial note", failures);
   assert(home.includes("What happened") && home.includes("Why it matters") && home.includes("What to do"), "home judgement should retain its clear reader signposts", failures);
   assert(home.indexOf("Weekly Judgement") < home.indexOf('class="ticker"'), "weekly judgement should appear immediately after the hero and before the coverage ticker", failures);
   assert(expectedTopSignals.length === 5, "current edition should define exactly five canonical top signals", failures);
@@ -313,11 +314,11 @@ function main() {
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
   assert(
-      briefPage.includes("One control test for the week") &&
+      briefPage.includes("Proof before scale") &&
       briefPage.includes("What happened") &&
       briefPage.includes("Why it matters") &&
       briefPage.includes("What to do") &&
-      briefPage.includes("Ask for proof that survives challenge."),
+      briefPage.includes("Bring the result, not the checklist."),
     "Weekly Brief is missing its compact current-edition readout",
     failures,
   );

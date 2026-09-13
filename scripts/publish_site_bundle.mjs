@@ -764,6 +764,42 @@ function renderHomepageJudgement(out, editionRecord) {
   write(file, html.replace(/<!-- judgement:start -->[\s\S]*?<!-- judgement:end -->/, block));
 }
 
+function weeklyJudgementArchiveBlock(editionRecord) {
+  const { observation, executiveJudgement, implication } = editionRecord?.judgement || {};
+  if (![observation, executiveJudgement, implication].every(Boolean)) return "";
+  return `      <!-- archive-weekly-judgement:start -->
+      <section class="band home-judgement archived-weekly-judgement" aria-labelledby="archived-weekly-judgement-title">
+        <header class="judgement-header">
+          <p class="eyebrow">Weekly Judgement</p>
+          <p class="judgement-edition">Week ending ${escapeHtml(formatDateLong(editionRecord.publicationDate))} · ${escapeHtml(editionRecord.editionNumber)}</p>
+        </header>
+        <h2 id="archived-weekly-judgement-title">A note for the week</h2>
+        <p class="meta">Archive record · The Weekly Judgement published with this edition is retained here in full.</p>
+        <div class="judgement-copy">
+          <div class="judgement-beat">
+            <p class="judgement-label">What happened</p>
+            <p class="judgement-text">${escapeHtml(observation)}</p>
+          </div>
+          <div class="judgement-beat">
+            <p class="judgement-label">Why it matters</p>
+            <p class="judgement-text">${escapeHtml(executiveJudgement)}</p>
+          </div>
+          <div class="judgement-beat judgement-implication">
+            <p class="judgement-label">What to do</p>
+            <p class="judgement-text">${escapeHtml(implication)}</p>
+          </div>
+        </div>
+      </section>
+      <!-- archive-weekly-judgement:end -->`;
+}
+
+function addWeeklyJudgementToBriefArchive(html, editionRecord) {
+  if (html.includes("<!-- archive-weekly-judgement:start -->")) return html;
+  const block = weeklyJudgementArchiveBlock(editionRecord);
+  if (!block) return html;
+  return html.replace("      <section class=\"band brief-scan\"", `${block}\n\n      <section class="band brief-scan"`);
+}
+
 function renderCurrentEditionExperience(out, editionRecord, horizonData) {
   if (!editionRecord) return;
   const homeFile = path.join(out, "index.html");
@@ -907,11 +943,13 @@ function listDeepDiveArchiveEntries(maxDate = "") {
 // and regenerated from source on every run.
 function syncSignalsArchiveStore(out, edition) {
   if (ALLOW_ARCHIVE_CORRECTION) correctStoredArchiveMetadata();
+  const editionRecord = readJson(EDITION_INPUT);
   archiveIntoStore(
     out,
     "brief/index.html",
     path.join(ARCHIVE_STORE, "brief", edition, "index.html"),
     `${PUBLIC_ORIGIN}/archive/brief/${edition}/`,
+    (html) => addWeeklyJudgementToBriefArchive(html, editionRecord),
   );
   for (const topic of topics) {
     archiveIntoStore(
@@ -922,7 +960,7 @@ function syncSignalsArchiveStore(out, edition) {
     );
   }
 
-  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
+  const currentDeepDive = deepDiveDetails(editionRecord.deepDive);
   if (currentDeepDive) {
     archiveIntoStore(
       out,
@@ -982,9 +1020,9 @@ function correctStoredArchiveMetadata() {
   }
 }
 
-function archiveIntoStore(out, sourceRelative, destinationFile, publicUrl) {
+function archiveIntoStore(out, sourceRelative, destinationFile, publicUrl, transform = (text) => text) {
   const sourceFile = path.join(out, sourceRelative);
-  let text = read(sourceFile);
+  let text = transform(read(sourceFile));
   text = text.replace(/\b(href|src)="([^"]+)"/g, (_match, attr, value) => {
     return `${attr}="${toRootRelativeReference(out, sourceFile, value)}"`;
   });
@@ -2354,12 +2392,19 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   const editionRecord = readJson(EDITION_INPUT);
   const homePage = read(path.join(out, "index.html"));
   const briefPage = read(path.join(out, "brief", "index.html"));
+  const archivedBrief = read(path.join(out, "archive", "brief", edition, "index.html"));
   const committeePage = read(path.join(out, "committee-questions", "index.html"));
   for (const [field, value] of Object.entries(editionRecord.judgement)) {
     assert(homePage.includes(value), `Homepage must include current edition judgement ${field}`, failures);
   }
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
+  assert(archivedBrief.includes("Weekly Judgement"), "Archived Brief must retain the Weekly Judgement", failures);
+  assert(archivedBrief.includes(`Week ending ${formatDateLong(editionRecord.publicationDate)} · ${editionRecord.editionNumber}`), "Archived Brief Weekly Judgement edition line mismatch", failures);
+  assert(archivedBrief.includes("A note for the week"), "Archived Brief must retain the Weekly Judgement heading", failures);
+  for (const value of Object.values(editionRecord.judgement || {})) {
+    assert(archivedBrief.includes(value), "Archived Brief must retain the full Weekly Judgement", failures);
+  }
   if (editionRecord.deepDive) {
     assert(homePage.includes(editionRecord.deepDive.title), "Homepage must feature the current Deep Dive", failures);
     assert(briefPage.includes(editionRecord.deepDive.title), "Weekly Brief must link to the current Deep Dive", failures);

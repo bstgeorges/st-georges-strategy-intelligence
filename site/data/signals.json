@@ -1,14 +1,28 @@
 {
-  "edition": "2026-09-06",
-  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "edition": "2026-09-13",
+  "generatedAt": "2026-09-13T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
       "id": "ai",
       "route": "/signals/ai/",
       "title": "AI, agents, and control evidence.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "AI-assisted legacy-code change needs a parity harness before it needs scale",
+          "url": "https://mistral.ai/news/legacy-code-modernization",
+          "source": "Primary / Mistral AI / 2026-09-09",
+          "evidence": {
+            "sourceTitle": "Modernizing complex legacy code with AI agents.",
+            "organisation": "Mistral AI",
+            "publishedDate": "2026-09-09",
+            "sourceType": "company announcement",
+            "significance": "Mistral's legacy-modernisation case shows that agentic implementation should begin with a testable parity harness and a documented system map, not a broad autonomy mandate. The operating question is whether a firm can prove that a changed module behaves as intended, identify where a human can intervene and retain the approval record before production code changes at scale.",
+            "sourceUrl": "https://mistral.ai/news/legacy-code-modernization",
+            "accessedDate": "2026-09-13"
+          }
+        },
         {
           "title": "Anthropic announces customer-held AI monitoring, with rollout still phased",
           "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
@@ -69,25 +83,6 @@
             "sourceUrl": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
             "accessedDate": "2026-08-16"
           }
-        },
-        {
-          "title": "Responding to the next frontier of critical cyber capabilities",
-          "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
-          "source": "Primary / OpenAI / 2026-08-07",
-          "evidence": {
-            "sourceTitle": "Responding to the next frontier of critical cyber capabilities",
-            "organisation": "OpenAI",
-            "publishedDate": "2026-08-07",
-            "sourceType": "company announcement",
-            "significance": "OpenAI says its preliminary testing cannot rule out critical cyber capabilities in an upcoming model. Treat access controls, high-risk evaluation governance, intervention paths and evidence of monitoring as immediate deployment prerequisites, not a future policy exercise.",
-            "sourceUrl": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
-            "accessedDate": "2026-08-09",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-08-09",
-              "reason": "The OpenAI publication was checked directly and displays 7 August 2026; the automated release crawler receives a restricted response from this host."
-            }
-          }
         }
       ],
       "stillMaterial": [
@@ -142,8 +137,22 @@
       "id": "resilience",
       "route": "/signals/resilience/",
       "title": "Failure paths, fallback evidence, and customer impact.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "CloudTrail makes containment and recovery a decision-record test",
+          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
+          "source": "Primary / AWS Security Blog / 2026-09-03",
+          "evidence": {
+            "sourceTitle": "Incident response guide for AWS CloudTrail investigations – Part 2",
+            "organisation": "AWS Security Blog",
+            "publishedDate": "2026-09-03",
+            "sourceType": "company announcement",
+            "significance": "AWS's second CloudTrail investigation guide takes an alert through containment, recovery and post-incident analysis. The useful resilience test is whether incident teams can produce the activity record, the authority for each containment decision, the recovery steps and evidence that the service was safe to return to normal.",
+            "sourceUrl": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
+            "accessedDate": "2026-09-13"
+          }
+        },
         {
           "title": "CloudTrail turns incident response into an evidence test",
           "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
@@ -198,20 +207,6 @@
             "significance": "The ESAs put frontier-AI ICT risk inside the supervisory conversation, linking governance, cyber prevention, detection, response and critical third-party oversight. Firms should map those expectations to real control evidence.",
             "sourceUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
             "accessedDate": "2026-08-02"
-          }
-        },
-        {
-          "title": "Cooling failure disrupts multiple Google Cloud services in one European zone",
-          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-          "source": "Primary / Google Cloud Service Health / 2026-07-17",
-          "evidence": {
-            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
-            "organisation": "Google Cloud Service Health",
-            "publishedDate": "2026-07-17",
-            "sourceType": "company announcement",
-            "significance": "A physical cooling failure affected VMware, storage and bare-metal services together. Resilience owners should test whether zone design, recovery priorities and customer-impact evidence reflect correlated infrastructure failures rather than assuming service independence.",
-            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-            "accessedDate": "2026-07-18"
           }
         }
       ],
@@ -283,11 +278,13 @@
             "accessedDate": "2026-07-09"
           }
         },
-        {
-          "rank": 10,
-          "title": "Patch SLAs are compressing as AI changes vulnerability discovery",
-          "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
-          "source": "Other reporting / WIRED / 2026-06-10",
+      {
+        "rank": 10,
+        "title": "Patch SLAs are compressing as AI changes vulnerability discovery",
+        "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
+        "source": "Other reporting / WIRED / 2026-06-10",
+        "retention": "six-month-anchor",
+        "retentionReason": "Retained as a six-month anchor for the strategic effect of AI-enabled vulnerability discovery on patch and exception governance.",
           "evidence": {
             "sourceTitle": "Patch SLAs are compressing as AI changes vulnerability discovery",
             "organisation": "WIRED",
@@ -304,8 +301,22 @@
       "id": "third-party",
       "route": "/signals/third-party/",
       "title": "Dependencies that look internal when they fail.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "BIS puts critical third-party dependence inside the cyber-resilience test",
+          "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
+          "source": "Primary / Bank for International Settlements / 2026-09-08",
+          "evidence": {
+            "sourceTitle": "Global standard-setting bodies publish a toolkit for cyber resilience at FMIs and a discussion paper on FMIs’ reliance on third-party service providers",
+            "organisation": "Bank for International Settlements",
+            "publishedDate": "2026-09-08",
+            "sourceType": "regulator",
+            "significance": "CPMI-IOSCO's toolkit and discussion paper connect cyber resilience to financial market infrastructures' reliance on critical third-party services. Firms should be able to show the service map, the intervention and escalation authority, and the evidence that recovery and supplier arrangements work together; comments are requested by 1 December 2026.",
+            "sourceUrl": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
+            "accessedDate": "2026-09-13"
+          }
+        },
         {
           "title": "Google Cloud network degradation tests the shared service boundary",
           "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
@@ -361,33 +372,16 @@
             "sourceUrl": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
             "accessedDate": "2026-07-22"
           }
-        },
-        {
-          "title": "GitHub Copilot provider incident makes AI-service fallback a supplier-control test",
-          "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
-          "source": "Primary / GitHub Status / 2026-09-03",
-          "evidence": {
-            "sourceTitle": "Incident with Grok Copilot AI Model Provider",
-            "organisation": "GitHub Status",
-            "publishedDate": "2026-09-03",
-            "sourceType": "company announcement",
-            "significance": "GitHub reported an incident involving a Copilot AI-model provider. Where a workflow depends on an external model, the practical test is whether the firm knows the affected use cases, can invoke a fallback, communicate the impact and evidence the recovery decision.",
-            "sourceUrl": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
-            "accessedDate": "2026-09-07",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-07",
-              "reason": "GitHub's official status RSS records the incident on 3 September 2026; the individual incident page does not expose a machine-readable publication date to the source-date audit."
-            }
-          }
         }
       ],
       "stillMaterial": [
-        {
-          "rank": 6,
-          "title": "Agentic AI suppliers create permission and audit-log questions",
-          "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
-          "source": "Monitoring / Financial Times / 2026-06-30",
+      {
+        "rank": 6,
+        "title": "Agentic AI suppliers create permission and audit-log questions",
+        "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
+        "source": "Monitoring / Financial Times / 2026-06-30",
+        "retention": "six-month-anchor",
+        "retentionReason": "Retained as a six-month anchor for permission and audit-log questions arising from agentic AI supplier use.",
           "evidence": {
             "sourceTitle": "Agentic AI suppliers create permission and audit-log questions",
             "organisation": "Financial Times",
@@ -455,11 +449,13 @@
             }
           }
         },
-        {
-          "rank": 10,
-          "title": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
-          "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
-          "source": "Primary / FSB / 2026-06-10",
+      {
+        "rank": 10,
+        "title": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
+        "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
+        "source": "Primary / FSB / 2026-06-10",
+        "retention": "six-month-anchor",
+        "retentionReason": "Retained as a six-month anchor for third-party and vendor-concentration governance in responsible AI adoption.",
           "evidence": {
             "sourceTitle": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
             "organisation": "FSB",
@@ -476,7 +472,7 @@
       "id": "market-structure",
       "route": "/signals/market-structure/",
       "title": "Capital, liquidity, infrastructure, and concentration risk.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
         {
           "title": "CFTC clearing rule resets rate-swap implementation checks",
@@ -638,8 +634,27 @@
       "id": "financial-crime",
       "route": "/signals/financial-crime/",
       "title": "Fraud, scams, sanctions, and control evidence.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "ASIC's misconduct data turns reporting channels into a control-intelligence test",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+          "source": "Primary / Australian Securities and Investments Commission / 2026-09-10",
+          "evidence": {
+            "sourceTitle": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
+            "organisation": "Australian Securities and Investments Commission",
+            "publishedDate": "2026-09-10",
+            "sourceType": "regulator",
+            "significance": "ASIC says retail-investor issues and governance matters made up more than four in five misconduct reports in the first half of 2026, with reports helping existing surveillance and investigations. The read-across is whether a firm can connect complaints, whistleblowing and scam intelligence to triage, investigation, accountable action and a record of the outcome.",
+            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+            "accessedDate": "2026-09-13",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-13",
+              "reason": "ASIC's release record identifies 10 September 2026. The page exposes an unrelated 3 September metadata date to the generic extractor, so the date was checked directly against the primary release before publication."
+            }
+          }
+        },
         {
           "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
           "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
@@ -700,45 +715,9 @@
               "reason": "The SEC's official press-release RSS entry dates this release 18 August 2026 at 19:55 UTC. The article endpoint exposes unrelated legacy body dates to the generic scraper."
             }
           }
-        },
-        {
-          "title": "Guidance: OFSI General licence INT/2025/5635700",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20255635700",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-08-06",
-          "evidence": {
-            "sourceTitle": "Guidance: OFSI General licence INT/2025/5635700",
-            "organisation": "UK Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-08-06",
-            "sourceType": "regulator",
-            "significance": "OFSI amended a Russia-related general licence on 6 August. Firms with relevant counterparties or activity should identify the change, record the applicability decision, update the sanctions-control evidence and retain the versioned rationale.",
-            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int20255635700",
-            "accessedDate": "2026-08-09"
-          }
         }
       ],
       "stillMaterial": [
-        {
-          "rank": 6,
-          "title": "Fraudscape 2026: fraud cases hit record highs as identity fraud and AI-enabled account takeover scale up",
-          "url": "https://www.cifas.org.uk/newsroom/fraudscape2026",
-          "source": "Industry data / Cifas Fraudscape 2026 / 2026-03-12",
-          "retention": "six-month-anchor",
-          "retentionReason": "The annual dataset remains a current baseline for identity fraud and AI-enabled account-takeover trends.",
-          "evidence": {
-            "sourceTitle": "Fraud loss patterns should inform authentication, mule, and reimbursement controls",
-            "organisation": "Cifas",
-            "publishedDate": "2026-03-12",
-            "sourceType": "other reporting",
-            "significance": "Supports the signal by linking Cifas evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.cifas.org.uk/newsroom/fraudscape2026",
-            "accessedDate": "2026-07-09",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-08-23",
-              "reason": "Rechecked directly on 23 August: the Cifas newsroom displays 12 March 2026 and the annual dataset remains a current baseline for identity fraud and account-takeover trends."
-            }
-          }
-        },
         {
           "rank": 7,
           "title": "Financial-crime governance should be traceable from risk assessment to control testing",
@@ -819,8 +798,22 @@
       "id": "cyber",
       "route": "/signals/cyber/",
       "title": "Threats, vulnerabilities, identity, and response.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "Three new exploited flaws test whether the patch queue maps to the estate",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-11",
+          "evidence": {
+            "sourceTitle": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+            "organisation": "US Cybersecurity and Infrastructure Security Agency",
+            "publishedDate": "2026-09-11",
+            "sourceType": "regulator",
+            "significance": "CISA's 11 September update adds three actively exploited vulnerabilities to its catalogue. The management question is not the alert count: can the firm identify affected assets, authorise emergency remediation or compensating controls, time-box any exception and independently prove closure?",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-09-13"
+          }
+        },
         {
           "title": "CISA adds exploited LiteLLM and Kestra flaws to the priority list",
           "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
@@ -875,20 +868,6 @@
             "significance": "Microsoft describes a campaign using counterfeit installers to reach system compromise. Treat it as a control test for approved-software routes, download controls, endpoint detection, user escalation and the evidence that a suspicious installation was contained.",
             "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
             "accessedDate": "2026-09-07"
-          }
-        },
-        {
-          "title": "When cyber attacks happen: helping organisations recover",
-          "url": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
-          "source": "Primary / UK National Cyber Security Centre / 2026-07-28",
-          "evidence": {
-            "sourceTitle": "When cyber attacks happen: helping organisations recover",
-            "organisation": "UK National Cyber Security Centre",
-            "publishedDate": "2026-07-28",
-            "sourceType": "regulator",
-            "significance": "NCSC recovery guidance emphasises governance, communications, minimum viable operations and rebuilding stronger. Recovery plans become credible only when firms practise them against business-led priorities.",
-            "sourceUrl": "https://www.ncsc.gov.uk/blogs/when-cyber-attacks-happen-helping-organisations-recover",
-            "accessedDate": "2026-08-02"
           }
         }
       ],
@@ -953,11 +932,13 @@
             }
           }
         },
-        {
-          "rank": 9,
-          "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
-          "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
-          "source": "Primary / NIST / 2026-06-09",
+      {
+        "rank": 9,
+        "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
+        "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
+        "source": "Primary / NIST / 2026-06-09",
+        "retention": "six-month-anchor",
+        "retentionReason": "Retained as a six-month anchor for continuous monitoring and updating where fixed AI guardrails can become stale.",
           "evidence": {
             "sourceTitle": "NIST mathematical proof supports transition to continuous monitor and update",
             "organisation": "NIST",
@@ -994,7 +975,7 @@
       "id": "technology-failure",
       "route": "/signals/technology-failure/",
       "title": "Outages, change failure, data integrity, and recovery.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
         {
           "title": "Elevated network errors for traffic routed between North America origins and SIN (Singapore) colo",
@@ -1161,8 +1142,27 @@
       "id": "data",
       "route": "/signals/data/",
       "title": "Lineage, reporting, privacy, and evidence integrity.",
-      "stillMaterialReviewedAt": "2026-08-02",
+      "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "CNIL turns e-invoicing platforms into a data-role and retention test",
+          "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-09-10",
+          "evidence": {
+            "sourceTitle": "Facturation électronique : quels enjeux pour la protection des données personnelles ?",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-09-10",
+            "sourceType": "regulator",
+            "significance": "CNIL's guidance accompanies the live French e-invoicing reform and sets out the practical boundary between controller and processor, the need for appropriate contracts, data minimisation, retention and platform traceability. For affected firms, the implementation question is whether the chosen platform's data use, access controls and audit record match the intended operating role.",
+            "sourceUrl": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
+            "accessedDate": "2026-09-13",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-13",
+              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The feed timestamp resolves to the preceding UTC date, so the primary-page date was verified directly before publication."
+            }
+          }
+        },
         {
           "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
@@ -1227,20 +1227,6 @@
               "verifiedDate": "2026-09-12",
               "reason": "The Irish DPC primary page displays 2 September 2026 directly below the decision headline. GitHub's release auditor encountered a transient fetch error, so the date was rechecked directly before release."
             }
-          }
-        },
-        {
-          "title": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures",
-          "source": "Primary / Australian Securities and Investments Commission / 2026-07-20",
-          "evidence": {
-            "sourceTitle": "26-149MR Deutsche Bank pays $2 million penalty for systemic trade reporting failures | ASIC",
-            "organisation": "Australian Securities and Investments Commission",
-            "publishedDate": "2026-07-20",
-            "sourceType": "regulator",
-            "significance": "Systemic reporting failures turn data quality into market-integrity and conduct risk. Firms should maintain traceable ownership for reportable fields, reconciliations that identify recurring breaks and governance that can demonstrate timely correction to regulators.",
-            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-149mr-deutsche-bank-pays-2-million-penalty-for-systemic-trade-reporting-failures",
-            "accessedDate": "2026-07-22"
           }
         }
       ],

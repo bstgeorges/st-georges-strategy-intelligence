@@ -57,6 +57,8 @@ if (signalsHealth) {
   }
 }
 assert(Boolean(edition.committeeQuestion?.question && edition.committeeQuestion?.why && edition.committeeQuestion?.evidence), "current-edition must include a complete featured Committee Question");
+assert(Boolean(edition.judgement?.editorialAngle), "current-edition judgement must record its distinct editorial angle");
+assert(Boolean(edition.judgement?.distinctFromPrevious), "current-edition judgement must record how it differs from the preceding edition");
 assert(Array.isArray(edition.committeeQuestions) && edition.committeeQuestions.length === 3, "current-edition must include exactly three Committee Questions");
 for (const [index, question] of (edition.committeeQuestions || []).entries()) {
   assert(Boolean(question?.question && question?.why && question?.evidence), `current-edition Committee Question ${index + 1} must be complete`);

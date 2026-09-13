@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Harness Problem | Deep Dives | St Georges Strategy</title>
+    <meta name="description" content="What recent FCA and FSB warnings mean for AI-assisted vulnerability discovery, remediation capacity, control design and correlated cyber disruption.">
+    <link rel="canonical" href="https://stgeorgesstrategy.com/deep-dives/harness-problem/archive/2026-09-13/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="It was never about the model. It’s about the harness.">
+    <meta property="og:description" content="What recent FCA and FSB warnings mean for AI-assisted vulnerability discovery, remediation capacity, control design and correlated cyber disruption.">
+    <meta property="og:url" content="https://stgeorgesstrategy.com/deep-dives/harness-problem/archive/2026-09-13/">
+    <meta property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="It was never about the model. It’s about the harness.">
+    <meta name="twitter:description" content="A Deep Dive from The Virtual Officer.">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "It was never about the model. It’s about the harness.",
+        "description": "What recent FCA and FSB warnings mean for AI-assisted vulnerability discovery, remediation capacity, control design and correlated cyber disruption.",
+        "datePublished": "2026-09-13",
+        "dateModified": "2026-09-13",
+        "author": { "@type": "Person", "name": "Ben St Georges" },
+        "publisher": { "@type": "Organization", "name": "St Georges Strategy" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://stgeorgesstrategy.com/deep-dives/harness-problem/archive/2026-09-13/" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="/" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/brief/">Weekly Brief</a>
+          <a href="/signals/">Signals</a>
+          <a href="/deep-dives/harness-problem/" aria-current="page">Deep Dives</a>
+          <a href="/committee-questions/">Committee Questions</a>
+          <a href="/archive/">Archive</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page deep-dive-page">
+      <article>
+        <header class="masthead deep-dive-masthead">
+          <p class="eyebrow">Deep Dive <span aria-hidden="true">·</span> AI governance &amp; cyber resilience</p>
+          <h1>It was never about the model. It’s about the <em>harness</em>.</h1>
+          <p class="dek">Two supervisory documents landed two days apart at the turn of the month. Together, they make an uncomfortable case: the question is not whether the model can find a vulnerability. It is whether the organisation around it can absorb what it finds.</p>
+          <p class="deep-dive-byline">By The Virtual Officer <span aria-hidden="true">·</span> 13 September 2026 <span aria-hidden="true">·</span> 9 min read</p>
+        </header>
+
+        <section class="deep-dive-timeline" aria-label="The two source documents">
+          <div><p class="meta">2 Sep</p><p>FCA publishes its first multi-firm review of frontier AI in cyber resilience.</p></div>
+          <div><p class="meta">31 Aug</p><p>FSB Chair writes to G20 finance ministers on frontier AI and correlated cyber disruption.</p></div>
+          <div><p class="meta">No new rules</p><p>A diagnostic of whether existing resilience arrangements can cope with AI-accelerated discovery.</p></div>
+        </section>
+
+        <div class="deep-dive-body">
+          <p class="deep-dive-lead">For two years, much of the risk conversation has sat in the model: can it scan safely, be fooled, miss something, or create new exposure? The FCA’s review shifts the unit of assessment. Vulnerability discovery is accelerating faster than firms can respond, and whether that helps or harms a firm depends on the governance, tooling, controls and human oversight around the model—the harness.</p>
+          <p>The FSB makes the same point at a different level. Frontier AI may alter the speed, scale and economics of cyber risk. The resulting question is not only whether one firm can cope with more discoveries; it is whether several firms can cope when they share a cloud region, a security provider, a model provider or another critical dependency.</p>
+
+          <section class="deep-dive-section" aria-labelledby="queue-title">
+            <p class="meta">01 / Discovery has decoupled from remediation capacity</p>
+            <h2 id="queue-title">The queue is the new attack surface.</h2>
+            <p>The FCA’s plainest finding is arithmetic, not technical. AI-assisted tools can surface genuine vulnerabilities faster than remediation teams can work through them. Even after triage, the remaining volume can place serious pressure on engineering capacity, patch testing, change management and the evidence needed to close an issue.</p>
+            <p>Most vulnerability programmes assume a discovery rate that broadly tracks headcount and established tooling. That assumption no longer holds. Scaling the scanner without changing the authority and capacity behind the queue simply widens the gap.</p>
+            <p class="deep-dive-action">The control response is re-sequencing authority: someone with standing to decide, in real time and on a documented basis, which findings jump the queue and which wait.</p>
+            <p class="question-callout"><span>Question</span>If AI-assisted scanning tripled your open-vulnerability count tomorrow morning, who could re-sequence the queue—and would that decision survive an audit?</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="harness-title">
+            <p class="meta">02 / Governance, not vendor selection</p>
+            <h2 id="harness-title">The model is not the control. The <em>harness</em> is.</h2>
+            <p>The FCA reports that the value and risk of frontier AI are determined less by the underlying model than by the operating environment around it: governance, specialist tooling, validation, access boundaries, human approval and the information available to the people using it.</p>
+            <p>That reframes two years of due diligence. The assurance question cannot stop at the provider’s own documentation or benchmark results. It must map the practical guardrails between the tool and production systems, including permissions, escalation routes, the quality of system and asset context, and the people who can intervene.</p>
+            <p class="deep-dive-action">Audit the harness, not the vendor. Produce a control map that stands independently of supplier assurance.</p>
+            <p class="question-callout"><span>Question</span>Could your team produce a control map of its frontier-AI harness this week, including governance, access boundaries and human checkpoints?</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="foundations-title">
+            <p class="meta">03 / Foundations, not features</p>
+            <h2 id="foundations-title">Asset hygiene is now a cyber-resilience finding.</h2>
+            <p>Faster discovery exposes weaknesses in asset mapping, dependency management and remediation processes that can remain hidden when the volume is manageable. Under AI-assisted discovery, a stale technology-debt entry can become a live control problem very quickly.</p>
+            <p>The relevant control environment is not a set of supporting documents. It is the working connection between the asset register, the important-business-service map, ownership, vulnerability triage, emergency change and evidence of closure.</p>
+            <p class="deep-dive-action">Treat asset and dependency inventories as board-reportable controls in their own right, not as supporting material for something else.</p>
+            <p class="question-callout"><span>Question</span>Would this quarter’s asset register hold up if a frontier-AI tool began finding, accurately, everything it currently misses?</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="third-party-title">
+            <p class="meta">04 / Dependency, not delegation</p>
+            <h2 id="third-party-title">Third parties will not automatically keep pace.</h2>
+            <p>The FCA explicitly points to supplier preparedness, cloud dependencies, software supply-chain visibility and shared infrastructure. A firm can improve its own harness, but it cannot assume that a critical supplier’s patch cadence, validation process or escalation path will match an AI-accelerated threat tempo.</p>
+            <p>The exposure does not disappear when it crosses the boundary. It changes owner, evidence route and recovery option—and often becomes harder to test.</p>
+            <p class="deep-dive-action">Build and rehearse an explicit escalation path with critical suppliers for AI-accelerated findings. A contract clause is not a response process.</p>
+            <p class="question-callout"><span>Question</span>Have you asked your most critical suppliers whether their remediation service level still holds against an AI-accelerated threat?</p>
+          </section>
+
+          <figure class="deep-dive-quote">
+            <blockquote>Prepare for more severe scenarios involving simultaneous disruption across multiple firms or shared technology dependencies.</blockquote>
+            <figcaption>Andrew Bailey, Chair of the Financial Stability Board, letter to G20 finance ministers, 31 August 2026</figcaption>
+          </figure>
+
+          <section class="deep-dive-section" aria-labelledby="systemic-title">
+            <p class="meta">05 / Beyond the single firm</p>
+            <h2 id="systemic-title">The systemic layer: correlated failure across firms.</h2>
+            <p>The FCA’s review is necessarily about a firm’s own cyber-resilience posture. The FSB’s letter asks what happens when many firms share the same AI-accelerated exposure. That creates a scenario most resilience programmes do not yet test: not simply “what if we go down?”, but “what if we and several peers go down together because we share a vendor, model, cloud region or security tool?”</p>
+            <p>The board communications challenge matters as much as the technology. “We did not cause it” is not an adequate explanation if the firm cannot show that it understood its dependencies, knew how to intervene and could demonstrate safe recovery.</p>
+            <p class="deep-dive-action">Extend severe-but-plausible scenarios to include correlated, shared-dependency disruption—and rehearse the board communication for one.</p>
+            <p class="question-callout"><span>Question</span>Does the scenario library include a shared-vendor or shared-model failure that affects several peer institutions at once, not merely a single-firm outage?</p>
+          </section>
+
+          <section class="deep-dive-conclusion" aria-labelledby="board-questions-title">
+            <p class="eyebrow">For the board</p>
+            <h2 id="board-questions-title">Three questions worth asking this quarter</h2>
+            <ol class="deep-dive-questions">
+              <li><span>01</span><p>Who owns re-sequencing authority when AI-assisted scanning outpaces the existing remediation queue—and is that decision documented?</p></li>
+              <li><span>02</span><p>Can the team produce a harness control map—governance, access boundaries and human checkpoints—independent of vendor assurances?</p></li>
+              <li><span>03</span><p>Does the severe-but-plausible scenario library include correlated, multi-firm disruption through a shared vendor, model or cloud region?</p></li>
+            </ol>
+          </section>
+
+          <section class="deep-dive-sources" aria-labelledby="sources-title">
+            <p class="eyebrow">Sources</p>
+            <h2 id="sources-title">Direct evidence behind this analysis</h2>
+            <div class="source-row">
+              <a href="https://www.fca.org.uk/publications/multi-firm-reviews/frontier-ai-cyber-resilience">FCA — Frontier AI and cyber resilience, 2 September 2026</a>
+              <a href="https://www.fsb.org/2026/08/fsb-chairs-letter-to-g20-finance-ministers-and-central-bank-governors-august-2026/">Financial Stability Board — Chair’s letter to the G20, 31 August 2026</a>
+              <a href="https://www.tlt.com/insights-and-events/insight/frontier-ai-and-cyber-resilience-what-financial-services-firms-need-to-know-now">TLT LLP — Frontier AI and cyber resilience, 2 September 2026</a>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">The Virtual Officer — Deep Dives</div>
+        <div class="footer-note"><a class="button outline footer-cta" href="/brief/">Read the latest brief</a></div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

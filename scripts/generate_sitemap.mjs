@@ -17,7 +17,6 @@ const STATIC_PAGES = [
   "https://stgeorgesstrategy.com/",
   "https://stgeorgesstrategy.com/brief/",
   "https://stgeorgesstrategy.com/signals/",
-  "https://stgeorgesstrategy.com/deep-dives/harness-problem/",
   "https://stgeorgesstrategy.com/signals/ai/",
   "https://stgeorgesstrategy.com/regulatory-horizon/",
   "https://stgeorgesstrategy.com/archive/",
@@ -58,10 +57,33 @@ function archiveUrls({ dir, base }) {
     .map((name) => ({ loc: `${base}${name}/`, lastmod: name }));
 }
 
+function deepDiveArchiveUrls() {
+  const deepDivesDir = join(ROOT, "site-dist", "deep-dives");
+  if (!existsSync(deepDivesDir)) return [];
+  return readdirSync(deepDivesDir)
+    .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))
+    .filter((slug) => statSync(join(deepDivesDir, slug)).isDirectory())
+    .flatMap((slug) => archiveUrls({
+      dir: join(deepDivesDir, slug, "archive"),
+      base: `https://stgeorgesstrategy.com/deep-dives/${slug}/archive/`,
+    }));
+}
+
+function deepDiveUrls() {
+  const deepDivesDir = join(ROOT, "site-dist", "deep-dives");
+  if (!existsSync(deepDivesDir)) return [];
+  return readdirSync(deepDivesDir)
+    .filter((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))
+    .filter((slug) => statSync(join(deepDivesDir, slug)).isDirectory() && existsSync(join(deepDivesDir, slug, "index.html")))
+    .map((slug) => `https://stgeorgesstrategy.com/deep-dives/${slug}/`);
+}
+
 const edition = currentEdition();
 const entries = [
   ...STATIC_PAGES.map((loc) => ({ loc, lastmod: edition })),
+  ...deepDiveUrls().map((loc) => ({ loc, lastmod: edition })),
   ...ARCHIVE_SOURCES.flatMap(archiveUrls),
+  ...deepDiveArchiveUrls(),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

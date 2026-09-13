@@ -72,6 +72,17 @@ function formatDateLong(date) {
   return parsed.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
 
+function deepDiveArchiveDetails(deepDive) {
+  const route = String(deepDive?.route || "");
+  const match = route.match(/^\/deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/$/);
+  if (!match) return null;
+  const slug = match[1];
+  return {
+    relative: `deep-dives/${slug}/archive/${deepDive.publishedDate}/index.html`,
+    url: `https://stgeorgesstrategy.com/deep-dives/${slug}/archive/${deepDive.publishedDate}/`,
+  };
+}
+
 function checkCurrentEditionAlignment(failures) {
   const edition = readSourceJson("data/current-edition.json");
   const home = read("index.html");
@@ -125,6 +136,21 @@ function checkCurrentEditionAlignment(failures) {
   assert(committeeQuestions.length === 3, "current edition should define three Committee Questions", failures);
   for (const question of committeeQuestions) {
     assert(committee.includes(question?.question || ""), "committee questions should include every canonical current-edition question", failures);
+  }
+  if (edition.deepDive) {
+    const deepDiveArchive = deepDiveArchiveDetails(edition.deepDive);
+    assert(Boolean(deepDiveArchive), "current Deep Dive must use a canonical /deep-dives/<slug>/ URL", failures);
+    if (deepDiveArchive) {
+      const archiveFile = path.join(SITE, deepDiveArchive.relative);
+      assert(fs.existsSync(archiveFile), "current Deep Dive archive copy missing", failures);
+      assert(archive.includes(`href="/${deepDiveArchive.relative.replace(/index\.html$/, "")}"`), "archive index must link to the current Deep Dive snapshot", failures);
+      if (fs.existsSync(archiveFile)) {
+        const archived = fs.readFileSync(archiveFile, "utf8");
+        assert(attr(archived, /<link rel="canonical" href="([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive canonical mismatch", failures);
+        assert(attr(archived, /<meta property="og:url" content="([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive og:url mismatch", failures);
+        assert(attr(archived, /"@id": "([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive JSON-LD @id mismatch", failures);
+      }
+    }
   }
   assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);
   assert(about.includes("Not proof of no activity"), "About page should explain quiet-theme meaning", failures);

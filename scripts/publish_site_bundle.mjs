@@ -17,6 +17,7 @@ const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
 const HORIZON_EDITORIAL_INPUT = path.join(ROOT, "dashboard", "data", "regulatory-horizon-editorial.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
+const DEEP_DIVE_ARCHIVE_STORE = path.join(ARCHIVE_STORE, "deep-dives");
 const PUBLIC_ORIGIN = "https://stgeorgesstrategy.com";
 const RELEASE_ID = (process.env.SITE_RELEASE_ID || "local").trim();
 const ALLOW_ARCHIVE_CORRECTION = process.env.SGS_ARCHIVE_CORRECTION === "1";
@@ -706,7 +707,11 @@ function loadEditionRecord(failures) {
     for (const field of ["title", "dek", "route", "publishedDate", "readTime"]) {
       assert(Boolean(record.deepDive[field]), `current edition deepDive missing ${field}`, failures);
     }
-    assert(record.deepDive.route === "/deep-dives/harness-problem/", "current edition deepDive route must use the canonical Deep Dive URL", failures);
+    const deepDive = deepDiveDetails(record.deepDive);
+    assert(Boolean(deepDive), "current edition deepDive route must use a canonical /deep-dives/<slug>/ URL", failures);
+    if (deepDive) {
+      assert(fs.existsSync(path.join(SOURCE, deepDive.sourceRelative)), `current edition deepDive source missing at ${deepDive.sourceRelative}`, failures);
+    }
     assert(record.deepDive.publishedDate === record.publicationDate, "current edition deepDive should share the current publication date", failures);
   }
   const judgementWordCount = [record.judgement?.observation, record.judgement?.executiveJudgement, record.judgement?.implication]
@@ -870,6 +875,30 @@ function listEditionDates(dir, maxDate = "") {
     .reverse();
 }
 
+function deepDiveDetails(deepDive) {
+  const route = String(deepDive?.route || "");
+  const match = route.match(/^\/deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/$/);
+  if (!match) return null;
+  const slug = match[1];
+  return {
+    slug,
+    sourceRelative: `deep-dives/${slug}/index.html`,
+    storeDir: path.join(DEEP_DIVE_ARCHIVE_STORE, slug),
+  };
+}
+
+function listDeepDiveArchiveEntries(maxDate = "") {
+  if (!fs.existsSync(DEEP_DIVE_ARCHIVE_STORE)) return [];
+  const entries = [];
+  for (const slugEntry of fs.readdirSync(DEEP_DIVE_ARCHIVE_STORE, { withFileTypes: true })) {
+    if (!slugEntry.isDirectory() || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slugEntry.name)) continue;
+    for (const date of listEditionDates(path.join(DEEP_DIVE_ARCHIVE_STORE, slugEntry.name), maxDate)) {
+      entries.push({ slug: slugEntry.name, date });
+    }
+  }
+  return entries.sort((left, right) => `${right.date}/${right.slug}`.localeCompare(`${left.date}/${left.slug}`));
+}
+
 // Freezes this edition's brief and topic pages into a persistent, git-tracked store
 // (dashboard/signals-archive/) that survives the site-dist wipe-and-rebuild at the top
 // of every publish run, then copies the full accumulated history forward into this
@@ -893,6 +922,16 @@ function syncSignalsArchiveStore(out, edition) {
     );
   }
 
+  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
+  if (currentDeepDive) {
+    archiveIntoStore(
+      out,
+      currentDeepDive.sourceRelative,
+      path.join(currentDeepDive.storeDir, edition, "index.html"),
+      `${PUBLIC_ORIGIN}/deep-dives/${currentDeepDive.slug}/archive/${edition}/`,
+    );
+  }
+
   const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
   if (fs.existsSync(briefStoreDir)) {
     copyDirectory(briefStoreDir, path.join(out, "archive", "brief"), archiveEditionFilter(briefStoreDir, edition));
@@ -902,6 +941,10 @@ function syncSignalsArchiveStore(out, edition) {
     if (fs.existsSync(topicStoreDir)) {
       copyDirectory(topicStoreDir, path.join(out, "signals", topic, "archive"), archiveEditionFilter(topicStoreDir, edition));
     }
+  }
+  for (const { slug } of listDeepDiveArchiveEntries(edition)) {
+    const storeDir = path.join(DEEP_DIVE_ARCHIVE_STORE, slug);
+    copyDirectory(storeDir, path.join(out, "deep-dives", slug, "archive"), archiveEditionFilter(storeDir, edition));
   }
 }
 
@@ -1100,6 +1143,16 @@ function updateArchiveIndexCards(out, edition) {
     const dates = listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition);
     cards.push(
       `<a class="archive-card archive-topic" href="/signals/${topic}/archive/"><p class="meta">${dates.length ? `${dates.length} edition${dates.length === 1 ? "" : "s"} archived, latest ${dates[0]}` : "Topic archive"}</p><h3>${escapeHtml(meta.title || topic)}</h3><p>Weekly Top 5, still-material signals, and source trail.</p></a>`,
+    );
+  }
+
+  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
+  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+    const title = currentDeepDive?.slug === slug && date === edition
+      ? readJson(EDITION_INPUT).deepDive.title
+      : `Deep Dive — ${slug.replace(/-/g, " ")}`;
+    cards.push(
+      `<a class="archive-card archive-deep-dive" href="/deep-dives/${slug}/archive/${date}/"><p class="meta">Deep Dive / ${date}</p><h3>${escapeHtml(title)}</h3><p>Preserved analysis and source trail from the published edition.</p></a>`,
     );
   }
 
@@ -2117,11 +2170,21 @@ function generateSitemap(out, edition) {
     { loc: `${PUBLIC_ORIGIN}/archive/brief/`, lastmod: edition },
     ...briefDates.map((date) => ({ loc: `${PUBLIC_ORIGIN}/archive/brief/${date}/`, lastmod: date })),
   ];
+  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
+  if (currentDeepDive) {
+    const currentDeepDiveUrl = `${PUBLIC_ORIGIN}/deep-dives/${currentDeepDive.slug}/`;
+    if (!entries.some((entry) => entry.loc === currentDeepDiveUrl)) {
+      entries.push({ loc: currentDeepDiveUrl, lastmod: edition });
+    }
+  }
   for (const topic of topics) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/`, lastmod: edition });
     for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition)) {
       entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`, lastmod: date });
     }
+  }
+  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+    entries.push({ loc: `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`, lastmod: date });
   }
   if (!briefDates.includes(edition)) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/archive/brief/${edition}/`, lastmod: edition });
@@ -2234,6 +2297,15 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     );
   }
 
+  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
+  if (currentDeepDive) {
+    assert(
+      fs.existsSync(path.join(out, "deep-dives", currentDeepDive.slug, "archive", edition, "index.html")),
+      "Current Deep Dive archive copy missing",
+      failures,
+    );
+  }
+
   const archiveCanonicalChecks = [
     [path.join(out, "archive", "brief", "index.html"), `${PUBLIC_ORIGIN}/archive/brief/`],
     ...listEditionDates(path.join(out, "archive", "brief")).map((date) => [
@@ -2252,6 +2324,12 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
         `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`,
       ]);
     }
+  }
+  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+    archiveCanonicalChecks.push([
+      path.join(out, "deep-dives", slug, "archive", date, "index.html"),
+      `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`,
+    ]);
   }
   for (const [file, expected] of archiveCanonicalChecks) {
     assert(fs.existsSync(file), `${expected} archive page missing`, failures);
@@ -2281,6 +2359,18 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   if (editionRecord.deepDive) {
     assert(homePage.includes(editionRecord.deepDive.title), "Homepage must feature the current Deep Dive", failures);
     assert(briefPage.includes(editionRecord.deepDive.title), "Weekly Brief must link to the current Deep Dive", failures);
+    const deepDive = deepDiveDetails(editionRecord.deepDive);
+    if (deepDive) {
+      const liveDeepDive = path.join(out, deepDive.sourceRelative);
+      assert(fs.existsSync(liveDeepDive), "Current Deep Dive page missing", failures);
+      if (fs.existsSync(liveDeepDive)) {
+        const canonical = (read(liveDeepDive).match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
+        assert(canonical === `${PUBLIC_ORIGIN}/deep-dives/${deepDive.slug}/`, "Current Deep Dive canonical mismatch", failures);
+      }
+      const archiveHref = `/deep-dives/${deepDive.slug}/archive/${edition}/`;
+      assert(read(path.join(out, "archive", "index.html")).includes(`href="${archiveHref}"`), "Archive must link to the current Deep Dive snapshot", failures);
+      assert(sitemapUrls.includes(`${PUBLIC_ORIGIN}${archiveHref}`), "Sitemap must include the current Deep Dive snapshot", failures);
+    }
   }
   for (const question of editionRecord.committeeQuestions || [editionRecord.committeeQuestion]) {
     assert(committeePage.includes(question?.question || ""), "Committee Questions must include every current-edition question", failures);

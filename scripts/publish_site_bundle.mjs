@@ -2065,6 +2065,9 @@ function renderSignalDecisionFramework(out, signalsData) {
 function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const file = path.join(out, "signals", "index.html");
   let html = read(file);
+  const primarySourceUrls = new Map(
+    signalsData.topics.map((topic) => [topic.id, topic.top5?.[0]?.url || ""]),
+  );
   const topicCards = signalsData.topics
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
@@ -2075,7 +2078,8 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const weeklyRows = (editionRecord?.topSignals || [])
     .map((signal, index) => {
       const rank = String(index + 1).padStart(2, "0");
-      return `<li><span class="rank">${rank}</span><a href="/signals/${escapeHtml(signal.topic)}/"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
+      const primarySourceUrl = primarySourceUrls.get(signal.topic) || `/signals/${signal.topic}/`;
+      return `<li><span class="rank">${rank}</span><a href="${escapeHtml(primarySourceUrl)}"><h3>${escapeHtml(signal.title)}</h3></a><span class="meta">${escapeHtml(signal.label)}</span></li>`;
     })
     .join("\n          ");
   const replacement = `<!-- publisher-lock:start:signals-editorial -->

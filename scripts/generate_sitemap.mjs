@@ -18,6 +18,7 @@ const STATIC_PAGES = [
   "https://stgeorgesstrategy.com/brief/",
   "https://stgeorgesstrategy.com/signals/",
   "https://stgeorgesstrategy.com/signals/ai/",
+  "https://stgeorgesstrategy.com/deep-dives/",
   "https://stgeorgesstrategy.com/regulatory-horizon/",
   "https://stgeorgesstrategy.com/archive/",
   "https://stgeorgesstrategy.com/about/",

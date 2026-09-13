@@ -89,6 +89,10 @@ function isArchivedDirectory(pathname) {
   return Boolean(match && TOPICS.has(match[1]));
 }
 
+function isDeepDiveDirectory(pathname) {
+  return /^\/deep-dives\/[a-z0-9]+(?:-[a-z0-9]+)*(?:\/archive\/\d{4}-\d{2}-\d{2})?$/.test(pathname);
+}
+
 /**
  * Returns the one canonical redirect for a request, or null when Assets should serve it.
  * Query strings are retained by URL mutation in `location`.
@@ -104,7 +108,7 @@ export function resolveRedirect(requestUrl) {
   if (legacy) return legacy;
 
   if (url.pathname === "/index.html") return redirect(url, "/");
-  if (DIRECTORY_PATHS.has(url.pathname) || isArchivedDirectory(url.pathname)) {
+  if (DIRECTORY_PATHS.has(url.pathname) || isArchivedDirectory(url.pathname) || isDeepDiveDirectory(url.pathname)) {
     return redirect(url, `${url.pathname}/`, 308);
   }
   return null;

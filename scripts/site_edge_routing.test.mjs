@@ -31,5 +31,13 @@ test("current directories are canonicalised and normal asset paths are not inter
     location: "https://stgeorgesstrategy.com/signals/ai/",
     status: 308,
   });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review"), {
+    location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/",
+    status: 308,
+  });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20"), {
+    location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20/",
+    status: 308,
+  });
   assert.equal(resolveRedirect("https://stgeorgesstrategy.com/assets/hero.svg"), null);
 });

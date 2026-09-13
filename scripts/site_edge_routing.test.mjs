@@ -31,6 +31,10 @@ test("current directories are canonicalised and normal asset paths are not inter
     location: "https://stgeorgesstrategy.com/signals/ai/",
     status: 308,
   });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives"), {
+    location: "https://stgeorgesstrategy.com/deep-dives/",
+    status: 308,
+  });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review"), {
     location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/",
     status: 308,

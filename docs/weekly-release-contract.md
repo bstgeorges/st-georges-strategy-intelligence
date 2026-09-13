@@ -5,6 +5,7 @@ The public edition is one reviewed package, not five independent page updates. B
 1. `site/data/current-edition.json` — edition date, a distinct judgement with recorded editorial angle and contrast to the prior edition, five distinct Top 5 signals, and three complete current Committee Questions (with the first retained as the compact feature).
 2. `site/data/signals.json` — validated source-backed Top 5 by topic, with a current promotion summary.
 3. `site/brief/index.html` and `site/committee-questions/index.html` — reader-facing judgement and committee prompt that match the edition record.
+   - When a Deep Dive is published, add it to `site/deep-dives/index.html` in the same release. The primary navigation always goes to `/deep-dives/`, never directly to a single article.
 4. While Regulatory Horizon is withdrawn, `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record, QA report and relaunch approval state. This is not a public release input and cannot restore the route. Once the relaunch gate passes and a product decision is recorded, replace this item with a reviewed, published Horizon edition.
 
 The preparatory workflows create candidates and an editorial pack; neither publishes a new edition. A reviewer must make the editorial choices, confirm source evidence, and run:

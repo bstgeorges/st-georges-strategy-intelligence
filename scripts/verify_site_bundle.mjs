@@ -21,6 +21,7 @@ const routes = [
   ["signals-cyber", "signals/cyber/index.html", "https://stgeorgesstrategy.com/signals/cyber/"],
   ["signals-technology-failure", "signals/technology-failure/index.html", "https://stgeorgesstrategy.com/signals/technology-failure/"],
   ["signals-data", "signals/data/index.html", "https://stgeorgesstrategy.com/signals/data/"],
+  ["deep-dives", "deep-dives/index.html", "https://stgeorgesstrategy.com/deep-dives/"],
   ["deep-dive-harness", "deep-dives/harness-problem/index.html", "https://stgeorgesstrategy.com/deep-dives/harness-problem/"],
   ["committee-questions", "committee-questions/index.html", "https://stgeorgesstrategy.com/committee-questions/"],
   ["archive", "archive/index.html", "https://stgeorgesstrategy.com/archive/"],
@@ -88,6 +89,7 @@ function checkCurrentEditionAlignment(failures) {
   const home = read("index.html");
   const brief = read("brief/index.html");
   const archive = read("archive/index.html");
+  const deepDives = read("deep-dives/index.html");
   const committee = read("committee-questions/index.html");
   const about = read("about/index.html");
   const signals = readJson("data/signals.json");
@@ -158,6 +160,7 @@ function checkCurrentEditionAlignment(failures) {
     const deepDiveArchive = deepDiveArchiveDetails(edition.deepDive);
     assert(Boolean(deepDiveArchive), "current Deep Dive must use a canonical /deep-dives/<slug>/ URL", failures);
     if (deepDiveArchive) {
+      assert(deepDives.includes(`href="${edition.deepDive.route}"`), "Deep Dives index must link to the current Deep Dive", failures);
       const archiveFile = path.join(SITE, deepDiveArchive.relative);
       assert(fs.existsSync(archiveFile), "current Deep Dive archive copy missing", failures);
       assert(archive.includes(`href="/${deepDiveArchive.relative.replace(/index\.html$/, "")}"`), "archive index must link to the current Deep Dive snapshot", failures);
@@ -191,6 +194,7 @@ function checkWorkerRouteCoverage(failures) {
     "/archive",
     "/brief",
     "/committee-questions",
+    "/deep-dives",
     "/deep-dives/harness-problem",
     "/signals",
   ];

@@ -3,52 +3,44 @@
   "visibility": "private",
   "exceptions": [
     {
-      "sourceId": "ecb-ssm-newsletter",
-      "expectedStatus": "failed",
-      "issue": "The official ECB Banking Supervision newsletter index could not be resolved in the 12 September scan.",
-      "governance": "Re-test the official page on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
-      "lastChecked": "2026-09-12",
-      "nextCheck": "2026-09-19"
-    },
-    {
       "sourceId": "iosco",
       "expectedStatus": "blocked",
-      "issue": "The official IOSCO news page returned a 403 anti-bot response in the 6 September scan.",
+      "issue": "The official IOSCO news page returned a 403 anti-bot response in the 13 September scan.",
       "governance": "Do not bypass the control. Test an official RSS, newsroom API or published collection before changing transport; otherwise retain the blocked status.",
-      "lastChecked": "2026-09-06",
-      "nextCheck": "2026-09-13"
+      "lastChecked": "2026-09-13",
+      "nextCheck": "2026-09-20"
     },
     {
       "sourceId": "bcbs",
       "expectedStatus": "blocked",
-      "issue": "The official BCBS publications page returned a 403 anti-bot response in the 6 September scan.",
+      "issue": "The official BCBS publications page returned a 403 anti-bot response in the 13 September scan.",
       "governance": "Do not bypass the control. Test an official RSS, publications feed or published collection before changing transport; otherwise retain the blocked status.",
-      "lastChecked": "2026-09-06",
-      "nextCheck": "2026-09-13"
+      "lastChecked": "2026-09-13",
+      "nextCheck": "2026-09-20"
     },
     {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
-      "issue": "The official Banco Central do Brasil publication page returned no recognisable rows to the current parser.",
+      "issue": "The official Banco Central do Brasil publication page returned no recognisable rows to the current parser in the 13 September scan.",
       "governance": "Repair selectors only after validating the current official page structure and date extraction; keep degraded until rows are proven.",
-      "lastChecked": "2026-09-06",
-      "nextCheck": "2026-09-13"
+      "lastChecked": "2026-09-13",
+      "nextCheck": "2026-09-20"
     },
     {
       "sourceId": "italy-consob",
       "expectedStatus": "blocked",
-      "issue": "The official Consob consultation page presented an anti-bot challenge in the 10 September scan.",
+      "issue": "The official Consob consultation page presented an anti-bot challenge in the 13 September scan.",
       "governance": "Do not bypass the control. Test an official RSS, published collection or alternative official transport before changing the source; otherwise retain the blocked status.",
-      "lastChecked": "2026-09-10",
-      "nextCheck": "2026-09-17"
+      "lastChecked": "2026-09-13",
+      "nextCheck": "2026-09-20"
     },
     {
       "sourceId": "south-africa-sarb",
       "expectedStatus": "failed",
-      "issue": "The official South African Reserve Bank newsroom timed out in the 12 September scan.",
+      "issue": "The official South African Reserve Bank newsroom timed out in the 13 September scan.",
       "governance": "Re-test the official page on the scheduled check; retain the failed status unless a timely official response with usable publication rows is proven.",
-      "lastChecked": "2026-09-12",
-      "nextCheck": "2026-09-19"
+      "lastChecked": "2026-09-13",
+      "nextCheck": "2026-09-20"
     }
   ]
 }

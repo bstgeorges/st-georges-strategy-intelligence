@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-discovery.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-12T12:15:30.120Z",
+  "generatedAt": "2026-09-13T08:32:39.880Z",
   "purpose": "Make the regulated-source estate visible without treating a catalogue listing or a scanner result as an approved deadline.",
   "catalogue": {
     "authorities": 134,
@@ -84,23 +84,23 @@
     "note": "Primary authorities with a configured publication transport. Their output may create private review candidates only; it never confirms a deadline or authorises public publication."
   },
   "latestScan": {
-    "edition": "2026-09-12",
+    "edition": "2026-09-13",
     "configuredSources": 53,
     "activeSourcesChecked": 53,
     "health": {
-      "failed": 2,
-      "ok": 47,
+      "ok": 48,
       "blocked": 3,
-      "degraded": 1
+      "degraded": 1,
+      "failed": 1
     },
     "unscannedActiveSources": [],
     "coverageState": "limited",
     "note": "This is the last completed scanner run. It is separate from the broader discovery catalogue."
   },
   "nextActions": [
-    "Review 2 failed sources from the latest scan.",
     "Review 3 blocked sources from the latest scan.",
     "Review 1 degraded source from the latest scan.",
+    "Review 1 failed source from the latest scan.",
     "Assess catalogue authorities in priority jurisdictions one at a time; promote a source only after its official publication page and date extraction are proven."
   ],
   "sourceStatus": [
@@ -301,7 +301,7 @@
       ],
       "category": "prudential",
       "tier": "primary",
-      "latestStatus": "failed"
+      "latestStatus": "ok"
     },
     {
       "id": "ecb-supervisory-priorities",

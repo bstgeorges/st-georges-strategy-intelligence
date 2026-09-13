@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30",
+  "generatedAt": "2026-09-13",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
   "status": "live",
@@ -8,32 +8,32 @@
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "30 Aug 2026",
-    "line": "Live edition / Updated 30 Aug 2026",
+    "displayDate": "13 Sept 2026",
+    "line": "Live edition / Updated 13 Sept 2026",
     "descriptor": "15 source-linked signals / model, deployment and operating context"
   },
-  "summary": "This week turns AI supplier change into an operating-control test: model access, contractual protections, data paths, migration and evidence of a workable exit must be reassessed when an intermediary or owner changes. The same discipline applies to the market and cyber controls around AI-enabled services.",
+  "summary": "This week is about proving that AI change is safe before it spreads. The useful signals are not just new models: they show where a firm needs a baseline, a named owner, a controlled data route and a way to challenge or reverse a result.",
   "sourceUniverse": {
     "modelAndCapability": [
-      "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "https://openai.com/index/pacing-model-development-cyber-capabilities",
-      "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx",
-      "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones",
-      "https://mistral.ai/news/shieldstral"
+      "https://mistral.ai/news/legacy-code-modernization",
+      "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai",
+      "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform",
+      "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion",
+      "https://mistral.ai/news/mistral-x-cloudera"
     ],
     "deploymentAndInfrastructure": [
-      "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
-      "https://openai.com/index/introducing-ai-futures",
-      "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence",
-      "https://mistral.ai/news/regional-inference-open-models-new-compute",
-      "https://openai.com/index/how-enterprises-put-ai-to-work"
+      "https://openai.com/index/put-data-to-work",
+      "https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains",
+      "https://nvidianews.nvidia.com/news/nvidia-expands-ai-infrastructure-capacity-in-partnership-with-australias-data-center-ecosystem",
+      "https://mistral.ai/news/agentic-search",
+      "https://mistral.ai/news/regional-inference-open-models-new-compute"
     ],
     "operatingContext": [
-      "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-      "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-      "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-      "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
-      "https://www.nist.gov/itl/ai-risk-management-framework"
+      "https://openai.com/index/introducing-chatgpt-financial-services",
+      "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
+      "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+      "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux"
     ]
   },
   "sections": [
@@ -43,49 +43,49 @@
       "label": "Models and capabilities",
       "cards": [
         {
-          "title": "A supplier acquisition can turn model access into a continuity event",
-          "badge": "Supplier-control signal",
-          "body": "OpenAI plans to wind down model access through Cursor after its acquisition. For firms using intermediary AI platforms, a supplier or ownership change should trigger a documented review of model access, contractual protections, data paths, migration dependencies and a workable fallback.",
-          "sourceName": "OpenAI",
-          "sourceType": "dated",
-          "date": "2026-08-28",
-          "source": { "label": "Our decision on Cursor following its acquisition by SpaceX", "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" }
-        },
-        {
-          "title": "Cyber-critical capability is changing development governance",
-          "badge": "Safety signal",
-          "body": "OpenAI says it slowed frontier-model scaling while hardening research environments and expanding monitoring and evaluations. The useful read-across is that capability thresholds need named release decisions, security boundaries and evidence that safeguards work before deployment accelerates.",
-          "sourceName": "OpenAI",
-          "sourceType": "dated",
-          "date": "2026-08-18",
-          "source": { "label": "Pacing model development in an era of cyber-critical capabilities", "url": "https://openai.com/index/pacing-model-development-cyber-capabilities" }
-        },
-        {
-          "title": "Model routing makes a system of models a governance object",
-          "badge": "Architecture signal",
-          "body": "NVIDIA’s Nemotron 3.5 Lightning and NeMo Switchyard pair a specialised model with routing across model choices. When a workflow can select different models by task, firms need a current inventory, routing rules, evaluation evidence and clear accountability for the combined system.",
-          "sourceName": "NVIDIA",
-          "sourceType": "dated",
-          "date": "2026-08-11",
-          "source": { "label": "Nemotron 3.5 Lightning and NeMo Switchyard", "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx" }
-        },
-        {
-          "title": "Specialised forecasting models widen the impact perimeter",
-          "badge": "Capability signal",
-          "body": "Google DeepMind’s WeatherNext cyclone-forecasting work is a reminder that material AI use is broader than text generation. Owners should identify where model outputs influence safety, service continuity, pricing, customer outcomes or the assumptions behind a critical decision.",
-          "sourceName": "Google DeepMind",
-          "sourceType": "dated",
-          "date": "2026-08-11",
-          "source": { "label": "WeatherNext cyclone forecasting", "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones" }
-        },
-        {
-          "title": "Safety tooling does not replace deployment accountability",
-          "badge": "Security signal",
-          "body": "Mistral’s Shieldstral announcement is a useful prompt to distinguish a provider feature from the firm’s control responsibility. Inputs, outputs, access, override routes and escalation evidence still belong to the deployed use case and its accountable owner.",
+          "title": "Legacy-code agents need a proof harness before they need scale",
+          "badge": "Change-control signal",
+          "body": "Mistral's legacy-code work starts with numerical parity, documentation and human review rather than a broad autonomous run. That is the right order for a material workflow: establish what must remain true, test it at checkpoints, then widen the agent's remit.",
           "sourceName": "Mistral AI",
           "sourceType": "dated",
-          "date": "2026-08-04",
-          "source": { "label": "Introducing Shieldstral", "url": "https://mistral.ai/news/shieldstral" }
+          "date": "2026-09-09",
+          "source": { "label": "Modernizing complex legacy code with AI agents", "url": "https://mistral.ai/news/legacy-code-modernization" }
+        },
+        {
+          "title": "Physical AI makes task learning an operational-safety question",
+          "badge": "Capability signal",
+          "body": "NVIDIA's account of Skild AI learning new tasks from a single video is a reminder that a model can move from analysis into the physical world quickly. Firms need a defined operating boundary, tested stop conditions and accountable human intervention before that happens in a material process.",
+          "sourceName": "NVIDIA",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video", "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai" }
+        },
+        {
+          "title": "Robotaxi stacks make physical-AI failure modes commercially live",
+          "badge": "Safety signal",
+          "body": "The robotaxi build-out described by NVIDIA is a useful marker for a broader shift: model, sensor, mapping, connectivity and operational response now form one service. Assurance has to cover the combined system and the authority to intervene, not only the model in isolation.",
+          "sourceName": "NVIDIA",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "Physical AI Takes the Wheel: How the World's Robotaxi Leaders Are Building With NVIDIA Technologies", "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform" }
+        },
+        {
+          "title": "Rack-scale AI turns hardware design into a concentration question",
+          "badge": "Architecture signal",
+          "body": "d-Matrix's rack-scale deployment points to the dependencies underneath a model service: chips, interconnect, capacity and a small number of specialist suppliers. A critical AI service needs its actual dependency path and fallback assumptions documented, not inferred from a cloud contract.",
+          "sourceName": "NVIDIA",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment", "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion" }
+        },
+        {
+          "title": "Sovereign enterprise AI keeps data boundaries in the design review",
+          "badge": "Data-governance signal",
+          "body": "The Cloudera and Mistral partnership puts specialised and sovereign intelligence close to enterprise data. The control question is practical: which data may enter the service, where it is processed, who can change that route and how the decision can be evidenced later.",
+          "sourceName": "Mistral AI",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "Cloudera and Mistral Partner to Bring Specialized, Sovereign Intelligence to Enterprise Data", "url": "https://mistral.ai/news/mistral-x-cloudera" }
         }
       ]
     },
@@ -95,49 +95,49 @@
       "label": "Deployment and infrastructure",
       "cards": [
         {
-          "title": "Zero-data-retention deployments still need safety design",
-          "badge": "Data signal",
-          "body": "OpenAI’s Private Safety Processing preview is designed to identify patterns across related interactions while remaining compatible with zero data retention. It makes privacy, safety monitoring, encryption, key control and vendor assurance a single deployment decision rather than separate checklists.",
+          "title": "Putting enterprise data to work is a permissions design exercise",
+          "badge": "Deployment signal",
+          "body": "OpenAI's enterprise-data announcement shifts the attention from a model answer to the permissions and retrieval routes behind it. Teams should be able to show the approved corpus, access rules, logging and the person who can stop an unsafe connection.",
           "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-08-19",
-          "source": { "label": "Offering Zero Data Retention for frontier models", "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models" }
+          "date": "2026-09-10",
+          "source": { "label": "Now everyone can put data to work", "url": "https://openai.com/index/put-data-to-work" }
         },
         {
-          "title": "AI policy discussion is widening to agency and concentration",
-          "badge": "Governance signal",
-          "body": "OpenAI’s new AI Futures blog frames long-run questions around individual agency and concentration of power. It is not a firm policy, but it usefully broadens board discussion beyond model accuracy to authority, dependency and the distribution of decision-making power.",
-          "sourceName": "OpenAI",
-          "sourceType": "dated",
-          "date": "2026-08-20",
-          "source": { "label": "Introducing AI Futures", "url": "https://openai.com/index/introducing-ai-futures" }
-        },
-        {
-          "title": "AI capacity depends on land, power and networked infrastructure",
-          "badge": "Infrastructure signal",
-          "body": "NVIDIA’s account of AI-factory capacity makes the dependency chain explicit: chips, packaging, memory, networking, land and power. For users of AI services, resilience planning must look through the model interface to the physical and contractual concentration underneath it.",
+          "title": "Supply-chain intelligence needs a decision record, not just a sovereign label",
+          "badge": "Supply-chain signal",
+          "body": "NVIDIA and Palantir frame their work around sovereign intelligence for critical supply chains. Location is only one part of assurance: a firm should also know the source data, the decisions influenced, exception authority and the evidence retained when a recommendation changes an operational plan.",
           "sourceName": "NVIDIA",
           "sourceType": "dated",
-          "date": "2026-08-17",
-          "source": { "label": "Securing the Infrastructure of Intelligence", "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence" }
+          "date": "2026-09-10",
+          "source": { "label": "NVIDIA and Palantir Bring Sovereign Intelligence to Critical Supply Chains", "url": "https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains" }
         },
         {
-          "title": "Regional inference keeps location and recovery in product scope",
-          "badge": "Deployment signal",
-          "body": "Mistral’s regional-inference announcement reinforces that data location, provider concentration and recovery are design choices. Teams should agree the approved regions, cross-border data path, capacity assumptions and fallback before a critical workflow becomes dependent on one route.",
+          "title": "New AI capacity widens the infrastructure dependency map",
+          "badge": "Infrastructure signal",
+          "body": "NVIDIA's Australian data-centre expansion is a reminder that AI capacity has a physical footprint. Resilience planning should look through the model interface to the region, power, network, capacity reservation and contractual dependencies on which the service actually relies.",
+          "sourceName": "NVIDIA",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia's Data Center Ecosystem", "url": "https://nvidianews.nvidia.com/news/nvidia-expands-ai-infrastructure-capacity-in-partnership-with-australias-data-center-ecosystem" }
+        },
+        {
+          "title": "Agentic retrieval makes the evidence trail part of the product",
+          "badge": "Evidence-control signal",
+          "body": "Mistral's Agentic Search can search, open, navigate and read complex documents. Where retrieval feeds a material decision, the authorised source set, access route, cited evidence and challenge path need to be reconstructable from the result.",
+          "sourceName": "Mistral AI",
+          "sourceType": "dated",
+          "date": "2026-08-20",
+          "source": { "label": "Agentic Search. More accurate and efficient results from your AI systems.", "url": "https://mistral.ai/news/agentic-search" }
+        },
+        {
+          "title": "Regional inference keeps recovery and location in product scope",
+          "badge": "Resilience signal",
+          "body": "Mistral's regional-inference work keeps a basic point in view: data location, provider concentration and recovery are design choices. Before a material workflow depends on one route, teams should agree the permitted regions, capacity assumptions and a usable fallback.",
           "sourceName": "Mistral AI",
           "sourceType": "dated",
           "date": "2026-08-11",
-          "source": { "label": "Regional inference and European infrastructure", "url": "https://mistral.ai/news/regional-inference-open-models-new-compute" }
-        },
-        {
-          "title": "Enterprise AI execution raises permission and reversal questions",
-          "badge": "Operating-model signal",
-          "body": "OpenAI’s enterprise discussion describes a move from assistance to execution. As a workflow acts rather than advises, approval thresholds, role-based permissions, exception handling, monitoring and the authority to reverse an action become core operating controls.",
-          "sourceName": "OpenAI",
-          "sourceType": "dated",
-          "date": "2026-08-12",
-          "source": { "label": "From assistance to execution", "url": "https://openai.com/index/how-enterprises-put-ai-to-work" }
+          "source": { "label": "In-region inference, open models, and new European infrastructure for sovereign AI", "url": "https://mistral.ai/news/regional-inference-open-models-new-compute" }
         }
       ]
     },
@@ -147,49 +147,49 @@
       "label": "Operating context",
       "cards": [
         {
-          "title": "Event contracts bring market-abuse controls to an emerging venue",
-          "badge": "Market signal",
-          "body": "The CFTC's event-contract enforcement action shows that novel prediction-market venues still need surveillance, conflict controls and escalation that can detect misuse of material non-public information. New market structures do not reduce familiar integrity expectations.",
-          "sourceName": "US Commodity Futures Trading Commission",
+          "title": "Financial-services AI needs the workflow owner in view",
+          "badge": "Industry signal",
+          "body": "OpenAI's financial-services release is a prompt to start with the live workflow, not the model. The firm should know which decisions the service supports, the limits of its authority, the review point and the evidence needed when a customer, trader or supervisor asks how a result was reached.",
+          "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-08-28",
-          "source": { "label": "CFTC orders Gabriel Perez to pay for event-contract insider trading", "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26" }
+          "date": "2026-09-10",
+          "source": { "label": "Introducing ChatGPT for Financial Services", "url": "https://openai.com/index/introducing-chatgpt-financial-services" }
         },
         {
-          "title": "Resilience remains a financial-strength question",
-          "badge": "Supervisory signal",
-          "body": "FINMA’s insurance-sector assessment is a reminder that digital resilience cannot sit apart from the business’s financial and operational condition. AI-enabled services need accountable maps of the service, its data and providers, plus exercised evidence that the recovery design works.",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
+          "title": "Critical third parties now sit inside the cyber-resilience test",
+          "badge": "Standards signal",
+          "body": "BIS has published a cyber-resilience toolkit and a discussion paper on critical third-party risks for financial market infrastructures. The implication is straightforward: a material provider is part of the resilience boundary, so its failure, communication and recovery evidence belong in the firm's own test.",
+          "sourceName": "Bank for International Settlements",
           "sourceType": "dated",
-          "date": "2026-08-20",
-          "source": { "label": "Swiss insurance sector continues to strengthen its resilience", "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025" }
+          "date": "2026-09-08",
+          "source": { "label": "Global standard-setting bodies publish toolkit on cyber resilience for FMIs and discussion paper on critical third-party risks", "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis" }
         },
         {
-          "title": "Active exploitation keeps the AI perimeter connected to cyber hygiene",
+          "title": "Exploited vulnerabilities test whether the patch queue maps to the estate",
           "badge": "Cyber signal",
-          "body": "CISA's 27 August update adds three actively exploited vulnerabilities. Advanced AI cannot be separated from the basics: complete asset records, timely remediation, controlled exceptions and evidence that a vulnerability was removed from the live environment.",
+          "body": "CISA's latest catalogue additions are a check on the operational basics beneath any AI service. The relevant evidence is an accurate asset map, a named remediation decision, controlled exceptions and proof that the exposed version is no longer live.",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "sourceType": "dated",
-          "date": "2026-08-27",
-          "source": { "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" }
+          "date": "2026-09-11",
+          "source": { "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" }
         },
         {
-          "title": "The EU AI Act remains the accountability baseline",
-          "badge": "Framework",
-          "body": "The AI Act remains a durable reference for turning broad governance claims into questions about role, use case, documentation, risk management and evidence. It belongs beside this week’s developments, not in place of specific implementation and control testing.",
-          "sourceName": "EUR-Lex",
-          "sourceType": "evergreen",
-          "evergreenClassification": "framework",
-          "source": { "label": "Artificial Intelligence Act", "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj" }
+          "title": "Misconduct reports can be turned into control intelligence",
+          "badge": "Supervisory signal",
+          "body": "ASIC says scams and governance failures dominate its latest misconduct reporting. Reporting channels should not be treated as an administrative end point: they can show whether a control is failing repeatedly, who owns the response and whether the lesson reached the affected process.",
+          "sourceName": "Australian Securities and Investments Commission",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "Scams and governance failures dominate misconduct reports", "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report" }
         },
         {
-          "title": "The NIST AI RMF remains a practical control baseline",
-          "badge": "Framework",
-          "body": "NIST’s AI Risk Management Framework remains a useful bridge from capability to risk identification, testing, monitoring and accountable governance evidence. It helps turn a provider announcement into an operating question for a named system, owner and control set.",
-          "sourceName": "NIST",
-          "sourceType": "evergreen",
-          "evergreenClassification": "framework",
-          "source": { "label": "NIST AI Risk Management Framework", "url": "https://www.nist.gov/itl/ai-risk-management-framework" }
+          "title": "E-invoicing platforms make data roles and retention operational",
+          "badge": "Data-governance signal",
+          "body": "CNIL's electronic-invoicing guidance shows how a regulatory change can alter data roles, platform choices and retention obligations at once. The implementation record should name the data route, legal role, retention decision and the owner who can answer for each of them.",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceType": "dated",
+          "date": "2026-09-10",
+          "source": { "label": "Facturation électronique : quels enjeux ?", "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux" }
         }
       ]
     }

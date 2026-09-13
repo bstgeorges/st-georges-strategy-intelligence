@@ -1,10 +1,10 @@
 {
-  "version": "2026-09-06",
-  "publicationDate": "2026-09-06",
+  "version": "2026-09-13",
+  "publicationDate": "2026-09-13",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-09-06T10:02:36.428Z",
-  "reviewedAt": "2026-09-06",
-  "purpose": "Editorially selected Signals candidates for the Sunday 6 September 2026 edition. The selection avoids routine provider-status notices and weak sitemap dates; each item is a current, primary-source development with a concrete operating, control or evidence implication.",
+  "candidateGeneratedAt": "2026-09-13T08:20:05.480Z",
+  "reviewedAt": "2026-09-13",
+  "purpose": "Editorially selected Signals candidates for the Sunday 13 September 2026 edition. The choices favour developments that change a real operating decision or the evidence needed to support it; routine provider-status notices and minor updates were not promoted.",
   "criteria": [
     "materiality",
     "specificity",
@@ -19,55 +19,54 @@
     {
       "id": "ai",
       "selectedUrls": [
-        "https://www.anthropic.com/news/enterprise-frontier-safeguards"
+        "https://mistral.ai/news/legacy-code-modernization"
       ],
-      "editorialRationale": "Select Anthropic's Enterprise Frontier Safeguards announcement. It makes an immediately useful distinction for regulated deployments: who holds the activity data, encryption keys and review authority when monitoring detects possible misuse."
+      "editorialRationale": "Select Mistral's detailed account of AI-assisted legacy-code modernisation. Its core lesson is operational, not promotional: build an output-parity harness, document the legacy estate and retain human approval gates before agentic work changes production code."
     },
     {
       "id": "market-structure",
-      "selectedUrls": [
-        "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-        "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading"
-      ],
-      "editorialRationale": "Select the CFTC's final clearing-rule change and the SEC's 24-hour-trading agenda. They are distinct but complementary implementation signals: clearing scope, overnight surveillance, failover, maintenance windows and staffing all need owned evidence rather than a generic market-readiness claim."
+      "selectedUrls": [],
+      "editorialRationale": "No new market-structure item cleared the editorial threshold. The HKMA private-markets circular is a dated official document but its public summary alone does not establish a broad operating consequence; retain the existing reviewed records."
     },
     {
       "id": "third-party",
-      "selectedUrls": [],
-      "editorialRationale": "No new third-party item cleared the materiality threshold. The 29 August Cloudflare incident was a resolved, local minor-impact event; retain the existing reviewed shared-dependency record rather than manufacture novelty."
+      "selectedUrls": [
+        "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis"
+      ],
+      "editorialRationale": "Select the CPMI-IOSCO toolkit and discussion paper. It puts critical third-party services and cyber resilience together in a live consultation, making dependency mapping, intervention rights, service evidence and response ownership immediate questions for financial-market participants."
     },
     {
       "id": "resilience",
       "selectedUrls": [
-        "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1"
+        "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2"
       ],
-      "editorialRationale": "Select AWS's CloudTrail investigation guide as a practical evidence signal, not a product announcement. It shows the fields and investigative route needed to establish cross-account access, mining activity or AI-service abuse after an alert."
+      "editorialRationale": "Select AWS's second CloudTrail investigation guide as a continuation with a concrete management use: it takes the prior week's evidence question through to containment, recovery and the record of what was decided. This clears the resilience gate because it supplies a usable evidence path rather than a generic outage notice."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [
-        "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-        "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch"
+        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report"
       ],
-      "editorialRationale": "Select the Central Bank of Ireland's payment-fraud statistics and OFSI's Citibank London penalty notice. One makes the changing economics and routes of payment fraud visible; the other is a current sanctions-enforcement outcome. Both justify a precise review of detection, intervention and decision records."
+      "editorialRationale": "Select ASIC's misconduct-reporting data. It shows how customer and whistleblower intelligence should be connected to surveillance, prioritisation and accountable remediation rather than treated as a passive complaints volume."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog"
+        "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog"
       ],
-      "editorialRationale": "Select the latest CISA Known Exploited Vulnerabilities update. An actively exploited flaw is a useful test of whether asset ownership, remediation authority, exception handling and independent closure evidence are genuinely current."
+      "editorialRationale": "Select the 11 September CISA exploited-vulnerability update. It creates an immediate asset-discovery, emergency-change, exception and independent-closure test; it is more decision-useful than the week's general threat commentary."
     },
     {
       "id": "technology-failure",
       "selectedUrls": [],
-      "editorialRationale": "No new technology-failure item cleared the threshold. The 29 August Cloudflare incident was local, minor and resolved; retain the existing reviewed cross-network failure record rather than elevate a weak operating notice."
+      "editorialRationale": "No new technology-failure notice cleared the materiality threshold. The Cloudflare and GitHub items were limited or resolved provider incidents; retain the reviewed dependency records rather than elevate raw operational status copy."
     },
     {
       "id": "data",
       "selectedUrls": [
+        "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux"
       ],
-      "editorialRationale": "No new data item cleared the threshold. The ASIC candidate has a sitemap-derived date that does not establish a current publication date, and the ICO training announcement is not material enough for a fresh Top 5 placement. Retain the existing reviewed data-governance records rather than manufacture novelty."
+      "editorialRationale": "Select CNIL's e-invoicing guidance because the French reform is now live and turns data minimisation, controller-processor roles, contracts, retention and platform audit trails into an implementation question—not a generic privacy reminder."
     }
   ]
 }

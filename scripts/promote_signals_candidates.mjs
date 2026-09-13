@@ -29,7 +29,10 @@ const TOPICS = [
 ];
 const TOP5_COUNT = 5;
 const MAX_FRESH_PROMOTIONS_PER_TOPIC = 3;
-const TOP5_MAX_AGE_DAYS = 60;
+// Keep this aligned with the public Signals validator. A quiet topic may retain
+// a reviewed, decision-relevant Top 5 record for up to 90 days rather than
+// promoting a weak fresh status notice simply to fill the fifth position.
+const TOP5_MAX_AGE_DAYS = 90;
 
 function parseArgs(argv) {
   const options = { date: "", dryRun: false };

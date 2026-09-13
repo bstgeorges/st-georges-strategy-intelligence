@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-12T12:19:32.645Z",
-  "preparedAt": "2026-09-12T12:20:00.048Z",
+  "candidateGeneratedAt": "2026-09-13T08:20:05.480Z",
+  "preparedAt": "2026-09-13T08:20:37.830Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -22,8 +22,8 @@
       "enforcement": 1,
       "active-threat": 5,
       "outage": 3,
-      "research": 7,
-      "context": 71
+      "research": 3,
+      "context": 73
     },
     "decisionTypeGroups": [
       {
@@ -37,7 +37,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-09-10T10:22:04.000Z",
-            "relevanceScore": 81,
+            "relevanceScore": 80,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -49,8 +49,8 @@
             "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
-            "publishedAt": "2026-09-10T00:00:00.000Z",
-            "relevanceScore": 80,
+            "publishedAt": "2026-09-09T23:00:00.000Z",
+            "relevanceScore": 79,
             "decisionType": "rule-change",
             "region": "Global/other",
             "topics": [
@@ -63,7 +63,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-09-09T14:51:49.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 78,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -76,7 +76,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-09-09T14:50:49.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 78,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -88,8 +88,8 @@
             "url": "https://www.apra.gov.au/news-and-publications/response-consultation-transition-life-insurance-d2a-data-collections-apra",
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
-            "publishedAt": "2026-08-31T00:00:00.000Z",
-            "relevanceScore": 75,
+            "publishedAt": "2026-08-30T23:00:00.000Z",
+            "relevanceScore": 74,
             "decisionType": "rule-change",
             "region": "Global/other",
             "topics": [
@@ -129,7 +129,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-09-11T12:00:00.000Z",
-            "relevanceScore": 98,
+            "relevanceScore": 97,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -142,7 +142,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-09-11T12:00:00.000Z",
-            "relevanceScore": 98,
+            "relevanceScore": 97,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -155,7 +155,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-09-10T12:00:00.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 95,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -168,7 +168,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-09-09T18:09:36.000Z",
-            "relevanceScore": 95,
+            "relevanceScore": 93,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -181,7 +181,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-09-09T12:00:00.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -196,31 +196,31 @@
         "candidateCount": 3,
         "candidates": [
           {
-            "title": "Customer support via telephone may be unavailable for some users",
-            "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
-            "sourceName": "Dropbox Status",
-            "sourceOwner": "dropbox-status",
-            "publishedAt": "2026-09-04T05:02:56.000Z",
-            "relevanceScore": 73,
-            "decisionType": "outage",
-            "region": "Global/other",
-            "topics": [
-              "resilience",
-              "technology-failure"
-            ]
-          },
-          {
             "title": "Disruption with Copilot Code Review",
             "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-09-04T22:26:46.000Z",
-            "relevanceScore": 72,
+            "relevanceScore": 71,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
               "technology-failure",
               "third-party"
+            ]
+          },
+          {
+            "title": "Customer support via telephone may be unavailable for some users",
+            "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
+            "sourceName": "Dropbox Status",
+            "sourceOwner": "dropbox-status",
+            "publishedAt": "2026-09-04T05:02:56.000Z",
+            "relevanceScore": 71,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "resilience",
+              "technology-failure"
             ]
           },
           {
@@ -242,71 +242,19 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 7,
+        "candidateCount": 3,
         "candidates": [
           {
-            "title": "Finishing the Task Is Not Enough: Evaluating Agent Resilience and Considerate Participation under Accumulating Challenge",
-            "url": "https://arxiv.org/abs/2609.10724",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-12T04:00:00.000Z",
-            "relevanceScore": 100,
+            "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
+            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+            "sourceName": "Australian Securities and Investments Commission",
+            "sourceOwner": "asic",
+            "publishedAt": "2026-09-10T23:58:36.000Z",
+            "relevanceScore": 81,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "Defining AI Agents: A Compendium of Criteria, Metrics, and Benchmarks",
-            "url": "https://arxiv.org/abs/2609.11018",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-12T04:00:00.000Z",
-            "relevanceScore": 100,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows",
-            "url": "https://arxiv.org/abs/2609.10964",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-12T04:00:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "The Agent Incident Registry: Toward Preventing Repeated AI Agent Failures",
-            "url": "https://arxiv.org/abs/2609.11030",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-12T04:00:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "Grounding Agent Memory: Environment-Probing Curation for Enterprise Agents",
-            "url": "https://arxiv.org/abs/2609.11060",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-12T04:00:00.000Z",
-            "relevanceScore": 85,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
+              "financial-crime"
             ]
           },
           {
@@ -315,7 +263,7 @@
             "sourceName": "HM Treasury",
             "sourceOwner": "uk-hm-treasury",
             "publishedAt": "2026-09-10T10:07:45.000Z",
-            "relevanceScore": 81,
+            "relevanceScore": 80,
             "decisionType": "research",
             "region": "UK/EMEA",
             "topics": [
@@ -327,7 +275,7 @@
             "url": "https://www.eiopa.europa.eu/publications/irsg-advice-question-template-eiopas-report-integrated-data-collection_en",
             "sourceName": "European Insurance and Occupational Pensions Authority",
             "sourceOwner": "eiopa",
-            "publishedAt": "2026-08-19T00:00:00.000Z",
+            "publishedAt": "2026-08-18T23:00:00.000Z",
             "relevanceScore": 55,
             "decisionType": "research",
             "region": "UK/EMEA",
@@ -340,7 +288,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 71,
+        "candidateCount": 73,
         "candidates": [
           {
             "title": "Network Performance Issues with Taiwan datacenter (TPE)",
@@ -362,7 +310,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-11T13:35:11.000Z",
-            "relevanceScore": 99,
+            "relevanceScore": 97,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -375,7 +323,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-11T13:33:33.000Z",
-            "relevanceScore": 99,
+            "relevanceScore": 97,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -388,7 +336,7 @@
             "sourceName": "Cisco Talos Intelligence Group",
             "sourceOwner": "cisco-talos",
             "publishedAt": "2026-09-10T18:00:15.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 95,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -401,7 +349,7 @@
             "sourceName": "Microsoft Security Blog",
             "sourceOwner": "microsoft-security",
             "publishedAt": "2026-09-10T16:00:00.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 95,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -414,7 +362,7 @@
             "sourceName": "National Crime Agency",
             "sourceOwner": "uk-nca",
             "publishedAt": "2026-09-10T10:39:55.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 95,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
@@ -426,8 +374,8 @@
             "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
             "sourceName": "Commission nationale de l'informatique et des libertés",
             "sourceOwner": "fr-cnil",
-            "publishedAt": "2026-09-10T00:00:00.000Z",
-            "relevanceScore": 95,
+            "publishedAt": "2026-09-09T23:00:00.000Z",
+            "relevanceScore": 94,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
@@ -440,7 +388,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-09-09T12:00:00.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "US",
             "topics": [
@@ -453,7 +401,7 @@
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-09-09T10:00:55.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -466,7 +414,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-08T21:44:04.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -477,79 +425,79 @@
       }
     ],
     "diversity": {
-      "candidateRows": 102,
-      "uniqueCandidateEvents": 92,
+      "candidateRows": 100,
+      "uniqueCandidateEvents": 90,
       "crossThemeDuplicatesCollapsed": 10,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 8.7
+          "share": 8.9
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 6,
-          "share": 6.5
-        },
-        {
-          "sourceOwner": "arxiv-ai",
-          "sourceName": "arXiv AI and machine learning research",
-          "count": 5,
-          "share": 5.4
+          "share": 6.7
         },
         {
           "sourceOwner": "fr-cnil",
           "sourceName": "Commission nationale de l'informatique et des libertés",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "mistral-ai",
           "sourceName": "Mistral AI",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
+        },
+        {
+          "sourceOwner": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "count": 5,
+          "share": 5.6
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 34,
-          "share": 37
+          "count": 36,
+          "share": 40
         },
         {
           "region": "US",
           "count": 9,
-          "share": 9.8
+          "share": 10
         },
         {
           "region": "Global/other",
-          "count": 49,
-          "share": 53.3
+          "count": 45,
+          "share": 50
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 87,
+        "newCandidateEvents": 85,
         "alreadyPublishedCandidates": 5,
         "continuingPublishedEvents": 34,
         "currentEditionTop5Events": 37
@@ -558,7 +506,7 @@
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 20,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -586,7 +534,7 @@
       },
       {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 15,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -607,7 +555,7 @@
       },
       {
         "id": "data",
-        "candidateCount": 13,
+        "candidateCount": 14,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -616,7 +564,7 @@
     "sourceHealth": {
       "runsRetained": 12,
       "healthy": 85,
-      "watching": 1,
+      "watching": 0,
       "investigate": 0,
       "supplementary": 1,
       "entries": [
@@ -875,11 +823,11 @@
         {
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
-          "status": "ok",
-          "consecutiveIssueRuns": 0,
+          "status": "quiet",
+          "consecutiveIssueRuns": 1,
           "monitoring": "supplementary",
           "action": "none",
-          "detail": ""
+          "detail": "no-parseable-entries"
         },
         {
           "sourceId": "ecb-supervision-rss",
@@ -1298,11 +1246,11 @@
         {
           "sourceId": "ireland-dpc-data-sitemap",
           "sourceRegistryId": "ireland-dpc",
-          "status": "failed",
-          "consecutiveIssueRuns": 1,
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
           "monitoring": "standard",
-          "action": "watch",
-          "detail": "fetch failed"
+          "action": "none",
+          "detail": ""
         },
         {
           "sourceId": "cnil-data-sitemap",
@@ -1402,7 +1350,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 20,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1411,114 +1359,114 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Finishing the Task Is Not Enough: Evaluating Agent Resilience and Considerate Participation under Accumulating Challenge",
-          "url": "https://arxiv.org/abs/2609.10724",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
+          "title": "Modernizing complex legacy code with AI agents.",
+          "url": "https://mistral.ai/news/legacy-code-modernization",
+          "sourceName": "Mistral AI",
+          "sourceOwner": "mistral-ai",
           "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-09T12:00:46.000Z",
           "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "research",
+          "relevanceScore": 78,
+          "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "research",
-            "model-evaluation",
+            "model-releases",
+            "enterprise-ai",
             "ai-safety",
-            "technical-evidence"
+            "europe"
           ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Mistral AI via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Defining AI Agents: A Compendium of Criteria, Metrics, and Benchmarks",
-          "url": "https://arxiv.org/abs/2609.11018",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
+          "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+          "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+          "sourceName": "OpenAI",
+          "sourceOwner": "openai",
           "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-12T04:00:00.000Z",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-14T00:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "research",
+          "relevanceScore": 70,
+          "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
           ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Decoupling Readiness from Release for Tail-Aware Scheduling of Agentic LLM Workflows",
-          "url": "https://arxiv.org/abs/2609.10964",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
+          "title": "How Claude&#x27;s values vary by model and language",
+          "url": "https://www.anthropic.com/research/claude-values-models-languages",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
           "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-12T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 85,
-          "decisionType": "research",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-11T16:58:57.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 67,
+          "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
           ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         },
         {
-          "title": "The Agent Incident Registry: Toward Preventing Repeated AI Agent Failures",
-          "url": "https://arxiv.org/abs/2609.11030",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
+          "title": "Many-shot jailbreaking",
+          "url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
           "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-12T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 85,
-          "decisionType": "research",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-11T12:13:44.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 67,
+          "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
           ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         },
         {
-          "title": "Grounding Agent Memory: Environment-Probing Curation for Enterprise Agents",
-          "url": "https://arxiv.org/abs/2609.11060",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
+          "title": "Mapping the mind of a large language model",
+          "url": "https://www.anthropic.com/research/mapping-mind-language-model",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
           "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-12T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 85,
-          "decisionType": "research",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-11T12:12:58.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 67,
+          "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
           ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -1543,7 +1491,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-09T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1567,7 +1515,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-09-09T13:44:33.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1592,7 +1540,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-08T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 78,
+          "relevanceScore": 76,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1701,7 +1649,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-12T03:34:16.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 85,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1723,7 +1671,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-10T21:20:17.000Z",
           "dateSource": "feed",
-          "relevanceScore": 86,
+          "relevanceScore": 85,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1745,7 +1693,7 @@
           "sourceCategory": "financial-stability",
           "publishedAt": "2026-09-08T00:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 76,
+          "relevanceScore": 75,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -1768,7 +1716,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-04T22:26:46.000Z",
           "dateSource": "feed",
-          "relevanceScore": 72,
+          "relevanceScore": 71,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1804,7 +1752,7 @@
           "sourceCategory": "financial-stability",
           "publishedAt": "2026-09-08T00:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 76,
+          "relevanceScore": 75,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -1827,7 +1775,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-04T05:02:56.000Z",
           "dateSource": "feed",
-          "relevanceScore": 73,
+          "relevanceScore": 71,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -1848,7 +1796,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-03T21:15:53.000Z",
           "dateSource": "feed",
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -1892,7 +1840,7 @@
       "id": "financial-crime",
       "readiness": {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 15,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1909,7 +1857,7 @@
           "sourceCategory": "financial-crime",
           "publishedAt": "2026-09-10T10:39:55.000Z",
           "dateSource": "feed",
-          "relevanceScore": 96,
+          "relevanceScore": 95,
           "decisionType": "context",
           "riskAreas": [
             "crime-and-sanctions"
@@ -1923,6 +1871,31 @@
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
         },
         {
+          "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+          "sourceName": "Australian Securities and Investments Commission",
+          "sourceOwner": "asic",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-10T23:58:36.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 81,
+          "decisionType": "research",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
+          ],
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
+        },
+        {
           "title": "HKICL alerts public of fraudulent websites",
           "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260911-4",
           "sourceName": "Hong Kong Monetary Authority",
@@ -1931,7 +1904,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-10T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 82,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1955,7 +1928,7 @@
           "sourceCategory": "financial-crime",
           "publishedAt": "2026-09-10T10:22:04.000Z",
           "dateSource": "feed",
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "decisionType": "rule-change",
           "riskAreas": [
             "crime-and-sanctions"
@@ -1977,7 +1950,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-09T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1991,28 +1964,6 @@
             "hong-kong"
           ],
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Statutory guidance: Iran sanctions: guidance",
-          "url": "https://www.gov.uk/government/publications/iran-sanctions-guidance",
-          "sourceName": "UK Office of Financial Sanctions Implementation",
-          "sourceOwner": "ofsi",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "publishedAt": "2026-09-09T14:51:49.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 80,
-          "decisionType": "rule-change",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "sanctions",
-            "enforcement",
-            "licences",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         }
       ]
     },
@@ -2037,7 +1988,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-11T13:35:11.000Z",
           "dateSource": "feed",
-          "relevanceScore": 99,
+          "relevanceScore": 97,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -2058,7 +2009,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-11T13:33:33.000Z",
           "dateSource": "feed",
-          "relevanceScore": 99,
+          "relevanceScore": 97,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -2079,7 +2030,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-11T12:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 98,
+          "relevanceScore": 97,
           "decisionType": "active-threat",
           "riskAreas": [
             "digital-resilience"
@@ -2101,7 +2052,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-11T12:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 98,
+          "relevanceScore": 97,
           "decisionType": "active-threat",
           "riskAreas": [
             "digital-resilience"
@@ -2123,7 +2074,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-10T18:00:15.000Z",
           "dateSource": "feed",
-          "relevanceScore": 97,
+          "relevanceScore": 95,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -2180,7 +2131,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-12T03:34:16.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 85,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -2202,7 +2153,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-09-11T12:33:09.000Z",
           "dateSource": "feed",
-          "relevanceScore": 84,
+          "relevanceScore": 82,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -2225,7 +2176,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-09-11T12:33:05.000Z",
           "dateSource": "feed",
-          "relevanceScore": 84,
+          "relevanceScore": 82,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -2240,25 +2191,26 @@
           "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Customer support via telephone may be unavailable for some users",
-          "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
-          "sourceName": "Dropbox Status",
-          "sourceOwner": "dropbox-status",
+          "title": "Disruption with Copilot Code Review",
+          "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
           "sourceTier": "primary",
-          "sourceCategory": "ai-infrastructure",
-          "publishedAt": "2026-09-04T05:02:56.000Z",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-04T22:26:46.000Z",
           "dateSource": "feed",
-          "relevanceScore": 73,
+          "relevanceScore": 71,
           "decisionType": "outage",
           "riskAreas": [
-            "digital-resilience",
-            "data-governance"
+            "digital-resilience"
           ],
           "tags": [
-            "service-status",
-            "data"
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
           ],
-          "whyCandidate": "Pulled from Dropbox Status via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2266,7 +2218,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 13,
+        "candidateCount": 14,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2281,9 +2233,9 @@
           "sourceOwner": "fr-cnil",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "publishedAt": "2026-09-10T00:00:00.000Z",
+          "publishedAt": "2026-09-09T23:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "decisionType": "context",
           "riskAreas": [
             "board-accountability",
@@ -2298,6 +2250,29 @@
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
+          "title": "Data Protection Commission",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-welcomes-outcome-prosecution-marketing-offences-1",
+          "sourceName": "Data Protection Commission Ireland",
+          "sourceOwner": "ireland-dpc",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-07T23:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 90,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "ireland"
+          ],
+          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
+        },
+        {
           "title": "Corporate report: Financial Reporting Advisory Board annual report: 2025 to 2026",
           "url": "https://www.gov.uk/government/publications/financial-reporting-advisory-board-annual-report-2025-to-2026",
           "sourceName": "HM Treasury",
@@ -2306,7 +2281,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-10T10:07:45.000Z",
           "dateSource": "feed",
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "decisionType": "research",
           "riskAreas": [
             "market-plumbing",
@@ -2330,9 +2305,9 @@
           "sourceOwner": "fr-cnil",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "publishedAt": "2026-09-03T00:00:00.000Z",
+          "publishedAt": "2026-09-02T23:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "board-accountability",
@@ -2355,7 +2330,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-10T00:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "decisionType": "context",
           "riskAreas": [
             "board-accountability",
@@ -2368,29 +2343,6 @@
             "ai-data"
           ],
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
-          "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
-          "sourceName": "Australian Prudential Regulation Authority",
-          "sourceOwner": "apra",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "publishedAt": "2026-09-10T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 80,
-          "decisionType": "rule-change",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-supervision",
-            "operational-risk",
-            "reporting",
-            "australia"
-          ],
-          "whyCandidate": "Pulled from Australian Prudential Regulation Authority via sitemap ingestion and matched the topic rules."
         }
       ]
     }

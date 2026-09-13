@@ -17,6 +17,7 @@ const STATIC_PAGES = [
   "https://stgeorgesstrategy.com/",
   "https://stgeorgesstrategy.com/brief/",
   "https://stgeorgesstrategy.com/signals/",
+  "https://stgeorgesstrategy.com/deep-dives/harness-problem/",
   "https://stgeorgesstrategy.com/signals/ai/",
   "https://stgeorgesstrategy.com/regulatory-horizon/",
   "https://stgeorgesstrategy.com/archive/",

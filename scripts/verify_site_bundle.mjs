@@ -21,6 +21,7 @@ const routes = [
   ["signals-cyber", "signals/cyber/index.html", "https://stgeorgesstrategy.com/signals/cyber/"],
   ["signals-technology-failure", "signals/technology-failure/index.html", "https://stgeorgesstrategy.com/signals/technology-failure/"],
   ["signals-data", "signals/data/index.html", "https://stgeorgesstrategy.com/signals/data/"],
+  ["deep-dive-harness", "deep-dives/harness-problem/index.html", "https://stgeorgesstrategy.com/deep-dives/harness-problem/"],
   ["committee-questions", "committee-questions/index.html", "https://stgeorgesstrategy.com/committee-questions/"],
   ["archive", "archive/index.html", "https://stgeorgesstrategy.com/archive/"],
   ["about", "about/index.html", "https://stgeorgesstrategy.com/about/"],
@@ -147,6 +148,7 @@ function checkWorkerRouteCoverage(failures) {
     "/archive",
     "/brief",
     "/committee-questions",
+    "/deep-dives/harness-problem",
     "/signals",
   ];
 
@@ -269,11 +271,11 @@ function main() {
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
   assert(
-    briefPage.includes("One control test for the week") &&
+      briefPage.includes("One control test for the week") &&
       briefPage.includes("What happened") &&
       briefPage.includes("Why it matters") &&
       briefPage.includes("What to do") &&
-      briefPage.includes("Ask for the record, not the reassurance."),
+      briefPage.includes("Ask for proof that survives challenge."),
     "Weekly Brief is missing its compact current-edition readout",
     failures,
   );

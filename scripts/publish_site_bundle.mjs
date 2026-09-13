@@ -79,6 +79,7 @@ const routes = [
   ["/signals/cyber/", "signals/cyber/index.html"],
   ["/signals/technology-failure/", "signals/technology-failure/index.html"],
   ["/signals/data/", "signals/data/index.html"],
+  ["/deep-dives/harness-problem/", "deep-dives/harness-problem/index.html"],
   ["/committee-questions/", "committee-questions/index.html"],
   ["/archive/", "archive/index.html"],
   ["/about/", "about/index.html"],
@@ -167,6 +168,7 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
+  ["/deep-dives/harness-problem/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
   ["/about/", "About"],
@@ -699,6 +701,13 @@ function loadEditionRecord(failures) {
     for (const field of ["domain", "question", "why", "evidence"]) {
       assert(Boolean(question?.[field]), `current edition committeeQuestions row ${index + 1} missing ${field}`, failures);
     }
+  }
+  if (record.deepDive) {
+    for (const field of ["title", "dek", "route", "publishedDate", "readTime"]) {
+      assert(Boolean(record.deepDive[field]), `current edition deepDive missing ${field}`, failures);
+    }
+    assert(record.deepDive.route === "/deep-dives/harness-problem/", "current edition deepDive route must use the canonical Deep Dive URL", failures);
+    assert(record.deepDive.publishedDate === record.publicationDate, "current edition deepDive should share the current publication date", failures);
   }
   const judgementWordCount = [record.judgement?.observation, record.judgement?.executiveJudgement, record.judgement?.implication]
     .filter(Boolean)
@@ -2269,6 +2278,10 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   }
   assert(!homePage.includes('class="home-signal-list"'), "Homepage must not duplicate the full Weekly Brief Top 5", failures);
   assert(briefPage.includes(editionRecord.title), "Weekly Brief must match the current edition title", failures);
+  if (editionRecord.deepDive) {
+    assert(homePage.includes(editionRecord.deepDive.title), "Homepage must feature the current Deep Dive", failures);
+    assert(briefPage.includes(editionRecord.deepDive.title), "Weekly Brief must link to the current Deep Dive", failures);
+  }
   for (const question of editionRecord.committeeQuestions || [editionRecord.committeeQuestion]) {
     assert(committeePage.includes(question?.question || ""), "Committee Questions must include every current-edition question", failures);
   }

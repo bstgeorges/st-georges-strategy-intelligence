@@ -101,9 +101,22 @@ function checkCurrentEditionAlignment(failures) {
     return Array.from(section.matchAll(/<h3>([^<]+)<\/h3>/g), (match) => match[1]);
   }
 
-  const briefTopSignals = topSignalTitles(brief, /<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">([\s\S]*?)<\/ol>/);
+  function topSignalLinks(html, pattern) {
+    const section = (html.match(pattern) || [])[1] || "";
+    return Array.from(section.matchAll(/<a href="([^"]+)"><h3>/g), (match) => match[1]);
+  }
+
+  const top5Pattern = /<p class="eyebrow">Top 5<\/p>[\s\S]*?<ol class="brief-index">([\s\S]*?)<\/ol>/;
+  const hubTop5Pattern = /<ol class="brief-index signal-hub-top5">([\s\S]*?)<\/ol>/;
+  const briefTopSignals = topSignalTitles(brief, top5Pattern);
+  const briefTopSignalLinks = topSignalLinks(brief, top5Pattern);
   const signalsHub = read("signals/index.html");
-  const hubTopSignals = topSignalTitles(signalsHub, /<ol class="brief-index signal-hub-top5">([\s\S]*?)<\/ol>/);
+  const hubTopSignals = topSignalTitles(signalsHub, hubTop5Pattern);
+  const hubTopSignalLinks = topSignalLinks(signalsHub, hubTop5Pattern);
+  const expectedTopSignalLinks = (edition.topSignals || []).map((signal) => {
+    const topic = (signals.topics || []).find((item) => item.id === signal.topic);
+    return (topic?.top5 || []).find((item) => item.title === signal.title)?.url || "";
+  });
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
@@ -121,6 +134,9 @@ function checkCurrentEditionAlignment(failures) {
   assert(!home.includes('class="home-signal-list"'), "homepage should route to the Brief rather than duplicate its Top 5", failures);
   assert(JSON.stringify(briefTopSignals) === JSON.stringify(expectedTopSignals), "brief Top 5 should match current-edition.json", failures);
   assert(JSON.stringify(hubTopSignals) === JSON.stringify(expectedTopSignals), "signals hub Top 5 should match current-edition.json", failures);
+  assert(expectedTopSignalLinks.every(Boolean), "every current-edition Top 5 signal must resolve to a source URL", failures);
+  assert(JSON.stringify(briefTopSignalLinks) === JSON.stringify(expectedTopSignalLinks), "brief Top 5 must link to each signal's primary source", failures);
+  assert(JSON.stringify(hubTopSignalLinks) === JSON.stringify(expectedTopSignalLinks), "signals hub Top 5 must link to each signal's primary source", failures);
   assert(
     archive.includes(`latest ${edition.publicationDate}`),
     `archive should report canonical latest archive ${edition.publicationDate}`,

@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-13T08:20:05.480Z",
-  "preparedAt": "2026-09-13T08:20:37.830Z",
+  "candidateGeneratedAt": "2026-09-13T08:43:27.496Z",
+  "preparedAt": "2026-09-13T08:43:55.650Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -20,10 +20,10 @@
     "decisionTypeCounts": {
       "rule-change": 5,
       "enforcement": 1,
-      "active-threat": 5,
+      "active-threat": 4,
       "outage": 3,
-      "research": 3,
-      "context": 73
+      "research": 2,
+      "context": 68
     },
     "decisionTypeGroups": [
       {
@@ -49,7 +49,7 @@
             "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
-            "publishedAt": "2026-09-09T23:00:00.000Z",
+            "publishedAt": "2026-09-10T00:00:00.000Z",
             "relevanceScore": 79,
             "decisionType": "rule-change",
             "region": "Global/other",
@@ -88,7 +88,7 @@
             "url": "https://www.apra.gov.au/news-and-publications/response-consultation-transition-life-insurance-d2a-data-collections-apra",
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
-            "publishedAt": "2026-08-30T23:00:00.000Z",
+            "publishedAt": "2026-08-31T00:00:00.000Z",
             "relevanceScore": 74,
             "decisionType": "rule-change",
             "region": "Global/other",
@@ -121,21 +121,8 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 5,
+        "candidateCount": 4,
         "candidates": [
-          {
-            "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-09-11T12:00:00.000Z",
-            "relevanceScore": 97,
-            "decisionType": "active-threat",
-            "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
           {
             "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
             "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-one-known-exploited-vulnerability-catalog",
@@ -242,21 +229,8 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 3,
+        "candidateCount": 2,
         "candidates": [
-          {
-            "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
-            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
-            "sourceName": "Australian Securities and Investments Commission",
-            "sourceOwner": "asic",
-            "publishedAt": "2026-09-10T23:58:36.000Z",
-            "relevanceScore": 81,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "financial-crime"
-            ]
-          },
           {
             "title": "Corporate report: Financial Reporting Advisory Board annual report: 2025 to 2026",
             "url": "https://www.gov.uk/government/publications/financial-reporting-advisory-board-annual-report-2025-to-2026",
@@ -275,7 +249,7 @@
             "url": "https://www.eiopa.europa.eu/publications/irsg-advice-question-template-eiopas-report-integrated-data-collection_en",
             "sourceName": "European Insurance and Occupational Pensions Authority",
             "sourceOwner": "eiopa",
-            "publishedAt": "2026-08-18T23:00:00.000Z",
+            "publishedAt": "2026-08-19T00:00:00.000Z",
             "relevanceScore": 55,
             "decisionType": "research",
             "region": "UK/EMEA",
@@ -288,7 +262,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 73,
+        "candidateCount": 68,
         "candidates": [
           {
             "title": "Network Performance Issues with Taiwan datacenter (TPE)",
@@ -370,19 +344,6 @@
             ]
           },
           {
-            "title": "Facturation électronique : quels enjeux pour la protection des données personnelles ?",
-            "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
-            "sourceName": "Commission nationale de l'informatique et des libertés",
-            "sourceOwner": "fr-cnil",
-            "publishedAt": "2026-09-09T23:00:00.000Z",
-            "relevanceScore": 94,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
-            ]
-          },
-          {
             "title": "CISA Releases Updated Insider Threat Guide With New Insights to Mitigate Physical and Cyber Threats",
             "url": "https://www.cisa.gov/news-events/news/cisa-releases-updated-insider-threat-guide-new-insights-mitigate-physical-and-cyber-threats",
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -420,93 +381,106 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "CVE-2026-86206, CVE-2026-86207: N-able N-central Authentication Bypass (FIXED)",
+            "url": "https://www.rapid7.com/blog/post/ve-cve-2026-86206-cve-2026-86207-n-able-n-central-authentication-bypass-fixed",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-09-08T11:01:27.000Z",
+            "relevanceScore": 91,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 100,
-      "uniqueCandidateEvents": 90,
-      "crossThemeDuplicatesCollapsed": 10,
+      "candidateRows": 92,
+      "uniqueCandidateEvents": 83,
+      "crossThemeDuplicatesCollapsed": 9,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 8.9
+          "share": 9.6
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 6,
-          "share": 6.7
-        },
-        {
-          "sourceOwner": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "count": 5,
-          "share": 5.6
+          "share": 7.2
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.6
-        },
-        {
-          "sourceOwner": "mistral-ai",
-          "sourceName": "Mistral AI",
-          "count": 5,
-          "share": 5.6
+          "share": 6
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.6
+          "share": 6
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 5.6
+          "share": 6
         },
         {
           "sourceOwner": "cisa",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "count": 5,
-          "share": 5.6
+          "share": 6
+        },
+        {
+          "sourceOwner": "fr-cnil",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "count": 4,
+          "share": 4.8
+        },
+        {
+          "sourceOwner": "mistral-ai",
+          "sourceName": "Mistral AI",
+          "count": 4,
+          "share": 4.8
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 36,
-          "share": 40
+          "count": 32,
+          "share": 38.6
         },
         {
           "region": "US",
           "count": 9,
-          "share": 10
+          "share": 10.8
         },
         {
           "region": "Global/other",
-          "count": 45,
-          "share": 50
+          "count": 42,
+          "share": 50.6
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 85,
-        "alreadyPublishedCandidates": 5,
-        "continuingPublishedEvents": 34,
-        "currentEditionTop5Events": 37
+        "newCandidateEvents": 79,
+        "alreadyPublishedCandidates": 4,
+        "continuingPublishedEvents": 33,
+        "currentEditionTop5Events": 38
       }
     },
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 16,
+        "candidateCount": 15,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -520,21 +494,21 @@
       },
       {
         "id": "third-party",
-        "candidateCount": 9,
+        "candidateCount": 8,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "resilience",
-        "candidateCount": 4,
+        "candidateCount": 2,
         "minimumCandidateCount": 3,
-        "status": "editorial-review-required",
+        "status": "manual-research-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
       },
       {
         "id": "financial-crime",
-        "candidateCount": 15,
+        "candidateCount": 14,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -555,7 +529,7 @@
       },
       {
         "id": "data",
-        "candidateCount": 14,
+        "candidateCount": 11,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -563,8 +537,8 @@
     ],
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 85,
-      "watching": 0,
+      "healthy": 84,
+      "watching": 1,
       "investigate": 0,
       "supplementary": 1,
       "entries": [
@@ -824,7 +798,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1246,11 +1220,11 @@
         {
           "sourceId": "ireland-dpc-data-sitemap",
           "sourceRegistryId": "ireland-dpc",
-          "status": "ok",
-          "consecutiveIssueRuns": 0,
+          "status": "failed",
+          "consecutiveIssueRuns": 1,
           "monitoring": "standard",
-          "action": "none",
-          "detail": ""
+          "action": "watch",
+          "detail": "fetch failed"
         },
         {
           "sourceId": "cnil-data-sitemap",
@@ -1350,7 +1324,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 16,
+        "candidateCount": 15,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1358,28 +1332,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "Modernizing complex legacy code with AI agents.",
-          "url": "https://mistral.ai/news/legacy-code-modernization",
-          "sourceName": "Mistral AI",
-          "sourceOwner": "mistral-ai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "publishedAt": "2026-09-09T12:00:46.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 78,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "enterprise-ai",
-            "ai-safety",
-            "europe"
-          ],
-          "whyCandidate": "Pulled from Mistral AI via rss ingestion and matched the topic rules."
-        },
         {
           "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
           "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
@@ -1467,6 +1419,27 @@
             "safety"
           ],
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
+          "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai",
+          "sourceName": "NVIDIA Newsroom",
+          "sourceOwner": "nvidia",
+          "sourceTier": "primary",
+          "sourceCategory": "ai-infrastructure",
+          "publishedAt": "2026-09-10T16:30:35.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 65,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "ai",
+            "infrastructure"
+          ],
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1610,7 +1583,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 9,
+        "candidateCount": 8,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1685,29 +1658,6 @@
           "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
         },
         {
-          "title": "Global standard-setting bodies publish a toolkit for cyber resilience at FMIs and a discussion paper on FMIs’ reliance on third-party service providers",
-          "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
-          "sourceName": "Bank for International Settlements",
-          "sourceOwner": "bis",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-stability",
-          "publishedAt": "2026-09-08T00:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 75,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "ict-risk",
-            "operational-resilience",
-            "data",
-            "third-party"
-          ],
-          "whyCandidate": "Pulled from Bank for International Settlements via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Disruption with Copilot Code Review",
           "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
           "sourceName": "GitHub Status",
@@ -1728,6 +1678,28 @@
             "service-disruption"
           ],
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Incident with Grok Copilot AI Model Provider",
+          "url": "https://www.githubstatus.com/incidents/ktdr5t0xwnhp",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-03T17:11:47.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 70,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1735,37 +1707,14 @@
       "id": "resilience",
       "readiness": {
         "id": "resilience",
-        "candidateCount": 4,
+        "candidateCount": 2,
         "minimumCandidateCount": 3,
-        "status": "editorial-review-required",
+        "status": "manual-research-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
       },
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "Global standard-setting bodies publish a toolkit for cyber resilience at FMIs and a discussion paper on FMIs’ reliance on third-party service providers",
-          "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
-          "sourceName": "Bank for International Settlements",
-          "sourceOwner": "bis",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-stability",
-          "publishedAt": "2026-09-08T00:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 75,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "ict-risk",
-            "operational-resilience",
-            "data",
-            "third-party"
-          ],
-          "whyCandidate": "Pulled from Bank for International Settlements via rss ingestion and matched the topic rules."
-        },
         {
           "title": "Customer support via telephone may be unavailable for some users",
           "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
@@ -1786,27 +1735,6 @@
             "data"
           ],
           "whyCandidate": "Pulled from Dropbox Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Incident response guide for AWS CloudTrail investigations – Part 2",
-          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
-          "sourceName": "AWS Security Blog",
-          "sourceOwner": "aws-security",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-03T21:15:53.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 67,
-          "decisionType": "context",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "cloud-security"
-          ],
-          "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
         },
         {
           "title": "Swiss insurance sector continues to strengthen its resilience",
@@ -1840,7 +1768,7 @@
       "id": "financial-crime",
       "readiness": {
         "id": "financial-crime",
-        "candidateCount": 15,
+        "candidateCount": 14,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1869,31 +1797,6 @@
             "organised-crime"
           ],
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
-          "sourceName": "Australian Securities and Investments Commission",
-          "sourceOwner": "asic",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-10T23:58:36.000Z",
-          "dateSource": "sitemap-lastmod",
-          "relevanceScore": 81,
-          "decisionType": "research",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "markets",
-            "scams",
-            "reporting",
-            "australia"
-          ],
-          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
         },
         {
           "title": "HKICL alerts public of fraudulent websites",
@@ -1964,6 +1867,28 @@
             "hong-kong"
           ],
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Statutory guidance: Iran sanctions: guidance",
+          "url": "https://www.gov.uk/government/publications/iran-sanctions-guidance",
+          "sourceName": "UK Office of Financial Sanctions Implementation",
+          "sourceOwner": "ofsi",
+          "sourceTier": "primary",
+          "sourceCategory": "financial-crime",
+          "publishedAt": "2026-09-09T14:51:49.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 78,
+          "decisionType": "rule-change",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "sanctions",
+            "enforcement",
+            "licences",
+            "uk"
+          ],
+          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         }
       ]
     },
@@ -2022,28 +1947,6 @@
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
         },
         {
-          "title": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceOwner": "cisa",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-11T12:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 97,
-          "decisionType": "active-threat",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
           "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-one-known-exploited-vulnerability-catalog",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -2085,6 +1988,27 @@
             "threat-intelligence"
           ],
           "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Detect and disrupt AI-themed attacks with Microsoft Defender",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/detect-and-disrupt-ai-themed-attacks-with-microsoft-defender",
+          "sourceName": "Microsoft Security Blog",
+          "sourceOwner": "microsoft-security",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-10T16:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 95,
+          "decisionType": "context",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2218,7 +2142,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 14,
+        "candidateCount": 11,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2226,52 +2150,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "Facturation électronique : quels enjeux pour la protection des données personnelles ?",
-          "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceOwner": "fr-cnil",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-09T23:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 94,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "Data Protection Commission",
-          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-welcomes-outcome-prosecution-marketing-offences-1",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceOwner": "ireland-dpc",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-07T23:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 90,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
         {
           "title": "Corporate report: Financial Reporting Advisory Board annual report: 2025 to 2026",
           "url": "https://www.gov.uk/government/publications/financial-reporting-advisory-board-annual-report-2025-to-2026",
@@ -2305,7 +2183,7 @@
           "sourceOwner": "fr-cnil",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "publishedAt": "2026-09-02T23:00:00.000Z",
+          "publishedAt": "2026-09-03T00:00:00.000Z",
           "dateSource": "page-published",
           "relevanceScore": 80,
           "decisionType": "context",
@@ -2343,6 +2221,52 @@
             "ai-data"
           ],
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
+          "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
+          "sourceName": "Australian Prudential Regulation Authority",
+          "sourceOwner": "apra",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "publishedAt": "2026-09-10T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "rule-change",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "australia"
+          ],
+          "whyCandidate": "Pulled from Australian Prudential Regulation Authority via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "La CNIL publie le tome 2 de L’Agence Privacy : une nouvelle enquête pour mieux comprendre la cybercriminalité",
+          "url": "https://www.cnil.fr/fr/audeladelecran",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceOwner": "fr-cnil",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-10T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         }
       ]
     }

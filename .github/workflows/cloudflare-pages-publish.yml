@@ -127,7 +127,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: distribution-pack-${{ github.sha }}
-          path: .release-artifacts
+          path: release-artifacts
           if-no-files-found: error
 
       - name: Test public-site edge routing

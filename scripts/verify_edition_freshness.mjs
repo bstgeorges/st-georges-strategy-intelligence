@@ -16,7 +16,7 @@ const CHECKS = [
   { route: "/brief/", label: "weekly brief", editionPrefix: "Weekly brief / " },
 ];
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 function parseArgs(argv) {
   const options = { out: DEFAULT_OUT, origin: DEFAULT_ORIGIN };

@@ -29,19 +29,23 @@ test("legacy route mappings retain the established destinations", () => {
 test("current directories are canonicalised and normal asset paths are not intercepted", () => {
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/signals/ai?source=linkedin"), {
     location: "https://stgeorgesstrategy.com/signals/ai/?source=linkedin",
-    status: 308,
+    status: 301,
+  });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/brief?source=linkedin"), {
+    location: "https://stgeorgesstrategy.com/brief/?source=linkedin",
+    status: 301,
   });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives"), {
     location: "https://stgeorgesstrategy.com/deep-dives/",
-    status: 308,
+    status: 301,
   });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review"), {
     location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/",
-    status: 308,
+    status: 301,
   });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20"), {
     location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20/",
-    status: 308,
+    status: 301,
   });
   assert.equal(resolveRedirect("https://stgeorgesstrategy.com/assets/hero.svg"), null);
 });

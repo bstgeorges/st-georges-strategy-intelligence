@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-09-16T21:09:35.472Z",
+  "generatedAt": "2026-09-16T21:42:57.942Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -1128,54 +1128,11 @@
       "id": "third-party",
       "candidates": [
         {
-          "id": "06a0e0571241dcc9",
-          "topicId": "third-party",
-          "title": "Network Performance Issues in Los Angeles",
-          "url": "https://www.cloudflarestatus.com/incidents/qc2v4gxy3gfw",
-          "publishedAt": "2026-09-16T16:23:30.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "network",
-            "performance",
-            "error",
-            "5xx"
-          ],
-          "titleMatchedKeywords": [
-            "network",
-            "performance"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "error",
-            "5xx"
-          ],
-          "relevanceScore": 100,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "8fd3eb6890ca9756",
           "topicId": "third-party",
           "title": "Support Portal Service Disruption",
           "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
-          "publishedAt": "2026-09-16T14:07:22.000Z",
+          "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "digitalocean-status",
           "sourceName": "DigitalOcean Status",
@@ -2742,47 +2699,42 @@
       "id": "technology-failure",
       "candidates": [
         {
-          "id": "06a0e0571241dcc9",
+          "id": "8fd3eb6890ca9756",
           "topicId": "technology-failure",
-          "title": "Network Performance Issues in Los Angeles",
-          "url": "https://www.cloudflarestatus.com/incidents/qc2v4gxy3gfw",
-          "publishedAt": "2026-09-16T16:23:30.000Z",
+          "title": "Support Portal Service Disruption",
+          "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
+          "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-status",
-          "sourceName": "Cloudflare Status",
+          "sourceRegistryId": "digitalocean-status",
+          "sourceName": "DigitalOcean Status",
           "sourceTier": "primary",
           "sourceCategory": "technology",
-          "ingestSourceId": "cloudflare-status-rss",
+          "ingestSourceId": "digitalocean-status-rss",
           "fetchType": "rss",
           "riskAreas": [
             "digital-resilience"
           ],
           "tags": [
-            "network",
+            "cloud",
             "provider-incident",
             "dependency",
             "service-disruption"
           ],
           "matchedKeywords": [
             "incident",
-            "network",
-            "performance",
-            "error",
-            "5xx"
+            "disruption"
           ],
           "titleMatchedKeywords": [
-            "network",
-            "performance"
+            "disruption"
           ],
           "summaryMatchedKeywords": [
             "incident",
-            "error",
-            "5xx"
+            "disruption"
           ],
-          "relevanceScore": 100,
+          "relevanceScore": 87,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         },
         {
           "id": "c1632271eb0487f1",
@@ -2819,44 +2771,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from MongoDB Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8fd3eb6890ca9756",
-          "topicId": "technology-failure",
-          "title": "Support Portal Service Disruption",
-          "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
-          "publishedAt": "2026-09-16T14:07:22.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "digitalocean-status",
-          "sourceName": "DigitalOcean Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "digitalocean-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "disruption"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "disruption"
-          ],
-          "relevanceScore": 87,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         },
         {
           "id": "771b24ddf1336ecd",
@@ -3554,43 +3468,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "21b145590958de58",
-          "topicId": "data",
-          "title": "IRSG Advice on Question template - EIOPA´s Report on Integrated Data Collection",
-          "url": "https://www.eiopa.europa.eu/publications/irsg-advice-question-template-eiopas-report-integrated-data-collection_en",
-          "publishedAt": "2026-08-19T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "eiopa",
-          "sourceName": "European Insurance and Occupational Pensions Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "eiopa-resilience-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "insurance-supervision",
-            "dora",
-            "reporting",
-            "eu"
-          ],
-          "matchedKeywords": [
-            "data"
-          ],
-          "titleMatchedKeywords": [
-            "data"
-          ],
-          "summaryMatchedKeywords": [
-            "data"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from European Insurance and Occupational Pensions Authority via sitemap ingestion and matched the topic rules."
         }
       ]
     }
@@ -4062,7 +3939,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 20,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -4391,8 +4268,8 @@
       "sourceRegistryId": "eiopa",
       "fetchType": "sitemap",
       "status": "ok",
-      "fetchedEntries": 15,
-      "acceptedCandidates": 1,
+      "fetchedEntries": 20,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -4452,7 +4329,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 4,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },

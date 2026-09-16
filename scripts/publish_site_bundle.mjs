@@ -704,6 +704,13 @@ function loadEditionRecord(failures) {
       assert(Boolean(question?.[field]), `current edition committeeQuestions row ${index + 1} missing ${field}`, failures);
     }
   }
+  for (const field of ["domain", "question", "why", "evidence"]) {
+    assert(
+      record.committeeQuestion?.[field] === record.committeeQuestions?.[0]?.[field],
+      `current edition committeeQuestion.${field} must mirror committeeQuestions[0].${field}`,
+      failures,
+    );
+  }
   if (record.deepDive) {
     for (const field of ["title", "dek", "route", "publishedDate", "readTime"]) {
       assert(Boolean(record.deepDive[field]), `current edition deepDive missing ${field}`, failures);

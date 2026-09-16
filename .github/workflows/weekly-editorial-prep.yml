@@ -63,10 +63,16 @@ jobs:
       - name: Generate weekly refresh packet
         run: npm run refresh:packet -- --date "${{ steps.vars.outputs.publication_date }}" --out "site-dist/weekly-refresh-packet.md"
 
+      - name: Assemble verified LinkedIn and newsletter distribution pack
+        run: |
+          npm run distribution:pack
+          npm run distribution:verify
+
       - name: Assemble editorial artifact
         run: |
           mkdir -p editorial-pack
           cp site-dist/weekly-refresh-packet.md editorial-pack/
+          cp -R .release-artifacts/distribution editorial-pack/distribution
           cp dashboard/data/signals-candidates.generated.json editorial-pack/
           cp dashboard/data/signals-promotion-review.generated.json editorial-pack/
           cp dashboard/data/signals-candidate-state.json editorial-pack/

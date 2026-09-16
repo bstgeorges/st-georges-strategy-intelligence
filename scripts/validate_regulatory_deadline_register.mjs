@@ -111,8 +111,17 @@ function main() {
   const staleVerifications = (register.items || []).filter((item) => item.intake === "verified-backfill" && isValidDate(item.evidence?.verifiedAt) && dateDiff(today, item.evidence.verifiedAt) > 14);
   if (staleVerifications.length) warnings.push(`${staleVerifications.length} verified carry-forward record(s) need a renewed primary-source check`);
   const run = { asOf: register.asOf, sourceEdition: register.sourceEdition, healthyCore, errors, warnings };
-  const runs = [...(prior.runs || []).filter((item) => item.sourceEdition !== run.sourceEdition), run].slice(-12);
-  const stableCore = CORE.filter((id) => runs.slice(-3).length === 3 && runs.slice(-3).every((entry) => entry.healthyCore.includes(id)));
+  // Stability is evidence across calendar days, not repeated retries. Keep the
+  // latest record for a given as-of date and discard historical entries that
+  // pre-date the distinct-day contract.
+  const byAsOf = new Map();
+  for (const priorRun of prior.runs || []) {
+    if (isValidDate(priorRun?.asOf)) byAsOf.set(priorRun.asOf, priorRun);
+  }
+  byAsOf.set(run.asOf, run);
+  const runs = [...byAsOf.values()].sort((a, b) => a.asOf.localeCompare(b.asOf)).slice(-12);
+  const lastThreeDistinctRuns = runs.slice(-3);
+  const stableCore = CORE.filter((id) => lastThreeDistinctRuns.length === 3 && lastThreeDistinctRuns.every((entry) => entry.healthyCore.includes(id)));
   const relaunchReasons = [
     ...(errors.length ? ["correctness blockers remain"] : []),
     ...(sourceAgeDays === null || sourceAgeDays > 8 ? ["latest scanner edition is stale"] : []),
@@ -127,7 +136,7 @@ function main() {
     sourceEdition: register.sourceEdition, asOf: register.asOf, errors, warnings,
     readiness: {
       score: Math.max(0, 100 - errors.length * 25 - unavailableCore.length * 7 - Math.max(0, 10 - confirmedOpen.length) * 3 - Math.max(0, 4 - confirmedAuthorities.size) * 5),
-      metrics: { confirmedOpenDeadlines: confirmedOpen.length, confirmedAuthorities: confirmedAuthorities.size, healthyCoreAuthorities: healthyCore.length, stableCoreAuthorities: stableCore.length, sourceAgeDays, concentration: Number(concentration.toFixed(3)) },
+      metrics: { confirmedOpenDeadlines: confirmedOpen.length, confirmedAuthorities: confirmedAuthorities.size, healthyCoreAuthorities: healthyCore.length, stableCoreAuthorities: stableCore.length, distinctShadowRuns: lastThreeDistinctRuns.length, sourceAgeDays, concentration: Number(concentration.toFixed(3)) },
       relaunchEligible: relaunchReasons.length === 0,
       relaunchReasons,
     },

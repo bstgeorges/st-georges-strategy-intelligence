@@ -16,7 +16,7 @@ The public route remains off unless all of the following are true:
 
 - no register correctness blockers;
 - scanner edition is no more than eight days old;
-- at least four core authorities have been healthy for each of the most recent three shadow runs;
+- at least four core authorities have been healthy for each of the most recent three **distinct-day** shadow runs; repeated retries on one day count once;
 - at least ten editorially confirmed open deadlines from four or more authorities;
 - no authority supplies more than 60% of confirmed deadlines;
 - the editor and product owner explicitly approve the return of a public page in `dashboard/regulatory-deadline-register/relaunch-approval.json`. Both approvals must be named, dated, reasoned, and tied to the current scanner edition.

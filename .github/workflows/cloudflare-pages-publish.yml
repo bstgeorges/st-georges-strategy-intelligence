@@ -118,6 +118,18 @@ jobs:
       - name: Verify release bundle
         run: npm run site:verify
 
+      - name: Assemble verified distribution pack
+        run: |
+          npm run distribution:pack
+          npm run distribution:verify
+
+      - name: Upload verified distribution pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribution-pack-${{ github.sha }}
+          path: .release-artifacts
+          if-no-files-found: error
+
       - name: Test public-site edge routing
         run: npm run site:edge:test
 

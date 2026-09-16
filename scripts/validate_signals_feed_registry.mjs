@@ -67,8 +67,10 @@ function main() {
     for (const error of errors) console.error(`- ${error}`);
     process.exit(1);
   }
-  const coverage = Object.fromEntries(Object.keys(TOPIC_MINIMUMS).map((topic) => [topic, feedRegistry.sources.filter((feed) => feed.topics?.includes(topic)).length]));
-  console.log(`Signals feed-registry validation passed: ${feedRegistry.sources.length} direct primary sources.`, coverage);
+  const directFeeds = (feedRegistry.sources || []).filter((feed) => feed.fetchType !== WITHHELD_HORIZON_FETCH_TYPE);
+  const coverage = Object.fromEntries(Object.keys(TOPIC_MINIMUMS).map((topic) => [topic, directFeeds.filter((feed) => feed.topics?.includes(topic)).length]));
+  const directFeedCount = directFeeds.length;
+  console.log(`Signals feed-registry validation passed: ${directFeedCount} direct primary sources.`, coverage);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();

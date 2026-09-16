@@ -119,6 +119,75 @@
       "maxItems": 6
     },
     {
+      "id": "reg-horizon-market-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["market-structure"],
+      "riskAreas": ["balance-sheet", "digital-money", "market-plumbing"],
+      "tags": ["reg-horizon", "deadlines", "market-structure"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-third-party-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["third-party"],
+      "riskAreas": ["digital-resilience", "ai-and-models", "market-plumbing"],
+      "tags": ["reg-horizon", "third-party", "dependency"],
+      "keywordHints": ["outsourcing", "third party", "critical third", "vendor", "supplier", "cloud", "processor", "model", "agent"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-resilience-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["resilience"],
+      "riskAreas": ["digital-resilience", "board-accountability"],
+      "tags": ["reg-horizon", "resilience", "impact-tolerance"],
+      "keywordHints": ["resilience", "outage", "impact tolerance", "important business service", "continuity"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-financial-crime-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["financial-crime"],
+      "riskAreas": ["crime-and-sanctions"],
+      "tags": ["reg-horizon", "financial-crime", "sanctions"],
+      "keywordHints": ["fraud", "aml", "money laundering", "sanctions", "scam", "financial crime"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-cyber-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["cyber"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["reg-horizon", "cyber", "threat"],
+      "keywordHints": ["cyber", "ransomware", "vulnerability", "breach", "incident", "threat"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-technology-failure-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["technology-failure"],
+      "riskAreas": ["digital-resilience"],
+      "tags": ["reg-horizon", "technology-failure", "outage"],
+      "keywordHints": ["outage", "failure", "disruption", "ict", "technology", "recovery"],
+      "maxItems": 10
+    },
+    {
+      "id": "reg-horizon-data-bridge",
+      "fetchType": "reg_horizon_json",
+      "fetchUrl": "site/regulatory-horizon/latest.json",
+      "topics": ["data"],
+      "riskAreas": ["board-accountability"],
+      "tags": ["reg-horizon", "data", "reporting"],
+      "keywordHints": ["data", "reporting", "disclosure", "privacy", "record", "governance"],
+      "maxItems": 10
+    },
+    {
       "id": "hm-treasury-policy-atom",
       "sourceRegistryId": "uk-hm-treasury",
       "fetchType": "atom",

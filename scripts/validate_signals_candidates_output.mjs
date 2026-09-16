@@ -6,6 +6,7 @@ import { isSpecificPublishedSourceUrl, resolvePublishedSource } from "./lib/publ
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
+const FEED_REGISTRY_PATH = path.join(ROOT, "dashboard", "data", "signals-feed-registry.json");
 const TOPICS = new Set([
   "ai",
   "market-structure",
@@ -19,6 +20,15 @@ const TOPICS = new Set([
 const ALLOWED_MODES = new Set(["live", "offline", "seed"]);
 const ALLOWED_SOURCE_STATUSES = new Set(["ok", "quiet", "failed", "skipped"]);
 const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "page-published", "reviewed-reg-horizon"]);
+const HORIZON_BRIDGE_IDS = new Set([
+  "reg-horizon-market-bridge",
+  "reg-horizon-third-party-bridge",
+  "reg-horizon-resilience-bridge",
+  "reg-horizon-financial-crime-bridge",
+  "reg-horizon-cyber-bridge",
+  "reg-horizon-technology-failure-bridge",
+  "reg-horizon-data-bridge",
+]);
 
 function fail(message, failures) {
   failures.push(message);
@@ -42,6 +52,7 @@ function parseArgs(argv) {
 function main() {
   const options = parseArgs(process.argv.slice(2));
   const data = JSON.parse(fs.readFileSync(options.input, "utf8"));
+  const feedRegistry = JSON.parse(fs.readFileSync(FEED_REGISTRY_PATH, "utf8"));
   const failures = [];
   const requiresRankingMetadata = String(data.version || "") >= "2026-07-18";
   const requiresProvenance = String(data.version || "") >= "2026-08-14";
@@ -50,6 +61,17 @@ function main() {
   if (data.mode !== "seed" && !isIsoTimestamp(data.generatedAt)) fail("signals-candidates.generated.json generatedAt must be an ISO timestamp.", failures);
   if (!Array.isArray(data.topics)) fail("signals-candidates.generated.json must contain topics[].", failures);
   if (!Array.isArray(data.sourceStats)) fail("signals-candidates.generated.json must contain sourceStats[].", failures);
+
+  const configuredHorizonBridges = new Map(
+    (feedRegistry.sources || [])
+      .filter((source) => HORIZON_BRIDGE_IDS.has(source.id))
+      .map((source) => [source.id, source]),
+  );
+  for (const id of HORIZON_BRIDGE_IDS) {
+    const source = configuredHorizonBridges.get(id);
+    if (!source) fail(`Signals feed registry is missing required withheld-Horizon bridge ${id}.`, failures);
+    else if (source.fetchType !== "reg_horizon_json") fail(`${id} must use reg_horizon_json ingestion.`, failures);
+  }
 
   const topicIds = new Set();
 
@@ -93,6 +115,16 @@ function main() {
     if (stat.status === "failed" && !stat.error) fail(`${label} failed without an error message.`, failures);
     if (stat.status === "skipped" && !stat.reason) fail(`${label} skipped without a reason.`, failures);
     if (stat.status === "quiet" && !stat.reason) fail(`${label} is quiet without a reason.`, failures);
+  }
+
+  const emittedHorizonBridges = (data.sourceStats || []).filter((stat) => HORIZON_BRIDGE_IDS.has(stat.sourceId));
+  if (emittedHorizonBridges.length) {
+    if (emittedHorizonBridges.length !== HORIZON_BRIDGE_IDS.size) fail("Candidate output must report every configured Horizon bridge when it reports any Horizon bridge.", failures);
+    for (const stat of emittedHorizonBridges) {
+      if (stat.status !== "skipped" || stat.reason !== "horizon-withheld") {
+        fail(`${stat.sourceId} must be skipped with reason horizon-withheld while Reg Horizon is withheld.`, failures);
+      }
+    }
   }
 
   if (failures.length) {

@@ -424,6 +424,11 @@ function main() {
   const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
+  assert(!/regulatory-horizon/.test(sitemap), "sitemap.xml must omit withdrawn Reg Horizon routes", failures);
+  assert(!/&(?!amp;|lt;|gt;|quot;|apos;)/.test(sitemap), "sitemap.xml must XML-escape special characters", failures);
+  const notFound = read("404.html");
+  assert(notFound.includes('href="/styles.css"'), "branded 404 must use the root stylesheet path", failures);
+  assert(notFound.includes('href="/assets/favicon.svg"'), "branded 404 must use the root favicon path", failures);
   assert(!/Reg Horizon|regulatory-horizon/.test(archive), "Archive must not promote Reg Horizon while it is withdrawn", failures);
   assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);

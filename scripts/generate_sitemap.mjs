@@ -36,6 +36,15 @@ const ARCHIVE_SOURCES = [
 
 const DATE_DIR = /^\d{4}-\d{2}-\d{2}$/;
 
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function currentEdition() {
   const report = join(ROOT, "site-dist", "publish-report.json");
   if (existsSync(report)) {
@@ -88,7 +97,7 @@ const entries = [
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}
+${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${escapeXml(lastmod)}</lastmod>\n  </url>`).join("\n")}
 </urlset>
 `;
 

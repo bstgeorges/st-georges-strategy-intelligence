@@ -307,6 +307,11 @@ function main() {
   assert(read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon route must redirect to Archive", failures);
   assert(read("_redirects").includes("/regulatory-horizon/* /archive/ 301"), "Reg Horizon subroutes must redirect to Archive", failures);
   assert(fs.existsSync(path.join(SITE, ".assetsignore")), "Worker assets ignore file missing", failures);
+  assert(
+    read(".assetsignore") === "_headers\n_redirects\npublish-report.json\n",
+    "Worker assets ignore file must exclude Pages-only controls and the internal publish report",
+    failures,
+  );
   assert(fs.existsSync(path.join(SITE, "404.html")), "Branded 404 page missing", failures);
   const styles = read("styles.css");
   const signalsHub = read("signals/index.html");

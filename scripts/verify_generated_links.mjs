@@ -104,18 +104,6 @@ function isKnownRestrictedFetchFailure(url, error) {
   if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url)) {
     return /AbortError|fetch failed/i.test(String(error));
   }
-  try {
-    const parsed = new URL(url);
-    const hostname = parsed.hostname.replace(/^www\./, "");
-    if (hostname === "ft.com" && /^\/content\//i.test(parsed.pathname)) {
-      return /fetch failed/i.test(String(error));
-    }
-    if (hostname === "cssf.lu" && /^\/en\/20\d{2}\//i.test(parsed.pathname)) {
-      return /fetch failed/i.test(String(error));
-    }
-  } catch {
-    return false;
-  }
   return false;
 }
 

@@ -7,6 +7,7 @@ import { isSpecificPublishedSourceUrl, resolvePublishedSource } from "./lib/publ
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
 const FEED_REGISTRY_PATH = path.join(ROOT, "dashboard", "data", "signals-feed-registry.json");
+const SOURCE_REGISTRY_PATH = path.join(ROOT, "dashboard", "data", "source-registry.json");
 const TOPICS = new Set([
   "ai",
   "market-structure",
@@ -53,6 +54,7 @@ function main() {
   const options = parseArgs(process.argv.slice(2));
   const data = JSON.parse(fs.readFileSync(options.input, "utf8"));
   const feedRegistry = JSON.parse(fs.readFileSync(FEED_REGISTRY_PATH, "utf8"));
+  const sourceRegistry = new Set((JSON.parse(fs.readFileSync(SOURCE_REGISTRY_PATH, "utf8")).sources || []).map((source) => source.id));
   const failures = [];
   const requiresRankingMetadata = String(data.version || "") >= "2026-07-18";
   const requiresProvenance = String(data.version || "") >= "2026-08-14";
@@ -71,6 +73,15 @@ function main() {
     const source = configuredHorizonBridges.get(id);
     if (!source) fail(`Signals feed registry is missing required withheld-Horizon bridge ${id}.`, failures);
     else if (source.fetchType !== "reg_horizon_json") fail(`${id} must use reg_horizon_json ingestion.`, failures);
+  }
+  const ownerCap = feedRegistry.settings?.perSourceOwnerTopicCap;
+  if (!Number.isInteger(ownerCap) || ownerCap < 1 || ownerCap > 5) {
+    fail("Signals feed registry perSourceOwnerTopicCap must be an integer between 1 and 5.", failures);
+  }
+  for (const source of feedRegistry.sources || []) {
+    if (source.fetchType === "reg_horizon_json") continue;
+    if (!source.sourceRegistryId) fail(`${source.id} must declare a canonical sourceRegistryId for owner concentration control.`, failures);
+    else if (!sourceRegistry.has(source.sourceRegistryId)) fail(`${source.id} references unknown sourceRegistryId ${source.sourceRegistryId}.`, failures);
   }
 
   const topicIds = new Set();

@@ -22,6 +22,7 @@ const LEGACY_SCRIPTS = new Set([
   "st-georges-strategy-ai-signals-route",
   "st-georges-strategy-thevirtualofficer-route",
 ]);
+const RETIRED_LEGACY_SCRIPTS = new Set([...LEGACY_SCRIPTS].filter((script) => script !== SITE_WORKER));
 
 function apiHeaders() {
   const token = process.env.CLOUDFLARE_API_TOKEN;
@@ -65,6 +66,14 @@ async function main() {
   const candidates = [...REQUIRED_PATTERNS, ...OPTIONAL_PATTERNS]
     .map((pattern) => byPattern.get(pattern))
     .filter(Boolean);
+  const expectedPatterns = new Set([...REQUIRED_PATTERNS, ...OPTIONAL_PATTERNS]);
+  const unexpectedRetiredRoutes = routes.filter((route) => (
+    RETIRED_LEGACY_SCRIPTS.has(route.script) && !expectedPatterns.has(route.pattern)
+  ));
+  if (unexpectedRetiredRoutes.length) {
+    const details = unexpectedRetiredRoutes.map((route) => `${route.pattern} → ${route.script}`).join(", ");
+    throw new Error(`Retired site route worker(s) remain attached outside the canonical route set: ${details}. Detach or migrate them explicitly before release.`);
+  }
   for (const route of candidates) {
     if (!LEGACY_SCRIPTS.has(route.script)) {
       throw new Error(`Refusing to change ${route.pattern}: it is assigned to unexpected script ${route.script || "<none>"}.`);

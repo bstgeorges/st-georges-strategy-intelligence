@@ -1072,15 +1072,7 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
     <header class="site-banner" aria-label="Primary">
       <div class="site-banner-inner">
         <a class="site-wordmark" href="/"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/brief/">Weekly Brief</a>
-          <a href="/signals/">Signals</a>
-          <a href="/regulatory-horizon/">Reg Horizon</a>
-          <a href="/committee-questions/">Committee Questions</a>
-          <a href="/archive/" aria-current="page">Archive</a>
-          <a href="/about/">About</a>
-        </nav>
+        ${buildNav("/archive/")}
       </div>
     </header>
     <main class="page">

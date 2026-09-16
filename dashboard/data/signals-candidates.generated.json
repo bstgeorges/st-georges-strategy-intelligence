@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-09-16T20:39:03.063Z",
+  "generatedAt": "2026-09-16T21:09:35.472Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -1320,46 +1320,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "eef3d11bc7510cae",
-          "topicId": "third-party",
-          "title": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
-          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-          "publishedAt": "2026-09-10T21:20:17.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "google-cloud-status",
-          "sourceName": "Google Cloud Service Health",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "google-cloud-status-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "outage",
-            "service-degradation",
-            "dependency"
-          ],
-          "matchedKeywords": [
-            "google cloud",
-            "cloud",
-            "service"
-          ],
-          "titleMatchedKeywords": [
-            "service"
-          ],
-          "summaryMatchedKeywords": [
-            "google cloud",
-            "cloud",
-            "service"
-          ],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Google Cloud Service Health via atom ingestion and matched the topic rules."
         },
         {
           "id": "d0bfc8946f8b933e",
@@ -4082,7 +4042,7 @@
       "fetchType": "atom",
       "status": "ok",
       "fetchedEntries": 1,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },

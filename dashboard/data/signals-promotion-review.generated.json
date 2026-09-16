@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-16T20:39:03.063Z",
-  "preparedAt": "2026-09-16T20:39:33.185Z",
+  "candidateGeneratedAt": "2026-09-16T21:09:35.472Z",
+  "preparedAt": "2026-09-16T21:10:05.419Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -23,7 +23,7 @@
       "active-threat": 5,
       "outage": 7,
       "research": 7,
-      "context": 63
+      "context": 62
     },
     "decisionTypeGroups": [
       {
@@ -383,7 +383,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 63,
+        "candidateCount": 62,
         "candidates": [
           {
             "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
@@ -520,57 +520,57 @@
       }
     ],
     "diversity": {
-      "candidateRows": 102,
-      "uniqueCandidateEvents": 87,
+      "candidateRows": 101,
+      "uniqueCandidateEvents": 86,
       "crossThemeDuplicatesCollapsed": 15,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 9.2
+          "share": 9.3
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 6,
-          "share": 6.9
+          "share": 7
         },
         {
           "sourceOwner": "arxiv-ai",
           "sourceName": "arXiv AI and machine learning research",
           "count": 5,
-          "share": 5.7
+          "share": 5.8
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.7
+          "share": 5.8
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.7
+          "share": 5.8
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 5.7
+          "share": 5.8
         },
         {
           "sourceOwner": "mistral-ai",
           "sourceName": "Mistral AI",
           "count": 4,
-          "share": 4.6
+          "share": 4.7
         },
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 4,
-          "share": 4.6
+          "share": 4.7
         }
       ],
       "sourceOwnerConcentrationWarning": "",
@@ -578,22 +578,22 @@
         {
           "region": "UK/EMEA",
           "count": 25,
-          "share": 28.7
+          "share": 29.1
         },
         {
           "region": "US",
           "count": 9,
-          "share": 10.3
+          "share": 10.5
         },
         {
           "region": "Global/other",
-          "count": 53,
-          "share": 60.9
+          "count": 52,
+          "share": 60.5
         }
       ],
       "newVersusContinuing": {
         "newCandidateEvents": 84,
-        "alreadyPublishedCandidates": 3,
+        "alreadyPublishedCandidates": 2,
         "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
       }
@@ -615,7 +615,7 @@
       },
       {
         "id": "third-party",
-        "candidateCount": 9,
+        "candidateCount": 8,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1405,7 +1405,7 @@
           "sourceId": "ireland-dpc-data-sitemap",
           "sourceRegistryId": "ireland-dpc",
           "status": "failed",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "fetch failed"
@@ -1768,7 +1768,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 9,
+        "candidateCount": 8,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."

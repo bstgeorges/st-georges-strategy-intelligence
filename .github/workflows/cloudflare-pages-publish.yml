@@ -86,6 +86,10 @@ jobs:
         run: cat dashboard/data/signals-health.generated.json >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Signals source health artifact
+        # The mandatory health gate and run summary have already completed. A
+        # transient GitHub artifact-service failure must not prevent a verified
+        # Cloudflare release from reaching production.
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: signals-source-health-${{ github.sha }}

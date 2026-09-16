@@ -18,8 +18,11 @@ test("requires direct primary intake and adequate coverage of the historically t
   assert.deepEqual(validateFeedRegistry({ sources: feeds }, registry), []);
   const broken = validateFeedRegistry({ sources: feeds.slice(0, 79) }, registry);
   assert.ok(broken.some((error) => error.includes("minimum is 80")));
-  const bridge = validateFeedRegistry({ sources: [{ ...feeds[0], fetchType: "reg_horizon_json" }, ...feeds.slice(1)] }, registry);
-  assert.ok(bridge.some((error) => error.includes("unsupported fetch type")));
+  const horizonBridge = { id: "reg-horizon-test-bridge", fetchType: "reg_horizon_json", fetchUrl: "site/regulatory-horizon/latest.json", topics: ["resilience"] };
+  const bridge = validateFeedRegistry({ sources: [...feeds, horizonBridge] }, registry);
+  assert.deepEqual(bridge, []);
+  const malformedBridge = validateFeedRegistry({ sources: [...feeds, { ...horizonBridge, fetchUrl: "https://example.test/bridge.json" }] }, registry);
+  assert.ok(malformedBridge.some((error) => error.includes("withheld Reg Horizon route")));
   const statusWithoutMaterialityGate = validateFeedRegistry({ sources: [{ ...feeds[0], tags: ["service-status"] }, ...feeds.slice(1)] }, registry);
   assert.ok(statusWithoutMaterialityGate.some((error) => error.includes("headline-level materiality")));
   assert.ok(statusWithoutMaterialityGate.some((error) => error.includes("deduplicate recurring")));

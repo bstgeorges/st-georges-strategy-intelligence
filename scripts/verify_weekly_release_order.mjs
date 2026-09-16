@@ -66,12 +66,16 @@ function main() {
   }
 
   if (fs.existsSync(ARCHIVE_DIR)) {
-    const priorDate = fs.readdirSync(ARCHIVE_DIR)
+    // A single-edition comparison catches copy-and-paste, but can still allow a
+    // familiar judgement to return after one intervening week. Check the latest
+    // three reader-facing snapshots so the declared editorial angle stays real.
+    const priorDates = fs.readdirSync(ARCHIVE_DIR)
       .filter((entry) => /^\d{4}-\d{2}-\d{2}$/.test(entry) && entry < publicationDate)
       .sort()
-      .pop();
-    const priorFile = priorDate && path.join(ARCHIVE_DIR, priorDate, "index.html");
-    if (priorFile && fs.existsSync(priorFile)) {
+      .slice(-3);
+    for (const priorDate of priorDates) {
+      const priorFile = path.join(ARCHIVE_DIR, priorDate, "index.html");
+      if (!fs.existsSync(priorFile)) continue;
       const prior = normalise(fs.readFileSync(priorFile, "utf8"));
       if (normalise(edition.title) && prior.includes(normalise(edition.title))) failures.push(`Current brief title is unchanged from prior archived edition ${priorDate}`);
       const judgementRepeats = Object.values(edition.judgement || {}).some((paragraph) => String(paragraph).split(/\s+/).length >= 15 && prior.includes(normalise(paragraph)));

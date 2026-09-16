@@ -636,13 +636,16 @@
       "fetchUrl": "https://status.cloud.google.com/en/feed.atom",
       "topics": ["technology-failure", "resilience", "third-party"],
       "riskAreas": ["digital-resilience"],
-      "tags": ["cloud", "outage", "service-degradation", "dependency"],
-      "keywordHints": ["outage", "failure", "degraded", "disruption", "unavailable", "latency", "incident"],
+      "tags": ["service-status", "cloud", "outage", "service-degradation", "dependency"],
+      "titleKeywordHints": ["outage", "failure", "service disruption", "network degradation", "unavailable", "multiple products"],
+      "excludeKeywordHints": ["maintenance", "scheduled", "some users may experience", "investigating an issue"],
+      "keywordHints": ["outage", "failure", "service disruption", "network degradation", "unavailable", "multiple products"],
       "topicKeywordHints": {
-        "technology-failure": ["outage", "failure", "degraded", "disruption", "unavailable", "latency"],
-        "resilience": ["outage", "failure", "disruption", "incident"],
+        "technology-failure": ["outage", "failure", "service disruption", "network degradation", "unavailable", "multiple products"],
+        "resilience": ["outage", "failure", "service disruption", "network degradation", "unavailable", "multiple products"],
         "third-party": ["google cloud", "cloud", "service"]
       },
+      "dedupeTitles": true,
       "windowDays": 30,
       "maxItems": 8
     },

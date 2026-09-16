@@ -17,17 +17,27 @@ const TOPIC_MINIMUMS = {
   data: 9,
 };
 const ALLOWED_FETCH_TYPES = new Set(["rss", "atom", "sitemap"]);
+const WITHHELD_HORIZON_FETCH_TYPE = "reg_horizon_json";
+const WITHHELD_HORIZON_PATH = "site/regulatory-horizon/latest.json";
 
 function validateFeedRegistry(feedRegistry, sourceRegistry) {
   const errors = [];
   const feeds = feedRegistry.sources || [];
   const sourceById = new Map((sourceRegistry.sources || []).map((source) => [source.id, source]));
   const ids = new Set();
+  const directFeeds = feeds.filter((feed) => feed.fetchType !== WITHHELD_HORIZON_FETCH_TYPE);
 
-  if (feeds.length < 80) errors.push(`Signals intake has ${feeds.length} sources; minimum is 80.`);
+  if (directFeeds.length < 80) errors.push(`Signals intake has ${directFeeds.length} direct sources; minimum is 80.`);
   for (const feed of feeds) {
     if (!feed.id || ids.has(feed.id)) errors.push(`Duplicate or missing Signals source id: ${feed.id || "<missing>"}.`);
     ids.add(feed.id);
+    // The Reg Horizon bridge is an intentionally withheld, local input to the
+    // candidate workflow. It is not a direct public source and must not inflate
+    // source coverage or be validated as one.
+    if (feed.fetchType === WITHHELD_HORIZON_FETCH_TYPE) {
+      if (feed.fetchUrl !== WITHHELD_HORIZON_PATH) errors.push(`${feed.id} must use the withheld Reg Horizon route.`);
+      continue;
+    }
     if (!ALLOWED_FETCH_TYPES.has(feed.fetchType)) errors.push(`${feed.id} has unsupported fetch type ${feed.fetchType || "<missing>"}.`);
     if (!/^https:\/\//.test(feed.fetchUrl || "")) errors.push(`${feed.id} must use a direct HTTPS source URL.`);
     if (!Array.isArray(feed.topics) || !feed.topics.length) errors.push(`${feed.id} must serve at least one Signals topic.`);
@@ -42,7 +52,7 @@ function validateFeedRegistry(feedRegistry, sourceRegistry) {
     else if (source.tier !== "primary") errors.push(`${feed.id} must be primary, not ${source.tier}.`);
   }
   for (const [topic, minimum] of Object.entries(TOPIC_MINIMUMS)) {
-    const count = feeds.filter((feed) => feed.topics?.includes(topic)).length;
+    const count = directFeeds.filter((feed) => feed.topics?.includes(topic)).length;
     if (count < minimum) errors.push(`${topic} has ${count} direct sources; minimum is ${minimum}.`);
   }
   return errors;

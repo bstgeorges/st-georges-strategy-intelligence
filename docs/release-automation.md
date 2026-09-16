@@ -40,6 +40,8 @@ The Cloudflare token needs Pages Write, Workers Scripts Edit, Workers Routes Edi
 
 ## Local checks
 
+Do not use `file:///.../site-dist/index.html` as a release preview. It bypasses the public Worker, so it cannot exercise canonical-host and trailing-slash redirects, security headers, analytics injection, cache policy, or the branded 404. Use the local HTTP preview only for layout, and use a `dev` deployment or the post-deploy checks below for edge behaviour.
+
 ```bash
 SITE_RELEASE_ID=local-test npm run site:build
 npm run site:verify

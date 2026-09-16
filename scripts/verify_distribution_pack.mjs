@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { assertDistributionPack, distributionPackFileName } from "./lib/distribution_pack.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DEFAULT_OUT_DIR = path.join(ROOT, ".release-artifacts", "distribution");
+const DEFAULT_OUT_DIR = path.join(ROOT, "release-artifacts", "distribution");
 
 function argValue(name) {
   const argv = process.argv.slice(2);

@@ -136,12 +136,28 @@ test("does not claim a relaunch without recorded human sign-off, even when numer
   fs.writeFileSync(path.join(tmp, "register.json"), JSON.stringify(register));
   const core = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"];
   fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ visibility: "private", sourceEdition: "2026-08-09", sourceHealth: core.map((sourceId) => ({ sourceId, status: "ok" })) }));
-  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-07-26", "2026-08-02", "2026-08-09"].map((sourceEdition) => ({ sourceEdition, healthyCore: core, errors: [], warnings: [] })) }));
+  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-07-26", "2026-08-02", "2026-08-09"].map((asOf) => ({ asOf, sourceEdition: asOf, healthyCore: core, errors: [], warnings: [] })) }));
   assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-08-09"]).status, 0);
   const qa = JSON.parse(fs.readFileSync(path.join(tmp, "qa.json")));
   assert.equal(qa.readiness.relaunchEligible, false);
   assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("editor and product owner")));
   assert.equal(qa.errors.length, 0);
+});
+
+test("does not count retries from the same calendar day as three Horizon shadow runs", () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
+  const core = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"];
+  fs.writeFileSync(path.join(tmp, "register.json"), JSON.stringify({ version: "regulatory-deadline-register.v1", visibility: "private", asOf: "2026-08-09", sourceEdition: "2026-08-09", items: [] }));
+  fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ visibility: "private", sourceEdition: "2026-08-09", sourceHealth: core.map((sourceId) => ({ sourceId, status: "ok" })) }));
+  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: [
+    { asOf: "2026-08-09", sourceEdition: "2026-08-07", healthyCore: core, errors: [], warnings: [] },
+    { asOf: "2026-08-09", sourceEdition: "2026-08-08", healthyCore: core, errors: [], warnings: [] },
+  ] }));
+  assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-08-09"]).status, 0);
+  const qa = JSON.parse(fs.readFileSync(path.join(tmp, "qa.json")));
+  assert.equal(qa.readiness.metrics.distinctShadowRuns, 1);
+  assert.equal(qa.readiness.metrics.stableCoreAuthorities, 0);
+  assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("three consecutive shadow runs")));
 });
 
 test("supersedes an old deadline when the same authority changes the date", () => {

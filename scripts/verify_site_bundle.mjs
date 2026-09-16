@@ -291,6 +291,16 @@ function main() {
     assert(!html.includes("Week of 8 Jul 2026"), `${topic} should not display stale topic-card week labels`, failures);
   }
 
+  const archiveHubPages = [
+    "archive/brief/index.html",
+    ...topics.map((topic) => `signals/${topic}/archive/index.html`),
+  ];
+  for (const relative of archiveHubPages) {
+    const html = read(relative);
+    assert(!/Reg Horizon|regulatory-horizon/.test(html), `${relative} must not expose withdrawn Reg Horizon navigation`, failures);
+    assert(html.includes('href="/deep-dives/"'), `${relative} must use the canonical Deep Dives navigation route`, failures);
+  }
+
   const horizon = { status: "withheld", signals: [], horizon: [] };
   const horizonPage = "This week's scan is held";
   assert(!fs.existsSync(path.join(SITE, "regulatory-horizon")), "Reg Horizon must not be present in the public bundle", failures);

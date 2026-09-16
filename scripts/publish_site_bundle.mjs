@@ -113,6 +113,15 @@ const REQUIRED_EVIDENCE_FIELDS = [
   "sourceType",
   "significance",
 ];
+
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
 const ALLOWED_SOURCE_TYPES = new Set([
   "regulator",
   "company announcement",
@@ -2238,7 +2247,7 @@ function generateSitemap(out, edition) {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`).join("\n")}
+${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${escapeXml(lastmod)}</lastmod>\n  </url>`).join("\n")}
 </urlset>
 `;
   write(path.join(out, "sitemap.xml"), xml);

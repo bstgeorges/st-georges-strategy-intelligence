@@ -110,7 +110,7 @@ export function resolveRedirect(requestUrl) {
 
   if (url.pathname === "/index.html") return redirect(url, "/");
   if (DIRECTORY_PATHS.has(url.pathname) || isArchivedDirectory(url.pathname) || isDeepDiveDirectory(url.pathname)) {
-    return redirect(url, `${url.pathname}/`, 308);
+    return redirect(url, `${url.pathname}/`);
   }
   return null;
 }

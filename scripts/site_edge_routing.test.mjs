@@ -27,8 +27,8 @@ test("legacy route mappings retain the established destinations", () => {
 });
 
 test("current directories are canonicalised and normal asset paths are not intercepted", () => {
-  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/signals/ai"), {
-    location: "https://stgeorgesstrategy.com/signals/ai/",
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/signals/ai?source=linkedin"), {
+    location: "https://stgeorgesstrategy.com/signals/ai/?source=linkedin",
     status: 308,
   });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives"), {

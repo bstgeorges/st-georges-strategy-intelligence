@@ -29,6 +29,20 @@ function ageInDays(edition, asOf) {
   return Math.floor((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${edition}T00:00:00Z`)) / 86400000);
 }
 
+function hasDefaultAssuranceBundle(text) {
+  const action = String(text || "").toLowerCase();
+  const tropes = [
+    /\bowners?\b|\baccountab(?:le|ility)\b/,
+    /\bmaps?\b|\bmapping\b/,
+    /\bdependenc(?:y|ies)\b/,
+    /\btests?(?:ed|ing)?\b/,
+    /\bintervention\b|\brollback\b/,
+    /\bexceptions?\b/,
+    /\bclosure\b/,
+  ];
+  return tropes.filter((trope) => trope.test(action)).length >= 4;
+}
+
 const options = parseArgs(process.argv.slice(2));
 const edition = readJson(CURRENT_EDITION);
 const signals = readJson(SIGNALS);
@@ -57,8 +71,13 @@ if (signalsHealth) {
   }
 }
 assert(Boolean(edition.committeeQuestion?.question && edition.committeeQuestion?.why && edition.committeeQuestion?.evidence), "current-edition must include a complete featured Committee Question");
-assert(Boolean(edition.judgement?.editorialAngle), "current-edition judgement must record its distinct editorial angle");
-assert(Boolean(edition.judgement?.distinctFromPrevious), "current-edition judgement must record how it differs from the preceding edition");
+const editorialAngle = String(edition.judgement?.editorialAngle || "").trim();
+const distinctFromPrevious = String(edition.judgement?.distinctFromPrevious || "").trim();
+const nextMove = String(edition.judgement?.implication || "").trim();
+assert(editorialAngle.length >= 12, "current-edition judgement must record a meaningful distinct editorial angle");
+assert(distinctFromPrevious.length >= 24, "current-edition judgement must explain how it differs from the preceding edition");
+assert(distinctFromPrevious.toLowerCase() !== editorialAngle.toLowerCase(), "current-edition editorial distinctness must not repeat the editorial angle");
+assert(!hasDefaultAssuranceBundle(nextMove), "current-edition What to do repeats the default assurance bundle; prescribe one concrete next move instead");
 assert(Array.isArray(edition.committeeQuestions) && edition.committeeQuestions.length === 3, "current-edition must include exactly three Committee Questions");
 for (const [index, question] of (edition.committeeQuestions || []).entries()) {
   assert(Boolean(question?.question && question?.why && question?.evidence), `current-edition Committee Question ${index + 1} must be complete`);

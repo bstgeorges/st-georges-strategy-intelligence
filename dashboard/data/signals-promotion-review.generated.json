@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-16T21:09:35.472Z",
-  "preparedAt": "2026-09-16T21:10:05.419Z",
+  "candidateGeneratedAt": "2026-09-16T21:42:57.942Z",
+  "preparedAt": "2026-09-16T21:43:25.667Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -22,8 +22,8 @@
       "enforcement": 1,
       "active-threat": 5,
       "outage": 7,
-      "research": 7,
-      "context": 62
+      "research": 6,
+      "context": 61
     },
     "decisionTypeGroups": [
       {
@@ -183,6 +183,20 @@
         "candidateCount": 7,
         "candidates": [
           {
+            "title": "Support Portal Service Disruption",
+            "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
+            "sourceName": "DigitalOcean Status",
+            "sourceOwner": "digitalocean-status",
+            "publishedAt": "2026-09-16T21:09:31.000Z",
+            "relevanceScore": 87,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
             "title": "Support Portal Outage",
             "url": "https://status.mongodb.com/incidents/bm948zqk8djr",
             "sourceName": "MongoDB Status",
@@ -194,20 +208,6 @@
             "topics": [
               "resilience",
               "technology-failure"
-            ]
-          },
-          {
-            "title": "Support Portal Service Disruption",
-            "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
-            "sourceName": "DigitalOcean Status",
-            "sourceOwner": "digitalocean-status",
-            "publishedAt": "2026-09-16T14:07:22.000Z",
-            "relevanceScore": 87,
-            "decisionType": "outage",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
             ]
           },
           {
@@ -285,7 +285,7 @@
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "candidates": [
           {
             "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
@@ -364,26 +364,13 @@
             "topics": [
               "ai"
             ]
-          },
-          {
-            "title": "IRSG Advice on Question template - EIOPA´s Report on Integrated Data Collection",
-            "url": "https://www.eiopa.europa.eu/publications/irsg-advice-question-template-eiopas-report-integrated-data-collection_en",
-            "sourceName": "European Insurance and Occupational Pensions Authority",
-            "sourceOwner": "eiopa",
-            "publishedAt": "2026-08-19T00:00:00.000Z",
-            "relevanceScore": 55,
-            "decisionType": "research",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
-            ]
           }
         ]
       },
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 62,
+        "candidateCount": 61,
         "candidates": [
           {
             "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
@@ -396,20 +383,6 @@
             "region": "Global/other",
             "topics": [
               "cyber"
-            ]
-          },
-          {
-            "title": "Network Performance Issues in Los Angeles",
-            "url": "https://www.cloudflarestatus.com/incidents/qc2v4gxy3gfw",
-            "sourceName": "Cloudflare Status",
-            "sourceOwner": "cloudflare-status",
-            "publishedAt": "2026-09-16T16:23:30.000Z",
-            "relevanceScore": 100,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
             ]
           },
           {
@@ -515,84 +488,97 @@
             "topics": [
               "financial-crime"
             ]
+          },
+          {
+            "title": "Vulnérabilité dans Microsoft Edge (10 septembre 2026)",
+            "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1159",
+            "sourceName": "CERT-FR / ANSSI",
+            "sourceOwner": "cert-fr",
+            "publishedAt": "2026-09-10T00:00:00.000Z",
+            "relevanceScore": 87,
+            "decisionType": "context",
+            "region": "UK/EMEA",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 101,
-      "uniqueCandidateEvents": 86,
-      "crossThemeDuplicatesCollapsed": 15,
+      "candidateRows": 98,
+      "uniqueCandidateEvents": 84,
+      "crossThemeDuplicatesCollapsed": 14,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 9.3
+          "share": 9.5
         },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
           "count": 6,
-          "share": 7
+          "share": 7.1
         },
         {
           "sourceOwner": "arxiv-ai",
           "sourceName": "arXiv AI and machine learning research",
           "count": 5,
-          "share": 5.8
+          "share": 6
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.8
+          "share": 6
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.8
+          "share": 6
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 5.8
+          "share": 6
         },
         {
           "sourceOwner": "mistral-ai",
           "sourceName": "Mistral AI",
           "count": 4,
-          "share": 4.7
+          "share": 4.8
         },
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 4,
-          "share": 4.7
+          "share": 4.8
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 25,
-          "share": 29.1
+          "count": 24,
+          "share": 28.6
         },
         {
           "region": "US",
           "count": 9,
-          "share": 10.5
+          "share": 10.7
         },
         {
           "region": "Global/other",
-          "count": 52,
-          "share": 60.5
+          "count": 51,
+          "share": 60.7
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 84,
+        "newCandidateEvents": 82,
         "alreadyPublishedCandidates": 2,
         "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
@@ -615,7 +601,7 @@
       },
       {
         "id": "third-party",
-        "candidateCount": 8,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -643,14 +629,14 @@
       },
       {
         "id": "technology-failure",
-        "candidateCount": 12,
+        "candidateCount": 11,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "data",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1405,7 +1391,7 @@
           "sourceId": "ireland-dpc-data-sitemap",
           "sourceRegistryId": "ireland-dpc",
           "status": "failed",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "fetch failed"
@@ -1768,7 +1754,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 8,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1777,35 +1763,13 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Network Performance Issues in Los Angeles",
-          "url": "https://www.cloudflarestatus.com/incidents/qc2v4gxy3gfw",
-          "sourceName": "Cloudflare Status",
-          "sourceOwner": "cloudflare-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T16:23:30.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Support Portal Service Disruption",
           "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
           "sourceName": "DigitalOcean Status",
           "sourceOwner": "digitalocean-status",
           "sourceTier": "primary",
           "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T14:07:22.000Z",
+          "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
           "relevanceScore": 87,
           "decisionType": "outage",
@@ -1875,6 +1839,28 @@
           "dateSource": "feed",
           "relevanceScore": 83,
           "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Disruption with Copilot Code Review",
+          "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-04T22:26:46.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 64,
+          "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
           ],
@@ -2272,7 +2258,7 @@
       "id": "technology-failure",
       "readiness": {
         "id": "technology-failure",
-        "candidateCount": 12,
+        "candidateCount": 11,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2281,26 +2267,26 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "Network Performance Issues in Los Angeles",
-          "url": "https://www.cloudflarestatus.com/incidents/qc2v4gxy3gfw",
-          "sourceName": "Cloudflare Status",
-          "sourceOwner": "cloudflare-status",
+          "title": "Support Portal Service Disruption",
+          "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
+          "sourceName": "DigitalOcean Status",
+          "sourceOwner": "digitalocean-status",
           "sourceTier": "primary",
           "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T16:23:30.000Z",
+          "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "context",
+          "relevanceScore": 87,
+          "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
           ],
           "tags": [
-            "network",
+            "cloud",
             "provider-incident",
             "dependency",
             "service-disruption"
           ],
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         },
         {
           "title": "Support Portal Outage",
@@ -2322,28 +2308,6 @@
             "data"
           ],
           "whyCandidate": "Pulled from MongoDB Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Support Portal Service Disruption",
-          "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
-          "sourceName": "DigitalOcean Status",
-          "sourceOwner": "digitalocean-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T14:07:22.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 87,
-          "decisionType": "outage",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cloud",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         },
         {
           "title": "Increased HTTP 522 Errors in St. Louis",
@@ -2387,6 +2351,28 @@
             "observability"
           ],
           "whyCandidate": "Pulled from New Relic Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Disruption with some GitHub services",
+          "url": "https://www.githubstatus.com/incidents/bk7zgdcq7s9t",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-15T20:00:50.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 85,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2394,7 +2380,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."

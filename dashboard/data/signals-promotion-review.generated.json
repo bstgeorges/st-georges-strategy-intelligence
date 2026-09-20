@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-16T21:42:57.942Z",
-  "preparedAt": "2026-09-16T21:43:25.667Z",
+  "candidateGeneratedAt": "2026-09-20T09:34:43.618Z",
+  "preparedAt": "2026-09-20T09:35:13.459Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -19,11 +19,11 @@
   "editorial": {
     "decisionTypeCounts": {
       "rule-change": 4,
-      "enforcement": 1,
+      "enforcement": 2,
       "active-threat": 5,
-      "outage": 7,
-      "research": 6,
-      "context": 61
+      "outage": 6,
+      "research": 2,
+      "context": 66
     },
     "decisionTypeGroups": [
       {
@@ -32,42 +32,16 @@
         "candidateCount": 4,
         "candidates": [
           {
-            "title": "New CISA Guidance Helps Critical Infrastructure Detect, Observe and Impede Malicious Cyber Activity",
-            "url": "https://www.cisa.gov/news-events/news/new-cisa-guidance-helps-critical-infrastructure-detect-observe-and-impede-malicious-cyber-activity",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-09-16T12:00:00.000Z",
-            "relevanceScore": 85,
+            "title": "From guidance to action: Security fundamentals that materially reduce risk",
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/from-guidance-to-action-security-fundamentals-that-materially-reduce-risk",
+            "sourceName": "Microsoft Security Blog",
+            "sourceOwner": "microsoft-security",
+            "publishedAt": "2026-09-17T17:00:00.000Z",
+            "relevanceScore": 95,
             "decisionType": "rule-change",
-            "region": "US",
+            "region": "Global/other",
             "topics": [
               "cyber"
-            ]
-          },
-          {
-            "title": "Capital Adequacy Requirements (CAR) (2027) – Chapter 9 – Market Risk - Office of the Superintendent of Financial Institutions",
-            "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
-            "sourceName": "Office of the Superintendent of Financial Institutions",
-            "sourceOwner": "osfi",
-            "publishedAt": "2026-09-10T00:00:00.000Z",
-            "relevanceScore": 72,
-            "decisionType": "rule-change",
-            "region": "Global/other",
-            "topics": [
-              "resilience"
-            ]
-          },
-          {
-            "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
-            "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
-            "sourceName": "Australian Prudential Regulation Authority",
-            "sourceOwner": "apra",
-            "publishedAt": "2026-09-10T00:00:00.000Z",
-            "relevanceScore": 72,
-            "decisionType": "rule-change",
-            "region": "Global/other",
-            "topics": [
-              "data"
             ]
           },
           {
@@ -82,21 +56,60 @@
             "topics": [
               "data"
             ]
+          },
+          {
+            "title": "Capital Adequacy Requirements (CAR) (2027) – Chapter 9 – Market Risk - Office of the Superintendent of Financial Institutions",
+            "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+            "sourceName": "Office of the Superintendent of Financial Institutions",
+            "sourceOwner": "osfi",
+            "publishedAt": "2026-09-10T00:00:00.000Z",
+            "relevanceScore": 65,
+            "decisionType": "rule-change",
+            "region": "Global/other",
+            "topics": [
+              "resilience"
+            ]
+          },
+          {
+            "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
+            "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
+            "sourceName": "Australian Prudential Regulation Authority",
+            "sourceOwner": "apra",
+            "publishedAt": "2026-09-10T00:00:00.000Z",
+            "relevanceScore": 65,
+            "decisionType": "rule-change",
+            "region": "Global/other",
+            "topics": [
+              "data"
+            ]
           }
         ]
       },
       {
         "id": "enforcement",
         "label": "enforcement",
-        "candidateCount": 1,
+        "candidateCount": 2,
         "candidates": [
+          {
+            "title": "26-042MR Brisbane financial advisor and auditor, Sunny Prakash, charged with multiple counts of stealing and fraud | ASIC",
+            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-042mr-brisbane-financial-advisor-and-auditor-sunny-prakash-charged-with-multiple-counts-of-stealing-and-fraud",
+            "sourceName": "Australian Securities and Investments Commission",
+            "sourceOwner": "asic",
+            "publishedAt": "2026-09-18T03:03:36.000Z",
+            "relevanceScore": 81,
+            "decisionType": "enforcement",
+            "region": "Global/other",
+            "topics": [
+              "financial-crime"
+            ]
+          },
           {
             "title": "ICO hits company selling call blockers with &#xA3;190k fine for nuisance calls",
             "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/ico-hits-company-selling-call-blockers-with-190k-fine-for-nuisance-calls",
             "sourceName": "UK Information Commissioner's Office",
             "sourceOwner": "ico",
             "publishedAt": "2026-09-15T00:00:00.000Z",
-            "relevanceScore": 67,
+            "relevanceScore": 60,
             "decisionType": "enforcement",
             "region": "UK/EMEA",
             "topics": [
@@ -111,12 +124,12 @@
         "candidateCount": 5,
         "candidates": [
           {
-            "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-one-known-exploited-vulnerability-catalog",
+            "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
-            "publishedAt": "2026-09-16T12:00:00.000Z",
-            "relevanceScore": 100,
+            "publishedAt": "2026-09-18T12:00:00.000Z",
+            "relevanceScore": 97,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -124,12 +137,12 @@
             ]
           },
           {
-            "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+            "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+            "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-one-known-exploited-vulnerability-catalog",
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
-            "publishedAt": "2026-09-16T12:00:00.000Z",
-            "relevanceScore": 100,
+            "publishedAt": "2026-09-18T12:00:00.000Z",
+            "relevanceScore": 97,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -142,7 +155,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-15T12:22:50.000Z",
-            "relevanceScore": 98,
+            "relevanceScore": 91,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -155,7 +168,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-09-14T13:00:00.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 89,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -163,12 +176,12 @@
             ]
           },
           {
-            "title": "August 2026 Cyber Threat Landscape: GenAI Data Exposure Emerges as a New Enterprise Risk as Attacks, Phishing, and Ransomware Accelerate",
-            "url": "https://blog.checkpoint.com/security/august-2026-cyber-threat-landscape-genai-data-exposure-emerges-as-a-new-enterprise-risk-as-attacks-phishing-and-ransomware-accelerate",
-            "sourceName": "Check Point Research",
-            "sourceOwner": "checkpoint",
-            "publishedAt": "2026-09-09T18:09:36.000Z",
-            "relevanceScore": 86,
+            "title": "Ransomware incidents in Japan in the first half of 2026: Investigation of The Gentlemen’s infrastructure and evidence of Qilin's AI use",
+            "url": "https://blog.talosintelligence.com/ransomware-incidents-in-japan-in-the-first-half-of-2026",
+            "sourceName": "Cisco Talos Intelligence Group",
+            "sourceOwner": "cisco-talos",
+            "publishedAt": "2026-09-17T10:00:43.000Z",
+            "relevanceScore": 80,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -180,7 +193,7 @@
       {
         "id": "outage",
         "label": "outage",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "candidates": [
           {
             "title": "Support Portal Service Disruption",
@@ -188,7 +201,7 @@
             "sourceName": "DigitalOcean Status",
             "sourceOwner": "digitalocean-status",
             "publishedAt": "2026-09-16T21:09:31.000Z",
-            "relevanceScore": 87,
+            "relevanceScore": 80,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -202,7 +215,7 @@
             "sourceName": "MongoDB Status",
             "sourceOwner": "mongodb-status",
             "publishedAt": "2026-09-16T15:31:51.000Z",
-            "relevanceScore": 87,
+            "relevanceScore": 80,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -216,7 +229,7 @@
             "sourceName": "New Relic Status",
             "sourceOwner": "newrelic-status",
             "publishedAt": "2026-09-16T15:40:58.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 78,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -230,40 +243,12 @@
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-09-15T20:00:50.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 76,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
               "technology-failure",
               "third-party"
-            ]
-          },
-          {
-            "title": "Disruption with Copilot Code Review",
-            "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
-            "sourceName": "GitHub Status",
-            "sourceOwner": "github-status",
-            "publishedAt": "2026-09-04T22:26:46.000Z",
-            "relevanceScore": 64,
-            "decisionType": "outage",
-            "region": "Global/other",
-            "topics": [
-              "technology-failure",
-              "third-party"
-            ]
-          },
-          {
-            "title": "Customer support via telephone may be unavailable for some users",
-            "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
-            "sourceName": "Dropbox Status",
-            "sourceOwner": "dropbox-status",
-            "publishedAt": "2026-09-04T05:02:56.000Z",
-            "relevanceScore": 64,
-            "decisionType": "outage",
-            "region": "Global/other",
-            "topics": [
-              "resilience",
-              "technology-failure"
             ]
           },
           {
@@ -279,21 +264,35 @@
               "technology-failure",
               "third-party"
             ]
+          },
+          {
+            "title": "Customer support via telephone may be unavailable for some users",
+            "url": "https://status.dropbox.com/incidents/9pw2xsg6vsr6",
+            "sourceName": "Dropbox Status",
+            "sourceOwner": "dropbox-status",
+            "publishedAt": "2026-09-04T05:02:56.000Z",
+            "relevanceScore": 59,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "resilience",
+              "technology-failure"
+            ]
           }
         ]
       },
       {
         "id": "research",
         "label": "research",
-        "candidateCount": 6,
+        "candidateCount": 2,
         "candidates": [
           {
-            "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
-            "url": "https://arxiv.org/abs/2609.16213",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-16T04:00:00.000Z",
-            "relevanceScore": 99,
+            "title": "Partnering with Accenture on embedded evaluation",
+            "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+            "sourceName": "Anthropic",
+            "sourceOwner": "anthropic",
+            "publishedAt": "2026-09-18T20:02:00.000Z",
+            "relevanceScore": 67,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -301,64 +300,12 @@
             ]
           },
           {
-            "title": "Toward Governance-Aware Autonomous GIS: A Narrative Review of Ethical and Privacy Risks in LLM-Enabled GeoAI",
-            "url": "https://arxiv.org/abs/2609.16232",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-16T04:00:00.000Z",
-            "relevanceScore": 99,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "CLEAR: Cross-Source Evidence Adjudication for Large Language Models in Medicine",
-            "url": "https://arxiv.org/abs/2609.16301",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-16T04:00:00.000Z",
-            "relevanceScore": 84,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "Corporate report: Financial Reporting Advisory Board annual report: 2025 to 2026",
-            "url": "https://www.gov.uk/government/publications/financial-reporting-advisory-board-annual-report-2025-to-2026",
-            "sourceName": "HM Treasury",
-            "sourceOwner": "uk-hm-treasury",
-            "publishedAt": "2026-09-10T10:07:45.000Z",
-            "relevanceScore": 73,
-            "decisionType": "research",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
-            ]
-          },
-          {
-            "title": "Safe Error Correction for Language Models: Frozen-Base Adjustment with Capability Preservation",
-            "url": "https://arxiv.org/abs/2609.16145",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-16T04:00:00.000Z",
-            "relevanceScore": 69,
-            "decisionType": "research",
-            "region": "Global/other",
-            "topics": [
-              "ai"
-            ]
-          },
-          {
-            "title": "GPEvac: GNN-Based PPO for Adaptive Evacuation Routing During Shooting Events",
-            "url": "https://arxiv.org/abs/2609.16163",
-            "sourceName": "arXiv AI and machine learning research",
-            "sourceOwner": "arxiv-ai",
-            "publishedAt": "2026-09-16T04:00:00.000Z",
-            "relevanceScore": 69,
+            "title": "Hex turns complex analysis into visual reports with GPT‑6 Astra",
+            "url": "https://openai.com/index/hex-gpt-6-astra",
+            "sourceName": "OpenAI",
+            "sourceOwner": "openai",
+            "publishedAt": "2026-09-16T12:00:00.000Z",
+            "relevanceScore": 63,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -370,15 +317,28 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 61,
+        "candidateCount": 66,
         "candidates": [
+          {
+            "title": "AI Models Broke Their Own Containment: Key Findings from the July-August 2026 AI Threat Landscape",
+            "url": "https://blog.checkpoint.com/artificial-intelligence/ai-models-broke-their-own-containment-key-findings-from-the-july-august-2026-ai-threat-landscape",
+            "sourceName": "Check Point Research",
+            "sourceOwner": "checkpoint",
+            "publishedAt": "2026-09-17T13:00:53.000Z",
+            "relevanceScore": 95,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
           {
             "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
             "url": "https://blog.cloudflare.com/client-side-security-finds-4-malicious-campaigns",
             "sourceName": "Cloudflare Security Blog",
             "sourceOwner": "cloudflare-security",
             "publishedAt": "2026-09-16T20:06:17.000Z",
-            "relevanceScore": 100,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -391,7 +351,7 @@
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-09-16T10:00:06.000Z",
-            "relevanceScore": 100,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -404,7 +364,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-14T14:51:07.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 89,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -417,11 +377,38 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-14T10:02:57.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 89,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
               "cyber"
+            ]
+          },
+          {
+            "title": "Multiples vulnérabilités dans Microsoft Edge (14 septembre 2026)",
+            "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1171",
+            "sourceName": "CERT-FR / ANSSI",
+            "sourceOwner": "cert-fr",
+            "publishedAt": "2026-09-14T00:00:00.000Z",
+            "relevanceScore": 88,
+            "decisionType": "context",
+            "region": "UK/EMEA",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+            "url": "https://www.githubstatus.com/incidents/nvy2q96mcmyg",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-09-17T21:49:01.000Z",
+            "relevanceScore": 85,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
             ]
           },
           {
@@ -430,7 +417,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-11T13:35:11.000Z",
-            "relevanceScore": 90,
+            "relevanceScore": 83,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -443,7 +430,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-11T13:33:33.000Z",
-            "relevanceScore": 90,
+            "relevanceScore": 83,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -451,55 +438,16 @@
             ]
           },
           {
-            "title": "We've got one word for it, and it's usually the wrong one",
-            "url": "https://blog.talosintelligence.com/weve-got-one-word-for-it-and-its-usually-the-wrong-one",
-            "sourceName": "Cisco Talos Intelligence Group",
-            "sourceOwner": "cisco-talos",
-            "publishedAt": "2026-09-10T18:00:15.000Z",
-            "relevanceScore": 88,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Detect and disrupt AI-themed attacks with Microsoft Defender",
-            "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/detect-and-disrupt-ai-themed-attacks-with-microsoft-defender",
-            "sourceName": "Microsoft Security Blog",
-            "sourceOwner": "microsoft-security",
-            "publishedAt": "2026-09-10T16:00:00.000Z",
-            "relevanceScore": 88,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "Wanted money laundering suspect arrested in Dublin",
-            "url": "https://www.nationalcrimeagency.gov.uk/news/wanted-money-laundering-suspect-arrested-in-dublin",
+            "title": "Convicted fraudster becomes fourth man arrested in latest Most Wanted campaign",
+            "url": "https://www.nationalcrimeagency.gov.uk/news/convicted-fraudster-becomes-fourth-man-arrested-in-latest-most-wanted-campaign",
             "sourceName": "National Crime Agency",
             "sourceOwner": "uk-nca",
-            "publishedAt": "2026-09-10T10:39:55.000Z",
-            "relevanceScore": 88,
+            "publishedAt": "2026-09-18T13:23:04.000Z",
+            "relevanceScore": 82,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
               "financial-crime"
-            ]
-          },
-          {
-            "title": "Vulnérabilité dans Microsoft Edge (10 septembre 2026)",
-            "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1159",
-            "sourceName": "CERT-FR / ANSSI",
-            "sourceOwner": "cert-fr",
-            "publishedAt": "2026-09-10T00:00:00.000Z",
-            "relevanceScore": 87,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "cyber"
             ]
           }
         ]
@@ -507,78 +455,78 @@
     ],
     "diversity": {
       "candidateRows": 98,
-      "uniqueCandidateEvents": 84,
-      "crossThemeDuplicatesCollapsed": 14,
+      "uniqueCandidateEvents": 85,
+      "crossThemeDuplicatesCollapsed": 13,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 8,
-          "share": 9.5
+          "share": 9.4
         },
         {
-          "sourceOwner": "hkma",
-          "sourceName": "Hong Kong Monetary Authority",
-          "count": 6,
-          "share": 7.1
-        },
-        {
-          "sourceOwner": "arxiv-ai",
-          "sourceName": "arXiv AI and machine learning research",
+          "sourceOwner": "anthropic",
+          "sourceName": "Anthropic",
           "count": 5,
-          "share": 6
+          "share": 5.9
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 6
+          "share": 5.9
+        },
+        {
+          "sourceOwner": "hkma",
+          "sourceName": "Hong Kong Monetary Authority",
+          "count": 5,
+          "share": 5.9
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 6
+          "share": 5.9
+        },
+        {
+          "sourceOwner": "openai",
+          "sourceName": "OpenAI",
+          "count": 5,
+          "share": 5.9
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 6
+          "share": 5.9
         },
         {
           "sourceOwner": "mistral-ai",
           "sourceName": "Mistral AI",
           "count": 4,
-          "share": 4.8
-        },
-        {
-          "sourceOwner": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "count": 4,
-          "share": 4.8
+          "share": 4.7
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 24,
-          "share": 28.6
+          "count": 28,
+          "share": 32.9
         },
         {
           "region": "US",
-          "count": 9,
-          "share": 10.7
+          "count": 8,
+          "share": 9.4
         },
         {
           "region": "Global/other",
-          "count": 51,
-          "share": 60.7
+          "count": 49,
+          "share": 57.6
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 82,
+        "newCandidateEvents": 83,
         "alreadyPublishedCandidates": 2,
         "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
@@ -587,21 +535,21 @@
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 20,
+        "candidateCount": 19,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "market-structure",
-        "candidateCount": 13,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -629,7 +577,7 @@
       },
       {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -644,7 +592,7 @@
     ],
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 85,
+      "healthy": 84,
       "watching": 0,
       "investigate": 1,
       "supplementary": 1,
@@ -967,11 +915,11 @@
         {
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
-          "status": "ok",
-          "consecutiveIssueRuns": 0,
+          "status": "quiet",
+          "consecutiveIssueRuns": 1,
           "monitoring": "supplementary",
           "action": "none",
-          "detail": ""
+          "detail": "no-parseable-entries"
         },
         {
           "sourceId": "ecb-supervision-rss",
@@ -1391,7 +1339,7 @@
           "sourceId": "ireland-dpc-data-sitemap",
           "sourceRegistryId": "ireland-dpc",
           "status": "failed",
-          "consecutiveIssueRuns": 5,
+          "consecutiveIssueRuns": 6,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "fetch failed"
@@ -1494,7 +1442,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 20,
+        "candidateCount": 19,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1502,72 +1450,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
-          "url": "https://arxiv.org/abs/2609.16213",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-16T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 99,
-          "decisionType": "research",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
-          ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Toward Governance-Aware Autonomous GIS: A Narrative Review of Ethical and Privacy Risks in LLM-Enabled GeoAI",
-          "url": "https://arxiv.org/abs/2609.16232",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-16T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 99,
-          "decisionType": "research",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
-          ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "CLEAR: Cross-Source Evidence Adjudication for Large Language Models in Medicine",
-          "url": "https://arxiv.org/abs/2609.16301",
-          "sourceName": "arXiv AI and machine learning research",
-          "sourceOwner": "arxiv-ai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-research",
-          "publishedAt": "2026-09-16T04:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 84,
-          "decisionType": "research",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "research",
-            "model-evaluation",
-            "ai-safety",
-            "technical-evidence"
-          ],
-          "whyCandidate": "Pulled from arXiv AI and machine learning research via rss ingestion and matched the topic rules."
-        },
         {
           "title": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX",
           "url": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs",
@@ -1577,7 +1459,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-14T15:00:52.000Z",
           "dateSource": "feed",
-          "relevanceScore": 81,
+          "relevanceScore": 74,
           "decisionType": "context",
           "riskAreas": [
             "ai-and-models",
@@ -1590,15 +1472,59 @@
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "title": "How Fyxer built an AI executive assistant people trust",
-          "url": "https://openai.com/index/fyxer",
+          "title": "Partnering with Accenture on embedded evaluation",
+          "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-18T20:02:00.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 67,
+          "decisionType": "research",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "How Claude is uplifting biomolecular modeling",
+          "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-18T19:19:41.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 67,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Introducing the Australian Youth Safety Blueprint",
+          "url": "https://openai.com/index/australian-youth-safety-blueprint",
           "sourceName": "OpenAI",
           "sourceOwner": "openai",
           "sourceTier": "primary",
           "sourceCategory": "ai",
-          "publishedAt": "2026-09-14T12:00:00.000Z",
+          "publishedAt": "2026-09-18T12:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 81,
+          "relevanceScore": 67,
           "decisionType": "context",
           "riskAreas": [
             "ai-and-models"
@@ -1610,6 +1536,28 @@
             "safety"
           ],
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "An alignment assessment of recent cybersecurity incidents",
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-09-17T23:46:13.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 66,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -1617,7 +1565,7 @@
       "id": "market-structure",
       "readiness": {
         "id": "market-structure",
-        "candidateCount": 13,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1626,15 +1574,39 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "CFTC Secures Court Order Directing Florida Man to Pay Over $6 Million for Options Fraud and Imposing Trading Bans",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9299-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceOwner": "cftc",
+          "title": "Market Participants Survey results – September 2026",
+          "url": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-september-2026",
+          "sourceName": "Bank of England and Prudential Regulation Authority",
+          "sourceOwner": "uk-boe-pra",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "publishedAt": "2026-09-18T11:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 82,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "balance-sheet"
+          ],
+          "tags": [
+            "prudential-policy",
+            "supervision",
+            "operational-resilience",
+            "uk"
+          ],
+          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "SEC Issues “Innovation Exemption” to Facilitate the Trading of Tokenized NMS Stock and Request for Comment",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+          "sourceName": "US Securities and Exchange Commission",
+          "sourceOwner": "sec",
           "sourceTier": "primary",
           "sourceCategory": "markets",
-          "publishedAt": "2026-09-15T14:11:14.000Z",
+          "publishedAt": "2026-09-17T12:55:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1642,24 +1614,24 @@
             "board-accountability"
           ],
           "tags": [
-            "derivatives",
-            "market-conduct",
+            "markets",
             "enforcement",
-            "recordkeeping",
+            "disclosure",
+            "crypto",
             "us"
           ],
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
         },
         {
-          "title": "FPPE Fund plc (CLONE) - Central Bank of Ireland Issues Warning on Unauthorised Firm",
-          "url": "https://www.centralbank.ie/news/article/fppe-fund-plc-(clone)---central-bank-of-ireland-issues-warning-on-unauthorised-firm",
+          "title": "Governor Gabriel Makhlouf says Europe must move faster to complete Single Market",
+          "url": "https://www.centralbank.ie/news/article/press-release-governor-gabriel-makhlouf-says-europe-must-move-faster-to-complete-single-market-17-september-2026",
           "sourceName": "Central Bank of Ireland",
           "sourceOwner": "ireland-cbi",
           "sourceTier": "primary",
           "sourceCategory": "prudential",
-          "publishedAt": "2026-09-14T13:30:49.000Z",
+          "publishedAt": "2026-09-17T20:30:06.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1676,15 +1648,15 @@
           "whyCandidate": "Pulled from Central Bank of Ireland via rss ingestion and matched the topic rules."
         },
         {
-          "title": "HKMA, HKEX, DFSA and Nasdaq Dubai establish Strategic Working Group to deepen cooperation between the financial markets",
-          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260910-5",
+          "title": "Statistics of Payment Cards Issued in Hong Kong for Second Quarter 2026",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260918-3",
           "sourceName": "Hong Kong Monetary Authority",
           "sourceOwner": "hkma",
           "sourceTier": "primary",
           "sourceCategory": "regulation",
-          "publishedAt": "2026-09-09T16:00:00.000Z",
+          "publishedAt": "2026-09-17T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 71,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1700,53 +1672,28 @@
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
         },
         {
-          "title": "CFTC Secures Court Orders Directing Texas and Florida Residents to Pay Over $500,000 in Disgorgement and Civil Monetary Penalties and Imposing Trading Bans for Commodity Pool Fraud",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9294-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceOwner": "cftc",
+          "title": "Asset Purchase Facility: Gilt Sales – Market Notice 17 September 2026",
+          "url": "https://www.bankofengland.co.uk/markets/market-notices/2026/asset-purchase-facility-gilt-sales-market-notice-17-september-2026",
+          "sourceName": "Bank of England and Prudential Regulation Authority",
+          "sourceOwner": "uk-boe-pra",
           "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-09-09T13:44:33.000Z",
+          "sourceCategory": "prudential",
+          "publishedAt": "2026-09-17T11:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 71,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
+            "digital-resilience",
+            "balance-sheet"
           ],
           "tags": [
-            "derivatives",
-            "market-conduct",
-            "enforcement",
-            "recordkeeping",
-            "us"
+            "prudential-policy",
+            "payments",
+            "operational-resilience",
+            "uk"
           ],
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "La CNMV considera que la estabilidad financiera de los mercados españoles es sólida, pero los riesgos tecnológicos y de implantación de la Inteligencia Artificial requieren seguimiento",
-          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
-          "sourceName": "Comisión Nacional del Mercado de Valores",
-          "sourceOwner": "spain-cnmv",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-07-30T10:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 70,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "funds",
-            "market-conduct",
-            "spain"
-          ],
-          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1754,7 +1701,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1762,6 +1709,28 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+          "url": "https://www.githubstatus.com/incidents/nvy2q96mcmyg",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-17T21:49:01.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 85,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
         {
           "title": "Support Portal Service Disruption",
           "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
@@ -1771,7 +1740,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 80,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1785,28 +1754,6 @@
           "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Increased HTTP 522 Errors in St. Louis",
-          "url": "https://www.cloudflarestatus.com/incidents/wq8py6ffq6y7",
-          "sourceName": "Cloudflare Status",
-          "sourceOwner": "cloudflare-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T18:35:46.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 85,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Disruption with some GitHub services",
           "url": "https://www.githubstatus.com/incidents/bk7zgdcq7s9t",
           "sourceName": "GitHub Status",
@@ -1815,7 +1762,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-15T20:00:50.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 76,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1837,7 +1784,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-13T10:44:55.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 76,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1851,15 +1798,15 @@
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Disruption with Copilot Code Review",
-          "url": "https://www.githubstatus.com/incidents/zw1hbx2yyhvr",
+          "title": "Disruption with GitHub Billing",
+          "url": "https://www.githubstatus.com/incidents/5bn0vk444m1w",
           "sourceName": "GitHub Status",
           "sourceOwner": "github-status",
           "sourceTier": "primary",
           "sourceCategory": "technology",
-          "publishedAt": "2026-09-04T22:26:46.000Z",
+          "publishedAt": "2026-08-27T19:44:08.000Z",
           "dateSource": "feed",
-          "relevanceScore": 64,
+          "relevanceScore": 61,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1895,7 +1842,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-16T15:31:51.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 80,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -1916,7 +1863,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-16T15:40:58.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 78,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -1937,7 +1884,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-09-10T00:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 72,
+          "relevanceScore": 65,
           "decisionType": "rule-change",
           "riskAreas": [
             "digital-resilience",
@@ -1960,7 +1907,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-04T05:02:56.000Z",
           "dateSource": "feed",
-          "relevanceScore": 64,
+          "relevanceScore": 59,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -2013,6 +1960,53 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Convicted fraudster becomes fourth man arrested in latest Most Wanted campaign",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/convicted-fraudster-becomes-fourth-man-arrested-in-latest-most-wanted-campaign",
+          "sourceName": "National Crime Agency",
+          "sourceOwner": "uk-nca",
+          "sourceTier": "primary",
+          "sourceCategory": "financial-crime",
+          "publishedAt": "2026-09-18T13:23:04.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 82,
+          "decisionType": "context",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "fraud",
+            "money-laundering",
+            "sanctions",
+            "organised-crime"
+          ],
+          "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "26-042MR Brisbane financial advisor and auditor, Sunny Prakash, charged with multiple counts of stealing and fraud | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-042mr-brisbane-financial-advisor-and-auditor-sunny-prakash-charged-with-multiple-counts-of-stealing-and-fraud",
+          "sourceName": "Australian Securities and Investments Commission",
+          "sourceOwner": "asic",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-18T03:03:36.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 81,
+          "decisionType": "enforcement",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
+          ],
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
+        },
+        {
           "title": "Wanted money laundering suspect arrested in Dublin",
           "url": "https://www.nationalcrimeagency.gov.uk/news/wanted-money-laundering-suspect-arrested-in-dublin",
           "sourceName": "National Crime Agency",
@@ -2021,7 +2015,7 @@
           "sourceCategory": "financial-crime",
           "publishedAt": "2026-09-10T10:39:55.000Z",
           "dateSource": "feed",
-          "relevanceScore": 88,
+          "relevanceScore": 81,
           "decisionType": "context",
           "riskAreas": [
             "crime-and-sanctions"
@@ -2043,7 +2037,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-15T16:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 76,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -2067,7 +2061,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-09-15T14:11:14.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 76,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -2082,54 +2076,6 @@
             "us"
           ],
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "La CNMV publica el resultado de la revisión sobre el primer reporte de información sobre prevención de blanqueo de capitales y financiación del terrorismo",
-          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
-          "sourceName": "Comisión Nacional del Mercado de Valores",
-          "sourceOwner": "spain-cnmv",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-09-14T08:01:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "funds",
-            "market-conduct",
-            "spain"
-          ],
-          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "HKICL alerts public of fraudulent websites",
-          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260914-4",
-          "sourceName": "Hong Kong Monetary Authority",
-          "sourceOwner": "hkma",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-13T16:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 79,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "banking-supervision",
-            "payments",
-            "operational-resilience",
-            "hong-kong"
-          ],
-          "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2146,6 +2092,92 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceOwner": "cisa",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-18T12:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 97,
+          "decisionType": "active-threat",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "ransomware",
+            "critical-infrastructure"
+          ],
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceOwner": "cisa",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-18T12:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 97,
+          "decisionType": "active-threat",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "ransomware",
+            "critical-infrastructure"
+          ],
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "From guidance to action: Security fundamentals that materially reduce risk",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/from-guidance-to-action-security-fundamentals-that-materially-reduce-risk",
+          "sourceName": "Microsoft Security Blog",
+          "sourceOwner": "microsoft-security",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-17T17:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 95,
+          "decisionType": "rule-change",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "AI Models Broke Their Own Containment: Key Findings from the July-August 2026 AI Threat Landscape",
+          "url": "https://blog.checkpoint.com/artificial-intelligence/ai-models-broke-their-own-containment-key-findings-from-the-july-august-2026-ai-threat-landscape",
+          "sourceName": "Check Point Research",
+          "sourceOwner": "checkpoint",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-17T13:00:53.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 95,
+          "decisionType": "context",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
           "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
           "url": "https://blog.cloudflare.com/client-side-security-finds-4-malicious-campaigns",
           "sourceName": "Cloudflare Security Blog",
@@ -2154,7 +2186,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-09-16T20:06:17.000Z",
           "dateSource": "feed",
-          "relevanceScore": 100,
+          "relevanceScore": 93,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -2165,92 +2197,6 @@
             "cloud-security"
           ],
           "whyCandidate": "Pulled from Cloudflare Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceOwner": "cisa",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-16T12:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "active-threat",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceOwner": "cisa",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-16T12:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "active-threat",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Atomic macOS (AMOS) Stealer Activity",
-          "url": "https://unit42.paloaltonetworks.com/atomic-macos-amos-stealer-activity",
-          "sourceName": "Palo Alto Networks Unit 42",
-          "sourceOwner": "paloalto-unit42",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-16T10:00:06.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 100,
-          "decisionType": "context",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "CVE-2026-76461: Critical Cisco Secure Email Gateway Vulnerability Exploited in the Wild",
-          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-76461-critical-cisco-secure-email-gateway-vulnerability-exploited-in-the-wild",
-          "sourceName": "Rapid7 Research",
-          "sourceOwner": "rapid7",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-15T12:22:50.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 98,
-          "decisionType": "active-threat",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2258,7 +2204,7 @@
       "id": "technology-failure",
       "readiness": {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2266,6 +2212,28 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+          "url": "https://www.githubstatus.com/incidents/nvy2q96mcmyg",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-17T21:49:01.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 85,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
         {
           "title": "Support Portal Service Disruption",
           "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
@@ -2275,7 +2243,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 80,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -2297,7 +2265,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-16T15:31:51.000Z",
           "dateSource": "feed",
-          "relevanceScore": 87,
+          "relevanceScore": 80,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -2310,28 +2278,6 @@
           "whyCandidate": "Pulled from MongoDB Status via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Increased HTTP 522 Errors in St. Louis",
-          "url": "https://www.cloudflarestatus.com/incidents/wq8py6ffq6y7",
-          "sourceName": "Cloudflare Status",
-          "sourceOwner": "cloudflare-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-09-16T18:35:46.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 85,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "network",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from Cloudflare Status via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Salesforce Service Disruption",
           "url": "https://status.newrelic.com/incidents/6292c7c1fyyr",
           "sourceName": "New Relic Status",
@@ -2340,7 +2286,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-16T15:40:58.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 78,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -2361,7 +2307,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-15T20:00:50.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 76,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -2389,6 +2335,98 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Regionaler Wettbewerb im Wandel: Was AnaCredit-Daten über die Kreditvergabe an Unternehmen zeigen",
+          "url": "https://www.bundesbank.de/de/aufgaben/finanzaufsicht/analysen-und-perspektiven/regionaler-wettbewerb-im-wandel-was-anacredit-daten-ueber-die-kreditvergabe-an-unternehmen-zeigen-948042",
+          "sourceName": "Deutsche Bundesbank",
+          "sourceOwner": "de-bundesbank",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "publishedAt": "2026-09-18T09:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 81,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "ict-risk",
+            "banking-supervision",
+            "operational-risk",
+            "germany"
+          ],
+          "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "ICO governance changes confirmed for 30 September 2026",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/09/ico-governance-changes-confirmed-for-30-september-2026",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceOwner": "ico",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-17T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Enabling technology for good: smart glasses, privacy and a broader challenge for public trust",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/09/enabling-technology-for-good",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceOwner": "ico",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-17T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Ordre du jour de la séance plénière du 17 septembre 2026",
+          "url": "https://www.cnil.fr/fr/ordre-du-jour-de-la-seance-pleniere-du-17-septembre-2026",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceOwner": "fr-cnil",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-17T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
+        },
+        {
           "title": "La CNMV publica el resultado de la revisión sobre el primer reporte de información sobre prevención de blanqueo de capitales y financiación del terrorismo",
           "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
           "sourceName": "Comisión Nacional del Mercado de Valores",
@@ -2397,7 +2435,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-09-14T08:01:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 73,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -2411,105 +2449,6 @@
             "spain"
           ],
           "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "26-194MR McPherson&#x2019;s liable for continuous disclosure failure and misleading investors, former CEO breached directors&#x2019; duties | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-194mr-mcpherson-s-liable-for-continuous-disclosure-failure-and-misleading-investors-former-ceo-breached-directors-duties",
-          "sourceName": "Australian Securities and Investments Commission",
-          "sourceOwner": "asic",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-14T03:03:47.000Z",
-          "dateSource": "sitemap-lastmod",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "markets",
-            "scams",
-            "reporting",
-            "australia"
-          ],
-          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "26-212MR Three super funds issued infringement notices for misleading investment disclosures | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-212mr-three-super-funds-issued-infringement-notices-for-misleading-investment-disclosures",
-          "sourceName": "Australian Securities and Investments Commission",
-          "sourceOwner": "asic",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-14T01:00:13.000Z",
-          "dateSource": "sitemap-lastmod",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "markets",
-            "scams",
-            "reporting",
-            "australia"
-          ],
-          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "Corporate report: Financial Reporting Advisory Board annual report: 2025 to 2026",
-          "url": "https://www.gov.uk/government/publications/financial-reporting-advisory-board-annual-report-2025-to-2026",
-          "sourceName": "HM Treasury",
-          "sourceOwner": "uk-hm-treasury",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-10T10:07:45.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 73,
-          "decisionType": "research",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-money",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "payments",
-            "financial-services-policy",
-            "sanctions",
-            "reporting",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from HM Treasury via atom ingestion and matched the topic rules."
-        },
-        {
-          "title": "Curiosity is not an excuse: protecting patient data in healthcare",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/06/curiosity-is-not-an-excuse-protecting-patient-data-in-healthcare",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceOwner": "ico",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-10T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 72,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         }
       ]
     }

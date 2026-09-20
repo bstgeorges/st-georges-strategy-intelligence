@@ -795,8 +795,7 @@ function weeklyJudgementArchiveBlock(editionRecord) {
         </header>
         <h2 id="archived-weekly-judgement-title">${escapeHtml(judgementTitle)}</h2>
         <p class="meta">Archive record · The Weekly Judgement published with this edition is retained here in full.</p>
-        ${archiveCorrection ? `<p class="archive-correction-note">${escapeHtml(archiveCorrection)}</p>` : ""}
-        <div class="judgement-copy">
+${archiveCorrection ? `        <p class="archive-correction-note">${escapeHtml(archiveCorrection)}</p>\n` : ""}        <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>
             <p class="judgement-text">${escapeHtml(observation)}</p>
@@ -2258,6 +2257,21 @@ function withdrawPublicRegHorizon(out) {
   fs.rmSync(path.join(out, "regulatory-horizon"), { recursive: true, force: true });
 }
 
+// Historical snapshots retain their editorial record, but the withdrawn Horizon
+// surface must not remain a navigable reader destination. Archive copies can
+// carry older navigation or source cards, so remove the links at bundle time
+// rather than rewriting the archival source record itself.
+function scrubWithdrawnHorizonLinks(out) {
+  for (const file of listFiles(out, ".html")) {
+    const html = read(file);
+    const updated = html.replace(
+      /\s*<a\b(?=[^>]*\bhref=["'][^"']*regulatory-horizon[^"']*["'])[^>]*>[\s\S]*?<\/a>/gi,
+      "",
+    );
+    if (updated !== html) write(file, updated);
+  }
+}
+
 function generateRedirects(out) {
   const lines = redirects.map(([from, to]) => `${from} ${to} 301`);
   write(path.join(out, "_redirects"), `${lines.join("\n")}\n`);
@@ -2401,6 +2415,9 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   }
 
   assert(!fs.existsSync(path.join(out, "regulatory-horizon")), "Reg Horizon must not be included in the public bundle", failures);
+  for (const file of listFiles(out, ".html")) {
+    assert(!/href=["'][^"']*regulatory-horizon/i.test(read(file)), `${path.relative(out, file)} must not link to withdrawn Reg Horizon`, failures);
+  }
 
   const editionRecord = readJson(EDITION_INPUT);
   const homePage = read(path.join(out, "index.html"));
@@ -2540,6 +2557,7 @@ function main() {
   updateArchiveIndexCards(options.out, edition);
   generateSignalsJson(options.out, signalsData);
   withdrawPublicRegHorizon(options.out);
+  scrubWithdrawnHorizonLinks(options.out);
   const sitemapUrls = generateSitemap(options.out, edition);
   generateRedirects(options.out);
   generateHeaders(options.out);

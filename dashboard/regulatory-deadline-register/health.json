@@ -1,9 +1,19 @@
 {
   "version": "regulatory-deadline-health.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-13T08:32:28.474Z",
-  "sourceEdition": "2026-09-13",
+  "generatedAt": "2026-09-20T18:15:10.259Z",
+  "sourceEdition": "2026-09-20",
   "sourceHealth": [
+    {
+      "sourceId": "eiopa",
+      "status": "ok",
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
     {
       "sourceId": "uk-hm-treasury",
       "status": "ok",
@@ -11,26 +21,6 @@
       "fetchedItems": 20,
       "candidateItems": 20,
       "reconciledItems": 19,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "ofsi",
-      "status": "ok",
-      "items": 18,
-      "fetchedItems": 20,
-      "candidateItems": 18,
-      "reconciledItems": 12,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "uk-nca",
-      "status": "ok",
-      "items": 20,
-      "fetchedItems": 20,
-      "candidateItems": 20,
-      "reconciledItems": 20,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -45,10 +35,41 @@
       "publishedItems": 2
     },
     {
+      "sourceId": "ofsi",
+      "status": "ok",
+      "items": 12,
+      "fetchedItems": 20,
+      "candidateItems": 12,
+      "reconciledItems": 8,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
       "sourceId": "uk-fca",
       "status": "ok",
       "items": 0,
       "fetchedItems": 20,
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-nca",
+      "status": "ok",
+      "items": 20,
+      "fetchedItems": 20,
+      "candidateItems": 20,
+      "reconciledItems": 20,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "iosco",
+      "status": "blocked",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.iosco.org/news/: 403 Client Error: Forbidden for url: https://www.iosco.org/news/",
       "candidateItems": 0,
       "reconciledItems": 0,
       "materialItems": 0,
@@ -65,74 +86,22 @@
       "publishedItems": 0
     },
     {
+      "sourceId": "ecb-supervision",
+      "status": "ok",
+      "items": 15,
+      "fetchedItems": 15,
+      "candidateItems": 15,
+      "reconciledItems": 15,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
       "sourceId": "eba",
       "status": "ok",
       "items": 9,
       "fetchedItems": 10,
       "candidateItems": 9,
-      "reconciledItems": 3,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "fsb",
-      "status": "ok",
-      "items": 10,
-      "fetchedItems": 10,
-      "candidateItems": 10,
-      "reconciledItems": 10,
-      "materialItems": 1,
-      "publishedItems": 1
-    },
-    {
-      "sourceId": "iosco",
-      "status": "blocked",
-      "items": 0,
-      "fetchedItems": 0,
-      "error": "HTTP error fetching https://www.iosco.org/news/: 403 Client Error: Forbidden for url: https://www.iosco.org/news/",
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "ecb-supervision",
-      "status": "ok",
-      "items": 13,
-      "fetchedItems": 15,
-      "candidateItems": 13,
-      "reconciledItems": 12,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "esma",
-      "status": "ok",
-      "items": 0,
-      "fetchedItems": 10,
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "uk-boe-pra",
-      "status": "ok",
-      "items": 85,
-      "fetchedItems": 100,
-      "candidateItems": 85,
-      "reconciledItems": 67,
-      "materialItems": 3,
-      "publishedItems": 3
-    },
-    {
-      "sourceId": "bcbs",
-      "status": "blocked",
-      "items": 0,
-      "fetchedItems": 0,
-      "error": "HTTP error fetching https://www.bis.org/bcbs/publications.htm: 403 Client Error: Forbidden for url: https://www.bis.org/publications/bcbs-publications",
-      "candidateItems": 0,
-      "reconciledItems": 0,
+      "reconciledItems": 2,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -147,11 +116,42 @@
       "publishedItems": 2
     },
     {
+      "sourceId": "fsb",
+      "status": "ok",
+      "items": 10,
+      "fetchedItems": 10,
+      "candidateItems": 10,
+      "reconciledItems": 10,
+      "materialItems": 1,
+      "publishedItems": 1
+    },
+    {
+      "sourceId": "esma",
+      "status": "ok",
+      "items": 0,
+      "fetchedItems": 10,
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "bcbs",
+      "status": "blocked",
+      "items": 0,
+      "fetchedItems": 0,
+      "error": "HTTP error fetching https://www.bis.org/bcbs/publications.htm: 403 Client Error: Forbidden for url: https://www.bis.org/publications/bcbs-publications",
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
       "sourceId": "japan-fsa",
       "status": "ok",
-      "items": 7,
-      "fetchedItems": 7,
-      "candidateItems": 7,
+      "items": 6,
+      "fetchedItems": 6,
+      "candidateItems": 6,
       "reconciledItems": 5,
       "materialItems": 0,
       "publishedItems": 0
@@ -169,12 +169,22 @@
     {
       "sourceId": "finma",
       "status": "ok",
-      "items": 28,
+      "items": 23,
       "fetchedItems": 50,
-      "candidateItems": 28,
-      "reconciledItems": 15,
+      "candidateItems": 23,
+      "reconciledItems": 13,
       "materialItems": 1,
       "publishedItems": 1
+    },
+    {
+      "sourceId": "uk-boe-pra",
+      "status": "ok",
+      "items": 85,
+      "fetchedItems": 100,
+      "candidateItems": 85,
+      "reconciledItems": 66,
+      "materialItems": 2,
+      "publishedItems": 2
     },
     {
       "sourceId": "ico",
@@ -187,22 +197,22 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "eiopa",
+      "sourceId": "spain-cnmv",
       "status": "ok",
-      "items": 0,
-      "fetchedItems": 0,
-      "candidateItems": 0,
-      "reconciledItems": 0,
+      "items": 3,
+      "fetchedItems": 9,
+      "candidateItems": 3,
+      "reconciledItems": 1,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
-      "sourceId": "spain-cnmv",
+      "sourceId": "india-sebi",
       "status": "ok",
-      "items": 2,
-      "fetchedItems": 8,
-      "candidateItems": 2,
-      "reconciledItems": 1,
+      "items": 15,
+      "fetchedItems": 15,
+      "candidateItems": 15,
+      "reconciledItems": 12,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -217,27 +227,7 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "india-sebi",
-      "status": "ok",
-      "items": 14,
-      "fetchedItems": 14,
-      "candidateItems": 14,
-      "reconciledItems": 13,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
       "sourceId": "ecb-supervision-sanctions",
-      "status": "ok",
-      "items": 0,
-      "fetchedItems": 0,
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "ecb-supervisory-priorities",
       "status": "ok",
       "items": 0,
       "fetchedItems": 0,
@@ -253,8 +243,18 @@
       "fetchedItems": 384,
       "candidateItems": 17,
       "reconciledItems": 17,
-      "materialItems": 1,
-      "publishedItems": 1
+      "materialItems": 2,
+      "publishedItems": 2
+    },
+    {
+      "sourceId": "ecb-supervisory-priorities",
+      "status": "ok",
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
     },
     {
       "sourceId": "ecb-ssm-newsletter",
@@ -269,25 +269,25 @@
     {
       "sourceId": "fatf",
       "status": "ok",
-      "items": 4,
+      "items": 3,
       "fetchedItems": 52,
-      "candidateItems": 4,
-      "reconciledItems": 4,
-      "materialItems": 1,
-      "publishedItems": 1
-    },
-    {
-      "sourceId": "ireland-cbi",
-      "status": "ok",
-      "items": 0,
-      "fetchedItems": 0,
-      "candidateItems": 0,
-      "reconciledItems": 0,
+      "candidateItems": 3,
+      "reconciledItems": 3,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
-      "sourceId": "uk-fca-regulatory-initiatives-grid",
+      "sourceId": "ireland-cbi",
+      "status": "ok",
+      "items": 2,
+      "fetchedItems": 2,
+      "candidateItems": 2,
+      "reconciledItems": 2,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-fca-enforcement-notices",
       "status": "ok",
       "items": 0,
       "fetchedItems": 0,
@@ -307,16 +307,6 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "uk-fca-enforcement-notices",
-      "status": "ok",
-      "items": 2,
-      "fetchedItems": 2,
-      "candidateItems": 2,
-      "reconciledItems": 2,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
       "sourceId": "mexico-cnbv",
       "status": "ok",
       "items": 0,
@@ -327,24 +317,44 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "osfi",
+      "sourceId": "korea-fsc",
       "status": "ok",
-      "items": 3,
-      "fetchedItems": 3,
-      "candidateItems": 3,
-      "reconciledItems": 3,
+      "items": 4,
+      "fetchedItems": 15,
+      "candidateItems": 4,
+      "reconciledItems": 4,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
-      "sourceId": "korea-fsc",
+      "sourceId": "osfi",
       "status": "ok",
       "items": 2,
-      "fetchedItems": 14,
+      "fetchedItems": 2,
       "candidateItems": 2,
       "reconciledItems": 2,
       "materialItems": 0,
       "publishedItems": 0
+    },
+    {
+      "sourceId": "uk-fca-regulatory-initiatives-grid",
+      "status": "ok",
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "dubai-dfsa",
+      "status": "ok",
+      "items": 3,
+      "fetchedItems": 3,
+      "candidateItems": 3,
+      "reconciledItems": 2,
+      "materialItems": 1,
+      "publishedItems": 1
     },
     {
       "sourceId": "de-bafin",
@@ -368,6 +378,16 @@
       "publishedItems": 0
     },
     {
+      "sourceId": "brazil-cvm",
+      "status": "ok",
+      "items": 11,
+      "fetchedItems": 11,
+      "candidateItems": 11,
+      "reconciledItems": 10,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
       "sourceId": "singapore-sgx",
       "status": "ok",
       "items": 0,
@@ -378,12 +398,12 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "brazil-cvm",
+      "sourceId": "apra",
       "status": "ok",
-      "items": 12,
-      "fetchedItems": 12,
-      "candidateItems": 12,
-      "reconciledItems": 10,
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -394,6 +414,16 @@
       "fetchedItems": 0,
       "candidateItems": 0,
       "reconciledItems": 0,
+      "materialItems": 0,
+      "publishedItems": 0
+    },
+    {
+      "sourceId": "asic",
+      "status": "ok",
+      "items": 6,
+      "fetchedItems": 29,
+      "candidateItems": 6,
+      "reconciledItems": 6,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -418,24 +448,14 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "de-bundesbank",
+      "sourceId": "hkma",
       "status": "ok",
-      "items": 0,
-      "fetchedItems": 0,
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "apra",
-      "status": "ok",
-      "items": 0,
-      "fetchedItems": 0,
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
+      "items": 77,
+      "fetchedItems": 541,
+      "candidateItems": 78,
+      "reconciledItems": 64,
+      "materialItems": 3,
+      "publishedItems": 3
     },
     {
       "sourceId": "italy-consob",
@@ -449,54 +469,24 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "asic",
+      "sourceId": "de-bundesbank",
       "status": "ok",
-      "items": 4,
-      "fetchedItems": 27,
-      "candidateItems": 4,
-      "reconciledItems": 4,
-      "materialItems": 0,
-      "publishedItems": 0
-    },
-    {
-      "sourceId": "dubai-dfsa",
-      "status": "ok",
-      "items": 3,
-      "fetchedItems": 3,
-      "candidateItems": 3,
-      "reconciledItems": 2,
-      "materialItems": 1,
-      "publishedItems": 1
-    },
-    {
-      "sourceId": "south-korea-fss",
-      "status": "ok",
-      "items": 18,
-      "fetchedItems": 30,
-      "candidateItems": 18,
-      "reconciledItems": 18,
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
       "sourceId": "adgm-fsra",
       "status": "ok",
-      "items": 1,
-      "fetchedItems": 58,
-      "candidateItems": 1,
-      "reconciledItems": 1,
+      "items": 2,
+      "fetchedItems": 59,
+      "candidateItems": 2,
+      "reconciledItems": 2,
       "materialItems": 0,
       "publishedItems": 0
-    },
-    {
-      "sourceId": "hkma",
-      "status": "ok",
-      "items": 81,
-      "fetchedItems": 542,
-      "candidateItems": 82,
-      "reconciledItems": 65,
-      "materialItems": 3,
-      "publishedItems": 3
     },
     {
       "sourceId": "ofac-recent-actions",
@@ -509,14 +499,24 @@
       "publishedItems": 0
     },
     {
-      "sourceId": "saudi-cma",
+      "sourceId": "south-korea-fss",
       "status": "ok",
-      "items": 3,
-      "fetchedItems": 3,
-      "candidateItems": 3,
-      "reconciledItems": 3,
+      "items": 17,
+      "fetchedItems": 30,
+      "candidateItems": 17,
+      "reconciledItems": 17,
       "materialItems": 0,
       "publishedItems": 0
+    },
+    {
+      "sourceId": "saudi-cma",
+      "status": "ok",
+      "items": 4,
+      "fetchedItems": 4,
+      "candidateItems": 4,
+      "reconciledItems": 4,
+      "materialItems": 1,
+      "publishedItems": 1
     },
     {
       "sourceId": "mas",
@@ -533,7 +533,7 @@
       "status": "failed",
       "items": 0,
       "fetchedItems": 0,
-      "error": "HTTP error fetching https://www.resbank.co.za/en/home/newsroom: HTTPSConnectionPool(host='www.resbank.co.za', port=443): Max retries exceeded with url: /en/home/newsroom (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.resbank.co.za', port=443) at 0x10d428f50>, 'Connection to www.resbank.co.za timed out. (connect timeout=20)'))",
+      "error": "HTTP error fetching https://www.resbank.co.za/en/home/newsroom: HTTPSConnectionPool(host='www.resbank.co.za', port=443): Max retries exceeded with url: /en/home/newsroom (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.resbank.co.za', port=443) at 0x1092fe0d0>, 'Connection to www.resbank.co.za timed out. (connect timeout=20)'))",
       "candidateItems": 0,
       "reconciledItems": 0,
       "materialItems": 0,

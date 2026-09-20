@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13",
+  "generatedAt": "2026-09-20",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
   "status": "live",
@@ -8,30 +8,30 @@
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "13 Sept 2026",
-    "line": "Live edition / Updated 13 Sept 2026",
+    "displayDate": "20 Sept 2026",
+    "line": "Live edition / Updated 20 Sept 2026",
     "descriptor": "15 source-linked signals / model, deployment and operating context"
   },
-  "summary": "This week is about proving that AI change is safe before it spreads. The useful signals are not just new models: they show where a firm needs a baseline, a named owner, a controlled data route and a way to challenge or reverse a result.",
+  "summary": "This week is about the conditions around AI change. The useful signals show that a provider, deployment or safeguard is only credible while specific access, evidence, data and intervention conditions remain true in live operation.",
   "sourceUniverse": {
     "modelAndCapability": [
-      "https://mistral.ai/news/legacy-code-modernization",
+      "https://www.anthropic.com/news/accenture-embedded-evaluation",
       "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai",
       "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform",
       "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion",
       "https://mistral.ai/news/mistral-x-cloudera"
     ],
     "deploymentAndInfrastructure": [
-      "https://openai.com/index/put-data-to-work",
+      "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs",
       "https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains",
       "https://nvidianews.nvidia.com/news/nvidia-expands-ai-infrastructure-capacity-in-partnership-with-australias-data-center-ecosystem",
       "https://mistral.ai/news/agentic-search",
       "https://mistral.ai/news/regional-inference-open-models-new-compute"
     ],
     "operatingContext": [
-      "https://openai.com/index/introducing-chatgpt-financial-services",
+      "https://openai.com/index/australian-youth-safety-blueprint",
       "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
-      "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
       "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux"
     ]
@@ -43,13 +43,13 @@
       "label": "Models and capabilities",
       "cards": [
         {
-          "title": "Legacy-code agents need a proof harness before they need scale",
-          "badge": "Change-control signal",
-          "body": "Mistral's legacy-code work starts with numerical parity, documentation and human review rather than a broad autonomous run. That is the right order for a material workflow: establish what must remain true, test it at checkpoints, then widen the agent's remit.",
-          "sourceName": "Mistral AI",
+          "title": "Embedded evaluation makes AI assurance an access-and-independence question",
+          "badge": "Assurance signal",
+          "body": "Anthropic's plan to embed independent evaluators inside its development environment makes a practical point for buyers and providers: meaningful challenge needs sufficient access to safeguards, evidence and operating context. A public safety statement is not a substitute for an independent route to inspect and question the live control boundary.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-09-09",
-          "source": { "label": "Modernizing complex legacy code with AI agents", "url": "https://mistral.ai/news/legacy-code-modernization" }
+          "date": "2026-09-18",
+          "source": { "label": "Partnering with Accenture on embedded evaluation", "url": "https://www.anthropic.com/news/accenture-embedded-evaluation" }
         },
         {
           "title": "Physical AI makes task learning an operational-safety question",
@@ -95,13 +95,13 @@
       "label": "Deployment and infrastructure",
       "cards": [
         {
-          "title": "Putting enterprise data to work is a permissions design exercise",
+          "title": "Local AI availability brings device, model and update controls into scope",
           "badge": "Deployment signal",
-          "body": "OpenAI's enterprise-data announcement shifts the attention from a model answer to the permissions and retrieval routes behind it. Teams should be able to show the approved corpus, access rules, logging and the person who can stop an unsafe connection.",
-          "sourceName": "OpenAI",
+          "body": "NVIDIA's Windows release with Perplexity shows how quickly AI capability can move onto the endpoint. The relevant question is no longer only which cloud service is approved: it is which model, data path, device configuration and update route are allowed for a material workflow.",
+          "sourceName": "NVIDIA",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Now everyone can put data to work", "url": "https://openai.com/index/put-data-to-work" }
+          "date": "2026-09-14",
+          "source": { "label": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX", "url": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs" }
         },
         {
           "title": "Supply-chain intelligence needs a decision record, not just a sovereign label",
@@ -147,13 +147,13 @@
       "label": "Operating context",
       "cards": [
         {
-          "title": "Financial-services AI needs the workflow owner in view",
-          "badge": "Industry signal",
-          "body": "OpenAI's financial-services release is a prompt to start with the live workflow, not the model. The firm should know which decisions the service supports, the limits of its authority, the review point and the evidence needed when a customer, trader or supervisor asks how a result was reached.",
+          "title": "AI safety programmes make the audience and assurance boundary explicit",
+          "badge": "Safety signal",
+          "body": "OpenAI's Australian Youth Safety Blueprint is a reminder that a safety commitment needs a defined population, product boundary and evidence of how the safeguards work. The same discipline applies when an AI product is introduced into a regulated customer or employee journey.",
           "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Introducing ChatGPT for Financial Services", "url": "https://openai.com/index/introducing-chatgpt-financial-services" }
+          "date": "2026-09-18",
+          "source": { "label": "Introducing the Australian Youth Safety Blueprint", "url": "https://openai.com/index/australian-youth-safety-blueprint" }
         },
         {
           "title": "Critical third parties now sit inside the cyber-resilience test",
@@ -165,13 +165,13 @@
           "source": { "label": "Global standard-setting bodies publish toolkit on cyber resilience for FMIs and discussion paper on critical third-party risks", "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis" }
         },
         {
-          "title": "Exploited vulnerabilities test whether the patch queue maps to the estate",
+          "title": "Newly exploited flaws test whether an AI estate can drive emergency patching",
           "badge": "Cyber signal",
-          "body": "CISA's latest catalogue additions are a check on the operational basics beneath any AI service. The relevant evidence is an accurate asset map, a named remediation decision, controlled exceptions and proof that the exposed version is no longer live.",
+          "body": "CISA's latest catalogue additions are a check on the operational basics beneath any AI service. The relevant evidence is an accurate asset map, a remediation decision, controlled exceptions and proof that the exposed version is no longer live.",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
           "sourceType": "dated",
-          "date": "2026-09-11",
-          "source": { "label": "CISA Adds Three Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" }
+          "date": "2026-09-18",
+          "source": { "label": "CISA Adds Two Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog" }
         },
         {
           "title": "Misconduct reports can be turned into control intelligence",

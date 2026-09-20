@@ -333,11 +333,11 @@ function main() {
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
   assert(
-      briefPage.includes("Proof before scale") &&
+    briefPage.includes(edition.judgement?.title || edition.title || "A note for the week") &&
       briefPage.includes("What happened") &&
       briefPage.includes("Why it matters") &&
       briefPage.includes("What to do") &&
-      briefPage.includes("Bring the result, not the checklist."),
+      briefPage.includes("Evidence"),
     "Weekly Brief is missing its compact current-edition readout",
     failures,
   );

@@ -113,34 +113,35 @@ test("keeps source-verified backfill records private and does not mistake a repe
   assert.equal(changes.notReconfirmed.length, 0);
 });
 
-test("does not claim a relaunch without recorded human sign-off, even when numerical gates pass", () => {
+test("does not claim a relaunch without recorded human sign-off, even when the maintained-evidence gates pass", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
   const authorities = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba"];
   const register = {
     version: "regulatory-deadline-register.v1",
     visibility: "private",
-    asOf: "2026-08-09",
-    sourceEdition: "2026-08-09",
-    items: Array.from({ length: 10 }, (_, index) => ({
+    asOf: "2026-09-09",
+    sourceEdition: "2026-09-09",
+    items: Array.from({ length: 8 }, (_, index) => ({
       id: `item-${index}`,
       url: `https://example.test/${index}`,
       title: `Consultation ${index}`,
-      deadline: `2026-09-${String(index + 1).padStart(2, "0")}`,
+      deadline: index < 2 ? `2026-08-${String(24 + index).padStart(2, "0")}` : `2026-09-${String(index + 8).padStart(2, "0")}`,
       status: "confirmed",
       intake: "verified-backfill",
-      evidence: { verifiedAt: "2026-08-09", verification: "Primary source checked" },
-      decision: { decision: "confirmed", scope: "source-date-only", reviewer: "Editorial lead", decidedAt: "2026-08-09", note: "Primary source date confirmed.", evidence: { quote: "The consultation closes on the listed date.", url: `https://example.test/${index}` } },
+      evidence: { verifiedAt: "2026-09-09", verification: "Primary source checked" },
+      decision: { decision: "confirmed", scope: "source-date-only", reviewer: "Editorial lead", decidedAt: "2026-09-09", note: "Primary source date confirmed.", evidence: { quote: "The consultation closes on the listed date.", url: `https://example.test/${index}` } },
       authority: { id: authorities[index % authorities.length] },
     })),
   };
   fs.writeFileSync(path.join(tmp, "register.json"), JSON.stringify(register));
   const core = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba", "esma", "ecb-supervision", "ofsi"];
-  fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ visibility: "private", sourceEdition: "2026-08-09", sourceHealth: core.map((sourceId) => ({ sourceId, status: "ok" })) }));
-  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-07-26", "2026-08-02", "2026-08-09"].map((asOf) => ({ asOf, sourceEdition: asOf, healthyCore: core, errors: [], warnings: [] })) }));
-  assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-08-09"]).status, 0);
+  fs.writeFileSync(path.join(tmp, "health.json"), JSON.stringify({ visibility: "private", sourceEdition: "2026-09-09", sourceHealth: core.map((sourceId) => ({ sourceId, status: "ok" })) }));
+  fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-08-26", "2026-09-02", "2026-09-09"].map((asOf) => ({ asOf, sourceEdition: asOf, healthyCore: core, errors: [], warnings: [] })) }));
+  assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-09-09"]).status, 0);
   const qa = JSON.parse(fs.readFileSync(path.join(tmp, "qa.json")));
   assert.equal(qa.readiness.relaunchEligible, false);
   assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("editor and product owner")));
+  assert.ok(!qa.readiness.relaunchReasons.some((reason) => reason.includes("maintained confirmed milestones") || reason.includes("upcoming deadlines") || reason.includes("confirmed open deadlines")));
   assert.equal(qa.errors.length, 0);
 });
 

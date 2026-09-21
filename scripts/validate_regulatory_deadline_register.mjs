@@ -86,12 +86,19 @@ function main() {
     const exceptionById = new Map((exceptions.exceptions || []).map((item) => [item.sourceId, item]));
     for (const source of unavailableSources) {
       const exception = exceptionById.get(source.sourceId);
-      if (!exception || exception.expectedStatus !== source.status || !exception.issue || !exception.governance || !exception.nextCheck) {
+      if (!exception || exception.expectedStatus !== source.status || !exception.issue || !exception.governance || !exception.lastChecked || !exception.transportReviewedAt || !exception.transportReview || !exception.nextCheck) {
         errors.push(`unavailable source lacks governed exception ${source.sourceId}`);
       }
     }
     for (const exception of exceptions.exceptions || []) {
       if (!exception?.sourceId || !ALLOWED_SOURCE_HEALTH.has(exception.expectedStatus)) errors.push(`invalid source exception ${exception?.sourceId || "unknown"}`);
+      if (!isValidDate(exception?.lastChecked) || !isValidDate(exception?.transportReviewedAt) || !isValidDate(exception?.nextCheck)) {
+        errors.push(`source exception has invalid review dates ${exception?.sourceId || "unknown"}`);
+      } else {
+        if (dateDiff(today, exception.lastChecked) > 7) errors.push(`source exception review is overdue ${exception.sourceId}`);
+        if (exception.nextCheck < today) errors.push(`source exception next check is overdue ${exception.sourceId}`);
+        if (dateDiff(exception.nextCheck, exception.lastChecked) > 7) errors.push(`source exception review cadence exceeds seven days ${exception.sourceId}`);
+      }
       const actual = healthById.get(exception?.sourceId);
       if (actual && actual.status !== exception.expectedStatus) errors.push(`source exception status drift ${exception.sourceId}: expected ${exception.expectedStatus}, got ${actual.status}`);
     }

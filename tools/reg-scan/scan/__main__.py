@@ -184,9 +184,19 @@ def main():
     error_sources = []
     source_health = []
 
+    # Fetches may complete in a different order on every run. Preserve the
+    # source-registry order when we write health and scanner artifacts so an
+    # unchanged source estate does not create a noisy, non-semantic diff.
     with ThreadPoolExecutor(max_workers=24) as pool:
-        futures = [pool.submit(_fetch_source_bundle, source_id, source) for source_id, source in sources_by_id.items()]
-        fetched_bundles = [future.result() for future in as_completed(futures)]
+        futures = {
+            pool.submit(_fetch_source_bundle, source_id, source): source_id
+            for source_id, source in sources_by_id.items()
+        }
+        fetched_by_source = {
+            futures[future]: future.result()
+            for future in as_completed(futures)
+        }
+    fetched_bundles = [fetched_by_source[source_id] for source_id in sources_by_id]
 
     for source_id, source, items, error, not_configured in fetched_bundles:
         if not_configured:

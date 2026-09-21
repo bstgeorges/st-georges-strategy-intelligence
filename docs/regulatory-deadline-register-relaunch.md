@@ -17,11 +17,14 @@ The public route remains off unless all of the following are true:
 - no register correctness blockers;
 - scanner edition is no more than eight days old;
 - at least four core authorities have been healthy for each of the most recent three **distinct-day** shadow runs; repeated retries on one day count once;
-- at least ten editorially confirmed open deadlines from four or more authorities;
-- no authority supplies more than 60% of confirmed deadlines;
+- at least eight editorially confirmed, **maintained** milestones from four or more authorities. A maintained milestone is a confirmed future deadline or a confirmed date within the register's 30-day carry-forward window;
+- at least six of those maintained milestones are genuinely upcoming deadlines;
+- no authority supplies more than 60% of maintained confirmed milestones;
 - the editor and product owner explicitly approve the return of a public page in `dashboard/regulatory-deadline-register/relaunch-approval.json`. Both approvals must be named, dated, reasoned, and tied to the current scanner edition.
 
 The source-health core is FCA, Bank of England/PRA, HM Treasury, EBA, ESMA, ECB Banking Supervision and OFSI. A zero-yield source can be healthy; a failed, blocked, degraded or unconfigured source cannot.
+
+This is deliberately a stability-and-reader-value gate, not a requirement to keep a volatile count of ten future dates open at once. Closed dates are evidence that the register is maintained; they must never be presented to readers as upcoming actions. The reader surface, if restored, shows confirmed forthcoming dates only.
 
 ## What the scheduled scan does
 

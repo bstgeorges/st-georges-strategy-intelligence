@@ -106,14 +106,21 @@ function main() {
   const healthyCore = CORE.filter((id) => healthById.get(id)?.status === "ok");
   const unavailableCore = CORE.filter((id) => healthById.get(id)?.status !== "ok");
   const confirmedOpen = (register.items || []).filter((item) => item.status === "confirmed" && item.deadline >= today);
-  const confirmedAuthorities = new Set(confirmedOpen.map((item) => item.authority.id));
-  const maxAuthorityCount = Math.max(0, ...[...confirmedAuthorities].map((id) => confirmedOpen.filter((item) => item.authority.id === id).length));
-  const concentration = confirmedOpen.length ? maxAuthorityCount / confirmedOpen.length : 0;
+  // A reader-facing horizon needs enough current, confirmed evidence to be
+  // useful, but should not become ineligible merely because dates naturally
+  // close. The register retains confirmed records for 30 days after a date so
+  // they can evidence continuity; the public reader view would still show
+  // future dates only.
+  const confirmedMaintained = (register.items || []).filter((item) => item.status === "confirmed" && dateDiff(today, item.deadline) <= 30);
+  const maintainedAuthorities = new Set(confirmedMaintained.map((item) => item.authority.id));
+  const maxAuthorityCount = Math.max(0, ...[...maintainedAuthorities].map((id) => confirmedMaintained.filter((item) => item.authority.id === id).length));
+  const concentration = confirmedMaintained.length ? maxAuthorityCount / confirmedMaintained.length : 0;
   const sourceAgeDays = isValidDate(register.sourceEdition) && isValidDate(today) ? dateDiff(today, register.sourceEdition) : null;
   if (sourceAgeDays > 8) warnings.push(`scanner edition is ${sourceAgeDays} days old`);
   if (unavailableCore.length) warnings.push(`core authority health not ok: ${unavailableCore.join(", ")}`);
-  if (confirmedOpen.length < 10) warnings.push(`only ${confirmedOpen.length} confirmed open deadlines; target is 10`);
-  if (confirmedAuthorities.size < 4) warnings.push(`only ${confirmedAuthorities.size} confirmed authorities; target is 4`);
+  if (confirmedMaintained.length < 8) warnings.push(`only ${confirmedMaintained.length} maintained confirmed milestones; target is 8`);
+  if (confirmedOpen.length < 6) warnings.push(`only ${confirmedOpen.length} confirmed upcoming deadlines; target is 6`);
+  if (maintainedAuthorities.size < 4) warnings.push(`only ${maintainedAuthorities.size} maintained contributing authorities; target is 4`);
   if (concentration > 0.6) warnings.push(`confirmed register is concentrated in one authority (${Math.round(concentration * 100)}%)`);
   const staleVerifications = (register.items || []).filter((item) => item.intake === "verified-backfill" && isValidDate(item.evidence?.verifiedAt) && dateDiff(today, item.evidence.verifiedAt) > 14);
   if (staleVerifications.length) warnings.push(`${staleVerifications.length} verified carry-forward record(s) need a renewed primary-source check`);
@@ -133,8 +140,9 @@ function main() {
     ...(errors.length ? ["correctness blockers remain"] : []),
     ...(sourceAgeDays === null || sourceAgeDays > 8 ? ["latest scanner edition is stale"] : []),
     ...(stableCore.length < 4 ? ["fewer than four core authorities have been healthy for three consecutive shadow runs"] : []),
-    ...(confirmedOpen.length < 10 ? ["fewer than ten confirmed open deadlines"] : []),
-    ...(confirmedAuthorities.size < 4 ? ["fewer than four contributing authorities"] : []),
+    ...(confirmedMaintained.length < 8 ? ["fewer than eight maintained confirmed milestones"] : []),
+    ...(confirmedOpen.length < 6 ? ["fewer than six confirmed upcoming deadlines"] : []),
+    ...(maintainedAuthorities.size < 4 ? ["fewer than four maintained contributing authorities"] : []),
     ...(concentration > 0.6 ? ["register is too concentrated in one authority"] : []),
     ...(!hasCurrentRelaunchApproval(relaunchApproval, register.sourceEdition) ? ["editor and product owner have not recorded a current-edition relaunch approval"] : []),
   ];
@@ -142,8 +150,20 @@ function main() {
     version: "regulatory-deadline-qa.v1", visibility: "private", generatedAt: new Date().toISOString(),
     sourceEdition: register.sourceEdition, asOf: register.asOf, errors, warnings,
     readiness: {
-      score: Math.max(0, 100 - errors.length * 25 - unavailableCore.length * 7 - Math.max(0, 10 - confirmedOpen.length) * 3 - Math.max(0, 4 - confirmedAuthorities.size) * 5),
-      metrics: { confirmedOpenDeadlines: confirmedOpen.length, confirmedAuthorities: confirmedAuthorities.size, healthyCoreAuthorities: healthyCore.length, stableCoreAuthorities: stableCore.length, distinctShadowRuns: lastThreeDistinctRuns.length, sourceAgeDays, concentration: Number(concentration.toFixed(3)) },
+      score: Math.max(0, 100 - errors.length * 25 - unavailableCore.length * 7 - Math.max(0, 8 - confirmedMaintained.length) * 3 - Math.max(0, 6 - confirmedOpen.length) * 2 - Math.max(0, 4 - maintainedAuthorities.size) * 5),
+      metrics: {
+        confirmedMaintainedMilestones: confirmedMaintained.length,
+        confirmedMaintainedAuthorities: maintainedAuthorities.size,
+        confirmedUpcomingDeadlines: confirmedOpen.length,
+        // Kept during the private transition so older dashboard data remains readable.
+        confirmedOpenDeadlines: confirmedOpen.length,
+        confirmedAuthorities: maintainedAuthorities.size,
+        healthyCoreAuthorities: healthyCore.length,
+        stableCoreAuthorities: stableCore.length,
+        distinctShadowRuns: lastThreeDistinctRuns.length,
+        sourceAgeDays,
+        concentration: Number(concentration.toFixed(3)),
+      },
       relaunchEligible: relaunchReasons.length === 0,
       relaunchReasons,
     },

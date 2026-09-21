@@ -3,26 +3,6 @@
   "visibility": "private",
   "runs": [
     {
-      "asOf": "2026-08-29",
-      "sourceEdition": "2026-08-27",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "uk-hm-treasury",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [
-        "source exception status drift bcbs: expected blocked, got ok"
-      ],
-      "warnings": [
-        "only 7 confirmed open deadlines; target is 10",
-        "4 verified carry-forward record(s) need a renewed primary-source check"
-      ]
-    },
-    {
       "asOf": "2026-08-30",
       "sourceEdition": "2026-08-29",
       "healthyCore": [
@@ -199,6 +179,23 @@
       "warnings": [
         "only 8 confirmed open deadlines; target is 10",
         "8 verified carry-forward record(s) need a renewed primary-source check"
+      ]
+    },
+    {
+      "asOf": "2026-09-21",
+      "sourceEdition": "2026-09-21",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
+      "errors": [],
+      "warnings": [
+        "only 8 confirmed open deadlines; target is 10"
       ]
     }
   ]

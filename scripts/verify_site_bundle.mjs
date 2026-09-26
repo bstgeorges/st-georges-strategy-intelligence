@@ -204,16 +204,18 @@ function checkWorkerRouteCoverage(failures) {
     "/brief",
     "/committee-questions",
     "/deep-dives",
-    "/deep-dives/harness-problem",
     "/signals",
   ];
 
   for (const route of requiredDirectories) {
     assert(routePolicy.includes(`"${route}"`), `site route policy missing directory redirect ${route}`, failures);
   }
+  assert(routePolicy.includes("function isDeepDiveDirectory"), "site route policy must canonicalise dynamic Deep Dive routes", failures);
   assert(edgeWorker.includes("env.ASSETS.fetch(request)"), "site Worker must serve the generated asset bundle directly", failures);
   assert(!edgeWorker.includes("pages.dev"), "site Worker must not proxy a Pages origin", failures);
   assert(edgeWorker.includes("new HTMLRewriter()"), "site Worker must preserve the optional analytics beacon injection", failures);
+  assert(!edgeWorker.includes("script-src 'self' 'unsafe-inline'"), "site Worker CSP must not permit inline script execution", failures);
+  assert(!read("index.html").includes("document.documentElement.classList.add('js-motion')"), "homepage must not require an inline motion bootstrap script", failures);
   assert(wrangler.includes('"run_worker_first": true'), "site Worker must run before static assets to enforce redirects and security headers", failures);
   assert(wrangler.includes('"observability": {') && wrangler.includes('"head_sampling_rate": 0.01'), "site Worker must keep production observability sampled at 1%", failures);
 }

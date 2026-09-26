@@ -415,3 +415,10 @@ Before making a public change, inspect the current edition, Signals, Reg Horizon
 - Public disclaimer copy is: “Not investment, legal, compliance, or regulatory advice.” Display editorial dates as `20 Sept 2026`; keep ISO dates only where chronological archival or machine-readable treatment is purposeful.
 - The Beehiiv embed is third-party markup. Keep the site wrapper square and on-brand, but change the form’s own radius, font and input styling only in Beehiiv’s form settings. The embedded form must not force a separate site font or rounded component vocabulary.
 - `scripts/verify_site_bundle.mjs` now rejects an Archive masthead/card edition-count mismatch, preventing the visible 14-versus-13 drift from reaching a release.
+
+## Session memory — 2026-09-26: reader delivery hardening
+
+- Deep Dive trailing-slash routing is dynamic. `workers/site-routes.mjs` recognises every canonical `/deep-dives/<slug>/` route and its dated archive form; do not add individual article slugs to the static directory list.
+- The public Worker CSP deliberately does **not** permit inline script execution. The homepage motion class is added by the existing external `app.js`, and the bundle verifier rejects a return of that inline bootstrap or `script-src 'unsafe-inline'`.
+- `style-src 'unsafe-inline'` remains a deliberate, separately verified exception because the third-party Beehiiv form may use injected inline presentation. Do not remove it without a browser-tested dev deployment that confirms newsletter rendering and signup work. First-party source styling should continue to move out of `style` attributes where practical.
+- `site/styles.css` contains the standard print treatment: no dark fill or decorative hero image, a page break before Brief Top 5 and current Committee Questions, unbroken signal/question cards, and visible absolute URLs for external evidence links.

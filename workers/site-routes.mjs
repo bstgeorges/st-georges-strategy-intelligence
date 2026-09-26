@@ -18,7 +18,6 @@ const DIRECTORY_PATHS = new Set([
   "/brief",
   "/committee-questions",
   "/deep-dives",
-  "/deep-dives/harness-problem",
   "/signals",
   "/signals/ai",
   "/signals/resilience",

@@ -35,6 +35,22 @@ function titleCase(value) {
   return String(value || "Other").replace(/-/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
+function readerTitle(item) {
+  const title = String(item?.title || "Official item");
+  if (item?.authority?.id === "hkma" && /Systemically Important Banks/.test(title)) {
+    return "Consultation on revised SPM CA-B-2: Systemically Important Banks";
+  }
+  return title;
+}
+
+function readerThemes(item) {
+  if (item?.themes?.length) return item.themes.map(titleCase);
+  if (item?.authority?.id === "hkma" && /Systemically Important Banks/.test(item?.title || "")) return ["Balance sheet"];
+  if (item?.authority?.id === "hkma" && /Hong Kong Taxonomy/.test(item?.title || "")) return ["Market plumbing"];
+  if (item?.authority?.id === "uk-boe-pra" && /friendly society/i.test(item?.title || "")) return ["Balance sheet"];
+  return [titleCase(item?.stage)];
+}
+
 function renderPreview({ register, changes, editorial }) {
   const asOf = register.asOf || "";
   const asOfTime = /^\d{4}-\d{2}-\d{2}$/.test(asOf) ? new Date(`${asOf}T00:00:00Z`).valueOf() : Date.now();
@@ -47,21 +63,27 @@ function renderPreview({ register, changes, editorial }) {
   const additions = changes?.additions || [];
   const revisedDates = changes?.revisedDates || [];
   const reconfirmed = changes?.reconfirmed || [];
+  const carriedForward = changes?.notReconfirmed || [];
   const changeSummary = additions.length || revisedDates.length
     ? `${additions.length ? `${additions.length} new confirmed date${additions.length === 1 ? "" : "s"}` : "No new confirmed dates"}${additions.length && revisedDates.length ? " · " : ""}${revisedDates.length ? `${revisedDates.length} revised date${revisedDates.length === 1 ? "" : "s"}` : ""}`
-    : `No confirmed dates were added or revised. ${reconfirmed.length} source record${reconfirmed.length === 1 ? " was" : "s were"} rechecked.`;
+    : carriedForward.length
+      ? `No confirmed dates were added or revised. ${carriedForward.length} carry-forward record${carriedForward.length === 1 ? " was" : "s were"} not re-seen in this scan and remain temporarily retained for review.`
+      : `No confirmed dates were added or revised. ${reconfirmed.length} source record${reconfirmed.length === 1 ? " was" : "s were"} rechecked.`;
   const deadlineCards = confirmed.slice(0, 5).map((item) => {
-    const days = Math.round((new Date(`${item.deadline}T00:00:00Z`).valueOf() - asOfTime) / 86400000);
-    return `<article class="deadline-card"><p class="date">${escapeHtml(formatDate(item.deadline))}</p><p class="days">${escapeHtml(String(days))} days</p><h3><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.authority?.name || "Official source")} · ${escapeHtml(titleCase(item.stage))}</p></article>`;
+    return `<article class="deadline-card"><p class="date">${escapeHtml(formatDate(item.deadline))}</p><p class="days" data-deadline="${escapeHtml(item.deadline)}">—</p><h3><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(readerTitle(item))}</a></h3><p>${escapeHtml(item.authority?.name || "Official source")} · ${escapeHtml(titleCase(item.stage))}</p></article>`;
   }).join("");
-  const tableRows = confirmed.map((item) => `<tr><td><strong>${escapeHtml(formatDate(item.deadline))}</strong></td><td><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a><span>${escapeHtml((item.themes || []).map(titleCase).join(" · ") || titleCase(item.stage))}</span></td><td>${escapeHtml(item.authority?.name || "Official source")}</td><td>${escapeHtml(titleCase(item.stage))}</td></tr>`).join("");
+  const tableRows = confirmed.map((item) => `<tr><td><strong>${escapeHtml(formatDate(item.deadline))}</strong></td><td><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(readerTitle(item))}</a><span>${escapeHtml(readerThemes(item).join(" · "))}</span></td><td>${escapeHtml(item.authority?.name || "Official source")}</td><td>${escapeHtml(titleCase(item.stage))}</td></tr>`).join("");
   const timelineMonths = new Map();
   for (const item of confirmed) {
     const month = String(item.deadline).slice(0, 7);
     timelineMonths.set(month, [...(timelineMonths.get(month) || []), item]);
   }
-  const timeline = [...timelineMonths.entries()].map(([month, records]) => `<article class="timeline-month"><p>${escapeHtml(formatMonth(month))}</p><div>${records.map((item) => `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(formatDate(item.deadline))}</strong><span>${escapeHtml(item.authority?.name || "Official source")}</span><em>${escapeHtml(item.title)}</em></a>`).join("")}</div></article>`).join("");
-  const dashboardRecords = confirmed.map((item) => ({ deadline: item.deadline, title: item.title, url: item.url, authority: item.authority?.name || "Official source", stage: titleCase(item.stage), themes: (item.themes || []).map(titleCase) }));
+  const timeline = [...timelineMonths.entries()].map(([month, records]) => `<article class="timeline-month"><p>${escapeHtml(formatMonth(month))}</p><div>${records.map((item) => `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(formatDate(item.deadline))}</strong><span>${escapeHtml(item.authority?.name || "Official source")}</span><em>${escapeHtml(readerTitle(item))}</em></a>`).join("")}</div></article>`).join("");
+  const dashboardRecords = confirmed.map((item) => ({ deadline: item.deadline, title: readerTitle(item), url: item.url, authority: item.authority?.name || "Official source", stage: titleCase(item.stage), themes: readerThemes(item) }));
+  const nextHeading = confirmed.length > 5 ? "The next five decision windows" : "The next decision windows";
+  const nextDescription = confirmed.length > 5
+    ? `The five nearest dates are shown here; the full horizon below includes all ${confirmed.length} confirmed upcoming dates.`
+    : "Each card leads to the primary record. It does not imply that the item applies to every organisation.";
 
   return `<!doctype html>
 <html lang="en">
@@ -77,10 +99,10 @@ function renderPreview({ register, changes, editorial }) {
   <body>
     <header class="top"><div class="shell"><span class="brand">ST GEORGES STRATEGY</span><nav class="nav" aria-label="Dashboard sections"><a href="#next">Next up</a><a href="#timeline">Timeline</a><a href="#horizon">Full horizon</a></nav><span class="preview">Private product preview · not published</span></div></header>
     <main class="shell">
-      <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day evidence window · official sources only</p></div><aside class="hero-note"><p class="eyebrow">${escapeHtml(weeklyWatch?.label || "This week’s picture")}</p><p>${escapeHtml(weeklyWatch?.text || `${dueIn30.length} confirmed dates fall within the next 30 days, across ${authorities.size} authorities.`)}</p></aside></section>
+      <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day source review · confirmed dates only, not a complete regulatory calendar</p></div><aside class="hero-note"><p class="eyebrow">${escapeHtml(weeklyWatch?.label || "This week’s picture")}</p><p>${escapeHtml(weeklyWatch?.text || `${dueIn30.length} confirmed dates fall within the next 30 days, across ${authorities.size} authorities.`)}</p></aside></section>
       <section class="metric-grid" aria-label="Regulatory Horizon overview"><article class="metric"><span>Confirmed dates</span><strong>${escapeHtml(String(confirmed.length))}</strong><p>Future dates retained with primary-source evidence.</p></article><article class="metric"><span>Next 30 days</span><strong>${escapeHtml(String(dueIn30.length))}</strong><p>Dates that should already have an owner or a monitoring decision.</p></article><article class="metric"><span>Authorities represented</span><strong>${escapeHtml(String(authorities.size))}</strong><p>Official bodies behind the confirmed current horizon.</p></article></section>
       <section class="change-strip" aria-label="Changes since last review"><p class="eyebrow">Change since last review</p><p>${escapeHtml(changeSummary)}</p></section>
-      <section class="section" id="next"><div class="section-head"><div><p class="eyebrow">Calendar ahead</p><h2>The next decision windows</h2></div><p>Each card leads to the primary record. It does not imply that the item applies to every organisation.</p></div><div class="deadline-grid">${deadlineCards || '<article class="deadline-card"><h3>No confirmed future dates are currently available.</h3></article>'}</div></section>
+      <section class="section" id="next"><div class="section-head"><div><p class="eyebrow">Calendar ahead</p><h2>${escapeHtml(nextHeading)}</h2></div><p>${escapeHtml(nextDescription)}</p></div><div class="deadline-grid">${deadlineCards || '<article class="deadline-card"><h3>No confirmed future dates are currently available.</h3></article>'}</div></section>
       <section class="section" id="timeline"><div class="section-head"><div><p class="eyebrow">Horizon timeline</p><h2>When the current agenda lands</h2></div><p>A time view of all confirmed dates, so near-term decisions do not obscure what is coming next.</p></div><div class="timeline">${timeline || '<article class="timeline-month"><p>No future dates</p></article>'}</div></section>
       <section class="section" id="horizon"><div class="section-head"><div><p class="eyebrow">Full horizon</p><h2>Confirmed upcoming dates</h2></div><p>Use this as a clear starting point for discussion, ownership and evidence—not as a substitute for legal or regulatory advice.</p></div><div class="filters" aria-label="Horizon filters"><select id="window-filter"><option value="all">All time windows</option><option value="30">Next 30 days</option><option value="90">Next 90 days</option><option value="beyond">Beyond 90 days</option></select><select id="authority-filter"><option value="all">All authorities</option></select><select id="stage-filter"><option value="all">All stages</option></select></div><p class="filter-note" id="filter-note"></p><div class="table-wrap"><table><thead><tr><th>Due</th><th>Official item</th><th>Authority</th><th>Stage</th></tr></thead><tbody id="full-horizon-rows">${tableRows || '<tr><td colspan="4">No confirmed future dates are currently available.</td></tr>'}</tbody></table></div></section>
       <p class="footer">Every date links directly to its official source. This private preview has not been released to the public site.</p>
@@ -90,6 +112,8 @@ function renderPreview({ register, changes, editorial }) {
       (() => {
         const data = JSON.parse(document.getElementById("horizon-preview-data").textContent);
         const asOf = new Date(data.asOf + "T00:00:00Z");
+        const todayUtc = () => { const now=new Date(); return Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()); };
+        const countdown = (deadline) => { const days=Math.round((new Date(deadline+"T00:00:00Z").valueOf()-todayUtc())/86400000); return days===0?"today":days===1?"1 day":days>1?days+" days":Math.abs(days)===1?"1 day ago":Math.abs(days)+" days ago"; };
         const qs = (id) => document.getElementById(id);
         const esc = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => { if (char === "&") return "&amp;"; if (char === "<") return "&lt;"; if (char === ">") return "&gt;"; if (char === "'") return "&#039;"; return "&quot;"; });
         const date = (value) => new Intl.DateTimeFormat("en-GB", { day:"numeric", month:"short", year:"numeric", timeZone:"UTC" }).format(new Date(value + "T00:00:00Z"));
@@ -97,6 +121,7 @@ function renderPreview({ register, changes, editorial }) {
         [...new Set(data.records.map((row) => row.authority))].sort().forEach((value) => authority.insertAdjacentHTML("beforeend", '<option value="'+esc(value)+'">'+esc(value)+'</option>'));
         [...new Set(data.records.map((row) => row.stage))].sort().forEach((value) => stage.insertAdjacentHTML("beforeend", '<option value="'+esc(value)+'">'+esc(value)+'</option>'));
         function renderRows() { const filtered = data.records.filter((row) => { const days = Math.round((new Date(row.deadline + "T00:00:00Z") - asOf) / 86400000); const windowMatch = windowFilter.value === "all" || (windowFilter.value === "30" && days <= 30) || (windowFilter.value === "90" && days <= 90) || (windowFilter.value === "beyond" && days > 90); return windowMatch && (authority.value === "all" || row.authority === authority.value) && (stage.value === "all" || row.stage === stage.value); }); qs("filter-note").textContent = filtered.length + " confirmed date" + (filtered.length === 1 ? "" : "s") + " shown"; qs("full-horizon-rows").innerHTML = filtered.length ? filtered.map((row) => '<tr><td><strong>'+esc(date(row.deadline))+'</strong></td><td><a href="'+esc(row.url)+'" target="_blank" rel="noreferrer">'+esc(row.title)+'</a><span>'+esc(row.themes.join(" · ") || row.stage)+'</span></td><td>'+esc(row.authority)+'</td><td>'+esc(row.stage)+'</td></tr>').join("") : '<tr><td colspan="4">No confirmed dates match these filters.</td></tr>'; }
+        document.querySelectorAll("[data-deadline]").forEach((node) => { node.textContent=countdown(node.dataset.deadline); });
         [windowFilter, authority, stage].forEach((control) => control.addEventListener("change", renderRows)); renderRows();
       })();
     </script>

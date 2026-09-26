@@ -2741,6 +2741,97 @@ a.tag:hover {
   .reading-progress::after, .theme-rule::after { transition: none; }
 }
 
+@media print {
+  @page { margin: 14mm; }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  .site-banner,
+  .ticker,
+  .subscribe-band,
+  .footer,
+  .button-row,
+  .reading-progress,
+  .reading-section-label,
+  .question-copy {
+    display: none !important;
+  }
+
+  .hero,
+  .band-navy,
+  .deep-dive-conclusion,
+  .home-deep-dive {
+    min-height: 0;
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  .hero::before,
+  .hero::after,
+  .hero img {
+    display: none;
+  }
+
+  .hero *,
+  .band-navy *,
+  .deep-dive-conclusion *,
+  .home-deep-dive * {
+    color: #000 !important;
+  }
+
+  .page,
+  .hero-content {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .masthead,
+  .band,
+  .home-judgement,
+  .card,
+  .brief-card,
+  .signal-card,
+  .archive-card,
+  .committee-question-card {
+    border-color: #777;
+    box-shadow: none !important;
+  }
+
+  .brief-scan + .band,
+  .masthead + .committee-current {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .brief-index li,
+  .card,
+  .brief-card,
+  .signal-card,
+  .archive-card,
+  .committee-question-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--mono);
+    font-size: 8pt;
+    overflow-wrap: anywhere;
+  }
+}
+
 @media (max-width: 1000px) {
   .hero-metrics,
   .section-heading,

@@ -145,6 +145,15 @@ function checkCurrentEditionAlignment(failures) {
     `archive should report canonical latest archive ${edition.publicationDate}`,
     failures,
   );
+  const archiveMetaCount = attr(archive, /Last updated [^<]*?(?:&middot;|·)\s*(\d+) dated editions archived so far/);
+  const archiveBriefCardCount = attr(archive, /class="archive-card archive-brief"[^>]*><p class="meta">(\d+) editions? archived, latest/);
+  assert(Boolean(archiveMetaCount), "archive should state the dated edition count", failures);
+  assert(Boolean(archiveBriefCardCount), "archive brief card should state the archived edition count", failures);
+  assert(
+    archiveMetaCount === archiveBriefCardCount,
+    "archive masthead and Weekly Brief archive card must report the same edition count",
+    failures,
+  );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
   assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png"'), "committee questions should use the shared OG card", failures);
   assert(!/Reg Horizon|regulatory-horizon/.test(committee), "committee questions should not promote withdrawn Reg Horizon", failures);

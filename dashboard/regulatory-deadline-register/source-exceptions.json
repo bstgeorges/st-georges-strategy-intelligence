@@ -5,52 +5,52 @@
     {
       "sourceId": "iosco",
       "expectedStatus": "blocked",
-      "issue": "The official IOSCO news page returned HTTP 403 in the 21 September transport recheck.",
+      "issue": "The official IOSCO news page returned HTTP 403 in the 26 September transport recheck.",
       "governance": "Do not bypass the control. The official news route remains unavailable to the scanner; retain blocked until IOSCO publishes an accessible RSS, API or collection that is independently validated.",
-      "lastChecked": "2026-09-21",
-      "transportReviewedAt": "2026-09-21",
+      "lastChecked": "2026-09-26",
+      "transportReviewedAt": "2026-09-26",
       "transportReview": "The current official news URL still returns HTTP 403 to the scanner profile; no documented alternative publication transport was found in this review.",
-      "nextCheck": "2026-09-27"
+      "nextCheck": "2026-10-03"
     },
     {
       "sourceId": "bcbs",
       "expectedStatus": "blocked",
-      "issue": "The official BCBS publications route redirected to the BIS collection and returned HTTP 403 in the 21 September transport recheck.",
+      "issue": "The official BCBS publications route redirected to the BIS collection and returned HTTP 403 in the 26 September transport recheck.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official BIS publications feed or collection is independently validated for BCBS material.",
-      "lastChecked": "2026-09-21",
-      "transportReviewedAt": "2026-09-21",
+      "lastChecked": "2026-09-26",
+      "transportReviewedAt": "2026-09-26",
       "transportReview": "The current configured page redirects to https://www.bis.org/publications/bcbs-publications and returns HTTP 403 to the scanner profile; no replacement was promoted.",
-      "nextCheck": "2026-09-27"
+      "nextCheck": "2026-10-03"
     },
     {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
-      "issue": "The official Banco Central do Brasil releases page returned a JavaScript application shell with no server-rendered rows in the 21 September transport recheck.",
+      "issue": "The official Banco Central do Brasil releases page returned no recognisable publication rows in the 26 September transport recheck.",
       "governance": "Do not infer publication dates from the shell. The authority publishes an official RSS directory, but no specific release-feed endpoint has yet been independently validated; retain degraded until that transport and its dates are proven.",
-      "lastChecked": "2026-09-21",
-      "transportReviewedAt": "2026-09-21",
-      "transportReview": "The configured releases page returned HTTP 200 but only the app shell. The official RSS directory was identified; endpoint qualification is a named next action, not an assumed fix.",
-      "nextCheck": "2026-09-27"
+      "lastChecked": "2026-09-26",
+      "transportReviewedAt": "2026-09-26",
+      "transportReview": "The configured releases page still returned no recognisable publication rows. The official RSS directory remains a lead only; endpoint qualification is a named next action, not an assumed fix.",
+      "nextCheck": "2026-10-03"
     },
     {
       "sourceId": "italy-consob",
       "expectedStatus": "blocked",
-      "issue": "The official Consob English collection and consultation routes presented an anti-bot challenge in the 21 September transport recheck.",
+      "issue": "The official Consob English collection and consultation routes presented an anti-bot challenge in the 26 September transport recheck.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official RSS, published collection or alternative transport is independently validated.",
-      "lastChecked": "2026-09-21",
-      "transportReviewedAt": "2026-09-21",
-      "transportReview": "The English collection returned HTTP 200 but an anti-bot challenge shell; no usable rows were accepted and no replacement was promoted.",
-      "nextCheck": "2026-09-27"
+      "lastChecked": "2026-09-26",
+      "transportReviewedAt": "2026-09-26",
+      "transportReview": "The English collection and consultation routes still returned anti-bot challenge shells; no usable rows were accepted and no replacement was promoted.",
+      "nextCheck": "2026-10-03"
     },
     {
       "sourceId": "south-africa-sarb",
       "expectedStatus": "failed",
-      "issue": "The official South African Reserve Bank newsroom did not complete within the scanner transport window in the 21 September recheck.",
+      "issue": "The official South African Reserve Bank newsroom did not complete within the scanner transport window in the 26 September recheck.",
       "governance": "Retain failed unless a timely official response with dated publication rows is proven. The authority's official RSS subscription page exists, but a concrete feed URL must be independently validated before the transport is changed.",
-      "lastChecked": "2026-09-21",
-      "transportReviewedAt": "2026-09-21",
-      "transportReview": "The newsroom remained unavailable to the scanner profile. No unverified RSS address was added from the subscription page.",
-      "nextCheck": "2026-09-27"
+      "lastChecked": "2026-09-26",
+      "transportReviewedAt": "2026-09-26",
+      "transportReview": "The newsroom timed out again in the scanner profile. No unverified RSS address was added from the subscription page.",
+      "nextCheck": "2026-10-03"
     }
   ]
 }

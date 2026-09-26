@@ -160,6 +160,8 @@ def main():
                         help="Fetch, score, and print JSON - but do not write any files")
     parser.add_argument("--window", type=int, default=7,
                         help="Lookback window in days (default: 7)")
+    parser.add_argument("--as-of", metavar="YYYY-MM-DD",
+                        help="Use an explicit UTC edition date for a governed rerun")
     parser.add_argument("--max-sources", type=int, default=0,
                         help="Limit source count for bounded validation runs (0 = all)")
     parser.add_argument("--source-offset", type=int, default=0,
@@ -174,7 +176,13 @@ def main():
     if args.source_offset or args.max_sources > 0:
         end = args.source_offset + args.max_sources if args.max_sources > 0 else None
         sources_by_id = dict(source_items[args.source_offset:end])
-    generated_at = datetime.now(timezone.utc)
+    if args.as_of:
+        try:
+            generated_at = datetime.strptime(args.as_of, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            parser.error("--as-of must be YYYY-MM-DD")
+    else:
+        generated_at = datetime.now(timezone.utc)
     edition = generated_at.date().isoformat()
     cutoff = generated_at - timedelta(days=args.window)
 

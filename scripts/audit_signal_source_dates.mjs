@@ -183,12 +183,17 @@ function collectDates(html, finalUrl) {
   for (const [source, pattern] of metaPatterns) addCandidate(candidates, normalizeDate(textOfTag(html, pattern)), source);
   collectJsonLdDates(html, candidates);
 
-  for (const match of html.matchAll(DATE_RE)) addCandidate(candidates, match[1], "body.iso");
+  const isLastUpdateDate = (index) => /\b(?:last|latest)\s+(?:updated|update|modified)\b/i.test(html.slice(Math.max(0, index - 96), index + 24));
+  for (const match of html.matchAll(DATE_RE)) {
+    if (!isLastUpdateDate(match.index)) addCandidate(candidates, match[1], "body.iso");
+  }
   for (const match of html.matchAll(HUMAN_DATE_RE)) {
+    if (isLastUpdateDate(match.index)) continue;
     const month = MONTHS[match[2].toLowerCase()];
     if (month) addCandidate(candidates, `${match[3]}-${month}-${match[1].padStart(2, "0")}`, "body.human");
   }
   for (const match of html.matchAll(HUMAN_MONTH_FIRST_DATE_RE)) {
+    if (isLastUpdateDate(match.index)) continue;
     const month = MONTHS[match[1].toLowerCase()];
     if (month) addCandidate(candidates, `${match[3]}-${month}-${match[2].padStart(2, "0")}`, "body.month-first");
   }

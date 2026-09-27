@@ -267,6 +267,7 @@ function checkLocalLinks(failures) {
 function main() {
   const failures = [];
   const edition = readSourceJson("data/current-edition.json");
+  const signals = readSourceJson("data/signals.json");
   assert(fs.existsSync(path.join(SITE, "assets", "hero.svg")), "hero.svg missing from the public bundle", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "favicon.svg")), "favicon.svg missing from the public bundle", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "og-card.png")), "og-card.png missing from the public bundle", failures);
@@ -311,10 +312,12 @@ function main() {
 
   for (const topic of topics) {
     const html = read(`signals/${topic}/index.html`);
+    const topicData = (signals.topics || []).find((item) => item.id === topic) || {};
+    const expectedShortlistCount = Number.isInteger(topicData.shortlistCount) ? topicData.shortlistCount : 5;
     const top5 = (html.match(/<aside class="display-card">[\s\S]*?<ul class="mini-list">([\s\S]*?)<\/ul>/) || [])[1] || "";
     const stillMaterial = (html.match(/<ol class="brief-index evidence-list still-material-list">([\s\S]*?)<\/ol>/) || [])[1] || "";
-    assert(count(/<li(?:\s|>)/g, top5) === 5, `${topic} should have 5 Top 5 rows`, failures);
-    assert(count(/top-source/g, top5) === 5, `${topic} should have 5 Top 5 source labels`, failures);
+    assert(count(/<li(?:\s|>)/g, top5) === expectedShortlistCount, `${topic} should have ${expectedShortlistCount} current shortlist rows`, failures);
+    assert(count(/top-source/g, top5) === expectedShortlistCount, `${topic} should have ${expectedShortlistCount} current shortlist source labels`, failures);
     const retainedCount = count(/<li(?:\s|>)/g, stillMaterial);
     assert(retainedCount >= 3 && retainedCount <= 7, `${topic} should have 3–7 still-material rows`, failures);
     assert(!stillMaterial.includes('class="rank"'), `${topic} still-material rows should not be ranked`, failures);

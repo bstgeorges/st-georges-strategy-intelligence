@@ -95,7 +95,7 @@ function checkCurrentEditionAlignment(failures) {
   const about = read("about/index.html");
   const signals = readJson("data/signals.json");
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
-  const briefEditionLabel = `Weekly brief / ${formatDateLong(edition.publicationDate)}`;
+  const briefEditionLabel = `Weekly Brief / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
   const committeeEditionLabel = `Edition date ${formatDateLong(edition.publicationDate)}`;
   const expectedTopSignals = (edition.topSignals || []).map((signal) => signal.title);
 
@@ -126,6 +126,8 @@ function checkCurrentEditionAlignment(failures) {
   assert(home.includes('href="/regulatory-horizon/"'), "home navigation must expose Reg Horizon", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
+  assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
+  assert(committee.includes('href="/signals/market-structure/"'), "committee questions must route market-structure prompts to their signal page", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);
   assert(home.includes("What should a leadership team get ahead of this week?"), "home should use its distinct, reader-led entry headline", failures);
   for (const field of ["title", "observation", "executiveJudgement", "implication"]) {
@@ -155,6 +157,15 @@ function checkCurrentEditionAlignment(failures) {
   assert(
     archiveMetaCount === archiveBriefCardCount,
     "archive masthead and Weekly Brief archive card must report the same edition count",
+    failures,
+  );
+  const deepDiveArchiveSlugs = Array.from(
+    archive.matchAll(/href="\/deep-dives\/([^/]+)\/archive\/[^/]+\//g),
+    (match) => match[1],
+  );
+  assert(
+    new Set(deepDiveArchiveSlugs).size === deepDiveArchiveSlugs.length,
+    "archive index must show only the latest archived card for each Deep Dive",
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
@@ -265,6 +276,8 @@ function main() {
   const styles = read("styles.css");
   assert(styles.includes("@media print"), "stylesheet must provide an executive print treatment", failures);
   assert(styles.includes("--muted: #5e5849"), "muted text must meet the AA contrast target", failures);
+  assert(styles.includes("main + .subscribe-band + .footer"), "subscribe band must connect directly to the footer without a blank gap", failures);
+  assert(styles.includes("clamp(196px, 18vh, 238px)"), "home hero must reserve space for its metrics strip", failures);
 
   const publicMarkdown = [];
   function findMarkdown(dir) {
@@ -346,6 +359,8 @@ function main() {
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
+  assert(signalsHub.includes("Top 5 for this edition") && !signalsHub.includes("Top 5 refreshed"), "Signals hub must describe the current Top 5 accurately", failures);
+  assert(!signalsHub.includes("reviewed each edition"), "Signals hub must not claim stale retained rows were reviewed this edition", failures);
   assert(signalsHub.includes("How we use evidence"), "Signals hub missing concise public source standard", failures);
   assert(signalsHub.includes("Primary sources") && signalsHub.includes("Paper-level review"), "Signals hub missing public evidence principles", failures);
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
@@ -359,13 +374,21 @@ function main() {
     "Weekly Brief is missing its compact current-edition readout",
     failures,
   );
-  assert(!/How the eight streams fed the issue|Three questions from the week|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage, committee, or idea-development sections", failures);
-  assert(signalsHub.includes(`Signals / Edition ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must use the long display format", failures);
+  assert(briefPage.includes("Where the dependency sits") && briefPage.includes("Three questions from the week"), "Weekly Brief must retain its analysis and executive challenge", failures);
+  assert(!/How the eight streams fed the issue|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage or idea-development sections", failures);
+  assert(signalsHub.includes(`Signals / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must include both edition number and long display date", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
   assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
   assert(horizonPage.includes("What is moving — and what is next."), "published Reg Horizon page missing its reader-led purpose", failures);
   assert(horizonPage.includes(`Updated ${formatDateLong(horizon.edition)}`), "Reg Horizon page must identify its edition date", failures);
+  const dueSoon = (horizon.confirmedDates || []).filter((entry) => {
+    const days = (Date.parse(entry.deadline) - Date.parse(horizon.edition)) / 86_400_000;
+    return days >= 0 && days <= 30;
+  });
+  const dueSoonAuthorities = new Set(dueSoon.map((entry) => entry.authority));
+  const horizonPicture = `${dueSoon.length} confirmed date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
+  assert(horizonPage.includes(horizonPicture), "Reg Horizon weekly picture must match the confirmed-date register", failures);
   assert(horizonPage.includes('href="/styles.css"'), "Reg Horizon must use the shared site stylesheet", failures);
   assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
   assert(horizonPage.includes('class="footer"'), "Reg Horizon must use the shared site footer", failures);

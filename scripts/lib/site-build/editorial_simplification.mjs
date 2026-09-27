@@ -40,14 +40,13 @@ function removeBandByEyebrow(html, eyebrow) {
  * reader's first pass through the weekly edition.
  */
 export function simplifyBriefExperience(html) {
-  const compact = removeSectionById(
-    removeSectionById(html, "brief-supporting-analysis"),
-    "brief-evidence-watch",
-  );
+  // Keep the analysis and executive questions: they provide the useful
+  // interpretation and challenge that distinguish the current edition from a
+  // bare list of links. Remove only the lower-priority supporting modules.
+  const compact = removeSectionById(html, "brief-evidence-watch");
   return [
     "Coverage read",
     "Control lessons",
-    "Executive challenge",
     "Thought leadership radar",
     "Reg Horizon",
   ].reduce((result, eyebrow) => removeBandByEyebrow(result, eyebrow), compact);

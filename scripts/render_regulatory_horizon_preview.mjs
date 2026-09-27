@@ -46,9 +46,9 @@ function readerTitle(item) {
 
 function readerThemes(item) {
   if (item?.themes?.length) return item.themes.map(titleCase);
-  if (item?.authority?.id === "hkma" && /Systemically Important Banks/.test(item?.title || "")) return ["Balance sheet"];
-  if (item?.authority?.id === "hkma" && /Hong Kong Taxonomy/.test(item?.title || "")) return ["Market plumbing"];
-  if (item?.authority?.id === "uk-boe-pra" && /friendly society/i.test(item?.title || "")) return ["Balance sheet"];
+  if (item?.authority?.id === "hkma" && /Systemically Important Banks/.test(item?.title || "")) return ["Balance Sheet"];
+  if (item?.authority?.id === "hkma" && /Hong Kong Taxonomy/.test(item?.title || "")) return ["Market Plumbing"];
+  if (item?.authority?.id === "uk-boe-pra" && /friendly society/i.test(item?.title || "")) return ["Balance Sheet"];
   return [titleCase(item?.stage)];
 }
 
@@ -60,7 +60,9 @@ function renderPreview({ register, changes, editorial }) {
     .sort((a, b) => String(a.deadline).localeCompare(String(b.deadline)));
   const dueIn30 = confirmed.filter((item) => (new Date(`${item.deadline}T00:00:00Z`).valueOf() - asOfTime) / 86400000 <= 30);
   const authorities = new Set(confirmed.map((item) => item.authority?.name).filter(Boolean));
+  const dueIn30Authorities = new Set(dueIn30.map((item) => item.authority?.name).filter(Boolean));
   const weeklyWatch = editorial?.sourceEdition === asOf ? editorial.weeklyWatch : null;
+  const weeklyWatchText = `${dueIn30.length} confirmed date${dueIn30.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueIn30Authorities.size} authorit${dueIn30Authorities.size === 1 ? "y" : "ies"}.`;
   const additions = changes?.additions || [];
   const revisedDates = changes?.revisedDates || [];
   const reconfirmed = changes?.reconfirmed || [];
@@ -107,7 +109,7 @@ function renderPreview({ register, changes, editorial }) {
   <body>
     <header class="top"><div class="shell"><span class="brand">ST GEORGES STRATEGY</span><nav class="nav" aria-label="Dashboard sections"><a href="#next">Next up</a><a href="#timeline">Timeline</a><a href="#horizon">Full horizon</a></nav><span class="preview">Private product preview · not published</span></div></header>
     <main class="shell">
-      <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day source review · confirmed dates only, not a complete regulatory calendar</p></div><aside class="hero-note"><p class="eyebrow">${escapeHtml(weeklyWatch?.label || "This week’s picture")}</p><p>${escapeHtml(weeklyWatch?.text || `${dueIn30.length} confirmed dates fall within the next 30 days, across ${authorities.size} authorities.`)}</p></aside></section>
+      <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day source review · confirmed dates only, not a complete regulatory calendar</p></div><aside class="hero-note"><p class="eyebrow">${escapeHtml(weeklyWatch?.label || "This week’s picture")}</p><p>${escapeHtml(weeklyWatchText)}</p></aside></section>
       <section class="metric-grid" aria-label="Regulatory Horizon overview"><article class="metric"><span>Confirmed dates</span><strong>${escapeHtml(String(confirmed.length))}</strong><p>Future dates retained with primary-source evidence.</p></article><article class="metric"><span>Next 30 days</span><strong>${escapeHtml(String(dueIn30.length))}</strong><p>Dates that should already have an owner or a monitoring decision.</p></article><article class="metric"><span>Authorities represented</span><strong>${escapeHtml(String(authorities.size))}</strong><p>Official bodies behind the confirmed current horizon.</p></article></section>
 ${changeStrip}
       <section class="section" id="next"><div class="section-head"><div><p class="eyebrow">Calendar ahead</p><h2>${escapeHtml(nextHeading)}</h2></div><p>${escapeHtml(nextDescription)}</p></div><div class="deadline-grid">${deadlineCards || '<article class="deadline-card"><h3>No confirmed future dates are currently available.</h3></article>'}</div></section>

@@ -129,6 +129,8 @@ function escapeXml(value) {
 }
 const ALLOWED_SOURCE_TYPES = new Set([
   "regulator",
+  "public authority",
+  "international standard setter",
   "company announcement",
   "research",
   "financial reporting",
@@ -222,7 +224,7 @@ function buildSubscribeSection() {
         <div class="subscribe-inner">
           <p class="eyebrow">Weekly, direct</p>
           <h2>Get the brief before it's on the site</h2>
-          <p class="dek">One email a week. The so-what, the Top 5, and the board question - nothing else.</p>
+          <p class="dek">One email a week. The so-what, the Top 5, and the board question — nothing else.</p>
           <div class="subscribe-embed">
             <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d75a8e0a-2d7c-467f-87c1-a2e3a86d4ba1"></script>
           </div>
@@ -1132,6 +1134,13 @@ function renderCurrentEditionExperience(out, editionRecord, horizonData) {
   if (rendered.committeeHtml) write(committeeFile, rendered.committeeHtml);
 }
 
+function simplifyPublicEditorialSurfaces(out) {
+  const brief = path.join(out, "brief", "index.html");
+  if (fs.existsSync(brief)) {
+    fs.writeFileSync(brief, simplifyBriefExperience(fs.readFileSync(brief, "utf8")));
+  }
+}
+
 function validatePromotionSummary(failures) {
   if (!fs.existsSync(PROMOTION_SUMMARY_INPUT)) return;
   const summary = readJson(PROMOTION_SUMMARY_INPUT);
@@ -1249,6 +1258,14 @@ function listDeepDiveArchiveEntries(maxDate = "") {
     }
   }
   return entries.sort((left, right) => `${right.date}/${right.slug}`.localeCompare(`${left.date}/${left.slug}`));
+}
+
+function listLatestDeepDiveArchiveEntries(maxDate = "") {
+  const latestBySlug = new Map();
+  for (const entry of listDeepDiveArchiveEntries(maxDate)) {
+    if (!latestBySlug.has(entry.slug)) latestBySlug.set(entry.slug, entry);
+  }
+  return [...latestBySlug.values()];
 }
 
 // Freezes this edition's brief and topic pages into a persistent, git-tracked store
@@ -1493,7 +1510,9 @@ function updateArchiveIndexCards(out, edition) {
   }
 
   const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
-  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+  // The archive hub is an index of distinct pieces, not a changelog of their
+  // snapshots. Keep older snapshots addressable but show one card per piece.
+  for (const { slug, date } of listLatestDeepDiveArchiveEntries(edition)) {
     const title = currentDeepDive?.slug === slug && date === edition
       ? readJson(EDITION_INPUT).deepDive.title
       : `Deep Dive — ${slug.replace(/-/g, " ")}`;
@@ -1561,8 +1580,11 @@ function updateHomepageEditionLine(out, edition) {
   write(file, updated);
 }
 
-function updateLiveEditionDateLabels(out, edition) {
+function updateLiveEditionDateLabels(out, edition, editionRecord) {
   const label = formatDateLong(edition);
+  const briefLabel = editionRecord?.editionNumber
+    ? `Weekly Brief / ${editionRecord.editionNumber} · ${label}`
+    : `Weekly Brief / ${label}`;
 
   const briefFile = path.join(out, "brief", "index.html");
   if (fs.existsSync(briefFile)) {
@@ -1570,8 +1592,8 @@ function updateLiveEditionDateLabels(out, edition) {
     write(
       briefFile,
       html.replace(
-        /<p class="eyebrow">Weekly brief \/ Week of [^<]+<\/p>/,
-        `<p class="eyebrow">Weekly brief / ${escapeHtml(label)}</p>`,
+        /<p class="eyebrow">Weekly brief \/ [^<]+<\/p>/i,
+        `<p class="eyebrow">${escapeHtml(briefLabel)}</p>`,
       ),
     );
   }
@@ -1689,8 +1711,7 @@ function extractLockedSection(html, key) {
 function normaliseLiveBriefEditionLabelForLock(text, editionRecord) {
   if (!editionRecord) return text;
   const weekLabel = `Weekly brief / Week of ${formatDateLong(editionRecord.weekOf)}`;
-  const publicationLabel = `Weekly brief / ${formatDateLong(editionRecord.publicationDate)}`;
-  return text.replace(publicationLabel, weekLabel);
+  return text.replace(/Weekly [Bb]rief \/ [^<\n]+/, weekLabel);
 }
 
 function verifyLockedSections(out, failures, editionRecord = null) {
@@ -2439,7 +2460,7 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
       const retainedCount = getStillMaterialRows(topic).length;
-      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 refreshed · ${retainedCount} still material ${renderFreshnessTicks(retainedCount)}</span></a>`;
+      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 for this edition · ${retainedCount} still material ${renderFreshnessTicks(retainedCount)}</span></a>`;
     })
     .join("\n          ");
   const weeklyRows = (editionRecord?.topSignals || [])
@@ -2452,14 +2473,14 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
   const replacement = `<!-- publisher-lock:start:signals-editorial -->
       <section class="signals-hub-hero">
         <div>
-          <p class="eyebrow">Signals / Edition ${escapeHtml(formatDateLong(signalsData.edition))}</p>
+          <p class="eyebrow">Signals / ${escapeHtml(editionRecord?.editionNumber || "Current edition")} · ${escapeHtml(formatDateLong(signalsData.edition))}</p>
           <h1>What is moving now—and what still matters</h1>
           <p class="dek">A weekly editorial view of the five developments with the greatest current weight, supported by a curated memory of signals that remain relevant over the following three to six months.</p>
         </div>
         <aside class="signals-window-note">
           <span class="meta">How to read this edition</span>
           <strong>Freshness first. Memory where it earns its place.</strong>
-          <p>Top 5 lists are refreshed weekly. Still-material signals are unranked, reviewed each edition, and removed when they no longer change a live leadership or control question.</p>
+          <p>Top 5 lists are curated for each edition. Still-material signals are unranked, carry their latest review date, and are removed when they no longer change a live leadership or control question.</p>
         </aside>
       </section>
 
@@ -2506,11 +2527,6 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
     .replace(/Top 5 shortlist\. Additional evidence by topic\./g, "Top 5 this week. Curated memory by topic.");
   html = simplifySignalsExperience(html);
   write(file, html);
-}
-
-function simplifyPublicEditorialSurfaces(out) {
-  const brief = path.join(out, "brief", "index.html");
-  if (fs.existsSync(brief)) write(brief, simplifyBriefExperience(read(brief)));
 }
 
 function generateSignalsJson(out, data) {
@@ -2900,6 +2916,7 @@ async function main() {
   renderCanonicalTopSignals(options.out, editionRecord);
   renderHomepageJudgement(options.out, editionRecord);
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
+  simplifyPublicEditorialSurfaces(options.out);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
   // its root-absolute form when the link target already exists on disk. Without this
@@ -2909,9 +2926,8 @@ async function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
-  simplifyPublicEditorialSurfaces(options.out);
   renderSignalDecisionFramework(options.out, signalsData);
-  updateLiveEditionDateLabels(options.out, edition);
+  updateLiveEditionDateLabels(options.out, edition, editionRecord);
   updateCurrentStructuredDataDates(options.out, edition);
   updateCurrentStructuredData(options.out, editionRecord);
   updateHomepageEditionLine(options.out, edition);

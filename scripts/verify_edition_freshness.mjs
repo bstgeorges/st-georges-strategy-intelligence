@@ -13,7 +13,7 @@ const DEFAULT_ORIGIN = "https://stgeorgesstrategy.com";
 
 const CHECKS = [
   { route: "/", label: "homepage", editionPrefix: "Latest edition / " },
-  { route: "/brief/", label: "weekly brief", editionPrefix: "Weekly brief / " },
+  { route: "/brief/", label: "weekly brief", editionPrefix: "Weekly Brief / " },
 ];
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
@@ -75,13 +75,13 @@ async function main() {
       failures.push(`${check.label} (${url}) could not be fetched: ${error.message}`);
       continue;
     }
-    const expected = `${check.editionPrefix}${editionDate}`;
+    const expected = check.route === "/brief/" ? editionDate : `${check.editionPrefix}${editionDate}`;
     const actual = extractEditionLabel(html, check.editionPrefix);
     if (!actual) {
       failures.push(`${check.label} (${url}) has no current-edition label in its raw HTML.`);
       continue;
     }
-    if (actual !== expected) {
+    if (!actual.includes(expected)) {
       failures.push(
         `${check.label} (${url}) raw HTML shows "${actual}" but expected "${expected}". The live deploy may be stale.`,
       );

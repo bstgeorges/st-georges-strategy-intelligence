@@ -42,6 +42,8 @@ const REQUIRED_EVIDENCE_FIELDS = [
 ];
 const ALLOWED_SOURCE_TYPES = new Set([
   "regulator",
+  "public authority",
+  "international standard setter",
   "company announcement",
   "research",
   "financial reporting",

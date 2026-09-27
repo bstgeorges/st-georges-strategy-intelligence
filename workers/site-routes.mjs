@@ -47,7 +47,10 @@ function redirectLegacyHost(url) {
   const { pathname } = url;
   if (pathname === "/" || pathname === "") return redirect(url, "/brief/");
   if (pathname === "/archive" || pathname === "/archive/") return redirect(url, "/archive/");
-  if (pathname.startsWith("/archive/")) return redirect(url, `/archive/brief/${pathname.slice("/archive/".length)}`);
+  if (pathname.startsWith("/archive/")) {
+    const date = pathname.match(/^\/archive\/(\d{4}-\d{2}-\d{2})\/?$/);
+    return redirect(url, date ? `/brief/${date[1]}/` : `/archive/brief/${pathname.slice("/archive/".length)}`);
+  }
   if (pathname === "/regulatory-horizon" || pathname === "/regulatory-horizon/" || pathname.startsWith("/regulatory-horizon/")) {
     return redirect(url, "/regulatory-horizon/");
   }
@@ -58,7 +61,10 @@ function redirectApexLegacyPath(url) {
   const { pathname } = url;
   if (pathname === "/intelligence" || pathname === "/intelligence/") return redirect(url, "/brief/");
   if (pathname === "/intelligence/archive" || pathname === "/intelligence/archive/") return redirect(url, "/archive/");
-  if (pathname.startsWith("/intelligence/archive/")) return redirect(url, `/archive/brief/${pathname.slice("/intelligence/archive/".length)}`);
+  if (pathname.startsWith("/intelligence/archive/")) {
+    const date = pathname.match(/^\/intelligence\/archive\/(\d{4}-\d{2}-\d{2})\/?$/);
+    return redirect(url, date ? `/brief/${date[1]}/` : `/archive/brief/${pathname.slice("/intelligence/archive/".length)}`);
+  }
   if (pathname === "/ai-signals" || pathname === "/ai-signals/") return redirect(url, "/signals/ai/");
   if (pathname === "/ai-signals/archive" || pathname === "/ai-signals/archive/") return redirect(url, "/archive/");
   if (pathname.startsWith("/ai-signals/archive/")) return redirect(url, `/signals/ai/archive/${pathname.slice("/ai-signals/archive/".length)}`);
@@ -88,6 +94,11 @@ function isArchivedDirectory(pathname) {
   return Boolean(match && TOPICS.has(match[1]));
 }
 
+function briefEditionDate(pathname) {
+  const match = pathname.match(/^\/brief\/(\d{4}-\d{2}-\d{2})\/?$/);
+  return match ? match[1] : "";
+}
+
 function isDeepDiveDirectory(pathname) {
   return /^\/deep-dives\/[a-z0-9]+(?:-[a-z0-9]+)*(?:\/archive\/\d{4}-\d{2}-\d{2})?$/.test(pathname);
 }
@@ -105,6 +116,13 @@ export function resolveRedirect(requestUrl) {
 
   const legacy = redirectApexLegacyPath(url);
   if (legacy) return legacy;
+
+  // The dated edition is the search and citation URL. Keep the former archive
+  // location working, but consolidate it onto that immutable record.
+  const archivedBrief = url.pathname.match(/^\/archive\/brief\/(\d{4}-\d{2}-\d{2})\/?$/);
+  if (archivedBrief) return redirect(url, `/brief/${archivedBrief[1]}/`);
+  const editionDate = briefEditionDate(url.pathname);
+  if (editionDate && !url.pathname.endsWith("/")) return redirect(url, `/brief/${editionDate}/`);
 
   if (url.pathname === "/index.html") return redirect(url, "/");
   if (DIRECTORY_PATHS.has(url.pathname) || isArchivedDirectory(url.pathname) || isDeepDiveDirectory(url.pathname)) {

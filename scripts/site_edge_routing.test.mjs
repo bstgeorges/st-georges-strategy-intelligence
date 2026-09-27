@@ -22,7 +22,11 @@ test("legacy route mappings retain the established destinations", () => {
     status: 301,
   });
   assert.deepEqual(resolveRedirect("https://intelligence.stgeorgesstrategy.com/regulatory-horizon/"), {
-    location: "https://stgeorgesstrategy.com/archive/",
+    location: "https://stgeorgesstrategy.com/regulatory-horizon/",
+    status: 301,
+  });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/intelligence/regulatory-horizon/archive/2026-09-27.html"), {
+    location: "https://stgeorgesstrategy.com/regulatory-horizon/",
     status: 301,
   });
 });
@@ -44,6 +48,11 @@ test("current directories are canonicalised and normal asset paths are not inter
     location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/",
     status: 301,
   });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/regulatory-horizon"), {
+    location: "https://stgeorgesstrategy.com/regulatory-horizon/",
+    status: 301,
+  });
+  assert.equal(resolveRedirect("https://stgeorgesstrategy.com/regulatory-horizon/"), null);
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20"), {
     location: "https://stgeorgesstrategy.com/deep-dives/future-control-review/archive/2026-09-20/",
     status: 301,

@@ -19,6 +19,7 @@ const DIRECTORY_PATHS = new Set([
   "/committee-questions",
   "/deep-dives",
   "/deep-dives/harness-problem",
+  "/regulatory-horizon",
   "/signals",
   "/signals/ai",
   "/signals/resilience",
@@ -48,7 +49,7 @@ function redirectLegacyHost(url) {
   if (pathname === "/archive" || pathname === "/archive/") return redirect(url, "/archive/");
   if (pathname.startsWith("/archive/")) return redirect(url, `/archive/brief/${pathname.slice("/archive/".length)}`);
   if (pathname === "/regulatory-horizon" || pathname === "/regulatory-horizon/" || pathname.startsWith("/regulatory-horizon/")) {
-    return redirect(url, "/archive/");
+    return redirect(url, "/regulatory-horizon/");
   }
   return redirect(url, "/brief/");
 }
@@ -73,10 +74,7 @@ function redirectApexLegacyPath(url) {
     pathname === "/thevirtualofficer/regulatory-horizon/" ||
     pathname.startsWith("/thevirtualofficer/regulatory-horizon/")
   ) {
-    return redirect(url, "/archive/");
-  }
-  if (pathname === "/regulatory-horizon" || pathname === "/regulatory-horizon/" || pathname.startsWith("/regulatory-horizon/")) {
-    return redirect(url, "/archive/");
+    return redirect(url, "/regulatory-horizon/");
   }
   if (pathname.startsWith("/intelligence")) return redirect(url, "/brief/");
   if (pathname.startsWith("/ai-signals")) return redirect(url, "/signals/ai/");

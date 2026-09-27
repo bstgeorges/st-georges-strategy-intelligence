@@ -366,6 +366,10 @@ function main() {
   assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
   assert(horizonPage.includes("What is moving — and what is next."), "published Reg Horizon page missing its reader-led purpose", failures);
   assert(horizonPage.includes(`Updated ${formatDateLong(horizon.edition)}`), "Reg Horizon page must identify its edition date", failures);
+  assert(horizonPage.includes('href="/styles.css"'), "Reg Horizon must use the shared site stylesheet", failures);
+  assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
+  assert(horizonPage.includes('class="footer"'), "Reg Horizon must use the shared site footer", failures);
+  assert(!horizonPage.includes('class="top"'), "Reg Horizon must not retain its standalone preview header", failures);
   assert(!horizonPage.includes("Change since last review"), "first Reg Horizon edition must not imply a prior public comparison", failures);
   for (const entry of horizon.confirmedDates || []) {
     assert(horizonPage.includes(entry.url), `published Reg Horizon page missing confirmed date source: ${entry.url}`, failures);

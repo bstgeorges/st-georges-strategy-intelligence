@@ -469,9 +469,85 @@ function publicHorizonHtml(html, edition, { archive = false } = {}) {
     <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Regulatory Horizon", "author": {"@type": "Person", "name": "Ben St Georges", "email": "ben@stgeorgesstrategy.com"}, "publisher": {"@type": "Organization", "name": "St Georges Strategy"}, "datePublished": "${edition}", "dateModified": "${edition}", "mainEntityOfPage": {"@type": "WebPage", "@id": "${canonical}"}}</script>`;
   const archiveLink = archive ? "" : ` <a href="/regulatory-horizon/archive/${edition}.html">Open the frozen edition.</a>`;
+  // The Horizon began as a standalone product preview. Keep its distinct data
+  // layout, but use the public site's shared shell so readers do not move into
+  // a different brand, navigation or accessibility experience on this route.
+  const sharedHeader = `    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="/" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/brief/">Weekly Brief</a>
+          <a href="/signals/">Signals</a>
+          <a href="/regulatory-horizon/" aria-current="page">Reg Horizon</a>
+          <a href="/deep-dives/">Deep Dives</a>
+          <a href="/committee-questions/">Committee Questions</a>
+          <a href="/archive/">Archive</a>
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+    </header>`;
+  const sharedFooter = `    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">Regulatory Horizon</div>
+        <div class="footer-note"><a href="/archive/">View archive</a></div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
+        </div>
+      </div>
+    </footer>`;
+  const publicStyle = `    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .horizon-public { padding-bottom: clamp(48px, 7vw, 88px); }
+      .horizon-public .horizon-public-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: clamp(32px, 6vw, 90px); align-items: end; padding: clamp(62px, 8vw, 104px) 0 clamp(42px, 6vw, 78px); border-bottom: 3px double var(--rule-strong); }
+      .horizon-public .horizon-public-hero h1 { max-width: 11ch; margin: 0; color: var(--ink); font: 700 clamp(48px, 6.5vw, 88px)/.98 var(--serif); }
+      .horizon-public .horizon-public-hero .intro { max-width: 27ch; margin: 24px 0 0; color: var(--body); font: 400 clamp(22px, 2.5vw, 32px)/1.28 var(--serif); font-style: italic; }
+      .horizon-public .horizon-public-hero .meta { margin: 24px 0 0; color: var(--muted); font: 500 11px/1.55 var(--mono); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+      .horizon-public .hero-note { padding: clamp(24px, 3vw, 34px); border-left: 3px solid var(--accent); background: var(--paper-raised); }
+      .horizon-public .hero-note p:last-child { margin: 0; color: var(--body); font-size: 18px; }
+      .horizon-public .metric-grid, .horizon-public .deadline-grid, .horizon-public .timeline { display: grid; gap: 1px; border: 1px solid var(--rule); background: var(--rule); }
+      .horizon-public .metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 34px 0 0; }
+      .horizon-public .metric, .horizon-public .deadline-card, .horizon-public .timeline-month { padding: clamp(20px, 2.4vw, 30px); background: var(--paper-raised); }
+      .horizon-public .metric { min-height: 160px; }
+      .horizon-public .metric span, .horizon-public .deadline-card .date, .horizon-public .timeline-month > p { display: block; margin: 0 0 12px; color: var(--accent-readable); font: 600 11px/1.3 var(--mono); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+      .horizon-public .metric strong { display: block; color: var(--ink); font: 700 clamp(40px, 4vw, 58px)/1 var(--serif); }
+      .horizon-public .metric p, .horizon-public .deadline-card > p:last-child, .horizon-public .timeline-month span, .horizon-public .filter-note { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+      .horizon-public .section { padding: clamp(52px, 7vw, 86px) 0; border-bottom: 1px solid var(--rule); }
+      .horizon-public .section-head { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.3fr); gap: clamp(28px, 5vw, 76px); margin-bottom: 30px; }
+      .horizon-public .section-head h2 { margin: 0; font-size: clamp(32px, 4.2vw, 58px); }
+      .horizon-public .section-head > p { max-width: 64ch; margin: 0; color: var(--muted); font-size: 18px; }
+      .horizon-public .deadline-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .horizon-public .deadline-card { min-height: 270px; border-top: 3px solid var(--navy); }
+      .horizon-public .deadline-card .days { margin: 0 0 28px; color: var(--muted); font: 500 12px/1.3 var(--mono); }
+      .horizon-public .deadline-card h3 { font-size: 23px; }
+      .horizon-public .deadline-card a, .horizon-public .timeline-month a, .horizon-public .table-wrap a { color: var(--ink); text-decoration: underline; text-decoration-color: rgba(160, 126, 46, .55); text-underline-offset: 4px; }
+      .horizon-public .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .horizon-public .timeline-month { min-height: 220px; }
+      .horizon-public .timeline-month > div { display: grid; gap: 16px; }
+      .horizon-public .timeline-month a { display: grid; gap: 3px; font-size: 14px; }
+      .horizon-public .timeline-month strong { font: 600 12px/1.3 var(--mono); letter-spacing: .04em; }
+      .horizon-public .timeline-month em { color: var(--ink); font: 600 18px/1.25 var(--serif); font-style: normal; }
+      .horizon-public .filters { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+      .horizon-public .filters select { min-height: 46px; padding: 10px 12px; border: 1px solid var(--rule-strong); border-radius: 0; background: var(--paper-raised); color: var(--ink); font: 15px var(--sans); }
+      .horizon-public .table-wrap { overflow-x: auto; border: 1px solid var(--rule); background: var(--paper-raised); }
+      .horizon-public table { width: 100%; min-width: 800px; border-collapse: collapse; }
+      .horizon-public th { padding: 14px 18px; color: var(--muted); font: 600 11px/1.3 var(--mono); letter-spacing: var(--tracking-label); text-align: left; text-transform: uppercase; }
+      .horizon-public td { padding: 18px; border-top: 1px solid var(--rule); vertical-align: top; }
+      .horizon-public td strong { font: 600 20px/1.2 var(--serif); white-space: nowrap; }
+      .horizon-public td span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
+      @media (max-width: 900px) { .horizon-public .horizon-public-hero, .horizon-public .section-head { grid-template-columns: 1fr; } .horizon-public .metric-grid, .horizon-public .deadline-grid, .horizon-public .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 640px) { .horizon-public .horizon-public-hero { padding-top: 46px; } .horizon-public .metric-grid, .horizon-public .deadline-grid, .horizon-public .timeline, .horizon-public .filters { grid-template-columns: 1fr; } .horizon-public .section-head > p { font-size: 16px; } }
+    </style>`;
   return html
     .replace(/<meta name="robots" content="noindex, nofollow">/, social)
     .replace(/<title>Regulatory Horizon \| Private product preview<\/title>/, "<title>Regulatory Horizon | St Georges Strategy</title>")
+    .replace(/<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?[^\"]*" rel="stylesheet">\s*<style>[\s\S]*?<\/style>/, publicStyle)
+    .replace(/<header class="top">[\s\S]*?<\/header>/, sharedHeader)
+    .replace('<main class="shell">', '<main class="page horizon-public">')
+    .replace('<section class="hero">', '<section class="horizon-public-hero">')
+    .replace(/<p class="footer">[\s\S]*?<\/p>\s*<\/main>/, '</main>\n' + sharedFooter)
     .replace("Private product preview · not published", archiveLabel)
     .replace("Every date links directly to its official source. This private preview has not been released to the public site.", archive
       ? "This frozen edition preserves the source-linked dates and context available at publication. Not investment, legal, compliance, or regulatory advice. Contact ben@stgeorgesstrategy.com."

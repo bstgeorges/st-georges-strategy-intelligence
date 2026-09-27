@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-27T07:07:23.388Z",
-  "preparedAt": "2026-09-27T07:07:56.748Z",
+  "candidateGeneratedAt": "2026-09-27T08:07:58.778Z",
+  "preparedAt": "2026-09-27T08:08:21.353Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -336,7 +336,7 @@
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-09-15T20:00:50.000Z",
-            "relevanceScore": 63,
+            "relevanceScore": 62,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -643,8 +643,8 @@
     ],
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 84,
-      "watching": 1,
+      "healthy": 85,
+      "watching": 2,
       "investigate": 0,
       "supplementary": 1,
       "entries": [
@@ -967,7 +967,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 2,
+          "consecutiveIssueRuns": 3,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -984,11 +984,11 @@
         {
           "sourceId": "sebi-regulatory-rss",
           "sourceRegistryId": "india-sebi",
-          "status": "failed",
-          "consecutiveIssueRuns": 1,
+          "status": "ok",
+          "consecutiveIssueRuns": 0,
           "monitoring": "standard",
-          "action": "watch",
-          "detail": "fetch failed"
+          "action": "none",
+          "detail": ""
         },
         {
           "sourceId": "cisa-advisories-rss",
@@ -1484,6 +1484,24 @@
           "monitoring": "standard",
           "action": "none",
           "detail": ""
+        },
+        {
+          "sourceId": "daily-intelligence-ledger",
+          "sourceRegistryId": "",
+          "status": "quiet",
+          "consecutiveIssueRuns": 1,
+          "monitoring": "standard",
+          "action": "watch",
+          "detail": "no-approved-items"
+        },
+        {
+          "sourceId": "weekly-ai-risk-feed",
+          "sourceRegistryId": "",
+          "status": "quiet",
+          "consecutiveIssueRuns": 1,
+          "monitoring": "standard",
+          "action": "watch",
+          "detail": "no-approved-items"
         }
       ]
     }

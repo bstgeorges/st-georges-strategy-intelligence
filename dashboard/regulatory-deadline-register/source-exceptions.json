@@ -51,6 +51,16 @@
       "transportReviewedAt": "2026-09-26",
       "transportReview": "The newsroom timed out again in the scanner profile. No unverified RSS address was added from the subscription page.",
       "nextCheck": "2026-10-03"
+    },
+    {
+      "sourceId": "india-sebi",
+      "expectedStatus": "failed",
+      "issue": "The official SEBI RSS endpoint timed out in the 27 September scanner run.",
+      "governance": "Retain failed unless the configured official RSS endpoint returns a timely response with dated publication rows. Do not substitute an unverified publication transport.",
+      "lastChecked": "2026-09-27",
+      "transportReviewedAt": "2026-09-27",
+      "transportReview": "The configured official RSS endpoint https://www.sebi.gov.in/sebirss.xml exceeded the scanner read timeout; no replacement transport was promoted.",
+      "nextCheck": "2026-10-04"
     }
   ]
 }

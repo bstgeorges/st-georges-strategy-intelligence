@@ -104,6 +104,7 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
+const MIN_SHORTLIST_COUNT = 4;
 // A retained signal can remain in the current Top 5 when its control implication
 // is still live; the weekly editorial review remains the publication gate.
 const TOP5_MAX_AGE_DAYS = 90;
@@ -118,6 +119,10 @@ const REQUIRED_EVIDENCE_FIELDS = [
   "sourceType",
   "significance",
 ];
+
+function targetShortlistCount(topic) {
+  return Number.isInteger(topic?.shortlistCount) ? topic.shortlistCount : TOP5_COUNT;
+}
 
 function escapeXml(value) {
   return String(value)
@@ -1147,9 +1152,7 @@ function addBriefEditionPermalink(out, editionRecord) {
   const start = "<!-- publisher-lock:end:brief-editorial -->";
   const end = "<!-- brief-edition-permalink:end -->";
   const date = editionRecord.publicationDate;
-  const editionNumber = String(editionRecord.editionNumber || "").trim();
-  const editionLabel = /^edition\b/i.test(editionNumber) ? editionNumber : `Edition ${editionNumber || "current"}`;
-  const label = `${editionLabel} · ${formatDateLong(date)}`;
+  const label = briefMastheadLabel(editionRecord, date).replace(/^Weekly Brief \/ /, "");
   const block = `<section class="band brief-edition-permalink" aria-label="Permanent edition link">
         <div class="section-heading compact-heading">
           <div>
@@ -1165,6 +1168,23 @@ function addBriefEditionPermalink(out, editionRecord) {
   const existing = new RegExp(`<section class="band brief-edition-permalink"[\\s\\S]*?${end}`);
   html = existing.test(html) ? html.replace(existing, block) : html.replace(start, `${start}\n\n      ${block}`);
   write(file, html);
+}
+
+function briefMastheadLabel(editionRecord, date) {
+  const editionNumber = String(editionRecord?.editionNumber || "").trim();
+  const editionLabel = /^edition\b/i.test(editionNumber) ? editionNumber : `Edition ${editionNumber || "current"}`;
+  return `Weekly Brief / ${editionLabel} · ${formatDateLong(date)}`;
+}
+
+function applyBriefMastheadLabel(html, editionRecord, date) {
+  return html.replace(
+    /<p class="eyebrow">Weekly [Bb]rief \/ [^<]+<\/p>/,
+    `<p class="eyebrow">${escapeHtml(briefMastheadLabel(editionRecord, date))}</p>`,
+  );
+}
+
+function removeBriefEditionPermalink(html) {
+  return html.replace(/\s*<section class="band brief-edition-permalink"[\s\S]*?<!-- brief-edition-permalink:end -->/, "");
 }
 
 function validatePromotionSummary(failures) {
@@ -1354,7 +1374,9 @@ function syncSignalsArchiveStore(out, edition) {
     for (const date of listEditionDates(briefStoreDir, edition)) {
       const source = path.join(briefStoreDir, date, "index.html");
       const destination = path.join(out, "brief", date, "index.html");
-      write(destination, rewriteArchiveMetadata(read(source), briefEditionUrl(date)));
+      let frozen = removeBriefEditionPermalink(read(source));
+      if (date === edition) frozen = applyBriefMastheadLabel(frozen, editionRecord, date);
+      write(destination, rewriteArchiveMetadata(frozen, briefEditionUrl(date)));
     }
   }
   for (const topic of topics) {
@@ -1629,19 +1651,14 @@ function updateHomepageEditionLine(out, edition) {
 
 function updateLiveEditionDateLabels(out, edition, editionRecord) {
   const label = formatDateLong(edition);
-  const briefLabel = editionRecord?.editionNumber
-    ? `Weekly Brief / ${editionRecord.editionNumber} · ${label}`
-    : `Weekly Brief / ${label}`;
+  const briefLabel = briefMastheadLabel(editionRecord, edition);
 
   const briefFile = path.join(out, "brief", "index.html");
   if (fs.existsSync(briefFile)) {
     const html = read(briefFile);
     write(
       briefFile,
-      html.replace(
-        /<p class="eyebrow">Weekly brief \/ [^<]+<\/p>/i,
-        `<p class="eyebrow">${escapeHtml(briefLabel)}</p>`,
-      ),
+      applyBriefMastheadLabel(html, editionRecord, edition),
     );
   }
 
@@ -2049,11 +2066,11 @@ function renderHorizonThemeCards(signals) {
     .join("");
 }
 
-function renderFreshnessTicks(retainedCount) {
-  const ticks = Array.from({ length: 5 + retainedCount }, (_, index) =>
-    `<span class="signal-freshness-tick ${index < 5 ? "is-current" : "is-retained"}" aria-hidden="true"></span>`,
+function renderFreshnessTicks(currentCount, retainedCount) {
+  const ticks = Array.from({ length: currentCount + retainedCount }, (_, index) =>
+    `<span class="signal-freshness-tick ${index < currentCount ? "is-current" : "is-retained"}" aria-hidden="true"></span>`,
   ).join("");
-  return `<span class="signal-freshness" aria-label="Five current signals and ${retainedCount} still-material signals">${ticks}</span>`;
+  return `<span class="signal-freshness" aria-label="${currentCount} current signals and ${retainedCount} still-material signals">${ticks}</span>`;
 }
 
 function replaceElementContent(html, tag, id, content) {
@@ -2296,7 +2313,14 @@ function validateSignalsData(data, failures) {
     assert(Boolean(topic), `signals.json missing topic ${topicId}`, failures);
     if (!topic) continue;
     assert(topic.route === `/signals/${topicId}/`, `${topicId} route mismatch in signals.json`, failures);
-    assert(Array.isArray(topic.top5) && topic.top5.length === TOP5_COUNT, `${topicId} must have five top5 rows`, failures);
+    const shortlistCount = targetShortlistCount(topic);
+    assert(
+      shortlistCount >= MIN_SHORTLIST_COUNT && shortlistCount <= TOP5_COUNT,
+      `${topicId} shortlistCount must be between ${MIN_SHORTLIST_COUNT} and ${TOP5_COUNT}`,
+      failures,
+    );
+    assert(Array.isArray(topic.top5) && topic.top5.length === shortlistCount, `${topicId} must have ${shortlistCount} current shortlist rows`, failures);
+    if (shortlistCount < TOP5_COUNT) assert(topic.shortlistRationale, `${topicId} needs a shortlistRationale when fewer than five rows are published`, failures);
     const stillMaterialRows = getStillMaterialRows(topic);
     assert(
       stillMaterialRows.length >= STILL_MATERIAL_MIN && stillMaterialRows.length <= STILL_MATERIAL_MAX,
@@ -2408,6 +2432,7 @@ function renderTopicPagesFromSignals(out, signalsData) {
     if (!topic) continue;
     const file = path.join(out, "signals", topicId, "index.html");
     let html = read(file);
+    const shortlistCount = topic.top5.length;
     const top5Html = [...topic.top5]
       .sort((left, right) => String(right.evidence?.publishedDate || "").localeCompare(String(left.evidence?.publishedDate || "")))
       .map((row, index) => {
@@ -2427,6 +2452,10 @@ function renderTopicPagesFromSignals(out, signalsData) {
     html = html.replace(
       /<ul class="mini-list">[\s\S]*?<\/ul>/,
       `<ul class="mini-list">\n              ${top5Html}\n            </ul>`,
+    );
+    html = html.replace(
+      /<h3>Top \d+ ([^<]* signals)<\/h3>/,
+      `<h3>Top ${shortlistCount} $1</h3>`,
     );
     html = html.replace(
       /<ol class="brief-index evidence-list(?: still-material-list)?">[\s\S]*?<\/ol>/,
@@ -2530,7 +2559,8 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
     .map((topic) => {
       const lead = topic.top5?.[0] || {};
       const retainedCount = getStillMaterialRows(topic).length;
-      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top 5 for this edition · ${retainedCount} still material ${renderFreshnessTicks(retainedCount)}</span></a>`;
+      const currentCount = topic.top5?.length || 0;
+      return `<a class="signal-overview-card" href="${escapeHtml(topic.route)}"><span class="signal-overview-kicker">${escapeHtml(TOPIC_LABELS[topic.id] || titleCaseType(topic.id))}</span><h3>${escapeHtml(lead.title || topic.title)}</h3><span class="signal-overview-meta">Top ${currentCount} for this edition · ${retainedCount} still material ${renderFreshnessTicks(currentCount, retainedCount)}</span></a>`;
     })
     .join("\n          ");
   const weeklyRows = (editionRecord?.topSignals || [])
@@ -2930,8 +2960,8 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     assert(latest.canonicalUrl === `${PUBLIC_ORIGIN}/signals/`, "Signals latest.json canonicalUrl mismatch", failures);
     assert(latest.topics?.length === topics.length, "Signals latest.json should contain all eight topics", failures);
     assert(
-      latest.topics?.every((topic) => topic.top5?.length === TOP5_COUNT),
-      "Signals latest.json topics should contain five Top 5 rows",
+      latest.topics?.every((topic) => topic.top5?.length === targetShortlistCount(signals.topics?.find((candidate) => candidate.id === topic.id))),
+      "Signals latest.json topics should contain their configured current shortlist",
       failures,
     );
   }
@@ -2939,9 +2969,9 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   assert(
     signals.topics?.every((topic) => {
       const retainedCount = getStillMaterialRows(topic).length;
-      return topic.top5?.length === TOP5_COUNT && retainedCount >= STILL_MATERIAL_MIN && retainedCount <= STILL_MATERIAL_MAX;
+      return topic.top5?.length === targetShortlistCount(topic) && retainedCount >= STILL_MATERIAL_MIN && retainedCount <= STILL_MATERIAL_MAX;
     }),
-    "signals.json topics should contain a Top 5 plus 3–7 still-material signals",
+    "signals.json topics should contain their configured shortlist plus 3–7 still-material signals",
     failures,
   );
 

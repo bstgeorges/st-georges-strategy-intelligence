@@ -25,6 +25,7 @@ const topics = [
 ];
 
 const TOP5_COUNT = 5;
+const MIN_SHORTLIST_COUNT = 4;
 const STILL_MATERIAL_MIN = 3;
 const STILL_MATERIAL_MAX = 7;
 const DEFAULT_RETENTION_DAYS = 90;
@@ -82,6 +83,10 @@ function parseIsoDate(value) {
 function extractExactDate(sourceLabel) {
   const match = String(sourceLabel || "").match(/\b(\d{4}-\d{2}-\d{2})\b/);
   return match ? match[1] : "";
+}
+
+function targetShortlistCount(topic) {
+  return Number.isInteger(topic?.shortlistCount) ? topic.shortlistCount : TOP5_COUNT;
 }
 
 function validateCurrentEditionSummaries(signalsData, failures) {
@@ -206,8 +211,15 @@ async function main() {
       continue;
     }
     if (topic.route !== `/signals/${topicId}/`) fail(`${topicId} route mismatch: ${topic.route}`, failures);
-    if (!Array.isArray(topic.top5) || topic.top5.length !== TOP5_COUNT) {
-      fail(`${topicId} must contain exactly ${TOP5_COUNT} Top 5 rows.`, failures);
+    const shortlistCount = targetShortlistCount(topic);
+    if (shortlistCount < MIN_SHORTLIST_COUNT || shortlistCount > TOP5_COUNT) {
+      fail(`${topicId} shortlistCount must be between ${MIN_SHORTLIST_COUNT} and ${TOP5_COUNT}.`, failures);
+    }
+    if (!Array.isArray(topic.top5) || topic.top5.length !== shortlistCount) {
+      fail(`${topicId} must contain exactly ${shortlistCount} current shortlist rows.`, failures);
+    }
+    if (shortlistCount < TOP5_COUNT && !topic.shortlistRationale) {
+      fail(`${topicId} needs a shortlistRationale when fewer than ${TOP5_COUNT} rows are published.`, failures);
     }
     const retainedRows = stillMaterialRows(topic);
     if (retainedRows.length < STILL_MATERIAL_MIN || retainedRows.length > STILL_MATERIAL_MAX) {

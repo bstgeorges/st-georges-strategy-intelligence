@@ -1,9 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import sharp from "sharp";
 import { fileURLToPath } from "node:url";
 import { removeSectionById, simplifyBriefExperience, simplifySignalsExperience } from "./lib/site-build/editorial_simplification.mjs";
 import { renderCurrentEditionSurfaces } from "./lib/site-build/current_edition_surfaces.mjs";
+import { renderPreview as renderRegulatoryHorizon } from "./render_regulatory_horizon_preview.mjs";
 
 import { isSpecificPublishedSourceUrl, validatePublishedRows } from "./lib/published_source_contract.mjs";
 import { validatePublicHtmlCopy } from "./lib/public_copy_contract.mjs";
@@ -12,6 +14,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = path.join(ROOT, "site");
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
+const HORIZON_REGISTER_DIR = path.join(ROOT, "dashboard", "regulatory-deadline-register");
+const HORIZON_PREVIEW_DIR = path.join(ROOT, "dashboard", "regulatory-horizon-preview");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
@@ -72,6 +76,7 @@ const routes = [
   ["/", "index.html"],
   ["/brief/", "brief/index.html"],
   ["/signals/", "signals/index.html"],
+  ["/regulatory-horizon/", "regulatory-horizon/index.html"],
   ["/signals/ai/", "signals/ai/index.html"],
   ["/signals/resilience/", "signals/resilience/index.html"],
   ["/signals/third-party/", "signals/third-party/index.html"],
@@ -134,18 +139,16 @@ const VAGUE_SOURCE_LABELS = /\b(recent reporting|this month|according to)\b|moni
 const redirects = [
   ["/intelligence/", "/brief/"],
   ["/intelligence/archive/", "/archive/"],
-  ["/regulatory-horizon/", "/archive/"],
-  ["/regulatory-horizon/*", "/archive/"],
-  ["/intelligence/regulatory-horizon/", "/archive/"],
-  ["/intelligence/regulatory-horizon/*", "/archive/"],
+  ["/intelligence/regulatory-horizon/", "/regulatory-horizon/"],
+  ["/intelligence/regulatory-horizon/*", "/regulatory-horizon/"],
   ["/ai-signals/", "/signals/ai/"],
   ["/ai-signals/archive/", "/signals/ai/archive/"],
   ["/thevirtualofficer/", "/about/"],
   ["/thevirtualofficer/brief/", "/brief/"],
   ["/thevirtualofficer/signals/", "/signals/"],
   ["/thevirtualofficer/signals/ai/", "/signals/ai/"],
-  ["/thevirtualofficer/regulatory-horizon/", "/archive/"],
-  ["/thevirtualofficer/regulatory-horizon/*", "/archive/"],
+  ["/thevirtualofficer/regulatory-horizon/", "/regulatory-horizon/"],
+  ["/thevirtualofficer/regulatory-horizon/*", "/regulatory-horizon/"],
 ];
 
 const RISK_AREA_LABELS = {
@@ -179,6 +182,7 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
+  ["/regulatory-horizon/", "Reg Horizon"],
   ["/deep-dives/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
@@ -198,6 +202,19 @@ function buildNav(pageRoute) {
   return `<nav class="site-nav" aria-label="Primary">\n          ${links.join("\n          ")}\n        </nav>`;
 }
 
+function publicRouteForHtml(out, file) {
+  const relative = path.relative(out, file).split(path.sep).join("/");
+  const directory = path.posix.dirname(relative);
+  return directory === "." ? "/" : `/${directory}/`;
+}
+
+function wrapMobileNavigation(navigation) {
+  return `<details class="site-menu">
+          <summary>Menu</summary>
+          ${navigation}
+        </details>`;
+}
+
 function buildSubscribeSection() {
   return `<section class="band subscribe-band" aria-label="Subscribe">
         <div class="subscribe-inner">
@@ -206,10 +223,22 @@ function buildSubscribeSection() {
           <p class="dek">One email a week. The so-what, the Top 5, and the board question - nothing else.</p>
           <div class="subscribe-embed">
             <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d75a8e0a-2d7c-467f-87c1-a2e3a86d4ba1"></script>
+            <a class="subscribe-fallback-link" href="https://thevirtualofficer.beehiiv.com/subscribe" target="_blank" rel="noopener">Prefer a direct subscribe link? Open Beehiiv →</a>
           </div>
         </div>
       </section>
       <!-- subscribe-marker:end -->`;
+}
+
+function normaliseFontReferences(out) {
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    html = html
+      .replace(/\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">/g, "")
+      .replace(/\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>/g, "")
+      .replace(/\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?[^\"]*" rel="stylesheet">/g, "");
+    write(file, html);
+  }
 }
 
 // Rewrites every generated page's <nav class="site-nav"> block to the canonical
@@ -218,13 +247,45 @@ function buildSubscribeSection() {
 // hand-edited nav copies in the source HTML are discarded and replaced every build.
 function enforceCanonicalNav(out) {
   const navRegex = /<nav class="site-nav"[^>]*>[\s\S]*?<\/nav>/;
-  for (const [route, relative] of routes) {
-    const file = routeFile(out, relative);
-    if (!fs.existsSync(file)) continue;
+  for (const file of listFiles(out, ".html")) {
     const html = read(file);
     if (!navRegex.test(html)) continue;
-    const updated = html.replace(navRegex, buildNav(route));
+    const navigation = buildNav(publicRouteForHtml(out, file));
+    let updated = html.replace(navRegex, navigation);
+    if (!/class="site-menu"/.test(updated)) updated = updated.replace(navigation, wrapMobileNavigation(navigation));
     if (updated !== html) write(file, updated);
+  }
+}
+
+function injectSkipLinks(out) {
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    if (!/class="skip-link"/.test(html)) {
+      html = html.replace(/<body([^>]*)>/, '<body$1>\n    <a class="skip-link" href="#main-content">Skip to content</a>');
+    }
+    html = html.replace(/<main([^>]*)>/, (match, attributes) => (/\bid=/.test(attributes) ? match : `<main${attributes} id="main-content">`));
+    write(file, html);
+  }
+}
+
+function normaliseArchiveMetadata(out) {
+  for (const file of listFiles(out, ".html")) {
+    const relative = path.relative(out, file).split(path.sep).join("/");
+    let match = relative.match(/^archive\/brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+    let title = match ? `Weekly Brief — ${formatDateLong(match[1])} | St Georges Strategy` : "";
+    if (!title) {
+      match = relative.match(/^signals\/([^/]+)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+      if (match) title = `${TOPIC_LABELS[match[1]] || "Signals"} — ${formatDateLong(match[2])} | St Georges Strategy`;
+    }
+    if (!title) {
+      match = relative.match(/^deep-dives\/([^/]+)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+      if (match) title = `Deep Dive — ${formatDateLong(match[2])} | St Georges Strategy`;
+    }
+    if (!title) continue;
+    let html = read(file).replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`);
+    html = html.replace(/(<meta property="og:title" content=")[^"]*(">)/, `$1${escapeHtml(title)}$2`);
+    html = html.replace(/(<meta name="twitter:title" content=")[^"]*(">)/, `$1${escapeHtml(title)}$2`);
+    write(file, html);
   }
 }
 
@@ -382,6 +443,73 @@ function copyHorizonArtifacts(out) {
   if (fs.existsSync(archiveIn)) copyDirectory(archiveIn, archiveOut);
 }
 
+function isApprovedHorizonRelaunch(register, approval, qa) {
+  const personApproved = (person) => Boolean(person?.name && person?.approvedAt && person?.note);
+  return approval?.visibility === "private"
+    && approval?.approved === true
+    && approval?.sourceEdition === register?.sourceEdition
+    && personApproved(approval.editor)
+    && personApproved(approval.productOwner)
+    && qa?.readiness?.relaunchEligible === true;
+}
+
+function publicHorizonHtml(html, edition, { archive = false } = {}) {
+  const route = archive ? `/regulatory-horizon/archive/${edition}.html` : "/regulatory-horizon/";
+  const canonical = `${PUBLIC_ORIGIN}${route}`;
+  const archiveLabel = archive ? `Frozen edition · ${formatDateLong(edition)}` : `Regulatory Horizon · Edition ${formatDateLong(edition)}`;
+  const social = `    <meta name="description" content="A source-linked view of confirmed regulatory deadlines and developments that deserve attention.">
+    <link rel="canonical" href="${canonical}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="Regulatory Horizon | St Georges Strategy">
+    <meta property="og:description" content="A source-linked view of confirmed regulatory deadlines and developments that deserve attention.">
+    <meta property="og:url" content="${canonical}">
+    <meta property="og:image" content="${PUBLIC_ORIGIN}/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Regulatory Horizon", "author": {"@type": "Person", "name": "Ben St Georges", "email": "ben@stgeorgesstrategy.com"}, "publisher": {"@type": "Organization", "name": "St Georges Strategy"}, "datePublished": "${edition}", "dateModified": "${edition}", "mainEntityOfPage": {"@type": "WebPage", "@id": "${canonical}"}}</script>`;
+  const archiveLink = archive ? "" : ` <a href="/regulatory-horizon/archive/${edition}.html">Open the frozen edition.</a>`;
+  return html
+    .replace(/<meta name="robots" content="noindex, nofollow">/, social)
+    .replace(/<title>Regulatory Horizon \| Private product preview<\/title>/, "<title>Regulatory Horizon | St Georges Strategy</title>")
+    .replace("Private product preview · not published", archiveLabel)
+    .replace("Every date links directly to its official source. This private preview has not been released to the public site.", archive
+      ? "This frozen edition preserves the source-linked dates and context available at publication. Not investment, legal, compliance, or regulatory advice. Contact ben@stgeorgesstrategy.com."
+      : `Every date links directly to its official source. This is a selective, source-linked view rather than a complete regulatory calendar. Not investment, legal, compliance, or regulatory advice. Contact ben@stgeorgesstrategy.com.${archiveLink}`);
+}
+
+function publishApprovedRegulatoryHorizon(out) {
+  const register = readJson(path.join(HORIZON_REGISTER_DIR, "register.json"));
+  const changes = readJson(path.join(HORIZON_REGISTER_DIR, "changes.json"));
+  const approval = readJson(path.join(HORIZON_REGISTER_DIR, "relaunch-approval.json"));
+  const qa = readJson(path.join(HORIZON_REGISTER_DIR, "qa.json"));
+  const editorial = readJson(path.join(HORIZON_PREVIEW_DIR, "editorial.json"));
+  if (!isApprovedHorizonRelaunch(register, approval, qa)) {
+    throw new Error("Regulatory Horizon public release requires a current private QA pass and named editor and product-owner approvals.");
+  }
+  const edition = register.sourceEdition;
+  const html = renderRegulatoryHorizon({ register: { ...register, asOf: edition }, changes, editorial });
+  const horizonOut = path.join(out, "regulatory-horizon");
+  const confirmed = (register.items || [])
+    .filter((item) => item.status === "confirmed" && item.deadline > register.asOf)
+    .map((item) => ({
+      deadline: item.deadline,
+      title: item.title,
+      url: item.url,
+      authority: item.authority?.name || "Official source",
+      stage: item.stage || "other",
+    }));
+  write(path.join(horizonOut, "index.html"), `${publicHorizonHtml(html, edition)}\n`);
+  write(path.join(horizonOut, "latest.json"), `${JSON.stringify({
+    version: "regulatory-horizon.v1",
+    edition,
+    status: "published",
+    canonicalUrl: `${PUBLIC_ORIGIN}/regulatory-horizon/`,
+    confirmedDates: confirmed,
+  }, null, 2)}\n`);
+  write(path.join(horizonOut, "archive", `${edition}.html`), `${publicHorizonHtml(html, edition, { archive: true })}\n`);
+  return { edition, confirmedDates: confirmed.length };
+}
+
 function filterFutureHorizonItems(entries, edition) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(edition || "")) return entries || [];
   return (entries || []).filter((entry) => !entry.date || entry.date > edition);
@@ -395,6 +523,11 @@ function filterFutureHorizonItems(entries, edition) {
 function materializeOgImage(out) {
   const assetsDir = path.join(SOURCE, "assets");
   if (!fs.existsSync(assetsDir)) return false;
+  const sourcePng = path.join(assetsDir, "og-card.png");
+  if (fs.existsSync(sourcePng)) {
+    fs.copyFileSync(sourcePng, path.join(out, "assets", "og-card.png"));
+    return true;
+  }
   const partFiles = fs
     .readdirSync(assetsDir)
     .filter((name) => /^og-card\.part\d+\.b64$/.test(name))
@@ -409,16 +542,93 @@ function materializeOgImage(out) {
   return true;
 }
 
+function wrapSocialCardTitle(value, maxCharacters = 30, maxLines = 3) {
+  const words = String(value || "").trim().split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = "";
+  for (const word of words) {
+    const next = line ? `${line} ${word}` : word;
+    if (next.length <= maxCharacters || !line) {
+      line = next;
+      continue;
+    }
+    lines.push(line);
+    line = word;
+    if (lines.length === maxLines - 1) break;
+  }
+  if (line) lines.push(line);
+  const usedWords = lines.join(" ").split(/\s+/).filter(Boolean).length;
+  if (usedWords < words.length && lines.length) lines[lines.length - 1] = `${lines[lines.length - 1].replace(/[.…]+$/, "")}…`;
+  return lines.slice(0, maxLines);
+}
+
+function socialCardSvg({ label, title, detail }) {
+  const lines = wrapSocialCardTitle(title);
+  const titleMarkup = lines.map((line, index) => `<text x="90" y="${296 + index * 76}" fill="#f4efe3" font-family="Georgia, serif" font-size="66" font-weight="700">${escapeXml(line)}</text>`).join("");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f2233"/>
+  <path d="M730 0H1200V630H835C928 510 974 388 990 258C1009 119 972 39 910 0Z" fill="#0b1a29"/>
+  <path d="M776 42C970 135 1074 309 1068 545" fill="none" stroke="#f4efe3" stroke-opacity=".12" stroke-width="1"/>
+  <path d="M692 520C826 469 954 459 1092 490" fill="none" stroke="#c49a4a" stroke-opacity=".44" stroke-width="2"/>
+  <rect x="90" y="68" width="78" height="78" fill="none" stroke="#c49a4a" stroke-width="3"/>
+  <text x="129" y="116" fill="#f4efe3" font-family="monospace" font-size="24" font-weight="700" letter-spacing="-2" text-anchor="middle">SGS</text>
+  <text x="194" y="112" fill="#f4efe3" font-family="monospace" font-size="18" font-weight="600" letter-spacing="2.6">ST GEORGES STRATEGY</text>
+  <text x="90" y="204" fill="#c49a4a" font-family="monospace" font-size="18" font-weight="600" letter-spacing="2">${escapeXml(label)}</text>
+  ${titleMarkup}
+  <rect x="90" y="548" width="420" height="3" fill="#c49a4a"/>
+  <text x="90" y="592" fill="#d3dce3" font-family="monospace" font-size="18" letter-spacing="1.3">${escapeXml(detail)}</text>
+</svg>`;
+}
+
+function cardPathForPage(relative) {
+  if (relative === "brief/index.html") return "assets/og/weekly-brief-current.png";
+  let match = relative.match(/^archive\/brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+  if (match) return `assets/og/weekly-brief-${match[1]}.png`;
+  if (relative === "deep-dives/harness-problem/index.html") return "assets/og/deep-dive-harness-problem.png";
+  match = relative.match(/^deep-dives\/harness-problem\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+  if (match) return `assets/og/deep-dive-harness-problem-${match[1]}.png`;
+  return "";
+}
+
+function headingFromHtml(html) {
+  const match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  return match ? decodeEntities(stripTags(match[1])) : "";
+}
+
+async function generateContextualOgImages(out, editionRecord) {
+  for (const file of listFiles(out, ".html")) {
+    const relative = path.relative(out, file).split(path.sep).join("/");
+    const cardPath = cardPathForPage(relative);
+    if (!cardPath) continue;
+    const html = read(file);
+    const isBrief = relative === "brief/index.html" || relative.startsWith("archive/brief/");
+    const archiveDate = (relative.match(/(\d{4}-\d{2}-\d{2})/) || [])[1];
+    const title = relative === "brief/index.html"
+      ? editionRecord.mainJudgement || editionRecord.title
+      : headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : editionRecord.deepDive?.title || "Deep Dive");
+    const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / ARCHIVE" : "WEEKLY BRIEF") : "DEEP DIVE";
+    const detail = isBrief
+      ? `${archiveDate ? formatDateLong(archiveDate) : editionRecord.editionNumber} / STGEORGESSTRATEGY.COM`
+      : `${editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`;
+    const destination = path.join(out, cardPath);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    await sharp(Buffer.from(socialCardSvg({ label, title, detail }))).png({ compressionLevel: 9, palette: true }).toFile(destination);
+  }
+}
+
 // Sitewide og:image (§4): every page previously pointed at either /assets/hero.svg
 // (SVG og:images generally fail to render as link previews on LinkedIn and X) or a
 // legacy /dashboard/assets/*.webp path that was never actually committed. This
 // rewrites every generated page to the one real PNG card, and makes sure the
 // accompanying width/height/twitter tags are present so previews render at full size.
 function normaliseOgImage(out) {
-  const target = `${PUBLIC_ORIGIN}/assets/og-card.png`;
   for (const file of listFiles(out, ".html")) {
     let html = read(file);
     let changed = false;
+    const title = (html.match(/<title>([^<]+)<\/title>/) || [])[1] || "St Georges Strategy";
+    const relative = path.relative(out, file).split(path.sep).join("/");
+    const cardPath = cardPathForPage(relative);
+    const target = `${PUBLIC_ORIGIN}/${cardPath || "assets/og-card.png"}`;
 
     const nextOg = html.replace(/property="og:image" content="[^"]*"/, `property="og:image" content="${target}"`);
     if (nextOg !== html) {
@@ -447,6 +657,13 @@ function normaliseOgImage(out) {
       );
       changed = true;
     }
+
+    if (/property="og:image:alt" content="[^"]*"/.test(html)) {
+      html = html.replace(/property="og:image:alt" content="[^"]*"/, `property="og:image:alt" content="${escapeHtml(title)}"`);
+    } else if (/property="og:image" content="[^"]*"/.test(html)) {
+      html = html.replace(/(<meta property="og:image" content="[^"]*">)/, `$1\n    <meta property="og:image:alt" content="${escapeHtml(title)}">`);
+    }
+    changed = true;
 
     if (changed) write(file, html);
   }
@@ -1321,6 +1538,27 @@ function updateCurrentStructuredDataDates(out, edition) {
     );
     if (updated !== html) write(file, updated);
   }
+}
+
+function updateCurrentStructuredData(out, editionRecord) {
+  const file = path.join(out, "brief", "index.html");
+  if (!editionRecord || !fs.existsSync(file)) return;
+  const html = read(file);
+  const match = html.match(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/);
+  if (!match) return;
+  let schema;
+  try {
+    schema = JSON.parse(match[2]);
+  } catch {
+    return;
+  }
+  const headline = editionRecord.mainJudgement || editionRecord.judgement?.title || editionRecord.title;
+  schema.headline = headline;
+  schema.description = `${editionRecord.editionNumber} of the Weekly Brief: ${headline}`;
+  schema.datePublished = editionRecord.publicationDate;
+  schema.dateModified = editionRecord.publicationDate;
+  const replacement = `${match[1]}\n      ${JSON.stringify(schema, null, 2)}\n    ${match[3]}`;
+  write(file, html.replace(match[0], replacement));
 }
 
 // Committee Questions cross-links to the brief (§11) used a static "Source brief"
@@ -2244,6 +2482,15 @@ function generateSitemap(out, edition) {
   if (!briefDates.includes(edition)) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/archive/brief/${edition}/`, lastmod: edition });
   }
+  const horizonArchiveDir = path.join(out, "regulatory-horizon", "archive");
+  if (fs.existsSync(horizonArchiveDir)) {
+    for (const file of listFiles(horizonArchiveDir, ".html")) {
+      const date = path.basename(file, ".html");
+      if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        entries.push({ loc: `${PUBLIC_ORIGIN}/regulatory-horizon/archive/${date}.html`, lastmod: date });
+      }
+    }
+  }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -2252,6 +2499,47 @@ ${entries.map(({ loc, lastmod }) => `  <url>\n    <loc>${escapeXml(loc)}</loc>\n
 `;
   write(path.join(out, "sitemap.xml"), xml);
   return entries.map(({ loc }) => loc);
+}
+
+function rssDate(date) {
+  return new Date(`${date}T12:00:00Z`).toUTCString();
+}
+
+function generateBriefFeed(out, editionRecord, edition) {
+  const archiveDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition).filter((date) => date !== edition);
+  const entries = [
+    {
+      title: editionRecord.mainJudgement || editionRecord.title,
+      link: `${PUBLIC_ORIGIN}/brief/`,
+      date: edition,
+      description: editionRecord.judgement?.executiveJudgement || "Weekly financial-services risk intelligence from St Georges Strategy.",
+    },
+    ...archiveDates.map((date) => ({
+      title: `Weekly Brief — ${formatDateLong(date)}`,
+      link: `${PUBLIC_ORIGIN}/archive/brief/${date}/`,
+      date,
+      description: "An archived edition of the Weekly Brief from St Georges Strategy.",
+    })),
+  ];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>St Georges Strategy — Weekly Brief</title>
+  <link>${PUBLIC_ORIGIN}/brief/</link>
+  <description>Source-backed financial-services risk intelligence for senior decision-makers.</description>
+  <language>en-gb</language>
+  <lastBuildDate>${rssDate(edition)}</lastBuildDate>
+${entries.map((entry) => `  <item><title>${escapeXml(entry.title)}</title><link>${escapeXml(entry.link)}</link><guid isPermaLink="true">${escapeXml(entry.link)}</guid><pubDate>${rssDate(entry.date)}</pubDate><description>${escapeXml(entry.description)}</description></item>`).join("\n")}
+</channel></rss>\n`;
+  write(path.join(out, "feed.xml"), xml);
+}
+
+function injectBriefFeedAlternate(out) {
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    if (/type="application\/rss\+xml"/.test(html)) continue;
+    html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n    <link rel="alternate" type="application/rss+xml" title="St Georges Strategy — Weekly Brief" href="/feed.xml">');
+    write(file, html);
+  }
 }
 
 function withdrawPublicRegHorizon(out) {
@@ -2270,13 +2558,16 @@ function generateHeaders(out) {
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
   Cache-Control: no-cache, max-age=0, s-maxage=0, must-revalidate
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /data/*
+  Cache-Control: public, max-age=300
+
+/feed.xml
   Cache-Control: public, max-age=300
 
 /regulatory-horizon/latest.json
@@ -2303,6 +2594,7 @@ function checkLocalLinks(out, failures) {
     for (const match of html.matchAll(/href="([^"]+)"/g)) {
       const href = match[1];
       if (/^(https?:|mailto:|#)/.test(href)) continue;
+      if (href.includes("'+") || href.includes('"+')) continue;
       if (href.includes("regulatory-horizon")) continue;
       const clean = href.split("#")[0];
       if (!clean) continue;
@@ -2400,7 +2692,17 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     }
   }
 
-  assert(!fs.existsSync(path.join(out, "regulatory-horizon")), "Reg Horizon must not be included in the public bundle", failures);
+  const horizon = path.join(out, "regulatory-horizon");
+  assert(fs.existsSync(path.join(horizon, "index.html")), "Reg Horizon live page missing", failures);
+  assert(fs.existsSync(path.join(horizon, "latest.json")), "Reg Horizon public data summary missing", failures);
+  const horizonData = fs.existsSync(path.join(horizon, "latest.json")) ? readJson(path.join(horizon, "latest.json")) : null;
+  if (horizonData) {
+    assert(horizonData.status === "published", "Reg Horizon must be explicitly published", failures);
+    assert(/^\d{4}-\d{2}-\d{2}$/.test(horizonData.edition || ""), "Reg Horizon edition must be dated", failures);
+    const horizonArchive = path.join(horizon, "archive", `${horizonData.edition}.html`);
+    assert(fs.existsSync(horizonArchive), "Reg Horizon frozen edition archive missing", failures);
+    assert(sitemapUrls.includes(`${PUBLIC_ORIGIN}/regulatory-horizon/archive/${horizonData.edition}.html`), "Sitemap must include the Reg Horizon frozen edition", failures);
+  }
 
   const editionRecord = readJson(EDITION_INPUT);
   const homePage = read(path.join(out, "index.html"));
@@ -2504,7 +2806,7 @@ function writeReport(out, edition, releaseId, sitemapUrls, analyticsInjected, fa
   write(path.join(out, "publish-report.json"), `${JSON.stringify(report, null, 2)}\n`);
 }
 
-function main() {
+async function main() {
   const options = parseArgs(process.argv.slice(2));
   const failures = [];
   copySite(options.out);
@@ -2513,7 +2815,7 @@ function main() {
   const editionRecord = loadEditionRecord(failures);
   validatePromotionSummary(failures);
   const edition = latestEdition(options.out, options.edition, editionRecord);
-  const horizonData = null;
+  const horizonData = publishApprovedRegulatoryHorizon(options.out);
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
   renderSignalsHubFromData(options.out, signalsData, editionRecord);
@@ -2533,22 +2835,28 @@ function main() {
   renderSignalDecisionFramework(options.out, signalsData);
   updateLiveEditionDateLabels(options.out, edition);
   updateCurrentStructuredDataDates(options.out, edition);
+  updateCurrentStructuredData(options.out, editionRecord);
   updateHomepageEditionLine(options.out, edition);
   updateHomepageStatStrip(options.out, edition);
   updateCommitteeQuestionsSourceLabel(options.out, edition);
   generateArchiveHubPages(options.out, edition);
   updateArchiveIndexCards(options.out, edition);
   generateSignalsJson(options.out, signalsData);
-  withdrawPublicRegHorizon(options.out);
   const sitemapUrls = generateSitemap(options.out, edition);
+  generateBriefFeed(options.out, editionRecord, edition);
   generateRedirects(options.out);
   generateHeaders(options.out);
   generateAssetsIgnore(options.out);
   enforceCanonicalNav(options.out);
+  injectSkipLinks(options.out);
   enforceSubscribeSection(options.out);
+  normaliseFontReferences(options.out);
   materializeOgImage(options.out);
+  await generateContextualOgImages(options.out, editionRecord);
+  normaliseArchiveMetadata(options.out);
   normaliseOgImage(options.out);
   normaliseFavicon(options.out);
+  injectBriefFeedAlternate(options.out);
   normaliseHtmlReferencesToRoot(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);
   injectReleaseId(options.out, RELEASE_ID);
@@ -2576,9 +2884,7 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(error.message);
   process.exit(1);
-}
+});

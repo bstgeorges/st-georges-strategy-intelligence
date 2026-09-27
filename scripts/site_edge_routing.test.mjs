@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { resolveRedirect } from "../workers/site-routes.mjs";
+import worker from "../workers/site.mjs";
 
 test("www requests permanently redirect to the apex while retaining query strings", () => {
   const redirect = resolveRedirect("https://www.stgeorgesstrategy.com/brief/?source=mail");
@@ -48,4 +49,24 @@ test("current directories are canonicalised and normal asset paths are not inter
     status: 301,
   });
   assert.equal(resolveRedirect("https://stgeorgesstrategy.com/assets/hero.svg"), null);
+});
+
+test("asset failures return a branded, protected 503 response", async () => {
+  const originalConsoleError = console.error;
+  console.error = () => {};
+  try {
+    const response = await worker.fetch(new Request("https://stgeorgesstrategy.com/brief/"), {
+      ASSETS: {
+        fetch() {
+          throw new Error("simulated asset binding failure");
+        },
+      },
+    });
+    assert.equal(response.status, 503);
+    assert.equal(response.headers.get("x-frame-options"), "DENY");
+    assert.equal(response.headers.get("cache-control"), "no-store");
+    assert.match(await response.text(), /Temporarily unavailable/);
+  } finally {
+    console.error = originalConsoleError;
+  }
 });

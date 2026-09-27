@@ -82,6 +82,13 @@ test("a total live-feed outage preserves the last usable candidate pack", () => 
     ]),
     false,
   );
+  assert.equal(
+    shouldAbortLiveRefresh({ offline: false }, [
+      { fetchType: "rss", status: "failed" },
+      { fetchType: "editorial-ledger", status: "ok" },
+    ]),
+    true,
+  );
 });
 
 test("bounded collection preserves source ordering", async () => {

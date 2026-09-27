@@ -1,0 +1,126 @@
+{
+  "version": "2026-09-26",
+  "purpose": "Private editorial intake for the Friday Agentic AI governance and operational-risk Top 5. This file is never published directly.",
+  "entries": [
+    {
+      "id": "2026-09-25-loopjacking-approval-integrity",
+      "briefingDate": "2026-09-25",
+      "title": "Human approval is ineffective unless it is bound to the exact action that executes",
+      "summary": "The Loopjacking research describes how a human may approve one operation while mutable workflow state allows a materially different operation to execute later.",
+      "whyItMatters": "Human-in-the-loop checkpoints can appear in a process map without actually constraining the consequential action.",
+      "controlImplication": "For material agent workflows, bind approved parameters and context to execution through deterministic or tamper-evident controls, then retain evidence of the executed action.",
+      "topics": ["ai", "cyber", "data"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["agentic-ai", "human-oversight", "workflow-integrity"],
+      "concepts": ["approval-to-execution-integrity", "effective-human-control", "authority-alignment"],
+      "deepDivePotential": "ready",
+      "reviewStatus": "needs-source-review",
+      "sources": [
+        {
+          "title": "Loopjacking: Hijacking Human-in-the-Loop Approval",
+          "organisation": "arXiv",
+          "primary": false,
+          "sourceType": "research",
+          "url": "https://arxiv.org/abs/2609.21081",
+          "publishedDate": "2026-09-17"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-25-agent-loss-of-control-defence-in-depth",
+      "briefingDate": "2026-09-25",
+      "title": "Agent loss of control calls for independent scrutiny and defence in depth",
+      "summary": "Independent analysis of agent boundary failures points to a combination of enabling environment, sufficient capability and misaligned objectives, with lessons from aviation, nuclear power and cybersecurity.",
+      "whyItMatters": "The operating environment and the independence of the control are as important as the model’s stated objective.",
+      "controlImplication": "Use layered safeguards, independent evidence sources, incident taxonomy and post-incident learning rather than relying on a single model-based monitor.",
+      "topics": ["ai", "cyber", "resilience"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["agentic-ai", "incident-management", "defence-in-depth"],
+      "concepts": ["the-harness", "independent-control", "forensic-reconstruction"],
+      "deepDivePotential": "develop",
+      "reviewStatus": "needs-source-review",
+      "sources": [
+        {
+          "title": "AI agents misalignment risks",
+          "organisation": "UN Independent International Scientific Panel on AI",
+          "primary": false,
+          "sourceType": "primary",
+          "url": "https://www.un.org/independent-international-scientific-panel-ai/en/thematic-briefs/ai-agents-misalignment-risks",
+          "publishedDate": "2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-25-proof-of-control",
+      "briefingDate": "2026-09-25",
+      "title": "Proof that an agent remained within its control envelope may become an assurance output",
+      "summary": "The Proof-of-Control initiative frames auditability as evidence that a particular action remained authorised, rather than a general claim that a governance framework exists.",
+      "whyItMatters": "Conventional logs and operator attestations may be too weak when agents act at machine speed across systems.",
+      "controlImplication": "Define a verifiable evidence standard for material agent actions: identity, authorisation, complete action telemetry, integrity of the record and proof of containment where required.",
+      "topics": ["ai", "cyber", "data"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["agentic-ai", "assurance", "observability"],
+      "concepts": ["proof-of-control", "agent-action-completeness", "verifiable-evidence"],
+      "deepDivePotential": "develop",
+      "reviewStatus": "needs-source-review",
+      "sources": [
+        {
+          "title": "Proof-of-Control launch",
+          "organisation": "Linux Foundation Decentralized Trust",
+          "primary": false,
+          "sourceType": "primary",
+          "url": "https://www.lfdecentralizedtrust.org/whos-watching-the-machines-lf-decentralized-trust-webinar",
+          "publishedDate": "2026-09-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-25-risk-based-autonomy",
+      "briefingDate": "2026-09-25",
+      "title": "Autonomy should be calibrated to impact, reversibility and verifiability",
+      "summary": "The useful design alternative to binary agent permission is risk-based autonomy, with tighter intervention requirements as actions become harder to reverse or independently verify.",
+      "whyItMatters": "A valid identity alone cannot show that an agent’s behaviour is safe once it is inside the perimeter.",
+      "controlImplication": "Set action tiers using business impact, reversibility and independent verifiability; link each tier to permissions, runtime policy enforcement and human-intervention requirements.",
+      "topics": ["ai", "cyber", "third-party"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["agentic-ai", "identity", "runtime-controls"],
+      "concepts": ["risk-based-autonomy", "authority-envelope", "behavioural-governance"],
+      "deepDivePotential": "watch",
+      "reviewStatus": "needs-source-review",
+      "sources": [
+        {
+          "title": "State of the Internet security research",
+          "organisation": "Akamai",
+          "primary": false,
+          "sourceType": "primary",
+          "url": "https://www.akamai.com/security-research/the-state-of-the-internet",
+          "publishedDate": "2026-09-22"
+        }
+      ]
+    },
+    {
+      "id": "2026-09-25-agent-control-plane",
+      "briefingDate": "2026-09-25",
+      "title": "A minimum agent control plane is converging around inventory, authority, activity and response",
+      "summary": "Cross-vendor architecture work centres four operational questions: where agents are, what they can do, what they are doing, and how quickly the firm can respond.",
+      "whyItMatters": "Those questions create a practical minimum standard across agent inventory, identity, delegated authority, observability and containment.",
+      "controlImplication": "Require every material agent to be a first-class identity with task-scoped access, traceable delegation, runtime monitoring and rapid reversible containment.",
+      "topics": ["ai", "cyber", "resilience", "third-party"],
+      "riskAreas": ["ai-and-models", "digital-resilience"],
+      "tags": ["agentic-ai", "identity", "containment"],
+      "concepts": ["agent-control-plane", "nonhuman-identity", "delegated-authority", "containment"],
+      "deepDivePotential": "develop",
+      "reviewStatus": "needs-source-review",
+      "sources": [
+        {
+          "title": "Blueprint Alliance shared architecture for securing AI agents",
+          "organisation": "Okta",
+          "primary": false,
+          "sourceType": "primary",
+          "url": "https://ir.okta.com/news-and-events/news-releases/news-details/2026/Industry-Leaders-Form-the-Blueprint-Alliance-to-Advance-a-Shared-Architecture-for-Securing-AI-Agents/default.aspx",
+          "publishedDate": "2026-09-22"
+        }
+      ]
+    }
+  ]
+}

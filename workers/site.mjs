@@ -7,12 +7,12 @@ const SECURITY_HEADERS = {
   "permissions-policy": "camera=(), microphone=(), geolocation=()",
   "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
   "content-security-policy":
-    "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests",
+    "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests",
 };
 
 function cacheControlFor(pathname) {
   if (pathname.startsWith("/assets/")) return "public, max-age=31536000, immutable";
-  if (pathname.startsWith("/data/") || ["/regulatory-horizon/latest.json", "/regulatory-horizon/feed.xml", "/regulatory-horizon/horizon.ics"].includes(pathname)) {
+  if (pathname.startsWith("/data/") || ["/feed.xml", "/regulatory-horizon/latest.json", "/regulatory-horizon/feed.xml", "/regulatory-horizon/horizon.ics"].includes(pathname)) {
     return "public, max-age=300";
   }
   return "no-cache, max-age=0, s-maxage=0, must-revalidate";
@@ -53,18 +53,36 @@ function withSiteHeaders(response, requestUrl, analyticsToken) {
   return addAnalyticsBeacon(withHeaders, analyticsToken);
 }
 
+function serviceUnavailable() {
+  const headers = new Headers(SECURITY_HEADERS);
+  headers.set("content-type", "text/html; charset=UTF-8");
+  headers.set("cache-control", "no-store");
+  headers.set("retry-after", "60");
+  headers.set("x-sgs-route", "stgeorgesstrategy-site-assets");
+  return new Response(`<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Temporarily unavailable | St Georges Strategy</title></head>
+<body><main><h1>Temporarily unavailable</h1><p>Please try again shortly.</p></main></body></html>`, { status: 503, headers });
+}
+
 export default {
   async fetch(request, env) {
-    if (!["GET", "HEAD"].includes(request.method)) {
-      return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD", ...SECURITY_HEADERS } });
-    }
+    try {
+      if (!["GET", "HEAD"].includes(request.method)) {
+        return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD", ...SECURITY_HEADERS } });
+      }
 
-    const redirect = resolveRedirect(request.url);
-    if (redirect) {
-      return new Response(null, { status: redirect.status, headers: { Location: redirect.location, ...SECURITY_HEADERS } });
-    }
+      const redirect = resolveRedirect(request.url);
+      if (redirect) {
+        return new Response(null, { status: redirect.status, headers: { Location: redirect.location, ...SECURITY_HEADERS } });
+      }
 
-    const response = await env.ASSETS.fetch(request);
-    return withSiteHeaders(response, request.url, env.CF_WEB_ANALYTICS_TOKEN);
+      const response = await env.ASSETS.fetch(request);
+      return withSiteHeaders(response, request.url, env.CF_WEB_ANALYTICS_TOKEN);
+    } catch (error) {
+      // An application-level failure should retain the site security posture and
+      // return a recoverable response instead of Cloudflare's unbranded 1101 page.
+      console.error("St Georges Strategy asset Worker failed", error);
+      return serviceUnavailable();
+    }
   },
 };

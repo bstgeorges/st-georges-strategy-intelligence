@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
     <title>Page not found | St Georges Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <main class="page-shell" style="min-height: 70vh; display: grid; place-items: center;">
-      <section class="hero-copy" aria-labelledby="not-found-title">
-        <p class="eyebrow">404</p>
-        <h1 id="not-found-title">Page not found</h1>
-        <p class="dek">The page may have moved into the current brief or archive.</p>
-        <p><a class="button" href="/">Return to the home page</a></p>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="/" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <details class="site-menu"><summary>Menu</summary><nav class="site-nav" aria-label="Primary"><a href="/">Home</a><a href="/brief/">Weekly Brief</a><a href="/signals/">Signals</a><a href="/deep-dives/">Deep Dives</a><a href="/committee-questions/">Committee Questions</a><a href="/archive/">Archive</a><a href="/about/">About</a></nav></details>
+      </div>
+    </header>
+    <main id="main-content" class="not-found-page">
+      <section class="page not-found-content" aria-labelledby="not-found-title">
+        <p class="eyebrow">404 / route unavailable</p>
+        <h1 id="not-found-title">This page is no longer here.</h1>
+        <p class="dek">It may have moved into the current brief, a Deep Dive, or the archive.</p>
+        <div class="button-row"><a class="button primary" href="/">Return home</a><a class="button outline" href="/archive/">Browse the archive</a></div>
       </section>
     </main>
+    <footer class="footer"><div class="footer-inner"><div class="footer-brand">St Georges Strategy</div><p class="footer-note">Weekly, source-backed risk intelligence for financial-services leaders.</p></div></footer>
   </body>
 </html>

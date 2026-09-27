@@ -105,7 +105,7 @@
     if (topicCards.length) observeOnce(topicCards, (card) => card.classList.add("is-visible"), { threshold: 0.08 });
 
     const stack = document.querySelector(".brief-index");
-    if (stack) {
+    if (stack && window.matchMedia("(hover: hover)").matches) {
       const canvas = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       canvas.classList.add("signal-connectors");
       canvas.setAttribute("aria-hidden", "true");
@@ -129,35 +129,30 @@
     }
   }
 
-  if (page === "regulatory-horizon") {
-    const enhanceHorizon = () => {
-      const rows = Array.from(document.querySelectorAll(".horizon-list li"));
-      const dated = rows.map((row) => ({ row, date: new Date(row.querySelector("time")?.dateTime || "") })).filter((item) => !Number.isNaN(item.date.valueOf()));
-      const maxDays = Math.max(1, ...dated.map(({ date }) => Math.max(0, (date - new Date()) / 86400000)));
-      dated.forEach(({ row, date }) => {
-        const days = Math.max(0, (date - new Date()) / 86400000);
-        row.style.setProperty("--urgency", `${Math.max(8, (1 - days / maxDays) * 100)}%`);
-        row.classList.add(days <= 30 ? "is-near-term" : "is-far-term");
-      });
-      document.querySelectorAll("#horizon-watch-themes .card").forEach((card) => {
-        if (/^active/i.test(card.querySelector(".meta")?.textContent.trim() || "")) card.classList.add("is-active-theme");
-      });
-    };
-    enhanceHorizon();
-    new MutationObserver(enhanceHorizon).observe(document.querySelector("main"), { childList: true, subtree: true });
-  }
-
   if (page === "committee-questions") {
     document.querySelectorAll(".committee-question-card h3").forEach((question) => {
       const copy = document.createElement("button");
       copy.className = "question-copy";
       copy.type = "button";
       copy.textContent = "Copy ↗";
-      copy.setAttribute("aria-label", "Copy question");
+      copy.setAttribute("aria-label", "Copy this committee question and supporting prompts");
       copy.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(question.textContent.trim());
-        copy.textContent = "Copied ✓";
-        setTimeout(() => { copy.textContent = "Copy ↗"; }, 1200);
+        const card = question.closest(".committee-question-card");
+        const supportingPrompts = Array.from(card?.querySelectorAll("dl > div") || []).map((item) => {
+          const label = item.querySelector("dt")?.textContent.trim();
+          const detail = item.querySelector("dd")?.textContent.trim();
+          return label && detail ? `${label.toUpperCase()}: ${detail}` : "";
+        }).filter(Boolean);
+        const text = [`QUESTION: ${question.textContent.trim()}`, ...supportingPrompts].join("\n\n");
+        try {
+          if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+          await navigator.clipboard.writeText(text);
+          copy.textContent = "Copied ✓";
+        } catch {
+          window.prompt("Copy the committee question", text);
+          copy.textContent = "Select & copy";
+        }
+        setTimeout(() => { copy.textContent = "Copy ↗"; }, 1600);
       });
       question.after(copy);
     });
@@ -179,8 +174,4 @@
     }
   }
 
-  if (page === "about") {
-    document.body.classList.add("about-fade");
-    requestAnimationFrame(() => document.body.classList.add("is-visible"));
-  }
 })();

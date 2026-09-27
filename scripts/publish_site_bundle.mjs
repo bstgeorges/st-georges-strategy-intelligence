@@ -1003,6 +1003,7 @@ function weeklyJudgementArchiveBlock(editionRecord) {
   const { observation, executiveJudgement, implication } = editionRecord?.judgement || {};
   const judgementTitle = editionRecord?.judgement?.title || "A note for the week";
   const archiveCorrection = editionRecord?.judgement?.archiveCorrection;
+  const correctionNote = archiveCorrection ? `\n        <p class="archive-correction-note">${escapeHtml(archiveCorrection)}</p>` : "";
   if (![observation, executiveJudgement, implication].every(Boolean)) return "";
   return `      <!-- archive-weekly-judgement:start -->
       <section class="band home-judgement archived-weekly-judgement" aria-labelledby="archived-weekly-judgement-title">
@@ -1012,7 +1013,7 @@ function weeklyJudgementArchiveBlock(editionRecord) {
         </header>
         <h2 id="archived-weekly-judgement-title">${escapeHtml(judgementTitle)}</h2>
         <p class="meta">Archive record · The Weekly Judgement published with this edition is retained here in full.</p>
-        ${archiveCorrection ? `<p class="archive-correction-note">${escapeHtml(archiveCorrection)}</p>` : ""}
+${correctionNote}
         <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>

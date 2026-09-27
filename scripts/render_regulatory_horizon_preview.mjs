@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTER_DIR = path.join(ROOT, "dashboard", "regulatory-deadline-register");
 const OUTPUT_DIR = path.join(ROOT, "dashboard", "regulatory-horizon-preview");
+const ARCHIVE_DIR = path.join(OUTPUT_DIR, "archive");
 
 function readJson(file, fallback) {
   return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : fallback;
@@ -64,6 +65,7 @@ function renderPreview({ register, changes, editorial }) {
   const revisedDates = changes?.revisedDates || [];
   const reconfirmed = changes?.reconfirmed || [];
   const carriedForward = changes?.notReconfirmed || [];
+  const firstEdition = editorial?.firstEdition === true;
   const changeSummary = additions.length || revisedDates.length
     ? `${additions.length ? `${additions.length} new confirmed date${additions.length === 1 ? "" : "s"}` : "No new confirmed dates"}${additions.length && revisedDates.length ? " · " : ""}${revisedDates.length ? `${revisedDates.length} revised date${revisedDates.length === 1 ? "" : "s"}` : ""}`
     : carriedForward.length
@@ -84,6 +86,8 @@ function renderPreview({ register, changes, editorial }) {
   const nextDescription = confirmed.length > 5
     ? `The five nearest dates are shown here; the full horizon below includes all ${confirmed.length} confirmed upcoming dates.`
     : "Each card leads to the primary record. It does not imply that the item applies to every organisation.";
+  const changeStrip = firstEdition ? "" : `
+      <section class="change-strip" aria-label="Changes since last review"><p class="eyebrow">Change since last review</p><p>${escapeHtml(changeSummary)}</p></section>`;
 
   return `<!doctype html>
 <html lang="en">
@@ -105,7 +109,7 @@ function renderPreview({ register, changes, editorial }) {
     <main class="shell">
       <section class="hero"><div><p class="eyebrow">Regulatory Horizon</p><h1>What is moving — and what is next.</h1><p class="intro">A clear, source-linked view of the deadlines and regulatory developments that deserve attention before they become a late surprise.</p><p class="meta">Updated ${escapeHtml(formatDate(asOf))} · 90-day source review · confirmed dates only, not a complete regulatory calendar</p></div><aside class="hero-note"><p class="eyebrow">${escapeHtml(weeklyWatch?.label || "This week’s picture")}</p><p>${escapeHtml(weeklyWatch?.text || `${dueIn30.length} confirmed dates fall within the next 30 days, across ${authorities.size} authorities.`)}</p></aside></section>
       <section class="metric-grid" aria-label="Regulatory Horizon overview"><article class="metric"><span>Confirmed dates</span><strong>${escapeHtml(String(confirmed.length))}</strong><p>Future dates retained with primary-source evidence.</p></article><article class="metric"><span>Next 30 days</span><strong>${escapeHtml(String(dueIn30.length))}</strong><p>Dates that should already have an owner or a monitoring decision.</p></article><article class="metric"><span>Authorities represented</span><strong>${escapeHtml(String(authorities.size))}</strong><p>Official bodies behind the confirmed current horizon.</p></article></section>
-      <section class="change-strip" aria-label="Changes since last review"><p class="eyebrow">Change since last review</p><p>${escapeHtml(changeSummary)}</p></section>
+${changeStrip}
       <section class="section" id="next"><div class="section-head"><div><p class="eyebrow">Calendar ahead</p><h2>${escapeHtml(nextHeading)}</h2></div><p>${escapeHtml(nextDescription)}</p></div><div class="deadline-grid">${deadlineCards || '<article class="deadline-card"><h3>No confirmed future dates are currently available.</h3></article>'}</div></section>
       <section class="section" id="timeline"><div class="section-head"><div><p class="eyebrow">Horizon timeline</p><h2>When the current agenda lands</h2></div><p>A time view of all confirmed dates, so near-term decisions do not obscure what is coming next.</p></div><div class="timeline">${timeline || '<article class="timeline-month"><p>No future dates</p></article>'}</div></section>
       <section class="section" id="horizon"><div class="section-head"><div><p class="eyebrow">Full horizon</p><h2>Confirmed upcoming dates</h2></div><p>Use this as a clear starting point for discussion, ownership and evidence—not as a substitute for legal or regulatory advice.</p></div><div class="filters" aria-label="Horizon filters"><select id="window-filter"><option value="all">All time windows</option><option value="30">Next 30 days</option><option value="90">Next 90 days</option><option value="beyond">Beyond 90 days</option></select><select id="authority-filter"><option value="all">All authorities</option></select><select id="stage-filter"><option value="all">All stages</option></select></div><p class="filter-note" id="filter-note"></p><div class="table-wrap"><table><thead><tr><th>Due</th><th>Official item</th><th>Authority</th><th>Stage</th></tr></thead><tbody id="full-horizon-rows">${tableRows || '<tr><td colspan="4">No confirmed future dates are currently available.</td></tr>'}</tbody></table></div></section>
@@ -133,15 +137,27 @@ function renderPreview({ register, changes, editorial }) {
 </html>`;
 }
 
+function archivePreview(html, edition, { force = false } = {}) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(edition || "")) return null;
+  const archiveFile = path.join(ARCHIVE_DIR, edition, "index.html");
+  if (fs.existsSync(archiveFile) && !force) return archiveFile;
+  fs.mkdirSync(path.dirname(archiveFile), { recursive: true });
+  fs.writeFileSync(archiveFile, `${html}\n`);
+  return archiveFile;
+}
+
 function run() {
   const register = readJson(path.join(REGISTER_DIR, "register.json"), { items: [] });
   const changes = readJson(path.join(REGISTER_DIR, "changes.json"), {});
   const editorial = readJson(path.join(OUTPUT_DIR, "editorial.json"), {});
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), `${renderPreview({ register, changes, editorial })}\n`);
+  const html = renderPreview({ register, changes, editorial });
+  fs.writeFileSync(path.join(OUTPUT_DIR, "index.html"), `${html}\n`);
+  const archiveFile = archivePreview(html, register.sourceEdition || register.asOf, { force: process.argv.includes("--force-archive") });
   console.log(`Regulatory Horizon product preview rendered: ${path.relative(ROOT, path.join(OUTPUT_DIR, "index.html"))}`);
+  if (archiveFile) console.log(`Regulatory Horizon private preview archived: ${path.relative(ROOT, archiveFile)}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) run();
 
-export { renderPreview };
+export { archivePreview, renderPreview };

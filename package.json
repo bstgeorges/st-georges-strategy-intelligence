@@ -16,6 +16,11 @@
     "signals:candidates:refresh": "node scripts/refresh_signals_candidates.mjs",
     "signals:candidates:refresh:offline": "node scripts/refresh_signals_candidates.mjs --offline --include-seen --no-state-write",
     "signals:candidates:validate": "node scripts/validate_signals_candidates_output.mjs",
+    "daily:intelligence:validate": "node scripts/validate_daily_intelligence_ledger.mjs",
+    "daily:intelligence:review": "node scripts/prepare_daily_intelligence_review.mjs",
+    "daily:intelligence:test": "node --test scripts/daily_intelligence_ledger.test.mjs",
+    "weekly:ai-risk:validate": "node scripts/validate_weekly_ai_risk_feed.mjs",
+    "weekly:ai-risk:review": "node scripts/prepare_weekly_ai_risk_review.mjs",
     "signals:candidates:test": "node --test scripts/refresh_signals_candidates.test.mjs",
     "signals:review:test": "node --test scripts/signals_editorial_review.test.mjs",
     "signals:sources:validate": "node scripts/validate_signals_feed_registry.mjs",
@@ -56,7 +61,7 @@
     "horizon:sync": "node scripts/sync_reg_horizon.mjs",
     "horizon:refresh": "npm run reg-scan:run -- --window 90 && npm run deadline-register:build && npm run deadline-register:validate && npm run deadline-dashboard:build",
     "horizon:withhold": "node scripts/withhold_reg_horizon_edition.mjs",
-    "sitemap:generate": "node scripts/generate_sitemap.mjs",
+    "sitemap:generate": "npm run site:build",
     "predeploy:cloudflare": "npm run release:guard && npm run site:build && npm run verify:generated-links",
     "predeploy:cloudflare:preview": "npm run site:build && npm run verify:generated-links",
     "verify:public-links": "node scripts/verify_public_links.mjs",
@@ -86,6 +91,7 @@
     "deploy:netlify": "npx netlify deploy --dir dashboard --prod"
   },
   "devDependencies": {
+    "sharp": "^0.35.4",
     "wrangler": "^4.127.0"
   }
 }

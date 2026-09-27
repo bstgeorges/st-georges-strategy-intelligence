@@ -13,6 +13,7 @@ const routes = [
   ["home", "index.html", "https://stgeorgesstrategy.com/"],
   ["brief", "brief/index.html", "https://stgeorgesstrategy.com/brief/"],
   ["signals", "signals/index.html", "https://stgeorgesstrategy.com/signals/"],
+  ["regulatory-horizon", "regulatory-horizon/index.html", "https://stgeorgesstrategy.com/regulatory-horizon/"],
   ["signals-ai", "signals/ai/index.html", "https://stgeorgesstrategy.com/signals/ai/"],
   ["signals-resilience", "signals/resilience/index.html", "https://stgeorgesstrategy.com/signals/resilience/"],
   ["signals-third-party", "signals/third-party/index.html", "https://stgeorgesstrategy.com/signals/third-party/"],
@@ -156,7 +157,7 @@ function checkCurrentEditionAlignment(failures) {
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
   assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png"'), "committee questions should use the shared OG card", failures);
-  assert(!/Reg Horizon|regulatory-horizon/.test(committee), "committee questions should not promote withdrawn Reg Horizon", failures);
+  assert(committee.includes('href="/regulatory-horizon/"'), "committee questions should link to the published Reg Horizon", failures);
   assert(committee.includes(`"dateModified": "${edition.publicationDate}"`), "committee questions structured data should use the current edition date", failures);
   const aiSignals = read("signals/ai/index.html");
   assert(aiSignals.includes(`"dateModified": "${edition.publicationDate}"`), "AI Signals structured data should use the current edition date", failures);
@@ -236,6 +237,7 @@ function checkLocalLinks(failures) {
     for (const match of html.matchAll(/href="([^"]+)"/g)) {
       const href = match[1];
       if (/^(https?:|mailto:|#)/.test(href)) continue;
+      if (href.includes("'+") || href.includes('"+')) continue;
       if (href.includes("regulatory-horizon")) continue;
       if (href.startsWith("/regulatory-horizon/")) continue;
       const clean = href.split("#")[0];
@@ -255,6 +257,12 @@ function main() {
   assert(fs.existsSync(path.join(SITE, "assets", "hero.svg")), "hero.svg missing from the public bundle", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "favicon.svg")), "favicon.svg missing from the public bundle", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "og-card.png")), "og-card.png missing from the public bundle", failures);
+  for (const font of ["hanken-grotesk-latin.woff2", "jetbrains-mono-latin.woff2", "playfair-display-latin.woff2", "playfair-display-latin-italic.woff2"]) {
+    assert(fs.existsSync(path.join(SITE, "assets", "fonts", font)), `self-hosted font missing: ${font}`, failures);
+  }
+  const styles = read("styles.css");
+  assert(styles.includes("@media print"), "stylesheet must provide an executive print treatment", failures);
+  assert(styles.includes("--muted: #5e5849"), "muted text must meet the AA contrast target", failures);
 
   const publicMarkdown = [];
   function findMarkdown(dir) {
@@ -306,15 +314,15 @@ function main() {
   ];
   for (const relative of archiveHubPages) {
     const html = read(relative);
-    assert(!/Reg Horizon|regulatory-horizon/.test(html), `${relative} must not expose withdrawn Reg Horizon navigation`, failures);
+    assert(html.includes('href="/regulatory-horizon/"'), `${relative} must expose the published Reg Horizon navigation`, failures);
     assert(html.includes('href="/deep-dives/"'), `${relative} must use the canonical Deep Dives navigation route`, failures);
   }
 
-  const horizon = { status: "withheld", signals: [], horizon: [] };
-  const horizonPage = "This week's scan is held";
-  assert(!fs.existsSync(path.join(SITE, "regulatory-horizon")), "Reg Horizon must not be present in the public bundle", failures);
-  assert(read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon route must redirect to Archive", failures);
-  assert(read("_redirects").includes("/regulatory-horizon/* /archive/ 301"), "Reg Horizon subroutes must redirect to Archive", failures);
+  const horizon = readJson("regulatory-horizon/latest.json");
+  const horizonPage = read("regulatory-horizon/index.html");
+  assert(horizon.status === "published", "Reg Horizon must be explicitly published", failures);
+  assert(Array.isArray(horizon.confirmedDates) && horizon.confirmedDates.length >= 1, "Reg Horizon needs at least one confirmed date", failures);
+  assert(!read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon must not redirect away from its published route", failures);
   assert(fs.existsSync(path.join(SITE, ".assetsignore")), "Worker assets ignore file missing", failures);
   assert(
     read(".assetsignore") === "_headers\n_redirects\npublish-report.json\n",
@@ -322,7 +330,6 @@ function main() {
     failures,
   );
   assert(fs.existsSync(path.join(SITE, "404.html")), "Branded 404 page missing", failures);
-  const styles = read("styles.css");
   const signalsHub = read("signals/index.html");
   const briefPage = read("brief/index.html");
   const release = readJson("data/release.json");
@@ -354,64 +361,19 @@ function main() {
   assert(signalsHub.includes(`Signals / Edition ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must use the long display format", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);
   assert(styles.includes("@media (prefers-reduced-motion: reduce)"), "Visual treatments missing reduced-motion fallback", failures);
-  if (horizon.status === "withheld") {
-    assert(horizon.signals.length === 0, "withheld Reg Horizon editions must publish zero material signals", failures);
-    assert((horizon.horizon || []).length === 0, "withheld Reg Horizon editions must publish zero deadlines", failures);
-    assert(horizonPage.includes("This week's scan is held"), "withheld Reg Horizon page must explain its publication status", failures);
-    assert(!horizonPage.includes('id="horizon-lanes"'), "withheld Reg Horizon page must not render empty operating lanes", failures);
-    assert(!horizonPage.includes('id="horizon-deadlines"'), "withheld Reg Horizon page must not render an empty deadline list", failures);
-  } else {
-    const horizonFeed = read("regulatory-horizon/feed.xml");
-    const horizonCalendar = read("regulatory-horizon/horizon.ics");
-    assert(horizon.status === "published", "Reg Horizon status must be published or withheld", failures);
-    assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
-  assert(horizonPage.includes("The regulatory decisions to own"), "published Reg Horizon page missing its decision-led purpose", failures);
-  assert(horizonPage.includes("horizon-freshness-status"), "Reg Horizon page missing freshness status", failures);
-  assert(horizonPage.includes("horizon-coverage-banner"), "Reg Horizon page missing coverage confidence banner", failures);
-  assert(horizonPage.includes("horizon-lanes"), "Reg Horizon page missing operating lanes", failures);
-  const horizonEditionLabel = `Edition / ${formatDateLong(horizon.edition)}`;
-  assert(horizonPage.includes(horizonEditionLabel), "Reg Horizon page edition label must use the long display format", failures);
-  assert(horizonPage.includes(`id="horizon-masthead-edition">${horizonEditionLabel}`), "Reg Horizon masthead is missing its edition date", failures);
-  assert(read("committee-questions/index.html").includes(`id="committee-masthead-edition">Edition / ${formatDateLong(edition.publicationDate)}`), "Committee Questions masthead is missing its edition date", failures);
-  assert(horizonPage.includes("Scope note:"), "Reg Horizon page missing its clear editorial scope note", failures);
-  assert(!horizonPage.includes("Limited coverage:"), "Reg Horizon should not lead with internal coverage mechanics", failures);
-  assert(!horizonPage.includes("Consob remains blocked"), "Reg Horizon should retain source-specific failures in the dated record, not the reader-facing summary", failures);
-  assert(horizonPage.includes("Last reviewed edition:"), "Reg Horizon page missing explicit reviewed-edition label", failures);
-  assert(!/Items awaiting confidence review|Additional items for analyst triage|Top 5 now\. Additional rows/.test(horizonPage), "Reg Horizon must not expose internal review scaffolding or duplicate signal lists", failures);
-  assert(!horizonPage.includes("horizon-render.js"), "Reg Horizon must render without client-side data loading", failures);
-    for (const signal of horizon.signals.slice(0, 5)) {
-      assert(horizonPage.includes(signal.title), `published Reg Horizon page missing signal: ${signal.title}`, failures);
-    }
-    for (const entry of horizon.horizon || []) {
-      assert(horizonPage.includes(`datetime="${entry.date}"`), `published Reg Horizon page missing deadline ${entry.date}`, failures);
-    }
-    assert(!/withheld/i.test(horizonFeed), "published Reg Horizon feed contains stale withheld language", failures);
-    assert(
-      count(/<item>/g, horizonFeed) === horizon.signals.length,
-      "published Reg Horizon feed item count must match signals[]",
-      failures,
-    );
-    assert(
-      count(/BEGIN:VEVENT/g, horizonCalendar) === (horizon.horizon || []).length,
-      "published Reg Horizon calendar event count must match horizon[]",
-      failures,
-    );
-    const horizonArchive = `regulatory-horizon/archive/${horizon.edition}.html`;
-    assert(fs.existsSync(path.join(SITE, horizonArchive)), `published Reg Horizon archive missing ${horizonArchive}`, failures);
-    assert(
-      (horizon.archives || [])[0] === `archive/${horizon.edition}.html`,
-      `published Reg Horizon archive pointer should be archive/${horizon.edition}.html`,
-      failures,
-    );
-    assert(
-      horizonPage.includes(`href="archive/${horizon.edition}.html"`) ||
-        horizonPage.includes(`href="/regulatory-horizon/archive/${horizon.edition}.html"`),
-      "published Reg Horizon page should link the frozen-edition card to the current archive",
-      failures,
-    );
-    for (const entry of horizon.horizon || []) {
-      assert(entry.date > horizon.edition, `published Reg Horizon deadline ${entry.date} must be after edition ${horizon.edition}`, failures);
-    }
+  assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
+  assert(horizonPage.includes("What is moving — and what is next."), "published Reg Horizon page missing its reader-led purpose", failures);
+  assert(horizonPage.includes(`Updated ${formatDateLong(horizon.edition)}`), "Reg Horizon page must identify its edition date", failures);
+  assert(!horizonPage.includes("Change since last review"), "first Reg Horizon edition must not imply a prior public comparison", failures);
+  for (const entry of horizon.confirmedDates || []) {
+    assert(horizonPage.includes(entry.url), `published Reg Horizon page missing confirmed date source: ${entry.url}`, failures);
+    assert(entry.deadline > horizon.edition, `published Reg Horizon deadline ${entry.deadline} must be after edition ${horizon.edition}`, failures);
+  }
+  const horizonArchive = `regulatory-horizon/archive/${horizon.edition}.html`;
+  assert(fs.existsSync(path.join(SITE, horizonArchive)), `published Reg Horizon archive missing ${horizonArchive}`, failures);
+  if (fs.existsSync(path.join(SITE, horizonArchive))) {
+    const archivedHorizon = read(horizonArchive);
+    assert(attr(archivedHorizon, /<link rel="canonical" href="([^"]+)"/) === `https://stgeorgesstrategy.com/regulatory-horizon/archive/${horizon.edition}.html`, "Reg Horizon archive canonical mismatch", failures);
   }
 
   const signalsLatest = readJson("signals/latest.json");
@@ -427,18 +389,29 @@ function main() {
   for (const date of briefDates) {
     assert(date >= edition.publicationDate, `brief horizon date ${date} must not be before edition ${edition.publicationDate}`, failures);
   }
+  assert(!/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(brief), "public pages must not fetch typography from Google Fonts", failures);
+  assert(brief.includes('href="/feed.xml"'), "Weekly Brief must advertise the public RSS feed", failures);
+  assert(brief.includes(`"headline": "${edition.mainJudgement}"`), "Weekly Brief structured data must use the current editorial judgement", failures);
+  assert(brief.includes('content="https://stgeorgesstrategy.com/assets/og/weekly-brief-current.png"'), "Weekly Brief must use its contextual social card", failures);
+  const deepDive = read("deep-dives/harness-problem/index.html");
+  assert(deepDive.includes('content="https://stgeorgesstrategy.com/assets/og/deep-dive-harness-problem.png"'), "Deep Dive must use its contextual social card", failures);
+  assert(fs.existsSync(path.join(SITE, "assets", "og", "weekly-brief-current.png")), "current Weekly Brief social card missing", failures);
+  assert(fs.existsSync(path.join(SITE, "assets", "og", "deep-dive-harness-problem.png")), "current Deep Dive social card missing", failures);
+  const feed = read("feed.xml");
+  assert(feed.includes("St Georges Strategy — Weekly Brief"), "public RSS feed must identify the Weekly Brief", failures);
+  assert(feed.includes(`${edition.mainJudgement}</title>`), "public RSS feed must include the current editorial judgement", failures);
 
   const sitemap = read("sitemap.xml");
   const sitemapUrls = count(/<url>/g, sitemap);
   const sitemapLastmods = count(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, sitemap);
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
-  assert(!/regulatory-horizon/.test(sitemap), "sitemap.xml must omit withdrawn Reg Horizon routes", failures);
+  assert(sitemap.includes("https://stgeorgesstrategy.com/regulatory-horizon/"), "sitemap.xml must include the published Reg Horizon route", failures);
   assert(!/&(?!amp;|lt;|gt;|quot;|apos;)/.test(sitemap), "sitemap.xml must XML-escape special characters", failures);
   const notFound = read("404.html");
   assert(notFound.includes('href="/styles.css"'), "branded 404 must use the root stylesheet path", failures);
   assert(notFound.includes('href="/assets/favicon.svg"'), "branded 404 must use the root favicon path", failures);
-  assert(!/Reg Horizon|regulatory-horizon/.test(archive), "Archive must not promote Reg Horizon while it is withdrawn", failures);
+  assert(archive.includes('href="/regulatory-horizon/"'), "Archive navigation must include the published Reg Horizon route", failures);
   assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);
 

@@ -8,6 +8,7 @@ import {
   loadPublishedSourceMap,
   resolvePublishedSource,
 } from "./lib/published_source_contract.mjs";
+import { buildDailyIntelligenceCandidates } from "./lib/daily_intelligence_ledger.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const FEED_REGISTRY_PATH = path.join(ROOT, "dashboard", "data", "signals-feed-registry.json");
@@ -15,6 +16,8 @@ const SOURCE_REGISTRY_PATH = path.join(ROOT, "dashboard", "data", "source-regist
 const STATE_PATH = path.join(ROOT, "dashboard", "data", "signals-candidate-state.json");
 const OUTPUT_PATH = path.join(ROOT, "dashboard", "data", "signals-candidates.generated.json");
 const HORIZON_PATH = path.join(ROOT, "dashboard", "regulatory-horizon", "latest.json");
+const DAILY_INTELLIGENCE_LEDGER_PATH = path.join(ROOT, "dashboard", "data", "daily-intelligence-ledger.json");
+const WEEKLY_AI_RISK_FEED_PATH = path.join(ROOT, "dashboard", "data", "weekly-ai-risk-feed.json");
 
 const TOPICS = [
   "ai",
@@ -496,7 +499,7 @@ function assessCandidateQuality(topics) {
 
 function shouldAbortLiveRefresh(options, sourceStats) {
   if (options.offline) return false;
-  const remoteSources = sourceStats.filter((source) => source.fetchType !== "reg_horizon_json");
+  const remoteSources = sourceStats.filter((source) => !["reg_horizon_json", "editorial-ledger"].includes(source.fetchType));
   return remoteSources.length > 0 && remoteSources.every((source) => source.status === "failed");
 }
 
@@ -638,6 +641,64 @@ async function main() {
       error: "",
     });
     if (noParseableEntries) warnings.push(`Source ${source.id} returned no parseable entries; check its feed format or availability.`);
+  }
+
+  const editorialInputs = [
+    {
+      sourceId: "daily-intelligence-ledger",
+      path: DAILY_INTELLIGENCE_LEDGER_PATH,
+      originLabel: "Daily intelligence",
+    },
+    {
+      sourceId: "weekly-ai-risk-feed",
+      path: WEEKLY_AI_RISK_FEED_PATH,
+      originLabel: "Weekly AI risk",
+      candidateDateSource: "weekly-ai-risk-verified",
+      sourceCategory: "weekly-ai-risk",
+      allowedSourceTiers: ["primary", "research"],
+      allowedSourceTypes: ["primary", "research"],
+      entryLabel: "weekly AI risk entry",
+    },
+  ];
+  for (const input of editorialInputs) {
+    const ledger = fs.existsSync(input.path) ? readJson(input.path) : { entries: [] };
+    const editorialCandidates = buildDailyIntelligenceCandidates(ledger, {
+      sourceMap: loadPublishedSourceMap(),
+      ingestSourceId: input.sourceId,
+      originLabel: input.originLabel,
+      candidateDateSource: input.candidateDateSource,
+      sourceCategory: input.sourceCategory,
+      allowedSourceTiers: input.allowedSourceTiers,
+      allowedSourceTypes: input.allowedSourceTypes,
+      entryLabel: input.entryLabel,
+    });
+    let accepted = 0;
+    for (const [topicId, candidates] of editorialCandidates.byTopic) {
+      for (const candidate of candidates) {
+        if (!isRecent(candidate.publishedAt, windowDays, now)) {
+          warnings.push(`${input.originLabel} item ${candidate.dailyIntelligence.entryId} is outside the ${windowDays}-day candidate window.`);
+          continue;
+        }
+        const hash = urlHash(candidate.url);
+        const topicHash = `${topicId}:${hash}`;
+        if (seen.has(topicHash) || seen.has(hash) || acceptedThisRun.has(topicHash)) continue;
+        topicBuckets.get(topicId)?.push(candidate);
+        acceptedThisRun.add(topicHash);
+        seen.add(topicHash);
+        accepted += 1;
+      }
+    }
+    sourceStats.push({
+      sourceId: input.sourceId,
+      sourceRegistryId: "",
+      fetchType: "editorial-ledger",
+      status: accepted ? "ok" : "quiet",
+      fetchedEntries: ledger.entries.length,
+      acceptedCandidates: accepted,
+      reason: accepted ? "" : "no-approved-items",
+      error: "",
+    });
+    warnings.push(...editorialCandidates.warnings);
   }
 
   // A collection outage is not evidence of a quiet week. Leave the last valid

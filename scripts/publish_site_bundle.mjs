@@ -1302,6 +1302,17 @@ function listLatestDeepDiveArchiveEntries(maxDate = "") {
   return [...latestBySlug.values()];
 }
 
+function archivedDeepDiveTitle(slug, date) {
+  const file = path.join(DEEP_DIVE_ARCHIVE_STORE, slug, date, "index.html");
+  if (!fs.existsSync(file)) return "";
+  const heading = read(file).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || "";
+  return heading
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .trim();
+}
+
 // Freezes this edition's brief and topic pages into a persistent, git-tracked store
 // (dashboard/signals-archive/) that survives the site-dist wipe-and-rebuild at the top
 // of every publish run, then copies the full accumulated history forward into this
@@ -1548,13 +1559,10 @@ function updateArchiveIndexCards(out, edition) {
     );
   }
 
-  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
   // The archive hub is an index of distinct pieces, not a changelog of their
   // snapshots. Keep older snapshots addressable but show one card per piece.
   for (const { slug, date } of listLatestDeepDiveArchiveEntries(edition)) {
-    const title = currentDeepDive?.slug === slug && date === edition
-      ? readJson(EDITION_INPUT).deepDive.title
-      : `Deep Dive — ${slug.replace(/-/g, " ")}`;
+    const title = archivedDeepDiveTitle(slug, date) || `Deep Dive — ${slug.replace(/-/g, " ")}`;
     cards.push(
       `<a class="archive-card archive-deep-dive" href="/deep-dives/${slug}/archive/${date}/"><p class="meta">Deep Dive / ${date}</p><h3>${escapeHtml(title)}</h3><p>Preserved analysis and source trail from the published edition.</p></a>`,
     );
@@ -2362,6 +2370,28 @@ function sourceDate(source) {
   return String(source || "").match(/\b(\d{4}-\d{2}-\d{2})\b/)?.[1] || "";
 }
 
+const ORGANISATION_DISPLAY_NAMES = {
+  "European Union Agency for Cybersecurity": "ENISA",
+  "US Cybersecurity and Infrastructure Security Agency": "CISA",
+};
+
+function sourceOrganisation(row) {
+  const organisation = row.evidence?.organisation || "";
+  return ORGANISATION_DISPLAY_NAMES[organisation] || organisation || "Source";
+}
+
+function sourceLabel(row) {
+  const label = String(row.source || "");
+  const kind = label.split("/")[0]?.trim() || "Source";
+  const date = row.evidence?.publishedDate || sourceDate(label);
+  return [kind, sourceOrganisation(row), date].filter(Boolean).join(" / ");
+}
+
+function sourceTypeLabel(row) {
+  return String(row.evidence?.sourceType || "source")
+    .replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
 function signalStatus(row, edition) {
   const date = sourceDate(row.source);
   if (!date) return "Continuing priority";
@@ -2378,10 +2408,11 @@ function renderTopicPagesFromSignals(out, signalsData) {
     if (!topic) continue;
     const file = path.join(out, "signals", topicId, "index.html");
     let html = read(file);
-    const top5Html = topic.top5
+    const top5Html = [...topic.top5]
+      .sort((left, right) => String(right.evidence?.publishedDate || "").localeCompare(String(left.evidence?.publishedDate || "")))
       .map((row, index) => {
         const rank = String(index + 1).padStart(2, "0");
-        return `<li${index === 0 ? ' class="signal-lead"' : ""}><span class="signal-rank">${rank}</span><div class="signal-current-copy"><span class="signal-status">${escapeHtml(signalStatus(row, signalsData.edition))}</span><a href="${escapeHtml(row.url)}">${escapeHtml(row.title)}</a><span class="top-source">${escapeHtml(row.source)}</span></div></li>`;
+        return `<li${index === 0 ? ' class="signal-lead"' : ""}><span class="signal-rank">${rank}</span><div class="signal-current-copy"><span class="signal-status">${escapeHtml(signalStatus(row, signalsData.edition))}</span><a href="${escapeHtml(row.url)}">${escapeHtml(row.title)}</a><span class="top-source">${escapeHtml(sourceLabel(row))} <span class="source-tier source-tier-primary">${escapeHtml(sourceTypeLabel(row))}</span></span></div></li>`;
       })
       .join("\n              ");
     const stillMaterialRows = getStillMaterialRows(topic);
@@ -2389,7 +2420,7 @@ function renderTopicPagesFromSignals(out, signalsData) {
       .map((row) => {
         const date = sourceDate(row.source);
         const ageLabel = row.retention === "six-month-anchor" ? "Longer-term anchor" : date ? "90-day window" : "Structural reference";
-        return `<li><div class="signal-retention-meta"><span>${escapeHtml(ageLabel)}</span><span>Reviewed ${escapeHtml(formatDateShort(topic.stillMaterialReviewedAt))}</span></div><a href="${escapeHtml(row.url)}"><h3>${escapeHtml(row.title)}</h3></a><span class="meta">${escapeHtml(row.source)}</span></li>`;
+        return `<li><div class="signal-retention-meta"><span>${escapeHtml(ageLabel)}</span><span>Reviewed ${escapeHtml(formatDateShort(topic.stillMaterialReviewedAt))}</span></div><a href="${escapeHtml(row.url)}"><h3>${escapeHtml(row.title)}</h3></a><span class="meta">${escapeHtml(sourceLabel(row))} <span class="source-tier source-tier-primary">${escapeHtml(sourceTypeLabel(row))}</span></span></li>`;
       })
       .join("\n              ");
 

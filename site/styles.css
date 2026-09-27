@@ -669,6 +669,16 @@ main + .subscribe-band + .footer {
 
 .subscribe-embed iframe { max-width: 100% !important; }
 
+@media (max-width: 480px) {
+  /* Avoid the sub-pixel overflow from the desktop full-bleed calculation. */
+  .subscribe-band {
+    margin: 0;
+    padding-inline: 20px;
+    box-shadow: 0 0 0 100vmax var(--navy);
+    clip-path: inset(0 -100vmax);
+  }
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
@@ -2049,6 +2059,12 @@ a.tag:hover {
 
 .topic-layout > .display-card .signal-lead .top-source {
   color: rgba(244, 239, 227, 0.84);
+}
+
+.topic-layout > .display-card .top-source .source-tier {
+  margin: 7px 0 0;
+  color: inherit;
+  font-size: 9px;
 }
 
 .still-material-list {

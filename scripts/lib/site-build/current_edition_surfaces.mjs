@@ -14,6 +14,9 @@ function committeeQuestionLinks(question) {
     "third-party": ["/signals/third-party/", "Third-party signals"],
     resilience: ["/signals/resilience/", "Resilience signals"],
     data: ["/signals/data/", "Data signals"],
+    "market-structure": ["/signals/market-structure/", "Market structure signals"],
+    "financial-crime": ["/signals/financial-crime/", "Financial crime signals"],
+    "technology-failure": ["/signals/technology-failure/", "Technology failure signals"],
   };
   return (question.links || [])
     .map((id) => routesById[id])

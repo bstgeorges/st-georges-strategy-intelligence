@@ -106,6 +106,8 @@ export function resolvePublishedSource(value, map = loadPublishedSourceMap()) {
 
 export function expectedEvidenceSourceType(value, map = loadPublishedSourceMap()) {
   const source = typeof value === "string" ? resolvePublishedSource(value, map) : value;
+  const url = typeof value === "string" ? parseHttpsUrl(value) : null;
+  if (source?.id === "anthropic" && /^\/research\//.test(url?.pathname || "")) return "research";
   if (!source || !COMPANY_ANNOUNCEMENT_SOURCE_IDS.has(source.id)) return null;
   return "company announcement";
 }

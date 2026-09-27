@@ -338,7 +338,9 @@ p {
   z-index: 2;
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
-  padding: clamp(68px, 7vw, 96px) 0 clamp(120px, 12vh, 150px);
+  /* The statistic strip is absolutely positioned on desktop. Reserve enough
+     space for it after a multi-line headline and the CTA row. */
+  padding: clamp(68px, 7vw, 96px) 0 clamp(196px, 18vh, 238px);
 }
 
 .hero-content h1 {
@@ -650,7 +652,7 @@ p {
 }
 
 .subscribe-embed {
-  max-width: 420px;
+  width: min(100%, 520px);
   margin: 0 auto;
 }
 
@@ -660,9 +662,12 @@ p {
   padding: 12px;
 }
 
-main:has(.subscribe-band) + .footer {
+/* Subscribe is inserted between main and the footer, rather than inside main. */
+main + .subscribe-band + .footer {
   margin-top: 0;
 }
+
+.subscribe-embed iframe { max-width: 100% !important; }
 
 .section-heading {
   display: grid;

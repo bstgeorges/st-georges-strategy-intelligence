@@ -660,17 +660,6 @@ p {
   padding: 12px;
 }
 
-.subscribe-fallback-link {
-  display: inline-block;
-  margin: 12px 0 2px;
-  color: var(--accent-bright);
-  font: 600 11px/1.3 var(--mono);
-  letter-spacing: var(--tracking-label);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-transform: uppercase;
-}
-
 main:has(.subscribe-band) + .footer {
   margin-top: 0;
 }

@@ -209,7 +209,9 @@ function publicRouteForHtml(out, file) {
 }
 
 function wrapMobileNavigation(navigation) {
-  return `<details class="site-menu">
+  // Keep the canonical navigation available without JavaScript on desktop. app.js
+  // closes this disclosure only at the compact mobile breakpoint.
+  return `<details class="site-menu" open>
           <summary>Menu</summary>
           ${navigation}
         </details>`;

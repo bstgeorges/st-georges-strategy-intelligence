@@ -1,6 +1,6 @@
 {
-  "edition": "2026-09-13",
-  "generatedAt": "2026-09-13T00:00:00.000Z",
+  "edition": "2026-09-20",
+  "generatedAt": "2026-09-20T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,20 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "Embedded AI evaluation turns provider assurance into an access-and-independence question",
+          "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+          "source": "Primary / Anthropic / 2026-09-18",
+          "evidence": {
+            "sourceTitle": "Partnering with Accenture on embedded evaluation",
+            "organisation": "Anthropic",
+            "publishedDate": "2026-09-18",
+            "sourceType": "company announcement",
+          "significance": "Anthropic's plan to place independent evaluators inside its development environment makes assurance a practical access-and-independence test. Buyers using high-impact models should be clear about which evaluator can see the relevant safeguards, evidence and operating context, and how challenge is kept independent of the provider's commercial account team.",
+            "sourceUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+            "accessedDate": "2026-09-20"
+          }
+        },
         {
           "title": "AI-assisted legacy-code change needs a parity harness before it needs scale",
           "url": "https://mistral.ai/news/legacy-code-modernization",
@@ -69,20 +83,6 @@
             "sourceUrl": "https://mistral.ai/news/agentic-search",
             "accessedDate": "2026-08-23"
           }
-        },
-        {
-          "title": "Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management",
-          "url": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-          "source": "Primary / NIST AI Risk Management Framework / 2026-08-12",
-          "evidence": {
-            "sourceTitle": "Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management",
-            "organisation": "NIST AI Risk Management Framework",
-            "publishedDate": "2026-08-12",
-            "sourceType": "regulator",
-            "significance": "NIST puts AI into the vulnerability-management control plane. Leaders should test the quality of the asset and vulnerability data, the authority to override an automated priority and the evidence trail for the resulting decision.",
-            "sourceUrl": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-            "accessedDate": "2026-08-16"
-          }
         }
       ],
       "stillMaterial": [
@@ -140,6 +140,20 @@
       "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
         {
+          "title": "OSFI’s 2027 market-risk standard sets a timetable for model and data evidence",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+          "source": "Primary / Office of the Superintendent of Financial Institutions / 2026-09-10",
+          "evidence": {
+            "sourceTitle": "Capital Adequacy Requirements (CAR) (2027) – Chapter 9 – Market Risk - Office of the Superintendent of Financial Institutions",
+            "organisation": "Office of the Superintendent of Financial Institutions",
+            "publishedDate": "2026-09-10",
+            "sourceType": "regulator",
+          "significance": "OSFI's 2027 market-risk chapter gives firms an implementation timetable for a detailed capital framework. The decision is whether models, data lineage and capital calculations can produce the evidence required by the new standard before its effective dates, rather than being treated as a late policy-read exercise.",
+            "sourceUrl": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+            "accessedDate": "2026-09-20"
+          }
+        },
+        {
           "title": "CloudTrail makes containment and recovery a decision-record test",
           "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
           "source": "Primary / AWS Security Blog / 2026-09-03",
@@ -192,20 +206,6 @@
             "sourceType": "regulator",
             "significance": "Japan’s FSA report treats IT resilience as a financial-sector operating issue shaped by cyber, geopolitical and third-party risk. The practical test is whether firms can recover important services and learn from failure.",
             "sourceUrl": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-            "accessedDate": "2026-08-02"
-          }
-        },
-        {
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "source": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
-          "evidence": {
-            "sourceTitle": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-            "organisation": "European Insurance and Occupational Pensions Authority",
-            "publishedDate": "2026-07-31",
-            "sourceType": "regulator",
-            "significance": "The ESAs put frontier-AI ICT risk inside the supervisory conversation, linking governance, cyber prevention, detection, response and critical third-party oversight. Firms should map those expectations to real control evidence.",
-            "sourceUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
             "accessedDate": "2026-08-02"
           }
         }
@@ -278,13 +278,13 @@
             "accessedDate": "2026-07-09"
           }
         },
-      {
-        "rank": 10,
-        "title": "Patch SLAs are compressing as AI changes vulnerability discovery",
-        "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
-        "source": "Other reporting / WIRED / 2026-06-10",
-        "retention": "six-month-anchor",
-        "retentionReason": "Retained as a six-month anchor for the strategic effect of AI-enabled vulnerability discovery on patch and exception governance.",
+        {
+          "rank": 10,
+          "title": "Patch SLAs are compressing as AI changes vulnerability discovery",
+          "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
+          "source": "Other reporting / WIRED / 2026-06-10",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a six-month anchor for the strategic effect of AI-enabled vulnerability discovery on patch and exception governance.",
           "evidence": {
             "sourceTitle": "Patch SLAs are compressing as AI changes vulnerability discovery",
             "organisation": "WIRED",
@@ -375,13 +375,13 @@
         }
       ],
       "stillMaterial": [
-      {
-        "rank": 6,
-        "title": "Agentic AI suppliers create permission and audit-log questions",
-        "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
-        "source": "Monitoring / Financial Times / 2026-06-30",
-        "retention": "six-month-anchor",
-        "retentionReason": "Retained as a six-month anchor for permission and audit-log questions arising from agentic AI supplier use.",
+        {
+          "rank": 6,
+          "title": "Agentic AI suppliers create permission and audit-log questions",
+          "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
+          "source": "Monitoring / Financial Times / 2026-06-30",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a six-month anchor for permission and audit-log questions arising from agentic AI supplier use.",
           "evidence": {
             "sourceTitle": "Agentic AI suppliers create permission and audit-log questions",
             "organisation": "Financial Times",
@@ -449,13 +449,13 @@
             }
           }
         },
-      {
-        "rank": 10,
-        "title": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
-        "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
-        "source": "Primary / FSB / 2026-06-10",
-        "retention": "six-month-anchor",
-        "retentionReason": "Retained as a six-month anchor for third-party and vendor-concentration governance in responsible AI adoption.",
+        {
+          "rank": 10,
+          "title": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
+          "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
+          "source": "Primary / FSB / 2026-06-10",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a six-month anchor for third-party and vendor-concentration governance in responsible AI adoption.",
           "evidence": {
             "sourceTitle": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
             "organisation": "FSB",
@@ -474,6 +474,25 @@
       "title": "Capital, liquidity, infrastructure, and concentration risk.",
       "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
+        {
+          "title": "SEC’s tokenised-stock exemption makes venue controls a condition of market access",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+          "source": "Primary / US Securities and Exchange Commission / 2026-09-17",
+          "evidence": {
+            "sourceTitle": "SEC Issues “Innovation Exemption” to Facilitate the Trading of Tokenized NMS Stock and Request for Comment",
+            "organisation": "US Securities and Exchange Commission",
+            "publishedDate": "2026-09-17",
+            "sourceType": "regulator",
+          "significance": "The SEC's conditional exemption links tokenised-stock trading to rights equivalence, issuer notice, auditable smart contracts, trading-halt alignment and public disclosure. For a venue or intermediary, those conditions are not supporting documentation: they define whether the activity can operate and what evidence must remain current.",
+            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+            "accessedDate": "2026-09-20",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-09-20",
+              "reason": "The SEC primary release displays 17 September 2026. Its article endpoint exposes an unrelated legacy date to the generic extractor, so the publication date was checked directly against the primary release before publication."
+            }
+          }
+        },
         {
           "title": "CFTC clearing rule resets rate-swap implementation checks",
           "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
@@ -533,20 +552,6 @@
             "significance": "HM Treasury intends a secondary innovation objective for the Bank's systemic-payment-system work while retaining financial stability as the primary objective. Product and policy teams should evidence how innovation, integrity and resilience constraints are considered together.",
             "sourceUrl": "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england",
             "accessedDate": "2026-08-30"
-          }
-        },
-        {
-          "title": "ASIC insider-trading sentence turns project-information controls into a market-integrity test",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
-          "source": "Primary / Australian Securities and Investments Commission / 2026-09-03",
-          "evidence": {
-            "sourceTitle": "Former Beacon Minerals project manager Alexander McCulloch sentenced for insider trading",
-            "organisation": "Australian Securities and Investments Commission",
-            "publishedDate": "2026-09-03",
-            "sourceType": "regulator",
-            "significance": "ASIC's insider-trading outcome makes the control question practical: can the firm identify who received price-sensitive project information, restrict its use, retain the decision trail and challenge unusual trading before an external investigation reconstructs it?",
-            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
-            "accessedDate": "2026-09-07"
           }
         }
       ],
@@ -801,6 +806,20 @@
       "stillMaterialReviewedAt": "2026-09-13",
       "top5": [
         {
+          "title": "Two newly exploited flaws test whether the asset inventory can drive emergency patching",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-18",
+          "evidence": {
+            "sourceTitle": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+            "organisation": "US Cybersecurity and Infrastructure Security Agency",
+            "publishedDate": "2026-09-18",
+            "sourceType": "regulator",
+          "significance": "CISA's addition of two known exploited vulnerabilities makes the operational test concrete: can the firm identify affected assets, decide on emergency remediation and show the exception or closure record quickly enough? A vulnerability process without an estate-level answer is not an emergency-control process.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-09-20"
+          }
+        },
+        {
           "title": "Three new exploited flaws test whether the patch queue maps to the estate",
           "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
           "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-11",
@@ -853,20 +872,6 @@
             "sourceType": "company announcement",
             "significance": "Rapid7 reports exploitation of two critical SonicWall SMA1000 vulnerabilities. The management question is whether appliance ownership, internet exposure, emergency-change authority and independent confirmation of remediation are already known before an external alert arrives.",
             "sourceUrl": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
-            "accessedDate": "2026-09-07"
-          }
-        },
-        {
-          "title": "Counterfeit installers expose the weak point in download and endpoint controls",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
-          "source": "Primary / Microsoft Security Blog / 2026-09-01",
-          "evidence": {
-            "sourceTitle": "Counterfeit installers to system compromise: Tracking a deceptive software download campaign",
-            "organisation": "Microsoft Security Blog",
-            "publishedDate": "2026-09-01",
-            "sourceType": "company announcement",
-            "significance": "Microsoft describes a campaign using counterfeit installers to reach system compromise. Treat it as a control test for approved-software routes, download controls, endpoint detection, user escalation and the evidence that a suspicious installation was contained.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
             "accessedDate": "2026-09-07"
           }
         }
@@ -932,13 +937,13 @@
             }
           }
         },
-      {
-        "rank": 9,
-        "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
-        "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
-        "source": "Primary / NIST / 2026-06-09",
-        "retention": "six-month-anchor",
-        "retentionReason": "Retained as a six-month anchor for continuous monitoring and updating where fixed AI guardrails can become stale.",
+        {
+          "rank": 9,
+          "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
+          "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
+          "source": "Primary / NIST / 2026-06-09",
+          "retention": "six-month-anchor",
+          "retentionReason": "Retained as a six-month anchor for continuous monitoring and updating where fixed AI guardrails can become stale.",
           "evidence": {
             "sourceTitle": "NIST mathematical proof supports transition to continuous monitor and update",
             "organisation": "NIST",

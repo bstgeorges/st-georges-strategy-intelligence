@@ -14,7 +14,7 @@ test("legacy route mappings retain the established destinations", () => {
     status: 301,
   });
   assert.deepEqual(resolveRedirect("https://intelligence.stgeorgesstrategy.com/archive/2026-08-16/"), {
-    location: "https://stgeorgesstrategy.com/archive/brief/2026-08-16/",
+    location: "https://stgeorgesstrategy.com/brief/2026-08-16/",
     status: 301,
   });
   assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/intelligence/anything-else"), {
@@ -58,6 +58,22 @@ test("current directories are canonicalised and normal asset paths are not inter
     status: 301,
   });
   assert.equal(resolveRedirect("https://stgeorgesstrategy.com/assets/hero.svg"), null);
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/brief/2026-09-27?source=search"), {
+    location: "https://stgeorgesstrategy.com/brief/2026-09-27/?source=search",
+    status: 301,
+  });
+  assert.deepEqual(resolveRedirect("https://stgeorgesstrategy.com/archive/brief/2026-09-27/?source=search"), {
+    location: "https://stgeorgesstrategy.com/brief/2026-09-27/?source=search",
+    status: 301,
+  });
+});
+
+test("permanent Brief editions can be cached while current pages revalidate", async () => {
+  const assets = { fetch: () => new Response("edition", { headers: { "content-type": "text/html" } }) };
+  const edition = await worker.fetch(new Request("https://stgeorgesstrategy.com/brief/2026-09-27/"), { ASSETS: assets });
+  const latest = await worker.fetch(new Request("https://stgeorgesstrategy.com/brief/"), { ASSETS: assets });
+  assert.equal(edition.headers.get("cache-control"), "public, max-age=31536000, immutable");
+  assert.equal(latest.headers.get("cache-control"), "no-cache, max-age=0, s-maxage=0, must-revalidate");
 });
 
 test("asset failures return a branded, protected 503 response", async () => {

@@ -429,6 +429,22 @@ function main() {
   const feed = read("feed.xml");
   assert(feed.includes("St Georges Strategy — Weekly Brief"), "public RSS feed must identify the Weekly Brief", failures);
   assert(feed.includes(`${edition.mainJudgement}</title>`), "public RSS feed must include the current editorial judgement", failures);
+  const permanentBriefRoute = `/brief/${edition.publicationDate}/`;
+  const permanentBriefUrl = `https://stgeorgesstrategy.com${permanentBriefRoute}`;
+  const permanentBrief = `brief/${edition.publicationDate}/index.html`;
+  assert(fs.existsSync(path.join(SITE, permanentBrief)), "current Weekly Brief permanent edition page missing", failures);
+  if (fs.existsSync(path.join(SITE, permanentBrief))) {
+    const permanentHtml = read(permanentBrief);
+    assert(attr(permanentHtml, /<link rel="canonical" href="([^"]+)"/) === permanentBriefUrl, "permanent Weekly Brief canonical mismatch", failures);
+    assert(attr(permanentHtml, /<meta property="og:url" content="([^"]+)"/) === permanentBriefUrl, "permanent Weekly Brief og:url mismatch", failures);
+  }
+  assert(brief.includes(`href="${permanentBriefRoute}"`), "latest Weekly Brief must link to its permanent edition", failures);
+  assert(feed.includes(`<link>${permanentBriefUrl}</link>`), "RSS feed must link the current edition to its permanent URL", failures);
+
+  const robots = read("robots.txt");
+  assert(/User-agent: OAI-SearchBot\s+Allow: \//.test(robots), "robots.txt must explicitly permit OAI-SearchBot", failures);
+  assert(/User-agent: Googlebot\s+Allow: \//.test(robots), "robots.txt must explicitly permit Googlebot", failures);
+  assert(robots.includes("Sitemap: https://stgeorgesstrategy.com/sitemap.xml"), "robots.txt must advertise the sitemap", failures);
 
   const sitemap = read("sitemap.xml");
   const sitemapUrls = count(/<url>/g, sitemap);
@@ -436,6 +452,7 @@ function main() {
   assert(sitemapUrls > 0, "sitemap.xml should include URLs", failures);
   assert(sitemapLastmods === sitemapUrls, "sitemap.xml should include one valid lastmod date per URL", failures);
   assert(sitemap.includes("https://stgeorgesstrategy.com/regulatory-horizon/"), "sitemap.xml must include the published Reg Horizon route", failures);
+  assert(sitemap.includes(permanentBriefUrl), "sitemap.xml must include the current permanent Weekly Brief URL", failures);
   assert(!/&(?!amp;|lt;|gt;|quot;|apos;)/.test(sitemap), "sitemap.xml must XML-escape special characters", failures);
   const notFound = read("404.html");
   assert(notFound.includes('href="/styles.css"'), "branded 404 must use the root stylesheet path", failures);

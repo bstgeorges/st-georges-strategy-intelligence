@@ -12,6 +12,10 @@ const SECURITY_HEADERS = {
 
 function cacheControlFor(pathname) {
   if (pathname.startsWith("/assets/")) return "public, max-age=31536000, immutable";
+  // A dated Brief is an immutable edition record. Mutable reader surfaces keep
+  // their explicit revalidation policy below, while a permanent edition URL can
+  // be cached safely by readers and crawlers.
+  if (/^\/brief\/\d{4}-\d{2}-\d{2}\/$/.test(pathname)) return "public, max-age=31536000, immutable";
   if (pathname.startsWith("/data/") || ["/feed.xml", "/regulatory-horizon/latest.json", "/regulatory-horizon/feed.xml", "/regulatory-horizon/horizon.ics"].includes(pathname)) {
     return "public, max-age=300";
   }

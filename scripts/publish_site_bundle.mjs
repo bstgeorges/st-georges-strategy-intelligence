@@ -274,7 +274,7 @@ function injectSkipLinks(out) {
 function normaliseArchiveMetadata(out) {
   for (const file of listFiles(out, ".html")) {
     const relative = path.relative(out, file).split(path.sep).join("/");
-    let match = relative.match(/^archive\/brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+    let match = relative.match(/^(?:archive\/)?brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
     let title = match ? `Weekly Brief — ${formatDateLong(match[1])} | St Georges Strategy` : "";
     if (!title) {
       match = relative.match(/^signals\/([^/]+)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
@@ -661,7 +661,7 @@ function socialCardSvg({ label, title, detail }) {
 
 function cardPathForPage(relative) {
   if (relative === "brief/index.html") return "assets/og/weekly-brief-current.png";
-  let match = relative.match(/^archive\/brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+  let match = relative.match(/^(?:archive\/)?brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
   if (match) return `assets/og/weekly-brief-${match[1]}.png`;
   if (relative === "deep-dives/harness-problem/index.html") return "assets/og/deep-dive-harness-problem.png";
   match = relative.match(/^deep-dives\/harness-problem\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
@@ -680,12 +680,12 @@ async function generateContextualOgImages(out, editionRecord) {
     const cardPath = cardPathForPage(relative);
     if (!cardPath) continue;
     const html = read(file);
-    const isBrief = relative === "brief/index.html" || relative.startsWith("archive/brief/");
+    const isBrief = relative === "brief/index.html" || relative.startsWith("archive/brief/") || /^brief\/\d{4}-\d{2}-\d{2}\//.test(relative);
     const archiveDate = (relative.match(/(\d{4}-\d{2}-\d{2})/) || [])[1];
     const title = relative === "brief/index.html"
       ? editionRecord.mainJudgement || editionRecord.title
       : headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : editionRecord.deepDive?.title || "Deep Dive");
-    const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / ARCHIVE" : "WEEKLY BRIEF") : "DEEP DIVE";
+    const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / EDITION" : "WEEKLY BRIEF") : "DEEP DIVE";
     const detail = isBrief
       ? `${archiveDate ? formatDateLong(archiveDate) : editionRecord.editionNumber} / STGEORGESSTRATEGY.COM`
       : `${editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`;
@@ -1141,6 +1141,32 @@ function simplifyPublicEditorialSurfaces(out) {
   }
 }
 
+function addBriefEditionPermalink(out, editionRecord) {
+  const file = path.join(out, "brief", "index.html");
+  if (!fs.existsSync(file) || !editionRecord?.publicationDate) return;
+  const start = "<!-- publisher-lock:end:brief-editorial -->";
+  const end = "<!-- brief-edition-permalink:end -->";
+  const date = editionRecord.publicationDate;
+  const editionNumber = String(editionRecord.editionNumber || "").trim();
+  const editionLabel = /^edition\b/i.test(editionNumber) ? editionNumber : `Edition ${editionNumber || "current"}`;
+  const label = `${editionLabel} · ${formatDateLong(date)}`;
+  const block = `<section class="band brief-edition-permalink" aria-label="Permanent edition link">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="eyebrow">Permanent edition</p>
+            <h2>${escapeHtml(label)}</h2>
+          </div>
+          <p>This edition has a fixed URL for reading, citation and search discovery.</p>
+        </div>
+        <p><a href="${briefEditionRoute(date)}">Open the permanent edition record →</a></p>
+      </section>
+      <!-- brief-edition-permalink:end -->`;
+  let html = read(file);
+  const existing = new RegExp(`<section class="band brief-edition-permalink"[\\s\\S]*?${end}`);
+  html = existing.test(html) ? html.replace(existing, block) : html.replace(start, `${start}\n\n      ${block}`);
+  write(file, html);
+}
+
 function validatePromotionSummary(failures) {
   if (!fs.existsSync(PROMOTION_SUMMARY_INPUT)) return;
   const summary = readJson(PROMOTION_SUMMARY_INPUT);
@@ -1236,6 +1262,14 @@ function listEditionDates(dir, maxDate = "") {
     .reverse();
 }
 
+function briefEditionRoute(date) {
+  return `/brief/${date}/`;
+}
+
+function briefEditionUrl(date) {
+  return `${PUBLIC_ORIGIN}${briefEditionRoute(date)}`;
+}
+
 function deepDiveDetails(deepDive) {
   const route = String(deepDive?.route || "");
   const match = route.match(/^\/deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/$/);
@@ -1306,6 +1340,11 @@ function syncSignalsArchiveStore(out, edition) {
   const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
   if (fs.existsSync(briefStoreDir)) {
     copyDirectory(briefStoreDir, path.join(out, "archive", "brief"), archiveEditionFilter(briefStoreDir, edition));
+    for (const date of listEditionDates(briefStoreDir, edition)) {
+      const source = path.join(briefStoreDir, date, "index.html");
+      const destination = path.join(out, "brief", date, "index.html");
+      write(destination, rewriteArchiveMetadata(read(source), briefEditionUrl(date)));
+    }
   }
   for (const topic of topics) {
     const topicStoreDir = path.join(ARCHIVE_STORE, "topics", topic);
@@ -1442,7 +1481,7 @@ function generateArchiveHubPages(out, edition) {
       eyebrow: "Archive / Weekly Brief",
       description: "Every dated edition of the weekly brief, preserved exactly as published.",
       cards: briefDates.map((date) => ({
-        href: `/archive/brief/${date}/`,
+        href: briefEditionRoute(date),
         meta: `Edition / ${date}`,
         title: `Weekly Brief — ${date}`,
         description: "Open the brief exactly as it was published that week.",
@@ -2555,7 +2594,7 @@ function generateSitemap(out, edition) {
   const entries = [
     ...routes.map(([route]) => ({ loc: `${PUBLIC_ORIGIN}${route}`, lastmod: edition })),
     { loc: `${PUBLIC_ORIGIN}/archive/brief/`, lastmod: edition },
-    ...briefDates.map((date) => ({ loc: `${PUBLIC_ORIGIN}/archive/brief/${date}/`, lastmod: date })),
+    ...briefDates.map((date) => ({ loc: briefEditionUrl(date), lastmod: date })),
   ];
   const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
   if (currentDeepDive) {
@@ -2573,9 +2612,7 @@ function generateSitemap(out, edition) {
   for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`, lastmod: date });
   }
-  if (!briefDates.includes(edition)) {
-    entries.push({ loc: `${PUBLIC_ORIGIN}/archive/brief/${edition}/`, lastmod: edition });
-  }
+  if (!briefDates.includes(edition)) entries.push({ loc: briefEditionUrl(edition), lastmod: edition });
   const horizonArchiveDir = path.join(out, "regulatory-horizon", "archive");
   if (fs.existsSync(horizonArchiveDir)) {
     for (const file of listFiles(horizonArchiveDir, ".html")) {
@@ -2604,13 +2641,13 @@ function generateBriefFeed(out, editionRecord, edition) {
   const entries = [
     {
       title: editionRecord.mainJudgement || editionRecord.title,
-      link: `${PUBLIC_ORIGIN}/brief/`,
+      link: briefEditionUrl(edition),
       date: edition,
       description: editionRecord.judgement?.executiveJudgement || "Weekly financial-services risk intelligence from St Georges Strategy.",
     },
     ...archiveDates.map((date) => ({
       title: `Weekly Brief — ${formatDateLong(date)}`,
-      link: `${PUBLIC_ORIGIN}/archive/brief/${date}/`,
+      link: briefEditionUrl(date),
       date,
       description: "An archived edition of the Weekly Brief from St Georges Strategy.",
     })),
@@ -2646,6 +2683,9 @@ function generateRedirects(out) {
 }
 
 function generateHeaders(out) {
+  const datedBriefHeaders = listEditionDates(path.join(ARCHIVE_STORE, "brief"))
+    .map((date) => `\n/brief/${date}/*\n  Cache-Control: public, max-age=31536000, immutable\n`)
+    .join("");
   const headers = `/*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
@@ -2657,6 +2697,7 @@ function generateHeaders(out) {
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+${datedBriefHeaders}
 
 /data/*
   Cache-Control: public, max-age=300
@@ -2730,6 +2771,17 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
   }
 
   assert(fs.existsSync(path.join(out, "archive", "brief", edition, "index.html")), "Weekly brief archive copy missing", failures);
+  const permanentBrief = path.join(out, "brief", edition, "index.html");
+  assert(fs.existsSync(permanentBrief), "Weekly Brief permanent edition page missing", failures);
+  if (fs.existsSync(permanentBrief)) {
+    const html = read(permanentBrief);
+    const expected = briefEditionUrl(edition);
+    const canonical = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
+    const ogUrl = (html.match(/<meta property="og:url" content="([^"]+)"/) || [])[1] || "";
+    assert(canonical === expected, "Weekly Brief permanent edition canonical mismatch", failures);
+    assert(ogUrl === expected, "Weekly Brief permanent edition og:url mismatch", failures);
+    assert(sitemapUrls.includes(expected), "Sitemap must include the current permanent Weekly Brief URL", failures);
+  }
   for (const topic of topics) {
     assert(
       fs.existsSync(path.join(out, "signals", topic, "archive", edition, "index.html")),
@@ -2917,6 +2969,7 @@ async function main() {
   renderHomepageJudgement(options.out, editionRecord);
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
   simplifyPublicEditorialSurfaces(options.out);
+  addBriefEditionPermalink(options.out, editionRecord);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
   // frozen into the archive store: archiveIntoStore() only rewrites a relative link to
   // its root-absolute form when the link target already exists on disk. Without this

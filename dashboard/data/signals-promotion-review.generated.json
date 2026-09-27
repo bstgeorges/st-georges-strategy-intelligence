@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-09-27T08:07:58.778Z",
-  "preparedAt": "2026-09-27T08:08:21.353Z",
+  "candidateGeneratedAt": "2026-09-27T09:55:54.865Z",
+  "preparedAt": "2026-09-27T09:56:05.616Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -163,19 +163,6 @@
         "candidateCount": 7,
         "candidates": [
           {
-            "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-            "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-            "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-            "sourceOwner": "cisa",
-            "publishedAt": "2026-09-25T12:00:00.000Z",
-            "relevanceScore": 97,
-            "decisionType": "active-threat",
-            "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
             "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
             "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog",
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -252,6 +239,19 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "CVE-2026-76461: Critical Cisco Secure Email Gateway Vulnerability Exploited in the Wild",
+            "url": "https://www.rapid7.com/blog/post/etr-cve-2026-76461-critical-cisco-secure-email-gateway-vulnerability-exploited-in-the-wild",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-09-15T12:22:50.000Z",
+            "relevanceScore": 77,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       },
@@ -266,7 +266,7 @@
             "sourceName": "HubSpot Status",
             "sourceOwner": "hubspot-status",
             "publishedAt": "2026-09-24T21:26:38.000Z",
-            "relevanceScore": 85,
+            "relevanceScore": 84,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -280,7 +280,7 @@
             "sourceName": "GitHub Status",
             "sourceOwner": "github-status",
             "publishedAt": "2026-09-24T20:41:12.000Z",
-            "relevanceScore": 83,
+            "relevanceScore": 82,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -294,7 +294,7 @@
             "sourceName": "DigitalOcean Status",
             "sourceOwner": "digitalocean-status",
             "publishedAt": "2026-09-16T21:09:31.000Z",
-            "relevanceScore": 67,
+            "relevanceScore": 66,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -437,19 +437,6 @@
             ]
           },
           {
-            "title": "26-226MR ASIC strengthens AI trading safeguards and streamlines market integrity rules | ASIC",
-            "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
-            "sourceName": "Australian Securities and Investments Commission",
-            "sourceOwner": "asic",
-            "publishedAt": "2026-09-23T22:31:03.000Z",
-            "relevanceScore": 94,
-            "decisionType": "context",
-            "region": "Global/other",
-            "topics": [
-              "market-structure"
-            ]
-          },
-          {
             "title": "How dynamic application security testing validates risk at runtime",
             "url": "https://www.rapid7.com/blog/post/em-dynamic-application-security-testing-dast-validates-risk-at-runtime-idc-marketscape",
             "sourceName": "Rapid7 Research",
@@ -481,7 +468,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-09-23T08:43:39.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -500,15 +487,34 @@
             "topics": [
               "ai"
             ]
+          },
+          {
+            "title": "Data Protection Commission",
+            "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-google-eu403-million-following-inquiry-googles-processing-location",
+            "sourceName": "Data Protection Commission Ireland",
+            "sourceOwner": "ireland-dpc",
+            "publishedAt": "2026-09-21T00:00:00.000Z",
+            "relevanceScore": 88,
+            "decisionType": "context",
+            "region": "UK/EMEA",
+            "topics": [
+              "data"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 113,
+      "candidateRows": 110,
       "uniqueCandidateEvents": 97,
-      "crossThemeDuplicatesCollapsed": 16,
+      "crossThemeDuplicatesCollapsed": 13,
       "sourceOwnerConcentration": [
+        {
+          "sourceOwner": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "count": 6,
+          "share": 6.2
+        },
         {
           "sourceOwner": "hkma",
           "sourceName": "Hong Kong Monetary Authority",
@@ -518,12 +524,6 @@
         {
           "sourceOwner": "anthropic",
           "sourceName": "Anthropic",
-          "count": 5,
-          "share": 5.2
-        },
-        {
-          "sourceOwner": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
           "count": 5,
           "share": 5.2
         },
@@ -567,19 +567,19 @@
         },
         {
           "region": "US",
-          "count": 10,
-          "share": 10.3
+          "count": 9,
+          "share": 9.3
         },
         {
           "region": "Global/other",
-          "count": 47,
-          "share": 48.5
+          "count": 48,
+          "share": 49.5
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 95,
-        "alreadyPublishedCandidates": 2,
-        "continuingPublishedEvents": 33,
+        "newCandidateEvents": 96,
+        "alreadyPublishedCandidates": 1,
+        "continuingPublishedEvents": 32,
         "currentEditionTop5Events": 39
       }
     },
@@ -600,14 +600,14 @@
       },
       {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "resilience",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 3,
         "status": "editorial-review-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
@@ -628,7 +628,7 @@
       },
       {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -644,8 +644,8 @@
     "sourceHealth": {
       "runsRetained": 12,
       "healthy": 85,
-      "watching": 2,
-      "investigate": 0,
+      "watching": 0,
+      "investigate": 2,
       "supplementary": 1,
       "entries": [
         {
@@ -967,7 +967,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1489,18 +1489,18 @@
           "sourceId": "daily-intelligence-ledger",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "no-approved-items"
         },
         {
           "sourceId": "weekly-ai-risk-feed",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "no-approved-items"
         }
       ]
@@ -1608,26 +1608,26 @@
           "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         },
         {
-          "title": "Project Swap: What happens when agents trade for us?",
-          "url": "https://www.anthropic.com/research/project-swap",
-          "sourceName": "Anthropic",
-          "sourceOwner": "anthropic",
+          "title": "Evaluating frontier models for stealth and situational awareness — Google DeepMind",
+          "url": "https://deepmind.google/research/publications/157938",
+          "sourceName": "Google DeepMind",
+          "sourceOwner": "google-deepmind",
           "sourceTier": "primary",
           "sourceCategory": "ai",
-          "publishedAt": "2026-09-25T18:52:10.000Z",
+          "publishedAt": "2026-09-25T00:00:00.000Z",
           "dateSource": "sitemap-lastmod",
-          "relevanceScore": 67,
-          "decisionType": "context",
+          "relevanceScore": 66,
+          "decisionType": "research",
           "riskAreas": [
             "ai-and-models"
           ],
           "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
+            "research",
+            "multimodal-ai",
+            "robotics",
             "safety"
           ],
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Google DeepMind via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -1643,31 +1643,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "26-226MR ASIC strengthens AI trading safeguards and streamlines market integrity rules | ASIC",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
-          "sourceName": "Australian Securities and Investments Commission",
-          "sourceOwner": "asic",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-09-23T22:31:03.000Z",
-          "dateSource": "sitemap-lastmod",
-          "relevanceScore": 94,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "markets",
-            "scams",
-            "reporting",
-            "australia"
-          ],
-          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
         {
           "title": "Minutes of the Market Participants Group meeting – 24 September 2026",
           "url": "https://www.bankofengland.co.uk/minutes/2026/september/market-participants-group-meeting-25-september-2026",
@@ -1764,6 +1739,30 @@
             "us"
           ],
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Hong Kong Monetary Authority and Bank Indonesia Strengthen Cooperation in Cross-Border Payments",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/09/20260924-4",
+          "sourceName": "Hong Kong Monetary Authority",
+          "sourceOwner": "hkma",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-23T16:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 78,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "banking-supervision",
+            "payments",
+            "operational-resilience",
+            "hong-kong"
+          ],
+          "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1771,7 +1770,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1788,7 +1787,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-24T20:41:12.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1824,30 +1823,6 @@
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
-          "title": "The Bank of England’s fees regime for recognised payment systems and specified service providers supervision 2026/27",
-          "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceOwner": "uk-boe-pra",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "publishedAt": "2026-09-22T11:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 76,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
-          ],
-          "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Elevated rate of errors for OpenAI models provided by Copilot",
           "url": "https://www.githubstatus.com/incidents/nvy2q96mcmyg",
           "sourceName": "GitHub Status",
@@ -1856,7 +1831,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-17T21:49:01.000Z",
           "dateSource": "feed",
-          "relevanceScore": 71,
+          "relevanceScore": 70,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1878,7 +1853,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-16T21:09:31.000Z",
           "dateSource": "feed",
-          "relevanceScore": 67,
+          "relevanceScore": 66,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1890,6 +1865,28 @@
             "service-disruption"
           ],
           "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Disruption with some GitHub services",
+          "url": "https://www.githubstatus.com/incidents/bk7zgdcq7s9t",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-15T20:00:50.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 62,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1897,7 +1894,7 @@
       "id": "resilience",
       "readiness": {
         "id": "resilience",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 3,
         "status": "editorial-review-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
@@ -1914,7 +1911,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-24T21:26:38.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -1925,28 +1922,6 @@
             "customer-platform"
           ],
           "whyCandidate": "Pulled from HubSpot Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Exploring the evolution of the cyber threat landscape: How dependencies weaken our digital resilience | ENISA",
-          "url": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
-          "sourceName": "European Union Agency for Cybersecurity",
-          "sourceOwner": "enisa",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-22T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 75,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "nis2",
-            "critical-sectors",
-            "supply-chain"
-          ],
-          "whyCandidate": "Pulled from European Union Agency for Cybersecurity via sitemap ingestion and matched the topic rules."
         },
         {
           "title": "Support Portal Outage",
@@ -1993,6 +1968,29 @@
         {
           "title": "Scaling AI in finance: systemic risks, resilience and European sovereignty",
           "url": "https://www.eiopa.europa.eu/publications/scaling-ai-finance-systemic-risks-resilience-and-european-sovereignty_en",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceOwner": "eiopa",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-16T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 63,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "insurance-supervision",
+            "dora",
+            "reporting",
+            "eu"
+          ],
+          "whyCandidate": "Pulled from European Insurance and Occupational Pensions Authority via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "From payout to prevention: making insurance work for Europe&#039;s climate resilience",
+          "url": "https://www.eiopa.europa.eu/publications/payout-prevention-making-insurance-work-europes-climate-resilience_en",
           "sourceName": "European Insurance and Occupational Pensions Authority",
           "sourceOwner": "eiopa",
           "sourceTier": "primary",
@@ -2163,28 +2161,6 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
-          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceOwner": "cisa",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-09-25T12:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 97,
-          "decisionType": "active-threat",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
           "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-one-known-exploited-vulnerability-catalog",
           "sourceName": "US Cybersecurity and Infrastructure Security Agency",
@@ -2269,6 +2245,27 @@
             "critical-infrastructure"
           ],
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "How dynamic application security testing validates risk at runtime",
+          "url": "https://www.rapid7.com/blog/post/em-dynamic-application-security-testing-dast-validates-risk-at-runtime-idc-marketscape",
+          "sourceName": "Rapid7 Research",
+          "sourceOwner": "rapid7",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-09-23T13:49:39.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 93,
+          "decisionType": "context",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2276,7 +2273,7 @@
       "id": "technology-failure",
       "readiness": {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2293,7 +2290,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-09-24T21:26:38.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -2314,7 +2311,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-09-24T20:41:12.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -2373,28 +2370,26 @@
           "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
         },
         {
-          "title": "The Bank of England’s fees regime for recognised payment systems and specified service providers supervision 2026/27",
-          "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceOwner": "uk-boe-pra",
+          "title": "Elevated rate of errors for OpenAI models provided by Copilot",
+          "url": "https://www.githubstatus.com/incidents/nvy2q96mcmyg",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
           "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "publishedAt": "2026-09-22T11:00:00.000Z",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-17T21:49:01.000Z",
           "dateSource": "feed",
-          "relevanceScore": 76,
+          "relevanceScore": 70,
           "decisionType": "context",
           "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
+            "digital-resilience"
           ],
           "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "uk"
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
           ],
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },

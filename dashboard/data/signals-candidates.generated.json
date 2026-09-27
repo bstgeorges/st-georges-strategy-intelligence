@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-09-27T07:07:23.388Z",
+  "generatedAt": "2026-09-27T08:07:58.778Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -1543,7 +1543,7 @@
           "summaryMatchedKeywords": [
             "disruption"
           ],
-          "relevanceScore": 63,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2062,7 +2062,7 @@
             "blanqueo"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 60,
+          "relevanceScore": 59,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
@@ -2824,6 +2824,37 @@
           "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
         },
         {
+          "id": "6e200ff9f356f983",
+          "topicId": "cyber",
+          "title": "Your Vulnerability Backlog Is No Longer Technical Debt, It’s an Attack Surface",
+          "url": "https://snyk.io/blog/vulnerability-backlog-attack-surface",
+          "publishedAt": "2026-09-24T04:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "snyk",
+          "sourceName": "Snyk Security Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "snyk-security-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "software-supply-chain"
+          ],
+          "matchedKeywords": [
+            "vulnerability"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Snyk Security Research via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "3885c69d0e0e129d",
           "topicId": "cyber",
           "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
@@ -2855,41 +2886,10 @@
           "summaryMatchedKeywords": [
             "attack"
           ],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "6e200ff9f356f983",
-          "topicId": "cyber",
-          "title": "Your Vulnerability Backlog Is No Longer Technical Debt, It’s an Attack Surface",
-          "url": "https://snyk.io/blog/vulnerability-backlog-attack-surface",
-          "publishedAt": "2026-09-24T04:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "snyk",
-          "sourceName": "Snyk Security Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "snyk-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "software-supply-chain"
-          ],
-          "matchedKeywords": [
-            "vulnerability"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
           "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Snyk Security Research via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Cloudflare Security Blog via rss ingestion and matched the topic rules."
         },
         {
           "id": "8311a0b4cae8b735",
@@ -3293,7 +3293,7 @@
           "summaryMatchedKeywords": [
             "disruption"
           ],
-          "relevanceScore": 63,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -3886,7 +3886,7 @@
             "información"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 60,
+          "relevanceScore": 59,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
@@ -4180,7 +4180,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 4,
       "reason": "",
       "error": ""
     },
@@ -4368,11 +4368,11 @@
       "sourceId": "sebi-regulatory-rss",
       "sourceRegistryId": "india-sebi",
       "fetchType": "rss",
-      "status": "failed",
-      "fetchedEntries": 0,
+      "status": "ok",
+      "fetchedEntries": 10,
       "acceptedCandidates": 0,
       "reason": "",
-      "error": "fetch failed"
+      "error": ""
     },
     {
       "sourceId": "cisa-advisories-rss",
@@ -4923,6 +4923,26 @@
       "acceptedCandidates": 5,
       "reason": "",
       "error": ""
+    },
+    {
+      "sourceId": "daily-intelligence-ledger",
+      "sourceRegistryId": "",
+      "fetchType": "editorial-ledger",
+      "status": "quiet",
+      "fetchedEntries": 4,
+      "acceptedCandidates": 0,
+      "reason": "no-approved-items",
+      "error": ""
+    },
+    {
+      "sourceId": "weekly-ai-risk-feed",
+      "sourceRegistryId": "",
+      "fetchType": "editorial-ledger",
+      "status": "quiet",
+      "fetchedEntries": 5,
+      "acceptedCandidates": 0,
+      "reason": "no-approved-items",
+      "error": ""
     }
   ],
   "warnings": [
@@ -4934,8 +4954,16 @@
     "Source reg-horizon-technology-failure-bridge skipped: horizon-withheld.",
     "Source reg-horizon-data-bridge skipped: horizon-withheld.",
     "Source arxiv-ai-rss returned no parseable entries; check its feed format or availability.",
-    "Source sebi-regulatory-rss failed during candidate collection: fetch failed",
     "Dropped generic citation candidate: https://status.aws.amazon.com/",
-    "Dropped generic citation candidate: https://status.aws.amazon.com/"
+    "Dropped generic citation candidate: https://status.aws.amazon.com/",
+    "2026-09-23-detection-remediation-capacity: held for exact-source review.",
+    "2026-09-24-agent-authority-envelope: held for exact-source review.",
+    "2026-09-25-approval-execution-integrity: held for exact-source review.",
+    "2026-09-26-agent-action-completeness: held for exact-source review.",
+    "2026-09-25-loopjacking-approval-integrity: held for exact-source review.",
+    "2026-09-25-agent-loss-of-control-defence-in-depth: held for exact-source review.",
+    "2026-09-25-proof-of-control: held for exact-source review.",
+    "2026-09-25-risk-based-autonomy: held for exact-source review.",
+    "2026-09-25-agent-control-plane: held for exact-source review."
   ]
 }

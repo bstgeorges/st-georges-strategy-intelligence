@@ -122,6 +122,8 @@ function checkCurrentEditionAlignment(failures) {
   });
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
+  assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
+  assert(home.includes('href="/regulatory-horizon/"'), "home navigation must expose Reg Horizon", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(home.includes(homeEditionLabel), `home should use canonical ${homeEditionLabel}`, failures);

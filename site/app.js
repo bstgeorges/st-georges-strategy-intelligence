@@ -6,6 +6,16 @@
   const page = path === "/" || path.endsWith("/site/") ? "home" : path.split("/").filter(Boolean).at(-1);
   document.documentElement.classList.add("js-motion", `page-${page || "home"}`);
 
+  const navigationMenu = document.querySelector("details.site-menu");
+  if (navigationMenu) {
+    const compactNavigation = window.matchMedia("(max-width: 640px)");
+    const syncNavigation = () => {
+      navigationMenu.open = !compactNavigation.matches;
+    };
+    syncNavigation();
+    compactNavigation.addEventListener("change", syncNavigation);
+  }
+
   const observeOnce = (elements, onEnter, options = {}) => {
     if (reducedMotion || !("IntersectionObserver" in window)) {
       elements.forEach((element, index) => onEnter(element, index));

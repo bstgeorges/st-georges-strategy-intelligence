@@ -1,18 +1,94 @@
 {
-  "generatedAt": "2026-09-16T20:46:28.130Z",
+  "generatedAt": "2026-09-27T08:48:05.893Z",
   "source": "site/data/signals.json",
-  "edition": "2026-09-13",
-  "rowCount": 75,
+  "edition": "2026-09-27",
+  "rowCount": 74,
   "uniqueUrlCount": 71,
   "summary": {
-    "match": 33,
+    "match": 31,
     "restricted": 6,
+    "candidate-match": 16,
     "evergreen": 12,
-    "candidate-match": 15,
-    "manual-verified": 4,
+    "manual-verified": 5,
     "no-source-date-found": 1
   },
   "results": [
+    {
+      "url": "https://www.anthropic.com/research/project-swap",
+      "finalUrl": "https://www.anthropic.com/research/project-swap",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-24"
+      ],
+      "sourceDate": "2026-09-24",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2026-09-24",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-04-24",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "ai",
+          "section": "top5",
+          "title": "Agent trading makes permission boundaries a market-control question",
+          "url": "https://www.anthropic.com/research/project-swap",
+          "displayedDate": "2026-09-24",
+          "displayedSourceDate": "2026-09-24",
+          "displayedSourceDates": [
+            "2026-09-24"
+          ],
+          "sourceLabel": "Primary / Anthropic / 2026-09-24",
+          "sourceType": "company announcement",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+      "finalUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-18"
+      ],
+      "sourceDate": "2026-09-18",
+      "sourceDateEvidence": "body.month-first",
+      "candidates": [
+        {
+          "date": "2026-09-18",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "ai",
+          "section": "top5",
+          "title": "Embedded AI evaluation turns provider assurance into an access-and-independence question",
+          "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+          "displayedDate": "2026-09-18",
+          "displayedSourceDate": "2026-09-18",
+          "displayedSourceDates": [
+            "2026-09-18"
+          ],
+          "sourceLabel": "Primary / Anthropic / 2026-09-18",
+          "sourceType": "company announcement",
+          "manualVerification": null
+        }
+      ]
+    },
     {
       "url": "https://mistral.ai/news/legacy-code-modernization",
       "finalUrl": "https://mistral.ai/news/legacy-code-modernization/",
@@ -115,94 +191,6 @@
       ]
     },
     {
-      "url": "https://mistral.ai/news/agentic-search",
-      "finalUrl": "https://mistral.ai/news/agentic-search/",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-20"
-      ],
-      "sourceDate": "2026-08-20",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-08-20",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "ai",
-          "section": "top5",
-          "title": "Agentic Search. More accurate and efficient results from your AI systems.",
-          "url": "https://mistral.ai/news/agentic-search",
-          "displayedDate": "2026-08-20",
-          "displayedSourceDate": "2026-08-20",
-          "displayedSourceDates": [
-            "2026-08-20"
-          ],
-          "sourceLabel": "Primary / Mistral AI / 2026-08-20",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-      "finalUrl": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-12"
-      ],
-      "sourceDate": "2026-08-12",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-08-12",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-10-13",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-01-27",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2025-05-05",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2025-02-26",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-12-08",
-          "source": "body.slash"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "ai",
-          "section": "top5",
-          "title": "Shaping the NVD for the Future: We Need Your Feedback on AI-Enabled Vulnerability Management",
-          "url": "https://www.nist.gov/blogs/cybersecurity-insights/shaping-nvd-future-we-need-your-feedback-ai-enabled-vulnerability",
-          "displayedDate": "2026-08-12",
-          "displayedSourceDate": "2026-08-12",
-          "displayedSourceDates": [
-            "2026-08-12"
-          ],
-          "sourceLabel": "Primary / NIST AI Risk Management Framework / 2026-08-12",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
       "finalUrl": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
       "status": 401,
@@ -285,6 +273,130 @@
           ],
           "sourceLabel": "Primary / OpenAI / 2026-07-14",
           "sourceType": "company announcement",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
+      "finalUrl": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-22"
+      ],
+      "sourceDate": "2025-12-31",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2025-12-31",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-07-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-06-30",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-22",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "resilience",
+          "section": "top5",
+          "title": "ENISA frames dependency concentration as a resilience exposure",
+          "url": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
+          "displayedDate": "2026-09-22",
+          "displayedSourceDate": "2026-09-22",
+          "displayedSourceDates": [
+            "2026-09-22"
+          ],
+          "sourceLabel": "Primary / European Union Agency for Cybersecurity / 2026-09-22",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+      "finalUrl": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-10"
+      ],
+      "sourceDate": "2025-10-24",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2025-10-24",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-14",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-10",
+          "source": "body.iso"
+        },
+        {
+          "date": "2027-01-31",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-10",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2020-05-01",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2012-12-31",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2013-01-01",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2020-10-31",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2015-11-01",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2016-01-31",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2019-01-01",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "resilience",
+          "section": "top5",
+          "title": "OSFI’s 2027 market-risk standard sets a timetable for model and data evidence",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+          "displayedDate": "2026-09-10",
+          "displayedSourceDate": "2026-09-10",
+          "displayedSourceDates": [
+            "2026-09-10"
+          ],
+          "sourceLabel": "Primary / Office of the Superintendent of Financial Institutions / 2026-09-10",
+          "sourceType": "regulator",
           "manualVerification": null
         }
       ]
@@ -390,106 +502,6 @@
             "2026-08-20"
           ],
           "sourceLabel": "Primary / Swiss Financial Market Supervisory Authority / 2026-08-20",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-      "finalUrl": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-      "status": 200,
-      "expectedDates": [
-        "2026-07-30"
-      ],
-      "sourceDate": "2026-07-30",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-07-30",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "resilience",
-          "section": "top5",
-          "title": "Japan FSA publishes analytical report on IT resilience in the financial sector",
-          "url": "https://www.fsa.go.jp/en/news/2026/20260730/20260730.html",
-          "displayedDate": "2026-07-30",
-          "displayedSourceDate": "2026-07-30",
-          "displayedSourceDates": [
-            "2026-07-30"
-          ],
-          "sourceLabel": "Primary / Financial Services Agency of Japan / 2026-07-30",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-      "finalUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-      "status": 200,
-      "expectedDates": [
-        "2026-07-31"
-      ],
-      "sourceDate": "2026-07-31",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-07-31",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-07-31",
-          "source": "body.human"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "resilience",
-          "section": "top5",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "displayedDate": "2026-07-31",
-          "displayedSourceDate": "2026-07-31",
-          "displayedSourceDates": [
-            "2026-07-31"
-          ],
-          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
-          "sourceType": "regulator",
-          "manualVerification": null
-        },
-        {
-          "topic": "third-party",
-          "section": "top5",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "displayedDate": "2026-07-31",
-          "displayedSourceDate": "2026-07-31",
-          "displayedSourceDates": [
-            "2026-07-31"
-          ],
-          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
-          "sourceType": "regulator",
-          "manualVerification": null
-        },
-        {
-          "topic": "technology-failure",
-          "section": "top5",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "displayedDate": "2026-07-31",
-          "displayedSourceDate": "2026-07-31",
-          "displayedSourceDates": [
-            "2026-07-31"
-          ],
-          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -705,7 +717,7 @@
           "source": "body.month-first"
         },
         {
-          "date": "2023-02-02",
+          "date": "2026-09-15",
           "source": "body.month-first"
         }
       ],
@@ -724,6 +736,84 @@
           ],
           "sourceLabel": "Other reporting / WIRED / 2026-06-10",
           "sourceType": "other reporting",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
+      "finalUrl": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-22"
+      ],
+      "sourceDate": "2026-09-25",
+      "sourceDateEvidence": "time.datetime",
+      "candidates": [
+        {
+          "date": "2026-09-25",
+          "source": "time.datetime"
+        },
+        {
+          "date": "2026-09-25",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-22",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-18",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-22",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-22",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-07-15",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-03-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2027-02-28",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-25",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.human"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "third-party",
+          "section": "top5",
+          "title": "Specified payment-service providers move external oversight into the operating perimeter",
+          "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
+          "displayedDate": "2026-09-22",
+          "displayedSourceDate": "2026-09-22",
+          "displayedSourceDates": [
+            "2026-09-22"
+          ],
+          "sourceLabel": "Primary / Bank of England and Prudential Regulation Authority / 2026-09-22",
+          "sourceType": "regulator",
           "manualVerification": null
         }
       ]
@@ -819,12 +909,20 @@
       "expectedDates": [
         "2026-08-14"
       ],
-      "sourceDate": "2026-09-04",
+      "sourceDate": "2026-09-25",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-04",
+          "date": "2026-09-25",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-09-25",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-18",
+          "source": "body.iso"
         },
         {
           "date": "2026-09-04",
@@ -836,6 +934,14 @@
         },
         {
           "date": "2026-08-14",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-25",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-18",
           "source": "body.human"
         },
         {
@@ -867,47 +973,53 @@
       ]
     },
     {
-      "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
-      "finalUrl": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
+      "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+      "finalUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
       "status": 200,
       "expectedDates": [
-        "2026-07-20"
+        "2026-07-31"
       ],
-      "sourceDate": "2026-07-24",
+      "sourceDate": "2026-07-31",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
-          "date": "2026-07-14",
+          "date": "2026-07-31",
           "source": "body.iso"
         },
         {
-          "date": "2026-07-24",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-07-14",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-07-20",
+          "date": "2026-07-31",
           "source": "body.human"
         }
       ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
+      "result": "match",
+      "confidence": "verified",
       "rows": [
         {
           "topic": "third-party",
           "section": "top5",
-          "title": "Google Cloud zonal outage tests cross-region failover readiness",
-          "url": "https://status.cloud.google.com/incidents/T8gmtofFSTGT5tbhyciF",
-          "displayedDate": "2026-07-20",
-          "displayedSourceDate": "2026-07-20",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "displayedDate": "2026-07-31",
+          "displayedSourceDate": "2026-07-31",
           "displayedSourceDates": [
-            "2026-07-20"
+            "2026-07-31"
           ],
-          "sourceLabel": "Primary / Google Cloud Service Health / 2026-07-20",
-          "sourceType": "company announcement",
+          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
+          "sourceType": "regulator",
+          "manualVerification": null
+        },
+        {
+          "topic": "technology-failure",
+          "section": "top5",
+          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
+          "displayedDate": "2026-07-31",
+          "displayedSourceDate": "2026-07-31",
+          "displayedSourceDates": [
+            "2026-07-31"
+          ],
+          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
+          "sourceType": "regulator",
           "manualVerification": null
         }
       ]
@@ -956,71 +1068,17 @@
       ]
     },
     {
-      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-      "finalUrl": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-      "status": 200,
-      "expectedDates": [
-        "2026-03-27"
-      ],
-      "sourceDate": "2026-03-27",
-      "sourceDateEvidence": "jsonld.datePublished",
-      "candidates": [
-        {
-          "date": "2026-03-27",
-          "source": "jsonld.datePublished"
-        },
-        {
-          "date": "2026-03-27",
-          "source": "jsonld.dateModified"
-        },
-        {
-          "date": "2026-10-06",
-          "source": "body.human"
-        },
-        {
-          "date": "2025-03-31",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-03-25",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-03-27",
-          "source": "body.slash"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "third-party",
-          "section": "stillMaterial",
-          "title": "FCA one-year review: third-party vulnerability identification still needs more work despite mapping progress",
-          "url": "https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-insights-observations-one-year",
-          "displayedDate": "2026-03-27",
-          "displayedSourceDate": "2026-03-27",
-          "displayedSourceDates": [
-            "2026-03-27"
-          ],
-          "sourceLabel": "Primary / FCA / 2026-03-27",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
       "finalUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
       "status": 200,
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2025-07-15",
+      "sourceDate": "2026-09-18",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
-          "date": "2025-07-15",
+          "date": "2026-09-18",
           "source": "body.human"
         },
         {
@@ -1075,29 +1133,17 @@
     },
     {
       "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
-      "finalUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
+      "finalUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-third-party-risk-management",
       "status": 200,
       "expectedDates": [
         "2026-03-31"
       ],
-      "sourceDate": "2019-03-04",
+      "sourceDate": "2026-09-18",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
-          "date": "2019-03-04",
+          "date": "2026-09-18",
           "source": "body.human"
-        },
-        {
-          "date": "2024-10-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2019-09-30",
-          "source": "body.slash"
-        },
-        {
-          "date": "2019-04-25",
-          "source": "body.slash"
         }
       ],
       "result": "evergreen",
@@ -1198,6 +1244,98 @@
           "sourceLabel": "Primary / FSB / 2026-06-10",
           "sourceType": "regulator",
           "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
+      "finalUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-24"
+      ],
+      "sourceDate": "2026-09-24",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2026-09-22",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-05",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.slash"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "ASIC makes AI trading safeguards part of market-integrity discipline",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
+          "displayedDate": "2026-09-24",
+          "displayedSourceDate": "2026-09-24",
+          "displayedSourceDates": [
+            "2026-09-24"
+          ],
+          "sourceLabel": "Primary / Australian Securities and Investments Commission / 2026-09-24",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-17"
+      ],
+      "sourceDate": "2013-05-17",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2013-05-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2009-12-16",
+          "source": "body.iso"
+        }
+      ],
+      "result": "manual-verified",
+      "confidence": "unknown",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "SEC’s tokenised-stock exemption makes venue controls a condition of market access",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+          "displayedDate": "2026-09-17",
+          "displayedSourceDate": "2026-09-17",
+          "displayedSourceDates": [
+            "2026-09-17"
+          ],
+          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-09-17",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-09-20",
+            "reason": "The SEC primary release displays 17 September 2026. Its article endpoint exposes an unrelated legacy date to the generic extractor, so the publication date was checked directly against the primary release before publication."
+          }
         }
       ]
     },
@@ -1310,102 +1448,6 @@
             "2026-08-28"
           ],
           "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-08-28",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england",
-      "finalUrl": "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-27"
-      ],
-      "sourceDate": "2026-08-27",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-08-27",
-          "source": "body.human"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "UK payments innovation mandate keeps financial stability as the governing constraint",
-          "url": "https://www.gov.uk/government/news/ministers-to-boost-innovation-in-payments-with-new-objective-for-bank-of-england",
-          "displayedDate": "2026-08-27",
-          "displayedSourceDate": "2026-08-27",
-          "displayedSourceDates": [
-            "2026-08-27"
-          ],
-          "sourceLabel": "Primary / HM Treasury / 2026-08-27",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
-      "finalUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-03"
-      ],
-      "sourceDate": "2026-09-03",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-09-03",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-03",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-08-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-04-16",
-          "source": "body.human"
-        },
-        {
-          "date": "2017-01-31",
-          "source": "body.human"
-        },
-        {
-          "date": "2021-05-21",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-20",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-03",
-          "source": "body.slash"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "ASIC insider-trading sentence turns project-information controls into a market-integrity test",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-207mr-former-beacon-minerals-project-manager-alexander-mcculloch-sentenced-for-insider-trading",
-          "displayedDate": "2026-09-03",
-          "displayedSourceDate": "2026-09-03",
-          "displayedSourceDates": [
-            "2026-09-03"
-          ],
-          "sourceLabel": "Primary / Australian Securities and Investments Commission / 2026-09-03",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -1610,15 +1652,15 @@
       "expectedDates": [
         "2026-07-31"
       ],
-      "sourceDate": "2026-08-06",
+      "sourceDate": "2026-09-25",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-08-06",
+          "date": "2026-09-25",
           "source": "time.datetime"
         },
         {
-          "date": "2026-08-06",
+          "date": "2026-09-25",
           "source": "body.iso"
         },
         {
@@ -1650,7 +1692,7 @@
           "source": "body.human"
         },
         {
-          "date": "2026-08-06",
+          "date": "2026-09-25",
           "source": "body.human"
         },
         {
@@ -1750,15 +1792,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-09-16",
+          "date": "2026-09-25",
           "source": "body.human"
         },
         {
-          "date": "2026-09-15",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-14",
+          "date": "2026-09-18",
           "source": "body.human"
         },
         {
@@ -1893,8 +1931,8 @@
           "sourceType": "regulator",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-08-23",
-            "reason": "The SEC's official press-release RSS entry dates this release 18 August 2026 at 19:55 UTC. The article endpoint exposes unrelated legacy body dates to the generic scraper."
+            "verifiedDate": "2026-09-27",
+            "reason": "The SEC's official press-release RSS entry identifies this release as 18 August 2026. The article endpoint exposes unrelated legacy body dates to the generic scraper; the primary source was rechecked on 27 September."
           }
         }
       ]
@@ -2140,6 +2178,82 @@
       ]
     },
     {
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-25"
+      ],
+      "sourceDate": "2026-09-25",
+      "sourceDateEvidence": "url.path",
+      "candidates": [
+        {
+          "date": "2026-09-25",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-25",
+          "source": "url.path"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "cyber",
+          "section": "top5",
+          "title": "New exploited flaws test whether dependency chains can be contained in time",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "displayedDate": "2026-09-25",
+          "displayedSourceDate": "2026-09-25",
+          "displayedSourceDates": [
+            "2026-09-25"
+          ],
+          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-25",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-18"
+      ],
+      "sourceDate": "2026-09-18",
+      "sourceDateEvidence": "url.path",
+      "candidates": [
+        {
+          "date": "2026-09-18",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-18",
+          "source": "url.path"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "cyber",
+          "section": "top5",
+          "title": "Two newly exploited flaws test whether the asset inventory can drive emergency patching",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "displayedDate": "2026-09-18",
+          "displayedSourceDate": "2026-09-18",
+          "displayedSourceDates": [
+            "2026-09-18"
+          ],
+          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-18",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
       "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
       "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
       "status": 200,
@@ -2254,92 +2368,8 @@
       ]
     },
     {
-      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
-      "finalUrl": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-02"
-      ],
-      "sourceDate": "2026-09-01",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-09-01",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-02",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-03",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "Exploited SonicWall flaws shorten the window for appliance exposure checks",
-          "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild",
-          "displayedDate": "2026-09-02",
-          "displayedSourceDate": "2026-09-02",
-          "displayedSourceDates": [
-            "2026-09-02"
-          ],
-          "sourceLabel": "Primary / Rapid7 Research / 2026-09-02",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
-      "finalUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign/",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-01"
-      ],
-      "sourceDate": "2026-09-01",
-      "sourceDateEvidence": "url.path",
-      "candidates": [
-        {
-          "date": "2026-07-13",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-29-04",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-09-01",
-          "source": "url.path"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "Counterfeit installers expose the weak point in download and endpoint controls",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign",
-          "displayedDate": "2026-09-01",
-          "displayedSourceDate": "2026-09-01",
-          "displayedSourceDates": [
-            "2026-09-01"
-          ],
-          "sourceLabel": "Primary / Microsoft Security Blog / 2026-09-01",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
-      "finalUrl": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals/cross-sector-cybersecurity-performance-goals",
+      "finalUrl": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
       "status": 200,
       "expectedDates": [
         "2022-12-08"
@@ -2428,9 +2458,37 @@
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2026-09-16",
+      "sourceDate": "2026-09-25",
       "sourceDateEvidence": "body.iso",
       "candidates": [
+        {
+          "date": "2026-09-25",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-28",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-24",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-27",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-22",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-21",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-18",
+          "source": "body.iso"
+        },
         {
           "date": "2026-09-16",
           "source": "body.iso"
@@ -2449,34 +2507,6 @@
         },
         {
           "date": "2026-09-17",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-11",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-08",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-10",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-13",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-09",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-12",
           "source": "body.iso"
         }
       ],
@@ -2824,62 +2854,13 @@
     {
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
       "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
-      "status": 200,
+      "status": 202,
       "expectedDates": [
         "2022-12-27"
       ],
-      "sourceDate": "2022-12-14",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2022-12-14",
-          "source": "body.iso"
-        },
-        {
-          "date": "2022-12-27",
-          "source": "body.iso"
-        },
-        {
-          "date": "2023-01-16",
-          "source": "body.iso"
-        },
-        {
-          "date": "2025-01-17",
-          "source": "body.iso"
-        },
-        {
-          "date": "2022-12-14",
-          "source": "body.human"
-        },
-        {
-          "date": "2018-03-08",
-          "source": "body.human"
-        },
-        {
-          "date": "2011-01-14",
-          "source": "body.human"
-        },
-        {
-          "date": "2016-04-13",
-          "source": "body.human"
-        },
-        {
-          "date": "2021-05-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2024-07-17",
-          "source": "body.human"
-        },
-        {
-          "date": "2024-01-17",
-          "source": "body.human"
-        },
-        {
-          "date": "2025-01-17",
-          "source": "body.human"
-        }
-      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
       "result": "evergreen",
       "confidence": "unknown",
       "rows": [
@@ -2918,19 +2899,15 @@
           "source": "body.slash"
         },
         {
+          "date": "2026-09-23",
+          "source": "body.slash"
+        },
+        {
           "date": "2026-08-03",
           "source": "body.slash"
         },
         {
           "date": "2026-07-31",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-07-10",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-07-08",
           "source": "body.slash"
         }
       ],
@@ -3251,23 +3228,23 @@
       "expectedDates": [
         "2026-06-03"
       ],
-      "sourceDate": "2026-09-16",
+      "sourceDate": "2026-09-25",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-16",
+          "date": "2026-09-25",
           "source": "time.datetime"
         },
         {
-          "date": "2026-09-16",
+          "date": "2026-09-25",
           "source": "body.iso"
         },
         {
-          "date": "2026-09-15",
+          "date": "2026-09-21",
           "source": "body.iso"
         },
         {
-          "date": "2026-09-10",
+          "date": "2026-09-18",
           "source": "body.iso"
         },
         {
@@ -3275,15 +3252,19 @@
           "source": "body.human"
         },
         {
-          "date": "2026-09-16",
+          "date": "2026-09-25",
           "source": "body.human"
         },
         {
-          "date": "2026-09-15",
+          "date": "2026-09-24",
           "source": "body.human"
         },
         {
-          "date": "2026-09-10",
+          "date": "2026-09-21",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-18",
           "source": "body.human"
         }
       ],

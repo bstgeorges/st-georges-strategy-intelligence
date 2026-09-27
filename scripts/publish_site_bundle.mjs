@@ -223,7 +223,6 @@ function buildSubscribeSection() {
           <p class="dek">One email a week. The so-what, the Top 5, and the board question - nothing else.</p>
           <div class="subscribe-embed">
             <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d75a8e0a-2d7c-467f-87c1-a2e3a86d4ba1"></script>
-            <a class="subscribe-fallback-link" href="https://thevirtualofficer.beehiiv.com/subscribe" target="_blank" rel="noopener">Prefer a direct subscribe link? Open Beehiiv →</a>
           </div>
         </div>
       </section>

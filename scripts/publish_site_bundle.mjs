@@ -18,6 +18,7 @@ const HORIZON_REGISTER_DIR = path.join(ROOT, "dashboard", "regulatory-deadline-r
 const HORIZON_PREVIEW_DIR = path.join(ROOT, "dashboard", "regulatory-horizon-preview");
 const SIGNALS_INPUT = path.join(SOURCE, "data", "signals.json");
 const EDITION_INPUT = path.join(SOURCE, "data", "current-edition.json");
+const DEEP_DIVES_INPUT = path.join(SOURCE, "data", "deep-dives.json");
 const PROMOTION_SUMMARY_INPUT = path.join(ROOT, "dashboard", "data", "signals-promotion-summary.json");
 const HORIZON_EDITORIAL_INPUT = path.join(ROOT, "dashboard", "data", "regulatory-horizon-editorial.json");
 const ARCHIVE_STORE = path.join(ROOT, "dashboard", "signals-archive");
@@ -87,6 +88,7 @@ const routes = [
   ["/signals/data/", "signals/data/index.html"],
   ["/deep-dives/", "deep-dives/index.html"],
   ["/deep-dives/harness-problem/", "deep-dives/harness-problem/index.html"],
+  ["/deep-dives/agentic-authority/", "deep-dives/agentic-authority/index.html"],
   ["/committee-questions/", "committee-questions/index.html"],
   ["/archive/", "archive/index.html"],
   ["/about/", "about/index.html"],
@@ -668,9 +670,10 @@ function cardPathForPage(relative) {
   if (relative === "brief/index.html") return "assets/og/weekly-brief-current.png";
   let match = relative.match(/^(?:archive\/)?brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
   if (match) return `assets/og/weekly-brief-${match[1]}.png`;
-  if (relative === "deep-dives/harness-problem/index.html") return "assets/og/deep-dive-harness-problem.png";
-  match = relative.match(/^deep-dives\/harness-problem\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
-  if (match) return `assets/og/deep-dive-harness-problem-${match[1]}.png`;
+  match = relative.match(/^deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.html$/);
+  if (match) return `assets/og/deep-dive-${match[1]}.png`;
+  match = relative.match(/^deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+  if (match) return `assets/og/deep-dive-${match[1]}-${match[2]}.png`;
   return "";
 }
 
@@ -1302,6 +1305,12 @@ function deepDiveDetails(deepDive) {
   };
 }
 
+function standaloneDeepDives() {
+  if (!fs.existsSync(DEEP_DIVES_INPUT)) return [];
+  const records = readJson(DEEP_DIVES_INPUT);
+  return Array.isArray(records?.items) ? records.items : [];
+}
+
 function listDeepDiveArchiveEntries(maxDate = "") {
   if (!fs.existsSync(DEEP_DIVE_ARCHIVE_STORE)) return [];
   const entries = [];
@@ -1368,6 +1377,20 @@ function syncSignalsArchiveStore(out, edition) {
     );
   }
 
+  // Deep Dives may be published between weekly Brief editions. Each declared
+  // standalone record receives a dated immutable snapshot without changing the
+  // Brief's own publication date or its historical archive.
+  for (const record of standaloneDeepDives()) {
+    const deepDive = deepDiveDetails({ route: record?.route });
+    if (!deepDive || !/^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || "")) continue;
+    archiveIntoStore(
+      out,
+      deepDive.sourceRelative,
+      path.join(deepDive.storeDir, record.publishedDate, "index.html"),
+      `${PUBLIC_ORIGIN}/deep-dives/${deepDive.slug}/archive/${record.publishedDate}/`,
+    );
+  }
+
   const briefStoreDir = path.join(ARCHIVE_STORE, "brief");
   if (fs.existsSync(briefStoreDir)) {
     copyDirectory(briefStoreDir, path.join(out, "archive", "brief"), archiveEditionFilter(briefStoreDir, edition));
@@ -1385,9 +1408,9 @@ function syncSignalsArchiveStore(out, edition) {
       copyDirectory(topicStoreDir, path.join(out, "signals", topic, "archive"), archiveEditionFilter(topicStoreDir, edition));
     }
   }
-  for (const { slug } of listDeepDiveArchiveEntries(edition)) {
+  for (const { slug } of listDeepDiveArchiveEntries()) {
     const storeDir = path.join(DEEP_DIVE_ARCHIVE_STORE, slug);
-    copyDirectory(storeDir, path.join(out, "deep-dives", slug, "archive"), archiveEditionFilter(storeDir, edition));
+    copyDirectory(storeDir, path.join(out, "deep-dives", slug, "archive"));
   }
 }
 
@@ -1583,7 +1606,7 @@ function updateArchiveIndexCards(out, edition) {
 
   // The archive hub is an index of distinct pieces, not a changelog of their
   // snapshots. Keep older snapshots addressable but show one card per piece.
-  for (const { slug, date } of listLatestDeepDiveArchiveEntries(edition)) {
+  for (const { slug, date } of listLatestDeepDiveArchiveEntries()) {
     const title = archivedDeepDiveTitle(slug, date) || `Deep Dive — ${slug.replace(/-/g, " ")}`;
     cards.push(
       `<a class="archive-card archive-deep-dive" href="/deep-dives/${slug}/archive/${date}/"><p class="meta">Deep Dive / ${date}</p><h3>${escapeHtml(title)}</h3><p>Preserved analysis and source trail from the published edition.</p></a>`,
@@ -2670,7 +2693,7 @@ function generateSitemap(out, edition) {
       entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`, lastmod: date });
     }
   }
-  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+  for (const { slug, date } of listDeepDiveArchiveEntries()) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`, lastmod: date });
   }
   if (!briefDates.includes(edition)) entries.push({ loc: briefEditionUrl(edition), lastmod: edition });

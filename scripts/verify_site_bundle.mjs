@@ -24,6 +24,7 @@ const routes = [
   ["signals-data", "signals/data/index.html", "https://stgeorgesstrategy.com/signals/data/"],
   ["deep-dives", "deep-dives/index.html", "https://stgeorgesstrategy.com/deep-dives/"],
   ["deep-dive-harness", "deep-dives/harness-problem/index.html", "https://stgeorgesstrategy.com/deep-dives/harness-problem/"],
+  ["deep-dive-agentic-authority", "deep-dives/agentic-authority/index.html", "https://stgeorgesstrategy.com/deep-dives/agentic-authority/"],
   ["committee-questions", "committee-questions/index.html", "https://stgeorgesstrategy.com/committee-questions/"],
   ["archive", "archive/index.html", "https://stgeorgesstrategy.com/archive/"],
   ["about", "about/index.html", "https://stgeorgesstrategy.com/about/"],
@@ -427,8 +428,11 @@ function main() {
   assert(brief.includes('content="https://stgeorgesstrategy.com/assets/og/weekly-brief-current.png"'), "Weekly Brief must use its contextual social card", failures);
   const deepDive = read("deep-dives/harness-problem/index.html");
   assert(deepDive.includes('content="https://stgeorgesstrategy.com/assets/og/deep-dive-harness-problem.png"'), "Deep Dive must use its contextual social card", failures);
+  const agenticAuthority = read("deep-dives/agentic-authority/index.html");
+  assert(agenticAuthority.includes('content="https://stgeorgesstrategy.com/assets/og/deep-dive-agentic-authority.png"'), "Agentic-authority Deep Dive must use its contextual social card", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "og", "weekly-brief-current.png")), "current Weekly Brief social card missing", failures);
   assert(fs.existsSync(path.join(SITE, "assets", "og", "deep-dive-harness-problem.png")), "current Deep Dive social card missing", failures);
+  assert(fs.existsSync(path.join(SITE, "assets", "og", "deep-dive-agentic-authority.png")), "agentic-authority social card missing", failures);
   const feed = read("feed.xml");
   assert(feed.includes("St Georges Strategy — Weekly Brief"), "public RSS feed must identify the Weekly Brief", failures);
   assert(feed.includes(`${edition.mainJudgement}</title>`), "public RSS feed must include the current editorial judgement", failures);

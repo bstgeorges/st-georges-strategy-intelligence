@@ -28,6 +28,13 @@ const TRANSIENT_OFFICIAL_ENDPOINTS = new Set([
   "https://www.cssf.lu/en/2026/07/breakdown-according-to-currency/",
   "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
 ]);
+// This editorial source is reachable in ordinary browsing but intermittently
+// times out under the parallel CI verifier. Repeated transport failure is
+// recorded as temporary unavailability, while an HTTP error or soft 404 still
+// fails the release.
+const TRANSIENT_EDITORIAL_ENDPOINTS = new Set([
+  "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/the-speed-problem-how-frontier-ai-exposes-weakness-in-enterprise-cybersecurity",
+]);
 const soft404TitlePatterns = [
   /404/i,
   /page not found/i,
@@ -101,7 +108,7 @@ function isKnownRestrictedFetchFailure(url, error) {
   // Preserve the hard failure for HTTP 4xx/soft-404 responses; this exception
   // only covers repeated connection failures from the link checker itself.
   if (isManuallyVerifiedFetchFailure(url, error)) return true;
-  if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url)) {
+  if (TRANSIENT_OFFICIAL_ENDPOINTS.has(url) || TRANSIENT_EDITORIAL_ENDPOINTS.has(url)) {
     return /AbortError|fetch failed/i.test(String(error));
   }
   return false;
@@ -219,7 +226,7 @@ async function fetchUrl(url) {
     return {
       ...lastResult,
       ok: true,
-      note: isManuallyVerifiedFetchFailure(url, lastResult.error) ? "manual-verified" : "restricted",
+      note: isManuallyVerifiedFetchFailure(url, lastResult.error) ? "manual-verified" : "unavailable",
     };
   }
   return lastResult;

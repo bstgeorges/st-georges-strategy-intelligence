@@ -1254,6 +1254,31 @@ a.tag:hover {
   font: italic 600 21px/1.42 var(--serif);
 }
 
+.deep-dive-section > p:last-child:has(> a) {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 22px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+  color: var(--muted);
+  font: 500 11px/1.45 var(--mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.deep-dive-section > p:last-child:has(> a)::before {
+  content: "Source";
+  flex: 0 0 auto;
+  color: var(--accent-readable);
+}
+
+.deep-dive-section > p:last-child:has(> a) a {
+  color: var(--navy);
+  text-decoration-color: rgba(160, 126, 46, 0.65);
+  text-underline-offset: 3px;
+}
+
 .deep-dive-quote {
   margin: clamp(50px, 7vw, 90px) 0;
   border-top: 1px solid rgba(160, 126, 46, 0.5);
@@ -3091,7 +3116,7 @@ a.tag:hover {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .site-banner-inner {
     flex-direction: column;
     align-items: flex-start;

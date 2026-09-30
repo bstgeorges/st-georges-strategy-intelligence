@@ -8,7 +8,7 @@
 
   const navigationMenu = document.querySelector("details.site-menu");
   if (navigationMenu) {
-    const compactNavigation = window.matchMedia("(max-width: 640px)");
+    const compactNavigation = window.matchMedia("(max-width: 760px)");
     const syncNavigation = () => {
       navigationMenu.open = !compactNavigation.matches;
     };

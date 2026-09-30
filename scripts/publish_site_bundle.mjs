@@ -650,19 +650,19 @@ function wrapSocialCardTitle(value, maxCharacters = 30, maxLines = 3) {
 
 function socialCardSvg({ label, title, detail }) {
   const lines = wrapSocialCardTitle(title);
-  const titleMarkup = lines.map((line, index) => `<text x="90" y="${296 + index * 76}" fill="#f4efe3" font-family="Georgia, serif" font-size="66" font-weight="700">${escapeXml(line)}</text>`).join("");
+  const titleMarkup = lines.map((line, index) => `<text x="90" y="${296 + index * 76}" fill="#f4efe3" font-family="Playfair Display, Georgia, serif" font-size="66" font-weight="700">${escapeXml(line)}</text>`).join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0f2233"/>
   <path d="M730 0H1200V630H835C928 510 974 388 990 258C1009 119 972 39 910 0Z" fill="#0b1a29"/>
   <path d="M776 42C970 135 1074 309 1068 545" fill="none" stroke="#f4efe3" stroke-opacity=".12" stroke-width="1"/>
   <path d="M692 520C826 469 954 459 1092 490" fill="none" stroke="#c49a4a" stroke-opacity=".44" stroke-width="2"/>
   <rect x="90" y="68" width="78" height="78" fill="none" stroke="#c49a4a" stroke-width="3"/>
-  <text x="129" y="116" fill="#f4efe3" font-family="monospace" font-size="24" font-weight="700" letter-spacing="-2" text-anchor="middle">SGS</text>
-  <text x="194" y="112" fill="#f4efe3" font-family="monospace" font-size="18" font-weight="600" letter-spacing="2.6">ST GEORGES STRATEGY</text>
-  <text x="90" y="204" fill="#c49a4a" font-family="monospace" font-size="18" font-weight="600" letter-spacing="2">${escapeXml(label)}</text>
+  <text x="129" y="116" fill="#f4efe3" font-family="JetBrains Mono, monospace" font-size="24" font-weight="700" letter-spacing="-2" text-anchor="middle">SGS</text>
+  <text x="194" y="112" fill="#f4efe3" font-family="JetBrains Mono, monospace" font-size="18" font-weight="600" letter-spacing="2.6">ST GEORGES STRATEGY</text>
+  <text x="90" y="204" fill="#c49a4a" font-family="JetBrains Mono, monospace" font-size="18" font-weight="600" letter-spacing="2">${escapeXml(label)}</text>
   ${titleMarkup}
   <rect x="90" y="548" width="420" height="3" fill="#c49a4a"/>
-  <text x="90" y="592" fill="#d3dce3" font-family="monospace" font-size="18" letter-spacing="1.3">${escapeXml(detail)}</text>
+  <text x="90" y="592" fill="#d3dce3" font-family="JetBrains Mono, monospace" font-size="18" letter-spacing="1.3">${escapeXml(detail)}</text>
 </svg>`;
 }
 
@@ -690,13 +690,16 @@ async function generateContextualOgImages(out, editionRecord) {
     const html = read(file);
     const isBrief = relative === "brief/index.html" || relative.startsWith("archive/brief/") || /^brief\/\d{4}-\d{2}-\d{2}\//.test(relative);
     const archiveDate = (relative.match(/(\d{4}-\d{2}-\d{2})/) || [])[1];
+    const standaloneRecord = !isBrief
+      ? standaloneDeepDives().find((record) => deepDiveDetails(record)?.slug === relative.match(/^deep-dives\/([^/]+)\//)?.[1])
+      : null;
     const title = relative === "brief/index.html"
       ? editionRecord.mainJudgement || editionRecord.title
-      : headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : editionRecord.deepDive?.title || "Deep Dive");
+      : standaloneRecord?.socialTitle || headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : editionRecord.deepDive?.title || "Deep Dive");
     const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / EDITION" : "WEEKLY BRIEF") : "DEEP DIVE";
     const detail = isBrief
       ? `${archiveDate ? formatDateLong(archiveDate) : editionRecord.editionNumber} / STGEORGESSTRATEGY.COM`
-      : `${editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`;
+      : `${standaloneRecord?.readTime || editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`;
     const destination = path.join(out, cardPath);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     await sharp(Buffer.from(socialCardSvg({ label, title, detail }))).png({ compressionLevel: 9, palette: true }).toFile(destination);
@@ -1190,6 +1193,10 @@ function removeBriefEditionPermalink(html) {
   return html.replace(/\s*<section class="band brief-edition-permalink"[\s\S]*?<!-- brief-edition-permalink:end -->/, "");
 }
 
+function removeStandaloneDeepDivePromotionMarker(html) {
+  return html.replace(/\s*<!-- standalone-deep-dive-promotion -->/, "");
+}
+
 function validatePromotionSummary(failures) {
   if (!fs.existsSync(PROMOTION_SUMMARY_INPUT)) return;
   const summary = readJson(PROMOTION_SUMMARY_INPUT);
@@ -1311,6 +1318,47 @@ function standaloneDeepDives() {
   return Array.isArray(records?.items) ? records.items : [];
 }
 
+function latestStandaloneDeepDive() {
+  return standaloneDeepDives()
+    .filter((record) => {
+      const deepDive = deepDiveDetails(record);
+      return Boolean(
+        deepDive
+        && /^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || "")
+        && record?.title
+        && record?.dek
+        && record?.readTime,
+      );
+    })
+    .sort((left, right) => {
+      const dateOrder = String(right.publishedDate).localeCompare(String(left.publishedDate));
+      return dateOrder || String(right.route).localeCompare(String(left.route));
+    })[0] || null;
+}
+
+function renderStandaloneDeepDivePromotion(out, editionRecord) {
+  const record = latestStandaloneDeepDive();
+  if (!record || record.route === editionRecord?.deepDive?.route) return;
+  const feature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
+          <div class="section-heading compact-heading">
+            <div><p class="eyebrow">Latest Deep Dive</p><h2 id="latest-standalone-deep-dive-title">A longer read for the issue beneath the week.</h2></div>
+            <p>Source-backed analysis for a question that deserves more room than the weekly Brief.</p>
+          </div>
+          <a class="home-deep-dive" href="${escapeHtml(record.route)}">
+            <div><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+            <span aria-hidden="true">Read the analysis →</span>
+          </a>
+        </section>`;
+  const marker = "<!-- standalone-deep-dive-promotion -->";
+  for (const relative of ["index.html", "brief/index.html"]) {
+    const file = path.join(out, relative);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    if (!html.includes(marker)) throw new Error(`Standalone Deep Dive promotion marker missing: ${relative}`);
+    write(file, html.replace(marker, feature));
+  }
+}
+
 function listDeepDiveArchiveEntries(maxDate = "") {
   if (!fs.existsSync(DEEP_DIVE_ARCHIVE_STORE)) return [];
   const entries = [];
@@ -1356,7 +1404,7 @@ function syncSignalsArchiveStore(out, edition) {
     "brief/index.html",
     path.join(ARCHIVE_STORE, "brief", edition, "index.html"),
     `${PUBLIC_ORIGIN}/archive/brief/${edition}/`,
-    (html) => addWeeklyJudgementToBriefArchive(html, editionRecord),
+    (html) => addWeeklyJudgementToBriefArchive(removeStandaloneDeepDivePromotionMarker(html), editionRecord),
   );
   for (const topic of topics) {
     archiveIntoStore(
@@ -1609,7 +1657,7 @@ function updateArchiveIndexCards(out, edition) {
   for (const { slug, date } of listLatestDeepDiveArchiveEntries()) {
     const title = archivedDeepDiveTitle(slug, date) || `Deep Dive — ${slug.replace(/-/g, " ")}`;
     cards.push(
-      `<a class="archive-card archive-deep-dive" href="/deep-dives/${slug}/archive/${date}/"><p class="meta">Deep Dive / ${date}</p><h3>${escapeHtml(title)}</h3><p>Preserved analysis and source trail from the published edition.</p></a>`,
+      `<a class="archive-card archive-deep-dive" href="/deep-dives/${slug}/archive/${date}/"><p class="meta">Deep Dive / ${formatDateLong(date)}</p><h3>${escapeHtml(title)}</h3><p>Preserved analysis and source trail from the published edition.</p></a>`,
     );
   }
 
@@ -3063,6 +3111,10 @@ async function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
+  // Standalone Deep Dives are promoted on current entry pages only. This comes
+  // after the weekly snapshot is frozen so a between-edition article never
+  // rewrites the historical Brief it did not belong to.
+  renderStandaloneDeepDivePromotion(options.out, editionRecord);
   renderSignalDecisionFramework(options.out, signalsData);
   updateLiveEditionDateLabels(options.out, edition, editionRecord);
   updateCurrentStructuredDataDates(options.out, edition);

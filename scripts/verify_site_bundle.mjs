@@ -91,6 +91,7 @@ function checkCurrentEditionAlignment(failures) {
   const home = read("index.html");
   const brief = read("brief/index.html");
   const archive = read("archive/index.html");
+  const archivedBrief = read(`archive/brief/${edition.publicationDate}/index.html`);
   const deepDives = read("deep-dives/index.html");
   const committee = read("committee-questions/index.html");
   const about = read("about/index.html");
@@ -194,6 +195,23 @@ function checkCurrentEditionAlignment(failures) {
         assert(attr(archived, /<meta property="og:url" content="([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive og:url mismatch", failures);
         assert(attr(archived, /"@id": "([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive JSON-LD @id mismatch", failures);
       }
+    }
+  }
+  const standaloneDeepDives = (readSourceJson("data/deep-dives.json").items || [])
+    .filter((record) => record?.route && record?.publishedDate && record?.title && record?.dek && record?.readTime)
+    .sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)));
+  const latestStandalone = standaloneDeepDives[0];
+  if (latestStandalone && latestStandalone.route !== edition.deepDive?.route) {
+    const expectedMeta = `Deep Dive / ${formatDateLong(latestStandalone.publishedDate)} / ${latestStandalone.readTime}`;
+    const slug = latestStandalone.route.match(/^\/deep-dives\/([^/]+)\/$/)?.[1] || "";
+    assert(home.includes(latestStandalone.title), "homepage must promote the latest standalone Deep Dive", failures);
+    assert(brief.includes(latestStandalone.title), "Weekly Brief must promote the latest standalone Deep Dive", failures);
+    assert(home.includes(expectedMeta) && brief.includes(expectedMeta), "standalone Deep Dive promotion must use its publication date and read time", failures);
+    assert(!archivedBrief.includes("Latest Deep Dive"), "standalone Deep Dive promotion must not rewrite the dated Weekly Brief", failures);
+    assert(archive.includes(`Deep Dive / ${formatDateLong(latestStandalone.publishedDate)}`), "archive Deep Dive cards must use human-readable dates", failures);
+    if (slug) {
+      const liveDeepDive = read(`deep-dives/${slug}/index.html`);
+      assert(liveDeepDive.includes(`assets/og/deep-dive-${slug}.png`), "standalone Deep Dive must use a contextual social image", failures);
     }
   }
   assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);

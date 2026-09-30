@@ -667,6 +667,15 @@ function socialCardSvg({ label, title, detail }) {
 }
 
 function cardPathForPage(relative) {
+  const landingCards = {
+    "index.html": "assets/og/home-current.png",
+    "signals/index.html": "assets/og/signals-current.png",
+    "deep-dives/index.html": "assets/og/deep-dives-index.png",
+    "committee-questions/index.html": "assets/og/committee-questions-current.png",
+    "archive/index.html": "assets/og/archive-index.png",
+    "regulatory-horizon/index.html": "assets/og/regulatory-horizon-current.png",
+  };
+  if (landingCards[relative]) return landingCards[relative];
   if (relative === "brief/index.html") return "assets/og/weekly-brief-current.png";
   let match = relative.match(/^(?:archive\/)?brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
   if (match) return `assets/og/weekly-brief-${match[1]}.png`;
@@ -675,6 +684,19 @@ function cardPathForPage(relative) {
   match = relative.match(/^deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
   if (match) return `assets/og/deep-dive-${match[1]}-${match[2]}.png`;
   return "";
+}
+
+function landingCardContext(relative, editionRecord) {
+  const editionDetail = `${editionRecord.editionNumber || "CURRENT EDITION"} / STGEORGESSTRATEGY.COM`;
+  const contexts = {
+    "index.html": { label: "THE VIRTUAL OFFICER", detail: editionDetail },
+    "signals/index.html": { label: "SIGNALS", detail: editionDetail },
+    "deep-dives/index.html": { label: "DEEP DIVES", detail: "LONG-FORM ANALYSIS / STGEORGESSTRATEGY.COM" },
+    "committee-questions/index.html": { label: "COMMITTEE QUESTIONS", detail: editionDetail },
+    "archive/index.html": { label: "ARCHIVE", detail: "DATED RECORD / STGEORGESSTRATEGY.COM" },
+    "regulatory-horizon/index.html": { label: "REGULATORY HORIZON", detail: editionDetail },
+  };
+  return contexts[relative] || null;
 }
 
 function headingFromHtml(html) {
@@ -689,17 +711,21 @@ async function generateContextualOgImages(out, editionRecord) {
     if (!cardPath) continue;
     const html = read(file);
     const isBrief = relative === "brief/index.html" || relative.startsWith("archive/brief/") || /^brief\/\d{4}-\d{2}-\d{2}\//.test(relative);
+    const isDeepDive = /^deep-dives\/[^/]+\/(?:index\.html|archive\/\d{4}-\d{2}-\d{2}\/index\.html)$/.test(relative);
     const archiveDate = (relative.match(/(\d{4}-\d{2}-\d{2})/) || [])[1];
     const standaloneRecord = !isBrief
       ? standaloneDeepDives().find((record) => deepDiveDetails(record)?.slug === relative.match(/^deep-dives\/([^/]+)\//)?.[1])
       : null;
+    const landing = landingCardContext(relative, editionRecord);
     const title = relative === "brief/index.html"
       ? editionRecord.mainJudgement || editionRecord.title
-      : standaloneRecord?.socialTitle || headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : editionRecord.deepDive?.title || "Deep Dive");
-    const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / EDITION" : "WEEKLY BRIEF") : "DEEP DIVE";
+      : standaloneRecord?.socialTitle || headingFromHtml(html) || (isBrief ? `Weekly Brief — ${formatDateLong(archiveDate)}` : landing?.label || editionRecord.deepDive?.title || "Deep Dive");
+    const label = isBrief ? (archiveDate ? "WEEKLY BRIEF / EDITION" : "WEEKLY BRIEF") : isDeepDive ? "DEEP DIVE" : landing?.label || "THE VIRTUAL OFFICER";
     const detail = isBrief
       ? `${archiveDate ? formatDateLong(archiveDate) : editionRecord.editionNumber} / STGEORGESSTRATEGY.COM`
-      : `${standaloneRecord?.readTime || editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`;
+      : isDeepDive
+        ? `${standaloneRecord?.readTime || editionRecord.deepDive?.readTime || "Long read"} / STGEORGESSTRATEGY.COM`
+        : landing?.detail || `STGEORGESSTRATEGY.COM`;
     const destination = path.join(out, cardPath);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     await sharp(Buffer.from(socialCardSvg({ label, title, detail }))).png({ compressionLevel: 9, palette: true }).toFile(destination);
@@ -1336,6 +1362,46 @@ function latestStandaloneDeepDive() {
     })[0] || null;
 }
 
+function deepDiveArchiveDate(record) {
+  const date = record?.archiveDate || record?.publishedDate || "";
+  return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
+}
+
+function renderDeepDiveLibrary(out) {
+  const records = standaloneDeepDives()
+    .filter((record) => deepDiveDetails(record) && record?.title && record?.dek && record?.readTime && /^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || ""))
+    .sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)));
+  if (!records.length) return;
+  const card = (record) => `<a class="home-deep-dive" href="${escapeHtml(record.route)}">
+          <div><p class="meta">${escapeHtml(record.category || "Deep Dive")} / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+          <span aria-hidden="true">Read the analysis →</span>
+        </a>`;
+  const [latest, ...earlier] = records;
+  const earlierMarkup = earlier.length
+    ? `<section class="band" aria-labelledby="earlier-deep-dive-title">
+        <div class="section-heading compact-heading">
+          <div><p class="eyebrow">Earlier analysis</p><h2 id="earlier-deep-dive-title">Continue through the record.</h2></div>
+          <p>Each Deep Dive remains available as a dated, source-linked record after the next piece is published.</p>
+        </div>
+        <div class="deep-dive-library-list">
+          ${earlier.map(card).join("\n          ")}
+        </div>
+      </section>`
+    : "";
+  const markup = `<section class="band" aria-labelledby="latest-deep-dive-title">
+        <div class="section-heading compact-heading">
+          <div><p class="eyebrow">Latest analysis</p><h2 id="latest-deep-dive-title">Start with the issue beneath the week.</h2></div>
+          <p>Deep Dives are deliberately occasional. Each follows a source trail and stays focused on one operating question.</p>
+        </div>
+        ${card(latest)}
+      </section>
+      ${earlierMarkup}`;
+  const file = path.join(out, "deep-dives", "index.html");
+  const html = read(file);
+  if (!html.includes("<!-- deep-dive-library -->")) throw new Error("Deep Dive library marker missing");
+  write(file, html.replace("<!-- deep-dive-library -->", markup));
+}
+
 function renderStandaloneDeepDivePromotion(out, editionRecord) {
   const record = latestStandaloneDeepDive();
   if (!record || record.route === editionRecord?.deepDive?.route) return;
@@ -1430,12 +1496,13 @@ function syncSignalsArchiveStore(out, edition) {
   // Brief's own publication date or its historical archive.
   for (const record of standaloneDeepDives()) {
     const deepDive = deepDiveDetails({ route: record?.route });
-    if (!deepDive || !/^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || "")) continue;
+    const archiveDate = deepDiveArchiveDate(record);
+    if (!deepDive || !archiveDate) continue;
     archiveIntoStore(
       out,
       deepDive.sourceRelative,
-      path.join(deepDive.storeDir, record.publishedDate, "index.html"),
-      `${PUBLIC_ORIGIN}/deep-dives/${deepDive.slug}/archive/${record.publishedDate}/`,
+      path.join(deepDive.storeDir, archiveDate, "index.html"),
+      `${PUBLIC_ORIGIN}/deep-dives/${deepDive.slug}/archive/${archiveDate}/`,
     );
   }
 
@@ -3100,6 +3167,7 @@ async function main() {
   renderCanonicalTopSignals(options.out, editionRecord);
   renderHomepageJudgement(options.out, editionRecord);
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
+  renderDeepDiveLibrary(options.out);
   simplifyPublicEditorialSurfaces(options.out);
   addBriefEditionPermalink(options.out, editionRecord);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is

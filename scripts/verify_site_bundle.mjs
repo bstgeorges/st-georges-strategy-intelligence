@@ -171,7 +171,7 @@ function checkCurrentEditionAlignment(failures) {
     failures,
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
-  assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png"'), "committee questions should use the shared OG card", failures);
+  assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og/committee-questions-current.png"'), "committee questions should use its contextual OG card", failures);
   assert(committee.includes('href="/regulatory-horizon/"'), "committee questions should link to the published Reg Horizon", failures);
   assert(committee.includes(`"dateModified": "${edition.publicationDate}"`), "committee questions structured data should use the current edition date", failures);
   const aiSignals = read("signals/ai/index.html");
@@ -225,6 +225,45 @@ function checkCurrentEditionAlignment(failures) {
     assert(!html.includes(`Week of ${formatDateLong(edition.weekOf)}`), `${label} should not display the internal weekOf date as the public edition date`, failures);
     assert(!html.includes(`week of ${formatDateLong(edition.weekOf)}`), `${label} should not display the internal weekOf date as the public edition date`, failures);
   }
+}
+
+function checkContextualLandingCards(failures) {
+  const cards = {
+    "index.html": "assets/og/home-current.png",
+    "signals/index.html": "assets/og/signals-current.png",
+    "deep-dives/index.html": "assets/og/deep-dives-index.png",
+    "committee-questions/index.html": "assets/og/committee-questions-current.png",
+    "archive/index.html": "assets/og/archive-index.png",
+    "regulatory-horizon/index.html": "assets/og/regulatory-horizon-current.png",
+  };
+  for (const [relative, asset] of Object.entries(cards)) {
+    const html = read(relative);
+    assert(html.includes(`property="og:image" content="https://stgeorgesstrategy.com/${asset}"`), `${relative} must use its contextual OG card`, failures);
+    assert(fs.existsSync(path.join(SITE, asset)), `${relative} contextual OG card is missing`, failures);
+  }
+}
+
+function checkDeepDiveLibraryAndMobileNavigation(failures) {
+  const library = (readSourceJson("data/deep-dives.json").items || [])
+    .filter((record) => record?.route && record?.publishedDate && record?.title && record?.dek && record?.readTime)
+    .sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)));
+  const deepDives = read("deep-dives/index.html");
+  for (const record of library) {
+    assert(deepDives.includes(`href="${record.route}"`), `Deep Dives index must link to ${record.route}`, failures);
+    assert(deepDives.includes(record.title), `Deep Dives index must include ${record.title}`, failures);
+  }
+  for (let index = 1; index < library.length; index += 1) {
+    assert(
+      deepDives.indexOf(library[index - 1].title) < deepDives.indexOf(library[index].title),
+      "Deep Dives index must list analysis in descending publication-date order",
+      failures,
+    );
+  }
+  const app = readSource("app.js");
+  const styles = readSource("styles.css");
+  assert(app.includes('matchMedia("(max-width: 760px)")'), "mobile navigation must switch to compact mode at 760px", failures);
+  assert(styles.includes("@media (max-width: 760px)") && styles.includes(".site-menu summary"), "compact mobile navigation styles are missing", failures);
+  assert(styles.includes(".deep-dive-section > p:last-child:has(> a)"), "Deep Dive inline-source presentation is missing", failures);
 }
 
 function checkWorkerRouteCoverage(failures) {
@@ -485,6 +524,8 @@ function main() {
   assert(archive.includes('href="/regulatory-horizon/"'), "Archive navigation must include the published Reg Horizon route", failures);
   assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);
+  checkContextualLandingCards(failures);
+  checkDeepDiveLibraryAndMobileNavigation(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");
   assert(fs.existsSync(responsiveReport), "Responsive report missing", failures);

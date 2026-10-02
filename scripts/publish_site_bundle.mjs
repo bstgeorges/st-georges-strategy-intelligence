@@ -676,6 +676,8 @@ function cardPathForPage(relative) {
     "regulatory-horizon/index.html": "assets/og/regulatory-horizon-current.png",
   };
   if (landingCards[relative]) return landingCards[relative];
+  const signalTopic = relative.match(/^signals\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.html$/);
+  if (signalTopic) return `assets/og/signals-${signalTopic[1]}-current.png`;
   if (relative === "brief/index.html") return "assets/og/weekly-brief-current.png";
   let match = relative.match(/^(?:archive\/)?brief\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
   if (match) return `assets/og/weekly-brief-${match[1]}.png`;
@@ -696,7 +698,15 @@ function landingCardContext(relative, editionRecord) {
     "archive/index.html": { label: "ARCHIVE", detail: "DATED RECORD / STGEORGESSTRATEGY.COM" },
     "regulatory-horizon/index.html": { label: "REGULATORY HORIZON", detail: editionDetail },
   };
-  return contexts[relative] || null;
+  if (contexts[relative]) return contexts[relative];
+  const signalTopic = relative.match(/^signals\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.html$/);
+  if (signalTopic) {
+    return {
+      label: `SIGNALS / ${signalTopic[1].replace(/-/g, " ").toUpperCase()}`,
+      detail: editionDetail,
+    };
+  }
+  return null;
 }
 
 function headingFromHtml(html) {

@@ -3134,7 +3134,7 @@ a.tag:hover {
   .site-menu summary {
     display: inline-flex;
     align-items: center;
-    min-height: 36px;
+    min-height: 44px;
     cursor: pointer;
     color: var(--accent-bright);
     font: 600 11px/1.2 var(--mono);
@@ -3153,7 +3153,13 @@ a.tag:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     font-size: 11px;
   }
-  .site-menu .site-nav a { padding: 10px 0; white-space: nowrap; }
+  .site-menu .site-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 0;
+    white-space: nowrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

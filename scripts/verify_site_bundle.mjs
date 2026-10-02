@@ -241,6 +241,13 @@ function checkContextualLandingCards(failures) {
     assert(html.includes(`property="og:image" content="https://stgeorgesstrategy.com/${asset}"`), `${relative} must use its contextual OG card`, failures);
     assert(fs.existsSync(path.join(SITE, asset)), `${relative} contextual OG card is missing`, failures);
   }
+  for (const topic of topics) {
+    const relative = `signals/${topic}/index.html`;
+    const asset = `assets/og/signals-${topic}-current.png`;
+    const html = read(relative);
+    assert(html.includes(`property="og:image" content="https://stgeorgesstrategy.com/${asset}"`), `${relative} must use its contextual topic OG card`, failures);
+    assert(fs.existsSync(path.join(SITE, asset)), `${relative} contextual topic OG card is missing`, failures);
+  }
 }
 
 function checkDeepDiveLibraryAndMobileNavigation(failures) {
@@ -263,6 +270,7 @@ function checkDeepDiveLibraryAndMobileNavigation(failures) {
   const styles = readSource("styles.css");
   assert(app.includes('matchMedia("(max-width: 760px)")'), "mobile navigation must switch to compact mode at 760px", failures);
   assert(styles.includes("@media (max-width: 760px)") && styles.includes(".site-menu summary"), "compact mobile navigation styles are missing", failures);
+  assert(styles.includes(".site-menu .site-nav a") && styles.includes("min-height: 44px"), "mobile navigation must provide 44px touch targets", failures);
   assert(styles.includes(".deep-dive-section > p:last-child:has(> a)"), "Deep Dive inline-source presentation is missing", failures);
 }
 
@@ -531,7 +539,11 @@ function main() {
   assert(fs.existsSync(responsiveReport), "Responsive report missing", failures);
   if (fs.existsSync(responsiveReport)) {
     const report = JSON.parse(fs.readFileSync(responsiveReport, "utf8"));
-    const responsiveFailures = report.filter((item) => item.scrollWidth > item.innerWidth + 1 || (item.overflowing || []).length);
+    const responsiveFailures = report.filter((item) => (
+      item.scrollWidth > item.innerWidth + 1 ||
+      (item.overflowing || []).length ||
+      (item.undersizedNavigationTargets || []).length
+    ));
     assert(report.length === 56, `Responsive report should have 56 captures, found ${report.length}`, failures);
     assert(responsiveFailures.length === 0, `Responsive report has ${responsiveFailures.length} failures`, failures);
   }

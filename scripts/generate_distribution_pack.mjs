@@ -2,7 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { buildDistributionPack, distributionPackFileName } from "./lib/distribution_pack.mjs";
+import {
+  buildDistributionPack,
+  distributionPackFileName,
+  linkedinTemplateFileName,
+  renderLinkedinDistributionTemplate,
+} from "./lib/distribution_pack.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_OUT_DIR = path.join(ROOT, "release-artifacts", "distribution");
@@ -15,9 +20,13 @@ function outputDirectory(argv) {
 }
 
 const edition = JSON.parse(fs.readFileSync(path.join(ROOT, "site/data/current-edition.json"), "utf8"));
-const pack = buildDistributionPack(edition);
+const deepDiveLibrary = JSON.parse(fs.readFileSync(path.join(ROOT, "site/data/deep-dives.json"), "utf8")).items || [];
+const pack = buildDistributionPack(edition, deepDiveLibrary);
 const outDir = outputDirectory(process.argv.slice(2));
 fs.mkdirSync(outDir, { recursive: true });
 const output = path.join(outDir, distributionPackFileName(edition));
 fs.writeFileSync(output, `${JSON.stringify(pack, null, 2)}\n`);
+const linkedinOutput = path.join(outDir, linkedinTemplateFileName(edition));
+fs.writeFileSync(linkedinOutput, renderLinkedinDistributionTemplate(pack));
 console.log(`Distribution pack written to ${path.relative(ROOT, output)}`);
+console.log(`LinkedIn template written to ${path.relative(ROOT, linkedinOutput)}`);

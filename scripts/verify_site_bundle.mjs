@@ -250,6 +250,17 @@ function checkContextualLandingCards(failures) {
   }
 }
 
+function checkSocialCardTypography(failures) {
+  const publisher = readSource(path.join("..", "scripts", "publish_site_bundle.mjs"));
+  const fontDirectory = path.join(ROOT, "scripts", "assets", "social-card-fonts");
+  for (const font of ["PlayfairDisplay[wght].ttf", "JetBrainsMono-Regular.ttf", "JetBrainsMono-Bold.ttf"]) {
+    assert(fs.existsSync(path.join(fontDirectory, font)), `social-card renderer font missing: ${font}`, failures);
+  }
+  assert(publisher.includes('import { Resvg } from "@resvg/resvg-js"'), "social-card renderer must load Resvg", failures);
+  assert(publisher.includes("loadSystemFonts: false"), "social-card renderer must not fall back to system fonts", failures);
+  assert(publisher.includes("fontFiles: socialCardFontFiles()"), "social-card renderer must load the bundled font files", failures);
+}
+
 function checkDeepDiveLibraryAndMobileNavigation(failures) {
   const library = (readSourceJson("data/deep-dives.json").items || [])
     .filter((record) => record?.route && record?.publishedDate && record?.title && record?.dek && record?.readTime)
@@ -533,6 +544,7 @@ function main() {
   assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);
   checkContextualLandingCards(failures);
+  checkSocialCardTypography(failures);
   checkDeepDiveLibraryAndMobileNavigation(failures);
 
   const responsiveReport = path.join(SOURCE_SITE, "qa", "responsive", "responsive-report.json");

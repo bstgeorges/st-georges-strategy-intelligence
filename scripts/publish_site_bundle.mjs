@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import sharp from "sharp";
+import { Resvg } from "@resvg/resvg-js";
 import { fileURLToPath } from "node:url";
 import { removeSectionById, simplifyBriefExperience, simplifySignalsExperience } from "./lib/site-build/editorial_simplification.mjs";
 import { renderCurrentEditionSurfaces } from "./lib/site-build/current_edition_surfaces.mjs";
@@ -12,6 +13,12 @@ import { validatePublicHtmlCopy } from "./lib/public_copy_contract.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = path.join(ROOT, "site");
+const SOCIAL_CARD_FONT_DIR = path.join(ROOT, "scripts", "assets", "social-card-fonts");
+const SOCIAL_CARD_FONT_FILES = [
+  "PlayfairDisplay[wght].ttf",
+  "JetBrainsMono-Regular.ttf",
+  "JetBrainsMono-Bold.ttf",
+].map((filename) => path.join(SOCIAL_CARD_FONT_DIR, filename));
 const DEFAULT_OUT = path.join(ROOT, "site-dist");
 const DASHBOARD_HORIZON = path.join(ROOT, "dashboard", "regulatory-horizon");
 const HORIZON_REGISTER_DIR = path.join(ROOT, "dashboard", "regulatory-deadline-register");
@@ -666,6 +673,33 @@ function socialCardSvg({ label, title, detail }) {
 </svg>`;
 }
 
+function socialCardFontFiles() {
+  for (const fontFile of SOCIAL_CARD_FONT_FILES) {
+    if (!fs.existsSync(fontFile)) {
+      throw new Error(`Social-card font is missing: ${path.relative(ROOT, fontFile)}`);
+    }
+  }
+  return SOCIAL_CARD_FONT_FILES;
+}
+
+// Sharp delegates SVG text to the host font registry, so its output can vary
+// between a developer laptop and the Linux release runner. Resvg receives the
+// exact OFL-licensed TTFs checked into scripts/assets/social-card-fonts and
+// refuses system fonts, making card typography deterministic in every build.
+function renderSocialCard(svg) {
+  const renderer = new Resvg(svg, {
+    font: {
+      fontFiles: socialCardFontFiles(),
+      loadSystemFonts: false,
+      defaultFontFamily: "Playfair Display",
+      serifFamily: "Playfair Display",
+      monospaceFamily: "JetBrains Mono",
+    },
+    textRendering: 2,
+  });
+  return renderer.render().asPng();
+}
+
 function cardPathForPage(relative) {
   const landingCards = {
     "index.html": "assets/og/home-current.png",
@@ -738,7 +772,7 @@ async function generateContextualOgImages(out, editionRecord) {
         : landing?.detail || `STGEORGESSTRATEGY.COM`;
     const destination = path.join(out, cardPath);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
-    await sharp(Buffer.from(socialCardSvg({ label, title, detail }))).png({ compressionLevel: 9, palette: true }).toFile(destination);
+    await sharp(renderSocialCard(socialCardSvg({ label, title, detail }))).png({ compressionLevel: 9, palette: true }).toFile(destination);
   }
 }
 

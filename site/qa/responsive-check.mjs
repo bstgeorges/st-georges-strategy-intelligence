@@ -150,6 +150,15 @@ async function checkPage(browser, pageName, relativePath, viewport) {
         innerWidth: window.innerWidth,
         scrollWidth: Math.max(doc.scrollWidth, body ? body.scrollWidth : 0),
         overflowing: candidates.slice(0, 8),
+        undersizedNavigationTargets: window.innerWidth < 768
+          ? [...document.querySelectorAll(".site-menu summary, .site-menu .site-nav a")]
+            .map((element) => ({
+              text: (element.textContent || "").trim().replace(/\s+/g, " "),
+              height: Math.round(element.getBoundingClientRect().height),
+              width: Math.round(element.getBoundingClientRect().width),
+            }))
+            .filter((target) => target.width > 0 && target.height < 44)
+          : [],
       };
     })()`,
   });
@@ -195,7 +204,11 @@ async function main() {
 
   const reportPath = join(outDir, "responsive-report.json");
   writeFileSync(reportPath, `${JSON.stringify(results, null, 2)}\n`);
-  const failures = results.filter((result) => result.scrollWidth > result.innerWidth + 1 || (result.overflowing || []).length);
+  const failures = results.filter((result) => (
+    result.scrollWidth > result.innerWidth + 1 ||
+    (result.overflowing || []).length ||
+    (result.undersizedNavigationTargets || []).length
+  ));
   console.log(JSON.stringify({
     pages: pages.length,
     captures: results.length,

@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-10-02T08:48:40.590Z",
+  "generatedAt": "2026-10-02T09:05:55.548Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -550,7 +550,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -2152,42 +2152,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "a1f7959db31dcf3f",
-          "topicId": "financial-crime",
-          "title": "La CNMV publica el resultado de la revisión sobre el primer reporte de información sobre prevención de blanqueo de capitales y financiación del terrorismo",
-          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
-          "publishedAt": "2026-09-14T08:01:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "spain-cnmv",
-          "sourceName": "Comisión Nacional del Mercado de Valores",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cnmv-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "funds",
-            "market-conduct",
-            "spain"
-          ],
-          "matchedKeywords": [
-            "blanqueo"
-          ],
-          "titleMatchedKeywords": [
-            "blanqueo"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
         },
         {
           "id": "55054e74db83467a",
@@ -4009,42 +3973,6 @@
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "a1f7959db31dcf3f",
-          "topicId": "data",
-          "title": "La CNMV publica el resultado de la revisión sobre el primer reporte de información sobre prevención de blanqueo de capitales y financiación del terrorismo",
-          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
-          "publishedAt": "2026-09-14T08:01:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "spain-cnmv",
-          "sourceName": "Comisión Nacional del Mercado de Valores",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cnmv-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "funds",
-            "market-conduct",
-            "spain"
-          ],
-          "matchedKeywords": [
-            "información"
-          ],
-          "titleMatchedKeywords": [
-            "información"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "2f861e3ab4363d7a",
           "topicId": "data",
           "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
@@ -4387,11 +4315,11 @@
       "sourceId": "cnmv-news-rss",
       "sourceRegistryId": "spain-cnmv",
       "fetchType": "rss",
-      "status": "ok",
-      "fetchedEntries": 12,
-      "acceptedCandidates": 2,
+      "status": "failed",
+      "fetchedEntries": 0,
+      "acceptedCandidates": 0,
       "reason": "",
-      "error": ""
+      "error": "fetch failed"
     },
     {
       "sourceId": "cbi-news-rss",
@@ -5042,6 +4970,7 @@
     "Source reg-horizon-cyber-bridge skipped: horizon-withheld.",
     "Source reg-horizon-technology-failure-bridge skipped: horizon-withheld.",
     "Source reg-horizon-data-bridge skipped: horizon-withheld.",
+    "Source cnmv-news-rss failed during candidate collection: fetch failed",
     "Dropped generic citation candidate: https://status.aws.amazon.com/",
     "Dropped generic citation candidate: https://status.aws.amazon.com/",
     "2026-09-23-detection-remediation-capacity: held for exact-source review.",

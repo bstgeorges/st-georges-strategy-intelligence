@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-10-02T08:48:40.590Z",
-  "preparedAt": "2026-10-02T08:49:00.824Z",
+  "candidateGeneratedAt": "2026-10-02T09:05:55.548Z",
+  "preparedAt": "2026-10-02T09:06:18.869Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -23,7 +23,7 @@
       "active-threat": 6,
       "outage": 6,
       "research": 6,
-      "context": 74
+      "context": 73
     },
     "decisionTypeGroups": [
       {
@@ -422,7 +422,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 74,
+        "candidateCount": 73,
         "candidates": [
           {
             "title": "Amazon Prime Big Deal Days 2026: As Shopping Activity Surges, So Do Cyber Threats",
@@ -558,15 +558,15 @@
       }
     ],
     "diversity": {
-      "candidateRows": 115,
-      "uniqueCandidateEvents": 101,
-      "crossThemeDuplicatesCollapsed": 14,
+      "candidateRows": 113,
+      "uniqueCandidateEvents": 100,
+      "crossThemeDuplicatesCollapsed": 13,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "sec",
           "sourceName": "US Securities and Exchange Commission",
           "count": 7,
-          "share": 6.9
+          "share": 7
         },
         {
           "sourceOwner": "arxiv-ai",
@@ -615,22 +615,22 @@
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 36,
-          "share": 35.6
+          "count": 35,
+          "share": 35
         },
         {
           "region": "US",
           "count": 14,
-          "share": 13.9
+          "share": 14
         },
         {
           "region": "Global/other",
           "count": 51,
-          "share": 50.5
+          "share": 51
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 101,
+        "newCandidateEvents": 100,
         "alreadyPublishedCandidates": 0,
         "continuingPublishedEvents": 32,
         "currentEditionTop5Events": 39
@@ -667,7 +667,7 @@
       },
       {
         "id": "financial-crime",
-        "candidateCount": 17,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -688,7 +688,7 @@
       },
       {
         "id": "data",
-        "candidateCount": 19,
+        "candidateCount": 18,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -696,8 +696,8 @@
     ],
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 86,
-      "watching": 0,
+      "healthy": 85,
+      "watching": 1,
       "investigate": 2,
       "supplementary": 1,
       "entries": [
@@ -974,11 +974,11 @@
         {
           "sourceId": "cnmv-news-rss",
           "sourceRegistryId": "spain-cnmv",
-          "status": "ok",
-          "consecutiveIssueRuns": 0,
+          "status": "failed",
+          "consecutiveIssueRuns": 1,
           "monitoring": "standard",
-          "action": "none",
-          "detail": ""
+          "action": "watch",
+          "detail": "fetch failed"
         },
         {
           "sourceId": "cbi-news-rss",
@@ -1542,7 +1542,7 @@
           "sourceId": "daily-intelligence-ledger",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1551,7 +1551,7 @@
           "sourceId": "weekly-ai-risk-feed",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -2029,7 +2029,7 @@
       "id": "financial-crime",
       "readiness": {
         "id": "financial-crime",
-        "candidateCount": 17,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2413,7 +2413,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 19,
+        "candidateCount": 18,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."

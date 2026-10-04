@@ -5,62 +5,52 @@
     {
       "sourceId": "iosco",
       "expectedStatus": "blocked",
-      "issue": "The official IOSCO news page returned HTTP 403 in the 26 September transport recheck.",
+      "issue": "The official IOSCO news page returned HTTP 403 in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. The official news route remains unavailable to the scanner; retain blocked until IOSCO publishes an accessible RSS, API or collection that is independently validated.",
-      "lastChecked": "2026-09-26",
-      "transportReviewedAt": "2026-09-26",
-      "transportReview": "The current official news URL still returns HTTP 403 to the scanner profile; no documented alternative publication transport was found in this review.",
-      "nextCheck": "2026-10-03"
+      "lastChecked": "2026-10-04",
+      "transportReviewedAt": "2026-10-04",
+      "transportReview": "The official news route still returned HTTP 403 in the 4 October scanner run; no documented alternative publication transport was identified. Do not bypass the control or promote an unverified endpoint.",
+      "nextCheck": "2026-10-11"
     },
     {
       "sourceId": "bcbs",
       "expectedStatus": "blocked",
-      "issue": "The official BCBS publications route redirected to the BIS collection and returned HTTP 403 in the 26 September transport recheck.",
+      "issue": "The configured BCBS publications route redirected to the BIS collection and returned HTTP 403 in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official BIS publications feed or collection is independently validated for BCBS material.",
-      "lastChecked": "2026-09-26",
-      "transportReviewedAt": "2026-09-26",
-      "transportReview": "The current configured page redirects to https://www.bis.org/publications/bcbs-publications and returns HTTP 403 to the scanner profile; no replacement was promoted.",
-      "nextCheck": "2026-10-03"
+      "lastChecked": "2026-10-04",
+      "transportReviewedAt": "2026-10-04",
+      "transportReview": "The configured route redirected to https://www.bis.org/publications/bcbs-publications and returned HTTP 403 in the 4 October scanner run; no accessible official replacement was validated.",
+      "nextCheck": "2026-10-11"
     },
     {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
-      "issue": "The official Banco Central do Brasil releases page returned no recognisable publication rows in the 26 September transport recheck.",
+      "issue": "The official Banco Central do Brasil releases page returned no recognisable publication rows in the 4 October 2026 90-day scanner run.",
       "governance": "Do not infer publication dates from the shell. The authority publishes an official RSS directory, but no specific release-feed endpoint has yet been independently validated; retain degraded until that transport and its dates are proven.",
-      "lastChecked": "2026-09-26",
-      "transportReviewedAt": "2026-09-26",
-      "transportReview": "The configured releases page still returned no recognisable publication rows. The official RSS directory remains a lead only; endpoint qualification is a named next action, not an assumed fix.",
-      "nextCheck": "2026-10-03"
+      "lastChecked": "2026-10-04",
+      "transportReviewedAt": "2026-10-04",
+      "transportReview": "The configured releases page again returned no recognisable publication rows. The official RSS directory remains an unvalidated lead; no feed URL was promoted.",
+      "nextCheck": "2026-10-11"
     },
     {
       "sourceId": "italy-consob",
       "expectedStatus": "blocked",
-      "issue": "The official Consob English collection and consultation routes presented an anti-bot challenge in the 26 September transport recheck.",
+      "issue": "The official Consob English collection and consultation routes presented anti-bot challenges in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official RSS, published collection or alternative transport is independently validated.",
-      "lastChecked": "2026-09-26",
-      "transportReviewedAt": "2026-09-26",
-      "transportReview": "The English collection and consultation routes still returned anti-bot challenge shells; no usable rows were accepted and no replacement was promoted.",
-      "nextCheck": "2026-10-03"
+      "lastChecked": "2026-10-04",
+      "transportReviewedAt": "2026-10-04",
+      "transportReview": "The configured English collection and consultation routes still returned anti-bot challenge shells; no usable rows were accepted and no replacement transport was promoted.",
+      "nextCheck": "2026-10-11"
     },
     {
       "sourceId": "south-africa-sarb",
       "expectedStatus": "failed",
-      "issue": "The official South African Reserve Bank newsroom did not complete within the scanner transport window in the 26 September recheck.",
+      "issue": "The official South African Reserve Bank newsroom timed out in the 4 October 2026 90-day scanner run.",
       "governance": "Retain failed unless a timely official response with dated publication rows is proven. The authority's official RSS subscription page exists, but a concrete feed URL must be independently validated before the transport is changed.",
-      "lastChecked": "2026-09-26",
-      "transportReviewedAt": "2026-09-26",
-      "transportReview": "The newsroom timed out again in the scanner profile. No unverified RSS address was added from the subscription page.",
-      "nextCheck": "2026-10-03"
-    },
-    {
-      "sourceId": "india-sebi",
-      "expectedStatus": "failed",
-      "issue": "The official SEBI RSS endpoint timed out in the 27 September scanner run.",
-      "governance": "Retain failed unless the configured official RSS endpoint returns a timely response with dated publication rows. Do not substitute an unverified publication transport.",
-      "lastChecked": "2026-09-27",
-      "transportReviewedAt": "2026-09-27",
-      "transportReview": "The configured official RSS endpoint https://www.sebi.gov.in/sebirss.xml exceeded the scanner read timeout; no replacement transport was promoted.",
-      "nextCheck": "2026-10-04"
+      "lastChecked": "2026-10-04",
+      "transportReviewedAt": "2026-10-04",
+      "transportReview": "The configured newsroom again exceeded the scanner transport window. The official RSS subscription page does not establish a specific feed endpoint, so none was added.",
+      "nextCheck": "2026-10-11"
     }
   ]
 }

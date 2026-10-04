@@ -1,166 +1,17 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-09-27T07:58:19.052Z",
-  "asOf": "2026-09-27",
-  "sourceEdition": "2026-09-27",
+  "generatedAt": "2026-10-04T10:42:59.072Z",
+  "asOf": "2026-10-04",
+  "sourceEdition": "2026-10-04",
   "carryForwardGraceDays": 30,
   "items": [
-    {
-      "id": "cb35cc0bb665af1d7f0d",
-      "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
-      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
-      "deadline": "2026-08-28",
-      "daysToDeadline": -9,
-      "stage": "consultation",
-      "authority": {
-        "id": "hkma",
-        "name": "Hong Kong Monetary Authority",
-        "tier": "primary"
-      },
-      "jurisdictions": [
-        "Hong Kong"
-      ],
-      "themes": [],
-      "confidence": {
-        "band": "high",
-        "score": 1,
-        "components": {
-          "authority": 1,
-          "freshness": 1,
-          "classification": 1,
-          "date": 1,
-          "detail": 1
-        }
-      },
-      "businessImpact": {
-        "score": 0.575,
-        "band": "medium",
-        "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0,
-          "jurisdiction_reach": 0.5
-        }
-      },
-      "sourcePublishedAt": "2026-08-27",
-      "status": "superseded",
-      "intake": "scanner",
-      "decision": null,
-      "evidence": {
-        "change": "Hong Kong Monetary Authority published a consultation on 2026-08-27.",
-        "detailChecked": true,
-        "deadlineCue": {
-          "date": "2026-08-28",
-          "trigger": "Consultation Close",
-          "triggerDistance": 11,
-          "quote": "Issue Date: 28 Aug 2026 Consultation Status: OPEN Consultation Open Date: 28 Aug 2026 Consultation Close Date: 28 Sep 2026 20260827-3-EN",
-          "source": "primary-document-detail"
-        },
-        "verifiedAt": null,
-        "verification": null
-      },
-      "ownerGuidance": {
-        "owners": [
-          "Regulatory change lead",
-          "Applicable business owner"
-        ],
-        "prepare": [
-          "Confirm applicability",
-          "Name an accountable owner",
-          "Record the governing forum and decision date"
-        ]
-      },
-      "firstSeen": "2026-09-03",
-      "lastSeen": "2026-09-06",
-      "sourceEdition": "2026-09-04",
-      "supersededAt": "2026-09-27",
-      "supersededBy": "c607f1858dcfd5cb23f0"
-    },
-    {
-      "id": "2e61b9c6cd8a588f1b18",
-      "title": "Updating the Bank of England’s fee regime for recognised payment systems",
-      "url": "https://www.gov.uk/government/consultations/updating-the-bank-of-englands-fee-regime-for-recognised-payment-systems",
-      "deadline": "2026-08-31",
-      "daysToDeadline": -27,
-      "stage": "consultation",
-      "authority": {
-        "id": "uk-hm-treasury",
-        "name": "HM Treasury",
-        "tier": "primary"
-      },
-      "jurisdictions": [
-        "UK"
-      ],
-      "themes": [
-        "digital-money",
-        "market-plumbing"
-      ],
-      "confidence": {
-        "band": "high",
-        "score": 1,
-        "components": {
-          "authority": 1,
-          "freshness": 1,
-          "classification": 1,
-          "date": 1,
-          "detail": 1
-        }
-      },
-      "businessImpact": {
-        "band": "high",
-        "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0.67,
-          "jurisdiction_reach": 1
-        }
-      },
-      "sourcePublishedAt": "2026-07-15",
-      "status": "confirmed",
-      "intake": "verified-backfill",
-      "decision": {
-        "decision": "confirmed",
-        "scope": "source-date-only",
-        "reviewer": "Codex primary-source verification",
-        "note": "The linked HM Treasury consultation document explicitly states the close date. This confirms the cited date only; organisation-specific applicability remains unassessed.",
-        "decidedAt": "2026-08-22",
-        "evidence": {
-          "quote": "The consultation will close on 31 August 2026.",
-          "url": "https://assets.publishing.service.gov.uk/media/6a565ef42f6185941a9a64d8/Recognised_Payment_Systems_and_Digital_Settlement_Asset_Service_Providers_Fee_Regime_Consultation.pdf"
-        }
-      },
-      "evidence": {
-        "change": "HM Treasury consultation on the Bank of England fee regime for recognised payment systems and digital settlement asset service providers.",
-        "detailChecked": true,
-        "deadlineCue": "The consultation document states that it closes on 31 August 2026.",
-        "verifiedAt": "2026-09-21",
-        "verification": "primary GOV.UK consultation page rechecked; it now records that the consultation ran until 11:59pm on 31 August 2026. The historical source-date evidence remains explicit."
-      },
-      "ownerGuidance": {
-        "owners": [
-          "Payments / digital assets",
-          "Legal and compliance",
-          "Operations",
-          "Markets or product control"
-        ],
-        "prepare": [
-          "Confirm perimeter and product scope",
-          "Map implementation dependencies",
-          "Assess operational and reporting impact",
-          "Confirm market, client and system dependencies"
-        ]
-      },
-      "firstSeen": "2026-08-14",
-      "lastSeen": "2026-08-14",
-      "sourceEdition": "2026-08-14"
-    },
     {
       "id": "6db1b6fc915cb80933f6",
       "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
       "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
       "deadline": "2026-09-07",
-      "daysToDeadline": -20,
+      "daysToDeadline": -27,
       "stage": "consultation",
       "authority": {
         "id": "dubai-dfsa",
@@ -319,7 +170,7 @@
       "title": "CP26/25: The Value for Money Framework: consultation",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-25-value-money-framework-consultation",
       "deadline": "2026-09-15",
-      "daysToDeadline": -12,
+      "daysToDeadline": -19,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -397,7 +248,7 @@
       "title": "CP26/23: Consumer Duty: scope and proportionality",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-23-consumer-duty-scope-and-proportionality",
       "deadline": "2026-09-18",
-      "daysToDeadline": -9,
+      "daysToDeadline": -16,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -475,7 +326,7 @@
       "title": "Consultation on methodology for setting fines under MiCA",
       "url": "https://www.eba.europa.eu/publications-and-media/events/consultation-methodology-setting-fines-under-mica",
       "deadline": "2026-09-28",
-      "daysToDeadline": 1,
+      "daysToDeadline": -6,
       "stage": "consultation",
       "authority": {
         "id": "eba",
@@ -553,7 +404,7 @@
       "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
       "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
       "deadline": "2026-09-28",
-      "daysToDeadline": 1,
+      "daysToDeadline": -6,
       "stage": "consultation",
       "authority": {
         "id": "hkma",
@@ -606,7 +457,7 @@
           "date": "2026-09-28",
           "trigger": "Consultation Close",
           "triggerDistance": 8,
-          "quote": "Issue Date: 28 Aug 2026 Consultation Status: OPEN Consultation Open Date: 28 Aug 2026 Consultation Close Date: 28 Sep 2026 20260827-3-EN",
+          "quote": "Issue Date: 28 Aug 2026 Consultation Status: CLOSED Consultation Open Date: 28 Aug 2026 Consultation Close Date: 28 Sep 2026 20260827-3-EN",
           "source": "primary-document-detail"
         },
         "verifiedAt": null,
@@ -624,15 +475,15 @@
         ]
       },
       "firstSeen": "2026-09-06",
-      "lastSeen": "2026-09-27",
-      "sourceEdition": "2026-09-27"
+      "lastSeen": "2026-10-04",
+      "sourceEdition": "2026-10-04"
     },
     {
       "id": "447479f78f8e7b2729d5",
       "title": "Modernising Payment Services Regulation",
       "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
       "deadline": "2026-10-06",
-      "daysToDeadline": 9,
+      "daysToDeadline": 2,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -715,7 +566,7 @@
       "title": "Consultation on Phase 2B prototype of Hong Kong Taxonomy for Sustainable Finance",
       "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260819-7-EN",
       "deadline": "2026-10-07",
-      "daysToDeadline": 10,
+      "daysToDeadline": 3,
       "stage": "consultation",
       "authority": {
         "id": "hkma",
@@ -786,15 +637,15 @@
         ]
       },
       "firstSeen": "2026-09-08",
-      "lastSeen": "2026-09-27",
-      "sourceEdition": "2026-09-27"
+      "lastSeen": "2026-10-04",
+      "sourceEdition": "2026-10-04"
     },
     {
       "id": "204f4535ee6336df4840",
       "title": "CP26/28: The UK AIFM Regime",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-28-uk-aifm-regime",
       "deadline": "2026-10-22",
-      "daysToDeadline": 25,
+      "daysToDeadline": 18,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -872,7 +723,7 @@
       "title": "PRA consults on updated guidance for friendly society amalgamations and transfers",
       "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers",
       "deadline": "2026-10-22",
-      "daysToDeadline": 25,
+      "daysToDeadline": 18,
       "stage": "consultation",
       "authority": {
         "id": "uk-boe-pra",
@@ -943,15 +794,15 @@
         ]
       },
       "firstSeen": "2026-08-16",
-      "lastSeen": "2026-09-27",
-      "sourceEdition": "2026-09-27"
+      "lastSeen": "2026-10-04",
+      "sourceEdition": "2026-10-04"
     },
     {
       "id": "e5665ae225f5d4706d2d",
       "title": "Solvency II Review guidelines and technical standards apply",
       "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
       "deadline": "2027-01-30",
-      "daysToDeadline": 125,
+      "daysToDeadline": 118,
       "stage": "implementation",
       "authority": {
         "id": "eiopa",
@@ -1029,7 +880,7 @@
       "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
       "deadline": "2027-03-01",
-      "daysToDeadline": 155,
+      "daysToDeadline": 148,
       "stage": "implementation",
       "authority": {
         "id": "hkma",

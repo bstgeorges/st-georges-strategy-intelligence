@@ -1,6 +1,6 @@
 # Regulatory Horizon: private rebuild and relaunch gate
 
-Regulatory Horizon is withdrawn from the public site. The internal deadline register is the only operating surface until this gate is met and a separate product decision restores a public route.
+The 4 October 2026 Regulatory Horizon edition has cleared this gate and received current editor and product-owner approval. Its public return still depends on the canonical Site release workflow passing. Future editions need a fresh QA pass and edition-specific approval; the scanner never publishes or restores a route by itself.
 
 ## Operating loop
 

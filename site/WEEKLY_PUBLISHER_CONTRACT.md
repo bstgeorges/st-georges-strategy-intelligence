@@ -2,7 +2,7 @@
 
 Status: legacy implementation reference (superseded for weekly publication policy by `docs/weekly-release-contract.md`)
 
-Regulatory Horizon is currently withdrawn from the public site. The private deadline register and its relaunch gate are documented in `docs/regulatory-deadline-register-relaunch.md`; do not treat the Horizon requirements below as an instruction to restore a public route.
+The Regulatory Horizon uses the private deadline register and its edition-specific relaunch gate in `docs/regulatory-deadline-register-relaunch.md`. The 4 October 2026 edition is approved for public release; future editions require current QA and named editor and product-owner approvals.
 
 This defines what the production publisher must generate before the mockup can migrate.
 

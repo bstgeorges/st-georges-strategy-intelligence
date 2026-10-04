@@ -570,6 +570,85 @@ function publicHorizonHtml(html, edition, { archive = false } = {}) {
       : `Every date links directly to its official source. This is a selective, source-linked view rather than a complete regulatory calendar. Not investment, legal, compliance, or regulatory advice. Contact ben@stgeorgesstrategy.com.${archiveLink}`);
 }
 
+function escapeIcsText(value) {
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/\r?\n/g, "\\n")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
+}
+
+function foldIcsLine(line) {
+  const chunks = [];
+  let current = "";
+  let byteLength = 0;
+  for (const character of line) {
+    const characterBytes = Buffer.byteLength(character, "utf8");
+    if (byteLength + characterBytes > 75) {
+      chunks.push(current);
+      current = ` ${character}`;
+      byteLength = 1 + characterBytes;
+    } else {
+      current += character;
+      byteLength += characterBytes;
+    }
+  }
+  chunks.push(current);
+  return chunks.join("\r\n");
+}
+
+function horizonCalendarDate(date) {
+  return date.replace(/-/g, "");
+}
+
+function horizonCalendarEndDate(date) {
+  const next = new Date(`${date}T00:00:00Z`);
+  next.setUTCDate(next.getUTCDate() + 1);
+  return next.toISOString().slice(0, 10).replace(/-/g, "");
+}
+
+function renderHorizonFeed(entries, edition) {
+  const items = entries.map((entry) => {
+    const title = `Due ${formatDateLong(entry.deadline)} — ${entry.title}`;
+    const link = entry.url;
+    const guid = `${PUBLIC_ORIGIN}/regulatory-horizon/#deadline-${entry.deadline}-${crypto.createHash("sha256").update(`${entry.url}|${entry.deadline}`).digest("hex").slice(0, 16)}`;
+    const description = `${entry.authority}: confirmed ${entry.stage.toLowerCase()} deadline on ${formatDateLong(entry.deadline)}. Firm applicability should be assessed separately.`;
+    return `  <item><title>${escapeXml(title)}</title><link>${escapeXml(link)}</link><guid isPermaLink="false">${escapeXml(guid)}</guid><pubDate>${rssDate(edition)}</pubDate><category>${escapeXml(entry.stage)}</category><description>${escapeXml(description)}</description></item>`;
+  }).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n  <title>St Georges Strategy — Regulatory Horizon</title>\n  <link>${PUBLIC_ORIGIN}/regulatory-horizon/</link>\n  <description>Confirmed future regulatory deadlines with links to official sources.</description>\n  <language>en-gb</language>\n  <lastBuildDate>${rssDate(edition)}</lastBuildDate>\n${items}\n</channel></rss>\n`;
+}
+
+function renderHorizonCalendar(entries, edition) {
+  const stamp = `${horizonCalendarDate(edition)}T000000Z`;
+  const events = entries.map((entry) => {
+    const uid = `${crypto.createHash("sha256").update(`${entry.url}|${entry.deadline}`).digest("hex").slice(0, 20)}@stgeorgesstrategy.com`;
+    const lines = [
+      "BEGIN:VEVENT",
+      `UID:${uid}`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${horizonCalendarDate(entry.deadline)}`,
+      `DTEND;VALUE=DATE:${horizonCalendarEndDate(entry.deadline)}`,
+      `SUMMARY:${escapeIcsText(`${entry.authority}: ${entry.title}`)}`,
+      `DESCRIPTION:${escapeIcsText(`Confirmed ${entry.stage.toLowerCase()} deadline. Firm applicability should be assessed separately. Official source: ${entry.url}`)}`,
+      `URL:${entry.url}`,
+      "STATUS:CONFIRMED",
+      "TRANSP:TRANSPARENT",
+      "END:VEVENT",
+    ];
+    return lines.map(foldIcsLine).join("\r\n");
+  }).join("\r\n");
+  return [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//St Georges Strategy//Regulatory Horizon//EN",
+    "CALSCALE:GREGORIAN",
+    "METHOD:PUBLISH",
+    "X-WR-CALNAME:St Georges Strategy Regulatory Horizon",
+    events,
+    "END:VCALENDAR",
+  ].filter((line) => line !== "").join("\r\n") + "\r\n";
+}
+
 function publishApprovedRegulatoryHorizon(out) {
   const register = readJson(path.join(HORIZON_REGISTER_DIR, "register.json"));
   const changes = readJson(path.join(HORIZON_REGISTER_DIR, "changes.json"));
@@ -599,6 +678,8 @@ function publishApprovedRegulatoryHorizon(out) {
     canonicalUrl: `${PUBLIC_ORIGIN}/regulatory-horizon/`,
     confirmedDates: confirmed,
   }, null, 2)}\n`);
+  write(path.join(horizonOut, "feed.xml"), renderHorizonFeed(confirmed, edition));
+  write(path.join(horizonOut, "horizon.ics"), renderHorizonCalendar(confirmed, edition));
   write(path.join(horizonOut, "archive", `${edition}.html`), `${publicHorizonHtml(html, edition, { archive: true })}\n`);
   return { edition, confirmedDates: confirmed.length };
 }

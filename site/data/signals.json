@@ -1,14 +1,33 @@
 {
-  "edition": "2026-09-27",
-  "generatedAt": "2026-09-27T00:00:00.000Z",
+  "edition": "2026-10-04",
+  "generatedAt": "2026-10-04T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
       "id": "ai",
       "route": "/signals/ai/",
       "title": "AI, agents, and control evidence.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Chatham’s AI trade validation remains under expert review",
+          "url": "https://openai.com/index/chatham-financial",
+          "source": "Primary / OpenAI / 2026-10-02",
+          "evidence": {
+            "sourceTitle": "Chatham scales its capital markets expertise with OpenAI",
+            "organisation": "OpenAI",
+            "publishedDate": "2026-10-02",
+            "sourceType": "company announcement",
+            "significance": "OpenAI reports that Chatham's application gathers transaction evidence, compares key terms and flags discrepancies. Chatham says it is comparing results with experienced reviewers before expanding automation; treat the performance figures as supplier-reported and test the review boundary, not just the speed claim.",
+            "sourceUrl": "https://openai.com/index/chatham-financial",
+            "accessedDate": "2026-10-04",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-04",
+              "reason": "The OpenAI case-study page displays 2 October 2026 beneath its title. The audit could not extract a date from the page response, so the displayed primary-page date was checked manually."
+            }
+          }
+        },
         {
           "title": "Anthropic’s agent-trading experiment tests delegated-action controls",
           "url": "https://www.anthropic.com/research/project-swap",
@@ -18,7 +37,7 @@
             "organisation": "Anthropic",
             "publishedDate": "2026-09-24",
             "sourceType": "research",
-          "significance": "Project Swap is a low-stakes experiment involving agents trading books for Anthropic employees, not a financial-market deployment. It is useful as a prompt to test permissions, intervention routes and action records before an agent is trusted with consequential customer or trading activity.",
+            "significance": "Project Swap is a low-stakes experiment involving agents trading books for Anthropic employees, not a financial-market deployment. It is useful as a prompt to test permissions, intervention routes and action records before an agent is trusted with consequential customer or trading activity.",
             "sourceUrl": "https://www.anthropic.com/research/project-swap",
             "accessedDate": "2026-09-27"
           }
@@ -64,25 +83,6 @@
             "sourceUrl": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
             "accessedDate": "2026-09-06"
           }
-        },
-        {
-          "title": "OpenAI's Cursor exit turns a supplier acquisition into a model-access control test",
-          "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-          "source": "Primary / OpenAI / 2026-08-28",
-          "evidence": {
-            "sourceTitle": "Our decision on Cursor following its acquisition by SpaceX",
-            "organisation": "OpenAI",
-            "publishedDate": "2026-08-28",
-            "sourceType": "company announcement",
-            "significance": "OpenAI says it will wind down model access through Cursor after a change of control. For firms using intermediary AI platforms, acquisitions should trigger a documented review of model access, contracts, data paths, migration and continuity.",
-            "sourceUrl": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-            "accessedDate": "2026-08-30",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-08-30",
-              "reason": "The OpenAI announcement was reviewed directly on 30 August and identifies the 28 August 2026 publication date. OpenAI restricts automated retrieval, so the release crawler cannot independently extract that date."
-            }
-          }
         }
       ],
       "stillMaterial": [
@@ -99,7 +99,9 @@
             "significance": "Supports the signal by linking Wall Street Journal evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
             "accessedDate": "2026-07-09"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant ai control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 7,
@@ -114,7 +116,9 @@
             "significance": "Supports the signal by linking Financial Times evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ft.com/content/7f501320-9037-410f-b8e7-3111b9041311",
             "accessedDate": "2026-07-09"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant ai control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 8,
@@ -137,7 +141,7 @@
       "id": "resilience",
       "route": "/signals/resilience/",
       "title": "Failure paths, fallback evidence, and customer impact.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "ENISA frames dependency concentration as a resilience exposure",
@@ -148,7 +152,7 @@
             "organisation": "European Union Agency for Cybersecurity",
             "publishedDate": "2026-09-22",
             "sourceType": "public authority",
-          "significance": "Dependency concentration can turn a disruption outside the firm into a live resilience event; the practical control is a usable view of the service chain and its alternatives.",
+            "significance": "Dependency concentration can turn a disruption outside the firm into a live resilience event; the practical control is a usable view of the service chain and its alternatives.",
             "sourceUrl": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
             "accessedDate": "2026-09-27"
           }
@@ -237,7 +241,7 @@
           "url": "https://www.ft.com/content/32b5af43-6ceb-452d-ac2f-d4cda3f4938c",
           "source": "Financial reporting / Financial Times / 2026-06-01",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor for the connection between service performance, complaint ageing and customer-outcome evidence.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "HSBC Australia penalty keeps complaint ageing in the resilience narrative",
             "organisation": "Financial Times",
@@ -248,14 +252,14 @@
             "accessedDate": "2026-07-09"
           }
         },
-    {
-      "rank": 8,
-      "title": "Agent guardrails need operational recovery and incident communications",
-      "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
-      "source": "Other reporting / TechRadar / 2026-06-22",
-      "retention": "six-month-anchor",
-      "retentionReason": "Retained as a six-month anchor for the link between AI guardrails, recovery and incident communications.",
-      "evidence": {
+        {
+          "rank": 8,
+          "title": "Agent guardrails need operational recovery and incident communications",
+          "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
+          "source": "Other reporting / TechRadar / 2026-06-22",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
             "sourceTitle": "Agent guardrails need operational recovery and incident communications",
             "organisation": "TechRadar",
             "publishedDate": "2026-06-22",
@@ -265,14 +269,14 @@
             "accessedDate": "2026-07-09"
           }
         },
-    {
-      "rank": 9,
-      "title": "Regional network degradation can create uneven customer impact",
-      "url": "https://www.techradar.com/news/live/x-and-reddit-down-june-2026",
-      "source": "Other reporting / TechRadar / 2026-06-22",
-      "retention": "six-month-anchor",
-      "retentionReason": "Retained as a six-month anchor for the connection between regional dependency failure and uneven customer outcomes.",
-      "evidence": {
+        {
+          "rank": 9,
+          "title": "Regional network degradation can create uneven customer impact",
+          "url": "https://www.techradar.com/news/live/x-and-reddit-down-june-2026",
+          "source": "Other reporting / TechRadar / 2026-06-22",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
             "sourceTitle": "Regional network degradation can create uneven customer impact",
             "organisation": "TechRadar",
             "publishedDate": "2026-06-22",
@@ -288,7 +292,7 @@
           "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
           "source": "Other reporting / WIRED / 2026-06-10",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a six-month anchor for the strategic effect of AI-enabled vulnerability discovery on patch and exception governance.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "Patch SLAs are compressing as AI changes vulnerability discovery",
             "organisation": "WIRED",
@@ -305,7 +309,7 @@
       "id": "third-party",
       "route": "/signals/third-party/",
       "title": "Dependencies that look internal when they fail.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "Bank of England consults on fees for payment-system supervision",
@@ -316,7 +320,7 @@
             "organisation": "Bank of England",
             "publishedDate": "2026-09-22",
             "sourceType": "regulator",
-          "significance": "This consultation sets proposed 2026/27 fees for the Bank’s existing supervision of recognised payment systems and specified service providers. It does not extend the supervisory perimeter; firms in scope should understand the cost and response timetable.",
+            "significance": "This consultation sets proposed 2026/27 fees for the Bank’s existing supervision of recognised payment systems and specified service providers. It does not extend the supervisory perimeter; firms in scope should understand the cost and response timetable.",
             "sourceUrl": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
             "accessedDate": "2026-09-27"
           }
@@ -385,7 +389,7 @@
           "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
           "source": "Monitoring / Financial Times / 2026-06-30",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a six-month anchor for permission and audit-log questions arising from agentic AI supplier use.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant third-party control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "Agentic AI suppliers create permission and audit-log questions",
             "organisation": "Financial Times",
@@ -442,7 +446,7 @@
           "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
           "source": "Primary / FSB / 2026-06-10",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a six-month anchor for third-party and vendor-concentration governance in responsible AI adoption.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant third-party control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
             "organisation": "FSB",
@@ -459,8 +463,27 @@
       "id": "market-structure",
       "route": "/signals/market-structure/",
       "title": "Capital, liquidity, infrastructure, and concentration risk.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "SEC proposes new crypto custody paths for advisers and funds",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+          "source": "Primary / US Securities and Exchange Commission / 2026-10-01",
+          "evidence": {
+            "sourceTitle": "SEC Proposal Would Address How Investment Advisers and Funds Can Custody Crypto Assets Under the Federal Securities Laws",
+            "organisation": "US Securities and Exchange Commission",
+            "publishedDate": "2026-10-01",
+            "sourceType": "regulator",
+            "significance": "The SEC proposal would permit self-custody in certain circumstances and state trust companies as custodians for advisers and regulated funds. It is not adopted: firms should assess how the proposed pathways would affect custody selection, access, recovery and oversight if finalised.",
+            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+            "accessedDate": "2026-10-04",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-04",
+              "reason": "The SEC primary press release explicitly states Washington, D.C., Oct. 1, 2026 and describes the custody framework as a proposal. The audit parser returned the SEC site footer date, so the visible release date was checked manually."
+            }
+          }
+        },
         {
           "title": "ASIC makes AI trading safeguards part of market-integrity discipline",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
@@ -470,7 +493,7 @@
             "organisation": "Australian Securities and Investments Commission",
             "publishedDate": "2026-09-24",
             "sourceType": "regulator",
-          "significance": "AI trading safeguards are part of how a market participant demonstrates orderly and fair operation, so they need to be designed into live deployment and oversight.",
+            "significance": "AI trading safeguards are part of how a market participant demonstrates orderly and fair operation, so they need to be designed into live deployment and oversight.",
             "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
             "accessedDate": "2026-09-27"
           }
@@ -526,20 +549,6 @@
               "reason": "The SEC release itself displays 1 September 2026. Its HTML exposes an unrelated legacy date to the automated date extractor, so the date was checked directly against the primary release before publication."
             }
           }
-        },
-        {
-          "title": "CFTC event-contract case brings market-abuse controls to prediction markets",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-          "source": "Primary / US Commodity Futures Trading Commission / 2026-08-28",
-          "evidence": {
-            "sourceTitle": "CFTC Orders Gabriel Perez to Pay $172,000 for  Insider Trading of Mention Market Event Contracts",
-            "organisation": "US Commodity Futures Trading Commission",
-            "publishedDate": "2026-08-28",
-            "sourceType": "regulator",
-            "significance": "CFTC action over misuse of material non-public information in prediction-market event contracts makes surveillance, conflicts and escalation a market-integrity test for novel venues.",
-            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-            "accessedDate": "2026-08-30"
-          }
         }
       ],
       "stillMaterial": [
@@ -556,7 +565,9 @@
             "significance": "Supports the signal by linking Financial Times evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
             "accessedDate": "2026-07-09"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 7,
@@ -571,7 +582,9 @@
             "significance": "Supports the signal by linking ECB evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
             "accessedDate": "2026-07-09"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 8,
@@ -579,7 +592,7 @@
           "url": "https://www.esma.europa.eu/press-news/esma-news/esmas-annual-data-report-shows-increased-quality-wider-use-and-digital",
           "source": "Primary / ESMA / 2026-05-29",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor for transaction-reporting data-quality governance; it remains directly relevant while firms evidence the effect of burden-reduction changes.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "ESMA's sixth data-quality report shows measurable effects of transaction-reporting burden reduction across EU market infrastructure",
             "organisation": "ESMA",
@@ -603,7 +616,9 @@
             "significance": "Supports the signal by linking EUR-Lex evidence to the current governance, resilience, control, or market question.",
             "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
             "accessedDate": "2026-07-09"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 10,
@@ -626,8 +641,22 @@
       "id": "financial-crime",
       "route": "/signals/financial-crime/",
       "title": "Fraud, scams, sanctions, and control evidence.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+          "source": "Primary / National Crime Agency / 2026-10-02",
+          "evidence": {
+            "sourceTitle": "People smuggling boss hit with SCPO and told to hand over £290k proceeds of crime or face more time in jail",
+            "organisation": "National Crime Agency",
+            "publishedDate": "2026-10-02",
+            "sourceType": "regulator",
+            "significance": "The NCA reports a £290,000 court confiscation order and a five-year Serious Crime Prevention Order restricting this individual’s access to bank accounts and communication devices. It is a case-specific example of post-conviction asset recovery and financial controls, not evidence of a wider trend.",
+            "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+            "accessedDate": "2026-10-04"
+          }
+        },
         {
           "title": "ASIC's misconduct data turns reporting channels into a control-intelligence test",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
@@ -688,25 +717,6 @@
             "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
             "accessedDate": "2026-08-30"
           }
-        },
-        {
-          "title": "Tricolor fraud charges put disclosure and escalation controls in focus",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
-          "source": "Primary / US Securities and Exchange Commission / 2026-08-18",
-          "evidence": {
-            "sourceTitle": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
-            "organisation": "US Securities and Exchange Commission",
-            "publishedDate": "2026-08-18",
-            "sourceType": "regulator",
-            "significance": "The SEC alleges that Tricolor executives double pledged collateral and manipulated loan metrics in asset-backed offerings. Private-credit and securitisation leaders should test collateral eligibility, lien verification, data lineage, escalation and independent challenge before representations reach investors.",
-            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
-            "accessedDate": "2026-08-23",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-27",
-              "reason": "The SEC's official press-release RSS entry identifies this release as 18 August 2026. The article endpoint exposes unrelated legacy body dates to the generic scraper; the primary source was rechecked on 27 September."
-            }
-          }
         }
       ],
       "stillMaterial": [
@@ -736,7 +746,7 @@
           "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
           "source": "Primary / FCA / 2026-04-08",
           "retention": "six-month-anchor",
-          "retentionReason": "The findings remain the current FCA benchmark for independent testing and version control in customer due diligence.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant financial-crime control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "MLRO reporting needs evidence of judgement, escalation, and board visibility",
             "organisation": "FCA",
@@ -753,7 +763,7 @@
           "url": "https://www.jmlsg.org.uk/latest-news/jmlsg-consultation-part-i-2/",
           "source": "Industry guidance / JMLSG / 2026-06-01",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor for MLRO cross-border oversight and financial-crime governance changes pending the next JMLSG update.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant financial-crime control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "JMLSG consults on Part I amendments covering MLRO cross-border oversight and bank-insolvency exceptions",
             "organisation": "JMLSG",
@@ -790,76 +800,67 @@
       "id": "cyber",
       "route": "/signals/cyber/",
       "title": "Threats, vulnerabilities, identity, and response.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
-          "title": "CISA's 25 September KEV update tests dependency containment",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / CISA / 2026-09-25",
+          "title": "CISA adds two known-exploited vulnerabilities to its KEV catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "source": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-10-02",
           "evidence": {
             "sourceTitle": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
             "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-09-25",
-            "sourceType": "public authority",
-          "significance": "A newly catalogued exploited vulnerability tests whether the firm can identify affected dependencies and take a containment decision before the exposure becomes an incident.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-09-27"
+            "publishedDate": "2026-10-02",
+            "sourceType": "regulator",
+            "significance": "CISA says the additions are based on evidence of active exploitation. Operators should check whether affected products are present in their environment, prioritise remediation under their own exposure and obligations, and record any mitigation when patching is not immediately possible.",
+            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-10-04"
           }
         },
         {
-          "title": "CISA's 18 September KEV update tests emergency asset response",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / CISA / 2026-09-18",
+          "title": "Canada reports active exploitation of two Citrix NetScaler flaws",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
+          "source": "Primary / Canadian Centre for Cyber Security / 2026-09-27",
           "evidence": {
-            "sourceTitle": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-09-18",
-            "sourceType": "public authority",
-            "significance": "CISA's addition of two known exploited vulnerabilities makes the operational test concrete: can the firm identify affected assets, decide on emergency remediation and show the exception or closure record quickly enough? A vulnerability process without an estate-level answer is not an emergency-control process.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-09-20"
+            "sourceTitle": "AL26-024 - Critical vulnerabilities affecting Citrix NetScaler ADC and NetScaler Gateway – CVE-2026-88771 and CVE-2026-88772 – Update 1",
+            "organisation": "Canadian Centre for Cyber Security",
+            "publishedDate": "2026-09-27",
+            "sourceType": "regulator",
+            "significance": "The Canadian Cyber Centre says the two unauthenticated NetScaler vulnerabilities have been observed in active exploitation. Its alert was published 27 September and updated 3 October with gateway defence, patching, hardening and isolation guidance. Operators should identify exposed appliances and document patch or containment decisions.",
+            "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
+            "accessedDate": "2026-10-04",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-04",
+              "reason": "The primary advisory labels its original publication date as 27 September 2026 and its Update 1 date as 3 October 2026; the source record uses the publication date and the significance records the update."
+            }
           }
         },
         {
-          "title": "CISA's 11 September KEV update tests patch-queue coverage",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / CISA / 2026-09-11",
+          "title": "Microsoft reports Zimbra exploitation through unauthenticated command injection",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
+          "source": "Primary / Microsoft Security Blog / 2026-09-30",
           "evidence": {
-            "sourceTitle": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-09-11",
-            "sourceType": "public authority",
-            "significance": "CISA's 11 September update adds three actively exploited vulnerabilities to its catalogue. The management question is not the alert count: can the firm identify affected assets, authorise emergency remediation or compensating controls, time-box any exception and independently prove closure?",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-09-13"
+            "sourceTitle": "Unauthenticated command injection on internet-facing mail servers: tracking CVE-2026-73570",
+            "organisation": "Microsoft Security Blog",
+            "publishedDate": "2026-09-30",
+            "sourceType": "company announcement",
+            "significance": "Microsoft reports exploitation of CVE-2026-73570 against internet-facing Zimbra servers when the optional SNMP package is installed and notifications are enabled. Its post-exploitation observations include web shells, credential collection and lateral movement. The vendor says version 10.1.20 contains the remediation; confirm version and exposure before prioritising response.",
+            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
+            "accessedDate": "2026-10-04"
           }
         },
         {
-          "title": "CISA adds exploited LiteLLM and Kestra flaws to the priority list",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / CISA / 2026-09-02",
+          "title": "Rapid7 details stealthy BPFDoor and AVERAT implants on network-edge devices",
+          "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
+          "source": "Primary / Rapid7 Research / 2026-10-02",
           "evidence": {
-            "sourceTitle": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-09-02",
-            "sourceType": "public authority",
-            "significance": "CISA's 2 September Known Exploited Vulnerabilities additions include improper authentication in BerriAI LiteLLM and OS command injection in Kestra OSS. For firms using AI gateways or workflow orchestration, the management test is whether asset coverage, internet-exposure assessment, remediation authority and independently verified closure are ready when exploitation is already live.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-09-06"
-          }
-        },
-        {
-          "title": "CISA adds three live-exploitation priorities to the patch-control queue",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "source": "Primary / CISA / 2026-08-27",
-          "evidence": {
-            "sourceTitle": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-            "organisation": "US Cybersecurity and Infrastructure Security Agency",
-            "publishedDate": "2026-08-27",
-            "sourceType": "public authority",
-            "significance": "CISA's 27 August update adds three actively exploited vulnerabilities. Treat it as a prompt to prove asset coverage, remediation ownership, time-bound exceptions and independently checked closure.",
-            "sourceUrl": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-08-30"
+            "sourceTitle": "SMTP is the key: BPFDoor and AVERAT hitting the network edge",
+            "organisation": "Rapid7 Research",
+            "publishedDate": "2026-10-02",
+            "sourceType": "company announcement",
+            "significance": "Rapid7 reports BPFDoor and AVERAT samples targeting Linux network-edge and telecom-related devices, with activity designed to blend into ordinary services such as SMTP. The research supports a focused check of exposed and end-of-life appliances, unexpected outbound mail traffic and monitoring coverage; it is vendor threat research, not a regulator alert.",
+            "sourceUrl": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
+            "accessedDate": "2026-10-04"
           }
         }
       ],
@@ -930,7 +931,7 @@
           "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
           "source": "Primary / NIST / 2026-06-09",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a six-month anchor for continuous monitoring and updating where fixed AI guardrails can become stale.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant cyber control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "NIST mathematical proof supports transition to continuous monitor and update",
             "organisation": "NIST",
@@ -961,7 +962,9 @@
             }
           }
         }
-      ]
+      ],
+      "shortlistCount": 4,
+      "shortlistRationale": "Four distinct current cyber items cleared review: an active-exploitation catalog update, a government alert on exposed Citrix gateways, Microsoft reporting of Zimbra exploitation, and research on stealthy network-edge implants. Repetitive older KEV alerts were excluded from the current shortlist."
     },
     {
       "id": "technology-failure",
@@ -969,7 +972,7 @@
       "title": "Outages, change failure, data integrity, and recovery.",
       "shortlistCount": 4,
       "shortlistRationale": "No additional technology-failure candidate cleared the editorial materiality threshold for this edition.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "Cloudflare R2 errors expose a regional storage-dependency test",
@@ -1075,7 +1078,7 @@
           "url": "https://www.esma.europa.eu/press-news/esma-news/esas-publish-first-report-dora-major-ict-related-incidents",
           "source": "Primary / ESAs (EBA, EIOPA, ESMA) / 2026-06-03",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor for the cross-border-impact evidence in the first DORA incident report.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant technology-failure control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "ESAs' first DORA incident report finds a third of major ICT incidents have cross-border impact",
             "organisation": "ESMA",
@@ -1107,8 +1110,22 @@
       "id": "data",
       "route": "/signals/data/",
       "title": "Lineage, reporting, privacy, and evidence integrity.",
-      "stillMaterialReviewedAt": "2026-09-13",
+      "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+          "source": "Primary / Data Protection Commission Ireland / 2026-10-01",
+          "evidence": {
+            "sourceTitle": "Data Protection Commission Publishes Final Decision Following Inquiry into the Children’s Health Ireland (‘CHI’)",
+            "organisation": "Data Protection Commission Ireland",
+            "publishedDate": "2026-10-01",
+            "sourceType": "regulator",
+            "significance": "The DPC summary describes insecure handling of children’s paper health records and confidential waste at one facility, and says it reprimanded CHI at Tallaght and ordered completed DPIAs and implementation of the identified measures. The full decision is not yet published; this summary supports a focused test of physical-record custody and disposal controls.",
+            "sourceUrl": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+            "accessedDate": "2026-10-04"
+          }
+        },
         {
           "title": "CNIL turns e-invoicing platforms into a data-role and retention test",
           "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
@@ -1174,25 +1191,6 @@
               "reason": "The CNIL page displays 3 September 2026 directly below the article headline; its French date markup is not recognised by the generic audit extractor."
             }
           }
-        },
-        {
-          "title": "Irish DPC decision puts sensitive-data remediation under formal scrutiny",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
-          "source": "Primary / Data Protection Commission Ireland / 2026-09-02",
-          "evidence": {
-            "sourceTitle": "Data Protection Commission announces final decision following inquiry into the Health Service Executive",
-            "organisation": "Data Protection Commission Ireland",
-            "publishedDate": "2026-09-02",
-            "sourceType": "regulator",
-            "significance": "The Irish DPC's final decision on the HSE inquiry is a useful reminder that sensitive-data remediation needs more than a project plan. Firms should be able to show the factual record, accountable owner, corrective actions, independent challenge and retained evidence of closure.",
-            "sourceUrl": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
-            "accessedDate": "2026-09-12",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-12",
-              "reason": "The Irish DPC primary page displays 2 September 2026 directly below the decision headline. GitHub's release auditor encountered a transient fetch error, so the date was rechecked directly before release."
-            }
-          }
         }
       ],
       "stillMaterial": [
@@ -1202,7 +1200,7 @@
           "url": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
           "source": "Primary / Bank of England / 2026-06-03",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor because affected reporting teams may still depend on the retired tool's replacement controls and evidence.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant data control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "Bank of England's Statistics Taxonomy v1.3.1 update retires the Statistical Utility tool firms relied on for XBRL filings",
             "organisation": "Bank of England",
@@ -1239,7 +1237,7 @@
           "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/05/ico-response-to-government-on-safe-ai-powered-innovation/",
           "source": "Primary / ICO / 2026-05-29",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as a current six-month anchor for the ICO's AI and agentic-AI data-protection programme; it remains a useful implementation baseline alongside this week's audit findings.",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant data control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
             "sourceTitle": "ICO sets out 2026/27 workplan for its AI code of practice and dedicated agentic-AI data protection guidance",
             "organisation": "ICO",

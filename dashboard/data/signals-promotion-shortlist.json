@@ -1,10 +1,10 @@
 {
-  "version": "2026-09-27",
-  "publicationDate": "2026-09-27",
+  "version": "2026-10-04",
+  "publicationDate": "2026-10-04",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-09-27T08:07:58.778Z",
-  "reviewedAt": "2026-09-27",
-  "purpose": "Editorially selected Signals candidates for the Sunday 27 September 2026 edition. The choices favour specific primary-source developments that put an external model, provider, market safeguard or exploitable component directly into a decision path; routine status notices and isolated cases were not promoted.",
+  "candidateGeneratedAt": "2026-10-04T08:57:34.403Z",
+  "reviewedAt": "2026-10-04",
+  "purpose": "Editorially selected Signals candidates for the Sunday 4 October 2026 edition. Selections favour primary-source developments with a concrete control, custody, enforcement, or governance decision; quiet topics retain reviewed anchors rather than promote thin items.",
   "criteria": [
     "materiality",
     "specificity",
@@ -18,53 +18,48 @@
   "topics": [
     {
       "id": "ai",
-      "selectedUrls": [
-        "https://www.anthropic.com/research/project-swap"
-      ],
-      "editorialRationale": "Select Anthropic's Project Swap research because agents transacting on a user's behalf makes permission, intervention and evidence part of the trading boundary rather than a product-design detail."
+      "selectedUrls": ["https://openai.com/index/chatham-financial"],
+      "editorialRationale": "Select OpenAI's case study of Chatham's transaction-validation workflow because it compares system records with client-authorised and executed terms, flags discrepancies, and is still being checked against experienced reviewers before automation expands. Treat the performance claims as supplier-reported."
     },
     {
       "id": "market-structure",
-      "selectedUrls": [
-        "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules"
-      ],
-      "editorialRationale": "Select ASIC's AI trading safeguards because they make market integrity a deployment and oversight question for automated activity, not a separate policy consideration."
+      "selectedUrls": ["https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal"],
+      "editorialRationale": "Select the SEC's proposed crypto-asset custody framework because self-custody and state trust-company pathways would change the control and counterparty choices available to advisers and regulated funds. Label it clearly as a proposal open for comment, not an adopted rule."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27"
-      ],
-      "editorialRationale": "Select the Bank of England's fees regime because recognised payment systems and specified service providers are being supervised as operationally material parts of the payment chain, rather than treated as an external backdrop."
+      "selectedUrls": [],
+      "editorialRationale": "No new provider incident adds sufficiently corroborated decision value this week. Retain the reviewed dependency and supervision evidence; do not elevate a single-provider status notice merely to create a fresh item."
     },
     {
       "id": "resilience",
-      "selectedUrls": [
-        "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience"
-      ],
-      "editorialRationale": "Select ENISA's dependency analysis because it connects digital resilience to the practical chain of suppliers and services on which a firm can no longer assume isolation."
+      "selectedUrls": [],
+      "editorialRationale": "The available notices are isolated service-status reports without enough independent evidence or broader control implications. Retain the reviewed resilience anchor rather than promote a weak item to fill coverage."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": [],
-      "editorialRationale": "No fresh financial-crime candidate cleared the threshold. The available cases do not change a firm-wide control decision; retain reviewed material."
+      "selectedUrls": ["https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail"],
+      "editorialRationale": "Select the NCA report of a court confiscation order and continuing restrictions on finances and business interests because it illustrates post-conviction asset recovery and prevention controls. Keep the item specific to this case; it does not establish a general enforcement trend."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+        "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
+        "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
+        "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
+        "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog"
       ],
-      "editorialRationale": "Select CISA's newly catalogued exploited vulnerabilities because an alert is only useful when affected external components and their owners can be found and contained quickly."
+      "editorialRationale": "Select distinct, source-supported cyber signals rather than repeating weekly KEV notices: Canada's 27 September Citrix alert, updated 3 October, describes active exploitation and gateway containment; Microsoft reports exploitation of a Zimbra command-injection flaw and gives a patch/mitigation path; Rapid7's 2 October research details BPFDoor and AVERAT activity against network-edge devices; and CISA's 2 October KEV addition remains a separate remediation trigger. Preserve publication and update dates accurately and distinguish advisory, threat-research and catalog evidence."
     },
     {
       "id": "technology-failure",
       "selectedUrls": [],
-      "editorialRationale": "No new technology-failure notice cleared the materiality threshold. Retain the reviewed dependency records rather than elevate raw operational status copy."
+      "editorialRationale": "The fresh outage candidate is a single vendor's status notice and does not add enough corroborated decision value beyond the retained dependency record. Keep the reviewed technology-failure anchor rather than manufacture a new theme."
     },
     {
       "id": "data",
-      "selectedUrls": [],
-      "editorialRationale": "No fresh data candidate cleared the threshold. Retain reviewed material rather than elevate a generic publication."
+      "selectedUrls": ["https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi"],
+      "editorialRationale": "Select the Irish DPC's final decision summary because it links physical paper-record handling and confidential-waste controls to GDPR security duties, a reprimand, and required DPIAs and remediation. The DPC says the full decision will follow, so describe only the published summary."
     }
   ]
 }

@@ -1,18 +1,51 @@
 {
-  "generatedAt": "2026-09-27T08:48:05.893Z",
+  "generatedAt": "2026-10-04T09:19:16.279Z",
   "source": "site/data/signals.json",
-  "edition": "2026-09-27",
-  "rowCount": 74,
-  "uniqueUrlCount": 71,
+  "edition": "2026-10-04",
+  "rowCount": 71,
+  "uniqueUrlCount": 70,
   "summary": {
-    "match": 31,
     "restricted": 6,
-    "candidate-match": 16,
+    "match": 27,
+    "candidate-match": 18,
     "evergreen": 12,
     "manual-verified": 5,
-    "no-source-date-found": 1
+    "no-source-date-found": 2
   },
   "results": [
+    {
+      "url": "https://openai.com/index/chatham-financial",
+      "finalUrl": "https://openai.com/index/chatham-financial",
+      "status": 403,
+      "expectedDates": [
+        "2026-10-02"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "restricted",
+      "confidence": "restricted",
+      "rows": [
+        {
+          "topic": "ai",
+          "section": "top5",
+          "title": "Chatham’s AI trade validation remains under expert review",
+          "url": "https://openai.com/index/chatham-financial",
+          "displayedDate": "2026-10-02",
+          "displayedSourceDate": "2026-10-02",
+          "displayedSourceDates": [
+            "2026-10-02"
+          ],
+          "sourceLabel": "Primary / OpenAI / 2026-10-02",
+          "sourceType": "company announcement",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-04",
+            "reason": "The OpenAI case-study page displays 2 October 2026 beneath its title. The audit could not extract a date from the page response, so the displayed primary-page date was checked manually."
+          }
+        }
+      ]
+    },
     {
       "url": "https://www.anthropic.com/research/project-swap",
       "finalUrl": "https://www.anthropic.com/research/project-swap",
@@ -42,7 +75,7 @@
         {
           "topic": "ai",
           "section": "top5",
-          "title": "Agent trading makes permission boundaries a market-control question",
+          "title": "Anthropic’s agent-trading experiment tests delegated-action controls",
           "url": "https://www.anthropic.com/research/project-swap",
           "displayedDate": "2026-09-24",
           "displayedSourceDate": "2026-09-24",
@@ -50,7 +83,7 @@
             "2026-09-24"
           ],
           "sourceLabel": "Primary / Anthropic / 2026-09-24",
-          "sourceType": "company announcement",
+          "sourceType": "research",
           "manualVerification": null
         }
       ]
@@ -154,39 +187,6 @@
           "sourceLabel": "Primary / Anthropic / 2026-09-01",
           "sourceType": "company announcement",
           "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "finalUrl": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "status": 403,
-      "expectedDates": [
-        "2026-08-28"
-      ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "restricted",
-      "confidence": "restricted",
-      "rows": [
-        {
-          "topic": "ai",
-          "section": "top5",
-          "title": "OpenAI's Cursor exit turns a supplier acquisition into a model-access control test",
-          "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-          "displayedDate": "2026-08-28",
-          "displayedSourceDate": "2026-08-28",
-          "displayedSourceDates": [
-            "2026-08-28"
-          ],
-          "sourceLabel": "Primary / OpenAI / 2026-08-28",
-          "sourceType": "company announcement",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-08-30",
-            "reason": "The OpenAI announcement was reviewed directly on 30 August and identifies the 28 August 2026 publication date. OpenAI restricts automated retrieval, so the release crawler cannot independently extract that date."
-          }
         }
       ]
     },
@@ -317,8 +317,8 @@
           "displayedSourceDates": [
             "2026-09-22"
           ],
-          "sourceLabel": "Primary / European Union Agency for Cybersecurity / 2026-09-22",
-          "sourceType": "regulator",
+          "sourceLabel": "Primary / ENISA / 2026-09-22",
+          "sourceType": "public authority",
           "manualVerification": null
         }
       ]
@@ -330,15 +330,15 @@
       "expectedDates": [
         "2026-09-10"
       ],
-      "sourceDate": "2025-10-24",
+      "sourceDate": "2026-09-14",
       "sourceDateEvidence": "body.iso",
       "candidates": [
         {
-          "date": "2025-10-24",
+          "date": "2026-09-14",
           "source": "body.iso"
         },
         {
-          "date": "2026-09-14",
+          "date": "2025-10-24",
           "source": "body.iso"
         },
         {
@@ -494,7 +494,7 @@
         {
           "topic": "resilience",
           "section": "top5",
-          "title": "Swiss insurance sector continues to strengthen its resilience",
+          "title": "FINMA’s insurance-sector assessment keeps resilience evidence in view",
           "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
           "displayedDate": "2026-08-20",
           "displayedSourceDate": "2026-08-20",
@@ -715,10 +715,6 @@
         {
           "date": "2026-06-10",
           "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-15",
-          "source": "body.month-first"
         }
       ],
       "result": "candidate-match",
@@ -747,27 +743,23 @@
       "expectedDates": [
         "2026-09-22"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-02",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "time.datetime"
         },
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "body.iso"
         },
         {
-          "date": "2026-09-24",
+          "date": "2026-10-01",
           "source": "body.iso"
         },
         {
-          "date": "2026-09-22",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-18",
+          "date": "2026-09-30",
           "source": "body.iso"
         },
         {
@@ -791,11 +783,15 @@
           "source": "body.human"
         },
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "body.human"
         },
         {
-          "date": "2026-09-24",
+          "date": "2026-10-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-30",
           "source": "body.human"
         }
       ],
@@ -805,14 +801,14 @@
         {
           "topic": "third-party",
           "section": "top5",
-          "title": "Specified payment-service providers move external oversight into the operating perimeter",
+          "title": "Bank of England consults on fees for payment-system supervision",
           "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
           "displayedDate": "2026-09-22",
           "displayedSourceDate": "2026-09-22",
           "displayedSourceDates": [
             "2026-09-22"
           ],
-          "sourceLabel": "Primary / Bank of England and Prudential Regulation Authority / 2026-09-22",
+          "sourceLabel": "Primary / Bank of England / 2026-09-22",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -851,7 +847,7 @@
             "2026-09-08"
           ],
           "sourceLabel": "Primary / Bank for International Settlements / 2026-09-08",
-          "sourceType": "regulator",
+          "sourceType": "international standard setter",
           "manualVerification": null
         }
       ]
@@ -863,12 +859,16 @@
       "expectedDates": [
         "2026-09-03"
       ],
-      "sourceDate": "2026-09-10",
+      "sourceDate": "2026-09-29",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
           "date": "2026-09-01",
           "source": "body.iso"
+        },
+        {
+          "date": "2026-09-29",
+          "source": "body.human"
         },
         {
           "date": "2026-09-10",
@@ -881,6 +881,10 @@
         {
           "date": "2026-09-03",
           "source": "body.human"
+        },
+        {
+          "date": "2026-09-01",
+          "source": "body.month-first"
         }
       ],
       "result": "candidate-match",
@@ -929,10 +933,6 @@
           "source": "body.iso"
         },
         {
-          "date": "2026-08-28",
-          "source": "body.iso"
-        },
-        {
           "date": "2026-08-14",
           "source": "body.human"
         },
@@ -947,10 +947,6 @@
         {
           "date": "2026-09-04",
           "source": "body.human"
-        },
-        {
-          "date": "2026-08-28",
-          "source": "body.human"
         }
       ],
       "result": "candidate-match",
@@ -959,14 +955,14 @@
         {
           "topic": "third-party",
           "section": "top5",
-          "title": "Outsourcing and competition in the banking sector: the rise of Cloud Service Providers",
+          "title": "Bank of England research maps concentration in cloud-service outsourcing",
           "url": "https://www.bankofengland.co.uk/working-paper/2026/outsourcing-and-competition-in-the-banking-sector-the-rise-of-csps",
           "displayedDate": "2026-08-14",
           "displayedSourceDate": "2026-08-14",
           "displayedSourceDates": [
             "2026-08-14"
           ],
-          "sourceLabel": "Primary / Bank of England and Prudential Regulation Authority / 2026-08-14",
+          "sourceLabel": "Primary / Bank of England / 2026-08-14",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -997,29 +993,15 @@
         {
           "topic": "third-party",
           "section": "top5",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
+          "title": "European Supervisory Authorities call for frontier-AI ICT governance",
           "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
           "displayedDate": "2026-07-31",
           "displayedSourceDate": "2026-07-31",
           "displayedSourceDates": [
             "2026-07-31"
           ],
-          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
-          "sourceType": "regulator",
-          "manualVerification": null
-        },
-        {
-          "topic": "technology-failure",
-          "section": "top5",
-          "title": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "displayedDate": "2026-07-31",
-          "displayedSourceDate": "2026-07-31",
-          "displayedSourceDates": [
-            "2026-07-31"
-          ],
-          "sourceLabel": "Primary / European Insurance and Occupational Pensions Authority / 2026-07-31",
-          "sourceType": "regulator",
+          "sourceLabel": "Primary / European Supervisory Authorities / 2026-07-31",
+          "sourceType": "public authority",
           "manualVerification": null
         }
       ]
@@ -1072,15 +1054,11 @@
       "finalUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
       "status": 200,
       "expectedDates": [
-        "2026-07-09"
+        "2025-02-11"
       ],
-      "sourceDate": "2026-09-18",
+      "sourceDate": "2025-02-11",
       "sourceDateEvidence": "body.human",
       "candidates": [
-        {
-          "date": "2026-09-18",
-          "source": "body.human"
-        },
         {
           "date": "2025-02-11",
           "source": "body.human"
@@ -1102,32 +1080,18 @@
           "section": "stillMaterial",
           "title": "ICT risk governance should connect supplier access, monitoring, and continuity",
           "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
-          "displayedDate": "2026-07-09",
+          "displayedDate": "2025-02-11",
           "displayedSourceDate": "",
           "displayedSourceDates": [
-            "2026-07-09"
+            "2025-02-11"
           ],
-          "sourceLabel": "Primary / EBA ICT risk guidelines",
+          "sourceLabel": "Official guidance / EBA",
           "sourceType": "regulator",
           "manualVerification": {
             "status": "evergreen",
-            "reviewedDate": "2026-07-21",
-            "reason": "EBA ICT and security-risk guidelines remain a live control baseline; the historical publication date is not used as a current-edition date."
+            "reviewedDate": "2026-09-27",
+            "reason": "The guidelines were amended on 11 February 2025 and applied from 20 May 2025. They are retained as a durable control baseline, not as a current-edition development."
           }
-        },
-        {
-          "topic": "technology-failure",
-          "section": "stillMaterial",
-          "title": "ICT and security risk management should connect change, access, monitoring, and continuity",
-          "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
-          "displayedDate": "2026-07-09",
-          "displayedSourceDate": "",
-          "displayedSourceDates": [
-            "2026-07-09"
-          ],
-          "sourceLabel": "Official expectations / EBA ICT risk guidelines",
-          "sourceType": "regulator",
-          "manualVerification": null
         }
       ]
     },
@@ -1244,6 +1208,48 @@
           "sourceLabel": "Primary / FSB / 2026-06-10",
           "sourceType": "regulator",
           "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-01"
+      ],
+      "sourceDate": "2013-05-17",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2013-05-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2009-12-16",
+          "source": "body.iso"
+        }
+      ],
+      "result": "manual-verified",
+      "confidence": "unknown",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "SEC proposes new crypto custody paths for advisers and funds",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
+          "displayedDate": "2026-10-01",
+          "displayedSourceDate": "2026-10-01",
+          "displayedSourceDates": [
+            "2026-10-01"
+          ],
+          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-10-01",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-04",
+            "reason": "The SEC primary press release explicitly states Washington, D.C., Oct. 1, 2026 and describes the custody framework as a proposal. The audit parser returned the SEC site footer date, so the visible release date was checked manually."
+          }
         }
       ]
     },
@@ -1420,60 +1426,26 @@
       ]
     },
     {
-      "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-      "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-28"
-      ],
-      "sourceDate": "2026-08-28",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-08-28",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "CFTC event-contract case brings market-abuse controls to prediction markets",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9289-26",
-          "displayedDate": "2026-08-28",
-          "displayedSourceDate": "2026-08-28",
-          "displayedSourceDates": [
-            "2026-08-28"
-          ],
-          "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-08-28",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.ecb.europa.eu/pub/conferences/ecbforum/html/index.en.html",
-      "finalUrl": "https://www.ecb.europa.eu/press/conferences/ecbforum/html/index.en.html",
+      "url": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
+      "finalUrl": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
       "status": 200,
       "expectedDates": [
         "2026-06-29",
         "2026-07-01"
       ],
-      "sourceDate": "2026-07-01",
+      "sourceDate": "2026-08-13",
       "sourceDateEvidence": "meta.article.published_time",
       "candidates": [
         {
-          "date": "2026-07-01",
+          "date": "2026-08-13",
           "source": "meta.article.published_time"
         },
         {
-          "date": "2026-07-01",
+          "date": "2026-08-13",
           "source": "body.iso"
         },
         {
-          "date": "2026-07-01",
+          "date": "2026-08-13",
           "source": "body.human"
         },
         {
@@ -1495,16 +1467,28 @@
         {
           "date": "2026-01-01",
           "source": "body.human"
+        },
+        {
+          "date": "2026-07-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-06-29",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-06-30",
+          "source": "body.human"
         }
       ],
-      "result": "match",
-      "confidence": "verified",
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "market-structure",
           "section": "stillMaterial",
           "title": "ECB Sintra signals feed H2 rate, liquidity, and risk-appetite assumptions",
-          "url": "https://www.ecb.europa.eu/pub/conferences/ecbforum/html/index.en.html",
+          "url": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
           "displayedDate": "2026-06-29",
           "displayedSourceDate": "2026-06-29",
           "displayedSourceDates": [
@@ -1532,19 +1516,19 @@
           "source": "body.slash"
         },
         {
+          "date": "2026-09-30",
+          "source": "body.slash"
+        },
+        {
+          "date": "2026-09-28",
+          "source": "body.slash"
+        },
+        {
           "date": "2026-09-09",
           "source": "body.slash"
         },
         {
           "date": "2026-09-04",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-08-18",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-07-27",
           "source": "body.slash"
         }
       ],
@@ -1570,64 +1554,15 @@
     {
       "url": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
       "finalUrl": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
-      "status": 200,
+      "status": 202,
       "expectedDates": [
         "2026-07-02"
       ],
-      "sourceDate": "2024-11-27",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2024-11-27",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-07-02",
-          "source": "body.iso"
-        },
-        {
-          "date": "2025-01-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2024-12-12",
-          "source": "body.iso"
-        },
-        {
-          "date": "2024-11-27",
-          "source": "body.human"
-        },
-        {
-          "date": "2015-09-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2016-11-22",
-          "source": "body.human"
-        },
-        {
-          "date": "2017-06-23",
-          "source": "body.human"
-        },
-        {
-          "date": "2019-12-11",
-          "source": "body.human"
-        },
-        {
-          "date": "2021-06-30",
-          "source": "body.human"
-        },
-        {
-          "date": "2017-04-26",
-          "source": "body.human"
-        },
-        {
-          "date": "2018-03-08",
-          "source": "body.human"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "no-source-date-found",
+      "confidence": "undated",
       "rows": [
         {
           "topic": "market-structure",
@@ -1652,12 +1587,20 @@
       "expectedDates": [
         "2026-07-31"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-01",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-01",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-30",
+          "source": "body.iso"
         },
         {
           "date": "2026-09-25",
@@ -1665,10 +1608,6 @@
         },
         {
           "date": "2026-08-03",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-07-29",
           "source": "body.iso"
         },
         {
@@ -1692,15 +1631,11 @@
           "source": "body.human"
         },
         {
+          "date": "2026-10-01",
+          "source": "body.human"
+        },
+        {
           "date": "2026-09-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-08-03",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-07-29",
           "source": "body.human"
         }
       ],
@@ -1718,6 +1653,40 @@
             "2026-07-31"
           ],
           "sourceLabel": "Primary / PRA consultation / closes 2026-07-31",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+      "finalUrl": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-02"
+      ],
+      "sourceDate": "2026-10-02",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2026-10-02",
+          "source": "body.human"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "financial-crime",
+          "section": "top5",
+          "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+          "displayedDate": "2026-10-02",
+          "displayedSourceDate": "2026-10-02",
+          "displayedSourceDates": [
+            "2026-10-02"
+          ],
+          "sourceLabel": "Primary / National Crime Agency / 2026-10-02",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -1792,11 +1761,15 @@
           "source": "body.human"
         },
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "body.human"
         },
         {
-          "date": "2026-09-18",
+          "date": "2026-10-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-29",
           "source": "body.human"
         },
         {
@@ -1890,50 +1863,8 @@
             "2026-08-27"
           ],
           "sourceLabel": "Primary / National Crime Agency / 2026-08-27",
-          "sourceType": "regulator",
+          "sourceType": "public authority",
           "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
-      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-18"
-      ],
-      "sourceDate": "2013-05-17",
-      "sourceDateEvidence": "body.iso",
-      "candidates": [
-        {
-          "date": "2013-05-17",
-          "source": "body.iso"
-        },
-        {
-          "date": "2009-12-16",
-          "source": "body.iso"
-        }
-      ],
-      "result": "manual-verified",
-      "confidence": "unknown",
-      "rows": [
-        {
-          "topic": "financial-crime",
-          "section": "top5",
-          "title": "SEC Charges Former Executives With Fraud in Connection With $1.9 Billion Collapse of Subprime Auto Lender Tricolor",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-77-sec-charges-former-executives-fraud-connection-19-billion-collapse-subprime-auto-lender-tricolor",
-          "displayedDate": "2026-08-18",
-          "displayedSourceDate": "2026-08-18",
-          "displayedSourceDates": [
-            "2026-08-18"
-          ],
-          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-08-18",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-09-27",
-            "reason": "The SEC's official press-release RSS entry identifies this release as 18 August 2026. The article endpoint exposes unrelated legacy body dates to the generic scraper; the primary source was rechecked on 27 September."
-          }
         }
       ]
     },
@@ -2178,21 +2109,21 @@
       ]
     },
     {
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "status": 200,
       "expectedDates": [
-        "2026-09-25"
+        "2026-10-02"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-02",
       "sourceDateEvidence": "url.path",
       "candidates": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "body.month-first"
         },
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "url.path"
         }
       ],
@@ -2202,35 +2133,97 @@
         {
           "topic": "cyber",
           "section": "top5",
-          "title": "New exploited flaws test whether dependency chains can be contained in time",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/25/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "displayedDate": "2026-09-25",
-          "displayedSourceDate": "2026-09-25",
+          "title": "CISA adds two known-exploited vulnerabilities to its KEV catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "displayedDate": "2026-10-02",
+          "displayedSourceDate": "2026-10-02",
           "displayedSourceDates": [
-            "2026-09-25"
+            "2026-10-02"
           ],
-          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-25",
+          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-10-02",
           "sourceType": "regulator",
           "manualVerification": null
         }
       ]
     },
     {
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "url": "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
+      "finalUrl": "https://www.cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
       "status": 200,
       "expectedDates": [
-        "2026-09-18"
+        "2026-09-27"
       ],
-      "sourceDate": "2026-09-18",
-      "sourceDateEvidence": "url.path",
+      "sourceDate": "2026-10-04",
+      "sourceDateEvidence": "body.human",
       "candidates": [
         {
-          "date": "2026-09-18",
+          "date": "2026-10-03",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-04",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-03",
           "source": "body.month-first"
         },
         {
-          "date": "2026-09-18",
+          "date": "2026-09-27",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-10-02",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "cyber",
+          "section": "top5",
+          "title": "Canada reports active exploitation of two Citrix NetScaler flaws",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
+          "displayedDate": "2026-09-27",
+          "displayedSourceDate": "2026-09-27",
+          "displayedSourceDates": [
+            "2026-09-27"
+          ],
+          "sourceLabel": "Primary / Canadian Centre for Cyber Security / 2026-09-27",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-04",
+            "reason": "The primary advisory labels its original publication date as 27 September 2026 and its Update 1 date as 3 October 2026; the source record uses the publication date and the significance records the update."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
+      "finalUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570/",
+      "status": 200,
+      "expectedDates": [
+        "2026-09-30"
+      ],
+      "sourceDate": "2026-09-30",
+      "sourceDateEvidence": "url.path",
+      "candidates": [
+        {
+          "date": "2026-07-20",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-08-13",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-29-04",
+          "source": "body.slash"
+        },
+        {
+          "date": "2026-09-30",
           "source": "url.path"
         }
       ],
@@ -2240,36 +2233,32 @@
         {
           "topic": "cyber",
           "section": "top5",
-          "title": "Two newly exploited flaws test whether the asset inventory can drive emergency patching",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "displayedDate": "2026-09-18",
-          "displayedSourceDate": "2026-09-18",
+          "title": "Microsoft reports Zimbra exploitation through unauthenticated command injection",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
+          "displayedDate": "2026-09-30",
+          "displayedSourceDate": "2026-09-30",
           "displayedSourceDates": [
-            "2026-09-18"
+            "2026-09-30"
           ],
-          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-18",
-          "sourceType": "regulator",
+          "sourceLabel": "Primary / Microsoft Security Blog / 2026-09-30",
+          "sourceType": "company announcement",
           "manualVerification": null
         }
       ]
     },
     {
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+      "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
+      "finalUrl": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge/",
       "status": 200,
       "expectedDates": [
-        "2026-09-11"
+        "2026-10-02"
       ],
-      "sourceDate": "2026-09-11",
-      "sourceDateEvidence": "url.path",
+      "sourceDate": "2026-10-02",
+      "sourceDateEvidence": "body.month-first",
       "candidates": [
         {
-          "date": "2026-09-11",
+          "date": "2026-10-02",
           "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-11",
-          "source": "url.path"
         }
       ],
       "result": "match",
@@ -2278,91 +2267,15 @@
         {
           "topic": "cyber",
           "section": "top5",
-          "title": "Three new exploited flaws test whether the patch queue maps to the estate",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "displayedDate": "2026-09-11",
-          "displayedSourceDate": "2026-09-11",
+          "title": "Rapid7 details stealthy BPFDoor and AVERAT implants on network-edge devices",
+          "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
+          "displayedDate": "2026-10-02",
+          "displayedSourceDate": "2026-10-02",
           "displayedSourceDates": [
-            "2026-09-11"
+            "2026-10-02"
           ],
-          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-11",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
-      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-02"
-      ],
-      "sourceDate": "2026-09-02",
-      "sourceDateEvidence": "url.path",
-      "candidates": [
-        {
-          "date": "2026-09-02",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-02",
-          "source": "url.path"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "CISA adds exploited LiteLLM and Kestra flaws to the priority list",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
-          "displayedDate": "2026-09-02",
-          "displayedSourceDate": "2026-09-02",
-          "displayedSourceDates": [
-            "2026-09-02"
-          ],
-          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-09-02",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-      "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-27"
-      ],
-      "sourceDate": "2026-08-27",
-      "sourceDateEvidence": "url.path",
-      "candidates": [
-        {
-          "date": "2026-08-27",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-08-27",
-          "source": "url.path"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "CISA adds three live-exploitation priorities to the patch-control queue",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "displayedDate": "2026-08-27",
-          "displayedSourceDate": "2026-08-27",
-          "displayedSourceDates": [
-            "2026-08-27"
-          ],
-          "sourceLabel": "Primary / US Cybersecurity and Infrastructure Security Agency / 2026-08-27",
-          "sourceType": "regulator",
+          "sourceLabel": "Primary / Rapid7 Research / 2026-10-02",
+          "sourceType": "company announcement",
           "manualVerification": null
         }
       ]
@@ -2458,9 +2371,41 @@
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-02",
       "sourceDateEvidence": "body.iso",
       "candidates": [
+        {
+          "date": "2026-10-02",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-05",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-04",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-30",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-03",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-29",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-27",
+          "source": "body.iso"
+        },
         {
           "date": "2026-09-25",
           "source": "body.iso"
@@ -2474,39 +2419,7 @@
           "source": "body.iso"
         },
         {
-          "date": "2026-09-27",
-          "source": "body.iso"
-        },
-        {
           "date": "2026-09-22",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-21",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-18",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-16",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-19",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-14",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-17",
           "source": "body.iso"
         }
       ],
@@ -2614,34 +2527,38 @@
       ]
     },
     {
-      "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-      "finalUrl": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
+      "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+      "finalUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
       "status": 200,
       "expectedDates": [
-        "2026-08-23"
+        "2026-09-05"
       ],
-      "sourceDate": "2026-08-23",
+      "sourceDate": "2026-09-04",
       "sourceDateEvidence": "body.month-first",
       "candidates": [
         {
-          "date": "2026-08-23",
+          "date": "2026-09-04",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-05",
           "source": "body.month-first"
         }
       ],
-      "result": "match",
-      "confidence": "verified",
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "technology-failure",
           "section": "top5",
-          "title": "Elevated network errors for traffic routed between North America origins and SIN (Singapore) colo",
-          "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-          "displayedDate": "2026-08-23",
-          "displayedSourceDate": "2026-08-23",
+          "title": "Cloudflare R2 errors expose a regional storage-dependency test",
+          "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+          "displayedDate": "2026-09-05",
+          "displayedSourceDate": "2026-09-05",
           "displayedSourceDates": [
-            "2026-08-23"
+            "2026-09-05"
           ],
-          "sourceLabel": "Primary / Cloudflare Status / 2026-08-23",
+          "sourceLabel": "Primary / Cloudflare Status / 2026-09-05",
           "sourceType": "company announcement",
           "manualVerification": null
         }
@@ -2740,21 +2657,17 @@
       ]
     },
     {
-      "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
-      "finalUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+      "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
+      "finalUrl": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
       "status": 200,
       "expectedDates": [
-        "2026-09-05"
+        "2026-08-23"
       ],
-      "sourceDate": "2026-09-05",
+      "sourceDate": "2026-08-23",
       "sourceDateEvidence": "body.month-first",
       "candidates": [
         {
-          "date": "2026-09-05",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-09-04",
+          "date": "2026-08-23",
           "source": "body.month-first"
         }
       ],
@@ -2764,14 +2677,14 @@
         {
           "topic": "technology-failure",
           "section": "top5",
-          "title": "Cloudflare R2 errors expose a regional storage-dependency test",
-          "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
-          "displayedDate": "2026-09-05",
-          "displayedSourceDate": "2026-09-05",
+          "title": "Cloudflare network errors test cross-region routing and communications",
+          "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
+          "displayedDate": "2026-08-23",
+          "displayedSourceDate": "2026-08-23",
           "displayedSourceDates": [
-            "2026-09-05"
+            "2026-08-23"
           ],
-          "sourceLabel": "Primary / Cloudflare Status / 2026-09-05",
+          "sourceLabel": "Primary / Cloudflare Status / 2026-08-23",
           "sourceType": "company announcement",
           "manualVerification": null
         }
@@ -2899,15 +2812,15 @@
           "source": "body.slash"
         },
         {
+          "date": "2026-09-30",
+          "source": "body.slash"
+        },
+        {
           "date": "2026-09-23",
           "source": "body.slash"
         },
         {
           "date": "2026-08-03",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-07-31",
           "source": "body.slash"
         }
       ],
@@ -2987,6 +2900,52 @@
             "2024-11-12"
           ],
           "sourceLabel": "Official source / FCA critical third parties",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+      "finalUrl": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-01"
+      ],
+      "sourceDate": "2025-07-16",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2025-07-16",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-08-11",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-10",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.slash"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "data",
+          "section": "top5",
+          "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+          "displayedDate": "2026-10-01",
+          "displayedSourceDate": "2026-10-01",
+          "displayedSourceDates": [
+            "2026-10-01"
+          ],
+          "sourceLabel": "Primary / Data Protection Commission Ireland / 2026-10-01",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -3133,7 +3092,7 @@
         {
           "topic": "data",
           "section": "top5",
-          "title": "26-140MR Rex held accountable for continuous disclosure failure, three non-executive directors did not breach duties | ASIC",
+          "title": "ASIC’s Rex decision tests continuous-disclosure escalation",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties",
           "displayedDate": "2026-08-20",
           "displayedSourceDate": "2026-08-20",
@@ -3180,75 +3139,53 @@
       ]
     },
     {
-      "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
-      "finalUrl": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-02"
-      ],
-      "sourceDate": "2024-05-24",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2024-05-24",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-02",
-          "source": "body.slash"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
-      "rows": [
-        {
-          "topic": "data",
-          "section": "top5",
-          "title": "Irish DPC decision puts sensitive-data remediation under formal scrutiny",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-announces-final-decision-following-inquiry-health-service-executive-hse",
-          "displayedDate": "2026-09-02",
-          "displayedSourceDate": "2026-09-02",
-          "displayedSourceDates": [
-            "2026-09-02"
-          ],
-          "sourceLabel": "Primary / Data Protection Commission Ireland / 2026-09-02",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-09-12",
-            "reason": "The Irish DPC primary page displays 2 September 2026 directly below the decision headline. GitHub's release auditor encountered a transient fetch error, so the date was rechecked directly before release."
-          }
-        }
-      ]
-    },
-    {
       "url": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
       "finalUrl": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
       "status": 200,
       "expectedDates": [
         "2026-06-03"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-02",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-02",
           "source": "time.datetime"
         },
         {
+          "date": "2026-10-02",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-09-30",
+          "source": "body.iso"
+        },
+        {
           "date": "2026-09-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-21",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-18",
           "source": "body.iso"
         },
         {
           "date": "2026-06-03",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-02",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-07-16",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-09-30",
           "source": "body.human"
         },
         {
@@ -3257,14 +3194,6 @@
         },
         {
           "date": "2026-09-24",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-21",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-18",
           "source": "body.human"
         }
       ],

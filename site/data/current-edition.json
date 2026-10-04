@@ -1,115 +1,111 @@
 {
-  "editionNumber": "Edition 15",
-  "title": "The dependency is now the decision.",
-  "weekOf": "2026-09-21",
-  "publicationDate": "2026-09-27",
+  "editionNumber": "Edition 16",
+  "title": "The control must survive the hand-off.",
+  "weekOf": "2026-09-28",
+  "publicationDate": "2026-10-04",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "The dependency is now the decision.",
+  "mainJudgement": "The control must survive the hand-off.",
   "committeeQuestion": {
-    "domain": "Dependency decision",
-    "question": "For one decision-critical journey, which external model, provider, market utility or component can change the outcome — and who can halt it?",
-    "why": "A research experiment in delegated agent action, AI-trading safeguards, payment-system supervision, dependency concentration and exploited vulnerabilities all make the control boundary around an external link worth testing.",
-    "evidence": "The end-to-end service chain, permitted action, control or market safeguard, intervention authority, current technical evidence, last test and the time needed to contain or pause the activity.",
+    "domain": "Decision hand-off",
+    "question": "At which point does evidence change hands in a decision-critical process, and who can reject or correct it?",
+    "why": "An AI comparison, custody arrangement or record-handling process can produce a result without showing whether the next operator received enough evidence and authority to challenge it.",
+    "evidence": "The original instruction, source record, changes made, system comparison, exception disposition, receiving owner and the final decision record.",
     "links": [
       "brief",
       "ai",
-      "third-party",
-      "resilience",
-      "cyber"
+      "market-structure",
+      "data"
     ]
   },
   "committeeQuestions": [
     {
-      "domain": "Dependency decision",
-      "question": "For one decision-critical journey, which external model, provider, market utility or component can change the outcome — and who can halt it?",
-      "why": "A research experiment in delegated agent action, AI-trading safeguards, payment-system supervision, dependency concentration and exploited vulnerabilities all make the control boundary around an external link worth testing.",
-      "evidence": "The end-to-end service chain, permitted action, control or market safeguard, intervention authority, current technical evidence, last test and the time needed to contain or pause the activity.",
+      "domain": "Decision hand-off",
+      "question": "At which point does evidence change hands in a decision-critical process, and who can reject or correct it?",
+      "why": "An AI comparison, custody arrangement or record-handling process can produce a result without showing whether the next operator received enough evidence and authority to challenge it.",
+      "evidence": "The original instruction, source record, changes made, system comparison, exception disposition, receiving owner and the final decision record.",
       "links": [
         "brief",
         "ai",
-        "third-party",
-        "resilience",
-        "cyber"
+        "market-structure",
+        "data"
       ]
     },
     {
-      "domain": "Market integrity",
-      "question": "Where can automation influence a trading or customer outcome without a tested override and a reconstructable record of why it acted?",
-      "why": "The practical market-integrity question is not whether the model was approved, but whether its live permissions, safeguards and intervention path can be demonstrated when the result matters.",
-      "evidence": "The approved use, live configuration, input and output record, relevant safeguard, override test, exception log and accountable decision on continued operation.",
+      "domain": "Custody and access",
+      "question": "If a fund or adviser changes a crypto-custody arrangement, who controls access, recovery and the records needed to prove what happened?",
+      "why": "The SEC has proposed additional custody pathways, including limited self-custody and state trust-company custodians. The proposal is not yet a rule, but it sharpens the choices and safeguards firms may need to assess.",
+      "evidence": "Current custody mandates, key and account access, segregation, recovery procedures, reconciliations, incident responsibilities and any proposed-state readiness assessment.",
       "links": [
-        "brief",
-        "ai",
-        "market-structure"
-      ]
-    },
-    {
-      "domain": "Containment",
-      "question": "When an exploit or supplier problem appears, can we identify every affected dependency and decide on containment within one business day?",
-      "why": "A vulnerability alert or external disruption only becomes manageable when the actual dependency chain, practical alternatives and authority to act are known before the incident escalates.",
-      "evidence": "The authoritative dependency record, affected services and components, exposure assessment, contingency or isolation action, time-stamped decision and any unresolved constraint.",
-      "links": [
-        "cyber",
-        "resilience",
+        "market-structure",
         "third-party"
+      ]
+    },
+    {
+      "domain": "Record stewardship",
+      "question": "Can we show who safeguards sensitive records through use, storage, transfer and disposal?",
+      "why": "The Irish DPC’s published summary describes a specific case involving paper health records and confidential waste, followed by orders to complete DPIAs and implement controls.",
+      "evidence": "Record locations, authorised access, retention and disposal procedures, DPIA actions, control owners, inspection evidence and closure records.",
+      "links": [
+        "data",
+        "brief"
       ]
     }
   ],
   "judgement": {
-    "title": "The dependency is now the decision.",
-    "editorialAngle": "External models, providers, market utilities and components now sit inside the live decision boundary.",
-    "distinctFromPrevious": "Edition 14 asked whether the operating conditions for an activity still held. This edition shifts the focus to the dependency chain itself: the external link that can alter an outcome, weaken a safeguard or force a pause.",
-    "observation": "Anthropic has published a low-stakes book-trading experiment about agents acting on users’ behalf; ASIC has strengthened AI trading safeguards; ENISA has examined how dependencies weaken resilience; the Bank of England has consulted on its fees for existing payment-system supervision; and CISA has added newly exploited vulnerabilities.",
-    "executiveJudgement": "The boundary is not the contract or platform label. It is whether management can identify the dependency, understand the permission or safeguard it affects, and act before a weak external link becomes a customer, conduct or market-integrity event.",
-    "implication": "Pick one decision-critical journey this week. Trace it from the outcome to every external model, data feed, provider and exploitable component; put the one-page chain beside the escalation call tree and test who can halt it."
+    "title": "The control must survive the hand-off.",
+    "editorialAngle": "The critical control is the evidence, judgement and authority carried from one operator or custodian to the next.",
+    "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome and asked who could halt them. This edition follows the control inside the hand-off: what the next operator receives, what they can challenge, and who resolves a mismatch.",
+    "observation": "OpenAI reports Chatham checks AI-assisted transaction comparisons against experienced reviewers. The SEC has proposed new crypto-custody pathways; the UK NCA reports a confiscation order after conviction; Ireland’s DPC requires DPIAs and controls after paper-record failings; and CISA has added two exploited vulnerabilities.",
+    "executiveJudgement": "Controls can fail between steps. If the receiving person or system cannot see the authorised instruction, the comparison and any exception, they cannot challenge or own the final record.",
+    "implication": "Replay one high-impact record from instruction to decision. Collect the evidence each step receives and ask the next owner to resolve a mismatch. Use the first gap you find to assign one specific control fix."
   },
   "weeklyReadout": {
-    "heading": "The dependency chain is the control.",
+    "heading": "A control is only as strong as its hand-off.",
     "steps": [
-      "External services are moving into the decision path.",
-      "A contract does not show the live point of failure.",
-      "Trace one journey from outcome to dependency.",
-      "Test the power to pause it."
+      "Evidence is moving between people, systems and custodians.",
+      "A record can be complete at one point and unusable at the next.",
+      "Replay one record from authority to final decision.",
+      "Find who can reject or correct a mismatch."
     ]
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Anthropic’s agent-trading experiment tests delegated-action controls",
-      "label": "Delegated action experiment",
-      "why": "Project Swap is a low-stakes research experiment, not a financial-market deployment. It is useful as a prompt to test permissions, intervention routes and action records before delegating real customer or trading activity.",
-      "source": "Anthropic · Research · 2026-09-24"
-    },
-    {
-      "topic": "market-structure",
-      "title": "ASIC makes AI trading safeguards part of market-integrity discipline",
-      "label": "Live trading safeguard",
-      "why": "AI trading safeguards need to be designed into live deployment and oversight as part of demonstrating orderly and fair operation.",
-      "source": "Australian Securities and Investments Commission · Regulator · 2026-09-24"
-    },
-    {
-      "topic": "third-party",
-      "title": "Bank of England consults on fees for payment-system supervision",
-      "label": "Supervisory-fee consultation",
-      "why": "The consultation concerns fees for the Bank’s existing supervision of recognised payment systems and specified service providers; it does not extend the supervisory perimeter. Firms in scope should understand the related cost and response timetable.",
-      "source": "Bank of England · Regulator · 2026-09-22"
-    },
-    {
-      "topic": "resilience",
-      "title": "ENISA frames dependency concentration as a resilience exposure",
-      "label": "Service-chain resilience",
-      "why": "Dependency concentration can turn a disruption outside the firm into a live resilience event; the practical control is a usable view of the service chain and its alternatives.",
-      "source": "European Union Agency for Cybersecurity · European Union agency · 2026-09-22"
+      "title": "Chatham’s AI trade validation remains under expert review",
+      "label": "AI-assisted control",
+      "why": "The application compares transaction terms and flags discrepancies, but the supplier reports that the customer is still checking results against experienced reviewers before expanding automation.",
+      "source": "OpenAI · Company case study · 2026-10-02"
     },
     {
       "topic": "cyber",
-      "title": "CISA's 25 September KEV update tests dependency containment",
-      "label": "Containment decision",
-      "why": "A newly catalogued exploited vulnerability tests whether the firm can identify affected dependencies and take a containment decision before the exposure becomes an incident.",
-      "source": "CISA · Public authority · 2026-09-25"
+      "title": "CISA adds two known-exploited vulnerabilities to its KEV catalog",
+      "label": "Known-exploited vulnerabilities",
+      "why": "CISA’s catalog additions are based on active exploitation. The immediate decision is whether the affected products exist in the firm’s own estate and what remediation or mitigation is recorded.",
+      "source": "US Cybersecurity and Infrastructure Security Agency · Public authority · 2026-10-02"
+    },
+    {
+      "topic": "financial-crime",
+      "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
+      "label": "Post-conviction proceeds recovery",
+      "why": "The NCA describes a court confiscation order and restrictions on bank accounts and business interests in one case, illustrating how proceeds-of-crime work can continue after conviction.",
+      "source": "National Crime Agency · Public authority · 2026-10-02"
+    },
+    {
+      "topic": "market-structure",
+      "title": "SEC proposes new crypto custody paths for advisers and funds",
+      "label": "Proposed custody framework",
+      "why": "The SEC proposal could add self-custody in defined circumstances and state trust-company custodians for advisers and regulated funds. It remains a proposal, so firms can assess their custody choices without treating it as current law.",
+      "source": "US Securities and Exchange Commission · Regulator · 2026-10-01"
+    },
+    {
+      "topic": "data",
+      "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
+      "label": "Sensitive-record handling",
+      "why": "The DPC summary links physical custody and confidential-waste handling to GDPR security duties and required DPIAs and controls. Its full decision is still to be published.",
+      "source": "Data Protection Commission Ireland · Regulator · 2026-10-01"
     }
   ]
 }

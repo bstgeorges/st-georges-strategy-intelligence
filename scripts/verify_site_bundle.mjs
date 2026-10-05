@@ -417,6 +417,8 @@ function main() {
   const horizonPage = read("regulatory-horizon/index.html");
   assert(horizon.status === "published", "Reg Horizon must be explicitly published", failures);
   assert(Array.isArray(horizon.confirmedDates) && horizon.confirmedDates.length >= 1, "Reg Horizon needs at least one confirmed date", failures);
+  const horizonFeed = read("regulatory-horizon/feed.xml");
+  const horizonCalendar = read("regulatory-horizon/horizon.ics");
   assert(!read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon must not redirect away from its published route", failures);
   assert(fs.existsSync(path.join(SITE, ".assetsignore")), "Worker assets ignore file missing", failures);
   assert(
@@ -462,12 +464,15 @@ function main() {
   assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
   assert(horizonPage.includes("What is moving — and what is next."), "published Reg Horizon page missing its reader-led purpose", failures);
   assert(horizonPage.includes(`Updated ${formatDateLong(horizon.edition)}`), "Reg Horizon page must identify its edition date", failures);
+  assert(horizonPage.includes('"dateMode":"live"'), "current Reg Horizon counts and filters must use the current UTC date", failures);
+  const hasTargetedDate = horizon.confirmedDates.some((entry) => entry.dateCertainty === "targeted");
+  assert(!hasTargetedDate || (horizonPage.includes("Target date") && horizonFeed.includes("Target date") && horizonCalendar.includes("Target date") && horizonCalendar.includes("STATUS:TENTATIVE")), "Reg Horizon must label source-stated target dates in the page, feed and calendar", failures);
   const dueSoon = (horizon.confirmedDates || []).filter((entry) => {
     const days = (Date.parse(entry.deadline) - Date.parse(horizon.edition)) / 86_400_000;
     return days >= 0 && days <= 30;
   });
   const dueSoonAuthorities = new Set(dueSoon.map((entry) => entry.authority));
-  const horizonPicture = `${dueSoon.length} confirmed date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
+  const horizonPicture = `${dueSoon.length} official date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
   assert(horizonPage.includes(horizonPicture), "Reg Horizon weekly picture must match the confirmed-date register", failures);
   assert(horizonPage.includes('href="/styles.css"'), "Reg Horizon must use the shared site stylesheet", failures);
   assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
@@ -483,6 +488,7 @@ function main() {
   if (fs.existsSync(path.join(SITE, horizonArchive))) {
     const archivedHorizon = read(horizonArchive);
     assert(attr(archivedHorizon, /<link rel="canonical" href="([^"]+)"/) === `https://stgeorgesstrategy.com/regulatory-horizon/archive/${horizon.edition}.html`, "Reg Horizon archive canonical mismatch", failures);
+    assert(archivedHorizon.includes('"dateMode":"edition"'), "Reg Horizon archive must keep its counts and filters frozen to its edition date", failures);
   }
 
   const signalsLatest = readJson("signals/latest.json");

@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-04T09:19:16.279Z",
+  "generatedAt": "2026-10-08T06:39:23.238Z",
   "source": "site/data/signals.json",
   "edition": "2026-10-04",
   "rowCount": 71,
   "uniqueUrlCount": 70,
   "summary": {
-    "restricted": 6,
-    "match": 27,
-    "candidate-match": 18,
+    "restricted": 7,
+    "match": 28,
+    "candidate-match": 16,
     "evergreen": 12,
     "manual-verified": 5,
     "no-source-date-found": 2
@@ -284,11 +284,23 @@
       "expectedDates": [
         "2026-09-22"
       ],
-      "sourceDate": "2025-12-31",
+      "sourceDate": "2026-09-22",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
+          "date": "2026-09-22",
+          "source": "body.human"
+        },
+        {
           "date": "2025-12-31",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-11-06",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-10-01",
           "source": "body.human"
         },
         {
@@ -300,12 +312,20 @@
           "source": "body.human"
         },
         {
-          "date": "2026-09-22",
-          "source": "body.month-first"
+          "date": "2025-08-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-03-26",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-09-19",
+          "source": "body.human"
         }
       ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
+      "result": "match",
+      "confidence": "verified",
       "rows": [
         {
           "topic": "resilience",
@@ -550,11 +570,11 @@
           "source": "body.human"
         },
         {
-          "date": "2017-05-17",
+          "date": "2026-09-15",
           "source": "body.slash"
         },
         {
-          "date": "2026-09-15",
+          "date": "2017-05-17",
           "source": "body.slash"
         },
         {
@@ -743,12 +763,16 @@
       "expectedDates": [
         "2026-09-22"
       ],
-      "sourceDate": "2026-10-02",
+      "sourceDate": "2026-10-06",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-10-02",
+          "date": "2026-10-06",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-10-06",
+          "source": "body.iso"
         },
         {
           "date": "2026-10-02",
@@ -783,15 +807,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-02",
+          "date": "2026-10-06",
           "source": "body.human"
         },
         {
-          "date": "2026-10-01",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-30",
+          "date": "2025-06-30",
           "source": "body.human"
         }
       ],
@@ -1348,24 +1368,15 @@
     {
       "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
       "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-      "status": 200,
+      "status": 403,
       "expectedDates": [
         "2026-09-02"
       ],
-      "sourceDate": "2026-09-08",
-      "sourceDateEvidence": "body.iso",
-      "candidates": [
-        {
-          "date": "2026-09-08",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-02",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "restricted",
+      "confidence": "restricted",
       "rows": [
         {
           "topic": "market-structure",
@@ -1379,7 +1390,11 @@
           ],
           "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-09-02",
           "sourceType": "regulator",
-          "manualVerification": null
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-08",
+            "reason": "The CFTC primary press release displays September 02, 2026 beneath release number 9292-26; the publication date was checked directly against the page because the generic audit fetch was restricted."
+          }
         }
       ]
     },
@@ -1587,12 +1602,16 @@
       "expectedDates": [
         "2026-07-31"
       ],
-      "sourceDate": "2026-10-01",
+      "sourceDate": "2026-10-07",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-10-01",
+          "date": "2026-10-07",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-10-07",
+          "source": "body.iso"
         },
         {
           "date": "2026-10-01",
@@ -1604,10 +1623,6 @@
         },
         {
           "date": "2026-09-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-08-03",
           "source": "body.iso"
         },
         {
@@ -1631,11 +1646,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-01",
+          "date": "2026-10-07",
           "source": "body.human"
         },
         {
-          "date": "2026-09-25",
+          "date": "2026-10-01",
           "source": "body.human"
         }
       ],
@@ -1761,15 +1776,11 @@
           "source": "body.human"
         },
         {
+          "date": "2026-10-06",
+          "source": "body.human"
+        },
+        {
           "date": "2026-10-02",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-10-01",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-29",
           "source": "body.human"
         },
         {
@@ -1945,11 +1956,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-04-01",
+          "date": "2026-04-08",
           "source": "body.slash"
         },
         {
-          "date": "2026-04-08",
+          "date": "2026-04-01",
           "source": "body.slash"
         }
       ],
@@ -2053,11 +2064,11 @@
           "source": "body.human"
         },
         {
-          "date": "2019-10-24",
+          "date": "2026-02-12",
           "source": "body.slash"
         },
         {
-          "date": "2026-02-12",
+          "date": "2019-10-24",
           "source": "body.slash"
         },
         {
@@ -2153,7 +2164,7 @@
       "expectedDates": [
         "2026-09-27"
       ],
-      "sourceDate": "2026-10-04",
+      "sourceDate": "2026-10-08",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
@@ -2161,7 +2172,7 @@
           "source": "body.iso"
         },
         {
-          "date": "2026-10-04",
+          "date": "2026-10-08",
           "source": "body.human"
         },
         {
@@ -2371,9 +2382,17 @@
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2026-10-02",
+      "sourceDate": "2026-10-04",
       "sourceDateEvidence": "body.iso",
       "candidates": [
+        {
+          "date": "2026-10-04",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-07",
+          "source": "body.iso"
+        },
         {
           "date": "2026-10-02",
           "source": "body.iso"
@@ -2384,10 +2403,6 @@
         },
         {
           "date": "2026-10-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-04",
           "source": "body.iso"
         },
         {
@@ -2416,10 +2431,6 @@
         },
         {
           "date": "2026-09-24",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-22",
           "source": "body.iso"
         }
       ],
@@ -2733,11 +2744,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-03-15",
+          "date": "2026-03-18",
           "source": "body.slash"
         },
         {
-          "date": "2026-03-18",
+          "date": "2026-03-15",
           "source": "body.slash"
         }
       ],
@@ -2870,11 +2881,11 @@
           "source": "body.human"
         },
         {
-          "date": "2023-12-06",
+          "date": "2024-11-12",
           "source": "body.slash"
         },
         {
-          "date": "2024-11-12",
+          "date": "2023-12-06",
           "source": "body.slash"
         },
         {
@@ -3145,27 +3156,19 @@
       "expectedDates": [
         "2026-06-03"
       ],
-      "sourceDate": "2026-10-02",
+      "sourceDate": "2026-10-08",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-10-02",
+          "date": "2026-10-08",
           "source": "time.datetime"
         },
         {
-          "date": "2026-10-02",
+          "date": "2026-10-08",
           "source": "body.iso"
         },
         {
-          "date": "2026-10-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-30",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-25",
+          "date": "2026-10-07",
           "source": "body.iso"
         },
         {
@@ -3173,27 +3176,19 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-02",
+          "date": "2026-10-08",
           "source": "body.human"
         },
         {
-          "date": "2026-10-01",
+          "date": "2026-10-07",
           "source": "body.human"
         },
         {
-          "date": "2026-07-16",
+          "date": "2026-06-16",
           "source": "body.human"
         },
         {
-          "date": "2026-09-30",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-24",
+          "date": "2026-06-24",
           "source": "body.human"
         }
       ],
@@ -3243,11 +3238,11 @@
           "source": "body.human"
         },
         {
-          "date": "2025-10-20",
+          "date": "2025-12-09",
           "source": "body.slash"
         },
         {
-          "date": "2025-12-09",
+          "date": "2025-10-20",
           "source": "body.slash"
         },
         {

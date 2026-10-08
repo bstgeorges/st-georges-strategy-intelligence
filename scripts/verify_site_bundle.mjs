@@ -30,6 +30,15 @@ const routes = [
   ["about", "about/index.html", "https://stgeorgesstrategy.com/about/"],
 ];
 
+const canonicalNavigation = [
+  "/",
+  "/brief/",
+  "/signals/",
+  "/committee-questions/",
+  "/archive/",
+  "/about/",
+];
+
 const topics = [
   "ai",
   "resilience",
@@ -68,6 +77,11 @@ function attr(html, pattern) {
 
 function count(pattern, text) {
   return (text.match(pattern) || []).length;
+}
+
+function navigationRoutes(html) {
+  const navigation = (html.match(/<nav class="site-nav"[^>]*>[\s\S]*?<\/nav>/) || [""])[0];
+  return Array.from(navigation.matchAll(/<a href="([^"]+)"/g), (match) => match[1]);
 }
 
 function formatDateLong(date) {
@@ -125,7 +139,7 @@ function checkCurrentEditionAlignment(failures) {
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
-  assert(home.includes('href="/regulatory-horizon/"'), "home navigation must expose Reg Horizon", failures);
+  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the six canonical site routes", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
@@ -172,7 +186,6 @@ function checkCurrentEditionAlignment(failures) {
   );
   assert(committee.includes(committeeEditionLabel), `committee questions should use canonical ${committeeEditionLabel}`, failures);
   assert(committee.includes('property="og:image" content="https://stgeorgesstrategy.com/assets/og/committee-questions-current.png"'), "committee questions should use its contextual OG card", failures);
-  assert(committee.includes('href="/regulatory-horizon/"'), "committee questions should link to the published Reg Horizon", failures);
   assert(committee.includes(`"dateModified": "${edition.publicationDate}"`), "committee questions structured data should use the current edition date", failures);
   const aiSignals = read("signals/ai/index.html");
   assert(aiSignals.includes(`"dateModified": "${edition.publicationDate}"`), "AI Signals structured data should use the current edition date", failures);
@@ -370,6 +383,7 @@ function main() {
     assert(publicMarkdown.length === 0, "public bundle should not contain internal Markdown files", failures);
   }
 
+  const routeReleaseIds = new Set();
   for (const [name, relative, expectedUrl] of routes) {
     const file = path.join(SITE, relative);
     assert(fs.existsSync(file), `${name} route missing at ${relative}`, failures);
@@ -379,6 +393,8 @@ function main() {
     const canonical = attr(html, /<link rel="canonical" href="([^"]+)"/);
     const ogUrl = attr(html, /<meta property="og:url" content="([^"]+)"/);
     const jsonLdId = attr(html, /"@id": "([^"]+)"/);
+    const releaseId = attr(html, /<meta name="x-sgs-release" content="([^"]+)">/);
+    if (releaseId) routeReleaseIds.add(releaseId);
     assert(canonical === expectedUrl, `${name} canonical mismatch: ${canonical}`, failures);
     assert(ogUrl === expectedUrl, `${name} og:url mismatch: ${ogUrl}`, failures);
     assert(jsonLdId === expectedUrl, `${name} JSON-LD @id mismatch: ${jsonLdId}`, failures);
@@ -386,6 +402,7 @@ function main() {
     assert(html.includes("ben@stgeorgesstrategy.com"), `${name} missing email footer`, failures);
     assert(html.includes("Not investment, legal, compliance, or regulatory advice"), `${name} missing disclaimer`, failures);
   }
+  assert(routeReleaseIds.size === 1, "all current site routes must carry the same release marker", failures);
 
   for (const topic of topics) {
     const html = read(`signals/${topic}/index.html`);
@@ -409,14 +426,19 @@ function main() {
   ];
   for (const relative of archiveHubPages) {
     const html = read(relative);
-    assert(html.includes('href="/regulatory-horizon/"'), `${relative} must expose the published Reg Horizon navigation`, failures);
-    assert(html.includes('href="/deep-dives/"'), `${relative} must use the canonical Deep Dives navigation route`, failures);
+    assert(
+      JSON.stringify(navigationRoutes(html)) === JSON.stringify(canonicalNavigation),
+      `${relative} must use the six canonical site routes`,
+      failures,
+    );
   }
 
   const horizon = readJson("regulatory-horizon/latest.json");
   const horizonPage = read("regulatory-horizon/index.html");
   assert(horizon.status === "published", "Reg Horizon must be explicitly published", failures);
   assert(Array.isArray(horizon.confirmedDates) && horizon.confirmedDates.length >= 1, "Reg Horizon needs at least one confirmed date", failures);
+  const horizonFeed = read("regulatory-horizon/feed.xml");
+  const horizonCalendar = read("regulatory-horizon/horizon.ics");
   assert(!read("_redirects").includes("/regulatory-horizon/ /archive/ 301"), "Reg Horizon must not redirect away from its published route", failures);
   assert(fs.existsSync(path.join(SITE, ".assetsignore")), "Worker assets ignore file missing", failures);
   assert(
@@ -436,6 +458,11 @@ function main() {
   for (const [, relative] of routes) {
     if (relative.includes("archive/")) continue;
     const page = read(relative);
+    assert(
+      JSON.stringify(navigationRoutes(page)) === JSON.stringify(canonicalNavigation),
+      `${relative} must use the six canonical site routes`,
+      failures,
+    );
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);
@@ -462,12 +489,15 @@ function main() {
   assert(!/withheld/i.test(horizonPage), "published Reg Horizon page contains stale withheld language", failures);
   assert(horizonPage.includes("What is moving — and what is next."), "published Reg Horizon page missing its reader-led purpose", failures);
   assert(horizonPage.includes(`Updated ${formatDateLong(horizon.edition)}`), "Reg Horizon page must identify its edition date", failures);
+  assert(horizonPage.includes('"dateMode":"live"'), "current Reg Horizon counts and filters must use the current UTC date", failures);
+  const hasTargetedDate = horizon.confirmedDates.some((entry) => entry.dateCertainty === "targeted");
+  assert(!hasTargetedDate || (horizonPage.includes("Target date") && horizonFeed.includes("Target date") && horizonCalendar.includes("Target date") && horizonCalendar.includes("STATUS:TENTATIVE")), "Reg Horizon must label source-stated target dates in the page, feed and calendar", failures);
   const dueSoon = (horizon.confirmedDates || []).filter((entry) => {
     const days = (Date.parse(entry.deadline) - Date.parse(horizon.edition)) / 86_400_000;
     return days >= 0 && days <= 30;
   });
   const dueSoonAuthorities = new Set(dueSoon.map((entry) => entry.authority));
-  const horizonPicture = `${dueSoon.length} confirmed date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
+  const horizonPicture = `${dueSoon.length} official date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
   assert(horizonPage.includes(horizonPicture), "Reg Horizon weekly picture must match the confirmed-date register", failures);
   assert(horizonPage.includes('href="/styles.css"'), "Reg Horizon must use the shared site stylesheet", failures);
   assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
@@ -483,6 +513,7 @@ function main() {
   if (fs.existsSync(path.join(SITE, horizonArchive))) {
     const archivedHorizon = read(horizonArchive);
     assert(attr(archivedHorizon, /<link rel="canonical" href="([^"]+)"/) === `https://stgeorgesstrategy.com/regulatory-horizon/archive/${horizon.edition}.html`, "Reg Horizon archive canonical mismatch", failures);
+    assert(archivedHorizon.includes('"dateMode":"edition"'), "Reg Horizon archive must keep its counts and filters frozen to its edition date", failures);
   }
 
   const signalsLatest = readJson("signals/latest.json");
@@ -540,7 +571,6 @@ function main() {
   const notFound = read("404.html");
   assert(notFound.includes('href="/styles.css"'), "branded 404 must use the root stylesheet path", failures);
   assert(notFound.includes('href="/assets/favicon.svg"'), "branded 404 must use the root favicon path", failures);
-  assert(archive.includes('href="/regulatory-horizon/"'), "Archive navigation must include the published Reg Horizon route", failures);
   assert(archive.includes("Choose the trail you need") && archive.includes('class="archive-navigation"'), "Archive should offer clear routes into briefs, topics and the current edition", failures);
   checkCurrentEditionAlignment(failures);
   checkContextualLandingCards(failures);

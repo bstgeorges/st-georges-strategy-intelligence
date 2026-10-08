@@ -189,8 +189,8 @@ const TOPIC_LABELS = {
   data: "Data",
 };
 
-// Canonical navigation, in the order every page on the site must present it (§2 of the
-// 10 Jul 2026 fix spec). Rather than trusting 15+ hand-authored copies of the same
+// Canonical navigation, in the order every page on the site must present it. Rather
+// than trusting 15+ hand-authored copies of the same
 // <nav> block to stay in sync, every generated page's nav is regenerated from this one
 // list at build time — this is the "shared partial" in a static-HTML pipeline that has
 // no templating engine of its own.
@@ -198,8 +198,6 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
-  ["/regulatory-horizon/", "Reg Horizon"],
-  ["/deep-dives/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
   ["/about/", "About"],
@@ -609,29 +607,31 @@ function horizonCalendarEndDate(date) {
 
 function renderHorizonFeed(entries, edition) {
   const items = entries.map((entry) => {
-    const title = `Due ${formatDateLong(entry.deadline)} — ${entry.title}`;
+    const dateLabel = entry.dateCertainty === "targeted" ? "Target date" : entry.dateCertainty === "proposed" ? "Proposed date" : "Due";
+    const title = `${dateLabel} ${formatDateLong(entry.deadline)} — ${entry.title}`;
     const link = entry.url;
     const guid = `${PUBLIC_ORIGIN}/regulatory-horizon/#deadline-${entry.deadline}-${crypto.createHash("sha256").update(`${entry.url}|${entry.deadline}`).digest("hex").slice(0, 16)}`;
-    const description = `${entry.authority}: confirmed ${entry.stage.toLowerCase()} deadline on ${formatDateLong(entry.deadline)}. Firm applicability should be assessed separately.`;
+    const description = `${entry.authority}: ${dateLabel.toLowerCase()} for ${entry.stage.toLowerCase()} on ${formatDateLong(entry.deadline)}. Firm applicability should be assessed separately.`;
     return `  <item><title>${escapeXml(title)}</title><link>${escapeXml(link)}</link><guid isPermaLink="false">${escapeXml(guid)}</guid><pubDate>${rssDate(edition)}</pubDate><category>${escapeXml(entry.stage)}</category><description>${escapeXml(description)}</description></item>`;
   }).join("\n");
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n  <title>St Georges Strategy — Regulatory Horizon</title>\n  <link>${PUBLIC_ORIGIN}/regulatory-horizon/</link>\n  <description>Confirmed future regulatory deadlines with links to official sources.</description>\n  <language>en-gb</language>\n  <lastBuildDate>${rssDate(edition)}</lastBuildDate>\n${items}\n</channel></rss>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n  <title>St Georges Strategy — Regulatory Horizon</title>\n  <link>${PUBLIC_ORIGIN}/regulatory-horizon/</link>\n  <description>Upcoming dates stated in official sources, with proposed and target dates labelled.</description>\n  <language>en-gb</language>\n  <lastBuildDate>${rssDate(edition)}</lastBuildDate>\n${items}\n</channel></rss>\n`;
 }
 
 function renderHorizonCalendar(entries, edition) {
   const stamp = `${horizonCalendarDate(edition)}T000000Z`;
   const events = entries.map((entry) => {
     const uid = `${crypto.createHash("sha256").update(`${entry.url}|${entry.deadline}`).digest("hex").slice(0, 20)}@stgeorgesstrategy.com`;
+    const dateLabel = entry.dateCertainty === "targeted" ? "Target date" : entry.dateCertainty === "proposed" ? "Proposed date" : "Confirmed date";
     const lines = [
       "BEGIN:VEVENT",
       `UID:${uid}`,
       `DTSTAMP:${stamp}`,
       `DTSTART;VALUE=DATE:${horizonCalendarDate(entry.deadline)}`,
       `DTEND;VALUE=DATE:${horizonCalendarEndDate(entry.deadline)}`,
-      `SUMMARY:${escapeIcsText(`${entry.authority}: ${entry.title}`)}`,
-      `DESCRIPTION:${escapeIcsText(`Confirmed ${entry.stage.toLowerCase()} deadline. Firm applicability should be assessed separately. Official source: ${entry.url}`)}`,
+      `SUMMARY:${escapeIcsText(`${entry.authority}: ${dateLabel} — ${entry.title}`)}`,
+      `DESCRIPTION:${escapeIcsText(`${dateLabel} for ${entry.stage.toLowerCase()}. Firm applicability should be assessed separately. Official source: ${entry.url}`)}`,
       `URL:${entry.url}`,
-      "STATUS:CONFIRMED",
+      `STATUS:${entry.dateCertainty === "targeted" || entry.dateCertainty === "proposed" ? "TENTATIVE" : "CONFIRMED"}`,
       "TRANSP:TRANSPARENT",
       "END:VEVENT",
     ];
@@ -659,7 +659,9 @@ function publishApprovedRegulatoryHorizon(out) {
     throw new Error("Regulatory Horizon public release requires a current private QA pass and named editor and product-owner approvals.");
   }
   const edition = register.sourceEdition;
-  const html = renderRegulatoryHorizon({ register: { ...register, asOf: edition }, changes, editorial });
+  const editionRegister = { ...register, asOf: edition };
+  const html = renderRegulatoryHorizon({ register: editionRegister, changes, editorial, dateMode: "live" });
+  const archiveHtml = renderRegulatoryHorizon({ register: editionRegister, changes, editorial, dateMode: "edition" });
   const horizonOut = path.join(out, "regulatory-horizon");
   const confirmed = (register.items || [])
     .filter((item) => item.status === "confirmed" && item.deadline > register.asOf)
@@ -669,6 +671,7 @@ function publishApprovedRegulatoryHorizon(out) {
       url: item.url,
       authority: item.authority?.name || "Official source",
       stage: item.stage || "other",
+      dateCertainty: item.dateCertainty || "confirmed",
     }));
   write(path.join(horizonOut, "index.html"), `${publicHorizonHtml(html, edition)}\n`);
   write(path.join(horizonOut, "latest.json"), `${JSON.stringify({
@@ -680,7 +683,7 @@ function publishApprovedRegulatoryHorizon(out) {
   }, null, 2)}\n`);
   write(path.join(horizonOut, "feed.xml"), renderHorizonFeed(confirmed, edition));
   write(path.join(horizonOut, "horizon.ics"), renderHorizonCalendar(confirmed, edition));
-  write(path.join(horizonOut, "archive", `${edition}.html`), `${publicHorizonHtml(html, edition, { archive: true })}\n`);
+  write(path.join(horizonOut, "archive", `${edition}.html`), `${publicHorizonHtml(archiveHtml, edition, { archive: true })}\n`);
   return { edition, confirmedDates: confirmed.length };
 }
 

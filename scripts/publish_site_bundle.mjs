@@ -189,8 +189,8 @@ const TOPIC_LABELS = {
   data: "Data",
 };
 
-// Canonical navigation, in the order every page on the site must present it (§2 of the
-// 10 Jul 2026 fix spec). Rather than trusting 15+ hand-authored copies of the same
+// Canonical navigation, in the order every page on the site must present it. Rather
+// than trusting 15+ hand-authored copies of the same
 // <nav> block to stay in sync, every generated page's nav is regenerated from this one
 // list at build time — this is the "shared partial" in a static-HTML pipeline that has
 // no templating engine of its own.
@@ -198,8 +198,6 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
-  ["/regulatory-horizon/", "Reg Horizon"],
-  ["/deep-dives/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
   ["/about/", "About"],

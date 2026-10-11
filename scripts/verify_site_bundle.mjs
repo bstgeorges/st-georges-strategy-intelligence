@@ -588,7 +588,8 @@ function main() {
       (item.overflowing || []).length ||
       (item.undersizedNavigationTargets || []).length
     ));
-    assert(report.length === 56, `Responsive report should have 56 captures, found ${report.length}`, failures);
+    assert(report.length === 75, `Responsive report should have 75 captures, found ${report.length}`, failures);
+    assert(report.some((item) => item.page === "deep-dives" && item.viewport === "320"), "Responsive report must cover the Deep Dives mobile page", failures);
     assert(responsiveFailures.length === 0, `Responsive report has ${responsiveFailures.length} failures`, failures);
   }
 

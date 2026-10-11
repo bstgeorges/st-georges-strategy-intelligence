@@ -461,9 +461,15 @@ function copyHorizonArtifacts(out) {
 }
 
 function isReadyToPublishHorizon(register, qa) {
+  const today = new Date().toISOString().slice(0, 10);
+  const ageDays = Math.floor((Date.parse(`${today}T00:00:00Z`) - Date.parse(`${register?.sourceEdition || ""}T00:00:00Z`)) / 86400000);
   return register?.visibility === "private"
     && qa?.visibility === "private"
     && qa?.sourceEdition === register?.sourceEdition
+    && qa?.asOf === register?.asOf
+    && Number.isInteger(ageDays)
+    && ageDays >= 0
+    && ageDays <= 8
     && Array.isArray(qa?.errors)
     && qa.errors.length === 0
     && qa?.readiness?.relaunchEligible === true;

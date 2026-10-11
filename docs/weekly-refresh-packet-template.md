@@ -26,6 +26,25 @@ AI Signals:
 - Search used only after primary-source fetches:
 - Statistics older than 90 days flagged:
 
+### Cross-brief reconciliation
+
+Use the current week's Daily Intelligence Briefing and Weekly AI Risk brief as discovery inputs whenever they are available. They broaden coverage; they are not evidence for public claims. Trace each candidate to a primary or directly accountable source before promotion, then check the archive and record why it was promoted, held, or dropped.
+
+| Input | Edition/date reviewed | Candidate developments checked against primary sources | Promoted / held / dropped and reason |
+| --- | --- | --- | --- |
+| Daily Intelligence Briefing |  |  |  |
+| Weekly AI Risk brief |  |  |  |
+
+Cross-brief candidates to reconcile:
+
+| Development / source brief | Primary source checked | Archive status | Decision and reason |
+| --- | --- | --- | --- |
+|  |  | New / Status changed / Duplicate | Promote / Hold / Drop —  |
+|  |  | New / Status changed / Duplicate | Promote / Hold / Drop —  |
+|  |  | New / Status changed / Duplicate | Promote / Hold / Drop —  |
+
+The judgement and lead signal should reflect the strongest verified evidence across the regular source pipeline and these two briefs. Do not force a candidate into the edition to demonstrate that an input was used.
+
 Primary-source sweep:
 
 | Lane | Pages fetched first | Gaps filled by search | Notes |

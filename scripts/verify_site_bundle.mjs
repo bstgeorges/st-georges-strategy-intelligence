@@ -34,6 +34,8 @@ const canonicalNavigation = [
   "/",
   "/brief/",
   "/signals/",
+  "/regulatory-horizon/",
+  "/deep-dives/",
   "/committee-questions/",
   "/archive/",
   "/about/",
@@ -139,7 +141,7 @@ function checkCurrentEditionAlignment(failures) {
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
-  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the six canonical site routes", failures);
+  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the eight canonical site routes", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
@@ -428,7 +430,7 @@ function main() {
     const html = read(relative);
     assert(
       JSON.stringify(navigationRoutes(html)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the six canonical site routes`,
+      `${relative} must use the eight canonical site routes`,
       failures,
     );
   }
@@ -460,7 +462,7 @@ function main() {
     const page = read(relative);
     assert(
       JSON.stringify(navigationRoutes(page)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the six canonical site routes`,
+      `${relative} must use the eight canonical site routes`,
       failures,
     );
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);

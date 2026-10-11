@@ -26,6 +26,7 @@ const TRANSIENT_RETRY_ATTEMPTS = 3;
 // transport failures are recorded as an availability restriction.
 const TRANSIENT_OFFICIAL_ENDPOINTS = new Set([
   "https://www.cssf.lu/en/2026/07/breakdown-according-to-currency/",
+  "https://www.cssf.lu/en/2026/07/investment-policy-of-ucis/",
   "https://www.gov.br/cvm/pt-br/assuntos/noticias/2026/cvm-publica-relatorio-da-atividade-sancionadora-do-1o-trimestre-de-2026",
 ]);
 // This editorial source is reachable in ordinary browsing but intermittently

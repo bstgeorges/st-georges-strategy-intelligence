@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-verified.v1",
   "visibility": "private",
-  "purpose": "Source-verified carry-forward records that pre-date the weekly scanner window. They remain reviewable records, never automatically confirmed deadlines.",
+  "purpose": "Source-verified supplemental and carry-forward records that the weekly scanner did not surface, including current dates and dates that pre-date the scanner window. Each record remains private until a date-only decision is recorded.",
   "records": [
     {
       "intake": "verified-backfill",
@@ -15,11 +15,36 @@
       "deadline": "2026-08-24",
       "deadlineEvidence": "The DFSA notice states that comments are due on 24 August 2026.",
       "type": "consultation",
-      "riskAreas": ["market-plumbing"],
-      "jurisdictions": ["Dubai", "United Arab Emirates"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "medium", "drivers": { "regulatory_action": 0.8, "urgency": 1, "control_breadth": 0.5, "jurisdiction_reach": 0.5 } },
-      "editorial": { "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding." }
+      "riskAreas": [
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "editorial": {
+        "change": "DFSA consultation on miscellaneous rule changes; confirm relevance to any DIFC-regulated activity before responding."
+      }
     },
     {
       "intake": "verified-backfill",
@@ -33,11 +58,36 @@
       "deadline": "2026-08-31",
       "deadlineEvidence": "The consultation document states that it closes on 31 August 2026.",
       "type": "consultation",
-      "riskAreas": ["digital-money", "market-plumbing"],
-      "jurisdictions": ["UK"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 0.8, "urgency": 1, "control_breadth": 0.67, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "HM Treasury consultation on the Bank of England fee regime for recognised payment systems and digital settlement asset service providers." }
+      "riskAreas": [
+        "digital-money",
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "HM Treasury consultation on the Bank of England fee regime for recognised payment systems and digital settlement asset service providers."
+      }
     },
     {
       "intake": "verified-backfill",
@@ -51,16 +101,42 @@
       "deadline": "2026-09-07",
       "deadlineEvidence": "The DFSA notice gives 7 September 2026 as the comment deadline.",
       "type": "consultation",
-      "riskAreas": ["market-plumbing", "customer-outcomes"],
-      "jurisdictions": ["Dubai", "United Arab Emirates"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "medium", "drivers": { "regulatory_action": 0.8, "urgency": 1, "control_breadth": 0.5, "jurisdiction_reach": 0.5 } },
-      "editorial": { "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance." }
+      "riskAreas": [
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "jurisdictions": [
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "editorial": {
+        "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary GOV.UK consultation page rechecked; it explicitly states that the consultation closes at 11:59pm on 6 October 2026.",
+      "verifiedAt": "2026-10-11",
+      "verification": "GOV.UK primary consultation material rechecked on 11 October 2026; it states the consultation closed on 6 October 2026.",
       "authorityId": "uk-hm-treasury",
       "source": "HM Treasury",
       "title": "Modernising Payment Services Regulation",
@@ -69,16 +145,42 @@
       "deadline": "2026-10-06",
       "deadlineEvidence": "The consultation document states that it closes on 6 October 2026.",
       "type": "consultation",
-      "riskAreas": ["digital-money", "market-plumbing", "customer-outcomes"],
-      "jurisdictions": ["UK"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 0.8, "urgency": 1, "control_breadth": 1, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "HM Treasury consultation spanning payments, electronic money, tokenised payments, Open Banking and agentic payments." }
+      "riskAreas": [
+        "digital-money",
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 1,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "HM Treasury consultation spanning payments, electronic money, tokenised payments, Open Banking and agentic payments."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary EIOPA release rechecked; it explicitly states that the legal changes introduced by the review apply from 30 January 2027.",
+      "verifiedAt": "2026-10-11",
+      "verification": "EIOPA primary release rechecked on 11 October 2026; it states that the legal changes and related instruments apply from 30 January 2027.",
       "authorityId": "eiopa",
       "source": "European Insurance and Occupational Pensions Authority",
       "title": "Solvency II Review guidelines and technical standards apply",
@@ -87,16 +189,41 @@
       "deadline": "2027-01-30",
       "deadlineEvidence": "EIOPA states that the legal changes and instruments apply from 30 January 2027.",
       "type": "implementation",
-      "riskAreas": ["balance-sheet", "market-plumbing"],
-      "jurisdictions": ["EU"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 1, "urgency": 0.67, "control_breadth": 0.67, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "EIOPA’s Solvency II review package sets an implementation date for the amended framework and associated instruments." }
+      "riskAreas": [
+        "balance-sheet",
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "EIOPA’s Solvency II review package sets an implementation date for the amended framework and associated instruments."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary HKMA release rechecked; it says standard calculation periods are to take effect from 1 March 2027. This remains a source-date confirmation, not an organisation-specific applicability decision.",
+      "verifiedAt": "2026-10-11",
+      "verification": "HKMA primary release rechecked on 11 October 2026; it retains 1 March 2027 as the intended commencement date for the amendments.",
       "authorityId": "hkma",
       "source": "Hong Kong Monetary Authority",
       "title": "OTC derivatives Clearing Rules amendments targeted to take effect",
@@ -105,16 +232,40 @@
       "deadline": "2027-03-01",
       "deadlineEvidence": "HKMA and SFC say they aim to bring the amendments into effect on 1 March 2027.",
       "type": "implementation",
-      "riskAreas": ["market-plumbing"],
-      "jurisdictions": ["Hong Kong"],
-      "confidence": { "band": "medium", "score": 0.8, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 0.65 } },
-      "businessImpact": { "band": "medium", "drivers": { "regulatory_action": 0.67, "urgency": 0.45, "control_breadth": 0.5, "jurisdiction_reach": 0.67 } },
-      "editorial": { "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed." }
+      "riskAreas": [
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "Hong Kong"
+      ],
+      "confidence": {
+        "band": "medium",
+        "score": 0.8,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 0.65
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.67,
+          "urgency": 0.45,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.67
+        }
+      },
+      "editorial": {
+        "change": "HKMA and SFC intend to introduce amended OTC derivatives clearing calculation periods; confirm final legislative commencement before treating the date as fixed."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary FCA consultation page rechecked; it now records Consultation closed 18/09/2026 and a 21 September editorial update closing the consultation.",
+      "verifiedAt": "2026-10-11",
+      "verification": "FCA primary page rechecked on 11 October 2026; it records the consultation closed on 18 September 2026.",
       "authorityId": "uk-fca",
       "source": "Financial Conduct Authority",
       "title": "CP26/23: Consumer Duty: scope and proportionality",
@@ -123,16 +274,41 @@
       "deadline": "2026-09-18",
       "deadlineEvidence": "The FCA states: ‘We welcome your feedback on these proposals by 18 September 2026.’",
       "type": "consultation",
-      "riskAreas": ["customer-outcomes", "market-plumbing"],
-      "jurisdictions": ["UK"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 1, "urgency": 0.8, "control_breadth": 0.8, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "FCA consultation on the Consumer Duty’s scope, proportionality and distribution-chain application." }
+      "riskAreas": [
+        "customer-outcomes",
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.8,
+          "control_breadth": 0.8,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "FCA consultation on the Consumer Duty’s scope, proportionality and distribution-chain application."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary FCA consultation page rechecked; its 10 August update explicitly extends the consultation period to 15 September 2026.",
+      "verifiedAt": "2026-10-11",
+      "verification": "FCA primary page rechecked on 11 October 2026; it retains the consultation close date of 15 September 2026 and the update that extended the period.",
       "authorityId": "uk-fca",
       "source": "Financial Conduct Authority",
       "title": "CP26/25: The Value for Money Framework: consultation",
@@ -141,16 +317,41 @@
       "deadline": "2026-09-15",
       "deadlineEvidence": "The FCA states: ‘The consultation period has been extended to 15 September 2026.’",
       "type": "consultation",
-      "riskAreas": ["customer-outcomes", "market-plumbing"],
-      "jurisdictions": ["UK"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 1, "urgency": 0.8, "control_breadth": 0.67, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "FCA consultation on the workplace-pensions Value for Money framework and its proposed assessment regime." }
+      "riskAreas": [
+        "customer-outcomes",
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.8,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "FCA consultation on the workplace-pensions Value for Money framework and its proposed assessment regime."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary EBA consultation listing rechecked; it identifies the consultation as running from 26 June to 28 September 2026 and retains the explicit submission deadline.",
+      "verifiedAt": "2026-10-11",
+      "verification": "EBA primary consultation material rechecked on 11 October 2026; it records a 28 September 2026 response deadline, now elapsed.",
       "authorityId": "eba",
       "source": "European Banking Authority",
       "title": "Consultation on methodology for setting fines under MiCA",
@@ -159,16 +360,41 @@
       "deadline": "2026-09-28",
       "deadlineEvidence": "The EBA states: ‘Deadline for submitting responses: 28/09/2026 at 23:59.’",
       "type": "consultation",
-      "riskAreas": ["digital-money", "market-plumbing"],
-      "jurisdictions": ["EU"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "medium", "drivers": { "regulatory_action": 0.8, "urgency": 0.8, "control_breadth": 0.67, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "EBA consultation on the methodology for setting MiCA fines, relevant to cryptoasset-issuer and service-provider enforcement exposure." }
+      "riskAreas": [
+        "digital-money",
+        "market-plumbing"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 0.8,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "EBA consultation on the methodology for setting MiCA fines, relevant to cryptoasset-issuer and service-provider enforcement exposure."
+      }
     },
     {
       "intake": "verified-backfill",
-      "verifiedAt": "2026-09-21",
-      "verification": "primary FCA consultation page rechecked; it explicitly records 22 October 2026 as the extended deadline for responses to the consultation paper and prudential discussion chapter.",
+      "verifiedAt": "2026-10-11",
+      "verification": "FCA primary page rechecked on 11 October 2026; it retains 22 October 2026 as the extended deadline for the consultation and prudential discussion chapter.",
       "authorityId": "uk-fca",
       "source": "Financial Conduct Authority",
       "title": "CP26/28: The UK AIFM Regime",
@@ -177,11 +403,121 @@
       "deadline": "2026-10-22",
       "deadlineEvidence": "The FCA states: ‘We have extended the deadline for responses to the CP and to the discussion chapter on prudential reforms is 22 October 2026.’",
       "type": "consultation",
-      "riskAreas": ["market-plumbing", "customer-outcomes"],
-      "jurisdictions": ["UK"],
-      "confidence": { "band": "high", "score": 1, "components": { "authority": 1, "freshness": 1, "classification": 1, "date": 1, "detail": 1 } },
-      "businessImpact": { "band": "high", "drivers": { "regulatory_action": 1, "urgency": 0.67, "control_breadth": 0.8, "jurisdiction_reach": 1 } },
-      "editorial": { "change": "FCA consultation on a new, proportionate UK regime for alternative investment fund managers, including prudential reform discussion chapters." }
+      "riskAreas": [
+        "market-plumbing",
+        "customer-outcomes"
+      ],
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.8,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "FCA consultation on a new, proportionate UK regime for alternative investment fund managers, including prudential reform discussion chapters."
+      }
+    },
+    {
+      "intake": "verified-backfill",
+      "verifiedAt": "2026-10-11",
+      "authorityId": "uk-fca",
+      "source": "Financial Conduct Authority",
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "verification": "FCA primary consultation page checked on 11 October 2026; it identifies the consultation close date as 14 October 2026.",
+      "title": "CP26/29: A tailored regime for captive insurance",
+      "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-29-tailored-regime-captive-insurance",
+      "date": "2026-07-14",
+      "deadline": "2026-10-14",
+      "deadlineEvidence": "The consultation closes on 14 October 2026.",
+      "type": "consultation",
+      "riskAreas": [
+        "balance-sheet"
+      ],
+      "businessImpact": {
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.5,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "editorial": {
+        "change": "The FCA and PRA are consulting on a tailored UK regulatory framework for captive insurers."
+      }
+    },
+    {
+      "intake": "verified-backfill",
+      "verifiedAt": "2026-10-11",
+      "authorityId": "uk-fca",
+      "source": "Financial Conduct Authority",
+      "jurisdictions": [
+        "UK"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "verification": "FCA primary consultation page checked on 11 October 2026; it identifies the consultation close date as 16 October 2026 and describes support for resilient market operation during outages.",
+      "title": "CP26/30: Supporting equity market transparency and considering market structure developments",
+      "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-30-consulation-paper-supporting-equity-market-transparency-considering-market-structure-developments",
+      "date": "2026-07-31",
+      "deadline": "2026-10-16",
+      "deadlineEvidence": "We are asking for comments on this Consultation Paper (CP) by 16 October 2026.",
+      "type": "consultation",
+      "riskAreas": [
+        "digital-resilience",
+        "market-plumbing"
+      ],
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 0.8,
+          "urgency": 1,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 0.67
+        }
+      },
+      "editorial": {
+        "change": "The FCA proposes UK equity transparency and market-structure changes, including more resilient market operation when outages occur."
+      }
     }
   ]
 }

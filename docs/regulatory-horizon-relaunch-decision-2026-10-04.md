@@ -14,4 +14,4 @@ The 4 October 2026 edition is approved for public release. The user explicitly a
 
 ## Publication control
 
-This approval applies only to the 4 October 2026 edition. The public page, RSS feed, calendar, JSON and frozen archive are generated from the same confirmed future-date register. The edition is published only when the canonical `Site release (Cloudflare)` workflow passes and verifies its exact SHA on the Pages origin and production domain. Every later edition requires its own current QA and approval record.
+This approval record documents the 4 October 2026 decision. The public page, RSS feed, calendar, JSON and frozen archive are generated from the same confirmed future-date register. Publication still requires the canonical `Site release (Cloudflare)` workflow to pass and verify its exact SHA on the Pages origin and production domain. Future editions use the current source, freshness, coverage and QA gates; they do not require separate per-edition pre-approval.

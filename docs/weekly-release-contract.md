@@ -6,7 +6,7 @@ The public edition is one reviewed package, not five independent page updates. B
 2. `site/data/signals.json` — validated source-backed Top 5 by topic, with a current promotion summary.
 3. `site/brief/index.html` and `site/committee-questions/index.html` — reader-facing judgement and committee prompt that match the edition record.
    - When a Deep Dive is published, add it to `site/deep-dives/index.html` in the same release. The primary navigation always goes to `/deep-dives/`, never directly to a single article.
-4. `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record, QA report and edition-specific relaunch approval. The 4 October 2026 Horizon edition is approved for public release in this package; future editions require a new QA pass and current approvals before publication.
+4. `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record and QA report. The current edition is published by the canonical release workflow when the private evidence passes its freshness, correctness, source-health and coverage gates; separate per-edition pre-approval is not required.
 
 The preparatory workflows create candidates and an editorial pack; neither publishes a new edition. A reviewer must make the editorial choices, confirm source evidence, and run:
 

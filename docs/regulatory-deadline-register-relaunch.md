@@ -1,6 +1,6 @@
-# Regulatory Horizon: private rebuild and relaunch gate
+# Regulatory Horizon: private evidence and public release gate
 
-The 4 October 2026 Regulatory Horizon edition has cleared this gate and received current editor and product-owner approval. Its public return still depends on the canonical Site release workflow passing. Future editions need a fresh QA pass and edition-specific approval; the scanner never publishes or restores a route by itself.
+Regulatory Horizon publishes automatically with the canonical site release when its current private evidence passes the QA gate. A separate per-edition editor or product-owner pre-approval is not required. The scanner never publishes directly: only the canonical `Site release (Cloudflare)` workflow can publish and verify the page, feed, calendar, data and dated archive.
 
 ## Operating loop
 
@@ -10,7 +10,7 @@ The 4 October 2026 Regulatory Horizon edition has cleared this gate and received
 4. A decision record in `approvals.json` is `confirmed`, `rejected` or `not-applicable`. It names the reviewer, date, decision scope and evidence. `source-date-only` confirms the primary-source fact only; it must not be represented as an applicability determination.
 5. The QA report records correctness, coverage, concentration, freshness and shadow-run history.
 
-## Hard relaunch gate
+## Public release gate
 
 The public route remains off unless all of the following are true:
 
@@ -18,14 +18,15 @@ The public route remains off unless all of the following are true:
 - scanner edition is no more than eight days old;
 - at least four core authorities have been healthy for each of the most recent three **distinct-day** shadow runs; repeated retries on one day count once;
 - at least eight editorially confirmed, **maintained** milestones from four or more authorities. A maintained milestone is a confirmed future deadline or a confirmed date within the register's 30-day carry-forward window;
-- at least six of those maintained milestones are genuinely upcoming deadlines;
+- at least four of those maintained milestones are genuinely upcoming deadlines. Six is the coverage target, not a publication blocker for a selective horizon;
 - no authority supplies more than 60% of maintained confirmed milestones;
-- the editor and product owner explicitly approve the return of a public page in `dashboard/regulatory-deadline-register/relaunch-approval.json`. Both approvals must be named, dated, reasoned, and tied to the current scanner edition.
+
+The public page remains source-linked, shows forthcoming confirmed dates only, labels target dates, and identifies the edition date. The per-edition `relaunch-approval.json` record is retained as historical audit data and is not a release dependency.
 
 The source-health core is FCA, Bank of England/PRA, HM Treasury, EBA, ESMA, ECB Banking Supervision and OFSI. A zero-yield source can be healthy; a failed, blocked, degraded or unconfigured source cannot.
 
-This is deliberately a stability-and-reader-value gate, not a requirement to keep a volatile count of ten future dates open at once. Closed dates are evidence that the register is maintained; they must never be presented to readers as upcoming actions. The reader surface, if restored, shows confirmed forthcoming dates only.
+This is deliberately a stability-and-reader-value gate, not a requirement to keep a volatile count of ten future dates open at once. Closed dates are evidence that the register is maintained; they must never be presented to readers as upcoming actions. Four future dates across the maintained register are enough for a useful, explicitly selective reader view.
 
 ## What the scheduled scan does
 
-The weekly workflow now tests the scanner, runs the scan, builds the private register and QA report, then opens an editorial-review PR. It does not update the public site. A merge of that PR keeps the public redirect in place.
+The weekly workflow tests the scanner, runs the scan, builds the private register and QA report, then opens an editorial-review PR. It does not update the public site directly. A later canonical site release publishes a current edition only when the private register and QA report pass the public release gate.

@@ -113,7 +113,7 @@ test("keeps source-verified backfill records private and does not mistake a repe
   assert.equal(changes.notReconfirmed.length, 0);
 });
 
-test("does not claim a relaunch without recorded human sign-off, even when the maintained-evidence gates pass", () => {
+test("passes the public quality gate without per-edition human sign-off when four confirmed future dates remain", () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "deadline-register-"));
   const authorities = ["uk-fca", "uk-boe-pra", "uk-hm-treasury", "eba"];
   const register = {
@@ -125,7 +125,7 @@ test("does not claim a relaunch without recorded human sign-off, even when the m
       id: `item-${index}`,
       url: `https://example.test/${index}`,
       title: `Consultation ${index}`,
-      deadline: index < 2 ? `2026-08-${String(24 + index).padStart(2, "0")}` : `2026-09-${String(index + 8).padStart(2, "0")}`,
+      deadline: index < 4 ? `2026-08-${String(24 + index).padStart(2, "0")}` : `2026-09-${String(index + 8).padStart(2, "0")}`,
       status: "confirmed",
       intake: "verified-backfill",
       evidence: { verifiedAt: "2026-09-09", verification: "Primary source checked" },
@@ -139,8 +139,9 @@ test("does not claim a relaunch without recorded human sign-off, even when the m
   fs.writeFileSync(path.join(tmp, "qa-history.json"), JSON.stringify({ runs: ["2026-08-26", "2026-09-02", "2026-09-09"].map((asOf) => ({ asOf, sourceEdition: asOf, healthyCore: core, errors: [], warnings: [] })) }));
   assert.equal(spawnSync(process.execPath, [validate, "--dir", tmp, "--as-of", "2026-09-09"]).status, 0);
   const qa = JSON.parse(fs.readFileSync(path.join(tmp, "qa.json")));
-  assert.equal(qa.readiness.relaunchEligible, false);
-  assert.ok(qa.readiness.relaunchReasons.some((reason) => reason.includes("editor and product owner")));
+  assert.equal(qa.readiness.relaunchEligible, true);
+  assert.equal(qa.readiness.metrics.confirmedUpcomingDeadlines, 4);
+  assert.ok(!qa.readiness.relaunchReasons.some((reason) => reason.includes("approval")));
   assert.ok(!qa.readiness.relaunchReasons.some((reason) => reason.includes("maintained confirmed milestones") || reason.includes("upcoming deadlines") || reason.includes("confirmed open deadlines")));
   assert.equal(qa.errors.length, 0);
 });

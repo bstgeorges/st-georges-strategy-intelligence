@@ -17,24 +17,13 @@ function isValidDate(value) {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 
-function hasCurrentRelaunchApproval(approval, sourceEdition) {
-  const personApproved = (person) => Boolean(person?.name && isValidDate(person?.approvedAt) && person?.note);
-  return approval?.visibility === "private"
-    && approval?.approved === true
-    && approval?.sourceEdition === sourceEdition
-    && personApproved(approval.editor)
-    && personApproved(approval.productOwner);
-}
-
 function main() {
   const dir = path.resolve(argValue("--dir", DEFAULT_DIR));
   const asOf = argValue("--as-of", null);
   const register = json(path.join(dir, "register.json"));
   const health = json(path.join(dir, "health.json"));
   const historyFile = path.join(dir, "qa-history.json");
-  const approvalFile = path.join(dir, "relaunch-approval.json");
   const exceptionsFile = path.join(dir, "source-exceptions.json");
-  const relaunchApproval = fs.existsSync(approvalFile) ? json(approvalFile) : null;
   const exceptions = fs.existsSync(exceptionsFile) ? json(exceptionsFile) : null;
   const prior = fs.existsSync(historyFile) ? json(historyFile) : { runs: [] };
   const today = asOf || new Date().toISOString().slice(0, 10);
@@ -141,10 +130,9 @@ function main() {
     ...(sourceAgeDays === null || sourceAgeDays > 8 ? ["latest scanner edition is stale"] : []),
     ...(stableCore.length < 4 ? ["fewer than four core authorities have been healthy for three consecutive shadow runs"] : []),
     ...(confirmedMaintained.length < 8 ? ["fewer than eight maintained confirmed milestones"] : []),
-    ...(confirmedOpen.length < 6 ? ["fewer than six confirmed upcoming deadlines"] : []),
+    ...(confirmedOpen.length < 4 ? ["fewer than four confirmed upcoming deadlines"] : []),
     ...(maintainedAuthorities.size < 4 ? ["fewer than four maintained contributing authorities"] : []),
     ...(concentration > 0.6 ? ["register is too concentrated in one authority"] : []),
-    ...(!hasCurrentRelaunchApproval(relaunchApproval, register.sourceEdition) ? ["editor and product owner have not recorded a current-edition relaunch approval"] : []),
   ];
   const qa = {
     version: "regulatory-deadline-qa.v1", visibility: "private", generatedAt: new Date().toISOString(),

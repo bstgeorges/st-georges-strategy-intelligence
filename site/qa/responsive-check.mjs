@@ -1,11 +1,14 @@
 import { spawn } from "node:child_process";
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { createReadStream, existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { createServer } from "node:http";
+import { dirname, extname, join, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const outDir = join(root, "qa", "responsive");
+const sourceRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const generatedRoot = resolve(sourceRoot, "..", "site-dist");
+const pageRoot = existsSync(join(generatedRoot, "index.html")) ? generatedRoot : sourceRoot;
+const outDir = join(sourceRoot, "qa", "responsive");
 const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const viewports = [
   { name: "320", width: 320, height: 1200 },
@@ -28,12 +31,41 @@ const pages = [
   ["signals-technology-failure", "signals/technology-failure/index.html"],
   ["signals-data", "signals/data/index.html"],
   ["regulatory-horizon", "regulatory-horizon/index.html"],
+  ["deep-dives", "deep-dives/index.html"],
   ["archive", "archive/index.html"],
   ["about", "about/index.html"],
 ];
+const contentTypes = {
+  ".css": "text/css; charset=utf-8",
+  ".html": "text/html; charset=utf-8",
+  ".ico": "image/x-icon",
+  ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".xml": "application/xml; charset=utf-8",
+};
 
 function wait(ms) {
   return new Promise((resolveWait) => setTimeout(resolveWait, ms));
+}
+
+async function waitForPageReady(page) {
+  let lastState = null;
+  for (let attempt = 0; attempt < 50; attempt += 1) {
+    const state = await page.send("Runtime.evaluate", {
+      returnByValue: true,
+      expression: `({
+        ready: document.readyState !== "loading",
+        styled: document.styleSheets.length > 0,
+      })`,
+    });
+    const value = state.result?.value;
+    lastState = value;
+    if (value?.ready && value?.styled) return;
+    await wait(100);
+  }
+  throw new Error(`Timed out waiting for generated page styles: ${JSON.stringify(lastState)}`);
 }
 
 function requestJson(url) {
@@ -113,7 +145,41 @@ async function launchChrome() {
   return { chrome, endpoint };
 }
 
-async function checkPage(browser, pageName, relativePath, viewport) {
+async function startPreviewServer() {
+  const server = createServer((request, response) => {
+    let pathname;
+    try {
+      pathname = decodeURIComponent(new URL(request.url || "/", "http://127.0.0.1").pathname);
+    } catch {
+      response.writeHead(400).end("Bad request");
+      return;
+    }
+    const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
+    let filePath = resolve(pageRoot, relativePath);
+    if (filePath !== pageRoot && !filePath.startsWith(`${pageRoot}${sep}`)) {
+      response.writeHead(403).end("Forbidden");
+      return;
+    }
+    if (existsSync(filePath) && statSync(filePath).isDirectory()) filePath = join(filePath, "index.html");
+    if (!existsSync(filePath) || !statSync(filePath).isFile()) {
+      response.writeHead(404).end("Not found");
+      return;
+    }
+    response.writeHead(200, { "Content-Type": contentTypes[extname(filePath)] || "application/octet-stream" });
+    createReadStream(filePath).pipe(response);
+  });
+  await new Promise((resolveListen, reject) => {
+    server.once("error", reject);
+    server.listen(0, "127.0.0.1", () => {
+      server.removeListener("error", reject);
+      resolveListen();
+    });
+  });
+  const address = server.address();
+  return { server, origin: `http://127.0.0.1:${address.port}` };
+}
+
+async function checkPage(browser, previewOrigin, pageName, relativePath, viewport) {
   const target = await browser.send("Target.createTarget", { url: "about:blank" });
   const info = await requestJson(`http://127.0.0.1:${browser.port}/json/list`);
   const targetInfo = info.find((entry) => entry.id === target.targetId);
@@ -128,9 +194,9 @@ async function checkPage(browser, pageName, relativePath, viewport) {
     mobile: viewport.width < 768,
   });
 
-  const fileUrl = pathToFileURL(join(root, relativePath)).href;
-  await page.send("Page.navigate", { url: fileUrl });
-  await wait(650);
+  const pageUrl = new URL(relativePath, `${previewOrigin}/`).href;
+  await page.send("Page.navigate", { url: pageUrl });
+  await waitForPageReady(page);
   const metrics = await page.send("Runtime.evaluate", {
     returnByValue: true,
     expression: `(() => {
@@ -138,6 +204,13 @@ async function checkPage(browser, pageName, relativePath, viewport) {
       const body = document.body;
       const candidates = [...document.querySelectorAll("body *")].map((el) => {
         const rect = el.getBoundingClientRect();
+        if (rect.right <= window.innerWidth + 1 && rect.left >= -1) return null;
+        let ancestor = el.parentElement;
+        while (ancestor && ancestor !== body) {
+          const overflowX = getComputedStyle(ancestor).overflowX;
+          if (["auto", "scroll"].includes(overflowX) && ancestor.scrollWidth > ancestor.clientWidth) return null;
+          ancestor = ancestor.parentElement;
+        }
         return {
           tag: el.tagName,
           cls: el.className && String(el.className).slice(0, 80),
@@ -146,13 +219,14 @@ async function checkPage(browser, pageName, relativePath, viewport) {
           right: Math.round(rect.right),
           width: Math.round(rect.width)
         };
-      }).filter((item) => item.right > window.innerWidth + 1 || item.left < -1);
+      }).filter(Boolean);
       return {
         innerWidth: window.innerWidth,
         scrollWidth: Math.max(doc.scrollWidth, body ? body.scrollWidth : 0),
         overflowing: candidates.slice(0, 8),
         undersizedNavigationTargets: window.innerWidth < 768
           ? [...document.querySelectorAll(".site-menu summary, .site-menu .site-nav a")]
+            .filter((element) => element.getClientRects().length > 0 && (!element.matches("a") || element.closest("details.site-menu")?.open))
             .map((element) => ({
               text: (element.textContent || "").trim().replace(/\s+/g, " "),
               height: Math.round(element.getBoundingClientRect().height),
@@ -178,7 +252,7 @@ async function checkPage(browser, pageName, relativePath, viewport) {
   return {
     page: pageName,
     viewport: viewport.name,
-    screenshot: screenshotPath.replace(`${root}/`, ""),
+    screenshot: screenshotPath.replace(`${sourceRoot}/`, ""),
     ...value,
   };
 }
@@ -186,6 +260,7 @@ async function checkPage(browser, pageName, relativePath, viewport) {
 async function main() {
   mkdirSync(outDir, { recursive: true });
   const { chrome, endpoint } = await launchChrome();
+  const preview = await startPreviewServer();
   const port = Number(new URL(endpoint).port);
   const browser = new Cdp(endpoint);
   browser.port = port;
@@ -195,12 +270,13 @@ async function main() {
   try {
     for (const [pageName, relativePath] of pages) {
       for (const viewport of viewports) {
-        results.push(await checkPage(browser, pageName, relativePath, viewport));
+        results.push(await checkPage(browser, preview.origin, pageName, relativePath, viewport));
       }
     }
   } finally {
     browser.close();
     chrome.kill();
+    preview.server.close();
   }
 
   const reportPath = join(outDir, "responsive-report.json");
@@ -214,7 +290,7 @@ async function main() {
     pages: pages.length,
     captures: results.length,
     failures: failures.length,
-    report: reportPath.replace(`${root}/`, ""),
+    report: reportPath.replace(`${sourceRoot}/`, ""),
   }, null, 2));
   if (failures.length) {
     console.log(JSON.stringify(failures.slice(0, 10), null, 2));

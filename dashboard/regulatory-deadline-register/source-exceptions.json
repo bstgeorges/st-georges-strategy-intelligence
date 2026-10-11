@@ -51,6 +51,16 @@
       "transportReviewedAt": "2026-10-04",
       "transportReview": "The configured newsroom again exceeded the scanner transport window. The official RSS subscription page does not establish a specific feed endpoint, so none was added.",
       "nextCheck": "2026-10-11"
+    },
+    {
+      "sourceId": "saudi-cma",
+      "expectedStatus": "degraded",
+      "issue": "The official Saudi Capital Market Authority news page returned no recognisable publication rows in the 11 October 2026 90-day scanner run.",
+      "governance": "Do not infer dated publications from an unrecognisable page shell. Retain degraded until the configured official collection yields usable, dated rows or an alternative official transport is independently validated.",
+      "lastChecked": "2026-10-11",
+      "transportReviewedAt": "2026-10-11",
+      "transportReview": "The governed scanner fetched the configured official collection but could not recognise publication rows. No alternative transport was promoted.",
+      "nextCheck": "2026-10-18"
     }
   ]
 }

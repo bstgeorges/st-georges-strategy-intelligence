@@ -1,90 +1,11 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-10-04T10:42:59.072Z",
-  "asOf": "2026-10-04",
-  "sourceEdition": "2026-10-04",
+  "generatedAt": "2026-10-11T07:40:07.149Z",
+  "asOf": "2026-10-11",
+  "sourceEdition": "2026-10-11",
   "carryForwardGraceDays": 30,
   "items": [
-    {
-      "id": "6db1b6fc915cb80933f6",
-      "title": "Consultation Paper No. 173 – Proposals to enhance the collective investment funds framework",
-      "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173",
-      "deadline": "2026-09-07",
-      "daysToDeadline": -27,
-      "stage": "consultation",
-      "authority": {
-        "id": "dubai-dfsa",
-        "name": "Dubai Financial Services Authority",
-        "tier": "primary"
-      },
-      "jurisdictions": [
-        "Dubai",
-        "United Arab Emirates"
-      ],
-      "themes": [
-        "market-plumbing",
-        "customer-outcomes"
-      ],
-      "confidence": {
-        "band": "high",
-        "score": 1,
-        "components": {
-          "authority": 1,
-          "freshness": 1,
-          "classification": 1,
-          "date": 1,
-          "detail": 1
-        }
-      },
-      "businessImpact": {
-        "band": "medium",
-        "drivers": {
-          "regulatory_action": 0.8,
-          "urgency": 1,
-          "control_breadth": 0.5,
-          "jurisdiction_reach": 0.5
-        }
-      },
-      "sourcePublishedAt": "2026-07-07",
-      "status": "confirmed",
-      "intake": "verified-backfill",
-      "decision": {
-        "decision": "confirmed",
-        "scope": "source-date-only",
-        "reviewer": "Codex primary-source verification",
-        "note": "The DFSA notice explicitly states the comment deadline. This confirms the cited date only; organisation-specific applicability remains unassessed.",
-        "decidedAt": "2026-08-28",
-        "evidence": {
-          "quote": "The deadline for providing comments on this Consultation Paper is 7 September 2026.",
-          "url": "https://www.dfsa.ae/news/notice-consultation-paper-release-cp-173"
-        }
-      },
-      "evidence": {
-        "change": "DFSA consultation on the collective investment funds framework; assess product, client and distribution relevance.",
-        "detailChecked": true,
-        "deadlineCue": "The DFSA notice gives 7 September 2026 as the comment deadline.",
-        "verifiedAt": "2026-09-21",
-        "verification": "primary DFSA notice rechecked; it explicitly states that the deadline for comments was 7 September 2026. The record remains a historical source-date confirmation."
-      },
-      "ownerGuidance": {
-        "owners": [
-          "Operations",
-          "Markets or product control",
-          "Conduct risk",
-          "Customer and product owner"
-        ],
-        "prepare": [
-          "Assess operational and reporting impact",
-          "Confirm market, client and system dependencies",
-          "Assess customer impact",
-          "Confirm policy, communications and control evidence"
-        ]
-      },
-      "firstSeen": "2026-08-14",
-      "lastSeen": "2026-09-20",
-      "sourceEdition": "2026-09-20"
-    },
     {
       "id": "f6f1478cf6a55b1033be",
       "title": "The Retail Payments Infrastructure Board launches consultation on the next generation UK payments infrastructure",
@@ -170,7 +91,7 @@
       "title": "CP26/25: The Value for Money Framework: consultation",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-25-value-money-framework-consultation",
       "deadline": "2026-09-15",
-      "daysToDeadline": -19,
+      "daysToDeadline": -26,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -248,7 +169,7 @@
       "title": "CP26/23: Consumer Duty: scope and proportionality",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-23-consumer-duty-scope-and-proportionality",
       "deadline": "2026-09-18",
-      "daysToDeadline": -16,
+      "daysToDeadline": -23,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -326,7 +247,7 @@
       "title": "Consultation on methodology for setting fines under MiCA",
       "url": "https://www.eba.europa.eu/publications-and-media/events/consultation-methodology-setting-fines-under-mica",
       "deadline": "2026-09-28",
-      "daysToDeadline": -6,
+      "daysToDeadline": -13,
       "stage": "consultation",
       "authority": {
         "id": "eba",
@@ -404,7 +325,7 @@
       "title": "Consultation on revised SPM module CA-B-2 \"Systemically Important Banks\" Enclosure : SPM CA-B-2 Systemically Important Banks (Consultation)",
       "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260827-3-EN",
       "deadline": "2026-09-28",
-      "daysToDeadline": -6,
+      "daysToDeadline": -13,
       "stage": "consultation",
       "authority": {
         "id": "hkma",
@@ -475,15 +396,15 @@
         ]
       },
       "firstSeen": "2026-09-06",
-      "lastSeen": "2026-10-04",
-      "sourceEdition": "2026-10-04"
+      "lastSeen": "2026-10-11",
+      "sourceEdition": "2026-10-11"
     },
     {
       "id": "447479f78f8e7b2729d5",
       "title": "Modernising Payment Services Regulation",
       "url": "https://www.gov.uk/government/consultations/modernising-payment-services-regulation",
       "deadline": "2026-10-06",
-      "daysToDeadline": 2,
+      "daysToDeadline": -5,
       "stage": "consultation",
       "authority": {
         "id": "uk-hm-treasury",
@@ -566,7 +487,7 @@
       "title": "Consultation on Phase 2B prototype of Hong Kong Taxonomy for Sustainable Finance",
       "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/current/20260819-7-EN",
       "deadline": "2026-10-07",
-      "daysToDeadline": 3,
+      "daysToDeadline": -4,
       "stage": "consultation",
       "authority": {
         "id": "hkma",
@@ -637,15 +558,15 @@
         ]
       },
       "firstSeen": "2026-09-08",
-      "lastSeen": "2026-10-04",
-      "sourceEdition": "2026-10-04"
+      "lastSeen": "2026-10-11",
+      "sourceEdition": "2026-10-11"
     },
     {
       "id": "204f4535ee6336df4840",
       "title": "CP26/28: The UK AIFM Regime",
       "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-28-uk-aifm-regime",
       "deadline": "2026-10-22",
-      "daysToDeadline": 18,
+      "daysToDeadline": 11,
       "stage": "consultation",
       "authority": {
         "id": "uk-fca",
@@ -723,7 +644,7 @@
       "title": "PRA consults on updated guidance for friendly society amalgamations and transfers",
       "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers",
       "deadline": "2026-10-22",
-      "daysToDeadline": 18,
+      "daysToDeadline": 11,
       "stage": "consultation",
       "authority": {
         "id": "uk-boe-pra",
@@ -794,15 +715,15 @@
         ]
       },
       "firstSeen": "2026-08-16",
-      "lastSeen": "2026-10-04",
-      "sourceEdition": "2026-10-04"
+      "lastSeen": "2026-10-11",
+      "sourceEdition": "2026-10-11"
     },
     {
       "id": "e5665ae225f5d4706d2d",
       "title": "Solvency II Review guidelines and technical standards apply",
       "url": "https://www.eiopa.europa.eu/eiopa-completes-solvency-ii-review-mandate-final-guidelines-and-draft-technical-standards-revised-2026-07-15_en",
       "deadline": "2027-01-30",
-      "daysToDeadline": 118,
+      "daysToDeadline": 111,
       "stage": "implementation",
       "authority": {
         "id": "eiopa",
@@ -881,7 +802,7 @@
       "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/06/20260605-6",
       "deadline": "2027-03-01",
       "dateCertainty": "targeted",
-      "daysToDeadline": 148,
+      "daysToDeadline": 141,
       "stage": "implementation",
       "authority": {
         "id": "hkma",

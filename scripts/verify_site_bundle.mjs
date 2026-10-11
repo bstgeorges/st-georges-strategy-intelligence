@@ -34,6 +34,8 @@ const canonicalNavigation = [
   "/",
   "/brief/",
   "/signals/",
+  "/regulatory-horizon/",
+  "/deep-dives/",
   "/committee-questions/",
   "/archive/",
   "/about/",
@@ -139,7 +141,7 @@ function checkCurrentEditionAlignment(failures) {
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
-  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the six canonical site routes", failures);
+  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the eight canonical site routes", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
@@ -428,7 +430,7 @@ function main() {
     const html = read(relative);
     assert(
       JSON.stringify(navigationRoutes(html)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the six canonical site routes`,
+      `${relative} must use the eight canonical site routes`,
       failures,
     );
   }
@@ -460,7 +462,7 @@ function main() {
     const page = read(relative);
     assert(
       JSON.stringify(navigationRoutes(page)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the six canonical site routes`,
+      `${relative} must use the eight canonical site routes`,
       failures,
     );
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
@@ -590,8 +592,8 @@ function main() {
     const responsiveViewports = new Set(report.map((item) => item.viewport));
     const expectedCaptureCount = responsivePages.size * responsiveViewports.size;
     assert(
-      responsivePages.size === 14 && report.length === expectedCaptureCount,
-      `Responsive report should cover all 14 pages at every viewport (${expectedCaptureCount} captures), found ${report.length}`,
+      responsivePages.size === 15 && report.length === expectedCaptureCount,
+      `Responsive report should cover all 15 pages at every viewport (${expectedCaptureCount} captures), found ${report.length}`,
       failures,
     );
     if (responsiveViewports.has("1366x768")) {
@@ -601,6 +603,7 @@ function main() {
         failures,
       );
     }
+    assert(report.some((item) => item.page === "deep-dives" && item.viewport === "320"), "Responsive report must cover the Deep Dives mobile page", failures);
     assert(responsiveFailures.length === 0, `Responsive report has ${responsiveFailures.length} failures`, failures);
   }
 

@@ -1,5 +1,7 @@
 # Regulatory Horizon: relaunch decision record — 6 September 2026
 
+Historical decision record. Its former named-approval procedure is superseded by [`regulatory-deadline-register-relaunch.md`](./regulatory-deadline-register-relaunch.md): current source, freshness, coverage and QA gates control publication; separate per-edition pre-approval is not required.
+
 ## Status
 
 This is a historical decision record. The public Regulatory Horizon was **withheld as of 6 September 2026**. The 4 October 2026 approval and current status are recorded in [`regulatory-horizon-relaunch-decision-2026-10-04.md`](./regulatory-horizon-relaunch-decision-2026-10-04.md). Recording approval is a product decision; it must never be inferred from scanner output or this historical record. The live criteria are maintained in [`regulatory-deadline-register-relaunch.md`](./regulatory-deadline-register-relaunch.md).

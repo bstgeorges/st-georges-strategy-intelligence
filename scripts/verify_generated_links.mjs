@@ -87,7 +87,12 @@ function isRestrictedButPresent(url, status) {
   try {
     const parsed = new URL(url);
     const hostname = parsed.hostname;
-    return [429, 999].includes(status) && hostname.endsWith("linkedin.com");
+    if ([429, 999].includes(status) && hostname.endsWith("linkedin.com")) return true;
+    // CFTC can rate-limit the parallel CI link audit. Accept that response only
+    // when the exact primary source URL has a manual-verification record.
+    return status === 429
+      && hostname === "www.cftc.gov"
+      && manuallyVerifiedSourceUrls().has(url);
   } catch {
     return false;
   }

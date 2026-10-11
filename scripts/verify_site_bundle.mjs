@@ -588,7 +588,21 @@ function main() {
       (item.overflowing || []).length ||
       (item.undersizedNavigationTargets || []).length
     ));
-    assert(report.length === 75, `Responsive report should have 75 captures, found ${report.length}`, failures);
+    const responsivePages = new Set(report.map((item) => item.page));
+    const responsiveViewports = new Set(report.map((item) => item.viewport));
+    const expectedCaptureCount = responsivePages.size * responsiveViewports.size;
+    assert(
+      responsivePages.size === 15 && report.length === expectedCaptureCount,
+      `Responsive report should cover all 15 pages at every viewport (${expectedCaptureCount} captures), found ${report.length}`,
+      failures,
+    );
+    if (responsiveViewports.has("1366x768")) {
+      assert(
+        report.filter((item) => item.viewport === "1366x768").length === responsivePages.size,
+        "Responsive report must include the 1366x768 capture for every page",
+        failures,
+      );
+    }
     assert(report.some((item) => item.page === "deep-dives" && item.viewport === "320"), "Responsive report must cover the Deep Dives mobile page", failures);
     assert(responsiveFailures.length === 0, `Responsive report has ${responsiveFailures.length} failures`, failures);
   }

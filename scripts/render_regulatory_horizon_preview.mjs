@@ -45,7 +45,7 @@ function readerTitle(item) {
 }
 
 function readerThemes(item) {
-  if (item?.themes?.length) return item.themes.map(titleCase);
+  if (item?.themes?.length) return item.themes.map((theme) => theme === "ai-and-models" ? "AI and models" : titleCase(theme));
   if (item?.authority?.id === "hkma" && /Systemically Important Banks/.test(item?.title || "")) return ["Balance Sheet"];
   if (item?.authority?.id === "hkma" && /Hong Kong Taxonomy/.test(item?.title || "")) return ["Market Plumbing"];
   if (item?.authority?.id === "uk-boe-pra" && /friendly society/i.test(item?.title || "")) return ["Balance Sheet"];
@@ -71,7 +71,7 @@ function renderPreview({ register, changes, editorial, dateMode = "edition" }) {
   const changeSummary = additions.length || revisedDates.length
     ? `${additions.length ? `${additions.length} new confirmed date${additions.length === 1 ? "" : "s"}` : "No new confirmed dates"}${additions.length && revisedDates.length ? " · " : ""}${revisedDates.length ? `${revisedDates.length} revised date${revisedDates.length === 1 ? "" : "s"}` : ""}`
     : carriedForward.length
-      ? `No confirmed dates were added or revised. ${carriedForward.length} carry-forward record${carriedForward.length === 1 ? " was" : "s were"} not re-seen in this scan and remain temporarily retained for review.`
+      ? `No confirmed dates were added or revised. ${carriedForward.length} carry-forward record${carriedForward.length === 1 ? " was" : "s were"} not re-seen in this scan and ${carriedForward.length === 1 ? "remains" : "remain"} temporarily retained for review.`
       : `No confirmed dates were added or revised. ${reconfirmed.length} source record${reconfirmed.length === 1 ? " was" : "s were"} rechecked.`;
   const certaintyLabel = (item) => item.dateCertainty === "targeted" ? "Target date" : item.dateCertainty === "proposed" ? "Proposed date" : "";
   const deadlineCards = confirmed.slice(0, 5).map((item) => {

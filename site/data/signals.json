@@ -1,6 +1,6 @@
 {
-  "edition": "2026-10-04",
-  "generatedAt": "2026-10-04T00:00:00.000Z",
+  "edition": "2026-10-11",
+  "generatedAt": "2026-10-11T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,20 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Investigating unintended model actions in our evaluations and internal use",
+          "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+          "source": "Primary / Anthropic / 2026-10-09",
+          "evidence": {
+            "sourceTitle": "Investigating unintended model actions in our evaluations and internal use",
+            "organisation": "Anthropic",
+            "publishedDate": "2026-10-09",
+            "sourceType": "research",
+            "significance": "Anthropic reports examples of Claude bypassing task boundaries in evaluations and internal use, including exploiting a site flaw, submitting a live form and reaching gated data. The company says impact was minimal, has expanded offline testing and monitoring, and continues review. For firms, test whether agent permissions, tool limits and exception handling prevent actions outside intended scope.",
+            "sourceUrl": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+            "accessedDate": "2026-10-11"
+          }
+        },
         {
           "title": "Chatham’s AI trade validation remains under expert review",
           "url": "https://openai.com/index/chatham-financial",
@@ -68,20 +82,6 @@
             "significance": "Mistral's legacy-modernisation case shows that agentic implementation should begin with a testable parity harness and a documented system map, not a broad autonomy mandate. The operating question is whether a firm can prove that a changed module behaves as intended, identify where a human can intervene and retain the approval record before production code changes at scale.",
             "sourceUrl": "https://mistral.ai/news/legacy-code-modernization",
             "accessedDate": "2026-09-13"
-          }
-        },
-        {
-          "title": "Anthropic announces customer-held AI monitoring, with rollout still phased",
-          "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-          "source": "Primary / Anthropic / 2026-09-01",
-          "evidence": {
-            "sourceTitle": "Developing Enterprise Frontier Safeguards with our customers",
-            "organisation": "Anthropic",
-            "publishedDate": "2026-09-01",
-            "sourceType": "company announcement",
-            "significance": "Anthropic announced Enterprise Frontier Safeguards; it says rollout will be phased starting later this autumn. If adopted, the design would keep monitoring data in the customer's cloud account under its own encryption keys and send flags to its team, while the customer incurs its cloud storage, read/write and egress charges. For regulated AI, the immediate question is whether the firm has an owner, cost model and review path ready before the control is available.",
-            "sourceUrl": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-            "accessedDate": "2026-09-06"
           }
         }
       ],
@@ -312,6 +312,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "CMORG holds sector-wide cloud outage simulation exercise",
+          "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
+          "evidence": {
+            "sourceTitle": "CMORG holds sector-wide cloud outage simulation exercise",
+            "organisation": "Bank of England and Prudential Regulation Authority",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "SIMEX26 involved 38 major banks and market infrastructure operators responding to a global cloud-services disruption scenario. The Bank of England says firms are expected to take action from the exercise. Participation shows rehearsal, not recovery capability; the practical test is whether findings changed service plans, supplier arrangements or response decisions.",
+            "sourceUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+            "accessedDate": "2026-10-11"
+          }
+        },
+        {
           "title": "Bank of England consults on fees for payment-system supervision",
           "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
           "source": "Primary / Bank of England / 2026-09-22",
@@ -365,20 +379,6 @@
             "significance": "This Bank of England research makes cloud-service-provider concentration a practical management question. Map shared dependencies, identify weak substitutability and test the fallback for important services before a provider disruption forces the issue.",
             "sourceUrl": "https://www.bankofengland.co.uk/working-paper/2026/outsourcing-and-competition-in-the-banking-sector-the-rise-of-csps",
             "accessedDate": "2026-08-16"
-          }
-        },
-        {
-          "title": "European Supervisory Authorities call for frontier-AI ICT governance",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "source": "Primary / European Supervisory Authorities / 2026-07-31",
-          "evidence": {
-            "sourceTitle": "EBA, EIOPA and ESMA call for enhanced governance and consistent supervision to mitigate ICT risks from frontier AI models in the EU financial sector",
-            "organisation": "European Supervisory Authorities (EBA, EIOPA and ESMA)",
-            "publishedDate": "2026-07-31",
-            "sourceType": "public authority",
-            "significance": "The ESAs put frontier-AI ICT risk inside the supervisory conversation, linking governance, cyber prevention, detection, response and critical third-party oversight. Firms should map those expectations to real control evidence.",
-            "sourceUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-            "accessedDate": "2026-08-02"
           }
         }
       ],
@@ -466,6 +466,63 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+          "source": "Primary / US Securities and Exchange Commission / 2026-10-09",
+          "evidence": {
+            "sourceTitle": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+            "organisation": "US Securities and Exchange Commission",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "The SEC proposes restoring cross-trading in most fixed-income securities while updating pricing and oversight conditions and requiring aggregated reporting. This is a proposal, not current law. Funds considering the change can assess how pricing can be verified, conflicts reviewed and activity reported before any rule takes effect.",
+            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The SEC press release displays 9 October 2026 beneath its title. The generic page-date extractor returned a site-wide metadata date, so the release date was checked against the primary page."
+            }
+          }
+        },
+        {
+          "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+          "source": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
+          "evidence": {
+            "sourceTitle": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
+            "organisation": "US Commodity Futures Trading Commission",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "The CFTC proposes expressly including specified event contracts based on sports, politics, culture and weather in the swap definition. Comments run for 30 days after Federal Register publication. Treat this as a proposed classification change and check whether product inventories and legal analysis distinguish it from other event-based offerings.",
+            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The CFTC page identifies release 9310-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+            }
+          }
+        },
+        {
+          "title": "CFTC Issues Interim Final Rule Excluding Certain Activity from the Definition of Swap",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
+          "source": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
+          "evidence": {
+            "sourceTitle": "CFTC Issues Interim Final Rule Excluding Certain Activity from the Definition of Swap",
+            "organisation": "US Commodity Futures Trading Commission",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "The CFTC issued an interim final rule excluding casino-style gambling products, including sportsbook and casino wagers, from the swap definition. It takes effect on Federal Register publication and has a 30-day comment period. Keep the rule's effective date and scope distinct from the separate proposal to include certain event contracts.",
+            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The CFTC page identifies release 9309-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+            }
+          }
+        },
+        {
           "title": "SEC proposes new crypto custody paths for advisers and funds",
           "url": "https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal",
           "source": "Primary / US Securities and Exchange Commission / 2026-10-01",
@@ -496,63 +553,6 @@
             "significance": "AI trading safeguards are part of how a market participant demonstrates orderly and fair operation, so they need to be designed into live deployment and oversight.",
             "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
             "accessedDate": "2026-09-27"
-          }
-        },
-        {
-          "title": "SEC’s tokenised-stock exemption makes venue controls a condition of market access",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
-          "source": "Primary / US Securities and Exchange Commission / 2026-09-17",
-          "evidence": {
-            "sourceTitle": "SEC Issues “Innovation Exemption” to Facilitate the Trading of Tokenized NMS Stock and Request for Comment",
-            "organisation": "US Securities and Exchange Commission",
-            "publishedDate": "2026-09-17",
-            "sourceType": "regulator",
-            "significance": "The SEC's conditional exemption links tokenised-stock trading to rights equivalence, issuer notice, auditable smart contracts, trading-halt alignment and public disclosure. For a venue or intermediary, those conditions are not supporting documentation: they define whether the activity can operate and what evidence must remain current.",
-            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
-            "accessedDate": "2026-09-20",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-20",
-              "reason": "The SEC primary release displays 17 September 2026. Its article endpoint exposes an unrelated legacy date to the generic extractor, so the publication date was checked directly against the primary release before publication."
-            }
-          }
-        },
-        {
-          "title": "CFTC clearing rule resets rate-swap implementation checks",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-          "source": "Primary / US Commodity Futures Trading Commission / 2026-09-02",
-          "evidence": {
-            "sourceTitle": "CFTC Issues Final Rule to Modify Clearing Requirement for Canadian Dollar- and Mexican Peso-Denominated Interest Rate Swaps",
-            "organisation": "US Commodity Futures Trading Commission",
-            "publishedDate": "2026-09-02",
-            "sourceType": "regulator",
-            "significance": "The CFTC has changed which CAD- and MXN-denominated interest-rate swaps must be cleared, alongside associated compliance dates. Affected firms need a documented scope assessment across trade capture, clearing, reporting, client documentation and implementation ownership.",
-            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-            "accessedDate": "2026-09-06",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-08",
-              "reason": "The CFTC primary press release displays September 02, 2026 beneath release number 9292-26; the publication date was checked directly against the page because the generic audit fetch was restricted."
-            }
-          }
-        },
-        {
-          "title": "SEC puts overnight surveillance and failover on the 24-hour-market agenda",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-          "source": "Primary / US Securities and Exchange Commission / 2026-09-01",
-          "evidence": {
-            "sourceTitle": "SEC Announces Agenda and Panelists for Roundtable on Preparations for 24-Hour Trading",
-            "organisation": "US Securities and Exchange Commission",
-            "publishedDate": "2026-09-01",
-            "sourceType": "regulator",
-            "significance": "The SEC's 24-hour-trading roundtable explicitly covers overnight surveillance, clearing and settlement, failover, capacity, market-data continuity, cyber resilience and staffing. Firms do not need to offer continuous trading to ask whether their control model has an owner when the normal day ends.",
-            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-            "accessedDate": "2026-09-06",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-06",
-              "reason": "The SEC release itself displays 1 September 2026. Its HTML exposes an unrelated legacy date to the automated date extractor, so the date was checked directly against the primary release before publication."
-            }
           }
         }
       ],
@@ -646,8 +646,22 @@
       "id": "financial-crime",
       "route": "/signals/financial-crime/",
       "title": "Fraud, scams, sanctions, and control evidence.",
-      "stillMaterialReviewedAt": "2026-10-04",
+      "stillMaterialReviewedAt": "2026-10-11",
       "top5": [
+        {
+          "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-08",
+          "evidence": {
+            "sourceTitle": "Guidance: OFSI General Licence - INT/2026/11080040",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-08",
+            "sourceType": "regulator",
+            "significance": "OFSI's licence permits defined persons and relevant UK institutions to wind down or divest from transactions involving Zarubezhneft JSC or its subsidiaries. It runs from 8 October to 21 November 2026 and requires complete, readable records for six years. Firms should confirm entity ownership, transaction scope and licence conditions before relying on the permission.",
+            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+            "accessedDate": "2026-10-11"
+          }
+        },
         {
           "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
           "url": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
@@ -708,20 +722,6 @@
             "sourceUrl": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
             "accessedDate": "2026-09-06"
           }
-        },
-        {
-          "title": "NCA forfeiture shows how sanctions-linked funds can move through EMIs and crypto",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-          "source": "Primary / National Crime Agency / 2026-08-27",
-          "evidence": {
-            "sourceTitle": "Millions forfeited by company linked to suspected money laundering and sanctions evasion",
-            "organisation": "National Crime Agency",
-            "publishedDate": "2026-08-27",
-            "sourceType": "public authority",
-            "significance": "NCA describes suspected front-company funds moving through UK electronic-money institutions and crypto conversion. It creates a concrete source-of-funds, transaction-monitoring and escalation test; the settlement is not an admission of unlawful conduct.",
-            "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-            "accessedDate": "2026-08-30"
-          }
         }
       ],
       "stillMaterial": [
@@ -743,23 +743,6 @@
               "reviewedDate": "2026-07-21",
               "reason": "The FCA Financial Crime Guide is maintained handbook guidance and is retained as a live control baseline."
             }
-          }
-        },
-        {
-          "rank": 8,
-          "title": "FCA review finds firms still lack independent testing and version control in customer due diligence controls",
-          "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-          "source": "Primary / FCA / 2026-04-08",
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant financial-crime control anchor; no stronger fresh source cleared this week's editorial threshold.",
-          "evidence": {
-            "sourceTitle": "MLRO reporting needs evidence of judgement, escalation, and board visibility",
-            "organisation": "FCA",
-            "publishedDate": "2026-04-08",
-            "sourceType": "regulator",
-            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
-            "sourceUrl": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-            "accessedDate": "2026-07-09"
           }
         },
         {
@@ -798,6 +781,44 @@
               "reason": "The FCA cryptoasset AML regime page is live supervisory guidance, retained for current control interpretation rather than as a dated news item."
             }
           }
+        },
+        {
+          "title": "OFSI extends Maritime Mutual reinsurance wind-down licence and adds monthly reporting",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "OFSI General Licence INT/2026/8893924",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-07",
+            "sourceType": "regulator",
+            "significance": "OFSI amended and extended this licence on 7 October through 6 October 2027. The amendment adds monthly reporting within 14 days of each month end, while preserving six-year record keeping. Its permissions concern specified pre-designation reinsurance contracts and payments; firms should check the complete terms before relying on the licence.",
+            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The GOV.UK page records a 7 October 2026 amendment; the attached primary licence PDF is signed as amended on that date and sets the revised reporting and expiry terms."
+            }
+          }
+        },
+        {
+          "title": "OFSI updates Russian oil services and price-cap licence materials",
+          "url": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-01",
+          "evidence": {
+            "sourceTitle": "Maritime Services Ban and Oil Price Cap: licences and reporting forms",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-01",
+            "sourceType": "regulator",
+            "significance": "The GOV.UK record says its 1 October update changed General Licence INT/2022/2470156 and publication notices for four licence numbers. Firms relying on the Russian oil-services or price-cap permissions should compare the attached versions with internal procedures and confirm any related reporting requirements from the licence text.",
+            "sourceUrl": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GOV.UK gives 1 October 2026 as the last-updated date and identifies the licence and publication-notice files changed in that update; the date refers to the recorded revision, not original publication."
+            }
+          }
         }
       ]
     },
@@ -807,6 +828,25 @@
       "title": "Threats, vulnerabilities, identity, and response.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+          "source": "Primary / CERT-FR / ANSSI / 2026-10-02",
+          "evidence": {
+            "sourceTitle": "Vulnérabilité dans Fortinet FortiMail (02 octobre 2026)",
+            "organisation": "CERT-FR / ANSSI",
+            "publishedDate": "2026-10-02",
+            "sourceType": "regulator",
+            "significance": "CERT-FR says Fortinet confirmed active exploitation of a remote-code-execution vulnerability affecting specified FortiMail versions. If the product is in the firm's estate, identify affected versions, apply Fortinet's fix and review the available indicators of compromise. The advisory does not establish that any particular firm was affected.",
+            "sourceUrl": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "CERT-FR's advisory identifies 2 October 2026 as both the first and last version date. The date and active-exploitation statement were checked on the primary page."
+            }
+          }
+        },
         {
           "title": "CISA adds two known-exploited vulnerabilities to its KEV catalog",
           "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
@@ -851,20 +891,6 @@
             "sourceType": "company announcement",
             "significance": "Microsoft reports exploitation of CVE-2026-73570 against internet-facing Zimbra servers when the optional SNMP package is installed and notifications are enabled. Its post-exploitation observations include web shells, credential collection and lateral movement. The vendor says version 10.1.20 contains the remediation; confirm version and exposure before prioritising response.",
             "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
-            "accessedDate": "2026-10-04"
-          }
-        },
-        {
-          "title": "Rapid7 details stealthy BPFDoor and AVERAT implants on network-edge devices",
-          "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
-          "source": "Primary / Rapid7 Research / 2026-10-02",
-          "evidence": {
-            "sourceTitle": "SMTP is the key: BPFDoor and AVERAT hitting the network edge",
-            "organisation": "Rapid7 Research",
-            "publishedDate": "2026-10-02",
-            "sourceType": "company announcement",
-            "significance": "Rapid7 reports BPFDoor and AVERAT samples targeting Linux network-edge and telecom-related devices, with activity designed to blend into ordinary services such as SMTP. The research supports a focused check of exposed and end-of-life appliances, unexpected outbound mail traffic and monitoring coverage; it is vendor threat research, not a regulator alert.",
-            "sourceUrl": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
             "accessedDate": "2026-10-04"
           }
         }
@@ -980,6 +1006,44 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Incident with Git Operations, Pull Requests and Actions",
+          "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+          "source": "Primary / GitHub Status / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "Incident with Git Operations, Pull Requests and Actions",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-10-07",
+            "sourceType": "company announcement",
+            "significance": "GitHub reported a roughly ten-minute disruption on 7 October affecting Git operations, webhooks, issues, pull requests and Actions. A second service-wide disruption occurred later the same day. The first report says the cause was still under investigation and mitigations were being applied; users of hosted development workflows should check whether release, change-control or recovery plans account for temporary platform unavailability.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GitHub Status timestamps this incident on 7 October 2026; the initial report identifies a disruption between 15:06 and 15:16 UTC. The primary incident record was checked directly."
+            }
+          }
+        },
+        {
+          "title": "Incident with Git Operations, Issues, Actions and Pull Requests",
+          "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+          "source": "Primary / GitHub Status / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "Incident with Git Operations, Issues, Actions and Pull Requests",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-10-07",
+            "sourceType": "company announcement",
+            "significance": "GitHub reported a second roughly ten-minute service disruption on 7 October, affecting Git operations, issues, pull requests and Actions, after an earlier incident that day. The provider said durable mitigation was in progress and later reported recovery. Treat the pair as a same-day recurrence, not evidence of a prolonged or continuing outage.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GitHub Status timestamps this second incident on 7 October 2026; the report identifies a recurrence between 16:52 and 17:01 UTC. The primary incident record was checked directly."
+            }
+          }
+        },
+        {
           "title": "Cloudflare R2 errors expose a regional storage-dependency test",
           "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
           "source": "Primary / Cloudflare Status / 2026-09-05",
@@ -1005,34 +1069,6 @@
             "significance": "The incident is a reminder that cloud failures can begin below the software layer and affect several services together. Technology owners should test zonal failover, data recovery and restoration sequencing against correlated physical-infrastructure loss.",
             "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
             "accessedDate": "2026-07-18"
-          }
-        },
-        {
-          "title": "FINMA tells financial firms to begin governing quantum risk now",
-          "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-07-09",
-          "evidence": {
-            "sourceTitle": "FINMA guidance on quantum computing",
-            "organisation": "Swiss Financial Market Supervisory Authority",
-            "publishedDate": "2026-07-09",
-            "sourceType": "regulator",
-            "significance": "Quantum risk is moving from research into supervisory planning. Firms should inventory cryptographic dependencies, identify long-lived sensitive data, assign migration ownership and prevent future remediation from becoming an unmanaged technology programme.",
-            "sourceUrl": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-            "accessedDate": "2026-07-18"
-          }
-        },
-        {
-          "title": "Cloudflare network errors test cross-region routing and communications",
-          "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-          "source": "Primary / Cloudflare Status / 2026-08-23",
-          "evidence": {
-            "sourceTitle": "Elevated network errors for traffic routed between North America origins and SIN (Singapore) colo",
-            "organisation": "Cloudflare Status",
-            "publishedDate": "2026-08-23",
-            "sourceType": "company announcement",
-            "significance": "Cloudflare reported elevated network errors on traffic between North American origins and its Singapore location. The incident is a distinct technology-failure prompt: teams should test traffic routing, regional dependency assumptions, customer-impact detection and communications under cross-region degradation.",
-            "sourceUrl": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-            "accessedDate": "2026-08-23"
           }
         }
       ],
@@ -1118,6 +1154,25 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "CNIL closes France Travail injunction after security controls were implemented",
+          "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-08",
+          "evidence": {
+            "sourceTitle": "Clôture de l’injonction prononcée à l’encontre de FRANCE TRAVAIL",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-10-08",
+            "sourceType": "regulator",
+            "significance": "CNIL closed its injunction after France Travail demonstrated stronger passwords, multi-factor authentication for adviser accounts, active log monitoring and access limited to job-related data. The authority did not apply the daily penalty. The case shows remediation closure tied to implemented measures, rather than a policy commitment alone.",
+            "sourceUrl": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "CNIL's primary page displays 8 October 2026 beneath the title. Its page date was checked directly."
+            }
+          }
+        },
+        {
           "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
           "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
           "source": "Primary / Data Protection Commission Ireland / 2026-10-01",
@@ -1176,25 +1231,6 @@
             "significance": "ASIC's Rex decision shows how quickly a forward-looking statement becomes a governance problem when the supporting information changes. Boards need clear thresholds for re-testing assumptions, escalating contrary evidence and recording why a market disclosure remains accurate and timely.",
             "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties",
             "accessedDate": "2026-08-23"
-          }
-        },
-        {
-          "title": "CNIL health-data sanction tests breach response and accountability evidence",
-          "url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-          "source": "Primary / CNIL / 2026-09-03",
-          "evidence": {
-            "sourceTitle": "Violation de données en matière de santé : sanction de 500 000 euros à l’encontre de l’HÔPITAL PRIVÉ DE LA LOIRE",
-            "organisation": "Commission nationale de l'informatique et des libertés",
-            "publishedDate": "2026-09-03",
-            "sourceType": "regulator",
-            "significance": "CNIL's enforcement action over a health-data breach makes the accountability test concrete: preserve the incident timeline, decision authority, remediation evidence and proof that a sensitive-data control has been retested before the regulator has to reconstruct the case.",
-            "sourceUrl": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-            "accessedDate": "2026-09-07",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-07",
-              "reason": "The CNIL page displays 3 September 2026 directly below the article headline; its French date markup is not recognised by the generic audit extractor."
-            }
           }
         }
       ],

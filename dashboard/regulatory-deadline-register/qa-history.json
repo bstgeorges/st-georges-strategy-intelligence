@@ -3,23 +3,6 @@
   "visibility": "private",
   "runs": [
     {
-      "asOf": "2026-09-06",
-      "sourceEdition": "2026-09-04",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "uk-hm-treasury",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [],
-      "warnings": [
-        "1 verified carry-forward record(s) need a renewed primary-source check"
-      ]
-    },
-    {
       "asOf": "2026-09-07",
       "sourceEdition": "2026-09-06",
       "healthyCore": [
@@ -192,6 +175,24 @@
       ],
       "errors": [],
       "warnings": []
+    },
+    {
+      "asOf": "2026-10-11",
+      "sourceEdition": "2026-10-11",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
+      "errors": [],
+      "warnings": [
+        "only 4 confirmed upcoming deadlines; target is 6",
+        "7 verified carry-forward record(s) need a renewed primary-source check"
+      ]
     }
   ]
 }

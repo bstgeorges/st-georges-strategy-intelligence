@@ -483,7 +483,7 @@ function main() {
     "Weekly Brief is missing its compact current-edition readout",
     failures,
   );
-  assert(briefPage.includes("Where the dependency sits") && briefPage.includes("Three questions from the week"), "Weekly Brief must retain its analysis and executive challenge", failures);
+  assert(briefPage.includes('id="brief-supporting-analysis"') && briefPage.includes("Reading the signals") && briefPage.includes("Three questions from the week"), "Weekly Brief must retain its source analysis and executive challenge", failures);
   assert(!/How the eight streams fed the issue|Three angles worth developing/.test(briefPage), "Weekly Brief must not repeat coverage or idea-development sections", failures);
   assert(signalsHub.includes(`Signals / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`), "Signals page edition label must include both edition number and long display date", failures);
   assert(count(/signal-freshness-tick/g, signalsHub) >= 40, "Signals overview missing freshness indicators", failures);

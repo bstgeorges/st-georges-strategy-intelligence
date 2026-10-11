@@ -1,18 +1,52 @@
 {
-  "generatedAt": "2026-10-08T06:39:23.238Z",
+  "generatedAt": "2026-10-11T07:35:44.288Z",
   "source": "site/data/signals.json",
-  "edition": "2026-10-04",
-  "rowCount": 71,
-  "uniqueUrlCount": 70,
+  "edition": "2026-10-11",
+  "rowCount": 72,
+  "uniqueUrlCount": 71,
   "summary": {
-    "restricted": 7,
-    "match": 28,
-    "candidate-match": 16,
+    "match": 24,
+    "restricted": 8,
+    "candidate-match": 19,
     "evergreen": 12,
-    "manual-verified": 5,
-    "no-source-date-found": 2
+    "manual-verified": 4,
+    "no-source-date-found": 4
   },
   "results": [
+    {
+      "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+      "finalUrl": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-09"
+      ],
+      "sourceDate": "2026-10-09",
+      "sourceDateEvidence": "body.month-first",
+      "candidates": [
+        {
+          "date": "2026-10-09",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "ai",
+          "section": "top5",
+          "title": "Investigating unintended model actions in our evaluations and internal use",
+          "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+          "displayedDate": "2026-10-09",
+          "displayedSourceDate": "2026-10-09",
+          "displayedSourceDates": [
+            "2026-10-09"
+          ],
+          "sourceLabel": "Primary / Anthropic / 2026-10-09",
+          "sourceType": "research",
+          "manualVerification": null
+        }
+      ]
+    },
     {
       "url": "https://openai.com/index/chatham-financial",
       "finalUrl": "https://openai.com/index/chatham-financial",
@@ -151,40 +185,6 @@
             "2026-09-09"
           ],
           "sourceLabel": "Primary / Mistral AI / 2026-09-09",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-      "finalUrl": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-01"
-      ],
-      "sourceDate": "2026-09-01",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-09-01",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "ai",
-          "section": "top5",
-          "title": "Anthropic announces customer-held AI monitoring, with rollout still phased",
-          "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
-          "displayedDate": "2026-09-01",
-          "displayedSourceDate": "2026-09-01",
-          "displayedSourceDates": [
-            "2026-09-01"
-          ],
-          "sourceLabel": "Primary / Anthropic / 2026-09-01",
           "sourceType": "company announcement",
           "manualVerification": null
         }
@@ -735,6 +735,14 @@
         {
           "date": "2026-06-10",
           "source": "body.month-first"
+        },
+        {
+          "date": "2026-10-03",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-29",
+          "source": "body.month-first"
         }
       ],
       "result": "candidate-match",
@@ -757,33 +765,87 @@
       ]
     },
     {
+      "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+      "finalUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-09"
+      ],
+      "sourceDate": "2026-10-09",
+      "sourceDateEvidence": "time.datetime",
+      "candidates": [
+        {
+          "date": "2026-10-09",
+          "source": "time.datetime"
+        },
+        {
+          "date": "2026-10-09",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-08",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-07",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-08",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-09",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-07",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-06-16",
+          "source": "body.human"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "third-party",
+          "section": "top5",
+          "title": "CMORG holds sector-wide cloud outage simulation exercise",
+          "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+          "displayedDate": "2026-10-09",
+          "displayedSourceDate": "2026-10-09",
+          "displayedSourceDates": [
+            "2026-10-09"
+          ],
+          "sourceLabel": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
       "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
       "finalUrl": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
       "status": 200,
       "expectedDates": [
         "2026-09-22"
       ],
-      "sourceDate": "2026-10-06",
+      "sourceDate": "2026-10-09",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-10-06",
+          "date": "2026-10-09",
           "source": "time.datetime"
         },
         {
-          "date": "2026-10-06",
+          "date": "2026-10-09",
           "source": "body.iso"
         },
         {
-          "date": "2026-10-02",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-30",
+          "date": "2026-10-08",
           "source": "body.iso"
         },
         {
@@ -807,11 +869,15 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-06",
+          "date": "2026-10-09",
           "source": "body.human"
         },
         {
-          "date": "2025-06-30",
+          "date": "2026-10-08",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-07",
           "source": "body.human"
         }
       ],
@@ -933,23 +999,19 @@
       "expectedDates": [
         "2026-08-14"
       ],
-      "sourceDate": "2026-09-25",
+      "sourceDate": "2026-10-09",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-09-25",
+          "date": "2026-10-09",
           "source": "time.datetime"
         },
         {
+          "date": "2026-10-09",
+          "source": "body.iso"
+        },
+        {
           "date": "2026-09-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-18",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-04",
           "source": "body.iso"
         },
         {
@@ -957,15 +1019,11 @@
           "source": "body.human"
         },
         {
+          "date": "2026-10-09",
+          "source": "body.human"
+        },
+        {
           "date": "2026-09-25",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-18",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-04",
           "source": "body.human"
         }
       ],
@@ -984,44 +1042,6 @@
           ],
           "sourceLabel": "Primary / Bank of England / 2026-08-14",
           "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-      "finalUrl": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-      "status": 200,
-      "expectedDates": [
-        "2026-07-31"
-      ],
-      "sourceDate": "2026-07-31",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-07-31",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-07-31",
-          "source": "body.human"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "third-party",
-          "section": "top5",
-          "title": "European Supervisory Authorities call for frontier-AI ICT governance",
-          "url": "https://www.eiopa.europa.eu/eba-eiopa-and-esma-call-enhanced-governance-and-consistent-supervision-mitigate-ict-risks-frontier-2026-07-31_en",
-          "displayedDate": "2026-07-31",
-          "displayedSourceDate": "2026-07-31",
-          "displayedSourceDates": [
-            "2026-07-31"
-          ],
-          "sourceLabel": "Primary / European Supervisory Authorities / 2026-07-31",
-          "sourceType": "public authority",
           "manualVerification": null
         }
       ]
@@ -1160,19 +1180,19 @@
       "expectedDates": [
         "2026-06-10"
       ],
-      "sourceDate": "2026-09-04",
+      "sourceDate": "2026-10-09",
       "sourceDateEvidence": "body.human",
       "candidates": [
+        {
+          "date": "2026-10-09",
+          "source": "body.human"
+        },
         {
           "date": "2026-09-04",
           "source": "body.human"
         },
         {
           "date": "2026-08-31",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-08-06",
           "source": "body.human"
         },
         {
@@ -1185,10 +1205,6 @@
         },
         {
           "date": "2026-06-01",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-05-06",
           "source": "body.human"
         },
         {
@@ -1210,6 +1226,10 @@
         {
           "date": "2024-11-14",
           "source": "body.human"
+        },
+        {
+          "date": "2017-11-01",
+          "source": "body.human"
         }
       ],
       "result": "candidate-match",
@@ -1228,6 +1248,114 @@
           "sourceLabel": "Primary / FSB / 2026-06-10",
           "sourceType": "regulator",
           "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-09"
+      ],
+      "sourceDate": "2013-05-17",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2013-05-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2009-12-16",
+          "source": "body.iso"
+        }
+      ],
+      "result": "manual-verified",
+      "confidence": "unknown",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+          "displayedDate": "2026-10-09",
+          "displayedSourceDate": "2026-10-09",
+          "displayedSourceDates": [
+            "2026-10-09"
+          ],
+          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-10-09",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "The SEC press release displays 9 October 2026 beneath its title. The generic page-date extractor returned a site-wide metadata date, so the release date was checked against the primary page."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+      "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+      "status": 403,
+      "expectedDates": [
+        "2026-10-09"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "restricted",
+      "confidence": "restricted",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+          "displayedDate": "2026-10-09",
+          "displayedSourceDate": "2026-10-09",
+          "displayedSourceDates": [
+            "2026-10-09"
+          ],
+          "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "The CFTC page identifies release 9310-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
+      "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
+      "status": 403,
+      "expectedDates": [
+        "2026-10-09"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "restricted",
+      "confidence": "restricted",
+      "rows": [
+        {
+          "topic": "market-structure",
+          "section": "top5",
+          "title": "CFTC Issues Interim Final Rule Excluding Certain Activity from the Definition of Swap",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
+          "displayedDate": "2026-10-09",
+          "displayedSourceDate": "2026-10-09",
+          "displayedSourceDates": [
+            "2026-10-09"
+          ],
+          "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "The CFTC page identifies release 9309-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+          }
         }
       ]
     },
@@ -1320,123 +1448,6 @@
           "sourceLabel": "Primary / Australian Securities and Investments Commission / 2026-09-24",
           "sourceType": "regulator",
           "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
-      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-17"
-      ],
-      "sourceDate": "2013-05-17",
-      "sourceDateEvidence": "body.iso",
-      "candidates": [
-        {
-          "date": "2013-05-17",
-          "source": "body.iso"
-        },
-        {
-          "date": "2009-12-16",
-          "source": "body.iso"
-        }
-      ],
-      "result": "manual-verified",
-      "confidence": "unknown",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "SEC’s tokenised-stock exemption makes venue controls a condition of market access",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
-          "displayedDate": "2026-09-17",
-          "displayedSourceDate": "2026-09-17",
-          "displayedSourceDates": [
-            "2026-09-17"
-          ],
-          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-09-17",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-09-20",
-            "reason": "The SEC primary release displays 17 September 2026. Its article endpoint exposes an unrelated legacy date to the generic extractor, so the publication date was checked directly against the primary release before publication."
-          }
-        }
-      ]
-    },
-    {
-      "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-      "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-      "status": 403,
-      "expectedDates": [
-        "2026-09-02"
-      ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "restricted",
-      "confidence": "restricted",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "CFTC clearing rule resets rate-swap implementation checks",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9292-26",
-          "displayedDate": "2026-09-02",
-          "displayedSourceDate": "2026-09-02",
-          "displayedSourceDates": [
-            "2026-09-02"
-          ],
-          "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-09-02",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-08",
-            "reason": "The CFTC primary press release displays September 02, 2026 beneath release number 9292-26; the publication date was checked directly against the page because the generic audit fetch was restricted."
-          }
-        }
-      ]
-    },
-    {
-      "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-      "finalUrl": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-01"
-      ],
-      "sourceDate": "2013-05-17",
-      "sourceDateEvidence": "body.iso",
-      "candidates": [
-        {
-          "date": "2013-05-17",
-          "source": "body.iso"
-        },
-        {
-          "date": "2009-12-16",
-          "source": "body.iso"
-        }
-      ],
-      "result": "manual-verified",
-      "confidence": "unknown",
-      "rows": [
-        {
-          "topic": "market-structure",
-          "section": "top5",
-          "title": "SEC puts overnight surveillance and failover on the 24-hour-market agenda",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-83-sec-announces-agenda-panelists-roundtable-preparations-24-hour-trading",
-          "displayedDate": "2026-09-01",
-          "displayedSourceDate": "2026-09-01",
-          "displayedSourceDates": [
-            "2026-09-01"
-          ],
-          "sourceLabel": "Primary / US Securities and Exchange Commission / 2026-09-01",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-09-06",
-            "reason": "The SEC release itself displays 1 September 2026. Its HTML exposes an unrelated legacy date to the automated date extractor, so the date was checked directly against the primary release before publication."
-          }
         }
       ]
     },
@@ -1569,15 +1580,64 @@
     {
       "url": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
       "finalUrl": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
-      "status": 202,
+      "status": 200,
       "expectedDates": [
         "2026-07-02"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "no-source-date-found",
-      "confidence": "undated",
+      "sourceDate": "2024-11-27",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2024-11-27",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-07-02",
+          "source": "body.iso"
+        },
+        {
+          "date": "2025-01-01",
+          "source": "body.iso"
+        },
+        {
+          "date": "2024-12-12",
+          "source": "body.iso"
+        },
+        {
+          "date": "2024-11-27",
+          "source": "body.human"
+        },
+        {
+          "date": "2015-09-25",
+          "source": "body.human"
+        },
+        {
+          "date": "2016-11-22",
+          "source": "body.human"
+        },
+        {
+          "date": "2017-06-23",
+          "source": "body.human"
+        },
+        {
+          "date": "2019-12-11",
+          "source": "body.human"
+        },
+        {
+          "date": "2021-06-30",
+          "source": "body.human"
+        },
+        {
+          "date": "2017-04-26",
+          "source": "body.human"
+        },
+        {
+          "date": "2018-03-08",
+          "source": "body.human"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "market-structure",
@@ -1668,6 +1728,40 @@
             "2026-07-31"
           ],
           "sourceLabel": "Primary / PRA consultation / closes 2026-07-31",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+      "finalUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-08"
+      ],
+      "sourceDate": "2026-10-08",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2026-10-08",
+          "source": "body.human"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "financial-crime",
+          "section": "top5",
+          "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+          "displayedDate": "2026-10-08",
+          "displayedSourceDate": "2026-10-08",
+          "displayedSourceDates": [
+            "2026-10-08"
+          ],
+          "sourceLabel": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-08",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -1776,11 +1870,7 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-06",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-10-02",
+          "date": "2026-10-09",
           "source": "body.human"
         },
         {
@@ -1846,40 +1936,6 @@
       ]
     },
     {
-      "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-      "finalUrl": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-27"
-      ],
-      "sourceDate": "2026-08-27",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-08-27",
-          "source": "body.human"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "financial-crime",
-          "section": "top5",
-          "title": "NCA forfeiture shows how sanctions-linked funds can move through EMIs and crypto",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/millions-forfeited-by-company-linked-to-suspected-money-laundering-and-sanctions-evasion",
-          "displayedDate": "2026-08-27",
-          "displayedSourceDate": "2026-08-27",
-          "displayedSourceDates": [
-            "2026-08-27"
-          ],
-          "sourceLabel": "Primary / National Crime Agency / 2026-08-27",
-          "sourceType": "public authority",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://handbook.fca.org.uk/handbook/FCG/1/",
       "finalUrl": "https://handbook.fca.org.uk/handbook/fcg1",
       "status": 200,
@@ -1926,60 +1982,6 @@
             "reviewedDate": "2026-07-21",
             "reason": "The FCA Financial Crime Guide is maintained handbook guidance and is retained as a live control baseline."
           }
-        }
-      ]
-    },
-    {
-      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-      "finalUrl": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-      "status": 200,
-      "expectedDates": [
-        "2026-04-08"
-      ],
-      "sourceDate": "2026-04-08",
-      "sourceDateEvidence": "jsonld.datePublished",
-      "candidates": [
-        {
-          "date": "2026-04-08",
-          "source": "jsonld.datePublished"
-        },
-        {
-          "date": "2026-04-08",
-          "source": "jsonld.dateModified"
-        },
-        {
-          "date": "2026-10-06",
-          "source": "body.human"
-        },
-        {
-          "date": "2024-01-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-04-08",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-04-01",
-          "source": "body.slash"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "financial-crime",
-          "section": "stillMaterial",
-          "title": "FCA review finds firms still lack independent testing and version control in customer due diligence controls",
-          "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
-          "displayedDate": "2026-04-08",
-          "displayedSourceDate": "2026-04-08",
-          "displayedSourceDates": [
-            "2026-04-08"
-          ],
-          "sourceLabel": "Primary / FCA / 2026-04-08",
-          "sourceType": "regulator",
-          "manualVerification": null
         }
       ]
     },
@@ -2120,6 +2122,171 @@
       ]
     },
     {
+      "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+      "finalUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-07"
+      ],
+      "sourceDate": "2026-02-24",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2026-02-24",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-07",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-07-06",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-04-09",
+          "source": "body.human"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "financial-crime",
+          "section": "stillMaterial",
+          "title": "OFSI extends Maritime Mutual reinsurance wind-down licence and adds monthly reporting",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+          "displayedDate": "2026-10-07",
+          "displayedSourceDate": "2026-10-07",
+          "displayedSourceDates": [
+            "2026-10-07"
+          ],
+          "sourceLabel": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-07",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "The GOV.UK page records a 7 October 2026 amendment; the attached primary licence PDF is signed as amended on that date and sets the revised reporting and expiry terms."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+      "finalUrl": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-01"
+      ],
+      "sourceDate": "2022-12-04",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2022-12-04",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-10-01",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-01-15",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-07-25",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-07-18",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-07-17",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-06-27",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-02-13",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-01-29",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-11-21",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-10-22",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-06-28",
+          "source": "body.human"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "financial-crime",
+          "section": "stillMaterial",
+          "title": "OFSI updates Russian oil services and price-cap licence materials",
+          "url": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+          "displayedDate": "2026-10-01",
+          "displayedSourceDate": "2026-10-01",
+          "displayedSourceDates": [
+            "2026-10-01"
+          ],
+          "sourceLabel": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-01",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "GOV.UK gives 1 October 2026 as the last-updated date and identifies the licence and publication-notice files changed in that update; the date refers to the recorded revision, not original publication."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+      "finalUrl": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-02"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "no-source-date-found",
+      "confidence": "undated",
+      "rows": [
+        {
+          "topic": "cyber",
+          "section": "top5",
+          "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+          "displayedDate": "2026-10-02",
+          "displayedSourceDate": "2026-10-02",
+          "displayedSourceDates": [
+            "2026-10-02"
+          ],
+          "sourceLabel": "Primary / CERT-FR / ANSSI / 2026-10-02",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "CERT-FR's advisory identifies 2 October 2026 as both the first and last version date. The date and active-exploitation statement were checked on the primary page."
+          }
+        }
+      ]
+    },
+    {
       "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "finalUrl": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog",
       "status": 200,
@@ -2164,19 +2331,19 @@
       "expectedDates": [
         "2026-09-27"
       ],
-      "sourceDate": "2026-10-08",
+      "sourceDate": "2026-10-11",
       "sourceDateEvidence": "body.human",
       "candidates": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-09",
           "source": "body.iso"
         },
         {
-          "date": "2026-10-08",
+          "date": "2026-10-11",
           "source": "body.human"
         },
         {
-          "date": "2026-10-03",
+          "date": "2026-10-09",
           "source": "body.month-first"
         },
         {
@@ -2185,6 +2352,10 @@
         },
         {
           "date": "2026-10-02",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-10-08",
           "source": "body.month-first"
         }
       ],
@@ -2252,40 +2423,6 @@
             "2026-09-30"
           ],
           "sourceLabel": "Primary / Microsoft Security Blog / 2026-09-30",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
-      "finalUrl": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge/",
-      "status": 200,
-      "expectedDates": [
-        "2026-10-02"
-      ],
-      "sourceDate": "2026-10-02",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-10-02",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "Rapid7 details stealthy BPFDoor and AVERAT implants on network-edge devices",
-          "url": "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
-          "displayedDate": "2026-10-02",
-          "displayedSourceDate": "2026-10-02",
-          "displayedSourceDates": [
-            "2026-10-02"
-          ],
-          "sourceLabel": "Primary / Rapid7 Research / 2026-10-02",
           "sourceType": "company announcement",
           "manualVerification": null
         }
@@ -2382,9 +2519,17 @@
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2026-10-04",
+      "sourceDate": "2026-10-08",
       "sourceDateEvidence": "body.iso",
       "candidates": [
+        {
+          "date": "2026-10-08",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-11",
+          "source": "body.iso"
+        },
         {
           "date": "2026-10-04",
           "source": "body.iso"
@@ -2418,19 +2563,11 @@
           "source": "body.iso"
         },
         {
+          "date": "2026-10-13",
+          "source": "body.iso"
+        },
+        {
           "date": "2026-09-27",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-28",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-24",
           "source": "body.iso"
         }
       ],
@@ -2538,6 +2675,72 @@
       ]
     },
     {
+      "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+      "finalUrl": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-07"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "no-source-date-found",
+      "confidence": "undated",
+      "rows": [
+        {
+          "topic": "technology-failure",
+          "section": "top5",
+          "title": "Incident with Git Operations, Pull Requests and Actions",
+          "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+          "displayedDate": "2026-10-07",
+          "displayedSourceDate": "2026-10-07",
+          "displayedSourceDates": [
+            "2026-10-07"
+          ],
+          "sourceLabel": "Primary / GitHub Status / 2026-10-07",
+          "sourceType": "company announcement",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "GitHub Status timestamps this incident on 7 October 2026; the initial report identifies a disruption between 15:06 and 15:16 UTC. The primary incident record was checked directly."
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+      "finalUrl": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-07"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "no-source-date-found",
+      "confidence": "undated",
+      "rows": [
+        {
+          "topic": "technology-failure",
+          "section": "top5",
+          "title": "Incident with Git Operations, Issues, Actions and Pull Requests",
+          "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+          "displayedDate": "2026-10-07",
+          "displayedSourceDate": "2026-10-07",
+          "displayedSourceDates": [
+            "2026-10-07"
+          ],
+          "sourceLabel": "Primary / GitHub Status / 2026-10-07",
+          "sourceType": "company announcement",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "GitHub Status timestamps this second incident on 7 October 2026; the report identifies a recurrence between 16:52 and 17:01 UTC. The primary incident record was checked directly."
+          }
+        }
+      ]
+    },
+    {
       "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
       "finalUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
       "status": 200,
@@ -2630,78 +2833,6 @@
       ]
     },
     {
-      "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-      "finalUrl": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-      "status": 200,
-      "expectedDates": [
-        "2026-07-09"
-      ],
-      "sourceDate": "2026-07-09",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-07-09",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-07-09",
-          "source": "body.human"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "technology-failure",
-          "section": "top5",
-          "title": "FINMA tells financial firms to begin governing quantum risk now",
-          "url": "https://www.finma.ch/en/news/2026/07/20260709-mm-am-05-26",
-          "displayedDate": "2026-07-09",
-          "displayedSourceDate": "2026-07-09",
-          "displayedSourceDates": [
-            "2026-07-09"
-          ],
-          "sourceLabel": "Primary / Swiss Financial Market Supervisory Authority / 2026-07-09",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-      "finalUrl": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-23"
-      ],
-      "sourceDate": "2026-08-23",
-      "sourceDateEvidence": "body.month-first",
-      "candidates": [
-        {
-          "date": "2026-08-23",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "technology-failure",
-          "section": "top5",
-          "title": "Cloudflare network errors test cross-region routing and communications",
-          "url": "https://www.cloudflarestatus.com/incidents/1wwc0f6m1c21",
-          "displayedDate": "2026-08-23",
-          "displayedSourceDate": "2026-08-23",
-          "displayedSourceDates": [
-            "2026-08-23"
-          ],
-          "sourceLabel": "Primary / Cloudflare Status / 2026-08-23",
-          "sourceType": "company announcement",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
       "finalUrl": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
       "status": 200,
@@ -2778,13 +2909,62 @@
     {
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
       "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
-      "status": 202,
+      "status": 200,
       "expectedDates": [
         "2022-12-27"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
+      "sourceDate": "2022-12-14",
+      "sourceDateEvidence": "body.human",
+      "candidates": [
+        {
+          "date": "2022-12-14",
+          "source": "body.iso"
+        },
+        {
+          "date": "2022-12-27",
+          "source": "body.iso"
+        },
+        {
+          "date": "2023-01-16",
+          "source": "body.iso"
+        },
+        {
+          "date": "2025-01-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2022-12-14",
+          "source": "body.human"
+        },
+        {
+          "date": "2018-03-08",
+          "source": "body.human"
+        },
+        {
+          "date": "2011-01-14",
+          "source": "body.human"
+        },
+        {
+          "date": "2016-04-13",
+          "source": "body.human"
+        },
+        {
+          "date": "2021-05-10",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-07-17",
+          "source": "body.human"
+        },
+        {
+          "date": "2024-01-17",
+          "source": "body.human"
+        },
+        {
+          "date": "2025-01-17",
+          "source": "body.human"
+        }
+      ],
       "result": "evergreen",
       "confidence": "unknown",
       "rows": [
@@ -2823,15 +3003,15 @@
           "source": "body.slash"
         },
         {
+          "date": "2026-10-08",
+          "source": "body.slash"
+        },
+        {
           "date": "2026-09-30",
           "source": "body.slash"
         },
         {
           "date": "2026-09-23",
-          "source": "body.slash"
-        },
-        {
-          "date": "2026-08-03",
           "source": "body.slash"
         }
       ],
@@ -2913,6 +3093,39 @@
           "sourceLabel": "Official source / FCA critical third parties",
           "sourceType": "regulator",
           "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+      "finalUrl": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+      "status": 200,
+      "expectedDates": [
+        "2026-10-08"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "no-source-date-found",
+      "confidence": "undated",
+      "rows": [
+        {
+          "topic": "data",
+          "section": "top5",
+          "title": "CNIL closes France Travail injunction after security controls were implemented",
+          "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+          "displayedDate": "2026-10-08",
+          "displayedSourceDate": "2026-10-08",
+          "displayedSourceDates": [
+            "2026-10-08"
+          ],
+          "sourceLabel": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-08",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-11",
+            "reason": "CNIL's primary page displays 8 October 2026 beneath the title. Its page date was checked directly."
+          }
         }
       ]
     },
@@ -3117,51 +3330,22 @@
       ]
     },
     {
-      "url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-      "finalUrl": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-03"
-      ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "no-source-date-found",
-      "confidence": "undated",
-      "rows": [
-        {
-          "topic": "data",
-          "section": "top5",
-          "title": "CNIL health-data sanction tests breach response and accountability evidence",
-          "url": "https://www.cnil.fr/fr/sanction-hopital-prive-loire",
-          "displayedDate": "2026-09-03",
-          "displayedSourceDate": "2026-09-03",
-          "displayedSourceDates": [
-            "2026-09-03"
-          ],
-          "sourceLabel": "Primary / CNIL / 2026-09-03",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-09-07",
-            "reason": "The CNIL page displays 3 September 2026 directly below the article headline; its French date markup is not recognised by the generic audit extractor."
-          }
-        }
-      ]
-    },
-    {
       "url": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
       "finalUrl": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
       "status": 200,
       "expectedDates": [
         "2026-06-03"
       ],
-      "sourceDate": "2026-10-08",
+      "sourceDate": "2026-10-09",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-10-08",
+          "date": "2026-10-09",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-10-09",
+          "source": "body.iso"
         },
         {
           "date": "2026-10-08",
@@ -3176,6 +3360,10 @@
           "source": "body.human"
         },
         {
+          "date": "2026-10-09",
+          "source": "body.human"
+        },
+        {
           "date": "2026-10-08",
           "source": "body.human"
         },
@@ -3185,10 +3373,6 @@
         },
         {
           "date": "2026-06-16",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-06-24",
           "source": "body.human"
         }
       ],

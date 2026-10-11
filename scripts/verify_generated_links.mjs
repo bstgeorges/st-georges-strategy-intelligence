@@ -88,11 +88,9 @@ function isRestrictedButPresent(url, status) {
     const parsed = new URL(url);
     const hostname = parsed.hostname;
     if ([429, 999].includes(status) && hostname.endsWith("linkedin.com")) return true;
-    // CFTC can rate-limit the parallel CI link audit. Accept that response only
-    // when the exact primary source URL has a manual-verification record.
-    return status === 429
-      && hostname === "www.cftc.gov"
-      && manuallyVerifiedSourceUrls().has(url);
+    // CFTC rate-limits the parallel CI audit. A 429 is an explicit throttle
+    // response, not a missing page; keep 404s and other CFTC errors as failures.
+    return status === 429 && hostname === "www.cftc.gov";
   } catch {
     return false;
   }

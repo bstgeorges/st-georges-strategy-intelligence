@@ -28,6 +28,7 @@ const pages = [
   ["signals-technology-failure", "signals/technology-failure/index.html"],
   ["signals-data", "signals/data/index.html"],
   ["regulatory-horizon", "regulatory-horizon/index.html"],
+  ["deep-dives", "deep-dives/index.html"],
   ["archive", "archive/index.html"],
   ["about", "about/index.html"],
 ];

@@ -513,7 +513,7 @@ function publicHorizonHtml(html, edition, { archive = false } = {}) {
         <div class="footer-brand">Regulatory Horizon</div>
         <div class="footer-note"><a href="/archive/">View archive</a></div>
         <div class="footer-meta">
-          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p>
           <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
           <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
         </div>
@@ -1764,7 +1764,7 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
       <div class="footer-inner">
         <div class="footer-brand">Archive</div>
         <div class="footer-meta">
-          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p>
           <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
         </div>
       </div>
@@ -1838,11 +1838,11 @@ function updateArchiveIndexCards(out, edition) {
   const archiveMetaStart = "<!-- archive-meta:start -->";
   const archiveMetaEnd = "<!-- archive-meta:end -->";
   const archiveMeta = briefDates.length
-    ? `<p class="meta">Last updated ${escapeHtml(formatDateLong(briefDates[0]))} &middot; ${briefDates.length} dated edition${briefDates.length === 1 ? "" : "s"} archived so far</p>`
+    ? `<p class="meta">Last updated ${escapeHtml(formatDateLong(briefDates[0]))} &middot; ${briefDates.length} dated Brief snapshot${briefDates.length === 1 ? "" : "s"} archived so far</p>`
     : '<p class="meta">No dated editions archived yet</p>';
   const cards = [];
   cards.push(
-    `<a class="archive-card archive-brief" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} edition${briefDates.length === 1 ? "" : "s"} archived, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Every dated issue, preserved as published.</p></a>`,
+    `<a class="archive-card archive-brief" href="/archive/brief/"><p class="meta">${briefDates.length ? `${briefDates.length} dated snapshot${briefDates.length === 1 ? "" : "s"}, latest ${briefDates[0]}` : "Brief archive"}</p><h3>Weekly brief archive</h3><p>Each dated Brief copy, preserved as published.</p></a>`,
   );
 
   for (const topic of topics) {

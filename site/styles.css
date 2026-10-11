@@ -1142,6 +1142,10 @@ a.tag:hover {
   transition: transform var(--motion-base) var(--ease-out), box-shadow var(--motion-base) var(--ease-out), border-color var(--motion-base) var(--ease-out);
 }
 
+.home-deep-dive > div {
+  min-width: 0;
+}
+
 .home-deep-dive h3 {
   max-width: 26ch;
   margin: 5px 0 10px;

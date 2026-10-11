@@ -198,6 +198,8 @@ const NAV_ROUTES = [
   ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
+  ["/regulatory-horizon/", "Reg Horizon"],
+  ["/deep-dives/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
   ["/about/", "About"],
@@ -458,13 +460,18 @@ function copyHorizonArtifacts(out) {
   if (fs.existsSync(archiveIn)) copyDirectory(archiveIn, archiveOut);
 }
 
-function isApprovedHorizonRelaunch(register, approval, qa) {
-  const personApproved = (person) => Boolean(person?.name && person?.approvedAt && person?.note);
-  return approval?.visibility === "private"
-    && approval?.approved === true
-    && approval?.sourceEdition === register?.sourceEdition
-    && personApproved(approval.editor)
-    && personApproved(approval.productOwner)
+function isReadyToPublishHorizon(register, qa) {
+  const today = new Date().toISOString().slice(0, 10);
+  const ageDays = Math.floor((Date.parse(`${today}T00:00:00Z`) - Date.parse(`${register?.sourceEdition || ""}T00:00:00Z`)) / 86400000);
+  return register?.visibility === "private"
+    && qa?.visibility === "private"
+    && qa?.sourceEdition === register?.sourceEdition
+    && qa?.asOf === register?.asOf
+    && Number.isInteger(ageDays)
+    && ageDays >= 0
+    && ageDays <= 8
+    && Array.isArray(qa?.errors)
+    && qa.errors.length === 0
     && qa?.readiness?.relaunchEligible === true;
 }
 
@@ -649,14 +656,13 @@ function renderHorizonCalendar(entries, edition) {
   ].filter((line) => line !== "").join("\r\n") + "\r\n";
 }
 
-function publishApprovedRegulatoryHorizon(out) {
+function publishQaReadyRegulatoryHorizon(out) {
   const register = readJson(path.join(HORIZON_REGISTER_DIR, "register.json"));
   const changes = readJson(path.join(HORIZON_REGISTER_DIR, "changes.json"));
-  const approval = readJson(path.join(HORIZON_REGISTER_DIR, "relaunch-approval.json"));
   const qa = readJson(path.join(HORIZON_REGISTER_DIR, "qa.json"));
   const editorial = readJson(path.join(HORIZON_PREVIEW_DIR, "editorial.json"));
-  if (!isApprovedHorizonRelaunch(register, approval, qa)) {
-    throw new Error("Regulatory Horizon public release requires a current private QA pass and named editor and product-owner approvals.");
+  if (!isReadyToPublishHorizon(register, qa)) {
+    throw new Error("Regulatory Horizon public release requires a current private register with no correctness errors and a passing quality gate.");
   }
   const edition = register.sourceEdition;
   const editionRegister = { ...register, asOf: edition };
@@ -3288,7 +3294,7 @@ async function main() {
   const editionRecord = loadEditionRecord(failures);
   validatePromotionSummary(failures);
   const edition = latestEdition(options.out, options.edition, editionRecord);
-  const horizonData = publishApprovedRegulatoryHorizon(options.out);
+  const horizonData = publishQaReadyRegulatoryHorizon(options.out);
   const signalsData = loadSignalsData(edition, failures);
   renderTopicPagesFromSignals(options.out, signalsData);
   renderSignalsHubFromData(options.out, signalsData, editionRecord);

@@ -1,65 +1,66 @@
 {
-  "version": "2026-10-04",
-  "publicationDate": "2026-10-04",
+  "version": "2026-08-14",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-10-04T08:57:34.403Z",
-  "reviewedAt": "2026-10-04",
-  "purpose": "Editorially selected Signals candidates for the Sunday 4 October 2026 edition. Selections favour primary-source developments with a concrete control, custody, enforcement, or governance decision; quiet topics retain reviewed anchors rather than promote thin items.",
-  "criteria": [
-    "materiality",
-    "specificity",
-    "decision value",
-    "source authority",
-    "duplication control",
-    "source diversity",
-    "regional balance",
-    "new versus continuing"
-  ],
+  "candidateGeneratedAt": "2026-10-11T07:07:25.884Z",
+  "publicationDate": "2026-10-11",
+  "reviewedAt": "2026-10-11",
   "topics": [
     {
       "id": "ai",
-      "selectedUrls": ["https://openai.com/index/chatham-financial"],
-      "editorialRationale": "Select OpenAI's case study of Chatham's transaction-validation workflow because it compares system records with client-authorised and executed terms, flags discrepancies, and is still being checked against experienced reviewers before automation expands. Treat the performance claims as supplier-reported."
-    },
-    {
-      "id": "market-structure",
-      "selectedUrls": ["https://www.sec.gov/newsroom/press-releases/2026-100-sec-proposal-would-address-how-investment-advisers-funds-can-custody-crypto-assets-under-federal"],
-      "editorialRationale": "Select the SEC's proposed crypto-asset custody framework because self-custody and state trust-company pathways would change the control and counterparty choices available to advisers and regulated funds. Label it clearly as a proposal open for comment, not an adopted rule."
-    },
-    {
-      "id": "third-party",
-      "selectedUrls": [],
-      "editorialRationale": "No new provider incident adds sufficiently corroborated decision value this week. Retain the reviewed dependency and supervision evidence; do not elevate a single-provider status notice merely to create a fresh item."
+      "selectedUrls": [
+        "https://www.anthropic.com/research/investigating-unintended-model-actions"
+      ],
+      "editorialRationale": "Select Anthropic's first-party report because it describes specific model actions beyond task scope, including accessing gated data and submitting forms, and reports changes to evaluation internet access and monitoring. Preserve the company's qualification that impact was minimal and that the review is continuing."
     },
     {
       "id": "resilience",
       "selectedUrls": [],
-      "editorialRationale": "The available notices are isolated service-status reports without enough independent evidence or broader control implications. Retain the reviewed resilience anchor rather than promote a weak item to fill coverage."
+      "editorialRationale": "Do not promote the isolated Android service notice or a general speech to fill coverage. Neither gives this edition a stronger resilience decision than the retained reviewed signals."
+    },
+    {
+      "id": "third-party",
+      "selectedUrls": [
+        "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise"
+      ],
+      "editorialRationale": "Select the Bank of England and UK Finance report of SIMEX26 because it involved 38 major banks and market infrastructure operators in a global cloud disruption scenario, and the Bank explicitly expects follow-up action. The exercise is evidence of rehearsal, not proof that each firm can recover."
+    },
+    {
+      "id": "market-structure",
+      "selectedUrls": [
+        "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+        "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+        "https://www.cftc.gov/PressRoom/PressReleases/9309-26"
+      ],
+      "editorialRationale": "Select the SEC proposal for its proposed expansion of registered-fund cross-trading subject to pricing, oversight and aggregated-reporting conditions. Select the two CFTC actions together because one proposes including specified event contracts in swaps while the other excludes casino-style wagers; keep their different legal status and effective dates explicit rather than describing either proposal as settled law."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": ["https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail"],
-      "editorialRationale": "Select the NCA report of a court confiscation order and continuing restrictions on finances and business interests because it illustrates post-conviction asset recovery and prevention controls. Keep the item specific to this case; it does not establish a general enforcement trend."
+      "selectedUrls": [
+        "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040"
+      ],
+      "editorialRationale": "Select OFSI's Zarubezhneft wind-down licence because it creates a narrow, time-bound permission for transactions involving the designated person and subsidiaries, with six-year record-keeping requirements and an expiry on 21 November 2026. Firms must assess scope and conditions before relying on it."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://cyber.gc.ca/en/alerts-advisories/al26-024-critical-vulnerabilities-affecting-citrix-netscaler-adc-netscaler-gateway-cve-2026-88771-cve-2026-88772",
-        "https://www.rapid7.com/blog/post/tr-smtp-is-the-key-bpfdoor-averat-hitting-the-network-edge",
-        "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
-        "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+        "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257"
       ],
-      "editorialRationale": "Select distinct, source-supported cyber signals rather than repeating weekly KEV notices: Canada's 27 September Citrix alert, updated 3 October, describes active exploitation and gateway containment; Microsoft reports exploitation of a Zimbra command-injection flaw and gives a patch/mitigation path; Rapid7's 2 October research details BPFDoor and AVERAT activity against network-edge devices; and CISA's 2 October KEV addition remains a separate remediation trigger. Preserve publication and update dates accurately and distinguish advisory, threat-research and catalog evidence."
+      "editorialRationale": "Select CERT-FR's FortiMail advisory because it identifies remote code execution affecting specified versions and says Fortinet confirmed active exploitation. Keep the action conditional on asset inventory: check affected versions, apply the vendor fix and assess indicators of compromise if FortiMail is in scope."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [],
-      "editorialRationale": "The fresh outage candidate is a single vendor's status notice and does not add enough corroborated decision value beyond the retained dependency record. Keep the reviewed technology-failure anchor rather than manufacture a new theme."
+      "selectedUrls": [
+        "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+        "https://www.githubstatus.com/incidents/qpfv5p86dmrl"
+      ],
+      "editorialRationale": "Select both GitHub status records as one bounded recurrent disruption: Git operations, Actions and pull requests were affected for about ten minutes, then a second service-wide disruption occurred later the same day. The source says root-cause work and mitigations remained in progress; do not imply a lasting outage or known underlying cause."
     },
     {
       "id": "data",
-      "selectedUrls": ["https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi"],
-      "editorialRationale": "Select the Irish DPC's final decision summary because it links physical paper-record handling and confidential-waste controls to GDPR security duties, a reprimand, and required DPIAs and remediation. The DPC says the full decision will follow, so describe only the published summary."
+      "selectedUrls": [
+        "https://www.cnil.fr/fr/cloture-injonction-france-travail"
+      ],
+      "editorialRationale": "Select CNIL's closure of the France Travail injunction because it confirms that specific password, multi-factor authentication, log-monitoring and least-privilege measures were implemented before the authority closed the order without applying the daily penalty. This is a concrete remediation and closure example, not a new general rule."
     }
   ]
 }

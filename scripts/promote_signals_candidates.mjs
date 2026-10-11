@@ -133,6 +133,7 @@ function buildEvidence(candidate, publishedSource, promotionDate) {
 function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
   const existingTop5 = Array.isArray(topic.top5) ? topic.top5 : [];
   const existingStillMaterial = Array.isArray(topic.stillMaterial) ? topic.stillMaterial : [];
+  const targetCount = Number.isInteger(topic.shortlistCount) ? topic.shortlistCount : TOP5_COUNT;
   const existingUrls = new Set([...existingTop5, ...existingStillMaterial].map((row) => row.url));
 
   const seenFresh = new Set();
@@ -169,7 +170,7 @@ function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
   const usedUrls = new Set(freshRows.map((row) => row.url));
   const backfillRows = [];
   for (const row of [...existingTop5, ...existingStillMaterial]) {
-    if (freshRows.length + backfillRows.length >= TOP5_COUNT) break;
+    if (freshRows.length + backfillRows.length >= targetCount) break;
     if (usedUrls.has(row.url)) continue;
     if (!isFreshTop5Row(row, promotionDate)) {
       skipped.push(`stale backfill excluded: ${row.url}`);
@@ -179,10 +180,10 @@ function promoteTopic(topic, candidates, sourceMap, log, promotionDate) {
     usedUrls.add(row.url);
   }
 
-  const newTop5 = [...freshRows, ...backfillRows].slice(0, TOP5_COUNT);
-  if (newTop5.length < TOP5_COUNT) {
+  const newTop5 = [...freshRows, ...backfillRows].slice(0, targetCount);
+  if (newTop5.length < targetCount) {
     throw new Error(
-      `${topic.id}: could not fill Top 5 (only found ${newTop5.length} unique rows). Aborting without writing signals.json.`,
+      `${topic.id}: could not fill its ${targetCount}-row shortlist (only found ${newTop5.length} unique rows). Aborting without writing signals.json.`,
     );
   }
 

@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-10-11T07:07:25.884Z",
-  "preparedAt": "2026-10-11T07:08:00.133Z",
+  "candidateGeneratedAt": "2026-10-11T11:10:28.607Z",
+  "preparedAt": "2026-10-11T11:11:02.637Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -18,32 +18,19 @@
   ],
   "editorial": {
     "decisionTypeCounts": {
-      "rule-change": 8,
+      "rule-change": 6,
       "enforcement": 1,
       "active-threat": 5,
       "outage": 6,
       "research": 1,
-      "context": 72
+      "context": 67
     },
     "decisionTypeGroups": [
       {
         "id": "rule-change",
         "label": "rule change",
-        "candidateCount": 8,
+        "candidateCount": 6,
         "candidates": [
-          {
-            "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
-            "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
-            "sourceName": "US Commodity Futures Trading Commission",
-            "sourceOwner": "cftc",
-            "publishedAt": "2026-10-09T20:00:26.000Z",
-            "relevanceScore": 83,
-            "decisionType": "rule-change",
-            "region": "US",
-            "topics": [
-              "market-structure"
-            ]
-          },
           {
             "title": "CFTC Seeks Public Comment on Advanced Notice of Proposed Rulemaking Relating to Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets",
             "url": "https://www.cftc.gov/PressRoom/PressReleases/9307-26",
@@ -68,19 +55,6 @@
             "region": "Global/other",
             "topics": [
               "data"
-            ]
-          },
-          {
-            "title": "Guidance: OFSI General Licence - INT/2026/11080040",
-            "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
-            "sourceName": "UK Office of Financial Sanctions Implementation",
-            "sourceOwner": "ofsi",
-            "publishedAt": "2026-10-08T11:10:36.000Z",
-            "relevanceScore": 65,
-            "decisionType": "rule-change",
-            "region": "UK/EMEA",
-            "topics": [
-              "financial-crime"
             ]
           },
           {
@@ -115,7 +89,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-10-01T09:28:05.000Z",
-            "relevanceScore": 51,
+            "relevanceScore": 50,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -128,7 +102,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-09-29T08:01:11.000Z",
-            "relevanceScore": 47,
+            "relevanceScore": 46,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -194,7 +168,7 @@
             "sourceName": "AWS Security Blog",
             "sourceOwner": "aws-security",
             "publishedAt": "2026-10-07T21:49:50.000Z",
-            "relevanceScore": 81,
+            "relevanceScore": 80,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -207,7 +181,7 @@
             "sourceName": "AWS Security Blog",
             "sourceOwner": "aws-security",
             "publishedAt": "2026-10-07T21:49:43.000Z",
-            "relevanceScore": 79,
+            "relevanceScore": 78,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -246,20 +220,6 @@
             "topics": [
               "resilience",
               "technology-failure"
-            ]
-          },
-          {
-            "title": "CMORG holds sector-wide cloud outage simulation exercise",
-            "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
-            "sourceName": "Bank of England and Prudential Regulation Authority",
-            "sourceOwner": "uk-boe-pra",
-            "publishedAt": "2026-10-09T09:00:00.000Z",
-            "relevanceScore": 82,
-            "decisionType": "outage",
-            "region": "UK/EMEA",
-            "topics": [
-              "technology-failure",
-              "third-party"
             ]
           },
           {
@@ -305,6 +265,20 @@
             ]
           },
           {
+            "title": "Disruption with billing information updates",
+            "url": "https://www.githubstatus.com/incidents/1dk955gg3bvz",
+            "sourceName": "GitHub Status",
+            "sourceOwner": "github-status",
+            "publishedAt": "2026-09-24T20:41:12.000Z",
+            "relevanceScore": 59,
+            "decisionType": "outage",
+            "region": "Global/other",
+            "topics": [
+              "technology-failure",
+              "third-party"
+            ]
+          },
+          {
             "title": "Support Portal Service Disruption",
             "url": "https://status.digitalocean.com/incidents/grb2v0td1nq5",
             "sourceName": "DigitalOcean Status",
@@ -331,7 +305,7 @@
             "sourceName": "Cisco Talos Intelligence Group",
             "sourceOwner": "cisco-talos",
             "publishedAt": "2026-10-08T10:00:14.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 79,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -343,28 +317,15 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 72,
+        "candidateCount": 67,
         "candidates": [
-          {
-            "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
-            "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
-            "sourceName": "US Securities and Exchange Commission",
-            "sourceOwner": "sec",
-            "publishedAt": "2026-10-09T14:59:00.000Z",
-            "relevanceScore": 97,
-            "decisionType": "context",
-            "region": "US",
-            "topics": [
-              "market-structure"
-            ]
-          },
           {
             "title": "How Luna Moth Runs Data Extortion Like a Business",
             "url": "https://blog.checkpoint.com/security/how-luna-moth-runs-data-extortion-like-a-business",
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-10-09T09:38:16.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 96,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -390,7 +351,7 @@
             "sourceName": "NVIDIA Newsroom",
             "sourceOwner": "nvidia",
             "publishedAt": "2026-10-08T21:06:35.000Z",
-            "relevanceScore": 96,
+            "relevanceScore": 95,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -424,25 +385,12 @@
             ]
           },
           {
-            "title": "Clôture de l’injonction prononcée à l’encontre de FRANCE TRAVAIL",
-            "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
-            "sourceName": "Commission nationale de l'informatique et des libertés",
-            "sourceOwner": "fr-cnil",
-            "publishedAt": "2026-10-08T00:00:00.000Z",
-            "relevanceScore": 94,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
-            ]
-          },
-          {
             "title": "Evolution of Web3 in Cloud Supply Chain Attacks",
             "url": "https://unit42.paloaltonetworks.com/web3-cloud-supply-chain-attacks",
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-10-07T22:00:16.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -455,7 +403,7 @@
             "sourceName": "Rapid7 Research",
             "sourceOwner": "rapid7",
             "publishedAt": "2026-10-07T19:29:23.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -474,107 +422,133 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "The ASOS Incident: When Attackers Use the Channels Customers Trust",
+            "url": "https://www.rapid7.com/blog/post/it-asos-incident-attackers-using-channels-customers-trust",
+            "sourceName": "Rapid7 Research",
+            "sourceOwner": "rapid7",
+            "publishedAt": "2026-10-07T10:40:07.000Z",
+            "relevanceScore": 92,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
+          },
+          {
+            "title": "One breach, please, and make no mistakes",
+            "url": "https://blog.talosintelligence.com/one-breach-please-and-make-no-mistakes",
+            "sourceName": "Cisco Talos Intelligence Group",
+            "sourceOwner": "cisco-talos",
+            "publishedAt": "2026-10-07T10:00:25.000Z",
+            "relevanceScore": 92,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 105,
-      "uniqueCandidateEvents": 93,
+      "candidateRows": 98,
+      "uniqueCandidateEvents": 86,
       "crossThemeDuplicatesCollapsed": 12,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
-          "count": 8,
-          "share": 8.6
-        },
-        {
-          "sourceOwner": "sec",
-          "sourceName": "US Securities and Exchange Commission",
           "count": 6,
-          "share": 6.5
+          "share": 7
         },
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 5,
-          "share": 5.4
-        },
-        {
-          "sourceOwner": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "count": 5,
-          "share": 5.4
+          "share": 5.8
         },
         {
           "sourceOwner": "ireland-dpc",
           "sourceName": "Data Protection Commission Ireland",
           "count": 5,
-          "share": 5.4
+          "share": 5.8
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.4
+          "share": 5.8
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.4
+          "share": 5.8
+        },
+        {
+          "sourceOwner": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "count": 5,
+          "share": 5.8
         },
         {
           "sourceOwner": "ico",
           "sourceName": "UK Information Commissioner's Office",
           "count": 5,
-          "share": 5.4
+          "share": 5.8
+        },
+        {
+          "sourceOwner": "sec",
+          "sourceName": "US Securities and Exchange Commission",
+          "count": 5,
+          "share": 5.8
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 36,
-          "share": 38.7
+          "count": 32,
+          "share": 37.2
         },
         {
           "region": "US",
-          "count": 16,
-          "share": 17.2
+          "count": 13,
+          "share": 15.1
         },
         {
           "region": "Global/other",
           "count": 41,
-          "share": 44.1
+          "share": 47.7
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 93,
-        "alreadyPublishedCandidates": 0,
-        "continuingPublishedEvents": 32,
+        "newCandidateEvents": 84,
+        "alreadyPublishedCandidates": 2,
+        "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
       }
     },
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "market-structure",
-        "candidateCount": 18,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "third-party",
-        "candidateCount": 8,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -588,7 +562,7 @@
       },
       {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -602,14 +576,14 @@
       },
       {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "data",
-        "candidateCount": 19,
+        "candidateCount": 18,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -618,8 +592,8 @@
     "sourceHealth": {
       "runsRetained": 12,
       "healthy": 84,
-      "watching": 1,
-      "investigate": 2,
+      "watching": 0,
+      "investigate": 3,
       "supplementary": 1,
       "entries": [
         {
@@ -896,9 +870,9 @@
           "sourceId": "cnmv-news-rss",
           "sourceRegistryId": "spain-cnmv",
           "status": "failed",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "The operation was aborted due to timeout"
         },
         {
@@ -941,7 +915,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1463,7 +1437,7 @@
           "sourceId": "daily-intelligence-ledger",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 8,
+          "consecutiveIssueRuns": 9,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1472,7 +1446,7 @@
           "sourceId": "weekly-ai-risk-feed",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 8,
+          "consecutiveIssueRuns": 9,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1485,7 +1459,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1502,7 +1476,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-10-08T21:06:35.000Z",
           "dateSource": "feed",
-          "relevanceScore": 96,
+          "relevanceScore": 95,
           "decisionType": "context",
           "riskAreas": [
             "ai-and-models",
@@ -1557,28 +1531,6 @@
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Investigating unintended model actions in our evaluations and internal use",
-          "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
-          "sourceName": "Anthropic",
-          "sourceOwner": "anthropic",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "publishedAt": "2026-10-09T16:09:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 67,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
-        },
-        {
           "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
           "url": "https://openai.com/index/asana-browser-agent",
           "sourceName": "OpenAI",
@@ -1599,6 +1551,28 @@
             "safety"
           ],
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "An opt-in vulnerability-finding service for open-source software",
+          "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-10-08T19:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 65,
+          "decisionType": "active-threat",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -1606,7 +1580,7 @@
       "id": "market-structure",
       "readiness": {
         "id": "market-structure",
-        "candidateCount": 18,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1614,31 +1588,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceOwner": "sec",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-10-09T14:59:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 97,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
         {
           "title": "Arrêté du 28 août 2026 portant homologation de modifications du règlement général de l’Autorité des marchés financiers",
           "url": "https://www.amf-france.org/fr/reglementation/reglement-general/arrete-du-28-aout-2026-portant-homologation-de-modifications-du-reglement-general-de-lautorite-des",
@@ -1648,7 +1597,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-10-07T09:30:03.000Z",
           "dateSource": "feed",
-          "relevanceScore": 93,
+          "relevanceScore": 92,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1664,54 +1613,6 @@
           "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         },
         {
-          "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceOwner": "cftc",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-10-09T20:00:26.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 83,
-          "decisionType": "rule-change",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "derivatives",
-            "clearing",
-            "market-conduct",
-            "enforcement",
-            "us"
-          ],
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "CFTC Issues Interim Final Rule Excluding Certain Activity from the Definition of Swap",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceOwner": "cftc",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-10-09T19:30:51.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 83,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "derivatives",
-            "clearing",
-            "market-conduct",
-            "enforcement",
-            "us"
-          ],
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Opportunity and trust: Europe’s capital market and the Irish funds sector - Speech by Governor Makhlouf at Irish Funds Annual Global Funds Conference",
           "url": "https://www.centralbank.ie/news/article/speech-governor-makhlouf-irish-funds-annual-global-funds-conference-1-october-2026",
           "sourceName": "Central Bank of Ireland",
@@ -1720,7 +1621,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-10-01T09:30:05.000Z",
           "dateSource": "feed",
-          "relevanceScore": 83,
+          "relevanceScore": 82,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1735,6 +1636,82 @@
             "ireland"
           ],
           "whyCandidate": "Pulled from Central Bank of Ireland via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Interest rate of fourth interest payment for Silver Bond Series due 2027",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/10/20261008-3",
+          "sourceName": "Hong Kong Monetary Authority",
+          "sourceOwner": "hkma",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-10-07T16:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 78,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-resilience",
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "banking-supervision",
+            "payments",
+            "operational-resilience",
+            "hong-kong"
+          ],
+          "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Policy paper: India-UK 4th Financial Markets Dialogue: Joint Statement",
+          "url": "https://www.gov.uk/government/publications/india-uk-4th-financial-markets-dialogue-joint-statement",
+          "sourceName": "HM Treasury",
+          "sourceOwner": "uk-hm-treasury",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-10-07T10:30:05.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 77,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-money",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "payments",
+            "financial-services-policy",
+            "sanctions",
+            "reporting",
+            "uk"
+          ],
+          "whyCandidate": "Pulled from HM Treasury via atom ingestion and matched the topic rules."
+        },
+        {
+          "title": "Policy paper: Chancellor meeting with Gilt-edged Market Makers: Minutes - October 2026",
+          "url": "https://www.gov.uk/government/publications/chancellor-meeting-with-gilt-edged-market-makers-minutes-october-2026",
+          "sourceName": "HM Treasury",
+          "sourceOwner": "uk-hm-treasury",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-10-07T06:30:04.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 77,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "digital-money",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "payments",
+            "financial-services-policy",
+            "sanctions",
+            "reporting",
+            "uk"
+          ],
+          "whyCandidate": "Pulled from HM Treasury via atom ingestion and matched the topic rules."
         }
       ]
     },
@@ -1742,7 +1719,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 8,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1750,74 +1727,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "CMORG holds sector-wide cloud outage simulation exercise",
-          "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceOwner": "uk-boe-pra",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "publishedAt": "2026-10-09T09:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "outage",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
-          ],
-          "tags": [
-            "prudential-policy",
-            "payments",
-            "operational-resilience",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Incident with Git Operations, Pull Requests and Actions",
-          "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
-          "sourceName": "GitHub Status",
-          "sourceOwner": "github-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-10-07T16:25:14.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Incident with Git Operations, Issues, Actions and Pull Requests",
-          "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
-          "sourceName": "GitHub Status",
-          "sourceOwner": "github-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-10-07T18:04:49.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
         {
           "title": "Several services are degraded",
           "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
@@ -1850,6 +1759,72 @@
           "publishedAt": "2026-10-06T01:32:43.000Z",
           "dateSource": "feed",
           "relevanceScore": 79,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Incident with Actions",
+          "url": "https://www.githubstatus.com/incidents/3q1yb5m7ltvb",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-10-05T22:49:42.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 78,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "A Network Disruption in BLR1 Region Impacted Multiple Products (Resolved)",
+          "url": "https://status.digitalocean.com/incidents/6z6dt3t1bhb9",
+          "sourceName": "DigitalOcean Status",
+          "sourceOwner": "digitalocean-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-10-03T14:51:13.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 76,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cloud",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Disruption with billing information updates",
+          "url": "https://www.githubstatus.com/incidents/1dk955gg3bvz",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-09-24T20:41:12.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 59,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience"
@@ -1967,7 +1942,7 @@
       "id": "financial-crime",
       "readiness": {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1999,28 +1974,6 @@
             "us"
           ],
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Guidance: OFSI General Licence - INT/2026/11080040",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
-          "sourceName": "UK Office of Financial Sanctions Implementation",
-          "sourceOwner": "ofsi",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "publishedAt": "2026-10-08T11:10:36.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 65,
-          "decisionType": "rule-change",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "sanctions",
-            "enforcement",
-            "licences",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         },
         {
           "title": "SEC Charges Meyer Global Management and Its CEO With Defrauding Retail Investors in Private Funds That Held Interests in SpaceX and Other Pre-IPO Securities",
@@ -2096,6 +2049,28 @@
             "us"
           ],
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Guidance: OFSI General Licence INT/2026/8893924",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+          "sourceName": "UK Office of Financial Sanctions Implementation",
+          "sourceOwner": "ofsi",
+          "sourceTier": "primary",
+          "sourceCategory": "financial-crime",
+          "publishedAt": "2026-10-07T14:14:57.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 63,
+          "decisionType": "rule-change",
+          "riskAreas": [
+            "crime-and-sanctions"
+          ],
+          "tags": [
+            "sanctions",
+            "enforcement",
+            "licences",
+            "uk"
+          ],
+          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         }
       ]
     },
@@ -2120,7 +2095,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-10-09T09:38:16.000Z",
           "dateSource": "feed",
-          "relevanceScore": 97,
+          "relevanceScore": 96,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -2206,7 +2181,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-10-07T22:00:16.000Z",
           "dateSource": "feed",
-          "relevanceScore": 94,
+          "relevanceScore": 93,
           "decisionType": "context",
           "riskAreas": [
             "cyber-security",
@@ -2224,7 +2199,7 @@
       "id": "technology-failure",
       "readiness": {
         "id": "technology-failure",
-        "candidateCount": 11,
+        "candidateCount": 10,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2254,74 +2229,6 @@
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "title": "CMORG holds sector-wide cloud outage simulation exercise",
-          "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceOwner": "uk-boe-pra",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "publishedAt": "2026-10-09T09:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "outage",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
-          ],
-          "tags": [
-            "prudential-policy",
-            "payments",
-            "operational-resilience",
-            "uk"
-          ],
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Incident with Git Operations, Pull Requests and Actions",
-          "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
-          "sourceName": "GitHub Status",
-          "sourceOwner": "github-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-10-07T16:25:14.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Incident with Git Operations, Issues, Actions and Pull Requests",
-          "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
-          "sourceName": "GitHub Status",
-          "sourceOwner": "github-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-10-07T18:04:49.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Several services are degraded",
           "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
           "sourceName": "GitHub Status",
@@ -2342,6 +2249,72 @@
             "service-disruption"
           ],
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Disruption with some GitHub services",
+          "url": "https://www.githubstatus.com/incidents/2kxnqcxcrr7f",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-10-06T01:32:43.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 79,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Incident with Actions",
+          "url": "https://www.githubstatus.com/incidents/3q1yb5m7ltvb",
+          "sourceName": "GitHub Status",
+          "sourceOwner": "github-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-10-05T22:49:42.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 78,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "A Network Disruption in BLR1 Region Impacted Multiple Products (Resolved)",
+          "url": "https://status.digitalocean.com/incidents/6z6dt3t1bhb9",
+          "sourceName": "DigitalOcean Status",
+          "sourceOwner": "digitalocean-status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "publishedAt": "2026-10-03T14:51:13.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 76,
+          "decisionType": "outage",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cloud",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -2349,7 +2322,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 19,
+        "candidateCount": 18,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2367,29 +2340,6 @@
           "publishedAt": "2026-10-09T00:00:00.000Z",
           "dateSource": "page-published",
           "relevanceScore": 96,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "Clôture de l’injonction prononcée à l’encontre de FRANCE TRAVAIL",
-          "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceOwner": "fr-cnil",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-10-08T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 94,
           "decisionType": "context",
           "riskAreas": [
             "board-accountability",
@@ -2457,6 +2407,29 @@
           "sourceTier": "primary",
           "sourceCategory": "regulation",
           "publishedAt": "2026-09-24T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 70,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "ireland"
+          ],
+          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Data Protection Commission",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-google-eu403-million-following-inquiry-googles-processing-location",
+          "sourceName": "Data Protection Commission Ireland",
+          "sourceOwner": "ireland-dpc",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-09-21T00:00:00.000Z",
           "dateSource": "page-published",
           "relevanceScore": 70,
           "decisionType": "context",

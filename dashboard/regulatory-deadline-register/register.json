@@ -1,7 +1,7 @@
 {
   "version": "regulatory-deadline-register.v1",
   "visibility": "private",
-  "generatedAt": "2026-10-11T12:54:42.031Z",
+  "generatedAt": "2026-10-11T13:18:36.709Z",
   "asOf": "2026-10-11",
   "sourceEdition": "2026-10-11",
   "carryForwardGraceDays": 30,
@@ -866,6 +866,79 @@
         ]
       },
       "firstSeen": "2026-08-16",
+      "lastSeen": "2026-10-11",
+      "sourceEdition": "2026-10-11"
+    },
+    {
+      "id": "2586458de98d9df3f707",
+      "title": "EU AI Act Article 50(2) transition and new prohibitions apply",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+      "deadline": "2026-12-02",
+      "daysToDeadline": 52,
+      "stage": "implementation",
+      "authority": {
+        "id": "eu-ai-act",
+        "name": "European Commission EU AI Act",
+        "tier": "primary"
+      },
+      "jurisdictions": [
+        "EU"
+      ],
+      "themes": [
+        "ai-and-models"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "sourcePublishedAt": null,
+      "status": "confirmed",
+      "intake": "verified-backfill",
+      "decision": {
+        "decision": "confirmed",
+        "scope": "source-date-only",
+        "reviewer": "Codex primary-source verification",
+        "note": "The European Commission AI Act Service Desk timeline identifies 2 December 2026 as the Article 50(2) transition date for certain pre-existing synthetic-content systems and the start date for the listed new prohibitions. This confirms the source date only; provider and system applicability must be assessed separately.",
+        "decidedAt": "2026-10-11",
+        "evidence": {
+          "quote": "02 Dec 2026 — New prohibitions + Article 50(2) transition apply",
+          "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline"
+        }
+      },
+      "evidence": {
+        "change": "Certain providers of AI systems, including relevant GPAI systems that generate synthetic content, face an Article 50(2) transition date; the new listed prohibitions also apply from this date. Check product and provider scope against the amended Act.",
+        "detailChecked": true,
+        "deadlineCue": "The timeline lists 2 December 2026 for the new prohibitions and the Article 50(2) transition, including certain systems generating synthetic content already placed on the market before 2 August 2026.",
+        "verifiedAt": "2026-10-11",
+        "verification": "European Commission AI Act Service Desk timeline checked on 11 October 2026; it lists the 2 December 2026 Article 50(2) transition for certain pre-existing synthetic-content systems and the new prohibitions."
+      },
+      "ownerGuidance": {
+        "owners": [
+          "Chief risk / model risk",
+          "Technology and data governance"
+        ],
+        "prepare": [
+          "Assess scope and model inventory impact",
+          "Map the expectation to governance and evidence"
+        ]
+      },
+      "firstSeen": "2026-10-11",
       "lastSeen": "2026-10-11",
       "sourceEdition": "2026-10-11"
     },

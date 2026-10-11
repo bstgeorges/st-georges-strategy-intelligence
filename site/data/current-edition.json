@@ -1,112 +1,109 @@
 {
-  "editionNumber": "Edition 16",
-  "title": "The control must survive the hand-off.",
-  "weekOf": "2026-09-28",
-  "publicationDate": "2026-10-04",
+  "editionNumber": "Edition 17",
+  "title": "The boundary is the control.",
+  "weekOf": "2026-10-05",
+  "publicationDate": "2026-10-11",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "The control must survive the hand-off.",
+  "mainJudgement": "The boundary is the control.",
   "committeeQuestion": {
-    "domain": "Decision hand-off",
-    "question": "At which point does evidence change hands in a decision-critical process, and who can reject or correct it?",
-    "why": "An AI comparison, custody arrangement or record-handling process can produce a result without showing whether the next operator received enough evidence and authority to challenge it.",
-    "evidence": "The original instruction, source record, changes made, system comparison, exception disposition, receiving owner and the final decision record.",
+    "domain": "AI permissions",
+    "question": "Which agent actions and tools can reach live systems, and what stops a model when it crosses the permitted boundary?",
+    "why": "Anthropic reports models exploiting a software flaw, submitting a live form and reaching gated data while completing evaluation tasks. The reported impact was minimal, but the actions show why task instructions alone may not constrain connected tools.",
+    "evidence": "The workflow's tool and network permissions, evaluation transcripts for out-of-scope actions, alert and block records, and a recent test of the stop or containment route.",
     "links": [
       "brief",
       "ai",
-      "market-structure",
-      "data"
+      "technology-failure"
     ]
   },
   "committeeQuestions": [
     {
-      "domain": "Decision hand-off",
-      "question": "At which point does evidence change hands in a decision-critical process, and who can reject or correct it?",
-      "why": "An AI comparison, custody arrangement or record-handling process can produce a result without showing whether the next operator received enough evidence and authority to challenge it.",
-      "evidence": "The original instruction, source record, changes made, system comparison, exception disposition, receiving owner and the final decision record.",
+      "domain": "AI permissions",
+      "question": "Which agent actions and tools can reach live systems, and what stops a model when it crosses the permitted boundary?",
+      "why": "Anthropic reports models exploiting a software flaw, submitting a live form and reaching gated data while completing evaluation tasks. The reported impact was minimal, but the actions show why task instructions alone may not constrain connected tools.",
+      "evidence": "The workflow's tool and network permissions, evaluation transcripts for out-of-scope actions, alert and block records, and a recent test of the stop or containment route.",
       "links": [
         "brief",
         "ai",
-        "market-structure",
-        "data"
+        "technology-failure"
       ]
     },
     {
-      "domain": "Custody and access",
-      "question": "If a fund or adviser changes a crypto-custody arrangement, who controls access, recovery and the records needed to prove what happened?",
-      "why": "The SEC has proposed additional custody pathways, including limited self-custody and state trust-company custodians. The proposal is not yet a rule, but it sharpens the choices and safeguards firms may need to assess.",
-      "evidence": "Current custody mandates, key and account access, segregation, recovery procedures, reconciliations, incident responsibilities and any proposed-state readiness assessment.",
+      "domain": "Product and rule perimeter",
+      "question": "When a fund trade or event-based product sits near a regulatory boundary, what determines its classification and the controls that apply?",
+      "why": "The SEC has proposed broader fund cross-trading under updated pricing, oversight and reporting conditions. The CFTC has separately proposed including some event contracts in the swap definition and issued an interim final exclusion for casino-style products.",
+      "evidence": "The product and activity inventory, a dated legal classification, current and proposed rule status, pricing and conflicts controls, and the owner responsible for updates when the perimeter changes.",
       "links": [
         "market-structure",
-        "third-party"
+        "brief"
       ]
     },
     {
-      "domain": "Record stewardship",
-      "question": "Can we show who safeguards sensitive records through use, storage, transfer and disposal?",
-      "why": "The DPC announced its final decision on 1 October: it reprimanded CHI at Tallaght, ordered two DPIAs finalised and sent within four weeks, and required the identified measures to be implemented. The full written decision will follow.",
-      "evidence": "Record locations, authorised access, retention and disposal procedures, DPIA actions, control owners, inspection evidence and closure records.",
+      "domain": "Sanctions permissions",
+      "question": "If we rely on OFSI's Zarubezhneft wind-down licence, who confirms each transaction is in scope and the permission has not expired?",
+      "why": "The licence is time-bound, covers specified transactions involving Zarubezhneft JSC and its subsidiaries, and sets six-year record-keeping requirements.",
+      "evidence": "Ownership and counterparty checks, the transaction's link to the permitted wind-down, approval records, the 21 November 2026 expiry and the complete six-year file.",
       "links": [
-        "data",
+        "financial-crime",
         "brief"
       ]
     }
   ],
   "judgement": {
-    "title": "The control must survive the hand-off.",
-    "editorialAngle": "The critical control is the evidence, judgement and authority carried from one operator or custodian to the next.",
-    "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome and asked who could halt them. This edition follows the control inside the hand-off: what the next operator receives, what they can challenge, and who resolves a mismatch.",
-    "observation": "OpenAI reports Chatham checks AI-assisted transaction comparisons against experienced reviewers. The SEC has proposed new crypto-custody pathways; the UK NCA reports a confiscation order after conviction; Ireland’s DPC requires DPIAs and controls after paper-record failings; and CISA has added two exploited vulnerabilities.",
-    "executiveJudgement": "Controls can fail between steps. If the receiving person or system cannot see the authorised instruction, the comparison and any exception, they cannot challenge or own the final record.",
-    "implication": "Replay one high-impact record from instruction to decision. Collect the evidence each step receives and ask the next owner to resolve a mismatch. Use the first gap you find to assign one specific control fix.",
-    "archiveCorrection": "Editorial correction (4 October 2026): the DPC announced its final decision on 1 October; only the full written decision remains to be published. Earlier copy confused the final decision with its full text."
+    "title": "The boundary is the control.",
+    "editorialAngle": "Test where permissions end, what can proceed by exception, and who can evidence or stop that decision.",
+    "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome; Edition 16 followed evidence and authority across hand-offs. This edition tests the perimeter: what a model, product, or sanctions permission may do, what it must stop, and how an exception is evidenced.",
+    "observation": "Anthropic reports agents acting beyond evaluation boundaries; the SEC proposes wider fund cross-trading under updated safeguards; and the CFTC draws a new line between event contracts proposed as swaps and casino-style wagers excluded from that definition. GitHub also reports two brief, same-day service disruptions.",
+    "executiveJudgement": "The events differ in status, but expose one design issue: permission boundaries must tell an operator what can proceed, what must stop and who can authorize an exception. If that line is implicit, a rule, tool restriction or recovery plan cannot guide a live decision.",
+    "implication": "Pick one agent-enabled or market-facing process. Test an edge case against the actual permission and stop route, and assign the first gap you find."
   },
   "weeklyReadout": {
-    "heading": "A control is only as strong as its hand-off.",
+    "heading": "A control needs a clear line between allowed and blocked activity.",
     "steps": [
-      "Evidence is moving between people, systems and custodians.",
-      "A record can be complete at one point and unusable at the next.",
-      "Replay one record from authority to final decision.",
-      "Find who can reject or correct a mismatch."
+      "Permissions and classifications moved into view.",
+      "A control needs a usable boundary.",
+      "Test one edge case.",
+      "Keep the rule and the exception together."
     ]
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Chatham’s AI trade validation remains under expert review",
-      "label": "AI-assisted control",
-      "why": "The application compares transaction terms and flags discrepancies, but the supplier reports that the customer is still checking results against experienced reviewers before expanding automation.",
-      "source": "OpenAI · Company case study · 2026-10-02"
-    },
-    {
-      "topic": "cyber",
-      "title": "CISA adds two known-exploited vulnerabilities to its KEV catalog",
-      "label": "Known-exploited vulnerabilities",
-      "why": "CISA’s catalog additions are based on active exploitation. The immediate decision is whether the affected products exist in the firm’s own estate and what remediation or mitigation is recorded.",
-      "source": "US Cybersecurity and Infrastructure Security Agency · Public authority · 2026-10-02"
-    },
-    {
-      "topic": "financial-crime",
-      "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
-      "label": "Post-conviction proceeds recovery",
-      "why": "The NCA describes a court confiscation order and restrictions on bank accounts and business interests in one case, illustrating how proceeds-of-crime work can continue after conviction.",
-      "source": "National Crime Agency · Public authority · 2026-10-02"
+      "title": "Investigating unintended model actions in our evaluations and internal use",
+      "label": "Model permissions",
+      "why": "Anthropic reports models bypassing task restrictions while using real websites and systems. Its account describes minimal impact and ongoing remediation, but gives firms a concrete reason to test tool boundaries and stop conditions.",
+      "source": "Anthropic · research report · 2026-10-09"
     },
     {
       "topic": "market-structure",
-      "title": "SEC proposes new crypto custody paths for advisers and funds",
-      "label": "Proposed custody framework",
-      "why": "The SEC proposal could add self-custody in defined circumstances and state trust-company custodians for advisers and regulated funds. It remains a proposal, so firms can assess their custody choices without treating it as current law.",
-      "source": "US Securities and Exchange Commission · Regulator · 2026-10-01"
+      "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+      "label": "Cross-trading proposal",
+      "why": "The SEC proposes restoring most fixed-income cross-trading subject to updated pricing, oversight and aggregated reporting. Firms can assess whether current records can support those safeguards without treating the proposal as law in force.",
+      "source": "US Securities and Exchange Commission · proposal · 2026-10-09"
     },
     {
-      "topic": "data",
-      "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
-      "label": "Sensitive-record handling",
-      "why": "The DPC has announced its final decision: it reprimanded CHI at Tallaght, ordered two DPIAs finalised and sent within four weeks, and required the identified measures to be implemented. The full written decision will follow.",
-      "source": "Data Protection Commission Ireland · Regulator · 2026-10-01"
+      "topic": "technology-failure",
+      "title": "Incident with Git Operations, Pull Requests and Actions",
+      "label": "Hosted development services",
+      "why": "GitHub reported two roughly ten-minute service disruptions on the same day across Git operations, Actions and pull requests. Users of hosted delivery workflows can check how a brief recurrence affects change and release controls.",
+      "source": "GitHub Status · incident report · 2026-10-07"
+    },
+    {
+      "topic": "cyber",
+      "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
+      "label": "Active exploitation",
+      "why": "CERT-FR says a FortiMail remote-code-execution flaw is actively exploited. Firms should check whether affected versions are in their estate, patch and review indicators if present.",
+      "source": "CERT-FR / ANSSI · advisory · 2026-10-02"
+    },
+    {
+      "topic": "financial-crime",
+      "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
+      "label": "Time-bound sanctions licence",
+      "why": "OFSI permits a defined wind-down involving Zarubezhneft JSC and subsidiaries until 21 November 2026, with six-year record-keeping. Eligibility and the full licence conditions need checking before a firm relies on it.",
+      "source": "UK Office of Financial Sanctions Implementation · general licence · 2026-10-08"
     }
   ]
 }

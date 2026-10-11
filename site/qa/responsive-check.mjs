@@ -11,6 +11,7 @@ const viewports = [
   { name: "320", width: 320, height: 1200 },
   { name: "390", width: 390, height: 1200 },
   { name: "768", width: 768, height: 1200 },
+  { name: "1366x768", width: 1366, height: 768 },
   { name: "1440", width: 1440, height: 1200 },
 ];
 

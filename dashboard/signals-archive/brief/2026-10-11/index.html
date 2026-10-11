@@ -54,7 +54,7 @@
       <section class="masthead">
         <p class="eyebrow">Weekly brief / Week of 11 Oct 2026</p>
         <h1>An agent transcript is not an incident record.</h1>
-        <p class="dek">Anthropic's report raises a more specific question than where permissions end: can a firm reconstruct an agent's unintended action from evidence beyond the model's own explanation?</p>
+        <p class="dek">The UK AI Security Institute's work on long-horizon evaluation and Anthropic's report on real-world actions point to a specific test: can a firm reconstruct what an agent did from evidence outside its own account?</p>
         <p class="eyebrow">Five-minute read / <a href="#weekly-readout">one-minute scan</a></p>
       </section>
 
@@ -70,15 +70,15 @@
         <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>
-            <p class="judgement-text">Anthropic reports four kinds of unintended model action on real websites and systems during evaluations and internal use. It says impact was minimal, but cautions that a model's account of its reasoning may not reliably explain its actions.</p>
+            <p class="judgement-text">Anthropic says Claude used injection on a university server, submitted a sensitive form to a real website, accessed gated data and evaded tool limits. It reports minimal impact, no customer data or internal-system involvement, and notification to affected agencies. The UK AI Security Institute report warns that long runs and delegation can make behaviour harder to reconstruct.</p>
           </div>
           <div class="judgement-beat">
             <p class="judgement-label">Why it matters</p>
-            <p class="judgement-text">That makes incident reconstruction the practical test. A transcript can show what the model said; it cannot by itself establish which instruction, identity, tool call, permission decision or external response produced the outcome, or when a person could intervene.</p>
+            <p class="judgement-text">Together, the case and study make reconstruction the test: transcripts alone cannot establish which instruction, identity, tool call, permission decision or external response produced an outcome, or when a person could intervene.</p>
           </div>
           <div class="judgement-beat judgement-implication">
             <p class="judgement-label">What to do</p>
-            <p class="judgement-text">For one consequential agent workflow, join those records and replay an out-of-scope action from trigger to intervention. Record the first point where the evidence stops explaining what happened.</p>
+            <p class="judgement-text">For one consequential agent workflow, join these records and replay an out-of-scope action from trigger to intervention. Mark the first point where evidence stops explaining what happened.</p>
           </div>
         </div>
       </section>
@@ -90,18 +90,18 @@
             <p class="eyebrow">The weekly readout</p>
             <h2>Can we reconstruct an agent's path after an unintended action?</h2>
           </div>
-          <p>Anthropic says a model's account of its reasoning may not reliably explain unintended actions. A transcript alone cannot show which instruction, identity, tool call or external response produced an outcome, or when a person could intervene.</p>
+          <p>Anthropic reports Claude used injection on a university server and submitted a sensitive form to a real website. It says impact was minimal, no customer data or internal systems were involved, and affected agencies were notified. The UK AI Security Institute's study shows why long-run agent evidence also needs to remain inspectable.</p>
         </div>
         <div class="brief-scan-grid">
           <article>
             <p class="meta">01 / What happened</p>
-            <h3>Unintended actions reached real websites and systems.</h3>
-            <p>Anthropic reports four categories of unintended action during evaluations and internal use. The company says impact was minimal, while cautioning that a model's account of its reasoning may not reliably explain why it acted.</p>
+            <h3>Long agent runs make reliable observation harder.</h3>
+            <p>The UK AI Security Institute's Transect study links events, delegation, token use and behavioural labels back to source turns. Anthropic separately reports SQL or command injection on a university server, a sensitive live form, gated data access and tool-limit workarounds; its own account says the cases had minimal impact.</p>
           </article>
           <article>
             <p class="meta">02 / Why it matters</p>
-            <h3>A transcript alone cannot reconstruct cause.</h3>
-            <p>Incident review must connect the instruction, agent identity, tool calls, permission decisions, external responses and human intervention. GitHub's two same-day disruptions are a separate reminder to preserve incident timelines across dependent services.</p>
+            <h3>Keep the evidence traceable to the source.</h3>
+            <p>Incident review must connect the instruction, agent identity, tool calls, permission decisions, external responses and human intervention. Anthropic's report is a provider account; the UK AI Security Institute's analysis offers a separate method for keeping evaluator interpretations auditable.</p>
           </article>
           <article>
             <p class="meta">03 / What to do</p>
@@ -111,7 +111,7 @@
           <article>
             <p class="meta">04 / Evidence</p>
             <h3>Join the records across the path.</h3>
-            <p>Retain model version, identity, tool call, permission decision, external response and intervention evidence. For the OFSI licence, separately verify the defined entities, expiry and six-year record requirement.</p>
+            <p>Retain model version, identity, delegated tool calls, permission decisions, external responses and intervention evidence. The SEC proposal is not law; its 60-day comment window starts after Federal Register publication. For the OFSI licence, verify the defined entities, expiry and six-year record requirement.</p>
           </article>
         </div>
       </section>
@@ -125,11 +125,11 @@
           <p>Each title links to its primary source. The Signals pages carry the wider source trail and retained material.</p>
         </div>
         <ol class="brief-index">
-          <li><span class="rank">01</span><a href="https://www.anthropic.com/research/investigating-unintended-model-actions"><h3>Investigating unintended model actions in our evaluations and internal use</h3></a><span class="meta">Model permissions</span></li>
-          <li><span class="rank">02</span><a href="https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds"><h3>SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds</h3></a><span class="meta">Cross-trading proposal</span></li>
-          <li><span class="rank">03</span><a href="https://www.githubstatus.com/incidents/djlmxz2zd0j7"><h3>Incident with Git Operations, Pull Requests and Actions</h3></a><span class="meta">Hosted development services</span></li>
-          <li><span class="rank">04</span><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257"><h3>CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw</h3></a><span class="meta">Active exploitation</span></li>
-          <li><span class="rank">05</span><a href="https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040"><h3>OFSI grants a time-bound licence to wind down Zarubezhneft transactions</h3></a><span class="meta">Time-bound sanctions licence</span></li>
+          <li><span class="rank">01</span><a href="https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations"><h3>Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations</h3></a><span class="meta">Agent observability</span></li>
+          <li><span class="rank">02</span><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257"><h3>CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw</h3></a><span class="meta">Active exploitation</span></li>
+          <li><span class="rank">03</span><a href="https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040"><h3>OFSI grants a time-bound licence to wind down Zarubezhneft transactions</h3></a><span class="meta">Time-bound sanctions licence</span></li>
+          <li><span class="rank">04</span><a href="https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds"><h3>SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds</h3></a><span class="meta">Cross-trading proposal</span></li>
+          <li><span class="rank">05</span><a href="https://www.githubstatus.com/incidents/djlmxz2zd0j7"><h3>Incident with Git Operations, Pull Requests and Actions</h3></a><span class="meta">Hosted development services</span></li>
         </ol>
       </section>
 
@@ -138,7 +138,7 @@
           <article class="brief-card brief-action-card">
             <p class="meta">Question</p>
             <h3>If an agent takes an unintended action, can we reconstruct its path from instruction to external effect without relying on the model's own explanation?</h3>
-            <p>Anthropic describes unintended actions on real websites and systems, and cautions that a model's account of its reasoning may not reliably explain why it acted. Incident review needs evidence beyond the model's own narrative.</p>
+            <p>Anthropic's self-reported cases reached outside organisations, including a university server and government websites; the company says impact was minimal and it notified affected agencies. The UK AI Security Institute study adds a separate observability method.</p>
           </article>
           <article class="brief-card brief-action-card">
             <p class="meta">Evidence</p>
@@ -147,8 +147,8 @@
           </article>
           <article class="brief-card brief-action-card">
             <p class="meta">Source trail</p>
-            <h3>Anthropic, US Securities and Exchange Commission, GitHub Status, CERT-FR / ANSSI, UK Office of Financial Sanctions Implementation</h3>
-            <p>The judgement is an editorial interpretation of dated primary sources. Rule proposals and provider-reported incidents are labelled as such.</p>
+            <h3>UK AI Security Institute, Anthropic (provider-reported incident account), CERT-FR / ANSSI, UK Office of Financial Sanctions Implementation, US Securities and Exchange Commission, GitHub Status</h3>
+            <p>The judgement is an editorial interpretation of dated primary sources. Anthropic's account is attributed to the model provider; the SEC measure is a proposal, not a rule in force.</p>
           </article>
         </div>
       </section>
@@ -235,7 +235,7 @@
         <div class="footer-brand">Weekly Brief</div>
         <div class="footer-note"><a href="/archive/">View archive</a></div>
         <div class="footer-meta">
-          <p>Written by Ben St Georges, drawing on over two decades of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p>
           <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
           <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
         </div>

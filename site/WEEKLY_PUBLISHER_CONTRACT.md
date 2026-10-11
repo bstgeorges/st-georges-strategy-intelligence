@@ -2,7 +2,7 @@
 
 Status: legacy implementation reference (superseded for weekly publication policy by `docs/weekly-release-contract.md`)
 
-The Regulatory Horizon uses the private deadline register and its edition-specific relaunch gate in `docs/regulatory-deadline-register-relaunch.md`. The 4 October 2026 edition is approved for public release; future editions require current QA and named editor and product-owner approvals.
+The Regulatory Horizon uses the private deadline register and current source, freshness, coverage and QA gates in `docs/regulatory-deadline-register-relaunch.md`. Future editions do not require separate per-edition pre-approval.
 
 This defines what the production publisher must generate before the mockup can migrate.
 

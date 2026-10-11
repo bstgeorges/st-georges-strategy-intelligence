@@ -1,18 +1,18 @@
 {
   "editionNumber": "Edition 17",
-  "title": "The boundary is the control.",
+  "title": "An agent transcript is not an incident record.",
   "weekOf": "2026-10-05",
   "publicationDate": "2026-10-11",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "The boundary is the control.",
+  "mainJudgement": "An agent transcript is not an incident record.",
   "committeeQuestion": {
-    "domain": "AI permissions",
-    "question": "Which agent actions and tools can reach live systems, and what stops a model when it crosses the permitted boundary?",
-    "why": "Anthropic reports models exploiting a software flaw, submitting a live form and reaching gated data while completing evaluation tasks. The reported impact was minimal, but the actions show why task instructions alone may not constrain connected tools.",
-    "evidence": "The workflow's tool and network permissions, evaluation transcripts for out-of-scope actions, alert and block records, and a recent test of the stop or containment route.",
+    "domain": "Agent incident evidence",
+    "question": "If an agent takes an unintended action, can we reconstruct its path from instruction to external effect without relying on the model's own explanation?",
+    "why": "Anthropic describes unintended actions on real websites and systems, and cautions that a model's account of its reasoning may not reliably explain why it acted. Incident review needs evidence beyond the model's own narrative.",
+    "evidence": "A replayable record linking the instruction, model and version, agent identity, tool calls, permission decisions, external responses, alerts and human intervention.",
     "links": [
       "brief",
       "ai",
@@ -21,10 +21,10 @@
   },
   "committeeQuestions": [
     {
-      "domain": "AI permissions",
-      "question": "Which agent actions and tools can reach live systems, and what stops a model when it crosses the permitted boundary?",
-      "why": "Anthropic reports models exploiting a software flaw, submitting a live form and reaching gated data while completing evaluation tasks. The reported impact was minimal, but the actions show why task instructions alone may not constrain connected tools.",
-      "evidence": "The workflow's tool and network permissions, evaluation transcripts for out-of-scope actions, alert and block records, and a recent test of the stop or containment route.",
+      "domain": "Agent incident evidence",
+      "question": "If an agent takes an unintended action, can we reconstruct its path from instruction to external effect without relying on the model's own explanation?",
+      "why": "Anthropic describes unintended actions on real websites and systems, and cautions that a model's account of its reasoning may not reliably explain why it acted. Incident review needs evidence beyond the model's own narrative.",
+      "evidence": "A replayable record linking the instruction, model and version, agent identity, tool calls, permission decisions, external responses, alerts and human intervention.",
       "links": [
         "brief",
         "ai",
@@ -53,20 +53,20 @@
     }
   ],
   "judgement": {
-    "title": "The boundary is the control.",
-    "editorialAngle": "Test where permissions end, what can proceed by exception, and who can evidence or stop that decision.",
-    "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome; Edition 16 followed evidence and authority across hand-offs. This edition tests the perimeter: what a model, product, or sanctions permission may do, what it must stop, and how an exception is evidenced.",
-    "observation": "Anthropic reports agents acting beyond evaluation boundaries; the SEC proposes wider fund cross-trading under updated safeguards; and the CFTC draws a new line between event contracts proposed as swaps and casino-style wagers excluded from that definition. GitHub also reports two brief, same-day service disruptions.",
-    "executiveJudgement": "The events differ in status, but expose one design issue: permission boundaries must tell an operator what can proceed, what must stop and who can authorize an exception. If that line is implicit, a rule, tool restriction or recovery plan cannot guide a live decision.",
-    "implication": "Pick one agent-enabled or market-facing process. Test an edge case against the actual permission and stop route, and assign the first gap you find."
+    "title": "An agent transcript is not an incident record.",
+    "editorialAngle": "Test whether independent evidence can reconstruct an agent's path from instruction to external effect when its own explanation may be unreliable.",
+    "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome; Edition 16 checked whether evidence survived a hand-off. This edition moves to incident reconstruction: whether records beyond the model's own account can explain an unintended agent action from trigger to external effect and intervention.",
+    "observation": "Anthropic reports four kinds of unintended model action on real websites and systems during evaluations and internal use. It says impact was minimal, but cautions that a model's account of its reasoning may not reliably explain its actions.",
+    "executiveJudgement": "That makes incident reconstruction the practical test. A transcript can show what the model said; it cannot by itself establish which instruction, identity, tool call, permission decision or external response produced the outcome, or when a person could intervene.",
+    "implication": "For one consequential agent workflow, join those records and replay an out-of-scope action from trigger to intervention. Record the first point where the evidence stops explaining what happened."
   },
   "weeklyReadout": {
-    "heading": "A control needs a clear line between allowed and blocked activity.",
+    "heading": "Can we reconstruct an agent's path after an unintended action?",
     "steps": [
-      "Permissions and classifications moved into view.",
-      "A control needs a usable boundary.",
-      "Test one edge case.",
-      "Keep the rule and the exception together."
+      "Unintended actions reached real websites and systems.",
+      "A transcript alone cannot reconstruct cause.",
+      "Replay one consequential workflow.",
+      "Join the records across the path."
     ]
   },
   "topSignals": [

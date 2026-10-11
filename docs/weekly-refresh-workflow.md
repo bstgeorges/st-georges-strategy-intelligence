@@ -59,6 +59,12 @@ This prevents ranking from being treated as editorial approval and prevents a pr
 
 Start from `docs/weekly-refresh-packet-template.md`.
 
+### Cross-brief review
+
+Review both the week's Daily Intelligence Briefing and Weekly AI Risk brief before settling the shortlist, lead signal, or judgement. Record each brief's date in the packet and reconcile its material AI, regulatory, market, and operational-risk developments against the primary-source sweep and previous editions. Follow cited reporting back to the regulator, government, company, research paper, or other directly accountable source; label proposals, reported claims, and uncertainty accurately. Record which candidates were promoted, held for later, or dropped, with a short reason. These briefs are discovery and synthesis aids, not primary evidence, and their observations do not replace source-health, archive-deduplication, or materiality gates.
+
+Run this review before drafting the judgement so a useful through-line is not lost when turning the shortlist into a concise issue. The judgement can synthesize evidence from either brief only where that evidence has been verified and the edition's lead signal supports the conclusion.
+
 Minimum source standard:
 
 - Prefer primary official sources for regulators, central banks, legislation, consultations, deadlines, enforcement, prudential policy, and legal obligations.

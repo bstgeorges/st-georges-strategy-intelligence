@@ -168,13 +168,13 @@ function checkCurrentEditionAlignment(failures) {
     `archive should report canonical latest archive ${edition.publicationDate}`,
     failures,
   );
-  const archiveMetaCount = attr(archive, /Last updated [^<]*?(?:&middot;|·)\s*(\d+) dated editions archived so far/);
-  const archiveBriefCardCount = attr(archive, /class="archive-card archive-brief"[^>]*><p class="meta">(\d+) editions? archived, latest/);
-  assert(Boolean(archiveMetaCount), "archive should state the dated edition count", failures);
-  assert(Boolean(archiveBriefCardCount), "archive brief card should state the archived edition count", failures);
+  const archiveMetaCount = attr(archive, /Last updated [^<]*?(?:&middot;|·)\s*(\d+) dated Brief snapshots archived so far/);
+  const archiveBriefCardCount = attr(archive, /class="archive-card archive-brief"[^>]*><p class="meta">(\d+) dated snapshots, latest/);
+  assert(Boolean(archiveMetaCount), "archive should state the dated Brief snapshot count", failures);
+  assert(Boolean(archiveBriefCardCount), "archive Brief card should state the dated snapshot count", failures);
   assert(
     archiveMetaCount === archiveBriefCardCount,
-    "archive masthead and Weekly Brief archive card must report the same edition count",
+    "archive masthead and Weekly Brief archive card must report the same snapshot count",
     failures,
   );
   const deepDiveArchiveSlugs = Array.from(
@@ -499,13 +499,27 @@ function main() {
     return days >= 0 && days <= 30;
   });
   const dueSoonAuthorities = new Set(dueSoon.map((entry) => entry.authority));
-  const horizonPicture = `${dueSoon.length} official date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
+  const horizonEditorial = JSON.parse(fs.readFileSync(path.join(ROOT, "dashboard/regulatory-horizon-preview/editorial.json"), "utf8"));
+  const horizonPicture = horizonEditorial.sourceEdition === horizon.edition
+    ? String(horizonEditorial.weeklyWatch?.text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+    : `${dueSoon.length} official date${dueSoon.length === 1 ? "" : "s"} fall within the next 30 days, across ${dueSoonAuthorities.size} authorit${dueSoonAuthorities.size === 1 ? "y" : "ies"}.`;
   assert(horizonPage.includes(horizonPicture), "Reg Horizon weekly picture must match the confirmed-date register", failures);
   assert(horizonPage.includes('href="/styles.css"'), "Reg Horizon must use the shared site stylesheet", failures);
   assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
   assert(horizonPage.includes('class="footer"'), "Reg Horizon must use the shared site footer", failures);
   assert(!horizonPage.includes('class="top"'), "Reg Horizon must not retain its standalone preview header", failures);
-  assert(!horizonPage.includes("Change since last review"), "first Reg Horizon edition must not imply a prior public comparison", failures);
+  assert(
+    horizonEditorial.firstEdition
+      ? !horizonPage.includes("Change since last review")
+      : horizonPage.includes("Change since last review"),
+    "Reg Horizon comparison strip must match whether the edition has a prior public comparison",
+    failures,
+  );
   for (const entry of horizon.confirmedDates || []) {
     assert(horizonPage.includes(entry.url), `published Reg Horizon page missing confirmed date source: ${entry.url}`, failures);
     assert(entry.deadline > horizon.edition, `published Reg Horizon deadline ${entry.deadline} must be after edition ${horizon.edition}`, failures);

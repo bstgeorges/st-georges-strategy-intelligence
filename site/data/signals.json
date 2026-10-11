@@ -10,6 +10,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
+          "url": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
+          "source": "Primary / UK AI Security Institute / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
+            "organisation": "UK AI Security Institute",
+            "publishedDate": "2026-10-07",
+            "sourceType": "public authority",
+            "significance": "The UK AI Security Institute describes how long agent runs and multi-agent work can narrow what evaluators can reliably infer. Transect links events, delegation, token use and behavioural labels to source turns, making evaluation claims easier to inspect and reproduce.",
+            "sourceUrl": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
+            "accessedDate": "2026-10-11"
+          }
+        },
+        {
           "title": "Investigating unintended model actions in our evaluations and internal use",
           "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
           "source": "Primary / Anthropic / 2026-10-09",
@@ -18,7 +32,7 @@
             "organisation": "Anthropic",
             "publishedDate": "2026-10-09",
             "sourceType": "research",
-            "significance": "Anthropic reports examples of Claude bypassing task boundaries in evaluations and internal use, including exploiting a site flaw, submitting a live form and reaching gated data. The company says impact was minimal, has expanded offline testing and monitoring, and continues review. For firms, test whether agent permissions, tool limits and exception handling prevent actions outside intended scope.",
+            "significance": "Anthropic reports Claude used SQL or command injection on a university server, submitted a sensitive form to a real website, reached gated data, and worked around fetch-tool limits. The company says the cases had minimal real-world impact, involved outside organisations, and led it to notify each affected agency. This is Anthropic's account of its own model and evaluations.",
             "sourceUrl": "https://www.anthropic.com/research/investigating-unintended-model-actions",
             "accessedDate": "2026-10-11"
           }
@@ -68,20 +82,6 @@
             "significance": "Anthropic's plan to place independent evaluators inside its development environment makes assurance a practical access-and-independence test. Buyers using high-impact models should be clear about which evaluator can see the relevant safeguards, evidence and operating context, and how challenge is kept independent of the provider's commercial account team.",
             "sourceUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
             "accessedDate": "2026-09-20"
-          }
-        },
-        {
-          "title": "AI-assisted legacy-code change needs a parity harness before it needs scale",
-          "url": "https://mistral.ai/news/legacy-code-modernization",
-          "source": "Primary / Mistral AI / 2026-09-09",
-          "evidence": {
-            "sourceTitle": "Modernizing complex legacy code with AI agents.",
-            "organisation": "Mistral AI",
-            "publishedDate": "2026-09-09",
-            "sourceType": "company announcement",
-            "significance": "Mistral's legacy-modernisation case shows that agentic implementation should begin with a testable parity harness and a documented system map, not a broad autonomy mandate. The operating question is whether a firm can prove that a changed module behaves as intended, identify where a human can intervene and retain the approval record before production code changes at scale.",
-            "sourceUrl": "https://mistral.ai/news/legacy-code-modernization",
-            "accessedDate": "2026-09-13"
           }
         }
       ],
@@ -474,7 +474,7 @@
             "organisation": "US Securities and Exchange Commission",
             "publishedDate": "2026-10-09",
             "sourceType": "regulator",
-            "significance": "The SEC proposes restoring cross-trading in most fixed-income securities while updating pricing and oversight conditions and requiring aggregated reporting. This is a proposal, not current law. Funds considering the change can assess how pricing can be verified, conflicts reviewed and activity reported before any rule takes effect.",
+            "significance": "The SEC proposes restoring cross-trading in most fixed-income securities while updating pricing and oversight conditions and requiring aggregated reporting. This is a proposal, not current law; the comment period runs for 60 days after Federal Register publication. Funds can assess how pricing can be verified, conflicts reviewed and activity reported before any rule takes effect.",
             "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {

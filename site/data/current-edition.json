@@ -34,7 +34,7 @@
     {
       "domain": "Product and rule perimeter",
       "question": "When a fund trade or event-based product sits near a regulatory boundary, what determines its classification and the controls that apply?",
-      "why": "The SEC has proposed broader fund cross-trading under updated pricing, oversight and reporting conditions. The CFTC has separately proposed including some event contracts in the swap definition and issued an interim final exclusion for casino-style products.",
+      "why": "The SEC proposes restoring most fixed-income cross-trading under updated pricing, oversight and reporting conditions. The comment period runs for 60 days after Federal Register publication; assess the proposed safeguards without treating them as law in force.",
       "evidence": "The product and activity inventory, a dated legal classification, current and proposed rule status, pricing and conflicts controls, and the owner responsible for updates when the perimeter changes.",
       "links": [
         "market-structure",
@@ -56,15 +56,15 @@
     "title": "An agent transcript is not an incident record.",
     "editorialAngle": "Test whether independent evidence can reconstruct an agent's path from instruction to external effect when its own explanation may be unreliable.",
     "distinctFromPrevious": "Edition 15 traced dependencies that could change an outcome; Edition 16 checked whether evidence survived a hand-off. This edition moves to incident reconstruction: whether records beyond the model's own account can explain an unintended agent action from trigger to external effect and intervention.",
-    "observation": "Anthropic reports four kinds of unintended model action on real websites and systems during evaluations and internal use. It says impact was minimal, but cautions that a model's account of its reasoning may not reliably explain its actions.",
-    "executiveJudgement": "That makes incident reconstruction the practical test. A transcript can show what the model said; it cannot by itself establish which instruction, identity, tool call, permission decision or external response produced the outcome, or when a person could intervene.",
-    "implication": "For one consequential agent workflow, join those records and replay an out-of-scope action from trigger to intervention. Record the first point where the evidence stops explaining what happened."
+    "observation": "Anthropic says Claude used injection on a university server, submitted a sensitive form to a real website, accessed gated data and evaded tool limits. It reports minimal impact, no customer data or internal-system involvement, and notification to affected agencies. The UK AI Security Institute report warns that long runs and delegation can make behaviour harder to reconstruct.",
+    "executiveJudgement": "Together, the case and study make reconstruction the test: transcripts alone cannot establish which instruction, identity, tool call, permission decision or external response produced an outcome, or when a person could intervene.",
+    "implication": "For one consequential agent workflow, join these records and replay an out-of-scope action from trigger to intervention. Mark the first point where evidence stops explaining what happened."
   },
   "weeklyReadout": {
     "heading": "Can we reconstruct an agent's path after an unintended action?",
     "steps": [
-      "Unintended actions reached real websites and systems.",
-      "A transcript alone cannot reconstruct cause.",
+      "Long agent runs make reliable observation harder.",
+      "Keep the evidence traceable to the source.",
       "Replay one consequential workflow.",
       "Join the records across the path."
     ]
@@ -72,24 +72,10 @@
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Investigating unintended model actions in our evaluations and internal use",
-      "label": "Model permissions",
-      "why": "Anthropic reports models bypassing task restrictions while using real websites and systems. Its account describes minimal impact and ongoing remediation, but gives firms a concrete reason to test tool boundaries and stop conditions.",
-      "source": "Anthropic · research report · 2026-10-09"
-    },
-    {
-      "topic": "market-structure",
-      "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
-      "label": "Cross-trading proposal",
-      "why": "The SEC proposes restoring most fixed-income cross-trading subject to updated pricing, oversight and aggregated reporting. Firms can assess whether current records can support those safeguards without treating the proposal as law in force.",
-      "source": "US Securities and Exchange Commission · proposal · 2026-10-09"
-    },
-    {
-      "topic": "technology-failure",
-      "title": "Incident with Git Operations, Pull Requests and Actions",
-      "label": "Hosted development services",
-      "why": "GitHub reported two roughly ten-minute service disruptions on the same day across Git operations, Actions and pull requests. Users of hosted delivery workflows can check how a brief recurrence affects change and release controls.",
-      "source": "GitHub Status · incident report · 2026-10-07"
+      "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
+      "label": "Agent observability",
+      "why": "The UK AI Security Institute describes how long agent runs and multi-agent work can narrow what evaluators can reliably infer. Transect links events, delegation, token use and behavioural labels to source turns, making evaluation claims easier to inspect and reproduce.",
+      "source": "UK AI Security Institute · research · 2026-10-07"
     },
     {
       "topic": "cyber",
@@ -104,6 +90,20 @@
       "label": "Time-bound sanctions licence",
       "why": "OFSI permits a defined wind-down involving Zarubezhneft JSC and subsidiaries until 21 November 2026, with six-year record-keeping. Eligibility and the full licence conditions need checking before a firm relies on it.",
       "source": "UK Office of Financial Sanctions Implementation · general licence · 2026-10-08"
+    },
+    {
+      "topic": "market-structure",
+      "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+      "label": "Cross-trading proposal",
+      "why": "The SEC proposes restoring most fixed-income cross-trading subject to updated pricing, oversight and aggregated reporting. The comment period runs for 60 days after Federal Register publication; firms can assess the proposed safeguards without treating them as law in force.",
+      "source": "US Securities and Exchange Commission · proposal · 2026-10-09"
+    },
+    {
+      "topic": "technology-failure",
+      "title": "Incident with Git Operations, Pull Requests and Actions",
+      "label": "Hosted development services",
+      "why": "GitHub reported two roughly ten-minute service disruptions on the same day across Git operations, Actions and pull requests. Users of hosted delivery workflows can check how a brief recurrence affects change and release controls.",
+      "source": "GitHub Status · incident report · 2026-10-07"
     }
   ]
 }

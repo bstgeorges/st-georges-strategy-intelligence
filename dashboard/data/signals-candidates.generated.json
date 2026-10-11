@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-10-11T11:10:28.607Z",
+  "generatedAt": "2026-10-11T13:05:21.257Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -96,7 +96,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -185,7 +185,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -244,7 +244,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 61,
+          "relevanceScore": 60,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -944,44 +944,6 @@
       "id": "third-party",
       "candidates": [
         {
-          "id": "10e3ec33340e57ce",
-          "topicId": "third-party",
-          "title": "Several services are degraded",
-          "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
-          "publishedAt": "2026-10-06T23:40:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "degraded"
-          ],
-          "titleMatchedKeywords": [
-            "degraded"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "degraded"
-          ],
-          "relevanceScore": 79,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "52623dd0ee7c9633",
           "topicId": "third-party",
           "title": "Disruption with some GitHub services",
@@ -1016,6 +978,44 @@
             "error"
           ],
           "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "10e3ec33340e57ce",
+          "topicId": "third-party",
+          "title": "Several services are degraded",
+          "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
+          "publishedAt": "2026-10-06T23:40:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "titleMatchedKeywords": [
+            "degraded"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1255,7 +1255,7 @@
           "summaryMatchedKeywords": [
             "impact"
           ],
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
@@ -1287,7 +1287,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
@@ -1322,7 +1322,7 @@
           "summaryMatchedKeywords": [
             "incident"
           ],
-          "relevanceScore": 76,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
@@ -1403,7 +1403,7 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 74,
+          "relevanceScore": 73,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
@@ -1902,7 +1902,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -1940,7 +1940,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
@@ -1973,7 +1973,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
@@ -2071,7 +2071,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 92,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
@@ -2546,48 +2546,10 @@
           "summaryMatchedKeywords": [
             "impact"
           ],
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "10e3ec33340e57ce",
-          "topicId": "technology-failure",
-          "title": "Several services are degraded",
-          "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
-          "publishedAt": "2026-10-06T23:40:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "degraded"
-          ],
-          "titleMatchedKeywords": [
-            "degraded"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "degraded"
-          ],
-          "relevanceScore": 79,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
           "id": "52623dd0ee7c9633",
@@ -2624,6 +2586,44 @@
             "error"
           ],
           "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "10e3ec33340e57ce",
+          "topicId": "technology-failure",
+          "title": "Several services are degraded",
+          "url": "https://www.githubstatus.com/incidents/cjwszcf57bff",
+          "publishedAt": "2026-10-06T23:40:44.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "titleMatchedKeywords": [
+            "degraded"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2742,7 +2742,7 @@
           "summaryMatchedKeywords": [
             "ict"
           ],
-          "relevanceScore": 73,
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank for International Settlements via rss ingestion and matched the topic rules."
@@ -2937,7 +2937,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 96,
+          "relevanceScore": 95,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
@@ -2974,7 +2974,7 @@
           "summaryMatchedKeywords": [
             "data"
           ],
-          "relevanceScore": 73,
+          "relevanceScore": 72,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
@@ -3214,7 +3214,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
@@ -3245,7 +3245,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
+          "relevanceScore": 65,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -3278,7 +3278,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
@@ -3311,7 +3311,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 65,
+          "relevanceScore": 64,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
@@ -3342,7 +3342,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -3375,7 +3375,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 63,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -3406,7 +3406,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
@@ -3437,7 +3437,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."

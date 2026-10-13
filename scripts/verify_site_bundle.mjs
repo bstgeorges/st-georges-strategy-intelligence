@@ -31,14 +31,12 @@ const routes = [
 ];
 
 const canonicalNavigation = [
-  "/",
   "/brief/",
   "/signals/",
   "/regulatory-horizon/",
   "/deep-dives/",
   "/committee-questions/",
   "/archive/",
-  "/about/",
 ];
 
 const topics = [
@@ -114,7 +112,7 @@ function checkCurrentEditionAlignment(failures) {
   const signals = readJson("data/signals.json");
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
   const briefEditionLabel = `Weekly Brief / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
-  const committeeEditionLabel = `Edition date ${formatDateLong(edition.publicationDate)}`;
+  const committeeEditionLabel = `${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
   const expectedTopSignals = (edition.topSignals || []).map((signal) => signal.title);
 
   function topSignalTitles(html, pattern) {
@@ -141,7 +139,7 @@ function checkCurrentEditionAlignment(failures) {
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
-  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the eight canonical site routes", failures);
+  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the six canonical site routes", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
@@ -192,9 +190,10 @@ function checkCurrentEditionAlignment(failures) {
   const aiSignals = read("signals/ai/index.html");
   assert(aiSignals.includes(`"dateModified": "${edition.publicationDate}"`), "AI Signals structured data should use the current edition date", failures);
   const committeeQuestions = edition.committeeQuestions || [edition.committeeQuestion];
+  const currentCommitteeSection = (committee.match(/<section\b[^>]*id="committee-current-question"[^>]*>([\s\S]*?)<\/section>/) || [])[1] || "";
   assert(committeeQuestions.length === 3, "current edition should define three Committee Questions", failures);
   for (const question of committeeQuestions) {
-    assert(committee.includes(question?.question || ""), "committee questions should include every canonical current-edition question", failures);
+    assert(currentCommitteeSection.includes(question?.question || ""), "Committee Questions current section should include every canonical current-edition question", failures);
   }
   if (edition.deepDive) {
     const deepDiveArchive = deepDiveArchiveDetails(edition.deepDive);
@@ -430,7 +429,7 @@ function main() {
     const html = read(relative);
     assert(
       JSON.stringify(navigationRoutes(html)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the eight canonical site routes`,
+      `${relative} must use the six canonical site routes`,
       failures,
     );
   }
@@ -462,9 +461,11 @@ function main() {
     const page = read(relative);
     assert(
       JSON.stringify(navigationRoutes(page)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the eight canonical site routes`,
+      `${relative} must use the six canonical site routes`,
       failures,
     );
+    const footer = (page.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/i) || [""])[0];
+    assert(/href="\/about\/"/.test(footer), `${relative} footer must retain the About link after navigation was trimmed`, failures);
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);

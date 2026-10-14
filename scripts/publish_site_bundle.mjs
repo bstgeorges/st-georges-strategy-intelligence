@@ -1857,6 +1857,18 @@ function updateArchiveIndexCards(out, edition) {
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
 
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
+  const topicDateLists = topics.map((topic) => listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition));
+  const topicDates = new Set(topicDateLists.flat());
+  const briefOnlyDates = briefDates.filter((date) => !topicDates.has(date));
+  const topicCounts = topicDateLists.map((dates) => dates.length);
+  const topicCountSummary = topicCounts.every((count) => count === topicCounts[0])
+    ? `each of the ${topics.length} topic archives holds ${topicCounts[0]}`
+    : `the topic archives hold between ${Math.min(...topicCounts)} and ${Math.max(...topicCounts)}`;
+  const unmatchedNote = briefOnlyDates.length
+    ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${escapeHtml(formatDateLong(date))}</a>`).join(", ")}; no topic archive has a matching date.`
+    : "";
+  const totalsDiffer = briefDates.length !== topicCounts[0] || !topicCounts.every((count) => count === topicCounts[0]);
+  const countNote = `<p class="archive-count-note"><strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${briefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}</p>`;
   const archiveMetaStart = "<!-- archive-meta:start -->";
   const archiveMetaEnd = "<!-- archive-meta:end -->";
   const archiveMeta = briefDates.length
@@ -1890,6 +1902,14 @@ function updateArchiveIndexCards(out, edition) {
   const archiveMetaEndIndex = rebuilt.indexOf(archiveMetaEnd);
   if (archiveMetaStartIndex !== -1 && archiveMetaEndIndex > archiveMetaStartIndex) {
     rebuilt = `${rebuilt.slice(0, archiveMetaStartIndex)}${archiveMetaStart}\n        ${archiveMeta}\n        ${rebuilt.slice(archiveMetaEndIndex)}`;
+  }
+
+  const countNoteStart = "<!-- archive-count-note:start -->";
+  const countNoteEnd = "<!-- archive-count-note:end -->";
+  const countNoteStartIndex = rebuilt.indexOf(countNoteStart);
+  const countNoteEndIndex = rebuilt.indexOf(countNoteEnd);
+  if (countNoteStartIndex !== -1 && countNoteEndIndex > countNoteStartIndex) {
+    rebuilt = `${rebuilt.slice(0, countNoteStartIndex)}${countNoteStart}\n          ${countNote}\n          ${rebuilt.slice(countNoteEndIndex)}`;
   }
 
   // The page's own JSON-LD dateModified was a hardcoded placeholder that never moved,

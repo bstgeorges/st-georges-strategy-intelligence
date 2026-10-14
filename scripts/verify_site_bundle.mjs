@@ -175,6 +175,25 @@ function checkCurrentEditionAlignment(failures) {
     "archive masthead and Weekly Brief archive card must report the same snapshot count",
     failures,
   );
+  const storedBriefDates = fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/brief"), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .map((entry) => entry.name);
+  const storedTopicDates = new Set(topics.flatMap((topic) => fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/topics", topic), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .map((entry) => entry.name)));
+  const briefOnlyDates = storedBriefDates.filter((date) => !storedTopicDates.has(date)).sort();
+  const topicCounts = topics.map((topic) => fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/topics", topic), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .length);
+  const topicCountSummary = topicCounts.every((count) => count === topicCounts[0])
+    ? `each of the ${topics.length} topic archives holds ${topicCounts[0]}`
+    : `the topic archives hold between ${Math.min(...topicCounts)} and ${Math.max(...topicCounts)}`;
+  const totalsDiffer = storedBriefDates.length !== topicCounts[0] || !topicCounts.every((count) => count === topicCounts[0]);
+  const unmatchedNote = briefOnlyDates.length
+    ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${formatDateLong(date)}</a>`).join(", ")}; no topic archive has a matching date.`
+    : "";
+  const countExplanation = `<strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${storedBriefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}`;
+  assert(archive.includes(countExplanation), `archive must explain its snapshot counts: ${countExplanation}`, failures);
   const deepDiveArchiveSlugs = Array.from(
     archive.matchAll(/href="\/deep-dives\/([^/]+)\/archive\/[^/]+\//g),
     (match) => match[1],

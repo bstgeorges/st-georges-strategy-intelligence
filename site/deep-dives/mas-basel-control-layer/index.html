@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MAS, Basel and the Missing Control Layer | Deep Dive | St Georges Strategy</title>
+    <meta name="description" content="MAS’s new AI risk guidelines and its work on agent safeguards pose a practical question for EMEA banks: can governance prove that an agent stays within its authority?">
+    <link rel="canonical" href="https://stgeorgesstrategy.com/deep-dives/mas-basel-control-layer/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="MAS, Basel and the Missing Control Layer">
+    <meta property="og:description" content="A practical test of whether financial institutions can govern AI agents at design time and control their actions at runtime.">
+    <meta property="og:url" content="https://stgeorgesstrategy.com/deep-dives/mas-basel-control-layer/">
+    <meta property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MAS, Basel and the Missing Control Layer">
+    <meta name="twitter:description" content="A Deep Dive from The Virtual Officer.">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "MAS, Basel and the Missing Control Layer: What AI Governance Means for EMEA Banks",
+        "description": "MAS’s new AI risk guidelines and its work on agent safeguards pose a practical question for EMEA banks: can governance prove that an agent stays within its authority?",
+        "datePublished": "2026-10-14",
+        "dateModified": "2026-10-14",
+        "author": { "@type": "Person", "name": "Ben St Georges" },
+        "publisher": { "@type": "Organization", "name": "St Georges Strategy" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://stgeorgesstrategy.com/deep-dives/mas-basel-control-layer/" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="../../app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="../../index.html" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../brief/index.html">Weekly Brief</a>
+          <a href="../../signals/index.html">Signals</a>
+          <a href="../index.html">Deep Dives</a>
+          <a href="../../committee-questions/index.html">Committee Questions</a>
+          <a href="../../archive/index.html">Archive</a>
+          <a href="../../about/index.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page deep-dive-page">
+      <article>
+        <header class="masthead deep-dive-masthead">
+          <p class="eyebrow">Deep Dive <span aria-hidden="true">·</span> AI governance &amp; operational risk</p>
+          <h1>MAS, Basel and the <em>missing control layer.</em></h1>
+          <p class="dek">Singapore’s new financial-sector AI guidelines and its work on runtime safeguards expose a practical gap: governance can approve a use case without proving that an agent stays within its authority.</p>
+          <p class="deep-dive-byline">By The Virtual Officer <span aria-hidden="true">·</span> 14 October 2026 <span aria-hidden="true">·</span> 9 min read</p>
+        </header>
+
+        <section class="deep-dive-timeline" aria-label="Three recent regulatory signals">
+          <div><p class="meta">7 Oct</p><p>MAS issues AI risk-management Guidelines covering all supervised financial institutions and all forms of AI.</p></div>
+          <div><p class="meta">9 Oct</p><p>MAS describes SAFR version 1.1 and an open-source reference implementation for agent safeguards.</p></div>
+          <div><p class="meta">12 Oct</p><p>The FSB says it has finalised responsible-AI sound practices after public consultation.</p></div>
+        </section>
+
+        <div class="deep-dive-body">
+          <p class="deep-dive-lead">If an autonomous agent acts beyond its intended authority tomorrow, would your operational-risk framework detect the boundary breach, identify the accountable owner and give you evidence to intervene?</p>
+          <p>That question sits behind the Monetary Authority of Singapore’s new AI risk-management Guidelines, and it matters beyond Singapore. The Guidelines apply across financial institutions and forms of AI. They call for an inventory, a materiality assessment for each use case, controls across the AI lifecycle and continued accountability when a firm relies on third-party AI.</p>
+          <p>The argument here is that the debate over where AI risk belongs is less useful than the question of whether the control framework works. AI may not need a new risk taxonomy. It needs clear accountability across existing risk categories, plus controls that remain effective as systems gain autonomy, interact with other systems and change their operating environment.</p>
+
+          <section class="deep-dive-section" aria-labelledby="mas-title">
+            <p class="meta">01 / What MAS requires</p>
+            <h2 id="mas-title">A proportionate framework across the AI lifecycle.</h2>
+            <p>The Guidelines set high-level supervisory expectations and let financial institutions scale their approach to the nature and materiality of their AI use. Existing governance structures can be used where they provide effective oversight and cross-functional coordination; MAS says a dedicated AI committee is not required solely to meet the Guidelines.</p>
+            <dl class="deep-dive-expectation-grid">
+              <div><dt>Scope</dt><dd>All financial institutions to which the Guidelines apply, and all forms of AI technology.</dd></div>
+              <div><dt>Oversight</dt><dd>The board and senior management oversee AI risk, with clear accountabilities, risk appetite and coordination across functions.</dd></div>
+              <div><dt>Inventory and materiality</dt><dd>Identify AI use, maintain an inventory and assess the materiality of each use case.</dd></div>
+              <div><dt>Lifecycle controls</dt><dd>Apply proportionate controls for data, testing, human oversight, cybersecurity, monitoring and change management.</dd></div>
+              <div><dt>Third-party AI</dt><dd>The institution remains accountable, seeks risk-appropriate assurance and considers limiting, suspending or replacing a service when residual risk exceeds its appetite.</dd></div>
+              <div><dt>Implementation</dt><dd>The Guidelines take effect on 7 October 2027. Institutions may meet Sections 3–4 from that date and Sections 5–6 by 7 October 2028.</dd></div>
+            </dl>
+            <p>The Guidelines cover agents as AI rather than establishing a separate agent rulebook. They do, however, call out agent-specific inventory details such as identifiers, tools and systems the agent can access, its components and the guardrails applied. MAS also says firms should review controls as autonomous systems and tool access grow, and plans to consult the financial sector in 2027 on what additional agentic-AI guidance would be useful.</p>
+            <p><a href="https://www.mas.gov.sg/regulation/guidelines/guidelines-on-artificial-intelligence-risk-management-for-financial-institutions">MAS Guidelines on AI Risk Management</a> · <a href="https://www.mas.gov.sg/news/media-releases/2026/mas-sets-out-supervisory-expectations-on-responsible-ai-adoption-by-financial-institutions">MAS media release, 7 October 2026</a></p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="instruments-title">
+            <p class="meta">02 / Different instruments, same challenge</p>
+            <h2 id="instruments-title">These authorities are answering different questions.</h2>
+            <p>MAS asks how an institution governs AI. Basel asks whether its operational-risk event categories remain adequate. The FSB offers international reference points; the FCA examines whether existing accountability regimes can flex; the EU sets obligations for high-risk AI systems and the organisations that provide or deploy them.</p>
+            <div class="grid-2 deep-dive-framework-grid">
+              <article class="deep-dive-framework-card"><p class="meta">MAS</p><h3>AI risk-management Guidelines · 7 October 2026</h3><p>Set supervisory expectations for how financial institutions identify, assess and manage AI risk.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">MAS and industry</p><h3>SAFR white paper · first published 3 July 2026</h3><p>An industry-developed runtime-safeguards framework. MAS announced version 1.1 and a reference implementation on 9 October; it is not a binding prudential rule.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">Basel Committee</p><h3>Meeting outcome · 1 October 2026</h3><p>Agreed to review the sufficiency of operational-risk event-type loss categories, focusing on cyber risk and AI developments.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">Financial Stability Board</p><h3>Sound practices · 12 October 2026</h3><p>Announced that it had finalised 12 sound practices for responsible AI adoption following the June consultation.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">FCA-commissioned Mills Review</p><h3>AI and the future of retail financial services · 6 July 2026</h3><p>Finds the overall regulatory framework remains sound, and recommends that the FCA consider leading a trusted framework for agent authorisation, identification and accountability.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">European Union</p><h3>Digital Omnibus on AI · in force 27 July 2026</h3><p>Moves application dates for high-risk AI obligations to 2 December 2027 for Annex III systems and 2 August 2028 for Annex I product-safety systems.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">United States</p><h3>Federal Reserve SR 26-2 · 17 April 2026</h3><p>Excludes generative and agentic AI models from this model-risk guidance while stating that broader institutional governance should determine appropriate controls.</p></article>
+            </div>
+            <p>The Basel Committee’s own wording is telling: integrating AI into critical functions “will require careful governance, robust risk management and ongoing supervisory attention.” Supervisory expectations on runtime control are also becoming clearer through MAS and SAFR. Each institution still has to show that its controls are implemented, effective and open to independent challenge.</p>
+            <p><a href="https://www.bis.org/media-releases/20261001-basel-committee-meets-advance-supervisory-and-regulatory-initiatives-and-discuss-risks-and">Basel Committee, 1 October 2026</a> · <a href="https://www.fsb.org/2026/10/fsb-chair-sets-out-fsb-work-on-ai-and-stablecoins/">FSB Chair’s note, 12 October 2026</a> · <a href="https://www.fca.org.uk/publication/corporate/the-mills-review.pdf">FCA-commissioned Mills Review, pp. 8 and 107</a></p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="layers-title">
+            <p class="meta">03 / Governance at design time, control at runtime</p>
+            <h2 id="layers-title">Approval and live authority need different evidence.</h2>
+            <p>MAS expects monitoring and change management across the AI lifecycle. In practice, governance evidence is often strongest at approval, while autonomous activity needs continuous evidence that controls remain effective. This is an analytical distinction, not MAS’s formal classification.</p>
+            <div class="grid-2 deep-dive-framework-grid">
+              <article class="deep-dive-framework-card"><p class="meta">Governance at design time</p><h3>What is approved?</h3><p>Inventory, materiality, ownership, risk appetite, testing and approval. Typical evidence: a register entry, assessment and sign-off.</p></article>
+              <article class="deep-dive-framework-card"><p class="meta">Control at runtime</p><h3>What can it do now?</h3><p>Permissions, action boundaries, intervention, evidence capture and termination. Evidence should let an independent reviewer reconcile proposed and executed actions, policy decisions, permission changes and stop events.</p></article>
+            </div>
+            <p>An inventory can show that an agent was approved. It cannot show whether the agent’s actions stay within its authorised boundaries. A human approval step is not an effective control if the person approving cannot understand the chain of actions they are authorising.</p>
+            <p>MAS’s SAFR work points in the same direction. The <em>Safeguards for Agentic Finance at Runtime</em> white paper was developed with financial institutions and fintechs under BuildFin.ai. In his 9 October keynote, MAS Managing Director Chia Der Jiun said version 1.1 had been published with a wider group of contributors, and that an open-source reference implementation was available through the Future of Finance Institute.</p>
+            <p>SAFR describes three runtime elements: establish agent identity and authorisation; check proposed actions against the user’s mandate before execution; and maintain accountability and auditability. The reference implementation makes that design more concrete. It supports experimentation and implementation; it does not certify a firm’s regulatory compliance. SAFR remains an industry-developed framework, while MAS’s Guidelines set the supervisory expectations.</p>
+            <p><a href="https://www.mas.gov.sg/news/speeches/2026/building-trusted-foundations-for-digital-finance">MAS Managing Director Chia Der Jiun, 9 October 2026</a> · <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2026/safeguards-for-agentic-finance-at-runtime">SAFR white paper</a> · <a href="https://github.com/BuildFin-ai/SAFR">SAFR reference implementation</a></p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="rcsa-title">
+            <p class="meta">04 / The RCSA test</p>
+            <h2 id="rcsa-title">Does your framework see the agent or just the application?</h2>
+            <p>Consider an illustrative scenario. An AI agent is approved to support payment investigations. It can retrieve customer information, query transaction systems and draft recommendations. Over time, its permissions are widened so it can modify records and start workflow actions.</p>
+            <p>On paper, the framework looks complete: an approved use case, an accountable business owner, a materiality rating and completed model testing. The test is whether it can answer six further questions:</p>
+            <ol class="deep-dive-questions deep-dive-rcsa-questions">
+              <li><span>01</span><p>Who authorised the additional permissions?</p></li>
+              <li><span>02</span><p>Was the change assessed against the use that was originally approved?</p></li>
+              <li><span>03</span><p>What stops the agent acting outside its mandate?</p></li>
+              <li><span>04</span><p>Can control teams reconstruct the full sequence of decisions it took?</p></li>
+              <li><span>05</span><p>Who can stop it, and how quickly?</p></li>
+              <li><span>06</span><p>Would the incident be visible through existing KRIs, RCSA and incident reporting?</p></li>
+            </ol>
+            <p>Traditional risk assessment processes often put more emphasis on approval and periodic reassessment than on changing permissions and operational authority. If an RCSA describes the application but not the agent’s current authority, a boundary breach may surface through its consequences rather than through a control.</p>
+            <p>A practical division of labour is for the first line to operate the technical controls that detect and prevent unauthorised actions, while operational risk provides the framework, challenge, aggregation and escalation. An RCSA is not itself a runtime detection mechanism. It should establish that runtime controls exist, have clear owners and are working.</p>
+            <p>The evidence also has to be independently reconcilable. An agent’s declaration of what it intends to do is not necessarily reliable evidence of what it actually did. The harder test is whether the institution can reconcile authorised actions, actual execution, policy decisions and subsequent exceptions.</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="emea-title">
+            <p class="meta">05 / What this means for EMEA operational risk</p>
+            <h2 id="emea-title">Integrate the controls firms already have.</h2>
+            <p>For EMEA institutions the challenge is integration rather than regulatory invention. UK model-risk expectations, operational-resilience frameworks and European third-party and AI obligations already create overlapping responsibilities. The PRA’s SS1/23, for example, includes a principle on identifying and managing AI risks for UK-incorporated banks, building societies and PRA-designated investment firms with internal model approvals. Its scope is not universal across UK banks, but it is a relevant comparator.</p>
+            <p>The question is whether these arrangements together cover an agent’s operational authority, changing permissions and ability to act across systems, without leaving gaps between risk and control owners. Four practical implications follow. They are analysis rather than regulatory requirements.</p>
+            <ol class="deep-dive-implications">
+              <li><strong>Separate ownership of risk from ownership of controls.</strong> Accountability for the business use, technical system, control design and independent challenge can sit with different people. The test is whether each responsibility is unambiguous across organisational boundaries.</li>
+              <li><strong>Inventory what agents can do.</strong> Record the tools an agent can call, the permissions it holds and changes to those permissions over time, alongside the model and use case. MAS specifically highlights agent identifiers, accessible tools and systems, components and guardrails as relevant inventory attributes.</li>
+              <li><strong>Plan for third-party exit.</strong> MAS expects firms to consider limiting, suspending or replacing a third-party AI service if risk cannot be brought within appetite. Map that alongside DORA’s register of information and the EBA’s third-party risk Guidelines, which have a two-year transition.</li>
+              <li><strong>Mind the Singapore clock.</strong> A group with a MAS-supervised entity has its first implementation date on 7 October 2027. A common group baseline may be simpler to operate than regional variants, while preserving local tailoring and proportional treatment for low-materiality use.</li>
+            </ol>
+            <p><a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss">PRA SS1/23</a> · <a href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj">DORA, Regulation (EU) 2022/2554</a> · <a href="https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-management-third-party-risk-delivering-more-proportionate-and">EBA third-party risk Guidelines, 18 September 2026</a></p>
+          </section>
+
+          <section class="deep-dive-conclusion" aria-labelledby="board-title">
+            <p class="eyebrow">For the board</p>
+            <h2 id="board-title">Six checks for your AI governance framework</h2>
+            <p>These checks test whether the framework can see what an agent is authorised to do, not just that it was approved.</p>
+            <ol class="deep-dive-questions">
+              <li><span>01</span><p>Can we list every AI system in use, including AI embedded in vendor software, with the tools and permissions each agent holds?</p></li>
+              <li><span>02</span><p>Does each use case have a materiality assessment, with proportionate treatment for low-risk uses?</p></li>
+              <li><span>03</span><p>Is responsibility for the business use, the system, control design and independent challenge unambiguous?</p></li>
+              <li><span>04</span><p>For each material third-party AI service, can we show the assurance obtained and an exit or suspension path?</p></li>
+              <li><span>05</span><p>Do permission changes trigger a fresh assessment against the originally approved use?</p></li>
+              <li><span>06</span><p>Can we reconstruct an agent’s actions, and stop it quickly enough to matter?</p></li>
+            </ol>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="conclusion-title">
+            <p class="meta">The control question</p>
+            <h2 id="conclusion-title">Can the institution prove what its AI is authorised to do?</h2>
+            <p>The test of AI governance is no longer only whether a system was approved or whether its risks were assessed. It is whether the institution can establish what that system is authorised to do, detect when it exceeds those boundaries and intervene before an error becomes an incident. For operational-risk functions, that means looking beyond the application to the controls governing the actions it can take.</p>
+          </section>
+
+          <section class="deep-dive-sources" aria-labelledby="sources-title">
+            <p class="eyebrow">Sources</p>
+            <h2 id="sources-title">Direct evidence behind this analysis</h2>
+            <div class="source-row">
+              <a href="https://www.mas.gov.sg/regulation/guidelines/guidelines-on-artificial-intelligence-risk-management-for-financial-institutions">Monetary Authority of Singapore — Guidelines on Artificial Intelligence Risk Management for Financial Institutions, 7 October 2026</a>
+              <a href="https://www.mas.gov.sg/news/media-releases/2026/mas-sets-out-supervisory-expectations-on-responsible-ai-adoption-by-financial-institutions">Monetary Authority of Singapore — Supervisory expectations on responsible AI adoption, 7 October 2026</a>
+              <a href="https://www.mas.gov.sg/news/speeches/2026/building-trusted-foundations-for-digital-finance">Chia Der Jiun, MAS — Building Trusted Foundations for Digital Finance, 9 October 2026</a>
+              <a href="https://www.mas.gov.sg/publications/monographs-or-information-paper/2026/safeguards-for-agentic-finance-at-runtime">MAS and industry partners — Safeguards for Agentic Finance at Runtime (SAFR)</a>
+              <a href="https://github.com/BuildFin-ai/SAFR">Future of Finance Institute / BuildFin.ai — SAFR reference implementation</a>
+              <a href="https://www.bis.org/media-releases/20261001-basel-committee-meets-advance-supervisory-and-regulatory-initiatives-and-discuss-risks-and">Basel Committee on Banking Supervision — Meeting outcome, 1 October 2026</a>
+              <a href="https://www.fsb.org/2026/10/fsb-chair-sets-out-fsb-work-on-ai-and-stablecoins/">Financial Stability Board — FSB Chair sets out FSB work on AI and stablecoins, 12 October 2026</a>
+              <a href="https://www.fca.org.uk/publication/corporate/the-mills-review.pdf">FCA-commissioned Mills Review — AI and the future of retail financial services, 6 July 2026</a>
+              <a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj">European Union — Regulation (EU) 2026/1744, Digital Omnibus on AI</a>
+              <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf">Federal Reserve — SR 26-2, Revised Guidance on Model Risk Management, 17 April 2026</a>
+              <a href="https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss">Prudential Regulation Authority — SS1/23: Model risk management principles for banks</a>
+              <a href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj">European Union — Digital Operational Resilience Act, Regulation (EU) 2022/2554</a>
+              <a href="https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-its-final-guidelines-management-third-party-risk-delivering-more-proportionate-and">European Banking Authority — Final Guidelines on the management of third-party risk, 18 September 2026</a>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">The Virtual Officer — Deep Dives</div>
+        <div class="footer-note"><a class="button outline footer-cta" href="../../brief/index.html">Read the latest brief</a></div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

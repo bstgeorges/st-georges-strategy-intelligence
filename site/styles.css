@@ -1222,6 +1222,74 @@ a.tag:hover {
   line-height: 1.45;
 }
 
+.deep-dive-expectation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 26px 0;
+  background: rgba(15, 34, 51, 0.16);
+}
+
+.deep-dive-expectation-grid > div {
+  padding: 18px 20px;
+  background: var(--paper-raised);
+}
+
+.deep-dive-expectation-grid dt {
+  margin-bottom: 6px;
+  color: var(--accent-readable);
+  font: 600 11px/1.4 var(--mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.deep-dive-expectation-grid dd {
+  margin: 0;
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.deep-dive-framework-grid {
+  margin: 24px 0;
+}
+
+.deep-dive-framework-card {
+  min-width: 0;
+  border-top: 3px solid var(--accent);
+  padding: 20px;
+  background: var(--paper-raised);
+}
+
+.deep-dive-framework-card .meta {
+  margin-bottom: 8px;
+  color: var(--accent-readable);
+}
+
+.deep-dive-framework-card h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font: 600 clamp(20px, 2vw, 25px)/1.15 var(--serif);
+}
+
+.deep-dive-framework-card p:last-child {
+  margin-bottom: 0;
+}
+
+.deep-dive-implications {
+  padding-left: 24px;
+}
+
+.deep-dive-implications li {
+  margin: 14px 0;
+  padding-left: 5px;
+  line-height: 1.58;
+}
+
+.deep-dive-implications strong {
+  color: var(--navy);
+}
+
 .deep-dive-body {
   max-width: 780px;
   margin: 0 auto;
@@ -1344,6 +1412,14 @@ a.tag:hover {
   margin: 0;
   color: var(--paper);
   font: italic 600 21px/1.38 var(--serif);
+}
+
+.deep-dive-rcsa-questions li {
+  border-top-color: rgba(15, 34, 51, 0.16);
+}
+
+.deep-dive-rcsa-questions p {
+  color: var(--navy);
 }
 
 .deep-dive-sources {
@@ -2919,6 +2995,14 @@ a.tag:hover {
 }
 
 @media (max-width: 760px) {
+  .deep-dive-expectation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deep-dive-framework-card {
+    padding: 18px;
+  }
+
   body {
     font-size: 16px;
   }

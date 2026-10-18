@@ -10,22 +10,17 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
-          "title": "Agent use is expanding from coding into planning and post-release work",
-          "url": "https://openai.com/index/amp-beyond-coding",
-          "source": "Primary / OpenAI / 2026-10-14",
+          "title": "BIS Project Agenti tests interacting agents in wholesale payment systems",
+          "url": "https://www.bis.org/node/87745",
+          "source": "Primary / Bank for International Settlements / 2026-10-14",
           "evidence": {
-            "sourceTitle": "Amp puts AI agents to work beyond code with OpenAI models",
-            "organisation": "OpenAI",
+            "sourceTitle": "Project Agenti",
+            "organisation": "Bank for International Settlements",
             "publishedDate": "2026-10-14",
-            "sourceType": "company announcement",
-            "significance": "OpenAI's account of Amp describes agent use for planning, design and post-release work. This is a provider-published customer story, not independent proof of general performance; assess the access, usage and review boundaries when work extends beyond coding.",
-            "sourceUrl": "https://openai.com/index/amp-beyond-coding",
-            "accessedDate": "2026-10-18",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-18",
-              "reason": "OpenAI's primary customer story displays 14 October 2026 beneath the OpenAI heading. The page describes Amp's agent use for planning and post-release work; the date and account were checked on the primary page."
-            }
+            "sourceType": "public authority",
+            "significance": "The BIS Innovation Hub project uses an auditable, risk-free simulator to explore how agents representing payment-system participants may affect payment timing, liquidity use, gridlock and shock propagation. It is ongoing controlled research, not a live-market result or supervisory requirement.",
+            "sourceUrl": "https://www.bis.org/node/87745",
+            "accessedDate": "2026-10-18"
           }
         },
         {
@@ -151,16 +146,16 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
-          "title": "Repeated shocks make resilience a cross-risk scenario",
-          "url": "https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-08",
+          "title": "FPC links frontier-AI incidents to cyber and operational risks",
+          "url": "https://www.bankofengland.co.uk/financial-policy-committee-record/2026/september-2026",
+          "source": "Primary / Bank of England Financial Policy Committee / 2026-09-30",
           "evidence": {
-            "sourceTitle": "Financial resilience in an age of repeated shocks -  speech by Andrew Bailey",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-10-08",
+            "sourceTitle": "Financial Policy Committee Record – September 2026",
+            "organisation": "Bank of England Financial Policy Committee",
+            "publishedDate": "2026-09-30",
             "sourceType": "regulator",
-            "significance": "Andrew Bailey's speech frames financial resilience amid repeated shocks. It is context for scenario design, not a new supervisory requirement; test how correlated financial and operational pressures affect service priorities.",
-            "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul",
+            "significance": "The FPC says recent frontier-AI test-environment incidents reinforce the need for firms to prepare for AI-related cyber and operational risks. The record also says interconnected financial vulnerabilities are more likely to crystallise together; it does not describe BIS Project Agenti or a new requirement.",
+            "sourceUrl": "https://www.bankofengland.co.uk/financial-policy-committee-record/2026/september-2026",
             "accessedDate": "2026-10-18"
           }
         },
@@ -831,7 +826,7 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
-          "title": "A critical BeyondTrust flaw requires an estate exposure check",
+          "title": "BeyondTrust flaw is reported exploited in the wild",
           "url": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764",
           "source": "Primary / Canadian Centre for Cyber Security / 2026-10-16",
           "evidence": {
@@ -839,7 +834,7 @@
             "organisation": "Canadian Centre for Cyber Security",
             "publishedDate": "2026-10-16",
             "sourceType": "regulator",
-            "significance": "The Canadian Centre for Cyber Security identifies a critical BeyondTrust Remote Support vulnerability. Map affected versions to the estate; where exposed, apply vendor guidance and review indicators.",
+            "significance": "The Canadian Cyber Centre reports open-source indications of exploitation in the wild. Check self-hosted Remote Support versions 26.2.3 and earlier and apply patch BT26-05-RS to affected versions 24.3.1 through 26.2.3. BeyondTrust says Remote Support SaaS customers were patched by 9 October; verify the deployment type and patch state.",
             "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764",
             "accessedDate": "2026-10-18"
           }
@@ -1161,7 +1156,7 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
-          "title": "European authorities link data protection and value in finance",
+          "title": "European regulators link data protection with value in finance",
           "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
           "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16",
           "evidence": {
@@ -1169,7 +1164,7 @@
             "organisation": "Commission nationale de l'informatique et des libertés",
             "publishedDate": "2026-10-16",
             "sourceType": "regulator",
-            "significance": "CNIL and European authorities examine data protection's role in value creation in finance. Treat this as cross-authority analysis, not a new rule; review data use, accountability, security and rights handling.",
+            "significance": "CNIL, the UK ICO and Luxembourg’s CNPD jointly examine how data protection and governance affect trust, resilience, AI use and the valuation of financial data. This is joint analysis and good practice, not a new rule.",
             "sourceUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
             "accessedDate": "2026-10-18",
             "sourceDateVerification": {

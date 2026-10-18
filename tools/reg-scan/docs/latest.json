@@ -1,23 +1,23 @@
 {
-  "edition": "2026-10-11",
-  "generatedAt": "2026-10-11 07:37 UTC",
+  "edition": "2026-10-18",
+  "generatedAt": "2026-10-18 08:05 UTC",
   "windowDays": 90,
   "visibility": "private",
   "status": "private-review",
   "kpis": {
     "material": 15,
-    "themes": 5,
-    "sources": 8,
+    "themes": 6,
+    "sources": 10,
     "jurisdictions": 8,
     "coverage": "0 of 53"
   },
-  "bottomLine": "The clearest trigger this edition is \"Arrêté du 28 août 2026 portant homologation de modifications du règlement général de l’Autorité des marchés financiers\" from Autorité des marchés financiers (final-rule). Material signals span 5 of 8 watch themes. 4 open consultation(s) to influence - prioritise responses.",
+  "bottomLine": "The clearest trigger this edition is \"Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -\" from Autorité des marchés financiers (final-rule). Material signals span 6 of 8 watch themes. 3 open consultation(s) to influence - prioritise responses.",
   "horizon": [
     {
       "date": "2026-10-22",
       "stage": "consultation-close",
       "band": "0-30",
-      "daysLeft": 11,
+      "daysLeft": 4,
       "title": "PRA consults on updated guidance for friendly society amalgamations and transfers",
       "source": "Bank of England and Prudential Regulation Authority",
       "url": "https://www.bankofengland.co.uk/news/2026/july/pra-consults-on-updated-guidance-for-friendly-society-amalgamations-and-transfers",
@@ -29,6 +29,63 @@
     }
   ],
   "signals": [
+    {
+      "authorityId": "fr-amf",
+      "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
+      "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
+      "source": "Autorité des marchés financiers",
+      "sourceStatus": "approved",
+      "jurisdictions": [
+        "France",
+        "EU"
+      ],
+      "date": "2026-10-12",
+      "type": "final-rule",
+      "riskAreas": [
+        "balance-sheet"
+      ],
+      "why": "A final-rule from Autorité des marchés financiers touching balance-sheet. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "22.0 L'instruction DOC-2011-22 détaille les règles applicables aux fonds de capital investissement (FCPR, FCPI et FIP) agréés quant à la procédure d'agrément, l'établissement d'un document d'information clé (DIC) et/ou, le cas échéant, d'un document d'information clé pour investisseur (DICI) et d'un règlement et l'information...",
+        "affected": "Balance sheet teams and control owners in France, EU.",
+        "implication": "The item may change expectations for balance sheet; confirm applicability before relying on existing evidence.",
+        "owner": "Accountable owner for balance sheet applicability and governance review.",
+        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
+        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
+      },
+      "score": 1.44,
+      "deadline": null,
+      "deadlineEvidence": null,
+      "changeStatus": "changed",
+      "changeEvidence": {
+        "previousTitle": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
+        "currentTitle": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
+        "previousDeadline": null,
+        "currentDeadline": null
+      },
+      "confidence": {
+        "score": 1.0,
+        "band": "high",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 1.0,
+          "date": 1.0,
+          "detail": 1.0
+        }
+      },
+      "businessImpact": {
+        "score": 0.696,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 1.0,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 1.0
+        }
+      },
+      "also": []
+    },
     {
       "authorityId": "fr-amf",
       "title": "Arrêté du 28 août 2026 portant homologation de modifications du règlement général de l’Autorité des marchés financiers",
@@ -56,62 +113,10 @@
       "score": 1.44,
       "deadline": null,
       "deadlineEvidence": null,
-      "changeStatus": "new",
-      "changeEvidence": {},
-      "confidence": {
-        "score": 1.0,
-        "band": "high",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 1.0,
-          "date": 1.0,
-          "detail": 1.0
-        }
-      },
-      "businessImpact": {
-        "score": 0.696,
-        "band": "medium",
-        "drivers": {
-          "regulatory_action": 1.0,
-          "urgency": 0.45,
-          "control_breadth": 0.3333333333333333,
-          "jurisdiction_reach": 1.0
-        }
-      },
-      "also": []
-    },
-    {
-      "authorityId": "fr-amf",
-      "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
-      "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
-      "source": "Autorité des marchés financiers",
-      "sourceStatus": "approved",
-      "jurisdictions": [
-        "France",
-        "EU"
-      ],
-      "date": "2026-07-22",
-      "type": "final-rule",
-      "riskAreas": [
-        "balance-sheet"
-      ],
-      "why": "A final-rule from Autorité des marchés financiers touching balance-sheet. No explicit implementation or response deadline was extracted from the official feed.",
-      "editorial": {
-        "change": "21.0 L'instruction DOC-2011-22 détaille les règles applicables aux fonds de capital investissement (FCPR, FCPI et FIP) agréés quant à la procédure d'agrément, l'établissement d'un document d'information clé (DIC) et/ou, le cas échéant, d'un document d'information clé pour investisseur (DICI) et d'un règlement et l'information...",
-        "affected": "Balance sheet teams and control owners in France, EU.",
-        "implication": "The item may change expectations for balance sheet; confirm applicability before relying on existing evidence.",
-        "owner": "Accountable owner for balance sheet applicability and governance review.",
-        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
-        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
-      },
-      "score": 1.44,
-      "deadline": null,
-      "deadlineEvidence": null,
       "changeStatus": "changed",
       "changeEvidence": {
-        "previousTitle": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement - DOC-2011-22",
-        "currentTitle": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
+        "previousTitle": "Arrêté du 28 août 2026 portant homologation de modifications du règlement général de l’Autorité des marchés financiers",
+        "currentTitle": "Arrêté du 28 août 2026 portant homologation de modifications du règlement général de l’Autorité des marchés financiers",
         "previousDeadline": null,
         "currentDeadline": null
       },
@@ -367,6 +372,117 @@
         }
       },
       "also": []
+    },
+    {
+      "authorityId": "bis",
+      "title": "Basel Committee finds Australia, Japan, Korea, Switzerland compliant,  and Canada, United Kingdom largely compliant with its leverage ratio  framework",
+      "url": "https://www.bis.org/media-releases/20261013-basel-committee-finds-australia-japan-korea-switzerland-compliant-and-canada-united-kingdom",
+      "source": "Bank for International Settlements",
+      "sourceStatus": "approved",
+      "jurisdictions": [
+        "Global"
+      ],
+      "date": "2026-10-13",
+      "type": "final-rule",
+      "riskAreas": [
+        "balance-sheet"
+      ],
+      "why": "A final-rule from Bank for International Settlements touching balance-sheet. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "The Basel Committee has published assessment reports on the implementation of its leverage ratio framework (LEV) in Australia, Canada, Japan, Korea, Switzerland and the United Kingdom. Australia, Japan, Korea and Switzerland are assessed as compliant; Canada and the United Kingdom are assessed as largely compliant. This publication concludes the first round of multi-jurisdictional assessments of the leverage ratio.",
+        "affected": "Balance sheet teams and control owners in Global.",
+        "implication": "The item may change expectations for balance sheet; confirm applicability before relying on existing evidence.",
+        "owner": "Accountable owner for balance sheet applicability and governance review.",
+        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
+        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
+      },
+      "score": 1.44,
+      "deadline": null,
+      "deadlineEvidence": null,
+      "changeStatus": "new",
+      "changeEvidence": {},
+      "confidence": {
+        "score": 1.0,
+        "band": "high",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 1.0,
+          "date": 1.0,
+          "detail": 1.0
+        }
+      },
+      "businessImpact": {
+        "score": 0.571,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 1.0,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "also": []
+    },
+    {
+      "authorityId": "fsb",
+      "title": "Sound Practices for Responsible Adoption of Artificial Intelligence (AI): Final report",
+      "url": "https://www.fsb.org/2026/10/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-final-report",
+      "source": "Financial Stability Board",
+      "sourceStatus": "approved",
+      "jurisdictions": [
+        "Global"
+      ],
+      "date": "2026-10-15",
+      "type": "final-rule",
+      "riskAreas": [
+        "ai-and-models"
+      ],
+      "why": "A final-rule from Financial Stability Board touching ai-and-models. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "FSB sets out 12 sound practices to facilitate responsible AI adoption by financial institutions.",
+        "affected": "Ai and model governance teams and control owners in Global.",
+        "implication": "The item may change expectations for AI and model governance; confirm applicability before relying on existing evidence.",
+        "owner": "Accountable owner for AI and model governance applicability and governance review.",
+        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
+        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
+      },
+      "score": 1.44,
+      "deadline": null,
+      "deadlineEvidence": null,
+      "changeStatus": "new",
+      "changeEvidence": {},
+      "confidence": {
+        "score": 1.0,
+        "band": "high",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 1.0,
+          "date": 1.0,
+          "detail": 1.0
+        }
+      },
+      "businessImpact": {
+        "score": 0.571,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 1.0,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "also": [
+        {
+          "source": "Financial Stability Board",
+          "url": "https://www.fsb.org/2026/10/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-final-report"
+        },
+        {
+          "source": "Financial Stability Board",
+          "url": "https://www.fsb.org/2026/10/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-overview-of-consultation-responses"
+        }
+      ]
     },
     {
       "authorityId": "sec",
@@ -639,211 +755,113 @@
       "also": []
     },
     {
-      "authorityId": "fr-amf",
-      "title": "L'AMF publie ses conclusions sur la révision du règlement SFDR",
-      "url": "https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/lamf-publie-ses-conclusions-sur-la-revision-du-reglement-sfdr",
-      "source": "Autorité des marchés financiers",
+      "authorityId": "saudi-cma",
+      "title": "The CMA Approves Regulatory Enhancements to Improve Audit Quality of Entities Subject to its Supervision",
+      "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/CMA_N_4128.aspx",
+      "source": "Capital Market Authority of Saudi Arabia",
       "sourceStatus": "approved",
       "jurisdictions": [
-        "France",
-        "EU"
+        "Saudi Arabia"
       ],
-      "date": "2026-10-01",
+      "date": "2026-09-29",
       "type": "final-rule",
-      "riskAreas": [],
-      "why": "A final-rule from Autorité des marchés financiers touching general. No explicit implementation or response deadline was extracted from the official feed.",
-      "editorial": {
-        "change": "Finance durable Gestion d'actifs Evolution réglementation Europe & international Journalistes PSI SGP L'AMF publie ses conclusions sur la révision du règlement SFDR",
-        "affected": "The applicable business and control areas teams and control owners in France, EU.",
-        "implication": "The item may change expectations for the applicable business and control areas; confirm applicability before relying on existing evidence.",
-        "owner": "Accountable owner for the applicable business and control areas applicability and governance review.",
-        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
-        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
-      },
-      "score": 1.4,
-      "deadline": null,
-      "deadlineEvidence": null,
-      "changeStatus": "changed",
-      "changeEvidence": {
-        "previousTitle": "L'AMF publie ses conclusions sur la révision du règlement SFDR",
-        "currentTitle": "L'AMF publie ses conclusions sur la révision du règlement SFDR",
-        "previousDeadline": null,
-        "currentDeadline": null
-      },
-      "confidence": {
-        "score": 1.0,
-        "band": "high",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 1.0,
-          "date": 1.0,
-          "detail": 1.0
-        }
-      },
-      "businessImpact": {
-        "score": 0.613,
-        "band": "medium",
-        "drivers": {
-          "regulatory_action": 1.0,
-          "urgency": 0.45,
-          "control_breadth": 0.0,
-          "jurisdiction_reach": 1.0
-        }
-      },
-      "also": []
-    },
-    {
-      "authorityId": "cftc",
-      "title": "CFTC Issues Interim Final Rule Excluding Certain Activity from the Definition of Swap",
-      "url": "https://www.cftc.gov/PressRoom/PressReleases/9309-26",
-      "source": "US Commodity Futures Trading Commission",
-      "sourceStatus": "approved",
-      "jurisdictions": [
-        "US"
-      ],
-      "date": "2026-10-09",
-      "type": "final-rule",
-      "riskAreas": [],
-      "why": "A final-rule from US Commodity Futures Trading Commission touching general. No explicit implementation or response deadline was extracted from the official feed.",
-      "editorial": {
-        "change": "US Commodity Futures Trading Commission published a final rule on 2026-10-09.",
-        "affected": "The applicable business and control areas teams and control owners in US.",
-        "implication": "The item may change expectations for the applicable business and control areas; confirm applicability before relying on existing evidence.",
-        "owner": "Accountable owner for the applicable business and control areas applicability and governance review.",
-        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
-        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
-      },
-      "score": 1.4,
-      "deadline": null,
-      "deadlineEvidence": null,
-      "changeStatus": "new",
-      "changeEvidence": {},
-      "confidence": {
-        "score": 1.0,
-        "band": "high",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 1.0,
-          "date": 1.0,
-          "detail": 1.0
-        }
-      },
-      "businessImpact": {
-        "score": 0.487,
-        "band": "low",
-        "drivers": {
-          "regulatory_action": 1.0,
-          "urgency": 0.45,
-          "control_breadth": 0.0,
-          "jurisdiction_reach": 0.5
-        }
-      },
-      "also": []
-    },
-    {
-      "authorityId": "cftc",
-      "title": "CFTC Approves Final Rule Concerning Whistleblower Awards",
-      "url": "https://www.cftc.gov/PressRoom/PressReleases/9297-26",
-      "source": "US Commodity Futures Trading Commission",
-      "sourceStatus": "approved",
-      "jurisdictions": [
-        "US"
-      ],
-      "date": "2026-09-11",
-      "type": "final-rule",
-      "riskAreas": [],
-      "why": "A final-rule from US Commodity Futures Trading Commission touching general. No explicit implementation or response deadline was extracted from the official feed.",
-      "editorial": {
-        "change": "US Commodity Futures Trading Commission published a final rule on 2026-09-11.",
-        "affected": "The applicable business and control areas teams and control owners in US.",
-        "implication": "The item may change expectations for the applicable business and control areas; confirm applicability before relying on existing evidence.",
-        "owner": "Accountable owner for the applicable business and control areas applicability and governance review.",
-        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
-        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
-      },
-      "score": 1.4,
-      "deadline": null,
-      "deadlineEvidence": null,
-      "changeStatus": "unchanged",
-      "changeEvidence": {},
-      "confidence": {
-        "score": 1.0,
-        "band": "high",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 1.0,
-          "date": 1.0,
-          "detail": 1.0
-        }
-      },
-      "businessImpact": {
-        "score": 0.487,
-        "band": "low",
-        "drivers": {
-          "regulatory_action": 1.0,
-          "urgency": 0.45,
-          "control_breadth": 0.0,
-          "jurisdiction_reach": 0.5
-        }
-      },
-      "also": []
-    },
-    {
-      "authorityId": "adgm-fsra",
-      "title": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
-      "url": "https://assets.adgm.com/download/assets/Consultation+Paper+No+2+of+2026+Transfer+Schemes.pdf/c47c84a6897b11f1b3149e4dd754476d",
-      "source": "Abu Dhabi Global Market Financial Services Regulatory Authority",
-      "sourceStatus": "approved",
-      "jurisdictions": [
-        "Abu Dhabi",
-        "United Arab Emirates"
-      ],
-      "date": "2026-07-27",
-      "type": "consultation",
       "riskAreas": [
-        "market-plumbing"
+        "balance-sheet"
       ],
-      "why": "A consultation from Abu Dhabi Global Market Financial Services Regulatory Authority touching market-plumbing. No explicit implementation or response deadline was extracted from the official feed.",
+      "why": "A final-rule from Capital Market Authority of Saudi Arabia touching balance-sheet. No explicit implementation or response deadline was extracted from the official feed.",
       "editorial": {
-        "change": "The Financial Services Regulatory Authority has published this Consultation Paper to seek views on proposed enhancements to the framework governing the transfer of business within ADGM. Consultation Closing Date: 21 Sep 2026",
-        "affected": "Market plumbing teams and control owners in Abu Dhabi, United Arab Emirates.",
-        "implication": "The item may change expectations for market plumbing; confirm applicability before relying on existing evidence.",
-        "owner": "Accountable owner for market plumbing applicability and governance review.",
-        "action": "Decide whether to respond and route the position through the relevant governance forum.",
-        "evidence": "Approved response, impact assessment, or documented decision not to respond."
+        "change": "T he Capital Market Authority's (CMA's) Board approved amendments to the Rules for Registering Auditors of Entities...",
+        "affected": "Balance sheet teams and control owners in Saudi Arabia.",
+        "implication": "The item may change expectations for balance sheet; confirm applicability before relying on existing evidence.",
+        "owner": "Accountable owner for balance sheet applicability and governance review.",
+        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
+        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
       },
-      "score": 1.34,
+      "score": 1.44,
       "deadline": null,
       "deadlineEvidence": null,
       "changeStatus": "changed",
       "changeEvidence": {
-        "previousTitle": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
-        "currentTitle": "Consultation Paper No. 2 of 2026 – Transfer Schemes",
+        "previousTitle": "The CMA Approves Regulatory Enhancements to Improve Audit Quality of Entities Subject to its Supervision",
+        "currentTitle": "The CMA Approves Regulatory Enhancements to Improve Audit Quality of Entities Subject to its Supervision",
         "previousDeadline": null,
         "currentDeadline": null
       },
       "confidence": {
-        "score": 0.944,
+        "score": 1.0,
         "band": "high",
         "components": {
           "authority": 1.0,
           "freshness": 1.0,
           "classification": 1.0,
-          "date": 0.72,
+          "date": 1.0,
           "detail": 1.0
         }
       },
       "businessImpact": {
-        "score": 0.646,
+        "score": 0.571,
         "band": "medium",
         "drivers": {
-          "regulatory_action": 0.8,
+          "regulatory_action": 1.0,
           "urgency": 0.45,
           "control_breadth": 0.3333333333333333,
-          "jurisdiction_reach": 1.0
+          "jurisdiction_reach": 0.5
+        }
+      },
+      "also": []
+    },
+    {
+      "authorityId": "saudi-cma",
+      "title": "The Permission of the FinTech experiment granted to Lamha Tanbu to test the use of A.I. in advisory and its completion of the commencement of business requirements",
+      "url": "https://cma.gov.sa/en/MediaCenter/NEWS/Pages/CMA_N_4110.aspx",
+      "source": "Capital Market Authority of Saudi Arabia",
+      "sourceStatus": "approved",
+      "jurisdictions": [
+        "Saudi Arabia"
+      ],
+      "date": "2026-08-31",
+      "type": "final-rule",
+      "riskAreas": [
+        "balance-sheet"
+      ],
+      "why": "A final-rule from Capital Market Authority of Saudi Arabia touching balance-sheet. No explicit implementation or response deadline was extracted from the official feed.",
+      "editorial": {
+        "change": "​Based on the Capital Market Law issued by Royal Decree No. (M/30) dated 06/02/1424H, its implementing regulations, and the Financial Technology Experimental Permit ...",
+        "affected": "Balance sheet teams and control owners in Saudi Arabia.",
+        "implication": "The item may change expectations for balance sheet; confirm applicability before relying on existing evidence.",
+        "owner": "Accountable owner for balance sheet applicability and governance review.",
+        "action": "Confirm applicability and commission a gap assessment before the implementation date.",
+        "evidence": "Applicability assessment, gap analysis, and implementation plan with dated milestones."
+      },
+      "score": 1.44,
+      "deadline": null,
+      "deadlineEvidence": null,
+      "changeStatus": "changed",
+      "changeEvidence": {
+        "previousTitle": "The Permission of the FinTech experiment granted to Lamha Tanbu to test the use of A.I. in advisory and its completion of the commencement of business requirements",
+        "currentTitle": "The Permission of the FinTech experiment granted to Lamha Tanbu to test the use of A.I. in advisory and its completion of the commencement of business requirements",
+        "previousDeadline": null,
+        "currentDeadline": null
+      },
+      "confidence": {
+        "score": 1.0,
+        "band": "high",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 1.0,
+          "date": 1.0,
+          "detail": 1.0
+        }
+      },
+      "businessImpact": {
+        "score": 0.571,
+        "band": "medium",
+        "drivers": {
+          "regulatory_action": 1.0,
+          "urgency": 0.45,
+          "control_breadth": 0.3333333333333333,
+          "jurisdiction_reach": 0.5
         }
       },
       "also": []
@@ -853,27 +871,28 @@
     {
       "type": "source-health",
       "severity": "low",
-      "message": "6 source(s) did not return usable items (no feed configured or fetch error): bcbs, brazil-bcb, iosco, italy-consob, saudi-cma, south-africa-sarb",
+      "message": "5 source(s) did not return usable items (no feed configured or fetch error): bcbs, brazil-bcb, iosco, italy-consob, south-africa-sarb",
       "sourceIds": [
         "bcbs",
         "brazil-bcb",
         "iosco",
         "italy-consob",
-        "saudi-cma",
         "south-africa-sarb"
       ]
     },
     {
       "type": "source-coverage",
       "severity": "medium",
-      "message": "Only 8 of 53 primary authorities contributed material rows in this edition. Treat quiet themes as unconfirmed, not inactive.",
+      "message": "Only 10 of 53 primary authorities contributed material rows in this edition. Treat quiet themes as unconfirmed, not inactive.",
       "activeSources": [
-        "adgm-fsra",
+        "bis",
         "cftc",
         "ecb-supervision",
         "finma",
         "fr-amf",
+        "fsb",
         "hkma",
+        "saudi-cma",
         "sec",
         "uk-boe-pra"
       ]
@@ -882,28 +901,27 @@
   "reviewQueue": [],
   "heldLowConfidence": 0,
   "runMetrics": {
-    "durationSeconds": 95.22,
+    "durationSeconds": 143.63,
     "sourcesConfigured": 53,
-    "sourcesHealthy": 47,
-    "sourcesFailed": 6,
+    "sourcesHealthy": 48,
+    "sourcesFailed": 5,
     "confidenceBands": {
-      "medium": 362,
-      "high": 78,
+      "medium": 377,
+      "high": 83,
       "unknown": 1
     },
     "impactBands": {
-      "low": 405,
-      "medium": 35,
+      "low": 421,
+      "medium": 39,
       "unknown": 1
     },
     "themeCounts": {
-      "digital-resilience": 18,
       "market-plumbing": 10,
-      "ai-and-models": 7,
-      "balance-sheet": 29,
-      "crime-and-sanctions": 36,
-      "boardroom-and-accountability": 1,
-      "customer-outcomes": 9
+      "digital-resilience": 14,
+      "ai-and-models": 10,
+      "balance-sheet": 40,
+      "customer-outcomes": 9,
+      "crime-and-sanctions": 34
     },
     "reviewQueue": 0,
     "heldLowConfidence": 0,
@@ -991,26 +1009,26 @@
       {
         "sourceId": "eiopa",
         "status": "ok",
-        "recentItems": 3,
-        "candidateItems": 3,
+        "recentItems": 2,
+        "candidateItems": 2,
         "materialItems": 0,
         "publishedItems": 0
       },
       {
         "sourceId": "bis",
         "status": "ok",
-        "recentItems": 5,
-        "candidateItems": 5,
-        "materialItems": 0,
-        "publishedItems": 0
+        "recentItems": 8,
+        "candidateItems": 8,
+        "materialItems": 1,
+        "publishedItems": 1
       },
       {
         "sourceId": "fsb",
         "status": "ok",
         "recentItems": 10,
         "candidateItems": 10,
-        "materialItems": 0,
-        "publishedItems": 0
+        "materialItems": 1,
+        "publishedItems": 1
       },
       {
         "sourceId": "bcbs",
@@ -1041,8 +1059,8 @@
         "status": "ok",
         "recentItems": 20,
         "candidateItems": 20,
-        "materialItems": 3,
-        "publishedItems": 3
+        "materialItems": 1,
+        "publishedItems": 1
       },
       {
         "sourceId": "uk-nca",
@@ -1055,8 +1073,8 @@
       {
         "sourceId": "ofsi",
         "status": "ok",
-        "recentItems": 18,
-        "candidateItems": 18,
+        "recentItems": 17,
+        "candidateItems": 17,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1071,8 +1089,8 @@
       {
         "sourceId": "fincen-enforcement",
         "status": "ok",
-        "recentItems": 0,
-        "candidateItems": 0,
+        "recentItems": 1,
+        "candidateItems": 1,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1127,8 +1145,8 @@
       {
         "sourceId": "finma",
         "status": "ok",
-        "recentItems": 26,
-        "candidateItems": 26,
+        "recentItems": 29,
+        "candidateItems": 29,
         "materialItems": 1,
         "publishedItems": 1
       },
@@ -1143,8 +1161,8 @@
       {
         "sourceId": "hkma",
         "status": "ok",
-        "recentItems": 85,
-        "candidateItems": 86,
+        "recentItems": 89,
+        "candidateItems": 90,
         "materialItems": 3,
         "publishedItems": 3
       },
@@ -1159,8 +1177,8 @@
       {
         "sourceId": "asic",
         "status": "ok",
-        "recentItems": 7,
-        "candidateItems": 7,
+        "recentItems": 9,
+        "candidateItems": 9,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1175,16 +1193,16 @@
       {
         "sourceId": "osfi",
         "status": "ok",
-        "recentItems": 1,
-        "candidateItems": 1,
+        "recentItems": 0,
+        "candidateItems": 0,
         "materialItems": 0,
         "publishedItems": 0
       },
       {
         "sourceId": "india-sebi",
         "status": "ok",
-        "recentItems": 8,
-        "candidateItems": 8,
+        "recentItems": 9,
+        "candidateItems": 9,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1199,18 +1217,18 @@
       {
         "sourceId": "brazil-cvm",
         "status": "ok",
-        "recentItems": 12,
-        "candidateItems": 12,
+        "recentItems": 13,
+        "candidateItems": 13,
         "materialItems": 0,
         "publishedItems": 0
       },
       {
         "sourceId": "fr-amf",
         "status": "ok",
-        "recentItems": 15,
-        "candidateItems": 15,
-        "materialItems": 3,
-        "publishedItems": 3
+        "recentItems": 17,
+        "candidateItems": 17,
+        "materialItems": 2,
+        "publishedItems": 2
       },
       {
         "sourceId": "spain-cnmv",
@@ -1223,24 +1241,24 @@
       {
         "sourceId": "ireland-cbi",
         "status": "ok",
-        "recentItems": 5,
-        "candidateItems": 5,
+        "recentItems": 3,
+        "candidateItems": 3,
         "materialItems": 0,
         "publishedItems": 0
       },
       {
         "sourceId": "adgm-fsra",
         "status": "ok",
-        "recentItems": 5,
-        "candidateItems": 5,
-        "materialItems": 1,
-        "publishedItems": 1
+        "recentItems": 6,
+        "candidateItems": 6,
+        "materialItems": 0,
+        "publishedItems": 0
       },
       {
         "sourceId": "de-bafin",
         "status": "ok",
-        "recentItems": 10,
-        "candidateItems": 10,
+        "recentItems": 9,
+        "candidateItems": 9,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1270,11 +1288,11 @@
       },
       {
         "sourceId": "saudi-cma",
-        "status": "degraded",
-        "recentItems": 0,
-        "candidateItems": 0,
-        "materialItems": 0,
-        "publishedItems": 0
+        "status": "ok",
+        "recentItems": 7,
+        "candidateItems": 7,
+        "materialItems": 2,
+        "publishedItems": 2
       },
       {
         "sourceId": "hong-kong-sfc",
@@ -1319,8 +1337,8 @@
       {
         "sourceId": "south-korea-fss",
         "status": "ok",
-        "recentItems": 14,
-        "candidateItems": 14,
+        "recentItems": 15,
+        "candidateItems": 15,
         "materialItems": 0,
         "publishedItems": 0
       },
@@ -1334,10 +1352,10 @@
       }
     ],
     "funnel": {
-      "fetchedItems": 1641,
-      "recentItems": 440,
-      "candidateItems": 441,
-      "reconciledItems": 368,
+      "fetchedItems": 1652,
+      "recentItems": 460,
+      "candidateItems": 461,
+      "reconciledItems": 390,
       "materialItems": 15,
       "publishedItems": 15
     },
@@ -1449,9 +1467,9 @@
     {
       "sourceId": "eiopa",
       "status": "ok",
-      "items": 3,
-      "fetchedItems": 3,
-      "candidateItems": 3,
+      "items": 2,
+      "fetchedItems": 2,
+      "candidateItems": 2,
       "reconciledItems": 2,
       "materialItems": 0,
       "publishedItems": 0
@@ -1459,12 +1477,12 @@
     {
       "sourceId": "bis",
       "status": "ok",
-      "items": 5,
+      "items": 8,
       "fetchedItems": 10,
-      "candidateItems": 5,
-      "reconciledItems": 5,
-      "materialItems": 0,
-      "publishedItems": 0
+      "candidateItems": 8,
+      "reconciledItems": 8,
+      "materialItems": 1,
+      "publishedItems": 1
     },
     {
       "sourceId": "fsb",
@@ -1472,9 +1490,9 @@
       "items": 10,
       "fetchedItems": 10,
       "candidateItems": 10,
-      "reconciledItems": 10,
-      "materialItems": 0,
-      "publishedItems": 0
+      "reconciledItems": 9,
+      "materialItems": 1,
+      "publishedItems": 1
     },
     {
       "sourceId": "bcbs",
@@ -1515,8 +1533,8 @@
       "fetchedItems": 20,
       "candidateItems": 20,
       "reconciledItems": 20,
-      "materialItems": 3,
-      "publishedItems": 3
+      "materialItems": 1,
+      "publishedItems": 1
     },
     {
       "sourceId": "uk-nca",
@@ -1531,10 +1549,10 @@
     {
       "sourceId": "ofsi",
       "status": "ok",
-      "items": 18,
+      "items": 17,
       "fetchedItems": 20,
-      "candidateItems": 18,
-      "reconciledItems": 10,
+      "candidateItems": 17,
+      "reconciledItems": 12,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -1551,10 +1569,10 @@
     {
       "sourceId": "fincen-enforcement",
       "status": "ok",
-      "items": 0,
-      "fetchedItems": 119,
-      "candidateItems": 0,
-      "reconciledItems": 0,
+      "items": 1,
+      "fetchedItems": 120,
+      "candidateItems": 1,
+      "reconciledItems": 1,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -1592,7 +1610,7 @@
       "sourceId": "nist-ai-rmf",
       "status": "ok",
       "items": 2,
-      "fetchedItems": 7,
+      "fetchedItems": 6,
       "candidateItems": 2,
       "reconciledItems": 2,
       "materialItems": 0,
@@ -1621,10 +1639,10 @@
     {
       "sourceId": "finma",
       "status": "ok",
-      "items": 26,
+      "items": 29,
       "fetchedItems": 50,
-      "candidateItems": 26,
-      "reconciledItems": 14,
+      "candidateItems": 29,
+      "reconciledItems": 17,
       "materialItems": 1,
       "publishedItems": 1
     },
@@ -1641,10 +1659,10 @@
     {
       "sourceId": "hkma",
       "status": "ok",
-      "items": 85,
-      "fetchedItems": 537,
-      "candidateItems": 86,
-      "reconciledItems": 68,
+      "items": 89,
+      "fetchedItems": 538,
+      "candidateItems": 90,
+      "reconciledItems": 72,
       "materialItems": 3,
       "publishedItems": 3
     },
@@ -1661,10 +1679,10 @@
     {
       "sourceId": "asic",
       "status": "ok",
-      "items": 7,
-      "fetchedItems": 30,
-      "candidateItems": 7,
-      "reconciledItems": 7,
+      "items": 9,
+      "fetchedItems": 33,
+      "candidateItems": 9,
+      "reconciledItems": 9,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -1681,19 +1699,19 @@
     {
       "sourceId": "osfi",
       "status": "ok",
-      "items": 1,
-      "fetchedItems": 1,
-      "candidateItems": 1,
-      "reconciledItems": 1,
+      "items": 0,
+      "fetchedItems": 0,
+      "candidateItems": 0,
+      "reconciledItems": 0,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
       "sourceId": "india-sebi",
       "status": "ok",
-      "items": 8,
-      "fetchedItems": 8,
-      "candidateItems": 8,
+      "items": 9,
+      "fetchedItems": 9,
+      "candidateItems": 9,
       "reconciledItems": 8,
       "materialItems": 0,
       "publishedItems": 0
@@ -1711,28 +1729,28 @@
     {
       "sourceId": "brazil-cvm",
       "status": "ok",
-      "items": 12,
-      "fetchedItems": 12,
-      "candidateItems": 12,
-      "reconciledItems": 10,
+      "items": 13,
+      "fetchedItems": 13,
+      "candidateItems": 13,
+      "reconciledItems": 11,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
       "sourceId": "fr-amf",
       "status": "ok",
-      "items": 15,
-      "fetchedItems": 386,
-      "candidateItems": 15,
-      "reconciledItems": 15,
-      "materialItems": 3,
-      "publishedItems": 3
+      "items": 17,
+      "fetchedItems": 387,
+      "candidateItems": 17,
+      "reconciledItems": 17,
+      "materialItems": 2,
+      "publishedItems": 2
     },
     {
       "sourceId": "spain-cnmv",
       "status": "ok",
       "items": 3,
-      "fetchedItems": 9,
+      "fetchedItems": 10,
       "candidateItems": 3,
       "reconciledItems": 1,
       "materialItems": 0,
@@ -1741,30 +1759,30 @@
     {
       "sourceId": "ireland-cbi",
       "status": "ok",
-      "items": 5,
-      "fetchedItems": 5,
-      "candidateItems": 5,
-      "reconciledItems": 5,
+      "items": 3,
+      "fetchedItems": 3,
+      "candidateItems": 3,
+      "reconciledItems": 3,
       "materialItems": 0,
       "publishedItems": 0
     },
     {
       "sourceId": "adgm-fsra",
       "status": "ok",
-      "items": 5,
-      "fetchedItems": 62,
-      "candidateItems": 5,
-      "reconciledItems": 5,
-      "materialItems": 1,
-      "publishedItems": 1
+      "items": 6,
+      "fetchedItems": 63,
+      "candidateItems": 6,
+      "reconciledItems": 6,
+      "materialItems": 0,
+      "publishedItems": 0
     },
     {
       "sourceId": "de-bafin",
       "status": "ok",
-      "items": 10,
-      "fetchedItems": 10,
-      "candidateItems": 10,
-      "reconciledItems": 10,
+      "items": 9,
+      "fetchedItems": 9,
+      "candidateItems": 9,
+      "reconciledItems": 9,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -1801,14 +1819,13 @@
     },
     {
       "sourceId": "saudi-cma",
-      "status": "degraded",
-      "items": 0,
-      "fetchedItems": 0,
-      "error": "official page returned no recognisable publication rows",
-      "candidateItems": 0,
-      "reconciledItems": 0,
-      "materialItems": 0,
-      "publishedItems": 0
+      "status": "ok",
+      "items": 7,
+      "fetchedItems": 7,
+      "candidateItems": 7,
+      "reconciledItems": 7,
+      "materialItems": 2,
+      "publishedItems": 2
     },
     {
       "sourceId": "hong-kong-sfc",
@@ -1825,7 +1842,7 @@
       "status": "failed",
       "items": 0,
       "fetchedItems": 0,
-      "error": "HTTP error fetching https://www.resbank.co.za/en/home/newsroom: HTTPSConnectionPool(host='www.resbank.co.za', port=443): Max retries exceeded with url: /en/home/newsroom (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.resbank.co.za', port=443) at 0x107229bd0>, 'Connection to www.resbank.co.za timed out. (connect timeout=20)'))",
+      "error": "HTTP error fetching https://www.resbank.co.za/en/home/newsroom: HTTPSConnectionPool(host='www.resbank.co.za', port=443): Max retries exceeded with url: /en/home/newsroom (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.resbank.co.za', port=443) at 0x10dcb8690>, 'Connection to www.resbank.co.za timed out. (connect timeout=20)'))",
       "candidateItems": 0,
       "reconciledItems": 0,
       "materialItems": 0,
@@ -1865,10 +1882,10 @@
     {
       "sourceId": "south-korea-fss",
       "status": "ok",
-      "items": 14,
+      "items": 15,
       "fetchedItems": 30,
-      "candidateItems": 14,
-      "reconciledItems": 14,
+      "candidateItems": 15,
+      "reconciledItems": 15,
       "materialItems": 0,
       "publishedItems": 0
     },
@@ -1972,8 +1989,8 @@
     {
       "sourceId": "eba",
       "source": "European Banking Authority",
-      "title": "EBA E-mail alert 18 September, 2026",
-      "url": "https://www.eba.europa.eu/node/20016",
+      "title": "EBA E-mail alert 12 October, 2026",
+      "url": "https://www.eba.europa.eu/node/20089",
       "type": "other",
       "score": 0.73,
       "confidence": {
@@ -1988,8 +2005,8 @@
         }
       },
       "riskAreas": [
-        "market-plumbing",
-        "digital-resilience"
+        "balance-sheet",
+        "customer-outcomes"
       ],
       "recommendedActions": [
         "verify-source-detail",
@@ -2017,34 +2034,6 @@
       },
       "riskAreas": [
         "balance-sheet",
-        "ai-and-models"
-      ],
-      "recommendedActions": [
-        "verify-source-detail",
-        "confirm-deadline",
-        "retain-in-review"
-      ]
-    },
-    {
-      "sourceId": "fsb",
-      "source": "Financial Stability Board",
-      "title": "FSB Chair warns of risks arising from frontier Artificial Intelligence (AI) models",
-      "url": "https://www.fsb.org/2026/08/fsb-chair-warns-of-risks-arising-from-frontier-artificial-intelligence-ai-models",
-      "type": "other",
-      "score": 0.73,
-      "confidence": {
-        "score": 0.784,
-        "band": "medium",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 0.55,
-          "date": 0.72,
-          "detail": 0.65
-        }
-      },
-      "riskAreas": [
-        "digital-resilience",
         "ai-and-models"
       ],
       "recommendedActions": [
@@ -2138,10 +2127,37 @@
       ]
     },
     {
-      "sourceId": "ireland-cbi",
-      "source": "Central Bank of Ireland",
-      "title": "Governor Gabriel Makhlouf says Europe must move faster to complete Single Market",
-      "url": "https://www.centralbank.ie/news/article/press-release-governor-gabriel-makhlouf-says-europe-must-move-faster-to-complete-single-market-17-september-2026",
+      "sourceId": "fr-amf",
+      "source": "Autorité des marchés financiers",
+      "title": "Arrêté des comptes 2026 et travaux de revue des états financiers -",
+      "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2026-06",
+      "type": "other",
+      "score": 0.69,
+      "confidence": {
+        "score": 0.784,
+        "band": "medium",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 0.55,
+          "date": 0.72,
+          "detail": 0.65
+        }
+      },
+      "riskAreas": [
+        "market-plumbing"
+      ],
+      "recommendedActions": [
+        "verify-source-detail",
+        "confirm-deadline",
+        "retain-in-review"
+      ]
+    },
+    {
+      "sourceId": "de-bafin",
+      "source": "Bundesanstalt für Finanzdienstleistungsaufsicht",
+      "title": "Bafin spricht Tätigkeitsverbot gegenüber ehemaligem Geschäftsleiter aus",
+      "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Massnahmen/60b_KWG_84_WpIG_und_57_GwG_anonym/meldung_2026_10_13_gl_taetigkeitsverbot.html?nn=154268",
       "type": "other",
       "score": 0.69,
       "confidence": {
@@ -2169,6 +2185,33 @@
       "source": "Bundesanstalt für Finanzdienstleistungsaufsicht",
       "title": "VW AG : Bafin setzt Geldbuße fest",
       "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Massnahmen/40c_neu_124_WpHG/meldung_2026_10_09_vw_ag.html?nn=154268",
+      "type": "other",
+      "score": 0.69,
+      "confidence": {
+        "score": 0.784,
+        "band": "medium",
+        "components": {
+          "authority": 1.0,
+          "freshness": 1.0,
+          "classification": 0.55,
+          "date": 0.72,
+          "detail": 0.65
+        }
+      },
+      "riskAreas": [
+        "market-plumbing"
+      ],
+      "recommendedActions": [
+        "verify-source-detail",
+        "confirm-deadline",
+        "retain-in-review"
+      ]
+    },
+    {
+      "sourceId": "uk-boe-pra",
+      "source": "Bank of England and Prudential Regulation Authority",
+      "title": "Minutes of the Money Market Committee meeting – September 2026",
+      "url": "https://www.bankofengland.co.uk/minutes/2026/september/money-markets-committee-minutes-september-2026",
       "type": "other",
       "score": 0.69,
       "confidence": {
@@ -2329,8 +2372,8 @@
     {
       "sourceId": "uk-boe-pra",
       "source": "Bank of England and Prudential Regulation Authority",
-      "title": "Minutes of the Money Market Committee meeting – June 2026",
-      "url": "https://www.bankofengland.co.uk/minutes/2026/june/money-markets-committee-minutes-june-2026",
+      "title": "Review of CCP collateral rules - letters of credit",
+      "url": "https://www.bankofengland.co.uk/paper/2026/cp/review-of-ccp-collateral-rules-letters-of-credit",
       "type": "other",
       "score": 0.69,
       "confidence": {
@@ -2406,516 +2449,24 @@
         "confirm-deadline",
         "retain-in-review"
       ]
-    },
-    {
-      "sourceId": "uk-boe-pra",
-      "source": "Bank of England and Prudential Regulation Authority",
-      "title": "Capital gains taxation and asset price volatility",
-      "url": "https://www.bankofengland.co.uk/working-paper/2026/capital-gains-taxation-and-asset-price-volatility",
-      "type": "other",
-      "score": 0.69,
-      "confidence": {
-        "score": 0.784,
-        "band": "medium",
-        "components": {
-          "authority": 1.0,
-          "freshness": 1.0,
-          "classification": 0.55,
-          "date": 0.72,
-          "detail": 0.65
-        }
-      },
-      "riskAreas": [
-        "balance-sheet"
-      ],
-      "recommendedActions": [
-        "verify-source-detail",
-        "confirm-deadline",
-        "retain-in-review"
-      ]
     }
   ],
   "privateDeadlineCandidates": [],
   "coverage": {
     "version": "horizon-coverage.v1",
     "configuredPrimaryAuthorities": 53,
-    "successfullyFetchedAuthorities": 47,
-    "authoritiesWithCandidates": 29,
-    "authoritiesWithMaterialCandidates": 8,
+    "successfullyFetchedAuthorities": 48,
+    "authoritiesWithCandidates": 30,
+    "authoritiesWithMaterialCandidates": 10,
     "reviewedAuthorities": 0,
     "publishedAuthorities": 0,
     "publishedJurisdictions": 0,
     "blockedAuthorities": 3,
     "failedAuthorities": 1,
-    "degradedAuthorities": 2,
+    "degradedAuthorities": 1,
     "state": "limited"
   },
   "trend": [
-    {
-      "edition": "2026-09-10",
-      "durationSeconds": 64.47,
-      "sourcesConfigured": 53,
-      "sourcesHealthy": 48,
-      "sourcesFailed": 5,
-      "confidenceBands": {
-        "high": 86,
-        "medium": 354,
-        "unknown": 1
-      },
-      "impactBands": {
-        "low": 394,
-        "medium": 46,
-        "unknown": 1
-      },
-      "themeCounts": {
-        "crime-and-sanctions": 44,
-        "digital-resilience": 22,
-        "ai-and-models": 7,
-        "market-plumbing": 7,
-        "customer-outcomes": 17,
-        "balance-sheet": 34,
-        "boardroom-and-accountability": 1
-      },
-      "reviewQueue": 0,
-      "heldLowConfidence": 0,
-      "sourceParticipation": [
-        {
-          "sourceId": "uk-hm-treasury",
-          "status": "ok",
-          "recentItems": 20,
-          "candidateItems": 20,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "bis",
-          "status": "ok",
-          "recentItems": 3,
-          "candidateItems": 3,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "sec",
-          "status": "ok",
-          "recentItems": 25,
-          "candidateItems": 25,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "ofsi",
-          "status": "ok",
-          "recentItems": 17,
-          "candidateItems": 17,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "iosco",
-          "status": "blocked",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "esma",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "fsb",
-          "status": "ok",
-          "recentItems": 10,
-          "candidateItems": 10,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "ecb-supervision",
-          "status": "ok",
-          "recentItems": 13,
-          "candidateItems": 13,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "uk-nca",
-          "status": "ok",
-          "recentItems": 20,
-          "candidateItems": 20,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "uk-fca",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "uk-boe-pra",
-          "status": "ok",
-          "recentItems": 88,
-          "candidateItems": 88,
-          "materialItems": 3,
-          "publishedItems": 3
-        },
-        {
-          "sourceId": "eba",
-          "status": "ok",
-          "recentItems": 9,
-          "candidateItems": 9,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "japan-fsa",
-          "status": "ok",
-          "recentItems": 7,
-          "candidateItems": 7,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "bcbs",
-          "status": "blocked",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "cftc",
-          "status": "ok",
-          "recentItems": 20,
-          "candidateItems": 20,
-          "materialItems": 2,
-          "publishedItems": 2
-        },
-        {
-          "sourceId": "eiopa",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "ico",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "nist-ai-rmf",
-          "status": "ok",
-          "recentItems": 2,
-          "candidateItems": 2,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "finma",
-          "status": "ok",
-          "recentItems": 28,
-          "candidateItems": 28,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "ecb-supervisory-priorities",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "ecb-ssm-newsletter",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "ecb-supervision-sanctions",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "amf-sanctions",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "spain-cnmv",
-          "status": "ok",
-          "recentItems": 2,
-          "candidateItems": 2,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "uk-fca-regulatory-initiatives-grid",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "fincen-enforcement",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "ireland-cbi",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "osfi",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "fatf",
-          "status": "ok",
-          "recentItems": 4,
-          "candidateItems": 4,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "uk-fca-enforcement-notices",
-          "status": "ok",
-          "recentItems": 2,
-          "candidateItems": 2,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "india-sebi",
-          "status": "ok",
-          "recentItems": 16,
-          "candidateItems": 16,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "de-bafin",
-          "status": "ok",
-          "recentItems": 11,
-          "candidateItems": 11,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "mexico-cnbv",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "switzerland-snb",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "brazil-cvm",
-          "status": "ok",
-          "recentItems": 14,
-          "candidateItems": 14,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "fr-amf",
-          "status": "ok",
-          "recentItems": 17,
-          "candidateItems": 17,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "apra",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "brazil-bcb",
-          "status": "degraded",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "de-bundesbank",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "singapore-sgx",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "saudi-cma",
-          "status": "ok",
-          "recentItems": 3,
-          "candidateItems": 3,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "india-rbi",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "hong-kong-sfc",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "korea-fsc",
-          "status": "ok",
-          "recentItems": 2,
-          "candidateItems": 2,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "italy-consob",
-          "status": "blocked",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "south-korea-fss",
-          "status": "ok",
-          "recentItems": 18,
-          "candidateItems": 18,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "south-africa-sarb",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "asic",
-          "status": "ok",
-          "recentItems": 4,
-          "candidateItems": 4,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "hkma",
-          "status": "ok",
-          "recentItems": 79,
-          "candidateItems": 80,
-          "materialItems": 3,
-          "publishedItems": 3
-        },
-        {
-          "sourceId": "dubai-dfsa",
-          "status": "ok",
-          "recentItems": 4,
-          "candidateItems": 4,
-          "materialItems": 1,
-          "publishedItems": 1
-        },
-        {
-          "sourceId": "adgm-fsra",
-          "status": "failed",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "ofac-recent-actions",
-          "status": "ok",
-          "recentItems": 0,
-          "candidateItems": 0,
-          "materialItems": 0,
-          "publishedItems": 0
-        },
-        {
-          "sourceId": "mas",
-          "status": "ok",
-          "recentItems": 2,
-          "candidateItems": 2,
-          "materialItems": 0,
-          "publishedItems": 0
-        }
-      ],
-      "funnel": {
-        "fetchedItems": 1580,
-        "recentItems": 440,
-        "candidateItems": 441,
-        "reconciledItems": 366,
-        "materialItems": 15,
-        "publishedItems": 15
-      },
-      "alerts": [
-        "source-health"
-      ]
-    },
     {
       "edition": "2026-09-12",
       "durationSeconds": 101.37,
@@ -8024,12 +7575,477 @@
       "alerts": [
         "source-health"
       ]
+    },
+    {
+      "edition": "2026-10-11",
+      "durationSeconds": 95.22,
+      "sourcesConfigured": 53,
+      "sourcesHealthy": 47,
+      "sourcesFailed": 6,
+      "confidenceBands": {
+        "medium": 362,
+        "high": 78,
+        "unknown": 1
+      },
+      "impactBands": {
+        "low": 405,
+        "medium": 35,
+        "unknown": 1
+      },
+      "themeCounts": {
+        "digital-resilience": 18,
+        "market-plumbing": 10,
+        "ai-and-models": 7,
+        "balance-sheet": 29,
+        "crime-and-sanctions": 36,
+        "boardroom-and-accountability": 1,
+        "customer-outcomes": 9
+      },
+      "reviewQueue": 0,
+      "heldLowConfidence": 0,
+      "sourceParticipation": [
+        {
+          "sourceId": "uk-fca",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "uk-fca-regulatory-initiatives-grid",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "uk-fca-enforcement-notices",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "uk-boe-pra",
+          "status": "ok",
+          "recentItems": 84,
+          "candidateItems": 84,
+          "materialItems": 1,
+          "publishedItems": 1
+        },
+        {
+          "sourceId": "uk-hm-treasury",
+          "status": "ok",
+          "recentItems": 20,
+          "candidateItems": 20,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ecb-supervision",
+          "status": "ok",
+          "recentItems": 15,
+          "candidateItems": 15,
+          "materialItems": 1,
+          "publishedItems": 1
+        },
+        {
+          "sourceId": "ecb-ssm-newsletter",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ecb-supervisory-priorities",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "eba",
+          "status": "ok",
+          "recentItems": 9,
+          "candidateItems": 9,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "esma",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "eiopa",
+          "status": "ok",
+          "recentItems": 3,
+          "candidateItems": 3,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "bis",
+          "status": "ok",
+          "recentItems": 5,
+          "candidateItems": 5,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "fsb",
+          "status": "ok",
+          "recentItems": 10,
+          "candidateItems": 10,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "bcbs",
+          "status": "blocked",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "iosco",
+          "status": "blocked",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "sec",
+          "status": "ok",
+          "recentItems": 25,
+          "candidateItems": 25,
+          "materialItems": 2,
+          "publishedItems": 2
+        },
+        {
+          "sourceId": "cftc",
+          "status": "ok",
+          "recentItems": 20,
+          "candidateItems": 20,
+          "materialItems": 3,
+          "publishedItems": 3
+        },
+        {
+          "sourceId": "uk-nca",
+          "status": "ok",
+          "recentItems": 20,
+          "candidateItems": 20,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ofsi",
+          "status": "ok",
+          "recentItems": 18,
+          "candidateItems": 18,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "fatf",
+          "status": "ok",
+          "recentItems": 2,
+          "candidateItems": 2,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "fincen-enforcement",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ofac-recent-actions",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "amf-sanctions",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ecb-supervision-sanctions",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "nist-ai-rmf",
+          "status": "ok",
+          "recentItems": 2,
+          "candidateItems": 2,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ico",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "de-bundesbank",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "finma",
+          "status": "ok",
+          "recentItems": 26,
+          "candidateItems": 26,
+          "materialItems": 1,
+          "publishedItems": 1
+        },
+        {
+          "sourceId": "japan-fsa",
+          "status": "ok",
+          "recentItems": 8,
+          "candidateItems": 8,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "hkma",
+          "status": "ok",
+          "recentItems": 85,
+          "candidateItems": 86,
+          "materialItems": 3,
+          "publishedItems": 3
+        },
+        {
+          "sourceId": "apra",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "asic",
+          "status": "ok",
+          "recentItems": 7,
+          "candidateItems": 7,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "mas",
+          "status": "ok",
+          "recentItems": 1,
+          "candidateItems": 1,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "osfi",
+          "status": "ok",
+          "recentItems": 1,
+          "candidateItems": 1,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "india-sebi",
+          "status": "ok",
+          "recentItems": 8,
+          "candidateItems": 8,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "korea-fsc",
+          "status": "ok",
+          "recentItems": 4,
+          "candidateItems": 4,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "brazil-cvm",
+          "status": "ok",
+          "recentItems": 12,
+          "candidateItems": 12,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "fr-amf",
+          "status": "ok",
+          "recentItems": 15,
+          "candidateItems": 15,
+          "materialItems": 3,
+          "publishedItems": 3
+        },
+        {
+          "sourceId": "spain-cnmv",
+          "status": "ok",
+          "recentItems": 3,
+          "candidateItems": 3,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "ireland-cbi",
+          "status": "ok",
+          "recentItems": 5,
+          "candidateItems": 5,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "adgm-fsra",
+          "status": "ok",
+          "recentItems": 5,
+          "candidateItems": 5,
+          "materialItems": 1,
+          "publishedItems": 1
+        },
+        {
+          "sourceId": "de-bafin",
+          "status": "ok",
+          "recentItems": 10,
+          "candidateItems": 10,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "dubai-dfsa",
+          "status": "ok",
+          "recentItems": 3,
+          "candidateItems": 3,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "mexico-cnbv",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "italy-consob",
+          "status": "blocked",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "saudi-cma",
+          "status": "degraded",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "hong-kong-sfc",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "south-africa-sarb",
+          "status": "failed",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "india-rbi",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "singapore-sgx",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "brazil-bcb",
+          "status": "degraded",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "south-korea-fss",
+          "status": "ok",
+          "recentItems": 14,
+          "candidateItems": 14,
+          "materialItems": 0,
+          "publishedItems": 0
+        },
+        {
+          "sourceId": "switzerland-snb",
+          "status": "ok",
+          "recentItems": 0,
+          "candidateItems": 0,
+          "materialItems": 0,
+          "publishedItems": 0
+        }
+      ],
+      "funnel": {
+        "fetchedItems": 1641,
+        "recentItems": 440,
+        "candidateItems": 441,
+        "reconciledItems": 368,
+        "materialItems": 15,
+        "publishedItems": 15
+      },
+      "alerts": [
+        "source-health"
+      ]
     }
   ],
   "rollingCoverage": {
     "windowRuns": 4,
-    "candidateSources": 30,
-    "materialSources": 11,
+    "candidateSources": 31,
+    "materialSources": 12,
     "configuredSources": 53,
     "sourceIdsWithCandidates": [
       "adgm-fsra",
@@ -8043,6 +8059,7 @@
       "ecb-supervision",
       "eiopa",
       "fatf",
+      "fincen-enforcement",
       "finma",
       "fr-amf",
       "fsb",
@@ -8065,6 +8082,7 @@
     ],
     "sourceIdsWithMaterial": [
       "adgm-fsra",
+      "bis",
       "cftc",
       "dubai-dfsa",
       "ecb-supervision",

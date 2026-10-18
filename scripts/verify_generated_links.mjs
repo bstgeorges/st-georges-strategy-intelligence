@@ -311,6 +311,11 @@ async function main() {
     }
     process.exit(1);
   }
+
+  // Node's global fetch may leave keep-alive sockets open after every result has
+  // been collected. This is a one-shot CI verifier, so exit after writing the
+  // complete summary rather than letting idle HTTP connections hold the job.
+  process.exit(0);
 }
 
 main().catch((error) => {

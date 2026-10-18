@@ -1,6 +1,8 @@
-# Reg Scan Sunday GitHub Actions Handoff
+# Historical: Reg Scan GitHub Actions Migration Handoff
 
-Status date: 2026-07-05
+Historical status date: 2026-07-05. This migration note is retained for context; it is not the active workflow specification.
+
+Use the current [Reg Horizon weekly scan workflow](../.github/workflows/reg-scan-weekly.yml) and [Regulatory Horizon release gate](./regulatory-deadline-register-relaunch.md). The example below describes an earlier proposal and must not be copied or run as written: the active workflow creates a private review PR and does not push scan output directly to `main`.
 
 The `reg-scan` folder has now been migrated into this workspace under `tools/reg-scan/`.
 
@@ -17,7 +19,7 @@ npm run horizon:sync
 npm run horizon:refresh
 ```
 
-## Required Workflow Shape
+## Superseded workflow sketch — historical only
 
 Use Sunday as the evidence refresh day, before the site publisher runs, so the approved edition is ready for Monday distribution.
 
@@ -72,6 +74,6 @@ jobs:
           git push
 ```
 
-## Cutover Dependency
+## Historical cutover note
 
-The migration remains blocked until the repo-level workflow has completed at least one Sunday run in GitHub Actions and pushed updated `tools/reg-scan/docs/`, `tools/reg-scan/state/scan.db`, and synced site artifacts.
+The cutover dependency below is obsolete. The repo-level workflow is active; it opens a private editorial-review PR. It does not sync public site artifacts. See the current workflow linked above.

@@ -1,24 +1,26 @@
 {
   "version": "regulatory-deadline-qa.v1",
   "visibility": "private",
-  "generatedAt": "2026-10-13T06:35:41.195Z",
-  "sourceEdition": "2026-10-11",
-  "asOf": "2026-10-13",
+  "generatedAt": "2026-10-18T11:24:51.239Z",
+  "sourceEdition": "2026-10-18",
+  "asOf": "2026-10-18",
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "only 5 confirmed upcoming deadlines; target is 6"
+  ],
   "readiness": {
-    "score": 100,
+    "score": 98,
     "metrics": {
-      "confirmedMaintainedMilestones": 13,
+      "confirmedMaintainedMilestones": 12,
       "confirmedMaintainedAuthorities": 7,
-      "confirmedUpcomingDeadlines": 7,
-      "confirmedOpenDeadlines": 7,
+      "confirmedUpcomingDeadlines": 5,
+      "confirmedOpenDeadlines": 5,
       "confirmedAuthorities": 7,
       "healthyCoreAuthorities": 7,
       "stableCoreAuthorities": 7,
       "distinctShadowRuns": 3,
-      "sourceAgeDays": 2,
-      "concentration": 0.385
+      "sourceAgeDays": 0,
+      "concentration": 0.333
     },
     "relaunchEligible": true,
     "relaunchReasons": []

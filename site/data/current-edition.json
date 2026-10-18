@@ -61,39 +61,40 @@
     "title": "When agents interact, resilience becomes a system test.",
     "editorialAngle": "Test collective behaviour in shared payment and service systems, where individually controlled agents can still create correlated delays and make recovery harder.",
     "distinctFromPrevious": "Edition 17 asked whether a firm's evidence could reconstruct one agent's unintended action. Edition 18 moves to the system around the agent: how multiple participants may interact through shared payment, liquidity and service dependencies, and whether the firm can contain and recover from their combined effects.",
-    "observation": "BIS’s Project Agenti is testing a controlled payment simulator to examine how agents may affect timing, liquidity demand, gridlock and shock propagation. Japan’s finance minister says G7 leaders agreed to AI-risk tabletop exercises; design and dates are unspecified.",
-    "executiveJudgement": "Test interaction, not each agent alone. Controls that work in isolation may still produce correlated delays or disruption to shared services when agents respond to the same signal. BIS is exploring this, not reporting a live failure or setting a supervisory requirement. The Bank of England’s September FPC record links frontier-AI incidents with interconnected cyber and operational risks.",
-    "implication": "Ask payments and resilience owners to simulate a common liquidity shock alongside loss of a shared service. Measure payment delays, containment and minimum-service recovery."
+    "observation": "BIS Project Agenti tests how agents with different objectives affect payment timing, liquidity, gridlock and shock propagation. Japan's finance minister says G7 finance ministers and central bank governors agreed to tabletop exercises on AI-driven cyberattacks; no design or dates are specified.",
+    "executiveJudgement": "Test agent interaction. Different objectives can shift payment timing or liquidity together. Losing a shared payment or orchestration service could compound outcomes. September's FPC record links frontier-AI test incidents to cyber and operational risks, warning vulnerabilities may crystallise together. Agenti is controlled research, not a live failure or requirement.",
+    "implication": "Ask payments and resilience owners to test liquidity shock plus loss of a shared payment or orchestration service. Measure delays, containment and minimum-service recovery; record the first failed recovery step.",
+    "archiveCorrection": "Revised on 18 October 2026 to correct the G7 exercise description, cite the September FPC record directly, and clarify the BeyondTrust exploitation status."
   },
   "weeklyReadout": {
     "heading": "Can we contain and recover from the combined effects of interacting agents?",
     "steps": [
-      "BIS is testing payment simulations in which agents represent different system participants.",
-      "Several individually controlled agents may still react to a shared signal and shift payment timing or liquidity demand together.",
-      "Test a common liquidity shock alongside loss of a shared service, then measure containment and minimum-service recovery.",
-      "Assign the first missing recovery step to the payments or resilience owner."
+      "The payment simulator models system participants with different objectives and strategies.",
+      "Agents with different objectives may still react to a shared signal and shift payment timing or liquidity demand together.",
+      "Test a common liquidity shock alongside loss of a shared payment or orchestration service, then measure containment and minimum-service recovery.",
+      "Record the first recovery step that fails and assign it to the payments or resilience owner."
     ]
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "Agent use is expanding from coding into planning and post-release work",
-      "label": "Agent deployment",
-      "why": "OpenAI's account of Amp describes agent use for planning, design and post-release work. This is a provider-published customer story, not independent proof of general performance; assess the access, usage and review boundaries when work extends beyond coding.",
-      "source": "Primary / OpenAI / 2026-10-14"
+      "title": "BIS Project Agenti tests interacting agents in wholesale payment systems",
+      "label": "Financial-stability research",
+      "why": "The BIS is exploring how agents with different objectives could affect payment timing, liquidity use, gridlock and shock propagation in an auditable simulator. This is ongoing research, not a live-market result or supervisory requirement.",
+      "source": "Primary / Bank for International Settlements / 2026-10-14"
     },
     {
       "topic": "resilience",
-      "title": "Repeated shocks make resilience a cross-risk scenario",
+      "title": "FPC links frontier-AI incidents to cyber and operational risks",
       "label": "Financial resilience",
-      "why": "Andrew Bailey's speech frames financial resilience amid repeated shocks. It is context for scenario design, not a new supervisory requirement; test how correlated financial and operational pressures affect service priorities.",
-      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-08"
+      "why": "The September Financial Policy Committee record says recent frontier-AI test-environment incidents reinforce the need for firms to prepare for cyber and operational risks. It is a direct FPC assessment, not a new requirement.",
+      "source": "Primary / Bank of England Financial Policy Committee / 2026-09-30"
     },
     {
       "topic": "cyber",
-      "title": "A critical BeyondTrust flaw requires an estate exposure check",
-      "label": "Critical vulnerability",
-      "why": "The Canadian Centre for Cyber Security identifies a critical BeyondTrust Remote Support vulnerability. Map affected versions to the estate; where exposed, apply vendor guidance and review indicators.",
+      "title": "BeyondTrust flaw is reported exploited in the wild",
+      "label": "Active exploitation",
+      "why": "The Canadian Cyber Centre reports open-source indications of exploitation in the wild. Check self-hosted Remote Support versions and apply patch BT26-05-RS where affected; the vendor says its SaaS customers were patched by 9 October.",
       "source": "Primary / Canadian Centre for Cyber Security / 2026-10-16"
     },
     {
@@ -105,10 +106,10 @@
     },
     {
       "topic": "data",
-      "title": "European authorities link data protection and value in finance",
+      "title": "European regulators link data protection with value in finance",
       "label": "Data protection in finance",
-      "why": "CNIL and European authorities examine data protection's role in value creation in finance. Treat this as cross-authority analysis, not a new rule; review data use, accountability, security and rights handling.",
-      "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16"
+      "why": "CNIL, the UK ICO and Luxembourg’s CNPD say data protection and governance can affect trust, resilience, AI use and the valuation of financial data. This is joint analysis and good practice, not a new rule.",
+      "source": "Primary / CNIL, ICO and CNPD / 2026-10-16"
     }
   ]
 }

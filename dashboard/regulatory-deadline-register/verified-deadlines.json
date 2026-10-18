@@ -518,6 +518,47 @@
       "editorial": {
         "change": "The FCA proposes UK equity transparency and market-structure changes, including more resilient market operation when outages occur."
       }
+    },
+    {
+      "intake": "verified-backfill",
+      "verifiedAt": "2026-10-11",
+      "verification": "European Commission AI Act Service Desk timeline checked on 11 October 2026; it lists the 2 December 2026 Article 50(2) transition for certain pre-existing synthetic-content systems and the new prohibitions.",
+      "authorityId": "eu-ai-act",
+      "source": "European Commission EU AI Act",
+      "title": "EU AI Act Article 50(2) transition and new prohibitions apply",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+      "deadline": "2026-12-02",
+      "deadlineEvidence": "The timeline lists 2 December 2026 for the new prohibitions and the Article 50(2) transition, including certain systems generating synthetic content already placed on the market before 2 August 2026.",
+      "type": "implementation",
+      "riskAreas": [
+        "ai-and-models"
+      ],
+      "jurisdictions": [
+        "EU"
+      ],
+      "confidence": {
+        "band": "high",
+        "score": 1,
+        "components": {
+          "authority": 1,
+          "freshness": 1,
+          "classification": 1,
+          "date": 1,
+          "detail": 1
+        }
+      },
+      "businessImpact": {
+        "band": "high",
+        "drivers": {
+          "regulatory_action": 1,
+          "urgency": 0.67,
+          "control_breadth": 0.67,
+          "jurisdiction_reach": 1
+        }
+      },
+      "editorial": {
+        "change": "Certain providers of AI systems, including relevant GPAI systems that generate synthetic content, face an Article 50(2) transition date; the new listed prohibitions also apply from this date. Check product and provider scope against the amended Act."
+      }
     }
   ]
 }

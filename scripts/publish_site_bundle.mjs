@@ -195,14 +195,12 @@ const TOPIC_LABELS = {
 // list at build time — this is the "shared partial" in a static-HTML pipeline that has
 // no templating engine of its own.
 const NAV_ROUTES = [
-  ["/", "Home"],
   ["/brief/", "Weekly Brief"],
   ["/signals/", "Signals"],
   ["/regulatory-horizon/", "Reg Horizon"],
   ["/deep-dives/", "Deep Dives"],
   ["/committee-questions/", "Committee Questions"],
   ["/archive/", "Archive"],
-  ["/about/", "About"],
 ];
 
 function isCurrentNavRoute(navHref, pageRoute) {
@@ -258,6 +256,19 @@ function normaliseFontReferences(out) {
   }
 }
 
+function stripVisibleYamlFrontMatter(out) {
+  const block = /(?:<p\b[^>]*>\s*)?---\s*(?:<\/p>)?([\s\S]{0,4000}?)(?:<p\b[^>]*>\s*)?---\s*(?:<\/p>)?/gi;
+  const yamlKey = /(?:^|\s)(?:title|slug|date|layout|description|author|tags|category|draft|published|permalink|image|excerpt)\s*:/i;
+  for (const file of listFiles(out, ".html")) {
+    let html = read(file);
+    html = html.replace(/<body\b([^>]*)>([\s\S]*?)<\/body>/i, (body, attributes, content) => {
+      const cleaned = content.replace(block, (candidate, contents) => yamlKey.test(stripTags(contents)) ? "" : candidate);
+      return `<body${attributes}>${cleaned}</body>`;
+    });
+    write(file, html);
+  }
+}
+
 // Rewrites every generated page's <nav class="site-nav"> block to the canonical
 // NAV_ROUTES markup above, keyed off the page's own route. This makes nav drift
 // (wrong order, missing links, stale "current" markers) impossible to ship, because
@@ -270,6 +281,17 @@ function enforceCanonicalNav(out) {
     const navigation = buildNav(publicRouteForHtml(out, file));
     let updated = html.replace(navRegex, navigation);
     if (!/class="site-menu"/.test(updated)) updated = updated.replace(navigation, wrapMobileNavigation(navigation));
+    if (updated !== html) write(file, updated);
+  }
+}
+
+function ensureAboutFooterLink(out) {
+  for (const file of listFiles(out, ".html")) {
+    const html = read(file);
+    const updated = html.replace(/<footer\b[^>]*>[\s\S]*?<\/footer>/i, (footer) => {
+      if (/href="(?:\.\.\/)*about\/index\.html|href="\/about\/"/.test(footer)) return footer;
+      return footer.replace("</footer>", '        <div class="footer-note"><a href="/about/">About</a></div>\n      </footer>');
+    });
     if (updated !== html) write(file, updated);
   }
 }
@@ -1835,6 +1857,18 @@ function updateArchiveIndexCards(out, edition) {
   const topicMeta = new Map((signalsData.topics || []).map((topic) => [topic.id, topic]));
 
   const briefDates = listEditionDates(path.join(ARCHIVE_STORE, "brief"), edition);
+  const topicDateLists = topics.map((topic) => listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition));
+  const topicDates = new Set(topicDateLists.flat());
+  const briefOnlyDates = briefDates.filter((date) => !topicDates.has(date));
+  const topicCounts = topicDateLists.map((dates) => dates.length);
+  const topicCountSummary = topicCounts.every((count) => count === topicCounts[0])
+    ? `each of the ${topics.length} topic archives holds ${topicCounts[0]}`
+    : `the topic archives hold between ${Math.min(...topicCounts)} and ${Math.max(...topicCounts)}`;
+  const unmatchedNote = briefOnlyDates.length
+    ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${escapeHtml(formatDateLong(date))}</a>`).join(", ")}; no topic archive has a matching date.`
+    : "";
+  const totalsDiffer = briefDates.length !== topicCounts[0] || !topicCounts.every((count) => count === topicCounts[0]);
+  const countNote = `<p class="archive-count-note"><strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${briefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}</p>`;
   const archiveMetaStart = "<!-- archive-meta:start -->";
   const archiveMetaEnd = "<!-- archive-meta:end -->";
   const archiveMeta = briefDates.length
@@ -1868,6 +1902,14 @@ function updateArchiveIndexCards(out, edition) {
   const archiveMetaEndIndex = rebuilt.indexOf(archiveMetaEnd);
   if (archiveMetaStartIndex !== -1 && archiveMetaEndIndex > archiveMetaStartIndex) {
     rebuilt = `${rebuilt.slice(0, archiveMetaStartIndex)}${archiveMetaStart}\n        ${archiveMeta}\n        ${rebuilt.slice(archiveMetaEndIndex)}`;
+  }
+
+  const countNoteStart = "<!-- archive-count-note:start -->";
+  const countNoteEnd = "<!-- archive-count-note:end -->";
+  const countNoteStartIndex = rebuilt.indexOf(countNoteStart);
+  const countNoteEndIndex = rebuilt.indexOf(countNoteEnd);
+  if (countNoteStartIndex !== -1 && countNoteEndIndex > countNoteStartIndex) {
+    rebuilt = `${rebuilt.slice(0, countNoteStartIndex)}${countNoteStart}\n          ${countNote}\n          ${rebuilt.slice(countNoteEndIndex)}`;
   }
 
   // The page's own JSON-LD dateModified was a hardcoded placeholder that never moved,
@@ -1923,7 +1965,7 @@ function updateHomepageEditionLine(out, edition) {
 
 function updateLiveEditionDateLabels(out, edition, editionRecord) {
   const label = formatDateLong(edition);
-  const briefLabel = briefMastheadLabel(editionRecord, edition);
+  const editionNumber = editionRecord.editionNumber || "Current edition";
 
   const briefFile = path.join(out, "brief", "index.html");
   if (fs.existsSync(briefFile)) {
@@ -1941,10 +1983,10 @@ function updateLiveEditionDateLabels(out, edition, editionRecord) {
       committeeFile,
       html.replace(
         /<p class="meta">Last updated [^<]+? &middot; drawn from the week of [^<]+<\/p>/,
-        `<p class="meta">Edition date ${escapeHtml(label)}</p>`,
+        `<p class="meta">${escapeHtml(editionNumber)} · ${escapeHtml(label)}</p>`,
       ).replace(
-        /(<p class="edition-line" id="committee-masthead-edition">Edition \/ )[^<]*(<span class="visually-hidden">)/,
-        `$1${escapeHtml(label)} $2`,
+        /(<p class="edition-line" id="committee-masthead-edition">)Edition \/ [^<]*(<span class="visually-hidden">)/,
+        `$1${escapeHtml(editionNumber)} · ${escapeHtml(label)} $2`,
       ).replace(
         /(<p class="edition-line" id="committee-masthead-edition">[\s\S]*?<span class="visually-hidden">Edition date )[^<]+/,
         `$1${escapeHtml(label)}`,
@@ -3083,6 +3125,14 @@ function checkPublicCopy(out, failures) {
 }
 
 function verifyBuild(out, edition, sitemapUrls, failures) {
+  const visibleFrontMatter = /(?:^|\s)---\s*(?:title|slug|date|layout|description|author|tags|category|draft|published|permalink|image|excerpt)\s*:[\s\S]{0,1500}?\s+---(?:\s|$)/i;
+  for (const file of listFiles(out, ".html")) {
+    const html = read(file);
+    const body = (html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i) || ["", ""])[1];
+    const visibleText = stripTags(body.replace(/<script\b[\s\S]*?<\/script>|<style\b[\s\S]*?<\/style>/gi, " "));
+    assert(!visibleFrontMatter.test(visibleText), `${path.relative(out, file)} still exposes YAML front matter in visible page text`, failures);
+  }
+
   for (const [route, relative] of routes) {
     const file = routeFile(out, relative);
     assert(fs.existsSync(file), `${route} missing generated file ${relative}`, failures);
@@ -3333,6 +3383,7 @@ async function main() {
   generateHeaders(options.out);
   generateAssetsIgnore(options.out);
   enforceCanonicalNav(options.out);
+  ensureAboutFooterLink(options.out);
   injectSkipLinks(options.out);
   enforceSubscribeSection(options.out);
   normaliseFontReferences(options.out);
@@ -3343,6 +3394,7 @@ async function main() {
   normaliseFavicon(options.out);
   injectBriefFeedAlternate(options.out);
   normaliseHtmlReferencesToRoot(options.out);
+  stripVisibleYamlFrontMatter(options.out);
   const analyticsInjected = injectAnalytics(options.out, options.analyticsToken);
   injectReleaseId(options.out, RELEASE_ID);
   writeReleaseMetadata(options.out, RELEASE_ID, edition, editionRecord, signalsData);

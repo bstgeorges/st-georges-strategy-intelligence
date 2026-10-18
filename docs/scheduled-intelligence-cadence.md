@@ -2,6 +2,13 @@
 
 Last consolidated: 1 Jul 2026
 
+## Ownership and freshness
+
+- Accountable owner: Ben St Georges, site owner/editor. The owner confirms the cadence, source-universe references and publication gates remain current.
+- Review the cadence monthly and whenever a scheduled workflow or external automation changes. Compare repository schedules with `.github/workflows/*.yml`; check external automation settings separately because they are not defined by this document.
+- Repository workflow schedules are the source of truth for GitHub Actions. This table is an operating summary, not proof that an external task ran.
+- Last checked against the repository workflow files: 11 Oct 2026. External automation settings were not checked. Next full cadence review: 11 Nov 2026.
+
 ## Operating Principle
 
 Project Virtual Officer scheduled intelligence is now framed for financial services leaders across the sector, not for a single employer. Private delivery can still use Telegram, but public dashboard and newsletter content should be sanitized, source-backed, and read-only.

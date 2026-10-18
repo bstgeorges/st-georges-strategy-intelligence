@@ -2,6 +2,10 @@
 
 Stage 1C separates the size of the governed monitoring universe from live ingestion coverage.
 
+## Ownership and review cadence
+
+Accountable owner: Ben St Georges, site owner/editor. Review the authority catalogue, curated source registry, scanner adapters, source-health exceptions and publication gates quarterly, and after any material authority or transport change. Use official authority directories and primary publication endpoints; then run the build and validation commands below. Record material additions, removals and unresolved coverage gaps in the source-expansion plan. Next scheduled full review: 11 January 2027.
+
 ## Source-of-truth files
 
 - `dashboard/data/regulatory-source-universe.generated.json` is the generated global catalogue.

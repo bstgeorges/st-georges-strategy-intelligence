@@ -1,66 +1,61 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-10-11T07:07:25.884Z",
-  "publicationDate": "2026-10-11",
-  "reviewedAt": "2026-10-11",
+  "candidateGeneratedAt": "2026-10-18T08:03:44.783Z",
+  "publicationDate": "2026-10-18",
+  "reviewedAt": "2026-10-18",
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://www.anthropic.com/research/investigating-unintended-model-actions"
+        "https://openai.com/index/amp-beyond-coding"
       ],
-      "editorialRationale": "Select Anthropic's first-party report because it describes specific model actions beyond task scope, including accessing gated data and submitting forms, and reports changes to evaluation internet access and monitoring. Preserve the company's qualification that impact was minimal and that the review is continuing."
+      "editorialRationale": "Select OpenAI's customer account as a current agent deployment signal: the Amp team describes agents moving into planning, design and post-release work, with longer tasks enabled by model access and token budgets. Keep it attributed as a provider-published customer story, not independent proof of general performance."
     },
     {
       "id": "resilience",
-      "selectedUrls": [],
-      "editorialRationale": "Do not promote the isolated Android service notice or a general speech to fill coverage. Neither gives this edition a stronger resilience decision than the retained reviewed signals."
+      "selectedUrls": [
+        "https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul"
+      ],
+      "editorialRationale": "Select the Bank of England speech for its current account of resilience amid repeated shocks. Use it as context for scenario design, not as a new supervisory requirement; connect this week's specific agent-interaction scenario to the possibility of correlated operational and financial stress."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise"
-      ],
-      "editorialRationale": "Select the Bank of England and UK Finance report of SIMEX26 because it involved 38 major banks and market infrastructure operators in a global cloud disruption scenario, and the Bank explicitly expects follow-up action. The exercise is evidence of rehearsal, not proof that each firm can recover."
+      "selectedUrls": [],
+      "editorialRationale": "No new third-party candidate clears the materiality and novelty bar this week. Keep shared-service failure in the editorial scenario as a control test; do not recycle GitHub status rows or the SIMEX26 exercise already discussed in prior editions."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
-        "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
-        "https://www.cftc.gov/PressRoom/PressReleases/9309-26"
+        "https://www.bankofengland.co.uk/minutes/2026/september/money-markets-committee-minutes-september-2026"
       ],
-      "editorialRationale": "Select the SEC proposal for its proposed expansion of registered-fund cross-trading subject to pricing, oversight and aggregated-reporting conditions. Select the two CFTC actions together because one proposes including specified event contracts in swaps while the other excludes casino-style wagers; keep their different legal status and effective dates explicit rather than describing either proposal as settled law."
+      "editorialRationale": "Select the Bank of England Money Market Committee minutes as a recent primary source on market plumbing and current operating conditions. Treat meeting discussion as context for liquidity scenario design, not a change in policy or a new requirement."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": [
-        "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040"
-      ],
-      "editorialRationale": "Select OFSI's Zarubezhneft wind-down licence because it creates a narrow, time-bound permission for transactions involving the designated person and subsidiaries, with six-year record-keeping requirements and an expiry on 21 November 2026. Firms must assess scope and conditions before relying on it."
+      "selectedUrls": [],
+      "editorialRationale": "The current candidate set offers no financial-crime development that changes this edition's decision test. Do not repeat the OFSI licence carried in Edition 17 or promote a general campaign notice as a new control signal."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257"
+        "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764"
       ],
-      "editorialRationale": "Select CERT-FR's FortiMail advisory because it identifies remote code execution affecting specified versions and says Fortinet confirmed active exploitation. Keep the action conditional on asset inventory: check affected versions, apply the vendor fix and assess indicators of compromise if FortiMail is in scope."
+      "editorialRationale": "Select the Canadian Centre for Cyber Security's 16 October advisory as a current primary vulnerability notice. Keep the response conditional on estate exposure: identify affected BeyondTrust Remote Support versions, apply the vendor fix and review indicators if present."
     },
     {
       "id": "technology-failure",
       "selectedUrls": [
-        "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
-        "https://www.githubstatus.com/incidents/qpfv5p86dmrl"
+        "https://www.githubstatus.com/incidents/93njd414rpbx"
       ],
-      "editorialRationale": "Select both GitHub status records as one bounded recurrent disruption: Git operations, Actions and pull requests were affected for about ten minutes, then a second service-wide disruption occurred later the same day. The source says root-cause work and mitigations remained in progress; do not imply a lasting outage or known underlying cause."
+      "editorialRationale": "Select GitHub's 12 October incident as a distinct, newly dated disruption affecting Actions, pull requests and issues; it is separate from the 7 October incidents in Edition 17. Keep the claim bounded to the reported service impact and ask teams that rely on hosted delivery controls to know their release fallback."
     },
     {
       "id": "data",
       "selectedUrls": [
-        "https://www.cnil.fr/fr/cloture-injonction-france-travail"
+        "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes"
       ],
-      "editorialRationale": "Select CNIL's closure of the France Travail injunction because it confirms that specific password, multi-factor authentication, log-monitoring and least-privilege measures were implemented before the authority closed the order without applying the daily penalty. This is a concrete remediation and closure example, not a new general rule."
+      "editorialRationale": "Select the French CNIL's 16 October summary of European authorities' work on data protection and value creation in finance. It is a new cross-authority publication; describe it as practical guidance and analysis, not a new binding obligation."
     }
   ]
 }

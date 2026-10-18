@@ -1,6 +1,6 @@
 {
-  "edition": "2026-10-11",
-  "generatedAt": "2026-10-11T00:00:00.000Z",
+  "edition": "2026-10-18",
+  "generatedAt": "2026-10-18T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,25 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Agent use is expanding from coding into planning and post-release work",
+          "url": "https://openai.com/index/amp-beyond-coding",
+          "source": "Primary / OpenAI / 2026-10-14",
+          "evidence": {
+            "sourceTitle": "Amp puts AI agents to work beyond code with OpenAI models",
+            "organisation": "OpenAI",
+            "publishedDate": "2026-10-14",
+            "sourceType": "company announcement",
+            "significance": "OpenAI's account of Amp describes agent use for planning, design and post-release work. This is a provider-published customer story, not independent proof of general performance; assess the access, usage and review boundaries when work extends beyond coding.",
+            "sourceUrl": "https://openai.com/index/amp-beyond-coding",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "OpenAI's primary customer story displays 14 October 2026 beneath the OpenAI heading. The page describes Amp's agent use for planning and post-release work; the date and account were checked on the primary page."
+            }
+          }
+        },
         {
           "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
           "url": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
@@ -69,20 +88,6 @@
             "sourceUrl": "https://www.anthropic.com/research/project-swap",
             "accessedDate": "2026-09-27"
           }
-        },
-        {
-          "title": "Embedded AI evaluation turns provider assurance into an access-and-independence question",
-          "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
-          "source": "Primary / Anthropic / 2026-09-18",
-          "evidence": {
-            "sourceTitle": "Partnering with Accenture on embedded evaluation",
-            "organisation": "Anthropic",
-            "publishedDate": "2026-09-18",
-            "sourceType": "company announcement",
-            "significance": "Anthropic's plan to place independent evaluators inside its development environment makes assurance a practical access-and-independence test. Buyers using high-impact models should be clear about which evaluator can see the relevant safeguards, evidence and operating context, and how challenge is kept independent of the provider's commercial account team.",
-            "sourceUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
-            "accessedDate": "2026-09-20"
-          }
         }
       ],
       "stillMaterial": [
@@ -101,7 +106,7 @@
             "accessedDate": "2026-07-09"
           },
           "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant ai control anchor; no stronger fresh source cleared this week's editorial threshold."
+          "retentionReason": "Reviewed for 2026-10-18; retained as a six-month monitoring anchor on downside financing and AI-infrastructure concentration. Edition 18’s fresh AI signal concerns agent deployment and does not supersede this exposure."
         },
         {
           "rank": 7,
@@ -133,7 +138,9 @@
             "significance": "OpenAI's own framing of agentic-era investment decisions is a useful contrast point: boards should expect the same investment-governance rigour internally that a vendor recommends externally, particularly around cost controls and decision accountability for agentic workflows.",
             "sourceUrl": "https://openai.com/index/managing-ai-investments-in-agentic-era",
             "accessedDate": "2026-07-15"
-          }
+          },
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for 2026-10-18; retained as a six-month monitoring anchor on provider-recommended AI investment governance. The current edition adds a new deployment signal and keeps this prior governance reference available for comparison."
         }
       ]
     },
@@ -143,6 +150,20 @@
       "title": "Failure paths, fallback evidence, and customer impact.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Repeated shocks make resilience a cross-risk scenario",
+          "url": "https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-08",
+          "evidence": {
+            "sourceTitle": "Financial resilience in an age of repeated shocks -  speech by Andrew Bailey",
+            "organisation": "Bank of England and Prudential Regulation Authority",
+            "publishedDate": "2026-10-08",
+            "sourceType": "regulator",
+            "significance": "Andrew Bailey's speech frames financial resilience amid repeated shocks. It is context for scenario design, not a new supervisory requirement; test how correlated financial and operational pressures affect service priorities.",
+            "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul",
+            "accessedDate": "2026-10-18"
+          }
+        },
         {
           "title": "ENISA frames dependency concentration as a resilience exposure",
           "url": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
@@ -197,20 +218,6 @@
             "significance": "AWS's guide shows the CloudTrail evidence needed to investigate cross-account access, cryptomining and AI-service abuse. The useful management test is whether an incident team can assemble that evidence, make a defensible decision and preserve the trail without starting from scratch.",
             "sourceUrl": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-1",
             "accessedDate": "2026-09-06"
-          }
-        },
-        {
-          "title": "FINMA’s insurance-sector assessment keeps resilience evidence in view",
-          "url": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-08-20",
-          "evidence": {
-            "sourceTitle": "Swiss insurance sector continues to strengthen its resilience",
-            "organisation": "Swiss Financial Market Supervisory Authority",
-            "publishedDate": "2026-08-20",
-            "sourceType": "regulator",
-            "significance": "FINMA's sector assessment keeps operational resilience in the same management frame as financial strength. Leaders should test whether a resilience claim is supported by accountable service maps, exercised recovery arrangements and evidence that remediation closes the underlying weakness.",
-            "sourceUrl": "https://www.finma.ch/en/news/2026/08/20260820-mm-versicherungsmarktbericht-2025",
-            "accessedDate": "2026-08-23"
           }
         }
       ],
@@ -466,6 +473,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Money-market conditions belong in payment stress scenarios",
+          "url": "https://www.bankofengland.co.uk/minutes/2026/september/money-markets-committee-minutes-september-2026",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-13",
+          "evidence": {
+            "sourceTitle": "Minutes of the Money Market Committee meeting – September 2026",
+            "organisation": "Bank of England and Prudential Regulation Authority",
+            "publishedDate": "2026-10-13",
+            "sourceType": "regulator",
+            "significance": "The Money Market Committee minutes provide current primary context on money-market conditions. They do not change policy, but can inform liquidity assumptions and payment-stress scenarios.",
+            "sourceUrl": "https://www.bankofengland.co.uk/minutes/2026/september/money-markets-committee-minutes-september-2026",
+            "accessedDate": "2026-10-18"
+          }
+        },
+        {
           "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
           "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
           "source": "Primary / US Securities and Exchange Commission / 2026-10-09",
@@ -539,20 +560,6 @@
               "verifiedDate": "2026-10-04",
               "reason": "The SEC primary press release explicitly states Washington, D.C., Oct. 1, 2026 and describes the custody framework as a proposal. The audit parser returned the SEC site footer date, so the visible release date was checked manually."
             }
-          }
-        },
-        {
-          "title": "ASIC makes AI trading safeguards part of market-integrity discipline",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
-          "source": "Primary / Australian Securities and Investments Commission / 2026-09-24",
-          "evidence": {
-            "sourceTitle": "26-226MR ASIC strengthens AI trading safeguards and streamlines market integrity rules | ASIC",
-            "organisation": "Australian Securities and Investments Commission",
-            "publishedDate": "2026-09-24",
-            "sourceType": "regulator",
-            "significance": "AI trading safeguards are part of how a market participant demonstrates orderly and fair operation, so they need to be designed into live deployment and oversight.",
-            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-226mr-asic-strengthens-ai-trading-safeguards-and-streamlines-market-integrity-rules",
-            "accessedDate": "2026-09-27"
           }
         }
       ],
@@ -679,20 +686,15 @@
         {
           "title": "ASIC's misconduct data turns reporting channels into a control-intelligence test",
           "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
-          "source": "Primary / Australian Securities and Investments Commission / 2026-09-10",
+          "source": "Primary / Australian Securities and Investments Commission / 2026-09-03",
           "evidence": {
             "sourceTitle": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
             "organisation": "Australian Securities and Investments Commission",
-            "publishedDate": "2026-09-10",
+            "publishedDate": "2026-09-03",
             "sourceType": "regulator",
             "significance": "ASIC says retail-investor issues and governance matters made up more than four in five misconduct reports in the first half of 2026, with reports helping existing surveillance and investigations. The read-across is whether a firm can connect complaints, whistleblowing and scam intelligence to triage, investigation, accountable action and a record of the outcome.",
             "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
-            "accessedDate": "2026-09-13",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-09-13",
-              "reason": "ASIC's release record identifies 10 September 2026. The page exposes an unrelated 3 September metadata date to the generic extractor, so the date was checked directly against the primary release before publication."
-            }
+            "accessedDate": "2026-10-18"
           }
         },
         {
@@ -829,6 +831,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "A critical BeyondTrust flaw requires an estate exposure check",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764",
+          "source": "Primary / Canadian Centre for Cyber Security / 2026-10-16",
+          "evidence": {
+            "sourceTitle": "AL26-025 - Critical vulnerability impacting BeyondTrust Remote Support – CVE-2026-102764",
+            "organisation": "Canadian Centre for Cyber Security",
+            "publishedDate": "2026-10-16",
+            "sourceType": "regulator",
+            "significance": "The Canadian Centre for Cyber Security identifies a critical BeyondTrust Remote Support vulnerability. Map affected versions to the estate; where exposed, apply vendor guidance and review indicators.",
+            "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764",
+            "accessedDate": "2026-10-18"
+          }
+        },
+        {
           "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
           "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
           "source": "Primary / CERT-FR / ANSSI / 2026-10-02",
@@ -839,11 +855,11 @@
             "sourceType": "regulator",
             "significance": "CERT-FR says Fortinet confirmed active exploitation of a remote-code-execution vulnerability affecting specified FortiMail versions. If the product is in the firm's estate, identify affected versions, apply Fortinet's fix and review the available indicators of compromise. The advisory does not establish that any particular firm was affected.",
             "sourceUrl": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
-            "accessedDate": "2026-10-11",
+            "accessedDate": "2026-10-18",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "CERT-FR's advisory identifies 2 October 2026 as both the first and last version date. The date and active-exploitation statement were checked on the primary page."
+              "verifiedDate": "2026-10-18",
+              "reason": "CERT-FR's primary advisory identifies 2 October 2026 as both the first and last version date; it records Fortinet's confirmation of active exploitation. The date and claim were checked on the primary page."
             }
           }
         },
@@ -878,20 +894,6 @@
               "verifiedDate": "2026-10-04",
               "reason": "The primary advisory labels its original publication date as 27 September 2026 and its Update 1 date as 3 October 2026; the source record uses the publication date and the significance records the update."
             }
-          }
-        },
-        {
-          "title": "Microsoft reports Zimbra exploitation through unauthenticated command injection",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
-          "source": "Primary / Microsoft Security Blog / 2026-09-30",
-          "evidence": {
-            "sourceTitle": "Unauthenticated command injection on internet-facing mail servers: tracking CVE-2026-73570",
-            "organisation": "Microsoft Security Blog",
-            "publishedDate": "2026-09-30",
-            "sourceType": "company announcement",
-            "significance": "Microsoft reports exploitation of CVE-2026-73570 against internet-facing Zimbra servers when the optional SNMP package is installed and notifications are enabled. Its post-exploitation observations include web shells, credential collection and lateral movement. The vendor says version 10.1.20 contains the remediation; confirm version and exposure before prioritising response.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/09/30/unauthenticated-command-injection-on-internet-facing-mail-servers-tracking-cve-2026-73570",
-            "accessedDate": "2026-10-04"
           }
         }
       ],
@@ -1006,6 +1008,25 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Hosted delivery controls need a tested fallback",
+          "url": "https://www.githubstatus.com/incidents/93njd414rpbx",
+          "source": "Primary / GitHub Status / 2026-10-12",
+          "evidence": {
+            "sourceTitle": "Incident with Actions, Pull Requests and Issues",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-10-12",
+            "sourceType": "company announcement",
+            "significance": "GitHub Status reports a 12 October disruption across Actions, pull requests and issues, separate from the 7 October incidents in Edition 17. Teams relying on hosted delivery controls should know their release fallback.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/93njd414rpbx",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "The GitHub Status incident page dates the event to 12 October 2026: it records the initial report at 11:51 UTC and subsequent updates through 20:16 UTC. The date was checked on the primary incident page."
+            }
+          }
+        },
+        {
           "title": "Incident with Git Operations, Pull Requests and Actions",
           "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
           "source": "Primary / GitHub Status / 2026-10-07",
@@ -1055,20 +1076,6 @@
             "significance": "Cloudflare reported elevated R2 storage errors in Eastern North America. Treat a regional storage disruption as a practical test of dependency mapping, customer-impact detection, routing or fallback options, and the record of who decided the service was safe to resume.",
             "sourceUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
             "accessedDate": "2026-09-06"
-          }
-        },
-        {
-          "title": "Physical cooling failure takes multiple Google Cloud services offline",
-          "url": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-          "source": "Primary / Google Cloud Service Health / 2026-07-17",
-          "evidence": {
-            "sourceTitle": "RESOLVED: Google Cloud VMware Engine (GCVE), Google Cloud NetApp Volumes, and Bare Metal Solutions (BMS) services are experiencing a service outage in europe-west4-a due to a cooling failure.",
-            "organisation": "Google Cloud Service Health",
-            "publishedDate": "2026-07-17",
-            "sourceType": "company announcement",
-            "significance": "The incident is a reminder that cloud failures can begin below the software layer and affect several services together. Technology owners should test zonal failover, data recovery and restoration sequencing against correlated physical-infrastructure loss.",
-            "sourceUrl": "https://status.cloud.google.com/incidents/3BvH3LVGcupoYqV6F4Nw",
-            "accessedDate": "2026-07-18"
           }
         }
       ],
@@ -1154,6 +1161,25 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "European authorities link data protection and value in finance",
+          "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16",
+          "evidence": {
+            "sourceTitle": "De la protection des données à la création de valeur en finance : des autorités européennes publient une étude et des bonnes pratiques",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-10-16",
+            "sourceType": "regulator",
+            "significance": "CNIL and European authorities examine data protection's role in value creation in finance. Treat this as cross-authority analysis, not a new rule; review data use, accountability, security and rights handling.",
+            "sourceUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page."
+            }
+          }
+        },
+        {
           "title": "CNIL closes France Travail injunction after security controls were implemented",
           "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
           "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-08",
@@ -1197,11 +1223,11 @@
             "sourceType": "regulator",
             "significance": "CNIL's guidance accompanies the live French e-invoicing reform and sets out the practical boundary between controller and processor, the need for appropriate contracts, data minimisation, retention and platform traceability. For affected firms, the implementation question is whether the chosen platform's data use, access controls and audit record match the intended operating role.",
             "sourceUrl": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
-            "accessedDate": "2026-09-13",
+            "accessedDate": "2026-10-18",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-09-13",
-              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The feed timestamp resolves to the preceding UTC date, so the primary-page date was verified directly before publication."
+              "verifiedDate": "2026-10-18",
+              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page."
             }
           }
         },
@@ -1217,20 +1243,6 @@
             "significance": "ICO audit findings on facial recognition make data provenance, retention, accuracy, bias testing and senior oversight concrete deployment evidence for high-impact automated decisions.",
             "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
             "accessedDate": "2026-08-30"
-          }
-        },
-        {
-          "title": "ASIC’s Rex decision tests continuous-disclosure escalation",
-          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties",
-          "source": "Primary / Australian Securities and Investments Commission / 2026-08-20",
-          "evidence": {
-            "sourceTitle": "26-140MR Rex held accountable for continuous disclosure failure, three non-executive directors did not breach duties | ASIC",
-            "organisation": "Australian Securities and Investments Commission",
-            "publishedDate": "2026-08-20",
-            "sourceType": "regulator",
-            "significance": "ASIC's Rex decision shows how quickly a forward-looking statement becomes a governance problem when the supporting information changes. Boards need clear thresholds for re-testing assumptions, escalating contrary evidence and recording why a market disclosure remains accurate and timely.",
-            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-140mr-rex-held-accountable-for-continuous-disclosure-failure-three-non-executive-directors-did-not-breach-duties",
-            "accessedDate": "2026-08-23"
           }
         }
       ],

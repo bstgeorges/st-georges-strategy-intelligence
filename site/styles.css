@@ -2410,7 +2410,7 @@ a.tag:hover {
 
 .judgement-copy .judgement-label {
   margin: 0 0 0.65rem;
-  color: var(--accent);
+  color: var(--accent-readable);
   font: 600 11px/1.4 var(--mono);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
@@ -2667,6 +2667,14 @@ a.tag:hover {
   grid-column: 2;
   font-size: 11px;
   line-height: 1.45;
+}
+
+.topic-layout .evidence-list .source-tier-primary {
+  color: var(--accent-readable);
+}
+
+.topic-layout .evidence-list .source-tier-monitoring {
+  color: var(--muted);
 }
 
 .status-note {

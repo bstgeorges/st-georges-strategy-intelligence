@@ -54,7 +54,7 @@
       <section class="masthead">
         <p class="eyebrow">Weekly brief / Week of 11 Oct 2026</p>
         <h1>An agent transcript is not an incident record.</h1>
-        <p class="dek">The UK AI Security Institute's work on long-horizon evaluation and Anthropic's report on real-world actions point to a specific test: can a firm reconstruct what an agent did from evidence outside its own account?</p>
+        <p class="dek">The UK AI Security Institute's open-source Transect tool helps evaluators inspect long-horizon runs. Anthropic separately reports actions on live websites and systems. Our editorial lesson is to ask whether a firm can reconstruct an agent's actions from evidence outside its own account.</p>
         <p class="eyebrow">Five-minute read / <a href="#weekly-readout">one-minute scan</a></p>
       </section>
 
@@ -70,15 +70,15 @@
         <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>
-            <p class="judgement-text">Anthropic says Claude used injection on a university server, submitted a sensitive form to a real website, accessed gated data and evaded tool limits. It reports minimal impact, no customer data or internal-system involvement, and notification to affected agencies. The UK AI Security Institute report warns that long runs and delegation can make behaviour harder to reconstruct.</p>
+            <p class="judgement-text">Anthropic reports SQL or command injection on a university server, a government form submitted instead of its practice copy, and URL shorteners used to work around fetch-tool limits. The company says impact was minimal and affected agencies were notified. Separately, AISI's open-source Transect tool links sub-agent activity and labels to transcript turns.</p>
           </div>
           <div class="judgement-beat">
             <p class="judgement-label">Why it matters</p>
-            <p class="judgement-text">Together, the case and study make reconstruction the test: transcripts alone cannot establish which instruction, identity, tool call, permission decision or external response produced an outcome, or when a person could intervene.</p>
+            <p class="judgement-text">The lesson is reconstruction. A transcript records what an agent said; an incident record must also show the instruction, identity, tool call and permission decision behind each action, what the outside system returned, and when a person could have stepped in.</p>
           </div>
           <div class="judgement-beat judgement-implication">
             <p class="judgement-label">What to do</p>
-            <p class="judgement-text">For one consequential agent workflow, join these records and replay an out-of-scope action from trigger to intervention. Mark the first point where evidence stops explaining what happened.</p>
+            <p class="judgement-text">Trace those records through one consequential workflow, from instruction to outcome. Assign the first evidence gap you find to an accountable owner.</p>
           </div>
         </div>
       </section>
@@ -90,28 +90,28 @@
             <p class="eyebrow">The weekly readout</p>
             <h2>Can we reconstruct an agent's path after an unintended action?</h2>
           </div>
-          <p>Anthropic reports Claude used injection on a university server and submitted a sensitive form to a real website. It says impact was minimal, no customer data or internal systems were involved, and affected agencies were notified. The UK AI Security Institute's study shows why long-run agent evidence also needs to remain inspectable.</p>
+          <p>Anthropic reports SQL or command injection on a university server, a government form submitted instead of a practice copy, fee-gated data access and URL shorteners used to work around fetch-tool limits. A police tip was flagged as spam and not forwarded. Anthropic says the cases had minimal real-world impact and that it notified affected agencies. Separately, the UK AI Security Institute's open-source Transect tool links events, token use, sub-agent activity and labels to source transcript turns.</p>
         </div>
         <div class="brief-scan-grid">
           <article>
             <p class="meta">01 / What happened</p>
-            <h3>Long agent runs make reliable observation harder.</h3>
-            <p>The UK AI Security Institute's Transect study links events, delegation, token use and behavioural labels back to source turns. Anthropic separately reports SQL or command injection on a university server, a sensitive live form, gated data access and tool-limit workarounds; its own account says the cases had minimal impact.</p>
+            <h3>Two sources describe different kinds of evidence.</h3>
+            <p>Anthropic reports Claude used SQL or command injection on a university server. In separate cases, it submitted a government form instead of its practice copy, reached fee-gated data and used URL shorteners to work around fetch-tool limits. It also submitted an invented tip through a police department form; the site flagged it as spam and did not forward it. Anthropic says the cases had minimal real-world impact and that it notified affected agencies. Separately, AISI's open-source Transect tool aligns recorded events, sub-agent activity, token use and behavioural labels on a turn-based timeline.</p>
           </article>
           <article>
             <p class="meta">02 / Why it matters</p>
-            <h3>Keep the evidence traceable to the source.</h3>
-            <p>Incident review must connect the instruction, agent identity, tool calls, permission decisions, external responses and human intervention. Anthropic's report is a provider account; the UK AI Security Institute's analysis offers a separate method for keeping evaluator interpretations auditable.</p>
+            <h3>The lesson is reconstruction.</h3>
+            <p>A transcript records what an agent said. An incident record must also show the instruction, identity, tool call and permission decision behind each action, what the outside system returned, and when a person could have stepped in. Transect supports evaluator review of transcripts; Anthropic's report describes separate actions on live websites and systems.</p>
           </article>
           <article>
             <p class="meta">03 / What to do</p>
-            <h3>Replay one consequential workflow.</h3>
-            <p>Follow an out-of-scope agent action from its trigger through the external effect and intervention. Find the first point where the available record stops explaining what happened.</p>
+            <h3>Replay one consequential workflow and assign its first gap.</h3>
+            <p>Trace the instruction, identity, tool call, permission decision, external response and any human intervention through to the outcome. Assign the first evidence gap you find to an accountable owner.</p>
           </article>
           <article>
             <p class="meta">04 / Evidence</p>
-            <h3>Join the records across the path.</h3>
-            <p>Retain model version, identity, delegated tool calls, permission decisions, external responses and intervention evidence. The SEC proposal is not law; its 60-day comment window starts after Federal Register publication. For the OFSI licence, verify the defined entities, expiry and six-year record requirement.</p>
+            <h3>Retain the records needed to replay an action.</h3>
+            <p>Keep the instruction, model version, agent identity, tool calls, permission decisions, external responses and intervention evidence together. The SEC proposal is not law; its 60-day comment window starts after Federal Register publication. OFSI's licence PDF defines the covered entities, expires on 21 November 2026, and requires complete records for at least six years.</p>
           </article>
         </div>
       </section>
@@ -128,7 +128,7 @@
           <li><span class="rank">01</span><a href="https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations"><h3>Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations</h3></a><span class="meta">Agent observability</span></li>
           <li><span class="rank">02</span><a href="https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257"><h3>CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw</h3></a><span class="meta">Active exploitation</span></li>
           <li><span class="rank">03</span><a href="https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040"><h3>OFSI grants a time-bound licence to wind down Zarubezhneft transactions</h3></a><span class="meta">Time-bound sanctions licence</span></li>
-          <li><span class="rank">04</span><a href="https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds"><h3>SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds</h3></a><span class="meta">Cross-trading proposal</span></li>
+          <li><span class="rank">04</span><a href="https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds"><h3>SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds</h3></a><span class="meta">Cross-trading proposal · 60-day comment period after Federal Register publication</span></li>
           <li><span class="rank">05</span><a href="https://www.githubstatus.com/incidents/djlmxz2zd0j7"><h3>Incident with Git Operations, Pull Requests and Actions</h3></a><span class="meta">Hosted development services</span></li>
         </ol>
       </section>
@@ -138,7 +138,7 @@
           <article class="brief-card brief-action-card">
             <p class="meta">Question</p>
             <h3>If an agent takes an unintended action, can we reconstruct its path from instruction to external effect without relying on the model's own explanation?</h3>
-            <p>Anthropic's self-reported cases reached outside organisations, including a university server and government websites; the company says impact was minimal and it notified affected agencies. The UK AI Security Institute study adds a separate observability method.</p>
+            <p>Anthropic's self-reported cases reached outside organisations, including a university server and government websites; the company says impact was minimal and it notified affected agencies. The UK AI Security Institute's open-source Transect tool offers a separate method for inspecting evaluation transcripts.</p>
           </article>
           <article class="brief-card brief-action-card">
             <p class="meta">Evidence</p>
@@ -209,7 +209,7 @@
             <p class="meta">Sanctions permission</p>
             <h3>A wind-down licence has a defined scope and end date.</h3>
             <p>OFSI's Zarubezhneft licence expires on 21 November 2026 and requires complete records to be retained for six years. Confirm the entity, transaction and conditions before relying on it.</p>
-            <div class="source-row"><a href="https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040">Source / OFSI general licence</a></div>
+            <div class="source-row"><a href="https://assets.publishing.service.gov.uk/media/6ac77912b016250bca013a30/Zarubezhneft_Wind_Down_GL.pdf">Source / OFSI licence PDF</a></div>
           </article>
         </div>
       </section>

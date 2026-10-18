@@ -253,7 +253,7 @@ function applyEvergreenPolicy(result, row) {
 }
 
 function applyManualVerificationPolicy(result, rows) {
-  if (result !== "mismatch") return result;
+  if (["match", "candidate-match", "evergreen"].includes(result)) return result;
   const verified = rows.every((row) => {
     const verification = row.manualVerification;
     return (

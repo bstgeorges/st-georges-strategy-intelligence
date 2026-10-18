@@ -31,14 +31,12 @@ const routes = [
 ];
 
 const canonicalNavigation = [
-  "/",
   "/brief/",
   "/signals/",
   "/regulatory-horizon/",
   "/deep-dives/",
   "/committee-questions/",
   "/archive/",
-  "/about/",
 ];
 
 const topics = [
@@ -114,7 +112,7 @@ function checkCurrentEditionAlignment(failures) {
   const signals = readJson("data/signals.json");
   const homeEditionLabel = `Latest edition / ${formatDateLong(edition.publicationDate)}`;
   const briefEditionLabel = `Weekly Brief / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
-  const committeeEditionLabel = `Edition date ${formatDateLong(edition.publicationDate)}`;
+  const committeeEditionLabel = `${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
   const expectedTopSignals = (edition.topSignals || []).map((signal) => signal.title);
 
   function topSignalTitles(html, pattern) {
@@ -141,7 +139,7 @@ function checkCurrentEditionAlignment(failures) {
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
-  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the eight canonical site routes", failures);
+  assert(JSON.stringify(navigationRoutes(home)) === JSON.stringify(canonicalNavigation), "home navigation must use the six canonical site routes", failures);
   assert(brief.includes(briefEditionLabel), `brief should use canonical ${briefEditionLabel}`, failures);
   assert(brief.includes(edition.title), "brief should use canonical edition title", failures);
   assert(brief.includes('href="#weekly-readout"'), "brief one-minute scan should link to the readout", failures);
@@ -177,6 +175,25 @@ function checkCurrentEditionAlignment(failures) {
     "archive masthead and Weekly Brief archive card must report the same snapshot count",
     failures,
   );
+  const storedBriefDates = fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/brief"), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .map((entry) => entry.name);
+  const storedTopicDates = new Set(topics.flatMap((topic) => fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/topics", topic), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .map((entry) => entry.name)));
+  const briefOnlyDates = storedBriefDates.filter((date) => !storedTopicDates.has(date)).sort();
+  const topicCounts = topics.map((topic) => fs.readdirSync(path.join(ROOT, "dashboard/signals-archive/topics", topic), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name) && entry.name <= edition.publicationDate)
+    .length);
+  const topicCountSummary = topicCounts.every((count) => count === topicCounts[0])
+    ? `each of the ${topics.length} topic archives holds ${topicCounts[0]}`
+    : `the topic archives hold between ${Math.min(...topicCounts)} and ${Math.max(...topicCounts)}`;
+  const totalsDiffer = storedBriefDates.length !== topicCounts[0] || !topicCounts.every((count) => count === topicCounts[0]);
+  const unmatchedNote = briefOnlyDates.length
+    ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${formatDateLong(date)}</a>`).join(", ")}; no topic archive has a matching date.`
+    : "";
+  const countExplanation = `<strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${storedBriefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}`;
+  assert(archive.includes(countExplanation), `archive must explain its snapshot counts: ${countExplanation}`, failures);
   const deepDiveArchiveSlugs = Array.from(
     archive.matchAll(/href="\/deep-dives\/([^/]+)\/archive\/[^/]+\//g),
     (match) => match[1],
@@ -192,9 +209,10 @@ function checkCurrentEditionAlignment(failures) {
   const aiSignals = read("signals/ai/index.html");
   assert(aiSignals.includes(`"dateModified": "${edition.publicationDate}"`), "AI Signals structured data should use the current edition date", failures);
   const committeeQuestions = edition.committeeQuestions || [edition.committeeQuestion];
+  const currentCommitteeSection = (committee.match(/<section\b[^>]*id="committee-current-question"[^>]*>([\s\S]*?)<\/section>/) || [])[1] || "";
   assert(committeeQuestions.length === 3, "current edition should define three Committee Questions", failures);
   for (const question of committeeQuestions) {
-    assert(committee.includes(question?.question || ""), "committee questions should include every canonical current-edition question", failures);
+    assert(currentCommitteeSection.includes(question?.question || ""), "Committee Questions current section should include every canonical current-edition question", failures);
   }
   if (edition.deepDive) {
     const deepDiveArchive = deepDiveArchiveDetails(edition.deepDive);
@@ -430,7 +448,7 @@ function main() {
     const html = read(relative);
     assert(
       JSON.stringify(navigationRoutes(html)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the eight canonical site routes`,
+      `${relative} must use the six canonical site routes`,
       failures,
     );
   }
@@ -462,9 +480,11 @@ function main() {
     const page = read(relative);
     assert(
       JSON.stringify(navigationRoutes(page)) === JSON.stringify(canonicalNavigation),
-      `${relative} must use the eight canonical site routes`,
+      `${relative} must use the six canonical site routes`,
       failures,
     );
+    const footer = (page.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/i) || [""])[0];
+    assert(/href="\/about\/"/.test(footer), `${relative} footer must retain the About link after navigation was trimmed`, failures);
     assert(!page.includes('class="site-freshness"'), `${relative} should not include the internal publication freshness strip`, failures);
   }
   assert(signalsHub.includes("news-research-radar"), "Signals hub missing news and research radar", failures);

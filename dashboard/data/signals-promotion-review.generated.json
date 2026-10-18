@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-10-18T08:03:44.783Z",
-  "preparedAt": "2026-10-18T08:04:05.930Z",
+  "candidateGeneratedAt": "2026-10-18T10:04:19.314Z",
+  "preparedAt": "2026-10-18T10:04:37.825Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -20,10 +20,10 @@
     "decisionTypeCounts": {
       "rule-change": 6,
       "enforcement": 1,
-      "active-threat": 5,
+      "active-threat": 6,
       "outage": 5,
       "research": 2,
-      "context": 67
+      "context": 66
     },
     "decisionTypeGroups": [
       {
@@ -134,7 +134,7 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 5,
+        "candidateCount": 6,
         "candidates": [
           {
             "title": "AL26-025 - Critical vulnerability impacting BeyondTrust Remote Support – CVE-2026-102764",
@@ -200,6 +200,19 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "September 2026 Cyber Threat Landscape: Global Attacks Jump 48% as Phishing and GenAI Data Exposure Rise",
+            "url": "https://blog.checkpoint.com/research/september-2026-cyber-threat-landscape-global-attacks-jump-48-as-phishing-and-genai-data-exposure-rise",
+            "sourceName": "Check Point Research",
+            "sourceOwner": "checkpoint",
+            "publishedAt": "2026-10-08T13:00:33.000Z",
+            "relevanceScore": 81,
+            "decisionType": "active-threat",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       },
@@ -214,7 +227,7 @@
             "sourceName": "Cloudflare Security Blog",
             "sourceOwner": "cloudflare-security",
             "publishedAt": "2026-10-14T20:24:19.000Z",
-            "relevanceScore": 79,
+            "relevanceScore": 78,
             "decisionType": "outage",
             "region": "Global/other",
             "topics": [
@@ -315,7 +328,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 67,
+        "candidateCount": 66,
         "candidates": [
           {
             "title": "Top 5 Initial Access Threat Vectors Observed by Unit 42 in September 2026",
@@ -375,7 +388,7 @@
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-10-14T22:00:44.000Z",
-            "relevanceScore": 94,
+            "relevanceScore": 93,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -427,7 +440,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-10-14T10:02:32.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -468,6 +481,12 @@
           "share": 7
         },
         {
+          "sourceOwner": "checkpoint",
+          "sourceName": "Check Point Research",
+          "count": 5,
+          "share": 5.8
+        },
+        {
           "sourceOwner": "fr-cnil",
           "sourceName": "Commission nationale de l'informatique et des libertés",
           "count": 5,
@@ -496,12 +515,6 @@
           "sourceName": "Rapid7 Research",
           "count": 5,
           "share": 5.8
-        },
-        {
-          "sourceOwner": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "count": 5,
-          "share": 5.8
         }
       ],
       "sourceOwnerConcentrationWarning": "",
@@ -523,8 +536,8 @@
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 84,
-        "alreadyPublishedCandidates": 2,
+        "newCandidateEvents": 78,
+        "alreadyPublishedCandidates": 8,
         "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
       }
@@ -913,7 +926,7 @@
           "sourceId": "arxiv-ai-rss",
           "sourceRegistryId": "arxiv-ai",
           "status": "quiet",
-          "consecutiveIssueRuns": 6,
+          "consecutiveIssueRuns": 8,
           "monitoring": "supplementary",
           "action": "none",
           "detail": "no-parseable-entries"
@@ -1435,7 +1448,7 @@
           "sourceId": "daily-intelligence-ledger",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 11,
+          "consecutiveIssueRuns": 12,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1444,7 +1457,7 @@
           "sourceId": "weekly-ai-risk-feed",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 11,
+          "consecutiveIssueRuns": 12,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1559,7 +1572,7 @@
           "sourceCategory": "ai-infrastructure",
           "publishedAt": "2026-10-17T21:00:13.000Z",
           "dateSource": "feed",
-          "relevanceScore": 70,
+          "relevanceScore": 69,
           "decisionType": "context",
           "riskAreas": [
             "ai-and-models",
@@ -1594,7 +1607,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-10-12T22:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 90,
+          "relevanceScore": 89,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1618,7 +1631,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-10-15T09:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1642,7 +1655,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-10-07T09:30:03.000Z",
           "dateSource": "feed",
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1728,7 +1741,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-10-12T20:16:07.000Z",
           "dateSource": "feed",
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1852,7 +1865,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-10-14T20:24:19.000Z",
           "dateSource": "feed",
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "decisionType": "outage",
           "riskAreas": [
             "digital-resilience",
@@ -1973,7 +1986,7 @@
           "sourceCategory": "financial-crime",
           "publishedAt": "2026-10-17T09:05:30.000Z",
           "dateSource": "feed",
-          "relevanceScore": 84,
+          "relevanceScore": 83,
           "decisionType": "context",
           "riskAreas": [
             "crime-and-sanctions"
@@ -2203,7 +2216,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-10-12T20:16:07.000Z",
           "dateSource": "feed",
-          "relevanceScore": 79,
+          "relevanceScore": 78,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"

@@ -7,60 +7,50 @@
       "expectedStatus": "blocked",
       "issue": "The official IOSCO news page returned HTTP 403 in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. The official news route remains unavailable to the scanner; retain blocked until IOSCO publishes an accessible RSS, API or collection that is independently validated.",
-      "lastChecked": "2026-10-04",
-      "transportReviewedAt": "2026-10-04",
-      "transportReview": "The official news route still returned HTTP 403 in the 4 October scanner run; no documented alternative publication transport was identified. Do not bypass the control or promote an unverified endpoint.",
-      "nextCheck": "2026-10-11"
+      "lastChecked": "2026-10-13",
+      "transportReviewedAt": "2026-10-13",
+      "transportReview": "The official news route remained inaccessible to the fetcher on 13 October; the 11 October scanner run recorded HTTP 403. No independently validated official alternative transport was identified. Retain blocked and do not bypass the control.",
+      "nextCheck": "2026-10-20"
     },
     {
       "sourceId": "bcbs",
       "expectedStatus": "blocked",
       "issue": "The configured BCBS publications route redirected to the BIS collection and returned HTTP 403 in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official BIS publications feed or collection is independently validated for BCBS material.",
-      "lastChecked": "2026-10-04",
-      "transportReviewedAt": "2026-10-04",
-      "transportReview": "The configured route redirected to https://www.bis.org/publications/bcbs-publications and returned HTTP 403 in the 4 October scanner run; no accessible official replacement was validated.",
-      "nextCheck": "2026-10-11"
+      "lastChecked": "2026-10-13",
+      "transportReviewedAt": "2026-10-13",
+      "transportReview": "The configured /bcbs/publications.htm route returned HTTP 403 on 13 October. BIS has an official BCBS publications collection, but an alternate scanner route and selectors have not yet been independently validated. Retain blocked until that test passes.",
+      "nextCheck": "2026-10-20"
     },
     {
       "sourceId": "brazil-bcb",
       "expectedStatus": "degraded",
       "issue": "The official Banco Central do Brasil releases page returned no recognisable publication rows in the 4 October 2026 90-day scanner run.",
       "governance": "Do not infer publication dates from the shell. The authority publishes an official RSS directory, but no specific release-feed endpoint has yet been independently validated; retain degraded until that transport and its dates are proven.",
-      "lastChecked": "2026-10-04",
-      "transportReviewedAt": "2026-10-04",
-      "transportReview": "The configured releases page again returned no recognisable publication rows. The official RSS directory remains an unvalidated lead; no feed URL was promoted.",
-      "nextCheck": "2026-10-11"
+      "lastChecked": "2026-10-13",
+      "transportReviewedAt": "2026-10-13",
+      "transportReview": "The configured official 2026 press-release page still depends on JavaScript and did not expose recognisable rows to the fetcher. The official RSS directory remains an unvalidated lead; no feed URL was promoted.",
+      "nextCheck": "2026-10-20"
     },
     {
       "sourceId": "italy-consob",
       "expectedStatus": "blocked",
       "issue": "The official Consob English collection and consultation routes presented anti-bot challenges in the 4 October 2026 90-day scanner run.",
       "governance": "Do not bypass the control. Retain blocked until an accessible official RSS, published collection or alternative transport is independently validated.",
-      "lastChecked": "2026-10-04",
-      "transportReviewedAt": "2026-10-04",
-      "transportReview": "The configured English collection and consultation routes still returned anti-bot challenge shells; no usable rows were accepted and no replacement transport was promoted.",
-      "nextCheck": "2026-10-11"
+      "lastChecked": "2026-10-13",
+      "transportReviewedAt": "2026-10-13",
+      "transportReview": "The configured official English collection still returned an anti-bot challenge on 13 October; no usable rows were accepted and no replacement transport was independently validated.",
+      "nextCheck": "2026-10-20"
     },
     {
       "sourceId": "south-africa-sarb",
       "expectedStatus": "failed",
       "issue": "The official South African Reserve Bank newsroom timed out in the 4 October 2026 90-day scanner run.",
       "governance": "Retain failed unless a timely official response with dated publication rows is proven. The authority's official RSS subscription page exists, but a concrete feed URL must be independently validated before the transport is changed.",
-      "lastChecked": "2026-10-04",
-      "transportReviewedAt": "2026-10-04",
-      "transportReview": "The configured newsroom again exceeded the scanner transport window. The official RSS subscription page does not establish a specific feed endpoint, so none was added.",
-      "nextCheck": "2026-10-11"
-    },
-    {
-      "sourceId": "saudi-cma",
-      "expectedStatus": "degraded",
-      "issue": "The official Saudi Capital Market Authority news page returned no recognisable publication rows in the 11 October 2026 90-day scanner run.",
-      "governance": "Do not infer dated publications from an unrecognisable page shell. Retain degraded until the configured official collection yields usable, dated rows or an alternative official transport is independently validated.",
-      "lastChecked": "2026-10-11",
-      "transportReviewedAt": "2026-10-11",
-      "transportReview": "The governed scanner fetched the configured official collection but could not recognise publication rows. No alternative transport was promoted.",
-      "nextCheck": "2026-10-18"
+      "lastChecked": "2026-10-13",
+      "transportReviewedAt": "2026-10-13",
+      "transportReview": "The official newsroom was readable in a browser check, but the scanner transport timed out and returned no rows. The official RSS subscription page does not establish a specific feed endpoint, so none was added; retain failed for scanner health.",
+      "nextCheck": "2026-10-20"
     }
   ]
 }

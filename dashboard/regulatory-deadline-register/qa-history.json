@@ -3,38 +3,6 @@
   "visibility": "private",
   "runs": [
     {
-      "asOf": "2026-09-07",
-      "sourceEdition": "2026-09-06",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "uk-hm-treasury",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [],
-      "warnings": []
-    },
-    {
-      "asOf": "2026-09-08",
-      "sourceEdition": "2026-09-07",
-      "healthyCore": [
-        "uk-fca",
-        "uk-boe-pra",
-        "uk-hm-treasury",
-        "eba",
-        "esma",
-        "ecb-supervision",
-        "ofsi"
-      ],
-      "errors": [],
-      "warnings": [
-        "only 9 confirmed open deadlines; target is 10"
-      ]
-    },
-    {
       "asOf": "2026-09-09",
       "sourceEdition": "2026-09-08",
       "healthyCore": [
@@ -188,8 +156,51 @@
         "ecb-supervision",
         "ofsi"
       ],
+      "errors": [
+        "source exception review is overdue iosco",
+        "source exception next check is overdue iosco",
+        "source exception review is overdue bcbs",
+        "source exception next check is overdue bcbs",
+        "source exception review is overdue brazil-bcb",
+        "source exception next check is overdue brazil-bcb",
+        "source exception review is overdue italy-consob",
+        "source exception next check is overdue italy-consob",
+        "source exception review is overdue south-africa-sarb",
+        "source exception next check is overdue south-africa-sarb"
+      ],
+      "warnings": []
+    },
+    {
+      "asOf": "2026-10-13",
+      "sourceEdition": "2026-10-11",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
       "errors": [],
       "warnings": []
+    },
+    {
+      "asOf": "2026-10-18",
+      "sourceEdition": "2026-10-18",
+      "healthyCore": [
+        "uk-fca",
+        "uk-boe-pra",
+        "uk-hm-treasury",
+        "eba",
+        "esma",
+        "ecb-supervision",
+        "ofsi"
+      ],
+      "errors": [],
+      "warnings": [
+        "only 5 confirmed upcoming deadlines; target is 6"
+      ]
     }
   ]
 }

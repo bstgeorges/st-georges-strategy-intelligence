@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20",
+  "generatedAt": "2026-10-18",
   "publication": "AI Signals",
   "audience": "Financial services leaders tracking AI model, product, capability, industry and governance signals",
   "status": "live",
@@ -8,32 +8,32 @@
     "previousArchiveUrl": "https://stgeorgesstrategy.com/ai-signals/archive/"
   },
   "edition": {
-    "displayDate": "20 Sept 2026",
-    "line": "Live edition / Updated 20 Sept 2026",
+    "displayDate": "18 Oct 2026",
+    "line": "Live edition / Updated 18 Oct 2026",
     "descriptor": "15 source-linked signals / model, deployment and operating context"
   },
-  "summary": "This week is about the conditions around AI change. The useful signals show that a provider, deployment or safeguard is only credible while specific access, evidence, data and intervention conditions remain true in live operation.",
+  "summary": "This week brings longer-running, more autonomous agents into wider products and operational settings. The control question is expanding with them: who sets the boundary, what independent evidence supports it, and can critical services recover if agents or shared infrastructure fail?",
   "sourceUniverse": {
     "modelAndCapability": [
-      "https://www.anthropic.com/news/accenture-embedded-evaluation",
-      "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai",
-      "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform",
-      "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion",
-      "https://mistral.ai/news/mistral-x-cloudera"
+      "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/",
+      "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "https://mistral.ai/news/timestral/",
+      "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+      "https://www.anthropic.com/research/self-replicating-ai"
     ],
     "deploymentAndInfrastructure": [
-      "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs",
-      "https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains",
-      "https://nvidianews.nvidia.com/news/nvidia-expands-ai-infrastructure-capacity-in-partnership-with-australias-data-center-ecosystem",
-      "https://mistral.ai/news/agentic-search",
-      "https://mistral.ai/news/regional-inference-open-models-new-compute"
+      "https://openai.com/index/amp-beyond-coding/",
+      "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+      "https://x.ai/news/grok-voice-3",
+      "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "https://www.anthropic.com/news/anthropic-cyber-mission"
     ],
     "operatingContext": [
-      "https://openai.com/index/australian-youth-safety-blueprint",
-      "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
-      "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-      "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
-      "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux"
+      "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "https://www.bis.org/node/87745",
+      "https://www.fsb.org/2026/10/fsb-finalises-sound-practices-for-the-responsible-adoption-of-artificial-intelligence-ai/",
+      "https://www.mof.go.jp/public_relations/conference/my20261016.html",
+      "https://www.imf.org/en/Publications/GFSR/Issues/2026/10/13/global-financial-stability-report-october-2026"
     ]
   },
   "sections": [
@@ -43,49 +43,64 @@
       "label": "Models and capabilities",
       "cards": [
         {
-          "title": "Embedded evaluation makes AI assurance an access-and-independence question",
-          "badge": "Assurance signal",
-          "body": "Anthropic's plan to embed independent evaluators inside its development environment makes a practical point for buyers and providers: meaningful challenge needs sufficient access to safeguards, evidence and operating context. A public safety statement is not a substitute for an independent route to inspect and question the live control boundary.",
-          "sourceName": "Anthropic",
+          "title": "Gemini 4 Argon brings long-horizon reasoning to developer workflows",
+          "badge": "Model signal",
+          "body": "Google says Argon is available through its API for complex software, enterprise and cybersecurity workflows. Treat the performance and productivity statements as provider claims; evaluate it against the firm’s own tasks, tools and failure criteria.",
+          "sourceName": "Google DeepMind",
           "sourceType": "dated",
-          "date": "2026-09-18",
-          "source": { "label": "Partnering with Accenture on embedded evaluation", "url": "https://www.anthropic.com/news/accenture-embedded-evaluation" }
+          "date": "2026-10-13",
+          "source": {
+            "label": "Build with Gemini 4 Argon",
+            "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/"
+          }
         },
         {
-          "title": "Physical AI makes task learning an operational-safety question",
-          "badge": "Capability signal",
-          "body": "NVIDIA's account of Skild AI learning new tasks from a single video is a reminder that a model can move from analysis into the physical world quickly. Firms need a defined operating boundary, tested stop conditions and accountable human intervention before that happens in a material process.",
-          "sourceName": "NVIDIA",
+          "title": "Muse Wonder adds persistent context and continued task pursuit",
+          "badge": "Model signal",
+          "body": "Meta describes Muse Wonder and Muse Wonder Full as models for professional and personal agentic tasks. Meta’s Active Memory and Active Focus claims point to cross-session context and longer task execution; assess retention, permissions and stop conditions before using them with firm data.",
+          "sourceName": "Meta",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video", "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai" }
+          "date": "2026-10-12",
+          "source": {
+            "label": "Introducing Muse Wonder and Muse Wonder Full",
+            "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+          }
         },
         {
-          "title": "Robotaxi stacks make physical-AI failure modes commercially live",
-          "badge": "Safety signal",
-          "body": "The robotaxi build-out described by NVIDIA is a useful marker for a broader shift: model, sensor, mapping, connectivity and operational response now form one service. Assurance has to cover the combined system and the authority to intervene, not only the model in isolation.",
-          "sourceName": "NVIDIA",
-          "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Physical AI Takes the Wheel: How the World's Robotaxi Leaders Are Building With NVIDIA Technologies", "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform" }
-        },
-        {
-          "title": "Rack-scale AI turns hardware design into a concentration question",
-          "badge": "Architecture signal",
-          "body": "d-Matrix's rack-scale deployment points to the dependencies underneath a model service: chips, interconnect, capacity and a small number of specialist suppliers. A critical AI service needs its actual dependency path and fallback assumptions documented, not inferred from a cloud contract.",
-          "sourceName": "NVIDIA",
-          "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment", "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion" }
-        },
-        {
-          "title": "Sovereign enterprise AI keeps data boundaries in the design review",
-          "badge": "Data-governance signal",
-          "body": "The Cloudera and Mistral partnership puts specialised and sovereign intelligence close to enterprise data. The control question is practical: which data may enter the service, where it is processed, who can change that route and how the decision can be evidenced later.",
+          "title": "Timestral puts probabilistic forecasting in a small CPU-capable model family",
+          "badge": "Model signal",
+          "body": "Mistral says its 5M–209M parameter models support multivariate probabilistic forecasts and can run on CPUs. Benchmark leadership is the company’s claim; test calibration, drift and data leakage on the forecasts that inform material decisions.",
           "sourceName": "Mistral AI",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Cloudera and Mistral Partner to Bring Specialized, Sovereign Intelligence to Enterprise Data", "url": "https://mistral.ai/news/mistral-x-cloudera" }
+          "date": "2026-10-15",
+          "source": {
+            "label": "Introducing Timestral",
+            "url": "https://mistral.ai/news/timestral/"
+          }
+        },
+        {
+          "title": "Nemotron expands open models for specialised and edge agent workloads",
+          "badge": "Model signal",
+          "body": "NVIDIA announced a 120B model and two smaller edge models for specialised agent use. Open weights can expand deployment choices while shifting more responsibility for hosting, updates, access control and ongoing evaluation to the deployer.",
+          "sourceName": "NVIDIA",
+          "sourceType": "dated",
+          "date": "2026-10-15",
+          "source": {
+            "label": "NVIDIA expands the Nemotron family",
+            "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"
+          }
+        },
+        {
+          "title": "Self-replication research tests inference on inexpensive connected devices",
+          "badge": "Capability research",
+          "body": "Anthropic reports a 9B model established inference on 8 of 9 tested hardware types and end-to-end replication in simplified evaluations with larger models. The work is not a demonstration of a real-world autonomous worm; it is a scenario input for endpoint and IoT containment.",
+          "sourceName": "Anthropic Frontier Red Team",
+          "sourceType": "dated",
+          "date": "2026-10-12",
+          "source": {
+            "label": "AI models may be capable of self-replicating without access to a datacenter",
+            "url": "https://www.anthropic.com/research/self-replicating-ai"
+          }
         }
       ]
     },
@@ -95,49 +110,64 @@
       "label": "Deployment and infrastructure",
       "cards": [
         {
-          "title": "Local AI availability brings device, model and update controls into scope",
+          "title": "Amp’s agent use now extends into planning and post-release work",
           "badge": "Deployment signal",
-          "body": "NVIDIA's Windows release with Perplexity shows how quickly AI capability can move onto the endpoint. The relevant question is no longer only which cloud service is approved: it is which model, data path, device configuration and update route are allowed for a material workflow.",
-          "sourceName": "NVIDIA",
+          "body": "OpenAI’s customer story says Amp users employ agents for planning, design and work after software ships, with Puck coordinating other agents. Treat this as one company’s account; ask where agent authority ends and which actions require review.",
+          "sourceName": "OpenAI",
           "sourceType": "dated",
-          "date": "2026-09-14",
-          "source": { "label": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX", "url": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs" }
+          "date": "2026-10-14",
+          "source": {
+            "label": "Amp puts AI agents to work beyond code with OpenAI models",
+            "url": "https://openai.com/index/amp-beyond-coding/"
+          }
         },
         {
-          "title": "Supply-chain intelligence needs a decision record, not just a sovereign label",
-          "badge": "Supply-chain signal",
-          "body": "NVIDIA and Palantir frame their work around sovereign intelligence for critical supply chains. Location is only one part of assurance: a firm should also know the source data, the decisions influenced, exception authority and the evidence retained when a recommendation changes an operational plan.",
-          "sourceName": "NVIDIA",
+          "title": "Gemini app adds a task mode with access to more than 40 connected apps",
+          "badge": "Feature signal",
+          "body": "Google says subscribers can hand tasks to Gemini across connected apps such as booking and commerce services. For financial firms, the relevant test is which account data and external actions a connected agent can reach, and how user approval is enforced.",
+          "sourceName": "Google",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "NVIDIA and Palantir Bring Sovereign Intelligence to Critical Supply Chains", "url": "https://nvidianews.nvidia.com/news/nvidia-and-palantir-bring-sovereign-intelligence-to-critical-supply-chains" }
+          "date": "2026-10-13",
+          "source": {
+            "label": "Gemini 4 Argon comes to the Gemini app",
+            "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/"
+          }
         },
         {
-          "title": "New AI capacity widens the infrastructure dependency map",
-          "badge": "Infrastructure signal",
-          "body": "NVIDIA's Australian data-centre expansion is a reminder that AI capacity has a physical footprint. Resilience planning should look through the model interface to the region, power, network, capacity reservation and contractual dependencies on which the service actually relies.",
-          "sourceName": "NVIDIA",
+          "title": "Grok Voice 3.0 brings real-time speech agents into the API",
+          "badge": "Feature signal",
+          "body": "xAI says its speech-to-speech model is available through the API and reports a leading score in Artificial Analysis testing. Before customer-service use, test identity checks, interruption handling, escalation and the audit trail for voice instructions.",
+          "sourceName": "xAI",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "NVIDIA Expands AI Infrastructure Capacity in Partnership With Australia's Data Center Ecosystem", "url": "https://nvidianews.nvidia.com/news/nvidia-expands-ai-infrastructure-capacity-in-partnership-with-australias-data-center-ecosystem" }
+          "date": "2026-10-14",
+          "source": {
+            "label": "Introducing Grok Voice 3.0",
+            "url": "https://x.ai/news/grok-voice-3"
+          }
         },
         {
-          "title": "Agentic retrieval makes the evidence trail part of the product",
-          "badge": "Evidence-control signal",
-          "body": "Mistral's Agentic Search can search, open, navigate and read complex documents. Where retrieval feeds a material decision, the authorised source set, access route, cited evidence and challenge path need to be reconstructable from the result.",
-          "sourceName": "Mistral AI",
+          "title": "Meta’s Active Memory and Active Focus extend agent work across sessions",
+          "badge": "Feature signal",
+          "body": "Meta says its new agents retain useful context between conversations and continue working through errors. Test what is remembered, how it can be inspected or deleted, and whether a previous session can silently expand later authority.",
+          "sourceName": "Meta",
           "sourceType": "dated",
-          "date": "2026-08-20",
-          "source": { "label": "Agentic Search. More accurate and efficient results from your AI systems.", "url": "https://mistral.ai/news/agentic-search" }
+          "date": "2026-10-12",
+          "source": {
+            "label": "Introducing Muse Wonder and Muse Wonder Full",
+            "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+          }
         },
         {
-          "title": "Regional inference keeps recovery and location in product scope",
-          "badge": "Resilience signal",
-          "body": "Mistral's regional-inference work keeps a basic point in view: data location, provider concentration and recovery are design choices. Before a material workflow depends on one route, teams should agree the permitted regions, capacity assumptions and a usable fallback.",
-          "sourceName": "Mistral AI",
+          "title": "Anthropic launches a cyber mission with critical-infrastructure support",
+          "badge": "Deployment signal",
+          "body": "Anthropic says its Critical Infrastructure Defense Program will pair frontier models, on-site engineers and threat research with providers that protect operational technology. It is a programme being expanded over time, not evidence that every operator has access or that the tools replace local control ownership.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-08-11",
-          "source": { "label": "In-region inference, open models, and new European infrastructure for sovereign AI", "url": "https://mistral.ai/news/regional-inference-open-models-new-compute" }
+          "date": "2026-10-08",
+          "source": {
+            "label": "Introducing the Anthropic Cyber Mission",
+            "url": "https://www.anthropic.com/news/anthropic-cyber-mission"
+          }
         }
       ]
     },
@@ -147,49 +177,64 @@
       "label": "Operating context",
       "cards": [
         {
-          "title": "AI safety programmes make the audience and assurance boundary explicit",
-          "badge": "Safety signal",
-          "body": "OpenAI's Australian Youth Safety Blueprint is a reminder that a safety commitment needs a defined population, product boundary and evidence of how the safeguards work. The same discipline applies when an AI product is introduced into a regulated customer or employee journey.",
-          "sourceName": "OpenAI",
+          "title": "METR access makes evaluator independence an operating arrangement",
+          "badge": "Assurance signal",
+          "body": "Anthropic says six METR researchers have employee-like access to internal tools and risk-assessment material, with defined confidentiality limits. Buyers should distinguish this provider-specific arrangement from an industry-wide assurance standard and ask what evidence is available for the model they use.",
+          "sourceName": "Anthropic",
           "sourceType": "dated",
-          "date": "2026-09-18",
-          "source": { "label": "Introducing the Australian Youth Safety Blueprint", "url": "https://openai.com/index/australian-youth-safety-blueprint" }
+          "date": "2026-10-15",
+          "source": {
+            "label": "An update on independent evaluators",
+            "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"
+          }
         },
         {
-          "title": "Critical third parties now sit inside the cyber-resilience test",
-          "badge": "Standards signal",
-          "body": "BIS has published a cyber-resilience toolkit and a discussion paper on critical third-party risks for financial market infrastructures. The implication is straightforward: a material provider is part of the resilience boundary, so its failure, communication and recovery evidence belong in the firm's own test.",
+          "title": "BIS Project Agenti is exploring interacting agents in wholesale payments",
+          "badge": "Financial-stability research",
+          "body": "The ongoing BIS simulator represents payment-system participants with agents that have different objectives and strategies. It will explore payment timing, liquidity demand, gridlock and shock propagation; it is controlled research, not a live-market result or supervisory requirement.",
           "sourceName": "Bank for International Settlements",
           "sourceType": "dated",
-          "date": "2026-09-08",
-          "source": { "label": "Global standard-setting bodies publish toolkit on cyber resilience for FMIs and discussion paper on critical third-party risks", "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis" }
+          "date": "2026-10-14",
+          "source": {
+            "label": "Project Agenti",
+            "url": "https://www.bis.org/node/87745"
+          }
         },
         {
-          "title": "Newly exploited flaws test whether an AI estate can drive emergency patching",
-          "badge": "Cyber signal",
-          "body": "CISA's latest catalogue additions are a check on the operational basics beneath any AI service. The relevant evidence is an accurate asset map, a remediation decision, controlled exceptions and proof that the exposed version is no longer live.",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "title": "FSB final sound practices place AI inside existing governance and control frameworks",
+          "badge": "Governance signal",
+          "body": "The FSB published 12 non-binding sound practices and encourages boards and senior management to use them when refining AI governance, risk management and controls. Map them to existing frameworks and record gaps rather than treating the toolkit as a new rule.",
+          "sourceName": "Financial Stability Board",
           "sourceType": "dated",
-          "date": "2026-09-18",
-          "source": { "label": "CISA Adds Two Known Exploited Vulnerabilities to Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/09/18/cisa-adds-two-known-exploited-vulnerabilities-catalog" }
+          "date": "2026-10-15",
+          "source": {
+            "label": "FSB finalises sound practices for responsible AI adoption",
+            "url": "https://www.fsb.org/2026/10/fsb-finalises-sound-practices-for-the-responsible-adoption-of-artificial-intelligence-ai/"
+          }
         },
         {
-          "title": "Misconduct reports can be turned into control intelligence",
-          "badge": "Supervisory signal",
-          "body": "ASIC says scams and governance failures dominate its latest misconduct reporting. Reporting channels should not be treated as an administrative end point: they can show whether a control is failing repeatedly, who owns the response and whether the lesson reached the affected process.",
-          "sourceName": "Australian Securities and Investments Commission",
+          "title": "Japan says G7 leaders agreed to future tabletop exercises on AI risks",
+          "badge": "Policy signal",
+          "body": "Japan’s finance minister referred to future G7 tabletop exercises, including AI-related risks. No exercise design, participants or dates were specified in the statement; use it as a watch item, not evidence that an exercise or requirement has been issued.",
+          "sourceName": "Japan Ministry of Finance",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Scams and governance failures dominate misconduct reports", "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report" }
+          "date": "2026-10-16",
+          "source": {
+            "label": "Finance Minister Katayama press conference",
+            "url": "https://www.mof.go.jp/public_relations/conference/my20261016.html"
+          }
         },
         {
-          "title": "E-invoicing platforms make data roles and retention operational",
-          "badge": "Data-governance signal",
-          "body": "CNIL's electronic-invoicing guidance shows how a regulatory change can alter data roles, platform choices and retention obligations at once. The implementation record should name the data route, legal role, retention decision and the owner who can answer for each of them.",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "title": "IMF flags concentrated exposures if AI investment or profitability weakens",
+          "badge": "Market signal",
+          "body": "The IMF’s October Global Financial Stability Report says a correction in AI-related asset prices could be amplified by leverage, concentrated exposures and circular financing. This is a scenario risk, not a forecast of an imminent correction; review counterparties and funding assumptions alongside technology dependencies.",
+          "sourceName": "International Monetary Fund",
           "sourceType": "dated",
-          "date": "2026-09-10",
-          "source": { "label": "Facturation électronique : quels enjeux ?", "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux" }
+          "date": "2026-10-13",
+          "source": {
+            "label": "Global Financial Stability Report: Resilience, Risk, and Transformation",
+            "url": "https://www.imf.org/en/Publications/GFSR/Issues/2026/10/13/global-financial-stability-report-october-2026"
+          }
         }
       ]
     }

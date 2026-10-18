@@ -1,6 +1,8 @@
 # Regulatory Horizon: private evidence and public release gate
 
-Regulatory Horizon publishes automatically with the canonical site release when its current private evidence passes the QA gate. A separate per-edition editor or product-owner pre-approval is not required. The scanner never publishes directly: only the canonical `Site release (Cloudflare)` workflow can publish and verify the page, feed, calendar, data and dated archive.
+Regulatory Horizon is published through the canonical site release when its current private evidence passes the QA gate. A separate per-edition editor or product-owner pre-approval is not required. The scanner never publishes directly: only the canonical `Site release (Cloudflare)` workflow can publish and verify the page, feed, calendar, data and dated archive.
+
+Scanner output is a candidate, not a confirmation: a date becomes eligible for QA only when its `confirmed` source-date decision and quoted primary evidence are recorded in `dashboard/regulatory-deadline-register/approvals.json`; reviewing or merging the scan PR accepts the private dataset, not the public release, which still requires a separate reviewed site change and passing canonical release gates.
 
 ## Operating loop
 
@@ -12,7 +14,7 @@ Regulatory Horizon publishes automatically with the canonical site release when 
 
 ## Public release gate
 
-The public route remains off unless all of the following are true:
+The public edition is eligible for a canonical release only when all of the following are true:
 
 - no register correctness blockers;
 - scanner edition is no more than eight days old;

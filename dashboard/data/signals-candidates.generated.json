@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-10-18T10:04:19.314Z",
+  "generatedAt": "2026-10-24T20:14:11.239Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -8,11 +8,79 @@
       "id": "ai",
       "candidates": [
         {
-          "id": "57c3309db5bedcde",
+          "id": "2c1c1d0b09d0e274",
           "topicId": "ai",
-          "title": "Amp puts AI agents to work beyond code with OpenAI models",
-          "url": "https://openai.com/index/amp-beyond-coding",
-          "publishedAt": "2026-10-14T12:00:00.000Z",
+          "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+          "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure",
+          "publishedAt": "2026-10-22T15:00:02.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "nvidia",
+          "sourceName": "NVIDIA Newsroom",
+          "sourceTier": "primary",
+          "sourceCategory": "ai-infrastructure",
+          "ingestSourceId": "nvidia-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "ai",
+            "infrastructure"
+          ],
+          "matchedKeywords": [
+            "ai model"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 81,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "d5edcab10a18dcce",
+          "topicId": "ai",
+          "title": "Securing the agentic insider",
+          "url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider",
+          "publishedAt": "2026-10-19T13:00:02.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "microsoft-ai",
+          "sourceName": "Microsoft AI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "microsoft-ai-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "copilot",
+            "agents",
+            "enterprise-ai",
+            "cloud"
+          ],
+          "matchedKeywords": [
+            "agentic"
+          ],
+          "titleMatchedKeywords": [
+            "agentic"
+          ],
+          "summaryMatchedKeywords": [
+            "agentic"
+          ],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Microsoft AI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "f8c156dba7886826",
+          "topicId": "ai",
+          "title": "Securing our frontier model training environment",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+          "publishedAt": "2026-10-23T10:00:00.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "openai",
           "sourceName": "OpenAI",
@@ -29,116 +97,20 @@
             "enterprise-ai",
             "safety"
           ],
-          "matchedKeywords": [
-            "ai model",
-            "ai agent"
-          ],
+          "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 68,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "468b3077a208433f",
+          "id": "90e35913e5ba3eb8",
           "topicId": "ai",
-          "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
-          "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-launch-event-invite",
-          "publishedAt": "2026-10-15T17:00:23.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "nvidia",
-          "sourceName": "NVIDIA Newsroom",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-infrastructure",
-          "ingestSourceId": "nvidia-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models",
-            "digital-resilience"
-          ],
-          "tags": [
-            "ai",
-            "infrastructure"
-          ],
-          "matchedKeywords": [
-            "ai agent"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "1e50a57e3be7a14e",
-          "topicId": "ai",
-          "title": "Adobe and NVIDIA Expand Collaboration to Speed Agentic Creation",
-          "url": "https://nvidianews.nvidia.com/news/adobe-and-nvidia-expand-collaboration-to-speed-agentic-creation",
-          "publishedAt": "2026-10-15T17:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "nvidia",
-          "sourceName": "NVIDIA Newsroom",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-infrastructure",
-          "ingestSourceId": "nvidia-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models",
-            "digital-resilience"
-          ],
-          "tags": [
-            "ai",
-            "infrastructure"
-          ],
-          "matchedKeywords": [
-            "agentic"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "369f65bd0511e1b4",
-          "topicId": "ai",
-          "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
-          "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl",
-          "publishedAt": "2026-10-15T15:00:24.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "nvidia",
-          "sourceName": "NVIDIA Newsroom",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-infrastructure",
-          "ingestSourceId": "nvidia-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models",
-            "digital-resilience"
-          ],
-          "tags": [
-            "ai",
-            "infrastructure"
-          ],
-          "matchedKeywords": [
-            "agentic"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "b4411b0822cf9012",
-          "topicId": "ai",
-          "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
-          "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-windows-laptops-celebration",
-          "publishedAt": "2026-10-17T21:00:13.000Z",
+          "title": "Kazakhstan Expands Compute for Its AI Future",
+          "url": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem",
+          "publishedAt": "2026-10-23T02:00:13.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "nvidia",
           "sourceName": "NVIDIA Newsroom",
@@ -157,17 +129,17 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 69,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "id": "9732b2763df5a67a",
+          "id": "1a543055a02f9816",
           "topicId": "ai",
-          "title": "How Itaú is building generative AI for its entire customer base",
-          "url": "https://openai.com/index/itau-generative-ai",
-          "publishedAt": "2026-10-16T19:00:00.000Z",
+          "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+          "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "openai",
           "sourceName": "OpenAI",
@@ -193,11 +165,11 @@
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
-          "id": "4597113913cc4513",
+          "id": "856d845adf1f95fe",
           "topicId": "ai",
-          "title": "NVIDIA RTX Spark PCs Available Today — A New Beginning for Windows PCs",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-rtx-spark-pcs-available-today-a-new-beginning-for-windows-pcs",
-          "publishedAt": "2026-10-16T12:00:00.000Z",
+          "title": "Cloud Deployment Incoming: ‘Call of Duty: Modern Warfare 4’ Arrives on GeForce NOW",
+          "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4",
+          "publishedAt": "2026-10-22T13:00:20.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "nvidia",
           "sourceName": "NVIDIA Newsroom",
@@ -212,36 +184,6 @@
           "tags": [
             "ai",
             "infrastructure"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9e63539289a31c86",
-          "topicId": "ai",
-          "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
-          "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
-          "publishedAt": "2026-10-16T00:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
           ],
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
@@ -249,14 +191,72 @@
           "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "id": "afd54bbe19c44fc2",
+          "id": "f22a63cc12b9be50",
           "topicId": "ai",
-          "title": "Agentic Search. More accurate and efficient results from your AI systems.",
-          "url": "https://mistral.ai/news/agentic-search",
-          "publishedAt": "2026-08-20T12:00:17.000Z",
+          "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence",
+          "url": "https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence",
+          "publishedAt": "2026-10-22T05:00:56.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "nvidia",
+          "sourceName": "NVIDIA Newsroom",
+          "sourceTier": "primary",
+          "sourceCategory": "ai-infrastructure",
+          "ingestSourceId": "nvidia-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "ai",
+            "infrastructure"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 65,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "36ee8fe7cab29f5d",
+          "topicId": "ai",
+          "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
+          "url": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models",
+          "publishedAt": "2026-10-22T05:00:27.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "nvidia",
+          "sourceName": "NVIDIA Newsroom",
+          "sourceTier": "primary",
+          "sourceCategory": "ai-infrastructure",
+          "ingestSourceId": "nvidia-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "ai",
+            "infrastructure"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 65,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "4c6292fc5ecba5f2",
+          "topicId": "ai",
+          "title": "Voxtral 3",
+          "url": "https://mistral.ai/news/voxtral-3",
+          "publishedAt": "2026-10-20T12:00:22.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "mistral-ai",
           "sourceName": "Mistral AI",
@@ -273,12 +273,10 @@
             "ai-safety",
             "europe"
           ],
-          "matchedKeywords": [
-            "agentic"
-          ],
+          "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Mistral AI via rss ingestion and matched the topic rules."
@@ -319,6 +317,83 @@
       "id": "market-structure",
       "candidates": [
         {
+          "id": "70dc3d7541aad839",
+          "topicId": "market-structure",
+          "title": "Crypto-actifs : l'Autorité des marchés financiers met en garde le public contre les activités de plusieurs acteurs non autorisés",
+          "url": "https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/crypto-actifs-lautorite-des-marches-financiers-met-en-garde-le-public-contre-les-activites-de-8",
+          "publishedAt": "2026-10-19T08:35:08.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "amf-regulation-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "rulemaking",
+            "markets",
+            "consultations",
+            "france"
+          ],
+          "matchedKeywords": [
+            "marché",
+            "crypto"
+          ],
+          "titleMatchedKeywords": [
+            "marché",
+            "crypto"
+          ],
+          "summaryMatchedKeywords": [
+            "marché",
+            "crypto"
+          ],
+          "relevanceScore": 90,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "a1f7959db31dcf3f",
+          "topicId": "market-structure",
+          "title": "La CNMV inicia la consulta del proyecto de Circular sobre normas contables, cuentas anuales y estados financieros intermedios de las infraestructuras del mercado",
+          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
+          "publishedAt": "2026-10-21T07:30:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "spain-cnmv",
+          "sourceName": "Comisión Nacional del Mercado de Valores",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "cnmv-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "funds",
+            "market-conduct",
+            "spain"
+          ],
+          "matchedKeywords": [
+            "mercado"
+          ],
+          "titleMatchedKeywords": [
+            "mercado"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 78,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "f4d9a8888a8eb58d",
           "topicId": "market-structure",
           "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
@@ -354,46 +429,46 @@
             "fonds",
             "investissement"
           ],
-          "relevanceScore": 89,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         },
         {
-          "id": "a1f7959db31dcf3f",
+          "id": "591c5bb781163462",
           "topicId": "market-structure",
-          "title": "La CNMV inicia la consulta del proyecto de Circular para ampliar el procedimiento de reclamaciones a las presentadas contra proveedores de servicios de criptoactivos y de financiación participativa",
-          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
-          "publishedAt": "2026-10-15T09:00:00.000Z",
+          "title": "Ministry of Finance issues Renminbi Sovereign Bonds through Central Moneymarkets Unit of Hong Kong Monetary Authority",
+          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/10/20261020-3",
+          "publishedAt": "2026-10-19T16:00:00.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "spain-cnmv",
-          "sourceName": "Comisión Nacional del Mercado de Valores",
+          "sourceRegistryId": "hkma",
+          "sourceName": "Hong Kong Monetary Authority",
           "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cnmv-news-rss",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "hkma-press-releases-rss",
           "fetchType": "rss",
           "riskAreas": [
             "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
+            "digital-resilience",
+            "crime-and-sanctions"
           ],
           "tags": [
-            "markets",
-            "funds",
-            "market-conduct",
-            "spain"
+            "banking-supervision",
+            "payments",
+            "operational-resilience",
+            "hong-kong"
           ],
           "matchedKeywords": [
-            "cripto"
+            "market"
           ],
           "titleMatchedKeywords": [
-            "cripto"
+            "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 79,
+          "relevanceScore": 75,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
         },
         {
           "id": "516b436cc8a9981d",
@@ -431,7 +506,7 @@
             "marché",
             "marchés"
           ],
-          "relevanceScore": 78,
+          "relevanceScore": 70,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
@@ -469,46 +544,10 @@
           "summaryMatchedKeywords": [
             "market"
           ],
-          "relevanceScore": 76,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "12718d0d80f182ed",
-          "topicId": "market-structure",
-          "title": "Interest rate of fourth interest payment for Silver Bond Series due 2027",
-          "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/10/20261008-3",
-          "publishedAt": "2026-10-07T16:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "hkma",
-          "sourceName": "Hong Kong Monetary Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "hkma-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "banking-supervision",
-            "payments",
-            "operational-resilience",
-            "hong-kong"
-          ],
-          "matchedKeywords": [
-            "payment"
-          ],
-          "titleMatchedKeywords": [
-            "payment"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
         },
         {
           "id": "7a5ae94d8f8169b1",
@@ -544,7 +583,7 @@
           "summaryMatchedKeywords": [
             "fund"
           ],
-          "relevanceScore": 62,
+          "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Central Bank of Ireland via rss ingestion and matched the topic rules."
@@ -580,90 +619,10 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 60,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "69a152e4a9658a74",
-          "topicId": "market-structure",
-          "title": "SEC Proposes Amendments to Expand Responsible Retailization of Private Markets",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-96-sec-proposes-amendments-expand-responsible-retailization-private-markets",
-          "publishedAt": "2026-09-30T15:45:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "sec",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "sec-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "matchedKeywords": [
-            "market",
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "market"
-          ],
-          "summaryMatchedKeywords": [
-            "market",
-            "securities"
-          ],
-          "relevanceScore": 57,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "2c92d931e6db78d5",
-          "topicId": "market-structure",
-          "title": "SEC Charges Meyer Global Management and Its CEO With Defrauding Retail Investors in Private Funds That Held Interests in SpaceX and Other Pre-IPO Securities",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-98-sec-charges-meyer-global-management-its-ceo-defrauding-retail-investors-private-funds-held-interests",
-          "publishedAt": "2026-09-30T18:30:01.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "sec",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "sec-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "matchedKeywords": [
-            "securities"
-          ],
-          "titleMatchedKeywords": [
-            "securities"
-          ],
-          "summaryMatchedKeywords": [
-            "securities"
-          ],
           "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
         },
         {
           "id": "0aa9d044effc942a",
@@ -739,43 +698,6 @@
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
         },
         {
-          "id": "ea310755dc180090",
-          "topicId": "market-structure",
-          "title": "CFTC Secures Court Orders Directing Texas and Florida Residents to Pay Over $500,000 in Disgorgement and Civil Monetary Penalties and Imposing Trading Bans for Commodity Pool Fraud",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9294-26",
-          "publishedAt": "2026-09-09T13:44:33.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cftc-enforcement-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "derivatives",
-            "market-conduct",
-            "enforcement",
-            "recordkeeping",
-            "us"
-          ],
-          "matchedKeywords": [
-            "trading"
-          ],
-          "titleMatchedKeywords": [
-            "trading"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "ebe8a08cb87592b9",
           "topicId": "market-structure",
           "title": "Circular on Private Market Investments",
@@ -811,50 +733,127 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Hong Kong Monetary Authority via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "51e5d97c3de0da13",
-          "topicId": "market-structure",
-          "title": "De la conception à la mise en œuvre : l'AFM et l'AMF identifient cinq leviers pour favoriser une supervision européenne efficace des marchés de capitaux",
-          "url": "https://www.amf-france.org/fr/actualites-publications/communiques/communiques-de-lamf/de-la-conception-la-mise-en-oeuvre-lafm-et-lamf-identifient-cinq-leviers-pour-favoriser-une",
-          "publishedAt": "2026-07-22T07:11:55.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-regulation-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "rulemaking",
-            "markets",
-            "consultations",
-            "france"
-          ],
-          "matchedKeywords": [
-            "marché"
-          ],
-          "titleMatchedKeywords": [
-            "marché"
-          ],
-          "summaryMatchedKeywords": [
-            "marché"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         }
       ]
     },
     {
       "id": "third-party",
       "candidates": [
+        {
+          "id": "3197cf8985047607",
+          "topicId": "third-party",
+          "title": "Disruption with Dependabot Alerts",
+          "url": "https://www.githubstatus.com/incidents/71y513kjvbzh",
+          "publishedAt": "2026-10-23T18:51:24.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "disruption"
+          ],
+          "titleMatchedKeywords": [
+            "disruption"
+          ],
+          "summaryMatchedKeywords": [
+            "incident"
+          ],
+          "relevanceScore": 85,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "f6ed4535c6d74812",
+          "topicId": "third-party",
+          "title": "Incident with Actions Results",
+          "url": "https://www.githubstatus.com/incidents/q29p76qtnkyk",
+          "publishedAt": "2026-10-22T15:18:46.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "titleMatchedKeywords": [
+            "incident"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "a6ac0a482468d742",
+          "topicId": "third-party",
+          "title": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
+          "url": "https://www.githubstatus.com/incidents/8tzbpcnl75jp",
+          "publishedAt": "2026-10-19T16:56:58.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded",
+            "error"
+          ],
+          "titleMatchedKeywords": [
+            "degraded"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded",
+            "error"
+          ],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
         {
           "id": "20e2c3e7f188a55a",
           "topicId": "third-party",
@@ -890,7 +889,7 @@
             "degraded",
             "error"
           ],
-          "relevanceScore": 78,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -932,86 +931,7 @@
             "degraded",
             "error"
           ],
-          "relevanceScore": 69,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "52623dd0ee7c9633",
-          "topicId": "third-party",
-          "title": "Disruption with some GitHub services",
-          "url": "https://www.githubstatus.com/incidents/2kxnqcxcrr7f",
-          "publishedAt": "2026-10-06T01:32:43.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "error",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "disruption"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "error"
-          ],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "61a6178f24088c6c",
-          "topicId": "third-party",
-          "title": "Incident with Actions",
-          "url": "https://www.githubstatus.com/incidents/3q1yb5m7ltvb",
-          "publishedAt": "2026-10-05T22:49:42.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "degraded",
-            "error"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "degraded",
-            "error"
-          ],
-          "relevanceScore": 65,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -1053,49 +973,10 @@
             "error",
             "disruption"
           ],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9fc511e9627bb0e8",
-          "topicId": "third-party",
-          "title": "Disruption with billing information updates",
-          "url": "https://www.githubstatus.com/incidents/1dk955gg3bvz",
-          "publishedAt": "2026-09-24T20:41:12.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "error",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "disruption"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "error"
-          ],
-          "relevanceScore": 59,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1103,73 +984,36 @@
       "id": "resilience",
       "candidates": [
         {
-          "id": "c5a5cb6c06662239",
+          "id": "f982ed1ff194c114",
           "topicId": "resilience",
-          "title": "Yandex outage: Data shows that instead of going dark, malicious bots went on the move",
-          "url": "https://blog.cloudflare.com/yandex-outage",
-          "publishedAt": "2026-10-14T20:24:19.000Z",
+          "title": "Physical shocks and economic resilience: a central bank perspective − speech by James Talbot",
+          "url": "https://www.bankofengland.co.uk/speech/2026/october/physical-shocks-and-economic-resilience-speech-by-james-talbot",
+          "publishedAt": "2026-10-23T09:00:00.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "cloudflare-security",
-          "sourceName": "Cloudflare Security Blog",
+          "sourceRegistryId": "uk-boe-pra",
+          "sourceName": "Bank of England and Prudential Regulation Authority",
           "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cloudflare-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience",
-            "cyber-security"
-          ],
-          "tags": [
-            "cyber",
-            "cloud-security"
-          ],
-          "matchedKeywords": [
-            "outage"
-          ],
-          "titleMatchedKeywords": [
-            "outage"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cloudflare Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "01eac5c7818ba9a5",
-          "topicId": "resilience",
-          "title": "Some ChatGPT content may be unavailable on Android",
-          "url": "https://status.openai.com//incidents/01M4H7FKXDA425TDNP2CRGEYA3",
-          "publishedAt": "2026-10-10T00:26:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-status-rss",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "boe-speeches-rss",
           "fetchType": "rss",
           "riskAreas": [
             "digital-resilience",
             "board-accountability"
           ],
           "tags": [
-            "service-status",
-            "ai-infrastructure"
+            "supervision",
+            "operational-resilience",
+            "uk"
           ],
           "matchedKeywords": [
-            "unavailable",
-            "impact"
+            "resilience"
           ],
-          "titleMatchedKeywords": [
-            "unavailable"
-          ],
-          "summaryMatchedKeywords": [
-            "impact"
-          ],
-          "relevanceScore": 71,
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
         },
         {
           "id": "ffe2cd2862788cce",
@@ -1198,45 +1042,45 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
+          "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
         },
         {
-          "id": "0aa7163c9d2cb844",
+          "id": "b38805271fefd2e5",
           "topicId": "resilience",
-          "title": "Incident affecting ASOS customers",
-          "url": "https://www.ncsc.gov.uk/news/incident-affecting-asos-customers",
-          "publishedAt": "2026-10-06T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "uk-ncsc",
-          "sourceName": "UK National Cyber Security Centre",
+          "title": "Capital Adequacy Requirements (CAR) (2027) – Chapter 8 – Credit Valuation Adjustment (CVA) Risk - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-8-credit-valuation-adjustment-cva-risk",
+          "publishedAt": "2026-09-10T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
           "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "ncsc-advisories-rss",
-          "fetchType": "rss",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
           "riskAreas": [
-            "digital-resilience"
+            "digital-resilience",
+            "board-accountability"
           ],
           "tags": [
-            "cyber",
-            "advisory",
-            "threat-intelligence"
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
           ],
           "matchedKeywords": [
-            "incident"
+            "risk"
           ],
           "titleMatchedKeywords": [
-            "incident"
+            "risk"
           ],
-          "summaryMatchedKeywords": [
-            "incident"
-          ],
-          "relevanceScore": 62,
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK National Cyber Security Centre via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -1244,11 +1088,11 @@
       "id": "financial-crime",
       "candidates": [
         {
-          "id": "426c4770124ab058",
+          "id": "a1ea033fe4a03930",
           "topicId": "financial-crime",
-          "title": "NCA hosts international law enforcement and tech industry crackdown on fraud and scams",
-          "url": "https://www.nationalcrimeagency.gov.uk/news/nca-hosts-international-law-enforcement-and-tech-industry-crackdown-on-fraud-and-scams",
-          "publishedAt": "2026-10-13T15:13:39.000Z",
+          "title": "'Lord of Fraud’ Hugh Rodley admits child sexual abuse offences",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/lord-of-fraud-hugh-rodley-admits-child-sexual-abuse-offences",
+          "publishedAt": "2026-10-22T12:33:03.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "uk-nca",
           "sourceName": "National Crime Agency",
@@ -1266,15 +1110,51 @@
             "organised-crime"
           ],
           "matchedKeywords": [
-            "fraud",
-            "scam"
+            "fraud"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
+          "relevanceScore": 81,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "81573eaa7c3b0f56",
+          "topicId": "financial-crime",
+          "title": "CFTC Secures Court Order Directing Louisiana Man and His Companies to Pay Over $9 Million in Forex Fraud",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9313-26",
+          "publishedAt": "2026-10-21T13:25:04.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cftc",
+          "sourceName": "US Commodity Futures Trading Commission",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "cftc-enforcement-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "derivatives",
+            "market-conduct",
+            "enforcement",
+            "recordkeeping",
+            "us"
+          ],
+          "matchedKeywords": [
+            "fraud"
+          ],
+          "titleMatchedKeywords": [
+            "fraud"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
         },
         {
           "id": "a521a8eccad55fc6",
@@ -1303,7 +1183,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 83,
+          "relevanceScore": 71,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
@@ -1340,114 +1220,6 @@
             "fraud"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 60,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "1e9351baa57cff85",
-          "topicId": "financial-crime",
-          "title": "Guidance: OFSI General Licence - INT/2026/10050568",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202610050568",
-          "publishedAt": "2026-10-12T13:48:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "ofsi",
-          "sourceName": "UK Office of Financial Sanctions Implementation",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-crime",
-          "ingestSourceId": "ofsi-updates-atom",
-          "fetchType": "atom",
-          "riskAreas": [
-            "crime-and-sanctions"
-          ],
-          "tags": [
-            "sanctions",
-            "enforcement",
-            "licences",
-            "uk"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 59,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "2c92d931e6db78d5",
-          "topicId": "financial-crime",
-          "title": "SEC Charges Meyer Global Management and Its CEO With Defrauding Retail Investors in Private Funds That Held Interests in SpaceX and Other Pre-IPO Securities",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-98-sec-charges-meyer-global-management-its-ceo-defrauding-retail-investors-private-funds-held-interests",
-          "publishedAt": "2026-09-30T18:30:01.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "sec",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "sec-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [
-            "fraud"
-          ],
-          "summaryMatchedKeywords": [
-            "fraud"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8fe6372d4b9e1112",
-          "topicId": "financial-crime",
-          "title": "SEC Charges Two Individuals With Orchestrating Fraud Scheme That Targeted Veterans",
-          "url": "https://www.sec.gov/newsroom/press-releases/2026-97-sec-charges-two-individuals-orchestrating-fraud-scheme-targeted-veterans",
-          "publishedAt": "2026-09-30T16:42:15.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "sec",
-          "sourceName": "US Securities and Exchange Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "sec-press-releases-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "enforcement",
-            "disclosure",
-            "crypto",
-            "us"
-          ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [
-            "fraud"
-          ],
-          "summaryMatchedKeywords": [
-            "fraud"
-          ],
           "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
@@ -1565,115 +1337,34 @@
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
         },
         {
-          "id": "ea310755dc180090",
+          "id": "1e9351baa57cff85",
           "topicId": "financial-crime",
-          "title": "CFTC Secures Court Orders Directing Texas and Florida Residents to Pay Over $500,000 in Disgorgement and Civil Monetary Penalties and Imposing Trading Bans for Commodity Pool Fraud",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9294-26",
-          "publishedAt": "2026-09-09T13:44:33.000Z",
+          "title": "Guidance: OFSI General Licence - INT/2026/10050568",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202610050568",
+          "publishedAt": "2026-10-12T13:48:44.000Z",
           "dateSource": "feed",
-          "sourceRegistryId": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
+          "sourceRegistryId": "ofsi",
+          "sourceName": "UK Office of Financial Sanctions Implementation",
           "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cftc-enforcement-rss",
-          "fetchType": "rss",
+          "sourceCategory": "financial-crime",
+          "ingestSourceId": "ofsi-updates-atom",
+          "fetchType": "atom",
           "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
+            "crime-and-sanctions"
           ],
           "tags": [
-            "derivatives",
-            "market-conduct",
+            "sanctions",
             "enforcement",
-            "recordkeeping",
-            "us"
+            "licences",
+            "uk"
           ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [
-            "fraud"
-          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
+          "relevanceScore": 46,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8168962064166bcb",
-          "topicId": "financial-crime",
-          "title": "SAN-2026-07 - Décision de la Commission des sanctions du 21 juillet 2026 à l'égard de la société Financière Fonds Privés et de MM. Pierre-Michel Deléglise et Thierry de Chambure",
-          "url": "https://www.amf-france.org/fr/sanctions-transactions/decisions-de-la-commission-des-sanctions/san-2026-07",
-          "publishedAt": "2026-07-23T11:57:07.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-enforcement-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "market-conduct",
-            "france"
-          ],
-          "matchedKeywords": [
-            "sanction"
-          ],
-          "titleMatchedKeywords": [
-            "sanction"
-          ],
-          "summaryMatchedKeywords": [
-            "sanction"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "88b23d8b49868dac",
-          "topicId": "financial-crime",
-          "title": "SAN-2026-06 - Décision de la commission des sanctions du 20 juillet 2026 à l'égard de la société Uzès Gestion et de MM. A, B, Jean-Marie Godet et Christian Maugey",
-          "url": "https://www.amf-france.org/fr/sanctions-transactions/decisions-de-la-commission-des-sanctions/san-2026-06",
-          "publishedAt": "2026-07-22T13:01:55.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-enforcement-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "enforcement",
-            "market-conduct",
-            "france"
-          ],
-          "matchedKeywords": [
-            "sanction"
-          ],
-          "titleMatchedKeywords": [
-            "sanction"
-          ],
-          "summaryMatchedKeywords": [
-            "sanction"
-          ],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
+          "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
         },
         {
           "id": "a5a2c46721b3f150",
@@ -1700,7 +1391,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 49,
+          "relevanceScore": 40,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Office of Financial Sanctions Implementation via atom ingestion and matched the topic rules."
@@ -1771,6 +1462,541 @@
       "id": "cyber",
       "candidates": [
         {
+          "id": "aea1b3de7d663e39",
+          "topicId": "cyber",
+          "title": "AL26-026 - Critical vulnerabilities impacting PHP - CVE-2026-109618 and CVE-2026-109619 - Update 1",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
+          "publishedAt": "2026-10-23T16:15:31.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "canada-cyber-centre",
+          "sourceName": "Canadian Centre for Cyber Security",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "canada-cyber-centre-alerts",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "alerts",
+            "actively-exploited",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 98,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Canadian Centre for Cyber Security via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "cd372df9000bd84b",
+          "topicId": "cyber",
+          "title": "Metasploit Wrap Up: Langflow, MongoDB, and More",
+          "url": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-langflow-mongodb-and-more",
+          "publishedAt": "2026-10-23T15:38:56.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "vulnerability",
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 98,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "7898cd2e7e2b2a02",
+          "topicId": "cyber",
+          "title": "Closing the Cyber Skills Gap with 300 Academic Partnerships",
+          "url": "https://blog.checkpoint.com/education/closing-the-cyber-skills-gap-with-300-academic-partnerships",
+          "publishedAt": "2026-10-23T13:01:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 98,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "ce87e3f627c6f42f",
+          "topicId": "cyber",
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0",
+          "publishedAt": "2026-10-23T12:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisa-advisories-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "ransomware",
+            "critical-infrastructure"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 98,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "87bf34b6e070a947",
+          "topicId": "cyber",
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "publishedAt": "2026-10-23T12:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisa-advisories-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "ransomware",
+            "critical-infrastructure"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 98,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "fbcff0b57bbbc861",
+          "topicId": "cyber",
+          "title": "Stopping PHP2SHELL: How SentinelOne Protects Customers From This Attack Technique",
+          "url": "https://www.sentinelone.com/blog/stopping-php2shell-how-sentinelone-protects-customers-from-this-attack-technique",
+          "publishedAt": "2026-10-21T19:21:11.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "sentinelone",
+          "sourceName": "SentinelOne Labs",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "sentinelone-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from SentinelOne Labs via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "641b5d18b227b320",
+          "topicId": "cyber",
+          "title": "CVE-2026-109618 and CVE-2026-109619: Critical Unauthenticated Remote Code Execution in PHP",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php",
+          "publishedAt": "2026-10-21T15:22:52.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "vulnerability",
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "74ef3f48ee253fb2",
+          "topicId": "cyber",
+          "title": "“Next Exploit Opportunities”: How a Threat Actor Used AI to Help Plan and Execute Multiple Types of Cybercrime Activities",
+          "url": "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis",
+          "publishedAt": "2026-10-21T14:00:24.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "paloalto-unit42",
+          "sourceName": "Palo Alto Networks Unit 42",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "paloalto-unit42-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "3b6c0440221180dc",
+          "topicId": "cyber",
+          "title": "How Fraudulent Airline Support Numbers Exploit Search Results and AI-Generated Answers",
+          "url": "https://blog.checkpoint.com/research/how-fraudulent-airline-support-numbers-exploit-search-results-and-ai-generated-answers",
+          "publishedAt": "2026-10-21T13:00:48.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "947a6a1faaf8bf30",
+          "topicId": "cyber",
+          "title": "Q3 2026 Threat Update: Attackers Are Exploiting Vulnerabilities Within 3 Days",
+          "url": "https://www.rapid7.com/blog/post/tr-q3-2026-threat-update-attackers-exploiting-vulnerabilities-within-3-days",
+          "publishedAt": "2026-10-21T13:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "ransomware",
+            "vulnerability",
+            "exploit",
+            "malware",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 94,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "f8f42007ce898263",
+          "topicId": "cyber",
+          "title": "Active Exploitation of May 2026 PAN-OS CVE-2026-0257 (Updated October 20)",
+          "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257",
+          "publishedAt": "2026-10-20T20:30:42.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "paloalto-unit42",
+          "sourceName": "Palo Alto Networks Unit 42",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "paloalto-unit42-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "ransomware",
+            "vulnerability",
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 93,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "ccb8f2ba405f94a6",
+          "topicId": "cyber",
+          "title": "Violations de données applicatives - Retour d’expérience du CERT-FR (20 octobre 2026)",
+          "url": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-008",
+          "publishedAt": "2026-10-20T00:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cert-fr",
+          "sourceName": "CERT-FR / ANSSI",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cert-fr-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerabilities",
+            "threat-intelligence",
+            "france"
+          ],
+          "matchedKeywords": [
+            "exploit",
+            "vulnérabilité"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 91,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from CERT-FR / ANSSI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "552cbee8ac3d9b61",
+          "topicId": "cyber",
+          "title": "#StopRansomware: SafePay Ransomware",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-293a",
+          "publishedAt": "2026-10-19T19:18:07.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cisa",
+          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisa-alerts-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "advisory",
+            "us"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "ransomware",
+            "vulnerability",
+            "exploit",
+            "malware",
+            "phishing",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 90,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "3b6e68adb37347a7",
+          "topicId": "cyber",
+          "title": "Your Next Insider Threat Won’t be Human: Securing AI Agents From the Outside in",
+          "url": "https://www.rapid7.com/blog/post/ai-inhuman-insider-threats-securing-agents",
+          "publishedAt": "2026-10-19T16:34:43.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "ransomware",
+            "exploit",
+            "malware",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 90,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "1272678ac5baaf46",
+          "topicId": "cyber",
+          "title": "Authentication Bypass, Remote Code Execution, and Database Read in Eptura Archibus (FIXED)",
+          "url": "https://www.rapid7.com/blog/post/ve-authentication-bypass-remote-code-execution-and-database-read-in-eptura-archibus-fixed",
+          "publishedAt": "2026-10-19T15:57:43.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "vulnerability",
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 90,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "41ea74f8a791a799",
+          "topicId": "cyber",
+          "title": "Bring Your Own Vulnerable Driver: What Detection Teams Should Actually Hunt",
+          "url": "https://www.sentinelone.com/blog/bring-your-own-vulnerable-driver-what-detection-teams-should-actually-hunt",
+          "publishedAt": "2026-10-19T13:00:01.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "sentinelone",
+          "sourceName": "SentinelOne Labs",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "sentinelone-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "ransomware",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 90,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from SentinelOne Labs via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "d65f8e91edfc8241",
           "topicId": "cyber",
           "title": "Top 5 Initial Access Threat Vectors Observed by Unit 42 in September 2026",
@@ -1799,255 +2025,17 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
+          "relevanceScore": 84,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
         },
         {
-          "id": "e964531b94d2e7af",
+          "id": "5955168b9b2d0cba",
           "topicId": "cyber",
-          "title": "AL26-025 - Critical vulnerability impacting BeyondTrust Remote Support – CVE-2026-102764",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764",
-          "publishedAt": "2026-10-16T16:34:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "canada-cyber-centre",
-          "sourceName": "Canadian Centre for Cyber Security",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "canada-cyber-centre-alerts",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "alerts",
-            "actively-exploited",
-            "canada"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Canadian Centre for Cyber Security via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "b5cec92ffbb3dd3f",
-          "topicId": "cyber",
-          "title": "Rapid7 Intelligence Wins the 2026 Péter Szőr Award for Outstanding Research",
-          "url": "https://www.rapid7.com/blog/post/tr-rapid7-intelligence-wins-2026-peter-szor-award-outstanding-research",
-          "publishedAt": "2026-10-16T13:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "malware",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "4e525e143e8c3f3d",
-          "topicId": "cyber",
-          "title": "Cyber Threat Actors Use a Variety of Techniques to Target Election and Campaign Officials",
-          "url": "https://www.cisa.gov/resources-tools/resources/cyber-threat-actors-use-variety-techniques-target-election-and-campaign-officials",
-          "publishedAt": "2026-10-16T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "malware",
-            "phishing",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ae4608a27522a7cf",
-          "topicId": "cyber",
-          "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "publishedAt": "2026-10-16T12:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisa",
-          "sourceName": "US Cybersecurity and Infrastructure Security Agency",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisa-advisories-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerabilities",
-            "ransomware",
-            "critical-infrastructure"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 97,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "25ce9a0e893e9328",
-          "topicId": "cyber",
-          "title": "How Multi-Campus Universities can Build a more Connected Security Program",
-          "url": "https://www.rapid7.com/blog/post/it-multi-campus-universities-building-more-connected-security-programs",
-          "publishedAt": "2026-10-15T19:20:59.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "058c8c39dbd9b7ef",
-          "topicId": "cyber",
-          "title": "The Q3 Vulnerability Pulse: Discovery ≠ Exploitation",
-          "url": "https://blog.talosintelligence.com/the-q3-vulnerability-pulse-discovery-exploitation",
-          "publishedAt": "2026-10-15T18:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisco-talos",
-          "sourceName": "Cisco Talos Intelligence Group",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisco-talos-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "c57477029b81ae37",
-          "topicId": "cyber",
-          "title": "Fake Calendar Invites Target Thousands of Organizations in Microsoft Credential-Phishing Campaign",
-          "url": "https://blog.checkpoint.com/securing-user-and-access/fake-calendar-invites-target-thousands-of-organizations-in-microsoft-credential-phishing-campaign",
-          "publishedAt": "2026-10-15T16:05:29.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit",
-            "phishing"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "13ae7aae0342ecc0",
-          "topicId": "cyber",
-          "title": "Unit 42 Uncovers PEERSTITCH, a Stealthy FortiGate Implant",
-          "url": "https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware",
-          "publishedAt": "2026-10-14T22:00:44.000Z",
+          "title": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619 (Updated October 23)",
+          "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619",
+          "publishedAt": "2026-10-23T19:00:34.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "paloalto-unit42",
           "sourceName": "Palo Alto Networks Unit 42",
@@ -2064,22 +2052,21 @@
             "threat-intelligence"
           ],
           "matchedKeywords": [
-            "exploit",
-            "malware"
+            "threat"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
         },
         {
-          "id": "79e30ada3b8ecd67",
+          "id": "d65845e1cdd8e011",
           "topicId": "cyber",
-          "title": "The hidden network: Inside the phishing infrastructure ecosystem powering global cybercrime",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/14/the-hidden-network-inside-the-phishing-infrastructure-ecosystem-powering-global-cybercrime",
-          "publishedAt": "2026-10-14T13:00:00.000Z",
+          "title": "Inside the LiteLLM 1.107.0 supply chain compromise: Credential theft through Python startup hooks",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks",
+          "publishedAt": "2026-10-23T18:12:19.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "microsoft-security",
           "sourceName": "Microsoft Security Blog",
@@ -2096,183 +2083,21 @@
             "threat-intelligence"
           ],
           "matchedKeywords": [
-            "cyber",
-            "phishing"
+            "threat"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
         },
         {
-          "id": "fb4b7613f7421a40",
+          "id": "cce4b58656a79643",
           "topicId": "cyber",
-          "title": "From One Account to Every Mailbox: Breaking Zimbra's Identity Boundaries (Part 1)",
-          "url": "https://www.rapid7.com/blog/post/ve-breaking-zimbra-identity-boundaries-part-1",
-          "publishedAt": "2026-10-14T13:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "cee7fd17457411af",
-          "topicId": "cyber",
-          "title": "Unauthenticated SQL Injection In Channel Software WebAlliance eCommerce",
-          "url": "https://www.rapid7.com/blog/post/ve-unauthenticated-sql-injection-in-channel-software-weballiance-ecommerce",
-          "publishedAt": "2026-10-14T12:47:05.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "5690f3c6ed4f72ca",
-          "topicId": "cyber",
-          "title": "Election Scams Are Getting Harder to Spot as Real Campaign Outreach and Fraud Converge",
-          "url": "https://blog.checkpoint.com/exposure-management/election-scams-are-getting-harder-to-spot-as-real-campaign-outreach-and-fraud-converge",
-          "publishedAt": "2026-10-14T10:02:32.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "malware",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 92,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "2cf58c5bb4e26979",
-          "topicId": "cyber",
-          "title": "The Noise Inside the Network: How an Unsophisticated Attack Exposed a Third-Party Risk",
-          "url": "https://unit42.paloaltonetworks.com/noise-inside-network-third-party-risk",
-          "publishedAt": "2026-10-13T22:00:04.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "paloalto-unit42",
-          "sourceName": "Palo Alto Networks Unit 42",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "paloalto-unit42-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "ff4855e3dda0c691",
-          "topicId": "cyber",
-          "title": "Patch Tuesday - October 2026",
-          "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026",
-          "publishedAt": "2026-10-13T21:40:27.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "8c1806b25c1e31a8",
-          "topicId": "cyber",
-          "title": "The Good, the Bad and the Ugly in  Cybersecurity - Week 41 (2026)",
-          "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-41-8",
-          "publishedAt": "2026-10-09T17:31:35.000Z",
+          "title": "The Good, the Bad and the Ugly in Cybersecurity - Week 43 (2026)",
+          "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-43-8",
+          "publishedAt": "2026-10-23T17:18:43.000Z",
           "dateSource": "feed",
           "sourceRegistryId": "sentinelone",
           "sourceName": "SentinelOne Labs",
@@ -2289,8 +2114,7 @@
             "threat-intelligence"
           ],
           "matchedKeywords": [
-            "cyber",
-            "exploit"
+            "cyber"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
@@ -2298,145 +2122,164 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from SentinelOne Labs via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "84324d77a2ea885d",
-          "topicId": "cyber",
-          "title": "Inside the Q3 2026 Brand Phishing Report: Microsoft Now Accounts for One in Three Brand Impersonation",
-          "url": "https://blog.checkpoint.com/security/inside-the-q3-2026-brand-phishing-report-microsoft-now-accounts-for-one-in-three-brand-impersonation",
-          "publishedAt": "2026-10-16T13:00:47.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "phishing"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "f976ce8dbe35e72e",
-          "topicId": "cyber",
-          "title": "AWS Security Agent (now part of AWS Continuum) exploited 33 of 37 new real-world CVEs",
-          "url": "https://aws.amazon.com/blogs/security/aws-security-agent-now-part-of-aws-continuum-exploited-33-of-37-new-real-world-cves",
-          "publishedAt": "2026-10-15T16:10:14.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "aws-security",
-          "sourceName": "AWS Security Blog",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "aws-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "cloud-security"
-          ],
-          "matchedKeywords": [
-            "security",
-            "vulnerability"
-          ],
-          "titleMatchedKeywords": [
-            "security"
-          ],
-          "summaryMatchedKeywords": [
-            "security",
-            "vulnerability"
-          ],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "5486594de5c7072f",
-          "topicId": "cyber",
-          "title": "How Luna Moth Runs Data Extortion Like a Business",
-          "url": "https://blog.checkpoint.com/security/how-luna-moth-runs-data-extortion-like-a-business",
-          "publishedAt": "2026-10-09T09:38:16.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "exploit",
-            "malware"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9a8d47c1f1558bd2",
-          "topicId": "cyber",
-          "title": "September 2026 Cyber Threat Landscape: Global Attacks Jump 48% as Phishing and GenAI Data Exposure Rise",
-          "url": "https://blog.checkpoint.com/research/september-2026-cyber-threat-landscape-global-attacks-jump-48-as-phishing-and-genai-data-exposure-rise",
-          "publishedAt": "2026-10-08T13:00:33.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "phishing",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
         }
       ]
     },
     {
       "id": "technology-failure",
       "candidates": [
+        {
+          "id": "3197cf8985047607",
+          "topicId": "technology-failure",
+          "title": "Disruption with Dependabot Alerts",
+          "url": "https://www.githubstatus.com/incidents/71y513kjvbzh",
+          "publishedAt": "2026-10-23T18:51:24.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "disruption"
+          ],
+          "titleMatchedKeywords": [
+            "disruption"
+          ],
+          "summaryMatchedKeywords": [
+            "incident"
+          ],
+          "relevanceScore": 85,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "f6ed4535c6d74812",
+          "topicId": "technology-failure",
+          "title": "Incident with Actions Results",
+          "url": "https://www.githubstatus.com/incidents/q29p76qtnkyk",
+          "publishedAt": "2026-10-22T15:18:46.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "titleMatchedKeywords": [
+            "incident"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded"
+          ],
+          "relevanceScore": 83,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "469ca46df3741cd3",
+          "topicId": "technology-failure",
+          "title": "Amendments to the reporting system",
+          "url": "https://www.bundesbank.de/en/service/reporting-systems/external-sector/amendments/amendments-to-the-reporting-system-759856",
+          "publishedAt": "2026-10-23T03:00:07.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "de-bundesbank",
+          "sourceName": "Deutsche Bundesbank",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "bundesbank-topics-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "ict-risk",
+            "banking-supervision",
+            "operational-risk",
+            "germany"
+          ],
+          "matchedKeywords": [
+            "system"
+          ],
+          "titleMatchedKeywords": [
+            "system"
+          ],
+          "summaryMatchedKeywords": [
+            "system"
+          ],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Deutsche Bundesbank via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "a6ac0a482468d742",
+          "topicId": "technology-failure",
+          "title": "Degraded availability for GitHub Actions, GitHub Pages and Webhooks",
+          "url": "https://www.githubstatus.com/incidents/8tzbpcnl75jp",
+          "publishedAt": "2026-10-19T16:56:58.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "github-status",
+          "sourceName": "GitHub Status",
+          "sourceTier": "primary",
+          "sourceCategory": "technology",
+          "ingestSourceId": "github-status-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "digital-resilience"
+          ],
+          "tags": [
+            "developer-platform",
+            "provider-incident",
+            "dependency",
+            "service-disruption"
+          ],
+          "matchedKeywords": [
+            "incident",
+            "degraded",
+            "error"
+          ],
+          "titleMatchedKeywords": [
+            "degraded"
+          ],
+          "summaryMatchedKeywords": [
+            "incident",
+            "degraded",
+            "error"
+          ],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
+        },
         {
           "id": "20e2c3e7f188a55a",
           "topicId": "technology-failure",
@@ -2472,46 +2315,10 @@
             "degraded",
             "error"
           ],
-          "relevanceScore": 78,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "01eac5c7818ba9a5",
-          "topicId": "technology-failure",
-          "title": "Some ChatGPT content may be unavailable on Android",
-          "url": "https://status.openai.com//incidents/01M4H7FKXDA425TDNP2CRGEYA3",
-          "publishedAt": "2026-10-10T00:26:44.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "service-status",
-            "ai-infrastructure"
-          ],
-          "matchedKeywords": [
-            "unavailable",
-            "impact"
-          ],
-          "titleMatchedKeywords": [
-            "unavailable"
-          ],
-          "summaryMatchedKeywords": [
-            "impact"
-          ],
-          "relevanceScore": 71,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
           "id": "10e3ec33340e57ce",
@@ -2550,86 +2357,7 @@
             "degraded",
             "error"
           ],
-          "relevanceScore": 69,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "52623dd0ee7c9633",
-          "topicId": "technology-failure",
-          "title": "Disruption with some GitHub services",
-          "url": "https://www.githubstatus.com/incidents/2kxnqcxcrr7f",
-          "publishedAt": "2026-10-06T01:32:43.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "error",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "disruption"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "error"
-          ],
-          "relevanceScore": 65,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "61a6178f24088c6c",
-          "topicId": "technology-failure",
-          "title": "Incident with Actions",
-          "url": "https://www.githubstatus.com/incidents/3q1yb5m7ltvb",
-          "publishedAt": "2026-10-05T22:49:42.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "degraded",
-            "error"
-          ],
-          "titleMatchedKeywords": [
-            "incident"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "degraded",
-            "error"
-          ],
-          "relevanceScore": 65,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
@@ -2671,7 +2399,7 @@
             "error",
             "disruption"
           ],
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from DigitalOcean Status via rss ingestion and matched the topic rules."
@@ -2708,55 +2436,86 @@
           "summaryMatchedKeywords": [
             "ict"
           ],
-          "relevanceScore": 59,
+          "relevanceScore": 55,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank for International Settlements via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9fc511e9627bb0e8",
-          "topicId": "technology-failure",
-          "title": "Disruption with billing information updates",
-          "url": "https://www.githubstatus.com/incidents/1dk955gg3bvz",
-          "publishedAt": "2026-09-24T20:41:12.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "github-status",
-          "sourceName": "GitHub Status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "ingestSourceId": "github-status-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "matchedKeywords": [
-            "incident",
-            "error",
-            "disruption"
-          ],
-          "titleMatchedKeywords": [
-            "disruption"
-          ],
-          "summaryMatchedKeywords": [
-            "incident",
-            "error"
-          ],
-          "relevanceScore": 59,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
     {
       "id": "data",
       "candidates": [
+        {
+          "id": "fc1e26ef33151bdb",
+          "topicId": "data",
+          "title": "ICO takes action against Metropolitan Police Service",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/ico-takes-action-against-metropolitan-police-service-over-information-governance-failures",
+          "publishedAt": "2026-10-20T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [
+            "data",
+            "governance"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 91,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "c8f46e5ff1ac1686",
+          "topicId": "data",
+          "title": "Journée RGPD à Poitiers : cybersécurité, IA et conformité au cœur des enjeux de protection des données",
+          "url": "https://www.cnil.fr/fr/journee-rgpd-2026-poitiers",
+          "publishedAt": "2026-10-20T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "fr-cnil",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "cnil-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "données",
+            "protection",
+            "rgpd",
+            "contrôle"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 91,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
+        },
         {
           "id": "aaebf12b008c7872",
           "topicId": "data",
@@ -2786,17 +2545,260 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 96,
+          "relevanceScore": 83,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "fc1e26ef33151bdb",
+          "id": "72b1fc8bb6da4771",
           "topicId": "data",
-          "title": "ICO takes action against Metropolitan Police Service over information governance failures",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/ico-takes-action-against-metropolitan-police-service-over-information-governance-failures",
-          "publishedAt": "2026-10-14T00:00:00.000Z",
+          "title": "Consultation on confidentiality of data collected under SRS 604.0 | APRA",
+          "url": "https://www.apra.gov.au/news-and-publications/consultation-confidentiality-data-collected-under-srs-6040",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "apra",
+          "sourceName": "Australian Prudential Regulation Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "apra-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "australia"
+          ],
+          "matchedKeywords": [
+            "data"
+          ],
+          "titleMatchedKeywords": [
+            "data"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Australian Prudential Regulation Authority via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "e5476bd8006b28cc",
+          "topicId": "data",
+          "title": "Reporting Requirements for Property & Casualty Insurance Companies - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/reporting-requirements-property-casualty-insurance-companies",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "0b74f16dec8d5509",
+          "topicId": "data",
+          "title": "Reporting Requirements for Federally Regulated Mortgage Insurers - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/reporting-requirements-federally-regulated-mortgage-insurers",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "542ca00ff2ea3253",
+          "topicId": "data",
+          "title": "Reporting Requirements for Life Insurance Companies and Fraternal Benefit Societies - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/reporting-requirements-life-insurance-companies-fraternal-benefit-societies",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 82,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "47b3648bad6ffe6b",
+          "topicId": "data",
+          "title": "2026 Annual Update to the Manual of Financial Reporting Forms and Instructions for Canadian Mortgage Insurance Companies - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/2026-annual-update-manual-financial-reporting-forms-instructions-canadian-mortgage-insurance",
+          "publishedAt": "2026-10-22T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 80,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "9563ad98797e69e4",
+          "topicId": "data",
+          "title": "2026 Annual Update to the Manual of Financial Reporting Forms and Instructions for Property and Casualty Insurance Companies - Office of the Superintendent of Financial Institutions",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/2026-annual-update-manual-financial-reporting-forms-instructions-property-casualty-insurance",
+          "publishedAt": "2026-10-22T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "osfi",
+          "sourceName": "Office of the Superintendent of Financial Institutions",
+          "sourceTier": "primary",
+          "sourceCategory": "prudential",
+          "ingestSourceId": "osfi-resilience-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "prudential-supervision",
+            "operational-risk",
+            "reporting",
+            "canada"
+          ],
+          "matchedKeywords": [
+            "reporting"
+          ],
+          "titleMatchedKeywords": [
+            "reporting"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 80,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "d7fec0bf7c00fb0d",
+          "topicId": "data",
+          "title": "Ordre du jour de la séance plénière du 22 octobre 2026",
+          "url": "https://www.cnil.fr/fr/ordre-du-jour-de-la-seance-pleniere-du-22-octobre-2026",
+          "publishedAt": "2026-10-22T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "fr-cnil",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "cnil-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "données"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 80,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "40b6879bbe71ce46",
+          "topicId": "data",
+          "title": "&#x201C;&#x27;Password1&#x2019; is not an appropriate password&#x201D;: Two Welsh organisations reprimanded after cyber-attack exposed children&#x2019;s information",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/password1-is-not-an-appropriate-password",
+          "publishedAt": "2026-10-21T00:00:00.000Z",
           "dateSource": "page-published",
           "sourceRegistryId": "ico",
           "sourceName": "UK Information Commissioner's Office",
@@ -2815,15 +2817,50 @@
             "ai-data"
           ],
           "matchedKeywords": [
-            "data",
-            "governance"
+            "data"
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 92,
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "a1f7959db31dcf3f",
+          "topicId": "data",
+          "title": "Nuevo comunicado de la CNMV y del ICAC para guiar a las empresas en la información de sostenibilidad hasta que la directiva CSRD sea transpuesta en España",
+          "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
+          "publishedAt": "2026-10-20T09:30:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "spain-cnmv",
+          "sourceName": "Comisión Nacional del Mercado de Valores",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "cnmv-news-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "funds",
+            "market-conduct",
+            "spain"
+          ],
+          "matchedKeywords": [
+            "información"
+          ],
+          "titleMatchedKeywords": [
+            "información"
+          ],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 77,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Comisión Nacional del Mercado de Valores via rss ingestion and matched the topic rules."
         },
         {
           "id": "fc7865bf7518a1d6",
@@ -2854,77 +2891,215 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 90,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "844df392d528acdd",
-          "topicId": "data",
-          "title": "Rencontres Informatique & Libertés 2026 : voir la rediffusion de l&#039;évènement",
-          "url": "https://www.cnil.fr/fr/ril-2026",
-          "publishedAt": "2026-10-09T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "cnil-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "données",
-            "protection"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "4b3a739cc4e144e1",
-          "topicId": "data",
-          "title": "Clôture de l’injonction prononcée à l’encontre de GOOGLE",
-          "url": "https://www.cnil.fr/fr/cloture-injonction-google",
-          "publishedAt": "2026-10-14T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "cnil-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "sanction"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
           "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "6ce1419614e1868c",
+          "topicId": "data",
+          "title": "\"Dyw &#x27;Password1&#x27; ddim yn gyfrinair priodol\": Ceryddu dau sefydliad Cymreig ar &#xF4;l i seiberymosodiad ddatgelu gwybodaeth plant",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/dyw-password1-ddim-yn-gyfrinair-priodol",
+          "publishedAt": "2026-10-20T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [
+            "data"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 76,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "9df439b0fc8f687b",
+          "topicId": "data",
+          "title": "SEC Announces Roundtable on Machine-Understandable Data in the Age of Super Intelligence",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-106-sec-announces-roundtable-machine-understandable-data-age-super-intelligence",
+          "publishedAt": "2026-10-19T17:19:43.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "sec",
+          "sourceName": "US Securities and Exchange Commission",
+          "sourceTier": "primary",
+          "sourceCategory": "markets",
+          "ingestSourceId": "sec-press-releases-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "markets",
+            "enforcement",
+            "disclosure",
+            "crypto",
+            "us"
+          ],
+          "matchedKeywords": [
+            "data"
+          ],
+          "titleMatchedKeywords": [
+            "data"
+          ],
+          "summaryMatchedKeywords": [
+            "data"
+          ],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from US Securities and Exchange Commission via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "1a2948a2c66d857f",
+          "topicId": "data",
+          "title": "Data Protection Commission",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-ai-insights-report",
+          "publishedAt": "2026-09-25T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ireland-dpc",
+          "sourceName": "Data Protection Commission Ireland",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ireland-dpc-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "ireland"
+          ],
+          "matchedKeywords": [
+            "data protection",
+            "personal data"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "a58b4fa1a05564c7",
+          "topicId": "data",
+          "title": "Data Protection Commission",
+          "url": "https://www.dataprotection.ie/en/dpc-guidance/publications/dpc-AI-insights-report",
+          "publishedAt": "2026-09-24T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ireland-dpc",
+          "sourceName": "Data Protection Commission Ireland",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ireland-dpc-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "ireland"
+          ],
+          "matchedKeywords": [
+            "data protection",
+            "personal data"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "ed3e766b52562204",
+          "topicId": "data",
+          "title": "Data Protection Commission",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-google-eu403-million-following-inquiry-googles-processing-location",
+          "publishedAt": "2026-09-21T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ireland-dpc",
+          "sourceName": "Data Protection Commission Ireland",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ireland-dpc-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "ireland"
+          ],
+          "matchedKeywords": [
+            "data protection",
+            "personal data"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 70,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "id": "974f11a8f0e29f0f",
+          "topicId": "data",
+          "title": "Information Commissioner calls for senior leaders to take transparency seriously",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/03/information-commissioner-calls-for-senior-leaders-to-take-transparency-seriously",
+          "publishedAt": "2026-10-22T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "ico",
+          "sourceName": "UK Information Commissioner's Office",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "ico-news-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "data-protection",
+            "privacy",
+            "governance",
+            "ai-data"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 65,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         },
         {
           "id": "b7b588499bd26d94",
@@ -2958,485 +3133,10 @@
           "summaryMatchedKeywords": [
             "disclosure"
           ],
-          "relevanceScore": 75,
+          "relevanceScore": 62,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from European Insurance and Occupational Pensions Authority via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "f4d9a8888a8eb58d",
-          "topicId": "data",
-          "title": "Procédures d'agrément, établissement d'un DIC et/ou, le cas échéant, d'un DICI et d'un règlement et information périodique des fonds de capital investissement -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2011-22",
-          "publishedAt": "2026-10-12T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "information"
-          ],
-          "titleMatchedKeywords": [
-            "information"
-          ],
-          "summaryMatchedKeywords": [
-            "information"
-          ],
-          "relevanceScore": 74,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "b6b018a5753df1f5",
-          "topicId": "data",
-          "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
-          "publishedAt": "2026-10-01T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ireland-dpc",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ireland-dpc-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "data protection",
-            "personal data"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "eff9fd2c49025128",
-          "topicId": "data",
-          "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-ai-insights-report",
-          "publishedAt": "2026-09-25T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ireland-dpc",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ireland-dpc-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "data protection",
-            "personal data"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "54150cd006433d09",
-          "topicId": "data",
-          "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/dpc-guidance/publications/dpc-AI-insights-report",
-          "publishedAt": "2026-09-24T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ireland-dpc",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ireland-dpc-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "data protection",
-            "personal data"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "24020bde34250bc8",
-          "topicId": "data",
-          "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-google-eu403-million-following-inquiry-googles-processing-location",
-          "publishedAt": "2026-09-21T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ireland-dpc",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ireland-dpc-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "data protection",
-            "personal data"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "9ee9f2ee62b62f26",
-          "topicId": "data",
-          "title": "Amendes RGPD et interaction avec le règlement sur les services numériques : retour sur la plénière du CEPD du 17 septembre 2026",
-          "url": "https://www.cnil.fr/fr/pleniere-cepd-amendes-reglement-services-numeriques",
-          "publishedAt": "2026-09-17T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "cnil-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "données",
-            "protection",
-            "rgpd"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "7175c14d8c5c3fa8",
-          "topicId": "data",
-          "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-welcomes-outcome-prosecution-marketing-offences-1",
-          "publishedAt": "2026-09-08T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ireland-dpc",
-          "sourceName": "Data Protection Commission Ireland",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ireland-dpc-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "ireland"
-          ],
-          "matchedKeywords": [
-            "data protection",
-            "personal data"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 70,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Data Protection Commission Ireland via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "1b3ca11bc686dcf7",
-          "topicId": "data",
-          "title": "Instructions to complete ICAAP data return - Office of the Superintendent of Financial Institutions",
-          "url": "https://www.osfi-bsif.gc.ca/en/data-forms/reporting-returns/filing-financial-returns/financial-reporting-instructions/instructions-complete-icaap-data-return",
-          "publishedAt": "2026-10-05T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "osfi",
-          "sourceName": "Office of the Superintendent of Financial Institutions",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "osfi-resilience-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-supervision",
-            "operational-risk",
-            "reporting",
-            "canada"
-          ],
-          "matchedKeywords": [
-            "data"
-          ],
-          "titleMatchedKeywords": [
-            "data"
-          ],
-          "summaryMatchedKeywords": [
-            "data"
-          ],
-          "relevanceScore": 59,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Office of the Superintendent of Financial Institutions via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "727615cabb959c10",
-          "topicId": "data",
-          "title": "Procédures d'agrément et d'examen du cahier des charges des dépositaires d'OPCVM et de FIA et modalités d'information de l'AMF -",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2016-01",
-          "publishedAt": "2026-09-23T22:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fr-amf",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "amf-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "information"
-          ],
-          "titleMatchedKeywords": [
-            "information"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "2f861e3ab4363d7a",
-          "topicId": "data",
-          "title": "Retirement Reporting Framework: response to consultation and final consultation on the revised draft reporting standards | APRA",
-          "url": "https://www.apra.gov.au/news-and-publications/retirement-reporting-framework-response-consultation-and-final-consultation",
-          "publishedAt": "2026-09-10T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "apra",
-          "sourceName": "Australian Prudential Regulation Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "apra-resilience-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-supervision",
-            "operational-risk",
-            "reporting",
-            "australia"
-          ],
-          "matchedKeywords": [
-            "reporting"
-          ],
-          "titleMatchedKeywords": [
-            "reporting"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 55,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Australian Prudential Regulation Authority via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "b10c6005c8fd27a5",
-          "topicId": "data",
-          "title": "Complaints about automated nuisance calls hit five-year high",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/complaints-about-automated-nuisance-calls-hit-five-year-high",
-          "publishedAt": "2026-10-09T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 52,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "cdfc76ed5721a9e5",
-          "topicId": "data",
-          "title": "ICO secures changes from leading AI developers as scrutiny extends to AI agents",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/ico-secures-changes-from-leading-ai-developers-as-scrutiny-extends-to-ai-agents",
-          "publishedAt": "2026-10-08T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 50,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "f23e626672567bfb",
-          "topicId": "data",
-          "title": "ASOS statement",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/10/asos-statement",
-          "publishedAt": "2026-10-07T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 48,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "id": "cf93a4624aeef6ec",
-          "topicId": "data",
-          "title": "ICO wins Court of Appeal case in DSG Retail ruling",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/02/ico-wins-court-of-appeal-case-in-dsg-retail-ruling",
-          "publishedAt": "2026-10-07T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "ico",
-          "sourceName": "UK Information Commissioner's Office",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "ico-news-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "data-protection",
-            "privacy",
-            "governance",
-            "ai-data"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 48,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from UK Information Commissioner's Office via sitemap ingestion and matched the topic rules."
         }
       ]
     }
@@ -3448,7 +3148,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -3478,7 +3178,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 0,
+      "acceptedCandidates": 1,
       "reason": "",
       "error": ""
     },
@@ -3508,7 +3208,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3526,11 +3226,11 @@
       "sourceId": "esma-rss",
       "sourceRegistryId": "esma",
       "fetchType": "rss",
-      "status": "ok",
-      "fetchedEntries": 8,
+      "status": "failed",
+      "fetchedEntries": 0,
       "acceptedCandidates": 0,
       "reason": "",
-      "error": ""
+      "error": "Fetch failed 403 for https://www.esma.europa.eu/rss.xml"
     },
     {
       "sourceId": "fsb-feed",
@@ -3648,7 +3348,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -3668,7 +3368,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 5,
       "reason": "",
       "error": ""
     },
@@ -3738,7 +3438,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3748,7 +3448,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -3838,7 +3538,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 5,
       "reason": "",
       "error": ""
     },
@@ -3878,7 +3578,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 0,
+      "acceptedCandidates": 1,
       "reason": "",
       "error": ""
     },
@@ -3907,7 +3607,7 @@
       "sourceRegistryId": "cloudflare-status",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 17,
+      "fetchedEntries": 20,
       "acceptedCandidates": 0,
       "reason": "",
       "error": ""
@@ -3917,8 +3617,8 @@
       "sourceRegistryId": "github-status",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 18,
-      "acceptedCandidates": 10,
+      "fetchedEntries": 20,
+      "acceptedCandidates": 16,
       "reason": "",
       "error": ""
     },
@@ -4017,8 +3717,8 @@
       "sourceRegistryId": "openai",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 11,
-      "acceptedCandidates": 2,
+      "fetchedEntries": 12,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -4037,7 +3737,7 @@
       "sourceRegistryId": "twilio-status",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 10,
+      "fetchedEntries": 7,
       "acceptedCandidates": 0,
       "reason": "",
       "error": ""
@@ -4097,7 +3797,7 @@
       "sourceRegistryId": "linode-status",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 11,
+      "fetchedEntries": 5,
       "acceptedCandidates": 0,
       "reason": "",
       "error": ""
@@ -4137,7 +3837,7 @@
       "sourceRegistryId": "hubspot-status",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 7,
+      "fetchedEntries": 8,
       "acceptedCandidates": 0,
       "reason": "",
       "error": ""
@@ -4178,7 +3878,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },
@@ -4188,7 +3888,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 7,
+      "acceptedCandidates": 9,
       "reason": "",
       "error": ""
     },
@@ -4218,7 +3918,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -4228,7 +3928,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -4237,7 +3937,7 @@
       "sourceRegistryId": "eiopa",
       "fetchType": "sitemap",
       "status": "ok",
-      "fetchedEntries": 14,
+      "fetchedEntries": 13,
       "acceptedCandidates": 1,
       "reason": "",
       "error": ""
@@ -4258,7 +3958,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 8,
       "reason": "",
       "error": ""
     },
@@ -4268,7 +3968,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 3,
       "reason": "",
       "error": ""
     },
@@ -4288,7 +3988,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 10,
       "reason": "",
       "error": ""
     },
@@ -4298,7 +3998,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 7,
+      "acceptedCandidates": 5,
       "reason": "",
       "error": ""
     },
@@ -4308,7 +4008,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 9,
+      "acceptedCandidates": 10,
       "reason": "",
       "error": ""
     },
@@ -4328,7 +4028,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 6,
+      "acceptedCandidates": 8,
       "reason": "",
       "error": ""
     },
@@ -4348,7 +4048,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 9,
+      "acceptedCandidates": 10,
       "reason": "",
       "error": ""
     },
@@ -4358,7 +4058,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 6,
       "reason": "",
       "error": ""
     },
@@ -4394,6 +4094,7 @@
     }
   ],
   "warnings": [
+    "Source esma-rss failed during candidate collection: Fetch failed 403 for https://www.esma.europa.eu/rss.xml",
     "Source reg-horizon-market-bridge skipped: horizon-withheld.",
     "Source reg-horizon-third-party-bridge skipped: horizon-withheld.",
     "Source reg-horizon-resilience-bridge skipped: horizon-withheld.",

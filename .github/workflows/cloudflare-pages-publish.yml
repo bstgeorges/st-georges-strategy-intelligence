@@ -57,6 +57,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Uses a read-only deploy key scoped to the private data repository.
       - name: Check out private Regulatory Horizon data
         uses: actions/checkout@v4
         with:

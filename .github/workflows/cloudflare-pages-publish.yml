@@ -57,13 +57,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Requires REG_HORIZON_PRIVATE_DATA_READ_TOKEN with read access to the private data repository.
+      # Uses a read-only deploy key scoped to the private data repository.
       - name: Check out private Regulatory Horizon data
         uses: actions/checkout@v4
         with:
           repository: bstgeorges/st-georges-reg-horizon-private
           ref: main
-          token: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_TOKEN }}
+          ssh-key: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_KEY }}
           path: .private-horizon
 
       - name: Load private Regulatory Horizon inputs

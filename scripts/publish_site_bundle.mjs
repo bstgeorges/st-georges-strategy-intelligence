@@ -3086,6 +3086,20 @@ function inlineHashes(out, tagName) {
         const html = fs.readFileSync(file, "utf8");
         for (const match of html.matchAll(tagPattern)) {
           if (tagName === "script" && /(?:^|\s)src\s*=/.test(match[1])) continue;
+          const scriptType = tagName === "script"
+            ? match[1].match(/\btype\s*=\s*(["'])(.*?)\1/i)?.[2]?.trim().toLowerCase()
+            : null;
+          if (
+            scriptType &&
+            ![
+              "application/ecmascript",
+              "application/javascript",
+              "importmap",
+              "module",
+              "text/ecmascript",
+              "text/javascript",
+            ].includes(scriptType)
+          ) continue;
           const digest = crypto.createHash("sha256").update(match[2]).digest("base64");
           hashes.add(`'sha256-${digest}'`);
         }

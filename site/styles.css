@@ -1888,6 +1888,12 @@ a.tag:hover {
   background: var(--dot, var(--accent));
 }
 
+.signal-card.dot-accent { --dot: var(--accent); }
+.signal-card.dot-blue { --dot: var(--blue); }
+.signal-card.dot-green { --dot: var(--green); }
+.signal-card.dot-rose { --dot: var(--rose); }
+.signal-card.dot-violet { --dot: var(--violet); }
+
 .signal-card.featured {
   grid-column: span 2;
   border-color: var(--navy);

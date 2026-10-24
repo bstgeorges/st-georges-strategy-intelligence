@@ -1,0 +1,107 @@
+name: Reg Horizon weekly private scan
+
+on:
+  schedule:
+    - cron: "0 6 * * 0"
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "Private deadline-discovery lookback in days."
+        required: false
+        default: "90"
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: reg-horizon-weekly-private-scan
+  cancel-in-progress: false
+
+jobs:
+  scan-for-editorial-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out private data repository
+        uses: actions/checkout@v4
+
+      - name: Check out public scanner and build tools
+        uses: actions/checkout@v4
+        with:
+          repository: bstgeorges/st-georges-strategy-intelligence
+          ref: main
+          path: public-code
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: public-code/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scanner dependencies
+        working-directory: public-code
+        run: |
+          pip install -r tools/reg-scan/requirements.txt
+          npm ci
+
+      - name: Run scanner tests
+        working-directory: public-code
+        run: REG_SCAN_PYTHON=python npm run reg-scan:test
+
+      - name: Run live private deadline-discovery scan
+        working-directory: public-code
+        env:
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '90' }}
+        run: |
+          case "$LOOKBACK_DAYS" in
+            ''|*[!0-9]*) echo "lookback_days must be a whole number" >&2; exit 1 ;;
+          esac
+          if [ "$LOOKBACK_DAYS" -lt 30 ] || [ "$LOOKBACK_DAYS" -gt 180 ]; then
+            echo "lookback_days must be between 30 and 180 days" >&2; exit 1
+          fi
+          REG_SCAN_PYTHON=python npm run reg-scan:run -- --window "$LOOKBACK_DAYS"
+
+      - name: Build private deadline register and quality report
+        working-directory: public-code
+        run: |
+          npm run deadline-register:build
+          npm run deadline-register:validate
+          npm run deadline-dashboard:build
+
+      - name: Copy private outputs into private repository
+        run: |
+          mkdir -p dashboard tools/reg-scan
+          rm -rf dashboard/regulatory-deadline-register tools/reg-scan/docs
+          cp -a public-code/dashboard/regulatory-deadline-register dashboard/
+          cp -a public-code/tools/reg-scan/docs tools/reg-scan/
+          mkdir -p tools/reg-scan/state
+          cp -a public-code/tools/reg-scan/state/scan.db tools/reg-scan/state/
+
+      - name: Open private editorial-review pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "reg-scan bot"
+          git config user.email "actions@users.noreply.github.com"
+          branch="automation/reg-horizon-${GITHUB_RUN_ID}"
+          git switch -c "$branch"
+          git add dashboard/regulatory-deadline-register tools/reg-scan/docs tools/reg-scan/state/scan.db
+          if git diff --cached --quiet; then
+            echo "No private Reg Horizon changes."
+            exit 0
+          fi
+          git commit -m "Weekly private regulatory horizon scan $(date -u +%F)"
+          git push --set-upstream origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Review private Reg Horizon scan $(date -u +%F)" \
+            --body "Private scanner output for editorial review. This does not change the public site. The canonical public site release separately reads the reviewed private data repository and publishes only its approved, sanitized Horizon output."

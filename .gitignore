@@ -3,5 +3,13 @@ node_modules/
 site-dist/
 release-artifacts/
 
+# Internal Regulatory Horizon evidence is restored from the private data repo
+# for release builds and must never be committed to this public repository.
+/.private-horizon/
+/dashboard/regulatory-deadline-register/*
+!/dashboard/regulatory-deadline-register/README.md
+/tools/reg-scan/docs/*
+/tools/reg-scan/state/scan.db
+
 node_modules/
 site-dist/

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>No more tail risk? | Deep Dive | St Georges Strategy</title>
+    <meta name="description" content="What repeated, moderate disruptions to shared dependencies mean for financial services resilience—and how firms can prepare for the next one.">
+    <link rel="canonical" href="https://stgeorgesstrategy.com/deep-dives/no-more-tail-risk/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="No more tail risk?">
+    <meta property="og:description" content="A close look at what recurring, moderate disruption to shared dependencies looks like in practice.">
+    <meta property="og:url" content="https://stgeorgesstrategy.com/deep-dives/no-more-tail-risk/">
+    <meta property="og:image" content="https://stgeorgesstrategy.com/assets/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="No more tail risk?">
+    <meta name="twitter:description" content="A Deep Dive from The Virtual Officer.">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "No more tail risk?",
+        "description": "What repeated, moderate disruptions to shared dependencies mean for financial services resilience—and how firms can prepare for the next one.",
+        "datePublished": "2026-10-24",
+        "dateModified": "2026-10-24",
+        "author": { "@type": "Person", "name": "Ben St Georges" },
+        "publisher": { "@type": "Organization", "name": "St Georges Strategy" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://stgeorgesstrategy.com/deep-dives/no-more-tail-risk/" }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="../../app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary">
+      <div class="site-banner-inner">
+        <a class="site-wordmark" href="../../index.html" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="../../index.html">Home</a>
+          <a href="../../brief/index.html">Weekly Brief</a>
+          <a href="../../signals/index.html">Signals</a>
+          <a href="../index.html">Deep Dives</a>
+          <a href="../../committee-questions/index.html">Committee Questions</a>
+          <a href="../../archive/index.html">Archive</a>
+          <a href="../../about/index.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page deep-dive-page">
+      <article>
+        <header class="masthead deep-dive-masthead">
+          <p class="eyebrow">Deep Dive <span aria-hidden="true">·</span> Operational resilience &amp; shared dependencies</p>
+          <h1>No more <em>tail risk?</em></h1>
+          <p class="dek">What repeated, moderate disruptions to shared dependencies mean for financial services resilience—and how firms can prepare for the next one.</p>
+          <p class="deep-dive-byline">By The Virtual Officer <span aria-hidden="true">·</span> 24 October 2026 <span aria-hidden="true">·</span> 12 min read</p>
+        </header>
+
+        <section class="deep-dive-timeline" aria-label="Seven weeks, three shared-dependency failures">
+          <div><p class="meta">4 Sep onward</p><p>ASD advises checking NetScaler appliances for compromise from this date after exploitation of the earlier flaws.</p></div>
+          <div><p class="meta">17–23 Oct</p><p>PHP2Shell exploit attempts precede the emergency fixes; a third PHP issue follows two days later.</p></div>
+          <div><p class="meta">20 Oct</p><p>A power interruption takes one Google Cloud London zone offline, with failover and control-plane dependencies extending impact.</p></div>
+          <div><p class="meta">8 Oct</p><p>Twelve days before the London outage, the sector rehearses a hypothetical global cloud disruption in SIMEX26.</p></div>
+        </section>
+
+        <div class="deep-dive-body">
+          <h2>The bottom line</h2>
+          <p class="deep-dive-lead">Disruptions that resilience planning has traditionally treated as remote may be becoming more familiar and, individually, less extreme: a critical flaw in near-universal software, a compromised remote-access gateway, the loss of part of a cloud region. In the seven weeks to 23 October 2026, one of each happened, to the PHP web runtime, Citrix NetScaler gateways and Google Cloud's London region. Three incidents are not a statistical trend, and this piece does not claim they prove one. They are an illustrative cluster: a close look at what recurring, moderate disruption to shared dependencies looks like in practice.</p>
+          <p>On the evidence published so far, the confirmed customer impact was bounded, while the full cyber impact remains uncertain. Google's preliminary report puts its London incident at six hours and ten minutes, and Revolut said customer money and data were safe. Citrix's latest flaw is a denial-of-service vulnerability with no data-integrity impact. Public reporting through 23 October documented PHP exploit attempts, but no confirmed successful compromise. The extent of compromise from the earlier NetScaler flaws is still unknown.</p>
+          <p>That matters for planning. Frameworks built around rare, severe scenarios assume long gaps between them, a crisis response when one hits and a clean return to normal afterwards. Repeated moderate disruptions deserve attention in their own right: they need to be absorbed as part of normal operations and measured across the year, not one incident at a time. And because the dependencies are shared, a moderate event can still become a severe one.</p>
+
+          <section class="deep-dive-section" aria-labelledby="php-title">
+            <p class="meta">01 / PHP2Shell</p>
+            <h2 id="php-title">A flaw in the runtime under the web.</h2>
+            <p>On 21 October the PHP project shipped emergency fixes for two critical flaws, CVE-2026-109618 and CVE-2026-109619, both rated 9.2 on CVSS v4.0. They sit in the PHP runtime itself, not in any application. They let an unauthenticated attacker run code on a web server, and they affect nearly every version back to PHP 5.4. The fixed releases are 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Branches 8.1 and older are end-of-life and depend on source backports or vendor packages. <a href="https://www.cert.europa.eu/publications/security-advisories/2026-018/">CERT-EU Security Advisory 2026-018</a> covers affected and fixed versions.</p>
+            <p>The window to respond was measured in hours, and attackers were probing before any patch existed. Amazon honeypots logged an exploit attempt on 17 October, four days before disclosure. Details leaked on 20 October, two days ahead of the planned date. watchTowr and F5 recorded exploit attempts in the wild from 21 October, the day the fixes shipped. A PHP core developer put it plainly: “the only mitigation is patching/upgrading PHP.” Two days later PHP disclosed a third issue, CVE-2026-115560. It is limited to unusual session configurations, and PHP will fix it in its next routine release rather than an emergency one.</p>
+            <p>Three details matter for resilience teams:</p>
+            <ul>
+              <li><strong>The response caused outages too.</strong> Some organisations took services offline as a precaution, including BambooHR and several Dutch government and education sites.</li>
+              <li><strong>The exposure is hidden in vendor products.</strong> PHP is often embedded in third-party products rather than run directly, which is why CERT-EU told organisations to check vendor products against the NCSC-NL list. An inventory that stops at the application or vendor level will not show it.</li>
+              <li><strong>The maintainers are a dependency.</strong> The PHP Foundation called its stalled fix work “a structural failure” of its decision process and resources. How resilient a shared dependency is depends partly on the capacity of the people who maintain it.</li>
+            </ul>
+            <p><strong>What it illustrates.</strong> A flaw this severe in a runtime this widespread is the kind of scenario usually treated as remote. In the first days, visible costs included precautionary downtime and a scramble to find PHP inside vendor products. Whether the outcome stays bounded depends on what exploitation reports show in the coming weeks.</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="citrix-title">
+            <p class="meta">02 / Citrix NetScaler</p>
+            <h2 id="citrix-title">Patched, then down again.</h2>
+            <p>The NetScaler episode ran for a month and shows why “patched” is not the same as “resolved”. Mandiant and Google Threat Intelligence Group (GTIG) reported exploitation of CVE-2026-88772 from at least early September, and Australia's ASD advised organisations to check for compromise back to 4 September. On 27 September Citrix published bulletin CTX697096, fixing eight vulnerabilities, including CVE-2026-88771 and CVE-2026-88772, both rated 9.5 on CVSS v4.0. The <a href="https://support.citrix.com/external/article/697096">Citrix bulletin</a> states that exploits of both flaws on unmitigated NetScaler deployments had been observed. CISA added both to its Known Exploited Vulnerabilities (KEV) catalogue the same day. Two days earlier, administrators on Reddit were already being advised to shut their devices down.</p>
+            <p>The attackers' tools were built to stay. Mandiant and GTIG described WHIPSHOT, a PHP web shell, and SLAPSHOT, a Python tunneller that “functions as an internal network bridge” for reconnaissance, lateral movement and credential harvesting. Financial services was among the targeted sectors. The implants depend on files and configuration changes on the appliance, so patching alone may not remove them. The question that matters is whether a device was compromised, not just whether it is patched.</p>
+            <p>Then came a second wave. Citrix's 3 October bulletin, CTX697174, disclosed CVE-2026-88779 (CVSS 8.7), a memory overflow on appliances configured for SAML single sign-on that can cause denial of service. Citrix says that if the condition is triggered repeatedly, the service may remain unavailable. Administrators had reported fully patched systems rebooting, and watchTowr suspects attackers used the crash to speed up exploitation of the earlier flaw. CISA gave US federal agencies until 7 October to act. It was the sixth exploited NetScaler flaw CISA had added to KEV in 2026.</p>
+            <p><strong>What it illustrates.</strong> For a bank, a NetScaler Gateway in SAML mode is often the front door for staff remote access, so a denial-of-service flaw there is an operational-resilience event as much as a security one. With six exploited NetScaler flaws added to KEV this year, firms running the product have reason to plan for a compromised or crashed edge gateway as a recurring condition rather than an exceptional one. The earlier compromise campaign's full extent remains unknown.</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="google-title">
+            <p class="meta">03 / Google Cloud London</p>
+            <h2 id="google-title">One zone, wider impact.</h2>
+            <p>On 20 October a power grid disruption hit the facility hosting europe-west2-b, one of three zones in Google Cloud's London region. Google's preliminary incident report, published on 22 October, says the backup generators did not take the load because their automation system “failed to initiate the logical automatic start/transfer operations of the generators”. The zone went offline once its UPS batteries ran down.</p>
+            <p>Google puts the incident at 07:00 to 13:10 BST, six hours and ten minutes, with the main impact—elevated errors and API timeouts across most services—lasting five hours and 29 minutes. A longer residual period followed. Google's closure notice at 15:03 BST said the issue was still believed to affect a very small number of customers. Customer-facing services at Lloyds, Halifax, HSBC and Revolut were among those reported disrupted, along with HM Courts &amp; Tribunals Service, Royal Mail, DPD and Rightmove. Revolut said customer money and data were safe.</p>
+            <p>The report also explains why a power failure in one zone reached further. As regional routing and customer applications failed over to the other two zones, control-plane calls timed out “waiting on validations from the offline zone”. The redirected load then saturated capacity in the unaffected zones, producing intermittent HTTP 500 and 503 errors. Customers in europe-west2-a and europe-west2-c were affected even though only europe-west2-b lost power. Automated failover, the mechanism meant to contain a zone failure, was part of how it spread.</p>
+            <p>Twelve days earlier, the Bank of England's Cross-Market Operational Resilience Group (CMORG) had run SIMEX26, a sector-wide exercise simulating a hypothetical global disruption to cloud services. Google Cloud EMEA Limited had been under the UK's Critical Third Parties (CTP) oversight regime since 13 July. Neither is designed to prevent an outage. The CTP regime oversees the resilience of services designated providers supply, and it does not replace firms' own responsibility for their third-party arrangements.</p>
+            <p>Regulators engaged the same day. The FCA said it was “engaging with them and affected firms to understand the impact”. Treasury Committee chair Dame Meg Hillier wrote to the Bank of England and the FCA asking how they would use their powers, and requested an initial response by 4 November. The European Banking Authority contacted Google about the implications for EU firms. Separately, on 8 October a Cloud Storage disruption in Google's us-central1 region lasted 12 hours 30 minutes.</p>
+            <p><strong>What it illustrates.</strong> Losing a cloud zone that several banks depend on is the kind of scenario cloud-disruption exercises are designed to rehearse. When it happened, the main impact lasted under six hours and most customers recovered the same day. The report also shows how a contained failure can widen: through the failover and control-plane dependencies designed to absorb it.</p>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="recurring-title">
+            <p class="meta">04 / Frequency and severity</p>
+            <h2 id="recurring-title">When rare disruptions become recurring.</h2>
+            <p>Operational-risk frameworks tend to separate two kinds of event: frequent, minor ones handled as business as usual, and rare, severe ones handled through scenario testing and crisis management. Strictly, tail risk refers to the severity of possible losses, not only to how rarely an event occurs. October's incidents point to a category that sits between the two and deserves more attention: disruptions once thought of as rare that recur, at moderate severity, through shared dependencies.</p>
+            <p>The comparison below is illustrative, not measured. It places three events according to what has been published about them. It does not show an industry-wide change in frequency, which would need incident data across many firms and years.</p>
+            <div class="deep-dive-expectation-grid" aria-label="Illustrative comparison of the three incidents">
+              <div><dt>PHP2Shell</dt><dd><strong>Recurrence:</strong> Third PHP flaw disclosed two days after the first two.<br><strong>Severity confirmed so far:</strong> Exploit attempts reported through 23 October; no confirmed successful compromise in the sources cited; precautionary shutdowns.<br><strong>Time to respond:</strong> Exploit attempt four days before disclosure; exploit attempts on the day of the fix.</dd></div>
+              <div><dt>Citrix NetScaler</dt><dd><strong>Recurrence:</strong> Sixth exploited NetScaler flaw added to KEV this year.<br><strong>Severity confirmed so far:</strong> Latest flaw causes denial of service, with no integrity impact; extent of earlier compromise unknown.<br><strong>Time to respond:</strong> Exploited for weeks before a fix existed.</dd></div>
+              <div><dt>Google Cloud London</dt><dd><strong>Recurrence:</strong> Second notable Google Cloud incident in 12 days.<br><strong>Severity confirmed so far:</strong> Main impact 5 h 29 min; incident 6 h 10 min; a few customers affected until 15:03 BST.<br><strong>Time to respond:</strong> No warning.</dd></div>
+            </div>
+            <p>Three developments are relevant to the pattern, though these incidents alone cannot show how much each contributes.</p>
+            <p><strong>Shared dependencies.</strong> Firms rely on the same small set of components: a handful of hyperscalers, a few remote-access products and open-source runtimes such as PHP buried inside vendor software. A fault in any one reaches many firms at once, so the sector as a whole can see such events far more often than any single firm's history would suggest.</p>
+            <p><strong>Faster exploitation.</strong> In two of the three cases, exploitation came before or alongside the fix. That fits the wider trend in Mandiant's <a href="https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026/">M-Trends 2026</a>, which estimates mean time-to-exploit at minus seven days, though nothing published so far shows these incidents were AI-driven. If that trend holds, more critical flaws will arrive with little or no window before exploitation.</p>
+            <p><strong>Controls designed to limit severity.</strong> Zone-based cloud architecture, coordinated disclosure, CISA's KEV deadlines and the UK CTP regime are all meant to keep incidents bounded. This piece does not show that they caused the bounded outcomes in October. Google's report shows the limits of one of them: failover pushed load onto the zones it was meant to protect.</p>
+            <p>Moderate does not mean unimportant, for two reasons. First, small costs add up: customers locked out of their bank for a morning several times a year, staff unable to log in, engineering time diverted to emergency patching. Second, the severe tail has not gone away. Because the dependencies are shared, a moderate event that spreads—to a second zone or across thousands of edge gateways—can still become a sector-wide one. Planning has to cover both the repeated moderate event and the severe one.</p>
+          </section>
+
+          <section class="deep-dive-conclusion" aria-labelledby="resilience-title">
+            <p class="eyebrow">What this means for resilience and third-party risk</p>
+            <h2 id="resilience-title">Make resilience a standing capability.</h2>
+            <p>Frameworks built for rare, severe events assume long gaps, a crisis response and a clean return to normal. Recurring moderate disruption calls for resilience run as a standing capability. The October incidents motivate the seven changes below; they do not, by themselves, prove a sector-wide shift.</p>
+            <ol class="deep-dive-questions">
+              <li><span>01</span><p><strong>Revisit likelihoods in light of sector experience, not just firm history.</strong> When a scenario has just happened to a peer, the likelihood assigned to it deserves a fresh look. Scenario libraries should be checked against what has actually occurred across the sector.</p></li>
+              <li><span>02</span><p><strong>Measure disruption across the year, not one incident at a time.</strong> A firm can stay within its impact tolerance on every individual outage while customers lose access several times a year. Board reporting should show cumulative disruption to important business services.</p></li>
+              <li><span>03</span><p><strong>Rehearse the response until it is routine.</strong> Emergency patching, precautionary isolation and zone failover should run from pre-approved playbooks with named decision-makers. If exploitation can begin before disclosure, the decision cannot wait for a committee.</p></li>
+              <li><span>04</span><p><strong>Map dependencies at component level.</strong> These incidents turned on a gateway's SAML configuration, a runtime inside third-party products and a single cloud zone. A vendor register that says “Citrix” or “Google Cloud” will not show them.</p></li>
+              <li><span>05</span><p><strong>Report compromise status separately from patch status.</strong> NetScaler showed that a patched appliance can still carry implants, or be crashed by the next flaw. A dashboard that shows “patched” as green is measuring the wrong thing.</p></li>
+              <li><span>06</span><p><strong>Test failover for real, including its side effects.</strong> Firms on Google Cloud's London region should show, from a test rather than an architecture diagram, what happens to customer channels when one zone fails, and whether the remaining zones can take the redirected load. The same question applies to every hyperscaler.</p></li>
+              <li><span>07</span><p><strong>Keep planning for the severe case.</strong> Absorbing recurring events must not crowd out preparation for the correlated one. CTP oversight does not transfer that risk: the <a href="https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury">FCA has been explicit</a> that the regime does not replace firms' own responsibility for their third-party arrangements.</p></li>
+            </ol>
+          </section>
+
+          <section class="deep-dive-section" aria-labelledby="open-questions-title">
+            <p class="meta">Questions worth raising internally</p>
+            <h2 id="open-questions-title">What should your firm test next?</h2>
+            <ul>
+              <li>How many of our severe but plausible scenarios happened somewhere in the sector this quarter, and have we updated the likelihood we assign them?</li>
+              <li>How many times this year have customers lost access to one of our important business services, whatever the cause, and who sees that total?</li>
+              <li>Which of the responses these incidents demanded could we run tomorrow from a playbook, and which would still need a crisis meeting?</li>
+              <li>If we use Google Cloud's London region, did our services fail on 20 October because of the zone itself, the knock-on effect of failover in the other two zones or our own design, and can we evidence the answer?</li>
+              <li>Which important business services depend on NetScaler in SAML mode, and have those appliances been assessed for compromise back to early September, not just patched?</li>
+              <li>Where does PHP run inside our third-party and SaaS estate, and how quickly could we know?</li>
+            </ul>
+          </section>
+
+          <section class="deep-dive-sources" aria-labelledby="sources-title">
+            <p class="eyebrow">Sources</p>
+            <h2 id="sources-title">Primary sources first</h2>
+            <div class="source-row">
+              <a href="https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj">Google Cloud — Preliminary incident report: europe-west2 disruption, 22 October 2026</a>
+              <a href="https://www.cert.europa.eu/publications/security-advisories/2026-018/">CERT-EU — Security Advisory 2026-018: Critical Vulnerabilities in PHP, updated 23 October 2026</a>
+              <a href="https://support.citrix.com/external/article/697096">Citrix — Security bulletin CTX697096, 27 September 2026</a>
+              <a href="https://support.citrix.com/external/article/CTX697174/citrix-netscaler-adc-and-citrix-netscale.html">Citrix — Security bulletin CTX697174, 3 October 2026</a>
+              <a href="https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise">Bank of England — CMORG holds sector-wide cloud outage simulation exercise, 9 October 2026</a>
+              <a href="https://www.fca.org.uk/news/statements/uk-financial-regulators-overseeing-critical-third-parties-announced-treasury">FCA — UK financial regulators to begin overseeing Critical Third Parties, 10 July 2026</a>
+              <a href="https://cloud.google.com/blog/topics/threat-intelligence/m-trends-2026/">Google Mandiant — M-Trends 2026</a>
+              <a href="https://www.php.net/archive/2026.php">PHP — 2026 release archive</a>
+              <a href="https://www.watchtowr.com/intelligence/php-cve-2026-109618-faq/">watchTowr — PHP2Shell FAQ: CVE-2026-109618 and CVE-2026-109619, 20–23 October 2026</a>
+              <a href="https://www.f5.com/labs/articles/php2shell-exploitation-attempts-observed">F5 Labs — PHP2Shell exploitation attempts observed, 22 October 2026</a>
+              <a href="https://securitylabs.datadoghq.com/articles/php2shell-critical-vulnerabilities-in-php/">Datadog Security Labs — PHP2Shell analysis, updated 23 October 2026</a>
+              <a href="https://thehackernews.com/2026/10/php-issues-emergency-patches-for-two.html">The Hacker News — PHP issues emergency patches for two critical PHP2Shell RCE flaws, 21 October 2026</a>
+              <a href="https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html">The Hacker News — PHP warns of another unpatched RCE risk, 23 October 2026</a>
+              <a href="https://www.tenable.com/blog/frequently-asked-questions-about-reported-citrix-netscaler-zero-day-vulnerabilities">Tenable — PitScaler: Citrix NetScaler zero-day vulnerabilities FAQ, updated 4 October 2026</a>
+              <a href="https://thehackernews.com/2026/09/attackers-exploit-netscaler-flaw-for.html">The Hacker News — Attackers exploit NetScaler flaw for WHIPSHOT and SLAPSHOT, 30 September 2026</a>
+              <a href="https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html">The Hacker News — New NetScaler zero-day exploited in targeted attacks, 5 October 2026</a>
+              <a href="https://securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/">SecurityWeek — Exploitation of Citrix NetScaler zero-day hits appliances patched days earlier, 5 October 2026</a>
+              <a href="https://theregister.com/a/5304160">The Register — Google Cloud London power outage, 20 October 2026</a>
+              <a href="https://www.tomsguide.com/computing/live/google-cloud-services-down-oct-20">Tom's Guide — Google Cloud services down live blog, 20 October 2026</a>
+              <a href="https://cityam.com/?p=2467018">City AM — UK watchdogs push for answers on Google Cloud outage, 20 October 2026</a>
+              <a href="https://www.thestar.com.my/tech/tech-news/2026/10/21/europe039s-financial-regulators-query-google-over-cloud-outage-that-hit-banks">Reuters, via The Star — Europe's financial regulators query Google over cloud outage, 21 October 2026</a>
+              <a href="https://blog.incidenthub.cloud/2026-10-12-google-cloud-storage-outage-oct-8-2026">IncidentHub — The 8 October 2026 Google Cloud Storage outage, 12 October 2026</a>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">The Virtual Officer — Deep Dives</div>
+        <div class="footer-note"><a class="button outline footer-cta" href="../../brief/index.html">Read the latest brief</a></div>
+        <div class="footer-meta">
+          <p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p>
+          <p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>Illustrative content based on sector-wide public sources. Not investment, legal, compliance, or regulatory advice.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

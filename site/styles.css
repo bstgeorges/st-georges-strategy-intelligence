@@ -1181,6 +1181,63 @@ a.tag:hover {
   padding-top: clamp(42px, 5vw, 70px);
 }
 
+.deep-dive-spotlight-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(220px, 0.8fr);
+  align-items: stretch;
+  gap: 18px;
+}
+
+.deep-dive-spotlight-layout .home-deep-dive {
+  margin-top: 0;
+  min-height: 100%;
+}
+
+.deep-dive-category {
+  margin: 10px 0 0;
+  color: var(--accent-bright);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.deep-dive-spotlight-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  padding: clamp(22px, 3vw, 34px);
+  background: var(--paper-raised);
+}
+
+.deep-dive-spotlight-aside p {
+  margin: 0;
+}
+
+.deep-dive-spotlight-aside .eyebrow {
+  color: var(--accent-readable);
+}
+
+.deep-dive-spotlight-aside a {
+  align-self: flex-start;
+  border-bottom: 1px solid rgba(160, 126, 46, 0.55);
+  color: var(--accent-readable);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.home-deep-dive-compact {
+  padding: clamp(20px, 2.5vw, 30px);
+}
+
+.home-deep-dive-compact h3 {
+  font-size: clamp(22px, 2.6vw, 32px);
+}
+
 .deep-dive-page {
   padding-top: clamp(34px, 5vw, 74px);
 }
@@ -3089,6 +3146,10 @@ a.tag:hover {
     align-items: flex-start;
     flex-direction: column;
     gap: 18px;
+  }
+
+  .deep-dive-spotlight-layout {
+    grid-template-columns: 1fr;
   }
 
   .home-deep-dive > div {

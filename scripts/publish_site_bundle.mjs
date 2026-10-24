@@ -1561,18 +1561,35 @@ function renderDeepDiveLibrary(out) {
 function renderStandaloneDeepDivePromotion(out, editionRecord) {
   const record = latestStandaloneDeepDive();
   if (!record || record.route === editionRecord?.deepDive?.route) return;
-  const feature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
+  const homepageFeature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
           <div class="section-heading compact-heading">
             <div><p class="eyebrow">Latest Deep Dive</p><h2 id="latest-standalone-deep-dive-title">A longer read for the issue beneath the week.</h2></div>
-            <p>Source-backed analysis for a question that deserves more room than the weekly Brief.</p>
+            <p>Go beyond the five-minute Brief: follow the evidence, operating implications and questions behind one issue.</p>
           </div>
-          <a class="home-deep-dive" href="${escapeHtml(record.route)}">
+          <div class="deep-dive-spotlight-layout">
+            <a class="home-deep-dive deep-dive-spotlight-card" href="${escapeHtml(record.route)}">
+              <div><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><p class="deep-dive-category">${escapeHtml(record.category || "Long-form analysis")}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+              <span aria-hidden="true">Read the analysis →</span>
+            </a>
+            <aside class="deep-dive-spotlight-aside">
+              <p class="eyebrow">What the long read adds</p>
+              <p>Trace the source record, test the operating implications and take practical questions into your next risk discussion.</p>
+              <a href="/deep-dives/">Browse all Deep Dives →</a>
+            </aside>
+          </div>
+        </section>`;
+  const briefFeature = `<section class="band deep-dive-related" aria-labelledby="latest-brief-deep-dive-title">
+          <div class="section-heading compact-heading">
+            <div><p class="eyebrow">Further analysis</p><h2 id="latest-brief-deep-dive-title">Go deeper on the operating question.</h2></div>
+            <p>A source-backed long read to continue beyond this week's five-minute Brief.</p>
+          </div>
+          <a class="home-deep-dive home-deep-dive-compact" href="${escapeHtml(record.route)}">
             <div><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
             <span aria-hidden="true">Read the analysis →</span>
           </a>
         </section>`;
   const marker = "<!-- standalone-deep-dive-promotion -->";
-  for (const relative of ["index.html", "brief/index.html"]) {
+  for (const [relative, feature] of [["index.html", homepageFeature], ["brief/index.html", briefFeature]]) {
     const file = path.join(out, relative);
     if (!fs.existsSync(file)) continue;
     const html = read(file);

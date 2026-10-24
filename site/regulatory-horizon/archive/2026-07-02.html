@@ -130,6 +130,15 @@
   .heat td, .heat th { padding: 3px 5px; text-align: center; font-weight: 400; }
   .heat th { text-align: right; padding-right: 12px; color: var(--body); white-space: nowrap; }
   .heat .cell { width: 26px; height: 20px; border: 1px solid var(--rule); }
+  .inherit-color { color: inherit; }
+  .heat-alpha-00 { background: rgba(15, 34, 51, 0.00); }
+  .heat-alpha-19 { background: rgba(15, 34, 51, 0.19); }
+  .heat-alpha-26 { background: rgba(15, 34, 51, 0.26); }
+  .heat-alpha-32 { background: rgba(15, 34, 51, 0.32); }
+  .heat-alpha-40 { background: rgba(15, 34, 51, 0.40); }
+  .heat-alpha-51 { background: rgba(15, 34, 51, 0.51); }
+  .heat-alpha-55 { background: rgba(15, 34, 51, 0.55); }
+  .heat-alpha-90 { background: rgba(15, 34, 51, 0.90); }
   .heat .cdate { font-size: 10px; color: var(--muted); }
 
   /* Watch lists */
@@ -157,7 +166,7 @@
 
   <header class="masthead">
     <div class="topline">
-      <span class="kicker"><a href="https://stgeorgesstrategy.com/" style="color:inherit">St Georges Strategy</a> <span class="sep">/</span> <a href="https://stgeorgesstrategy.com/intelligence/" style="color:inherit">Intelligence</a> <span class="sep">/</span> Horizon</span>
+      <span class="kicker"><a href="https://stgeorgesstrategy.com/" class="inherit-color">St Georges Strategy</a> <span class="sep">/</span> <a href="https://stgeorgesstrategy.com/intelligence/" class="inherit-color">Intelligence</a> <span class="sep">/</span> Horizon</span>
       <span class="dateline">Week ending <b>2026-07-02</b></span>
     </div>
     <h1>Regulatory <em>Horizon</em></h1>
@@ -211,7 +220,7 @@
   <section>
     <div class="sechead">
       <span class="num">02 /</span><h2>Horizon — dates that matter</h2>
-      <span class="note"><a href="../horizon.ics" style="color:inherit">Subscribe .ics -></a></span>
+      <span class="note"><a href="../horizon.ics" class="inherit-color">Subscribe .ics -></a></span>
     </div>
     
     <div class="band-label">31–60 days</div>
@@ -241,8 +250,8 @@
       <span class="note">Ranked</span>
     </div>
     <div class="toggle">
-      <button id="btn-exec" class="on" onclick="setView(false)">Titles</button>
-      <button id="btn-full" onclick="setView(true)">Full summaries</button>
+      <button id="btn-exec" class="on">Titles</button>
+      <button id="btn-full">Full summaries</button>
     </div>
     <ol class="idx">
       
@@ -327,64 +336,64 @@
       <tr><th>balance-sheet</th>
         
         
-        <td><div class="cell" title="balance-sheet · 2026-07-02 · 0"
-             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        <td><div class="cell heat-alpha-00" title="balance-sheet · 2026-07-02 · 0"
+            ></div></td>
         
       </tr>
       
       <tr><th>customer-outcomes</th>
         
         
-        <td><div class="cell" title="customer-outcomes · 2026-07-02 · 4"
-             style="background: rgba(15, 34, 51, 0.90);"></div></td>
+        <td><div class="cell heat-alpha-90" title="customer-outcomes · 2026-07-02 · 4"
+            ></div></td>
         
       </tr>
       
       <tr><th>boardroom-and-accountability</th>
         
         
-        <td><div class="cell" title="boardroom-and-accountability · 2026-07-02 · 0"
-             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        <td><div class="cell heat-alpha-00" title="boardroom-and-accountability · 2026-07-02 · 0"
+            ></div></td>
         
       </tr>
       
       <tr><th>crime-and-sanctions</th>
         
         
-        <td><div class="cell" title="crime-and-sanctions · 2026-07-02 · 0"
-             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        <td><div class="cell heat-alpha-00" title="crime-and-sanctions · 2026-07-02 · 0"
+            ></div></td>
         
       </tr>
       
       <tr><th>digital-resilience</th>
         
         
-        <td><div class="cell" title="digital-resilience · 2026-07-02 · 0"
-             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        <td><div class="cell heat-alpha-00" title="digital-resilience · 2026-07-02 · 0"
+            ></div></td>
         
       </tr>
       
       <tr><th>ai-and-models</th>
         
         
-        <td><div class="cell" title="ai-and-models · 2026-07-02 · 0"
-             style="background: rgba(15, 34, 51, 0.00);"></div></td>
+        <td><div class="cell heat-alpha-00" title="ai-and-models · 2026-07-02 · 0"
+            ></div></td>
         
       </tr>
       
       <tr><th>digital-money</th>
         
         
-        <td><div class="cell" title="digital-money · 2026-07-02 · 2"
-             style="background: rgba(15, 34, 51, 0.51);"></div></td>
+        <td><div class="cell heat-alpha-51" title="digital-money · 2026-07-02 · 2"
+            ></div></td>
         
       </tr>
       
       <tr><th>market-plumbing</th>
         
         
-        <td><div class="cell" title="market-plumbing · 2026-07-02 · 1"
-             style="background: rgba(15, 34, 51, 0.32);"></div></td>
+        <td><div class="cell heat-alpha-32" title="market-plumbing · 2026-07-02 · 1"
+            ></div></td>
         
       </tr>
       
@@ -461,6 +470,8 @@
     document.getElementById("btn-exec").classList.toggle("on", !full);
     document.getElementById("btn-full").classList.toggle("on", full);
   }
+  document.getElementById("btn-exec").addEventListener("click", () => setView(false));
+  document.getElementById("btn-full").addEventListener("click", () => setView(true));
 </script>
 </body>
 </html>

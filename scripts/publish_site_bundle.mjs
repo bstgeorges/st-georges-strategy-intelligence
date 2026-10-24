@@ -1561,18 +1561,35 @@ function renderDeepDiveLibrary(out) {
 function renderStandaloneDeepDivePromotion(out, editionRecord) {
   const record = latestStandaloneDeepDive();
   if (!record || record.route === editionRecord?.deepDive?.route) return;
-  const feature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
+  const homepageFeature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
           <div class="section-heading compact-heading">
             <div><p class="eyebrow">Latest Deep Dive</p><h2 id="latest-standalone-deep-dive-title">A longer read for the issue beneath the week.</h2></div>
-            <p>Source-backed analysis for a question that deserves more room than the weekly Brief.</p>
+            <p>Go beyond the five-minute Brief: follow the evidence, operating implications and questions behind one issue.</p>
           </div>
-          <a class="home-deep-dive" href="${escapeHtml(record.route)}">
+          <div class="deep-dive-spotlight-layout">
+            <a class="home-deep-dive deep-dive-spotlight-card" href="${escapeHtml(record.route)}">
+              <div><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><p class="deep-dive-category">${escapeHtml(record.category || "Long-form analysis")}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+              <span aria-hidden="true">Read the analysis →</span>
+            </a>
+            <aside class="deep-dive-spotlight-aside">
+              <p class="eyebrow">What the long read adds</p>
+              <p>Trace the source record, test the operating implications and take practical questions into your next risk discussion.</p>
+              <a href="/deep-dives/">Browse all Deep Dives →</a>
+            </aside>
+          </div>
+        </section>`;
+  const briefFeature = `<section class="band deep-dive-related" aria-labelledby="latest-brief-deep-dive-title">
+          <div class="section-heading compact-heading">
+            <div><p class="eyebrow">Further analysis</p><h2 id="latest-brief-deep-dive-title">Go deeper on the operating question.</h2></div>
+            <p>A source-backed long read to continue beyond this week's five-minute Brief.</p>
+          </div>
+          <a class="home-deep-dive home-deep-dive-compact" href="${escapeHtml(record.route)}">
             <div><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
             <span aria-hidden="true">Read the analysis →</span>
           </a>
         </section>`;
   const marker = "<!-- standalone-deep-dive-promotion -->";
-  for (const relative of ["index.html", "brief/index.html"]) {
+  for (const [relative, feature] of [["index.html", homepageFeature], ["brief/index.html", briefFeature]]) {
     const file = path.join(out, relative);
     if (!fs.existsSync(file)) continue;
     const html = read(file);
@@ -3057,7 +3074,38 @@ function generateRedirects(out) {
   write(path.join(out, "_redirects"), `${lines.join("\n")}\n`);
 }
 
+function inlineHashes(out, tagName) {
+  const hashes = new Set();
+  const tagPattern = new RegExp(`<${tagName}\\b([^>]*)>([\\s\\S]*?)<\\/${tagName}\\s*>`, "gi");
+  const visit = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const file = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        visit(file);
+      } else if (entry.isFile() && entry.name.endsWith(".html")) {
+        const html = fs.readFileSync(file, "utf8");
+        for (const match of html.matchAll(tagPattern)) {
+          if (tagName === "script" && /(?:^|\s)src\s*=/.test(match[1])) continue;
+          const digest = crypto.createHash("sha256").update(match[2]).digest("base64");
+          hashes.add(`'sha256-${digest}'`);
+        }
+      }
+    }
+  };
+  visit(out);
+  return [...hashes].sort();
+}
+
 function generateHeaders(out) {
+  const inlineScripts = inlineHashes(out, "script");
+  const inlineStyles = inlineHashes(out, "style");
+  const scriptSources = [
+    "'self'",
+    ...inlineScripts,
+    "https://static.cloudflareinsights.com",
+    "https://subscribe-forms.beehiiv.com",
+  ].join(" ");
+  const styleSources = ["'self'", ...inlineStyles].join(" ");
   const datedBriefHeaders = listEditionDates(path.join(ARCHIVE_STORE, "brief"))
     .map((date) => `\n/brief/${date}/*\n  Cache-Control: public, max-age=31536000, immutable\n`)
     .join("");
@@ -3067,7 +3115,7 @@ function generateHeaders(out) {
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src ${styleSources}; font-src 'self' data:; script-src ${scriptSources}; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
   Cache-Control: no-cache, max-age=0, s-maxage=0, must-revalidate
 
 /assets/*

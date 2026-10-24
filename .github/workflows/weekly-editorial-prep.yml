@@ -25,7 +25,7 @@ jobs:
       - name: Check out
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -35,6 +35,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Check out private Regulatory Horizon data
+        uses: actions/checkout@v4
+        with:
+          repository: bstgeorges/st-georges-reg-horizon-private
+          ref: main
+          ssh-key: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_KEY }}
+          path: .private-horizon
+
+      - name: Load private Regulatory Horizon inputs
+        run: node scripts/load_private_reg_horizon_data.mjs .private-horizon
 
       - name: Determine publication date
         id: vars

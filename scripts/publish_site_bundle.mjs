@@ -3057,7 +3057,38 @@ function generateRedirects(out) {
   write(path.join(out, "_redirects"), `${lines.join("\n")}\n`);
 }
 
+function inlineHashes(out, tagName) {
+  const hashes = new Set();
+  const tagPattern = new RegExp(`<${tagName}\\b([^>]*)>([\\s\\S]*?)<\\/${tagName}\\s*>`, "gi");
+  const visit = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const file = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        visit(file);
+      } else if (entry.isFile() && entry.name.endsWith(".html")) {
+        const html = fs.readFileSync(file, "utf8");
+        for (const match of html.matchAll(tagPattern)) {
+          if (tagName === "script" && /(?:^|\s)src\s*=/.test(match[1])) continue;
+          const digest = crypto.createHash("sha256").update(match[2]).digest("base64");
+          hashes.add(`'sha256-${digest}'`);
+        }
+      }
+    }
+  };
+  visit(out);
+  return [...hashes].sort();
+}
+
 function generateHeaders(out) {
+  const inlineScripts = inlineHashes(out, "script");
+  const inlineStyles = inlineHashes(out, "style");
+  const scriptSources = [
+    "'self'",
+    ...inlineScripts,
+    "https://static.cloudflareinsights.com",
+    "https://subscribe-forms.beehiiv.com",
+  ].join(" ");
+  const styleSources = ["'self'", ...inlineStyles].join(" ");
   const datedBriefHeaders = listEditionDates(path.join(ARCHIVE_STORE, "brief"))
     .map((date) => `\n/brief/${date}/*\n  Cache-Control: public, max-age=31536000, immutable\n`)
     .join("");
@@ -3067,7 +3098,7 @@ function generateHeaders(out) {
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; frame-src https://embeds.beehiiv.com https://subscribe-forms.beehiiv.com; img-src 'self' https: data:; style-src ${styleSources}; font-src 'self' data:; script-src ${scriptSources}; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://subscribe-forms.beehiiv.com; upgrade-insecure-requests
   Cache-Control: no-cache, max-age=0, s-maxage=0, must-revalidate
 
 /assets/*

@@ -26,6 +26,15 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - name: Check out private Regulatory Horizon data
+        uses: actions/checkout@v4
+        with:
+          repository: bstgeorges/st-georges-reg-horizon-private
+          ref: main
+          token: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_TOKEN }}
+          path: .private-horizon
+      - name: Load private Regulatory Horizon inputs
+        run: node scripts/load_private_reg_horizon_data.mjs .private-horizon
       - name: Build and verify the edge asset bundle
         run: |
           npm run site:build

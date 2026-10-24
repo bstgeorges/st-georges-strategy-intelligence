@@ -31,7 +31,7 @@ jobs:
         with:
           repository: bstgeorges/st-georges-reg-horizon-private
           ref: main
-          token: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_TOKEN }}
+          token: ${{ secrets.REG_HORIZON_PRIVATE_DATA_READ_KEY }}
           path: .private-horizon
       - name: Load private Regulatory Horizon inputs
         run: node scripts/load_private_reg_horizon_data.mjs .private-horizon

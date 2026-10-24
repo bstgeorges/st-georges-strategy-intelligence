@@ -8,106 +8,844 @@
     "press": "General press used for market colour or reported events when a primary source is not yet the best public record."
   },
   "sources": [
-    { "id": "ft", "label": "Financial Times", "tier": "press", "hosts": ["www.ft.com"] },
-    { "id": "the-times", "label": "The Times", "tier": "press", "hosts": ["www.thetimes.com"] },
-    { "id": "wsj", "label": "Wall Street Journal", "tier": "press", "hosts": ["www.wsj.com"] },
-    { "id": "guardian", "label": "The Guardian", "tier": "press", "hosts": ["www.theguardian.com"] },
-    { "id": "wired", "label": "Wired", "tier": "specialist", "hosts": ["www.wired.com"] },
-    { "id": "techradar", "label": "TechRadar", "tier": "specialist", "hosts": ["www.techradar.com"] },
-    { "id": "tomsguide", "label": "Tom's Guide", "tier": "specialist", "hosts": ["www.tomsguide.com"] },
-    { "id": "arxiv", "label": "arXiv", "tier": "research", "hosts": ["arxiv.org"] },
-    { "id": "nist", "label": "NIST", "tier": "primary", "hosts": ["www.nist.gov", "csrc.nist.gov"] },
-    { "id": "ico", "label": "ICO", "tier": "primary", "hosts": ["ico.org.uk"] },
-    { "id": "ireland-dpc", "label": "Data Protection Commission Ireland", "tier": "primary", "hosts": ["dataprotection.ie", "www.dataprotection.ie"] },
-    { "id": "fr-cnil", "label": "CNIL", "tier": "primary", "hosts": ["cnil.fr", "www.cnil.fr"] },
-    { "id": "eur-lex", "label": "EUR-Lex", "tier": "primary", "hosts": ["eur-lex.europa.eu"] },
-    { "id": "google-workspace", "label": "Google Workspace", "tier": "primary", "hosts": ["workspace.google.com"] },
-    { "id": "fca", "label": "FCA", "tier": "primary", "hosts": ["www.fca.org.uk", "handbook.fca.org.uk"] },
-    { "id": "eba", "label": "EBA", "tier": "primary", "hosts": ["www.eba.europa.eu"] },
-    { "id": "fsb", "label": "FSB", "tier": "primary", "hosts": ["www.fsb.org"] },
-    { "id": "imf", "label": "International Monetary Fund", "tier": "primary", "hosts": ["www.imf.org"] },
-    { "id": "ecb", "label": "ECB", "tier": "primary", "hosts": ["www.ecb.europa.eu"] },
-    { "id": "esma", "label": "ESMA", "tier": "primary", "hosts": ["www.esma.europa.eu"] },
-    { "id": "eiopa", "label": "EIOPA", "tier": "primary", "hosts": ["www.eiopa.europa.eu"] },
-    { "id": "ec-fisma", "label": "EU Commission Financial Stability", "tier": "primary", "hosts": ["finance.ec.europa.eu"] },
-    { "id": "cssf", "label": "CSSF", "tier": "primary", "hosts": ["www.cssf.lu"] },
-    { "id": "boe", "label": "Bank of England", "tier": "primary", "hosts": ["www.bankofengland.co.uk"] },
-    { "id": "sec", "label": "US Securities and Exchange Commission", "tier": "primary", "hosts": ["www.sec.gov"] },
-    { "id": "cftc", "label": "US Commodity Futures Trading Commission", "tier": "primary", "hosts": ["www.cftc.gov"] },
-    { "id": "psr", "label": "Payment Systems Regulator", "tier": "primary", "hosts": ["www.psr.org.uk"] },
-    { "id": "gov-uk", "label": "UK Government", "tier": "primary", "hosts": ["www.gov.uk"] },
-    { "id": "fatf", "label": "FATF", "tier": "primary", "hosts": ["www.fatf-gafi.org"] },
-    { "id": "jmlsg", "label": "JMLSG", "tier": "primary", "hosts": ["www.jmlsg.org.uk"] },
-    { "id": "nca", "label": "National Crime Agency", "tier": "primary", "hosts": ["www.nationalcrimeagency.gov.uk"] },
-    { "id": "asic", "label": "ASIC", "tier": "primary", "hosts": ["www.asic.gov.au"] },
-    { "id": "cifas", "label": "Cifas", "tier": "specialist", "hosts": ["www.cifas.org.uk"] },
-    { "id": "ncsc", "label": "NCSC", "tier": "primary", "hosts": ["www.ncsc.gov.uk"] },
-    { "id": "cisa", "label": "CISA", "tier": "primary", "hosts": ["www.cisa.gov"] },
-    { "id": "enisa", "label": "ENISA", "tier": "primary", "hosts": ["www.enisa.europa.eu"] },
-    { "id": "uk-aisi", "label": "UK AI Security Institute", "tier": "primary", "hosts": ["www.aisi.gov.uk"] },
-    { "id": "bis", "label": "BIS", "tier": "primary", "hosts": ["www.bis.org"] },
-    { "id": "openai", "label": "OpenAI", "tier": "primary", "hosts": ["openai.com", "status.openai.com"] },
-    { "id": "anthropic", "label": "Anthropic", "tier": "primary", "hosts": ["www.anthropic.com", "status.claude.com"] },
-    { "id": "google-deepmind", "label": "Google DeepMind", "tier": "primary", "hosts": ["deepmind.google", "blog.google"] },
-    { "id": "meta-ai", "label": "Meta AI", "tier": "primary", "hosts": ["ai.meta.com", "about.fb.com"] },
-    { "id": "mistral-ai", "label": "Mistral AI", "tier": "primary", "hosts": ["mistral.ai"] },
-    { "id": "xai", "label": "xAI", "tier": "primary", "hosts": ["x.ai"] },
-    { "id": "microsoft-ai", "label": "Microsoft AI", "tier": "primary", "hosts": ["blogs.microsoft.com"] },
-    { "id": "nvidia", "label": "NVIDIA Newsroom", "tier": "primary", "hosts": ["nvidianews.nvidia.com", "blogs.nvidia.com"] },
-    { "id": "cert-fr", "label": "CERT-FR / ANSSI", "tier": "primary", "hosts": ["www.cert.ssi.gouv.fr"] },
-    { "id": "de-bundesbank", "label": "Deutsche Bundesbank", "tier": "primary", "hosts": ["www.bundesbank.de"] },
-    { "id": "google-cloud-status", "label": "Google Cloud Service Health", "tier": "primary", "hosts": ["status.cloud.google.com"] },
-    { "id": "aws-service-health", "label": "AWS Service Health", "tier": "primary", "hosts": ["status.aws.amazon.com"] },
-    { "id": "cloudflare-status", "label": "Cloudflare Status", "tier": "primary", "hosts": ["www.cloudflarestatus.com"] },
-    { "id": "github-status", "label": "GitHub Status", "tier": "primary", "hosts": ["www.githubstatus.com"] },
-    { "id": "atlassian-status", "label": "Atlassian Status", "tier": "primary", "hosts": ["status.atlassian.com"] },
-    { "id": "oracle-cloud-status", "label": "Oracle Cloud Infrastructure Status", "tier": "primary", "hosts": ["ocistatus.oraclecloud.com"] },
-    { "id": "digitalocean-status", "label": "DigitalOcean Status", "tier": "primary", "hosts": ["status.digitalocean.com"] },
-    { "id": "canada-cyber-centre", "label": "Canadian Centre for Cyber Security", "tier": "primary", "hosts": ["www.cyber.gc.ca", "cyber.gc.ca"] },
-    { "id": "jpcert", "label": "JPCERT/CC", "tier": "primary", "hosts": ["www.jpcert.or.jp"] },
-    { "id": "finma", "label": "FINMA", "tier": "primary", "hosts": ["www.finma.ch"] },
-    { "id": "japan-fsa", "label": "Japan FSA", "tier": "primary", "hosts": ["www.fsa.go.jp"] },
-    { "id": "japan-mof", "label": "Japan Ministry of Finance", "tier": "primary", "hosts": ["www.mof.go.jp"] },
-    { "id": "india-sebi", "label": "SEBI", "tier": "primary", "hosts": ["www.sebi.gov.in"] },
-    { "id": "hkma", "label": "HKMA", "tier": "primary", "hosts": ["www.hkma.gov.hk", "api.hkma.gov.hk", "brdr.hkma.gov.hk"] },
-    { "id": "apra", "label": "APRA", "tier": "primary", "hosts": ["www.apra.gov.au"] },
-    { "id": "osfi", "label": "OSFI", "tier": "primary", "hosts": ["www.osfi-bsif.gc.ca"] },
-    { "id": "mas", "label": "MAS", "tier": "primary", "hosts": ["www.mas.gov.sg", "mas.gov.sg"] },
-    { "id": "korea-fsc", "label": "Korea FSC", "tier": "primary", "hosts": ["www.fsc.go.kr"] },
-    { "id": "brazil-cvm", "label": "CVM Brazil", "tier": "primary", "hosts": ["www.gov.br", "conteudo.cvm.gov.br"] },
-    { "id": "fr-amf", "label": "AMF France", "tier": "primary", "hosts": ["www.amf-france.org", "amf-france.org"] },
-    { "id": "spain-cnmv", "label": "CNMV Spain", "tier": "primary", "hosts": ["www.cnmv.es"] },
-    { "id": "ireland-cbi", "label": "Central Bank of Ireland", "tier": "primary", "hosts": ["www.centralbank.ie"] },
-    { "id": "adgm-fsra", "label": "ADGM FSRA", "tier": "primary", "hosts": ["www.adgm.com", "assets.adgm.com"] },
-    { "id": "de-bafin", "label": "BaFin", "tier": "primary", "hosts": ["bafin.de", "www.bafin.de"] },
-    { "id": "dubai-dfsa", "label": "Dubai DFSA", "tier": "primary", "hosts": ["www.dfsa.ae", "dfsa.ae"] },
-    { "id": "mexico-cnbv", "label": "CNBV Mexico", "tier": "primary", "hosts": ["www.gob.mx", "gob.mx", "www.cnbv.gob.mx", "cnbv.gob.mx"] },
-    { "id": "italy-consob", "label": "CONSOB Italy", "tier": "primary", "hosts": ["www.consob.it", "consob.it"] },
-    { "id": "saudi-cma", "label": "Saudi CMA", "tier": "primary", "hosts": ["cma.org.sa", "www.cma.org.sa"] },
-    { "id": "twilio-status", "label": "Twilio Status", "tier": "primary", "hosts": ["status.twilio.com"] },
-    { "id": "slack-status", "label": "Slack Status", "tier": "primary", "hosts": ["slack-status.com"] },
-    { "id": "zoom-status", "label": "Zoom Status", "tier": "primary", "hosts": ["www.zoomstatus.com"] },
-    { "id": "datadog-status", "label": "Datadog Status", "tier": "primary", "hosts": ["status.datadoghq.com"] },
-    { "id": "newrelic-status", "label": "New Relic Status", "tier": "primary", "hosts": ["status.newrelic.com"] },
-    { "id": "sentry-status", "label": "Sentry Status", "tier": "primary", "hosts": ["status.sentry.io"] },
-    { "id": "linode-status", "label": "Akamai Cloud Computing Status", "tier": "primary", "hosts": ["status.linode.com"] },
-    { "id": "box-status", "label": "Box Status", "tier": "primary", "hosts": ["status.box.com"] },
-    { "id": "dropbox-status", "label": "Dropbox Status", "tier": "primary", "hosts": ["status.dropbox.com"] },
-    { "id": "mongodb-status", "label": "MongoDB Status", "tier": "primary", "hosts": ["status.mongodb.com"] },
-    { "id": "hubspot-status", "label": "HubSpot Status", "tier": "primary", "hosts": ["status.hubspot.com"] },
-    { "id": "snowflake-status", "label": "Snowflake Status", "tier": "primary", "hosts": ["status.snowflake.com"] },
-    { "id": "cloudflare-security", "label": "Cloudflare Security Blog", "tier": "primary", "hosts": ["blog.cloudflare.com"] },
-    { "id": "google-security", "label": "Google Security Blog", "tier": "primary", "hosts": ["security.googleblog.com"] },
-    { "id": "cisco-talos", "label": "Cisco Talos", "tier": "primary", "hosts": ["blog.talosintelligence.com"] },
-    { "id": "paloalto-unit42", "label": "Palo Alto Networks Unit 42", "tier": "primary", "hosts": ["unit42.paloaltonetworks.com"] },
-    { "id": "cert-eu", "label": "CERT-EU", "tier": "primary", "hosts": ["cert.europa.eu"] },
-    { "id": "aws-security", "label": "AWS Security Blog", "tier": "primary", "hosts": ["aws.amazon.com"] },
-    { "id": "microsoft-security", "label": "Microsoft Security Blog", "tier": "primary", "hosts": ["www.microsoft.com"] },
-    { "id": "github-security", "label": "GitHub Security Blog", "tier": "primary", "hosts": ["github.blog"] },
-    { "id": "snyk", "label": "Snyk Security Research", "tier": "primary", "hosts": ["snyk.io"] },
-    { "id": "crowdstrike", "label": "CrowdStrike", "tier": "primary", "hosts": ["www.crowdstrike.com"] },
-    { "id": "rapid7", "label": "Rapid7 Research", "tier": "primary", "hosts": ["www.rapid7.com"] },
-    { "id": "sentinelone", "label": "SentinelOne Labs", "tier": "primary", "hosts": ["www.sentinelone.com"] },
-    { "id": "checkpoint", "label": "Check Point Research", "tier": "primary", "hosts": ["blog.checkpoint.com"] }
+    {
+      "id": "ft",
+      "label": "Financial Times",
+      "tier": "press",
+      "hosts": [
+        "www.ft.com"
+      ]
+    },
+    {
+      "id": "the-times",
+      "label": "The Times",
+      "tier": "press",
+      "hosts": [
+        "www.thetimes.com"
+      ]
+    },
+    {
+      "id": "wsj",
+      "label": "Wall Street Journal",
+      "tier": "press",
+      "hosts": [
+        "www.wsj.com"
+      ]
+    },
+    {
+      "id": "guardian",
+      "label": "The Guardian",
+      "tier": "press",
+      "hosts": [
+        "www.theguardian.com"
+      ]
+    },
+    {
+      "id": "wired",
+      "label": "Wired",
+      "tier": "specialist",
+      "hosts": [
+        "www.wired.com"
+      ]
+    },
+    {
+      "id": "techradar",
+      "label": "TechRadar",
+      "tier": "specialist",
+      "hosts": [
+        "www.techradar.com"
+      ]
+    },
+    {
+      "id": "tomsguide",
+      "label": "Tom's Guide",
+      "tier": "specialist",
+      "hosts": [
+        "www.tomsguide.com"
+      ]
+    },
+    {
+      "id": "arxiv",
+      "label": "arXiv",
+      "tier": "research",
+      "hosts": [
+        "arxiv.org"
+      ]
+    },
+    {
+      "id": "nist",
+      "label": "NIST",
+      "tier": "primary",
+      "hosts": [
+        "www.nist.gov",
+        "csrc.nist.gov"
+      ]
+    },
+    {
+      "id": "ico",
+      "label": "ICO",
+      "tier": "primary",
+      "hosts": [
+        "ico.org.uk"
+      ]
+    },
+    {
+      "id": "ireland-dpc",
+      "label": "Data Protection Commission Ireland",
+      "tier": "primary",
+      "hosts": [
+        "dataprotection.ie",
+        "www.dataprotection.ie"
+      ]
+    },
+    {
+      "id": "fr-cnil",
+      "label": "CNIL",
+      "tier": "primary",
+      "hosts": [
+        "cnil.fr",
+        "www.cnil.fr"
+      ]
+    },
+    {
+      "id": "eur-lex",
+      "label": "EUR-Lex",
+      "tier": "primary",
+      "hosts": [
+        "eur-lex.europa.eu"
+      ]
+    },
+    {
+      "id": "google-workspace",
+      "label": "Google Workspace",
+      "tier": "primary",
+      "hosts": [
+        "workspace.google.com"
+      ]
+    },
+    {
+      "id": "fca",
+      "label": "FCA",
+      "tier": "primary",
+      "hosts": [
+        "www.fca.org.uk",
+        "handbook.fca.org.uk"
+      ]
+    },
+    {
+      "id": "eba",
+      "label": "EBA",
+      "tier": "primary",
+      "hosts": [
+        "www.eba.europa.eu"
+      ]
+    },
+    {
+      "id": "fsb",
+      "label": "FSB",
+      "tier": "primary",
+      "hosts": [
+        "www.fsb.org"
+      ]
+    },
+    {
+      "id": "imf",
+      "label": "International Monetary Fund",
+      "tier": "primary",
+      "hosts": [
+        "www.imf.org"
+      ]
+    },
+    {
+      "id": "ecb",
+      "label": "ECB",
+      "tier": "primary",
+      "hosts": [
+        "www.ecb.europa.eu"
+      ]
+    },
+    {
+      "id": "esma",
+      "label": "ESMA",
+      "tier": "primary",
+      "hosts": [
+        "www.esma.europa.eu"
+      ]
+    },
+    {
+      "id": "eiopa",
+      "label": "EIOPA",
+      "tier": "primary",
+      "hosts": [
+        "www.eiopa.europa.eu"
+      ]
+    },
+    {
+      "id": "ec-fisma",
+      "label": "EU Commission Financial Stability",
+      "tier": "primary",
+      "hosts": [
+        "finance.ec.europa.eu"
+      ]
+    },
+    {
+      "id": "cssf",
+      "label": "CSSF",
+      "tier": "primary",
+      "hosts": [
+        "www.cssf.lu"
+      ]
+    },
+    {
+      "id": "boe",
+      "label": "Bank of England",
+      "tier": "primary",
+      "hosts": [
+        "www.bankofengland.co.uk"
+      ]
+    },
+    {
+      "id": "sec",
+      "label": "US Securities and Exchange Commission",
+      "tier": "primary",
+      "hosts": [
+        "www.sec.gov"
+      ]
+    },
+    {
+      "id": "cftc",
+      "label": "US Commodity Futures Trading Commission",
+      "tier": "primary",
+      "hosts": [
+        "www.cftc.gov"
+      ]
+    },
+    {
+      "id": "psr",
+      "label": "Payment Systems Regulator",
+      "tier": "primary",
+      "hosts": [
+        "www.psr.org.uk"
+      ]
+    },
+    {
+      "id": "gov-uk",
+      "label": "UK Government",
+      "tier": "primary",
+      "hosts": [
+        "www.gov.uk"
+      ]
+    },
+    {
+      "id": "fatf",
+      "label": "FATF",
+      "tier": "primary",
+      "hosts": [
+        "www.fatf-gafi.org"
+      ]
+    },
+    {
+      "id": "jmlsg",
+      "label": "JMLSG",
+      "tier": "primary",
+      "hosts": [
+        "www.jmlsg.org.uk"
+      ]
+    },
+    {
+      "id": "nca",
+      "label": "National Crime Agency",
+      "tier": "primary",
+      "hosts": [
+        "www.nationalcrimeagency.gov.uk"
+      ]
+    },
+    {
+      "id": "asic",
+      "label": "ASIC",
+      "tier": "primary",
+      "hosts": [
+        "www.asic.gov.au"
+      ]
+    },
+    {
+      "id": "cifas",
+      "label": "Cifas",
+      "tier": "specialist",
+      "hosts": [
+        "www.cifas.org.uk"
+      ]
+    },
+    {
+      "id": "ncsc",
+      "label": "NCSC",
+      "tier": "primary",
+      "hosts": [
+        "www.ncsc.gov.uk"
+      ]
+    },
+    {
+      "id": "cisa",
+      "label": "CISA",
+      "tier": "primary",
+      "hosts": [
+        "www.cisa.gov"
+      ]
+    },
+    {
+      "id": "enisa",
+      "label": "ENISA",
+      "tier": "primary",
+      "hosts": [
+        "www.enisa.europa.eu"
+      ]
+    },
+    {
+      "id": "uk-aisi",
+      "label": "UK AI Security Institute",
+      "tier": "primary",
+      "hosts": [
+        "www.aisi.gov.uk"
+      ]
+    },
+    {
+      "id": "bis",
+      "label": "BIS",
+      "tier": "primary",
+      "hosts": [
+        "www.bis.org"
+      ]
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "tier": "primary",
+      "hosts": [
+        "openai.com",
+        "status.openai.com"
+      ]
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic",
+      "tier": "primary",
+      "hosts": [
+        "www.anthropic.com",
+        "status.claude.com"
+      ]
+    },
+    {
+      "id": "google-deepmind",
+      "label": "Google DeepMind",
+      "tier": "primary",
+      "hosts": [
+        "deepmind.google",
+        "blog.google"
+      ]
+    },
+    {
+      "id": "meta-ai",
+      "label": "Meta AI",
+      "tier": "primary",
+      "hosts": [
+        "ai.meta.com",
+        "about.fb.com"
+      ]
+    },
+    {
+      "id": "mistral-ai",
+      "label": "Mistral AI",
+      "tier": "primary",
+      "hosts": [
+        "mistral.ai"
+      ]
+    },
+    {
+      "id": "xai",
+      "label": "xAI",
+      "tier": "primary",
+      "hosts": [
+        "x.ai"
+      ]
+    },
+    {
+      "id": "microsoft-ai",
+      "label": "Microsoft AI",
+      "tier": "primary",
+      "hosts": [
+        "blogs.microsoft.com"
+      ]
+    },
+    {
+      "id": "nvidia",
+      "label": "NVIDIA Newsroom",
+      "tier": "primary",
+      "hosts": [
+        "nvidianews.nvidia.com",
+        "blogs.nvidia.com"
+      ]
+    },
+    {
+      "id": "cert-fr",
+      "label": "CERT-FR / ANSSI",
+      "tier": "primary",
+      "hosts": [
+        "www.cert.ssi.gouv.fr"
+      ]
+    },
+    {
+      "id": "de-bundesbank",
+      "label": "Deutsche Bundesbank",
+      "tier": "primary",
+      "hosts": [
+        "www.bundesbank.de"
+      ]
+    },
+    {
+      "id": "google-cloud-status",
+      "label": "Google Cloud Service Health",
+      "tier": "primary",
+      "hosts": [
+        "status.cloud.google.com"
+      ]
+    },
+    {
+      "id": "aws-service-health",
+      "label": "AWS Service Health",
+      "tier": "primary",
+      "hosts": [
+        "status.aws.amazon.com"
+      ]
+    },
+    {
+      "id": "cloudflare-status",
+      "label": "Cloudflare Status",
+      "tier": "primary",
+      "hosts": [
+        "www.cloudflarestatus.com"
+      ]
+    },
+    {
+      "id": "github-status",
+      "label": "GitHub Status",
+      "tier": "primary",
+      "hosts": [
+        "www.githubstatus.com"
+      ]
+    },
+    {
+      "id": "atlassian-status",
+      "label": "Atlassian Status",
+      "tier": "primary",
+      "hosts": [
+        "status.atlassian.com"
+      ]
+    },
+    {
+      "id": "oracle-cloud-status",
+      "label": "Oracle Cloud Infrastructure Status",
+      "tier": "primary",
+      "hosts": [
+        "ocistatus.oraclecloud.com"
+      ]
+    },
+    {
+      "id": "digitalocean-status",
+      "label": "DigitalOcean Status",
+      "tier": "primary",
+      "hosts": [
+        "status.digitalocean.com"
+      ]
+    },
+    {
+      "id": "canada-cyber-centre",
+      "label": "Canadian Centre for Cyber Security",
+      "tier": "primary",
+      "hosts": [
+        "www.cyber.gc.ca",
+        "cyber.gc.ca"
+      ]
+    },
+    {
+      "id": "jpcert",
+      "label": "JPCERT/CC",
+      "tier": "primary",
+      "hosts": [
+        "www.jpcert.or.jp"
+      ]
+    },
+    {
+      "id": "finma",
+      "label": "FINMA",
+      "tier": "primary",
+      "hosts": [
+        "www.finma.ch"
+      ]
+    },
+    {
+      "id": "japan-fsa",
+      "label": "Japan FSA",
+      "tier": "primary",
+      "hosts": [
+        "www.fsa.go.jp"
+      ]
+    },
+    {
+      "id": "japan-mof",
+      "label": "Japan Ministry of Finance",
+      "tier": "primary",
+      "hosts": [
+        "www.mof.go.jp"
+      ]
+    },
+    {
+      "id": "india-sebi",
+      "label": "SEBI",
+      "tier": "primary",
+      "hosts": [
+        "www.sebi.gov.in"
+      ]
+    },
+    {
+      "id": "hkma",
+      "label": "HKMA",
+      "tier": "primary",
+      "hosts": [
+        "www.hkma.gov.hk",
+        "api.hkma.gov.hk",
+        "brdr.hkma.gov.hk"
+      ]
+    },
+    {
+      "id": "apra",
+      "label": "APRA",
+      "tier": "primary",
+      "hosts": [
+        "www.apra.gov.au"
+      ]
+    },
+    {
+      "id": "osfi",
+      "label": "OSFI",
+      "tier": "primary",
+      "hosts": [
+        "www.osfi-bsif.gc.ca"
+      ]
+    },
+    {
+      "id": "mas",
+      "label": "MAS",
+      "tier": "primary",
+      "hosts": [
+        "www.mas.gov.sg",
+        "mas.gov.sg"
+      ]
+    },
+    {
+      "id": "korea-fsc",
+      "label": "Korea FSC",
+      "tier": "primary",
+      "hosts": [
+        "www.fsc.go.kr"
+      ]
+    },
+    {
+      "id": "brazil-cvm",
+      "label": "CVM Brazil",
+      "tier": "primary",
+      "hosts": [
+        "www.gov.br",
+        "conteudo.cvm.gov.br"
+      ]
+    },
+    {
+      "id": "fr-amf",
+      "label": "AMF France",
+      "tier": "primary",
+      "hosts": [
+        "www.amf-france.org",
+        "amf-france.org"
+      ]
+    },
+    {
+      "id": "spain-cnmv",
+      "label": "CNMV Spain",
+      "tier": "primary",
+      "hosts": [
+        "www.cnmv.es"
+      ]
+    },
+    {
+      "id": "ireland-cbi",
+      "label": "Central Bank of Ireland",
+      "tier": "primary",
+      "hosts": [
+        "www.centralbank.ie"
+      ]
+    },
+    {
+      "id": "adgm-fsra",
+      "label": "ADGM FSRA",
+      "tier": "primary",
+      "hosts": [
+        "www.adgm.com",
+        "assets.adgm.com"
+      ]
+    },
+    {
+      "id": "de-bafin",
+      "label": "BaFin",
+      "tier": "primary",
+      "hosts": [
+        "bafin.de",
+        "www.bafin.de"
+      ]
+    },
+    {
+      "id": "dubai-dfsa",
+      "label": "Dubai DFSA",
+      "tier": "primary",
+      "hosts": [
+        "www.dfsa.ae",
+        "dfsa.ae"
+      ]
+    },
+    {
+      "id": "mexico-cnbv",
+      "label": "CNBV Mexico",
+      "tier": "primary",
+      "hosts": [
+        "www.gob.mx",
+        "gob.mx",
+        "www.cnbv.gob.mx",
+        "cnbv.gob.mx"
+      ]
+    },
+    {
+      "id": "italy-consob",
+      "label": "CONSOB Italy",
+      "tier": "primary",
+      "hosts": [
+        "www.consob.it",
+        "consob.it"
+      ]
+    },
+    {
+      "id": "saudi-cma",
+      "label": "Saudi CMA",
+      "tier": "primary",
+      "hosts": [
+        "cma.org.sa",
+        "www.cma.org.sa"
+      ]
+    },
+    {
+      "id": "twilio-status",
+      "label": "Twilio Status",
+      "tier": "primary",
+      "hosts": [
+        "status.twilio.com"
+      ]
+    },
+    {
+      "id": "slack-status",
+      "label": "Slack Status",
+      "tier": "primary",
+      "hosts": [
+        "slack-status.com"
+      ]
+    },
+    {
+      "id": "zoom-status",
+      "label": "Zoom Status",
+      "tier": "primary",
+      "hosts": [
+        "www.zoomstatus.com"
+      ]
+    },
+    {
+      "id": "datadog-status",
+      "label": "Datadog Status",
+      "tier": "primary",
+      "hosts": [
+        "status.datadoghq.com"
+      ]
+    },
+    {
+      "id": "newrelic-status",
+      "label": "New Relic Status",
+      "tier": "primary",
+      "hosts": [
+        "status.newrelic.com"
+      ]
+    },
+    {
+      "id": "sentry-status",
+      "label": "Sentry Status",
+      "tier": "primary",
+      "hosts": [
+        "status.sentry.io"
+      ]
+    },
+    {
+      "id": "linode-status",
+      "label": "Akamai Cloud Computing Status",
+      "tier": "primary",
+      "hosts": [
+        "status.linode.com"
+      ]
+    },
+    {
+      "id": "box-status",
+      "label": "Box Status",
+      "tier": "primary",
+      "hosts": [
+        "status.box.com"
+      ]
+    },
+    {
+      "id": "dropbox-status",
+      "label": "Dropbox Status",
+      "tier": "primary",
+      "hosts": [
+        "status.dropbox.com"
+      ]
+    },
+    {
+      "id": "mongodb-status",
+      "label": "MongoDB Status",
+      "tier": "primary",
+      "hosts": [
+        "status.mongodb.com"
+      ]
+    },
+    {
+      "id": "hubspot-status",
+      "label": "HubSpot Status",
+      "tier": "primary",
+      "hosts": [
+        "status.hubspot.com"
+      ]
+    },
+    {
+      "id": "snowflake-status",
+      "label": "Snowflake Status",
+      "tier": "primary",
+      "hosts": [
+        "status.snowflake.com"
+      ]
+    },
+    {
+      "id": "cloudflare-security",
+      "label": "Cloudflare Security Blog",
+      "tier": "primary",
+      "hosts": [
+        "blog.cloudflare.com"
+      ]
+    },
+    {
+      "id": "google-security",
+      "label": "Google Security Blog",
+      "tier": "primary",
+      "hosts": [
+        "security.googleblog.com"
+      ]
+    },
+    {
+      "id": "cisco-talos",
+      "label": "Cisco Talos",
+      "tier": "primary",
+      "hosts": [
+        "blog.talosintelligence.com"
+      ]
+    },
+    {
+      "id": "paloalto-unit42",
+      "label": "Palo Alto Networks Unit 42",
+      "tier": "primary",
+      "hosts": [
+        "unit42.paloaltonetworks.com"
+      ]
+    },
+    {
+      "id": "cert-eu",
+      "label": "CERT-EU",
+      "tier": "primary",
+      "hosts": [
+        "cert.europa.eu"
+      ]
+    },
+    {
+      "id": "aws-security",
+      "label": "AWS Security Blog",
+      "tier": "primary",
+      "hosts": [
+        "aws.amazon.com"
+      ]
+    },
+    {
+      "id": "microsoft-security",
+      "label": "Microsoft Security Blog",
+      "tier": "primary",
+      "hosts": [
+        "www.microsoft.com"
+      ]
+    },
+    {
+      "id": "github-security",
+      "label": "GitHub Security Blog",
+      "tier": "primary",
+      "hosts": [
+        "github.blog"
+      ]
+    },
+    {
+      "id": "snyk",
+      "label": "Snyk Security Research",
+      "tier": "primary",
+      "hosts": [
+        "snyk.io"
+      ]
+    },
+    {
+      "id": "crowdstrike",
+      "label": "CrowdStrike",
+      "tier": "primary",
+      "hosts": [
+        "www.crowdstrike.com"
+      ]
+    },
+    {
+      "id": "rapid7",
+      "label": "Rapid7 Research",
+      "tier": "primary",
+      "hosts": [
+        "www.rapid7.com"
+      ]
+    },
+    {
+      "id": "sentinelone",
+      "label": "SentinelOne Labs",
+      "tier": "primary",
+      "hosts": [
+        "www.sentinelone.com"
+      ]
+    },
+    {
+      "id": "checkpoint",
+      "label": "Check Point Research",
+      "tier": "primary",
+      "hosts": [
+        "blog.checkpoint.com"
+      ]
+    },
+    {
+      "id": "metr",
+      "label": "METR",
+      "tier": "research",
+      "hosts": [
+        "metr.org"
+      ]
+    }
   ]
 }

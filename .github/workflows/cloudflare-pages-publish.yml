@@ -57,6 +57,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Requires REG_HORIZON_PRIVATE_DATA_READ_TOKEN with read access to the private data repository.
       - name: Check out private Regulatory Horizon data
         uses: actions/checkout@v4
         with:

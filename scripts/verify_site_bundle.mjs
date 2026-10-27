@@ -89,17 +89,6 @@ function formatDateLong(date) {
   return parsed.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
 
-function deepDiveArchiveDetails(deepDive) {
-  const route = String(deepDive?.route || "");
-  const match = route.match(/^\/deep-dives\/([a-z0-9]+(?:-[a-z0-9]+)*)\/$/);
-  if (!match) return null;
-  const slug = match[1];
-  return {
-    relative: `deep-dives/${slug}/archive/${deepDive.publishedDate}/index.html`,
-    url: `https://stgeorgesstrategy.com/deep-dives/${slug}/archive/${deepDive.publishedDate}/`,
-  };
-}
-
 function checkCurrentEditionAlignment(failures) {
   const edition = readSourceJson("data/current-edition.json");
   const home = read("index.html");
@@ -214,22 +203,6 @@ function checkCurrentEditionAlignment(failures) {
   for (const question of committeeQuestions) {
     assert(currentCommitteeSection.includes(question?.question || ""), "Committee Questions current section should include every canonical current-edition question", failures);
   }
-  if (edition.deepDive) {
-    const deepDiveArchive = deepDiveArchiveDetails(edition.deepDive);
-    assert(Boolean(deepDiveArchive), "current Deep Dive must use a canonical /deep-dives/<slug>/ URL", failures);
-    if (deepDiveArchive) {
-      assert(deepDives.includes(`href="${edition.deepDive.route}"`), "Deep Dives index must link to the current Deep Dive", failures);
-      const archiveFile = path.join(SITE, deepDiveArchive.relative);
-      assert(fs.existsSync(archiveFile), "current Deep Dive archive copy missing", failures);
-      assert(archive.includes(`href="/${deepDiveArchive.relative.replace(/index\.html$/, "")}"`), "archive index must link to the current Deep Dive snapshot", failures);
-      if (fs.existsSync(archiveFile)) {
-        const archived = fs.readFileSync(archiveFile, "utf8");
-        assert(attr(archived, /<link rel="canonical" href="([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive canonical mismatch", failures);
-        assert(attr(archived, /<meta property="og:url" content="([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive og:url mismatch", failures);
-        assert(attr(archived, /"@id": "([^"]+)"/) === deepDiveArchive.url, "Deep Dive archive JSON-LD @id mismatch", failures);
-      }
-    }
-  }
   const standaloneDeepDives = (readSourceJson("data/deep-dives.json").items || [])
     .filter((record) => record?.route && record?.publishedDate && record?.title && record?.dek && record?.readTime)
     .sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)));
@@ -310,6 +283,36 @@ function checkDeepDiveLibraryAndMobileNavigation(failures) {
       failures,
     );
   }
+  for (const record of library) {
+    assert(Object.hasOwn(record, "promptedBy"), `Deep Dive ${record.route} must declare promptedBy metadata or null`, failures);
+    if (record.promptedBy != null) {
+      assert(Boolean(record.promptedBy.title && record.promptedBy.url && record.promptedBy.date), `Deep Dive ${record.route} promptedBy must include title, URL, and date`, failures);
+    }
+    const slug = record.route.match(/^\/deep-dives\/([^/]+)\/$/)?.[1] || "";
+    const article = slug ? read(`deep-dives/${slug}/index.html`) : "";
+    assert(article.includes("By Ben St Georges"), `Deep Dive ${record.route} must use the named author byline`, failures);
+    assert(article.includes('"author": { "@type": "Person", "name": "Ben St Georges" }'), `Deep Dive ${record.route} structured author must match its byline`, failures);
+    if (record.promptedBy) assert(article.includes(record.promptedBy.title), `Deep Dive ${record.route} must show its prompted-by source`, failures);
+  }
+  const latest = library[0];
+  if (latest) {
+    const feed = read("feed.xml");
+    for (const record of library) {
+      const pubDate = new Date(`${record.publishedDate}T12:00:00Z`).toUTCString();
+      assert(feed.includes(`<link>https://stgeorgesstrategy.com${record.route}</link>`), `RSS feed must include ${record.route}`, failures);
+      assert(feed.includes(`<category>Deep Dives</category>`), "RSS feed must categorize Deep Dive entries", failures);
+      assert(feed.includes(`<pubDate>${pubDate}</pubDate>`), `RSS feed must use the publication date for ${record.route}`, failures);
+    }
+  }
+  const about = read("about/index.html");
+  const committee = read("committee-questions/index.html");
+  if (latest) {
+    for (const [label, page] of [["About", about], ["Committee Questions", committee]]) {
+      assert(page.includes(latest.title) && page.includes(`href="${latest.route}"`), `${label} must promote the latest Deep Dive from the shared data source`, failures);
+    }
+  }
+  assert(!read("deep-dives/index.html").includes("deliberately occasional"), "Deep Dives index must explain its publication purpose instead of calling cadence occasional", failures);
+  if (latest) assert(read("deep-dives/index.html").includes(`Latest publication: ${formatDateLong(latest.publishedDate)}`), "Deep Dives index must show the latest publication date", failures);
   const app = readSource("app.js");
   const styles = readSource("styles.css");
   assert(app.includes('matchMedia("(max-width: 760px)")'), "mobile navigation must switch to compact mode at 760px", failures);

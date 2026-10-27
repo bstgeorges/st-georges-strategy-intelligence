@@ -35,6 +35,13 @@ const TRANSIENT_OFFICIAL_ENDPOINTS = new Set([
 // fails the release.
 const TRANSIENT_EDITORIAL_ENDPOINTS = new Set([
   "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/the-speed-problem-how-frontier-ai-exposes-weakness-in-enterprise-cybersecurity",
+  "https://www.itv.com/news/2026-10-20/revolut-services-down-as-google-cloud-apologises-for-outage",
+]);
+// Deloitte's live article is manually confirmed, but its shared navigation
+// includes the phrase "No results found", which otherwise trips the generic
+// soft-404 body heuristic.
+const VERIFIED_SOFT404_BODY_FALSE_POSITIVES = new Set([
+  "https://www.deloitte.com/uk/en/blogs/ecrs/ai-adoption-and-regulation-the-latest-fca-view.html",
 ]);
 const soft404TitlePatterns = [
   /404/i,
@@ -205,7 +212,8 @@ async function fetchUrlOnce(url) {
     }
     const restricted = isRestrictedButPresent(url, response.status);
     const unavailable = isTemporarilyUnavailable(response.status);
-    const soft404 = isSoft404(finalUrl, bodySample);
+    const soft404 = isSoft404(finalUrl, bodySample)
+      && !VERIFIED_SOFT404_BODY_FALSE_POSITIVES.has(finalUrl);
     return {
       url,
       status: response.status,

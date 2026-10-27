@@ -324,6 +324,15 @@ function normaliseArchiveMetadata(out) {
     let html = read(file).replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`);
     html = html.replace(/(<meta property="og:title" content=")[^"]*(">)/, `$1${escapeHtml(title)}$2`);
     html = html.replace(/(<meta name="twitter:title" content=")[^"]*(">)/, `$1${escapeHtml(title)}$2`);
+    const deepDiveArchive = relative.match(/^deep-dives\/([^/]+)\/archive\/(\d{4}-\d{2}-\d{2})\/index\.html$/);
+    if (deepDiveArchive) {
+      html = rewriteArchiveMetadata(html, `${PUBLIC_ORIGIN}/deep-dives/${deepDiveArchive[1]}/`);
+      if (/<meta name="robots" content="[^"]*">/.test(html)) {
+        html = html.replace(/<meta name="robots" content="[^"]*">/, '<meta name="robots" content="noindex,follow">');
+      } else {
+        html = html.replace("</head>", '    <meta name="robots" content="noindex,follow">\n  </head>');
+      }
+    }
     write(file, html);
   }
 }
@@ -1494,6 +1503,21 @@ function deepDiveDetails(deepDive) {
   };
 }
 
+function deepDivePromptedBy(record) {
+  const promptedBy = record?.promptedBy;
+  if (promptedBy == null) return null;
+  if (
+    typeof promptedBy !== "object"
+    || typeof promptedBy.title !== "string"
+    || !promptedBy.title.trim()
+    || !/^\d{4}-\d{2}-\d{2}$/.test(promptedBy.date || "")
+    || !/^https:\/\//i.test(promptedBy.url || "")
+  ) {
+    throw new Error(`Invalid promptedBy metadata for ${record?.route || "Deep Dive"}`);
+  }
+  return promptedBy;
+}
+
 function standaloneDeepDives() {
   if (!fs.existsSync(DEEP_DIVES_INPUT)) return [];
   const records = readJson(DEEP_DIVES_INPUT);
@@ -1519,7 +1543,7 @@ function latestStandaloneDeepDive() {
 }
 
 function deepDiveArchiveDate(record) {
-  const date = record?.archiveDate || record?.publishedDate || "";
+  const date = record?.archiveDate || "";
   return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
 }
 
@@ -1528,10 +1552,20 @@ function renderDeepDiveLibrary(out) {
     .filter((record) => deepDiveDetails(record) && record?.title && record?.dek && record?.readTime && /^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || ""))
     .sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)));
   if (!records.length) return;
-  const card = (record) => `<a class="home-deep-dive" href="${escapeHtml(record.route)}">
-          <div><p class="meta">${escapeHtml(record.category || "Deep Dive")} / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+  for (const record of records) {
+    if (!Object.hasOwn(record, "promptedBy")) throw new Error(`Deep Dive entry must declare promptedBy (use null when no source is recorded): ${record.route}`);
+    deepDivePromptedBy(record);
+  }
+  const card = (record) => {
+    const promptedBy = deepDivePromptedBy(record);
+    const promptedByMarkup = promptedBy
+      ? `<p class="meta">Prompted by: ${escapeHtml(promptedBy.title)} / ${escapeHtml(formatDateLong(promptedBy.date))}</p>`
+      : "";
+    return `<a class="home-deep-dive" href="${escapeHtml(record.route)}">
+          <div><p class="meta">${escapeHtml(record.category || "Deep Dive")} / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p>${promptedByMarkup}</div>
           <span aria-hidden="true">Read the analysis →</span>
         </a>`;
+  };
   const [latest, ...earlier] = records;
   const earlierMarkup = earlier.length
     ? `<section class="band" aria-labelledby="earlier-deep-dive-title">
@@ -1547,8 +1581,9 @@ function renderDeepDiveLibrary(out) {
   const markup = `<section class="band" aria-labelledby="latest-deep-dive-title">
         <div class="section-heading compact-heading">
           <div><p class="eyebrow">Latest analysis</p><h2 id="latest-deep-dive-title">Start with the issue beneath the week.</h2></div>
-          <p>Deep Dives are deliberately occasional. Each follows a source trail and stays focused on one operating question.</p>
+          <p>Each Deep Dive follows a source trail and stays focused on one operating question. New pieces appear when the evidence supports a useful, focused analysis.</p>
         </div>
+        <p class="meta deep-dive-latest-date">Latest publication: ${escapeHtml(formatDateLong(latest.publishedDate))}</p>
         ${card(latest)}
       </section>
       ${earlierMarkup}`;
@@ -1558,9 +1593,35 @@ function renderDeepDiveLibrary(out) {
   write(file, html.replace("<!-- deep-dive-library -->", markup));
 }
 
+function renderDeepDiveAttribution(out) {
+  for (const record of standaloneDeepDives()) {
+    const details = deepDiveDetails(record);
+    if (!details) continue;
+    const promptedBy = deepDivePromptedBy(record);
+    const file = path.join(out, details.sourceRelative);
+    if (!fs.existsSync(file)) continue;
+    let html = read(file).replace(/By The Virtual Officer(?=\s*<span aria-hidden="true">·<\/span>)/g, "By Ben St Georges");
+    const marker = "<!-- deep-dive-prompted-by -->";
+    const prompt = promptedBy
+      ? `<p class="deep-dive-prompted-by">Prompted by: <a href="${escapeHtml(promptedBy.url)}">${escapeHtml(promptedBy.title)}</a> (${escapeHtml(formatDateLong(promptedBy.date))}).</p>`
+      : "";
+    if (html.includes(marker)) html = html.replace(marker, prompt);
+    if (!html.includes('"author": { "@type": "Person", "name": "Ben St Georges" }')) {
+      throw new Error(`Deep Dive author metadata must match the visible byline: ${record.route}`);
+    }
+    write(file, html);
+  }
+  for (const file of listFiles(path.join(out, "deep-dives"), ".html")) {
+    if (!/\/archive\/\d{4}-\d{2}-\d{2}\/index\.html$/.test(file.split(path.sep).join("/"))) continue;
+    const html = read(file).replace(/By The Virtual Officer(?=\s*<span aria-hidden="true">·<\/span>)/g, "By Ben St Georges");
+    write(file, html);
+  }
+}
+
 function renderStandaloneDeepDivePromotion(out, editionRecord) {
   const record = latestStandaloneDeepDive();
-  if (!record || record.route === editionRecord?.deepDive?.route) return;
+  if (!record) return;
+  const promoteStandalone = record.route !== editionRecord?.deepDive?.route;
   const homepageFeature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
           <div class="section-heading compact-heading">
             <div><p class="eyebrow">Latest Deep Dive</p><h2 id="latest-standalone-deep-dive-title">A longer read for the issue beneath the week.</h2></div>
@@ -1589,12 +1650,33 @@ function renderStandaloneDeepDivePromotion(out, editionRecord) {
           </a>
         </section>`;
   const marker = "<!-- standalone-deep-dive-promotion -->";
-  for (const [relative, feature] of [["index.html", homepageFeature], ["brief/index.html", briefFeature]]) {
+  if (promoteStandalone) {
+    for (const [relative, feature] of [["index.html", homepageFeature], ["brief/index.html", briefFeature]]) {
+      const file = path.join(out, relative);
+      if (!fs.existsSync(file)) continue;
+      const html = read(file);
+      if (!html.includes(marker)) throw new Error(`Standalone Deep Dive promotion marker missing: ${relative}`);
+      write(file, html.replace(marker, feature));
+    }
+  }
+  const discoveryFeature = `<section class="band deep-dive-related" aria-labelledby="latest-reference-deep-dive-title">
+          <div class="section-heading compact-heading">
+            <div><p class="eyebrow">Latest Deep Dive</p><h2 id="latest-reference-deep-dive-title">Continue into the evidence.</h2></div>
+            <p>A source-backed analysis for readers who want the operating detail behind the weekly signals and committee questions.</p>
+          </div>
+          <a class="home-deep-dive home-deep-dive-compact" href="${escapeHtml(record.route)}">
+            <div><p class="meta">${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime)}</p><h3>${escapeHtml(record.title)}</h3><p>${escapeHtml(record.dek)}</p></div>
+            <span aria-hidden="true">Read the analysis →</span>
+          </a>
+          <p class="source-row"><a href="/deep-dives/">Browse all Deep Dives →</a></p>
+        </section>`;
+  for (const relative of ["about/index.html", "committee-questions/index.html"]) {
     const file = path.join(out, relative);
     if (!fs.existsSync(file)) continue;
     const html = read(file);
-    if (!html.includes(marker)) throw new Error(`Standalone Deep Dive promotion marker missing: ${relative}`);
-    write(file, html.replace(marker, feature));
+    const marker = "<!-- latest-deep-dive-promotion -->";
+    if (!html.includes(marker)) throw new Error(`Latest Deep Dive discovery marker missing: ${relative}`);
+    write(file, html.replace(marker, discoveryFeature));
   }
 }
 
@@ -1654,27 +1736,18 @@ function syncSignalsArchiveStore(out, edition) {
     );
   }
 
-  const currentDeepDive = deepDiveDetails(editionRecord.deepDive);
-  if (currentDeepDive) {
-    archiveIntoStore(
-      out,
-      currentDeepDive.sourceRelative,
-      path.join(currentDeepDive.storeDir, edition, "index.html"),
-      `${PUBLIC_ORIGIN}/deep-dives/${currentDeepDive.slug}/archive/${edition}/`,
-    );
-  }
-
-  // Deep Dives may be published between weekly Brief editions. Each declared
-  // standalone record receives a dated immutable snapshot without changing the
-  // Brief's own publication date or its historical archive.
+  // Keep dated snapshots only when the record explicitly declares an archiveDate.
+  // Weekly releases do not create duplicate copies or rewrite existing snapshots.
   for (const record of standaloneDeepDives()) {
     const deepDive = deepDiveDetails({ route: record?.route });
     const archiveDate = deepDiveArchiveDate(record);
     if (!deepDive || !archiveDate) continue;
+    const snapshotFile = path.join(deepDive.storeDir, archiveDate, "index.html");
+    if (fs.existsSync(snapshotFile)) continue;
     archiveIntoStore(
       out,
       deepDive.sourceRelative,
-      path.join(deepDive.storeDir, archiveDate, "index.html"),
+      snapshotFile,
       `${PUBLIC_ORIGIN}/deep-dives/${deepDive.slug}/archive/${archiveDate}/`,
     );
   }
@@ -2988,21 +3061,17 @@ function generateSitemap(out, edition) {
     { loc: `${PUBLIC_ORIGIN}/archive/brief/`, lastmod: edition },
     ...briefDates.map((date) => ({ loc: briefEditionUrl(date), lastmod: date })),
   ];
-  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
-  if (currentDeepDive) {
-    const currentDeepDiveUrl = `${PUBLIC_ORIGIN}/deep-dives/${currentDeepDive.slug}/`;
-    if (!entries.some((entry) => entry.loc === currentDeepDiveUrl)) {
-      entries.push({ loc: currentDeepDiveUrl, lastmod: edition });
-    }
+  for (const record of standaloneDeepDives()) {
+    const deepDive = deepDiveDetails(record);
+    if (!deepDive) continue;
+    const url = `${PUBLIC_ORIGIN}${record.route}`;
+    if (!entries.some((entry) => entry.loc === url)) entries.push({ loc: url, lastmod: record.publishedDate });
   }
   for (const topic of topics) {
     entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/`, lastmod: edition });
     for (const date of listEditionDates(path.join(ARCHIVE_STORE, "topics", topic), edition)) {
       entries.push({ loc: `${PUBLIC_ORIGIN}/signals/${topic}/archive/${date}/`, lastmod: date });
     }
-  }
-  for (const { slug, date } of listDeepDiveArchiveEntries()) {
-    entries.push({ loc: `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`, lastmod: date });
   }
   if (!briefDates.includes(edition)) entries.push({ loc: briefEditionUrl(edition), lastmod: edition });
   const horizonArchiveDir = path.join(out, "regulatory-horizon", "archive");
@@ -3043,15 +3112,23 @@ function generateBriefFeed(out, editionRecord, edition) {
       date,
       description: "An archived edition of the Weekly Brief from St Georges Strategy.",
     })),
-  ];
+    ...standaloneDeepDives().map((record) => ({
+      title: record.title,
+      link: `${PUBLIC_ORIGIN}${record.route}`,
+      date: record.publishedDate,
+      description: record.dek,
+      category: "Deep Dives",
+      author: "ben@stgeorgesstrategy.com (Ben St Georges)",
+    })),
+  ].sort((left, right) => String(right.date).localeCompare(String(left.date)) || left.link.localeCompare(right.link));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-  <title>St Georges Strategy — Weekly Brief</title>
+  <title>St Georges Strategy — Weekly Brief and Deep Dives</title>
   <link>${PUBLIC_ORIGIN}/brief/</link>
   <description>Source-backed financial-services risk intelligence for senior decision-makers.</description>
   <language>en-gb</language>
-  <lastBuildDate>${rssDate(edition)}</lastBuildDate>
-${entries.map((entry) => `  <item><title>${escapeXml(entry.title)}</title><link>${escapeXml(entry.link)}</link><guid isPermaLink="true">${escapeXml(entry.link)}</guid><pubDate>${rssDate(entry.date)}</pubDate><description>${escapeXml(entry.description)}</description></item>`).join("\n")}
+  <lastBuildDate>${rssDate(entries[0]?.date || edition)}</lastBuildDate>
+${entries.map((entry) => `  <item><title>${escapeXml(entry.title)}</title><link>${escapeXml(entry.link)}</link><guid isPermaLink="true">${escapeXml(entry.link)}</guid><pubDate>${rssDate(entry.date)}</pubDate>${entry.category ? `<category>${escapeXml(entry.category)}</category>` : ""}${entry.author ? `<author>${escapeXml(entry.author)}</author>` : ""}<description>${escapeXml(entry.description)}</description></item>`).join("\n")}
 </channel></rss>\n`;
   write(path.join(out, "feed.xml"), xml);
 }
@@ -3060,7 +3137,7 @@ function injectBriefFeedAlternate(out) {
   for (const file of listFiles(out, ".html")) {
     let html = read(file);
     if (/type="application\/rss\+xml"/.test(html)) continue;
-    html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n    <link rel="alternate" type="application/rss+xml" title="St Georges Strategy — Weekly Brief" href="/feed.xml">');
+    html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n    <link rel="alternate" type="application/rss+xml" title="St Georges Strategy — Weekly Brief and Deep Dives" href="/feed.xml">');
     write(file, html);
   }
 }
@@ -3235,15 +3312,6 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     );
   }
 
-  const currentDeepDive = deepDiveDetails(readJson(EDITION_INPUT).deepDive);
-  if (currentDeepDive) {
-    assert(
-      fs.existsSync(path.join(out, "deep-dives", currentDeepDive.slug, "archive", edition, "index.html")),
-      "Current Deep Dive archive copy missing",
-      failures,
-    );
-  }
-
   const archiveCanonicalChecks = [
     [path.join(out, "archive", "brief", "index.html"), `${PUBLIC_ORIGIN}/archive/brief/`],
     ...listEditionDates(path.join(out, "archive", "brief")).map((date) => [
@@ -3263,12 +3331,6 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
       ]);
     }
   }
-  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
-    archiveCanonicalChecks.push([
-      path.join(out, "deep-dives", slug, "archive", date, "index.html"),
-      `${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`,
-    ]);
-  }
   for (const [file, expected] of archiveCanonicalChecks) {
     assert(fs.existsSync(file), `${expected} archive page missing`, failures);
     if (!fs.existsSync(file)) continue;
@@ -3281,6 +3343,18 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
       const entityId = (html.match(/"mainEntityOfPage":\s*{\s*"@type":\s*"WebPage",\s*"@id":\s*"([^"]+)"/) || [])[1] || "";
       assert(entityId === expected, `${expected} JSON-LD mainEntityOfPage should reference itself, got ${entityId}`, failures);
     }
+  }
+  for (const { slug, date } of listDeepDiveArchiveEntries(edition)) {
+    const file = path.join(out, "deep-dives", slug, "archive", date, "index.html");
+    const expectedCanonical = `${PUBLIC_ORIGIN}/deep-dives/${slug}/`;
+    assert(fs.existsSync(file), `Deep Dive archive URL ${slug}/${date} must remain available`, failures);
+    if (!fs.existsSync(file)) continue;
+    const html = read(file);
+    const canonical = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
+    const robots = (html.match(/<meta name="robots" content="([^"]+)"/) || [])[1] || "";
+    assert(canonical === expectedCanonical, `Deep Dive archive ${slug}/${date} must canonicalize to its article`, failures);
+    assert(robots === "noindex,follow", `Deep Dive archive ${slug}/${date} must not be indexed as a duplicate`, failures);
+    assert(!sitemapUrls.includes(`${PUBLIC_ORIGIN}/deep-dives/${slug}/archive/${date}/`), `Deep Dive archive ${slug}/${date} must not appear in sitemap`, failures);
   }
 
   const horizon = path.join(out, "regulatory-horizon");
@@ -3414,6 +3488,7 @@ async function main() {
   renderHomepageJudgement(options.out, editionRecord);
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
   renderDeepDiveLibrary(options.out);
+  renderDeepDiveAttribution(options.out);
   simplifyPublicEditorialSurfaces(options.out);
   addBriefEditionPermalink(options.out, editionRecord);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
@@ -3425,6 +3500,7 @@ async function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
+  renderDeepDiveAttribution(options.out);
   // Standalone Deep Dives are promoted on current entry pages only. This comes
   // after the weekly snapshot is frozen so a between-edition article never
   // rewrites the historical Brief it did not belong to.

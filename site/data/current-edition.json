@@ -63,16 +63,17 @@
     "editorialAngle": "Use the new Bank of England/FCA survey to test the gap between reported AI policy adoption and post-deployment control evidence, while treating the survey as descriptive rather than a control test.",
     "distinctFromPrevious": "Edition 19 asked who defines and enforces an agent’s authority outside the agent. Edition 20 shifts to whether controls remain observable and effective across material AI use after deployment, vendor change and software compromise.",
     "observation": "The Bank of England and FCA’s 2026 survey found firm-wide AI policies at 94% of full-survey respondents; ongoing monitoring, leakage testing and periodic review or recertification were each reported by about half. Eighty per cent reported AI agents deployed and 2% broad autonomy. Response bases vary by question.",
-    "executiveJudgement": "This is a reported-coverage gap, not proof that controls fail. The survey does not test whether monitoring detects breaches or a review changes deployment. Software and vendor updates can shift risk between formal approval points.",
-    "implication": "Pick the highest-impact AI workflow. Ask its owner to replay one monitoring alert that changed a decision, then show what the firm changed."
+    "executiveJudgement": "Approval is a snapshot; controls must follow the live workflow. A model or vendor change can invalidate its approval assumptions. The survey reports coverage, not effectiveness, so it cannot show whether monitoring catches the shift.",
+    "implication": "Choose one high-impact workflow changed since its last review. Have its owner replay the relevant alert—or trigger a controlled threshold breach—measure detection-to-decision time, and record whether use was revised, restricted or retained, with a dated reason.",
+    "archiveCorrection": "Editorial update (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to clarify the inference and specify a measurable post-approval control test. The reported survey figures and publication date are unchanged."
   },
   "weeklyReadout": {
     "heading": "Which AI control still works after go-live?",
     "steps": [
-      "Select one high-impact AI workflow and identify the operating owner.",
-      "Replay a recent monitoring alert or leakage test and show what it detected.",
-      "Trace the result to a review decision, a changed control or an explicit decision to keep the system live.",
-      "Record one unresolved control question and the person who can answer it."
+      "Select a high-impact AI workflow with a model, data or vendor change since its last review.",
+      "Replay the relevant monitoring alert or trigger a controlled threshold breach.",
+      "Measure detection-to-decision time and record whether use was revised, restricted or retained, with a reason.",
+      "Assign the first unproven step to an owner with a due date."
     ]
   },
   "topSignals": [

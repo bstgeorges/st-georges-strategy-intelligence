@@ -33,6 +33,10 @@ Use these names when the section performs the matching job.
 - Reject a draft that merely restates the previous action grammar or reuses the default assurance bundle of owner, map, dependency, test, intervention, exception and closure. That may be useful evidence elsewhere, but it is not a Weekly Judgement.
 - Lead with a concrete observed behaviour or changed boundary, not a roll-call of sources. The Brief and Signals pages carry the detailed source trail.
 - Make **What to do** one specific next move. When the evidence points to a proof gap, ask for the relevant test result or unresolved difference — not another generic control pack.
+- Write **Why it matters** as a short causal argument: identify the mechanism that can turn the signal into an operating, customer, financial or control consequence; state what the source establishes; then name the decision-relevant uncertainty. Do not stop at a caveat such as “not proof of failure” or add an unconnected risk possibility.
+- Write **What to do** as one bounded test or decision. Name the operating owner, the change or trigger to examine, the observable measure or evidence, and the decision the result should inform. Prefer elapsed time, a threshold, a pass/fail condition or a recorded disposition over “review,” “map,” or “show evidence” by themselves.
+- Use the reasoning standard of a Deep Dive at brief length: evidence, mechanism, consequence, test. Separate source fact from editorial inference, and keep each sentence doing one of those jobs.
+- Before release, read **Why it matters** beside **What to do**. The action must test the mechanism described in the judgement, and the result must answer its stated uncertainty.
 
 ## Date and archive discipline
 

@@ -83,6 +83,14 @@ One sentence:
 
 Why it matters:
 
+### Weekly Judgement quality check
+
+**Why it matters:** State the mechanism that links the evidence to an operating consequence, then say what the sources do and do not establish. Avoid generic risk statements or a caveat with no decision consequence.
+
+**What to do:** Specify one bounded test or decision: the operating owner, the change or trigger, the observable measure or evidence, and the decision the result should inform. A reader should be able to tell what a pass, failure or unresolved gap looks like.
+
+**Link:** The proposed action must test the mechanism in the judgement. Read both sections together; remove any action that could fit unchanged into last week’s edition.
+
 ### Lead Signal
 
 Headline:

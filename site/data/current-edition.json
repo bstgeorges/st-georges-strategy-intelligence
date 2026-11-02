@@ -9,10 +9,10 @@
   "streamsScanned": 8,
   "mainJudgement": "Policy adoption is not control evidence.",
   "committeeQuestion": {
-    "domain": "Post-deployment control evidence",
-    "question": "Which control in your highest-impact AI workflow would you test first, and what result would force a change?",
-    "why": "The Bank of England/FCA survey found policies more widely reported than ongoing monitoring, leakage testing or periodic review. It records firm responses; it does not test whether those controls work.",
-    "evidence": "One recent monitoring event, its linked decision, the associated leakage-test or recertification result, and a dated change made when a threshold was breached.",
+    "domain": "Production-agent control coverage",
+    "question": "How many production agents have ongoing monitoring, leakage testing and periodic review—and what happened when the last exception surfaced?",
+    "why": "The Bank of England/FCA survey reports agent deployment and post-deployment controls as aggregate, question-level responses; it cannot show whether the same firms report both or whether the controls work.",
+    "evidence": "Counts and denominators for production agents covered by each control, plus one decision-support agent’s alert or controlled test, human decision, time to review and resulting change or recorded reason for no change.",
     "links": [
       "brief",
       "ai",
@@ -22,10 +22,10 @@
   },
   "committeeQuestions": [
     {
-      "domain": "Post-deployment control evidence",
-      "question": "Which control in your highest-impact AI workflow would you test first, and what result would force a change?",
-      "why": "The Bank of England/FCA survey found policies more widely reported than ongoing monitoring, leakage testing or periodic review. It records firm responses; it does not test whether those controls work.",
-      "evidence": "One recent monitoring event, its linked decision, the associated leakage-test or recertification result, and a dated change made when a threshold was breached.",
+      "domain": "Production-agent control coverage",
+      "question": "How many production agents have ongoing monitoring, leakage testing and periodic review—and what happened when the last exception surfaced?",
+      "why": "The Bank of England/FCA survey reports agent deployment and post-deployment controls as aggregate, question-level responses; it cannot show whether the same firms report both or whether the controls work.",
+      "evidence": "Counts and denominators for production agents covered by each control, plus one decision-support agent’s alert or controlled test, human decision, time to review and resulting change or recorded reason for no change.",
       "links": [
         "brief",
         "ai",
@@ -60,20 +60,20 @@
   ],
   "judgement": {
     "title": "Policy adoption is not control evidence.",
-    "editorialAngle": "Use the new Bank of England/FCA survey to test the gap between reported AI policy adoption and post-deployment control evidence, while treating the survey as descriptive rather than a control test.",
+    "editorialAngle": "Use the Bank of England/FCA survey’s separate aggregate figures to ask whether a firm’s deployed-agent population is actually covered by post-deployment monitoring, leakage testing and review.",
     "distinctFromPrevious": "Edition 19 asked who defines and enforces an agent’s authority outside the agent. Edition 20 shifts to whether controls remain observable and effective across material AI use after deployment, vendor change and software compromise.",
     "observation": "The Bank of England and FCA’s 2026 survey found firm-wide AI policies at 94% of full-survey respondents; ongoing monitoring, leakage testing and periodic review or recertification were each reported by about half. Eighty per cent reported AI agents deployed and 2% broad autonomy. Response bases vary by question.",
-    "executiveJudgement": "Approval is a snapshot; controls must follow the live workflow. A model or vendor change can invalidate its approval assumptions. The survey reports coverage, not effectiveness, so it cannot show whether monitoring catches the shift.",
-    "implication": "Choose one high-impact workflow changed since its last review. Have its owner replay the relevant alert—or trigger a controlled threshold breach—measure detection-to-decision time, and record whether use was revised, restricted or retained, with a dated reason.",
-    "archiveCorrection": "Editorial update (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to clarify the inference and specify a measurable post-approval control test. The reported survey figures and publication date are unchanged."
+    "executiveJudgement": "These are aggregate, question-level responses: they do not show whether the firms reporting agents are the same firms reporting monitoring, leakage testing or review. Separately, the survey records production agents for decision support at 80% and broad autonomy at 2%. Agents can shape a workflow before a person makes the final decision. The survey cannot tell whether that decision-support population is covered after go-live; a firm-wide policy count cannot answer it.",
+    "implication": "Ask the AI governance owner for counts and denominators: how many production agents are monitored, leakage-tested and reviewed or recertified? Sample one material decision-support agent; trace its latest alert—or a controlled leakage test—to the human decision, time to review and any change to the recommendation or workflow. Set an owner and next-review date for each uncovered material agent.",
+    "archiveCorrection": "Editorial updates (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to distinguish aggregate survey responses and specify a firm-level agent-coverage test. The reported findings and publication date are unchanged."
   },
   "weeklyReadout": {
-    "heading": "Which AI control still works after go-live?",
+    "heading": "Do production agents have post-deployment control evidence?",
     "steps": [
-      "Select a high-impact AI workflow with a model, data or vendor change since its last review.",
-      "Replay the relevant monitoring alert or trigger a controlled threshold breach.",
-      "Measure detection-to-decision time and record whether use was revised, restricted or retained, with a reason.",
-      "Assign the first unproven step to an owner with a due date."
+      "Count production agents in scope and identify the operating owner.",
+      "Report how many have ongoing monitoring, leakage testing and periodic review or recertification, with a denominator for each.",
+      "Sample one material decision-support agent and trace an alert or controlled test to the human decision and resulting change.",
+      "Assign an owner and next-review date to each uncovered material agent."
     ]
   },
   "topSignals": [

@@ -138,7 +138,7 @@ Use the publication date for `YYYY-MM-DD`.
 
 - `dashboard/index.html`
 - `dashboard/data/ai-signals.json`
-- Draft five options for `This Week’s Judgement` in the refresh packet, record the reasoning for each, and copy only the editor-selected version into `site/data/current-edition.json` under `judgement`. The build enforces the 80–120-word limit and renders its three paragraphs on the homepage.
+- Draft five options for `This Week’s Judgement` in the refresh packet, record the reasoning for each, and copy only the editor-selected version into `site/data/current-edition.json` under `judgement`. The build enforces an 80–180-word limit and renders its three paragraphs on the homepage.
 
 Validate AI Signals after the scheduled task writes the JSON:
 

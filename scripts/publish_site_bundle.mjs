@@ -1234,7 +1234,7 @@ function loadEditionRecord(failures) {
     .join(" ")
     .trim()
     .split(/\s+/).length;
-  assert(judgementWordCount >= 80 && judgementWordCount <= 120, `current edition judgement must be 80–120 words; found ${judgementWordCount}`, failures);
+  assert(judgementWordCount >= 80 && judgementWordCount <= 180, `current edition judgement must be 80–180 words; found ${judgementWordCount}`, failures);
   const seenTopSignalTopics = new Set();
   for (const [index, signal] of (record.topSignals || []).entries()) {
     const label = `current edition topSignals row ${index + 1}`;

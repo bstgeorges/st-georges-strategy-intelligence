@@ -32,3 +32,7 @@ Edition 19 asked who defines an agent’s authority and whether limits are enfor
 ## Pipeline note
 
 The 1 Nov remote candidate snapshot was retained because the local live refresh could not reach external feeds. The reviewed 30 Oct brief candidates were added as an explicitly labelled editorial overlay; the approved shortlist preserves that provenance. The canonical production workflow remains responsible for the final source-date, link-health, build, release-order and deployed-SHA checks.
+
+## Release-gate correction
+
+The first production workflow completed the source-date audit but stopped because the automated date parser could not confirm the carried ICO facial-recognition article. The ICO primary page was checked on 2 November: it displays 18 August 2026 and supports the cited five-force audit findings. The current Signals record now includes that dated manual verification. The release workflow will rerun the network-backed health gate before deployment.

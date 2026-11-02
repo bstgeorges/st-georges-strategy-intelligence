@@ -68,7 +68,7 @@
         <h2 id="archived-weekly-judgement-title">Policy adoption is not control evidence.</h2>
         <p class="meta">Archive record · The Weekly Judgement published with this edition is retained here in full.</p>
 
-        <p class="archive-correction-note">Editorial update (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to clarify the inference and specify a measurable post-approval control test. The reported survey figures and publication date are unchanged.</p>
+        <p class="archive-correction-note">Editorial updates (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to distinguish aggregate survey responses and specify a firm-level agent-coverage test. The reported findings and publication date are unchanged.</p>
         <div class="judgement-copy">
           <div class="judgement-beat">
             <p class="judgement-label">What happened</p>
@@ -76,11 +76,11 @@
           </div>
           <div class="judgement-beat">
             <p class="judgement-label">Why it matters</p>
-            <p class="judgement-text">Approval is a snapshot; controls must follow the live workflow. A model or vendor change can invalidate its approval assumptions. The survey reports coverage, not effectiveness, so it cannot show whether monitoring catches the shift.</p>
+            <p class="judgement-text">These are aggregate, question-level responses: they do not show whether the firms reporting agents are the same firms reporting monitoring, leakage testing or review. Separately, the survey records production agents for decision support at 80% and broad autonomy at 2%. Agents can shape a workflow before a person makes the final decision. The survey cannot tell whether that decision-support population is covered after go-live; a firm-wide policy count cannot answer it.</p>
           </div>
           <div class="judgement-beat judgement-implication">
             <p class="judgement-label">What to do</p>
-            <p class="judgement-text">Choose one high-impact workflow changed since its last review. Have its owner replay the relevant alert—or trigger a controlled threshold breach—measure detection-to-decision time, and record whether use was revised, restricted or retained, with a dated reason.</p>
+            <p class="judgement-text">Ask the AI governance owner for counts and denominators: how many production agents are monitored, leakage-tested and reviewed or recertified? Sample one material decision-support agent; trace its latest alert—or a controlled leakage test—to the human decision, time to review and any change to the recommendation or workflow. Set an owner and next-review date for each uncovered material agent.</p>
           </div>
         </div>
       </section>
@@ -90,9 +90,9 @@
         <div class="section-heading compact-heading">
           <div>
             <p class="eyebrow">The weekly readout</p>
-            <h2>Which AI control still works after go-live?</h2>
+            <h2>Do production agents have post-deployment control evidence?</h2>
           </div>
-          <p>The survey describes firms’ responses; it does not test control effectiveness. The percentages use different question-level response bases.</p>
+          <p>The survey is aggregate and descriptive. It does not show whether firms with deployed agents are the same firms reporting monitoring, leakage testing or review, or whether those controls work.</p>
         </div>
         <div class="brief-scan-grid">
           <article>
@@ -102,8 +102,8 @@
           </article>
           <article>
             <p class="meta">02 / Why it matters</p>
-            <h3>Approval is the start of assurance, not its end.</h3>
-            <p>Approval is a snapshot; controls must follow the live workflow. A model or vendor change can invalidate its approval assumptions. The survey reports coverage, not effectiveness, so it cannot show whether monitoring catches the shift.</p>
+            <h3>Agent deployment and control coverage are not linked firm by firm.</h3>
+            <p>These are aggregate, question-level responses: they do not show whether the firms reporting agents are the same firms reporting monitoring, leakage testing or review. Separately, the survey records production agents for decision support at 80% and broad autonomy at 2%. Agents can shape a workflow before a person makes the final decision. The survey cannot tell whether that decision-support population is covered after go-live; a firm-wide policy count cannot answer it.</p>
           </article>
           <article>
             <p class="meta">03 / What changed outside the survey</p>
@@ -112,15 +112,15 @@
           </article>
           <article>
             <p class="meta">04 / What to do</p>
-            <h3>Trace one change to the decision it triggered.</h3>
-            <p>Choose one high-impact workflow changed since its last review. Have its owner replay the relevant alert—or trigger a controlled threshold breach—measure detection-to-decision time, and record whether use was revised, restricted or retained, with a dated reason.</p>
+            <h3>Put the agent denominator beside the control evidence.</h3>
+            <p>Ask the AI governance owner for counts and denominators: how many production agents are monitored, leakage-tested and reviewed or recertified? Sample one material decision-support agent; trace its latest alert—or a controlled leakage test—to the human decision, time to review and any change to the recommendation or workflow. Set an owner and next-review date for each uncovered material agent.</p>
           </article>
         </div>
         <ul class="brief-readout-steps">
-          <li>Select a high-impact AI workflow with a model, data or vendor change since its last review.</li>
-          <li>Replay the relevant monitoring alert or trigger a controlled threshold breach.</li>
-          <li>Measure detection-to-decision time and record whether use was revised, restricted or retained, with a reason.</li>
-          <li>Assign the first unproven step to an owner with a due date.</li>
+          <li>Count production agents in scope and identify the operating owner.</li>
+          <li>Report how many have ongoing monitoring, leakage testing and periodic review or recertification, with a denominator for each.</li>
+          <li>Sample one material decision-support agent and trace an alert or controlled test to the human decision and resulting change.</li>
+          <li>Assign an owner and next-review date to each uncovered material agent.</li>
         </ul>
       </section>
 
@@ -140,7 +140,7 @@
 
       <section class="band">
         <div class="grid-3">
-          <article class="brief-card brief-action-card"><p class="meta">Question 01 / Post-deployment controls</p><h3>Which control in your highest-impact AI workflow would you test first, and what result would force a change?</h3><p>Ask for one recent monitoring event, its linked decision, the relevant test result and the change made when a threshold was breached.</p></article>
+          <article class="brief-card brief-action-card"><p class="meta">Question 01 / Production-agent coverage</p><h3>How many production agents have monitoring, leakage testing and periodic review—and what happened when the last exception surfaced?</h3><p>Request counts and denominators for each control, then trace one decision-support agent’s alert or controlled test through to the human decision and resulting change.</p></article>
           <article class="brief-card brief-action-card"><p class="meta">Question 02 / Vendor change control</p><h3>How do you validate and reverse a high-materiality vendor model update before it reaches a critical workflow?</h3><p>Show the test, the rollback trigger and evidence that the rollback path works. The survey reports variation; it does not establish that every firm’s process is effective.</p></article>
           <article class="brief-card brief-action-card"><p class="meta">Question 03 / Software supply chain</p><h3>If a Python environment ran LiteLLM 1.107.0, can you identify the credentials it could reach without starting Python there?</h3><p>Microsoft advises investigators not to run Python or pip inside a suspect environment. Preserve evidence, identify reachable secrets and contain affected identities.</p></article>
         </div>

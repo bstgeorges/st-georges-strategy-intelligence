@@ -37,6 +37,8 @@ Use these names when the section performs the matching job.
 - Write **What to do** as one bounded test or decision. Name the operating owner, the change or trigger to examine, the observable measure or evidence, and the decision the result should inform. Prefer elapsed time, a threshold, a pass/fail condition or a recorded disposition over “review,” “map,” or “show evidence” by themselves.
 - Use the reasoning standard of a Deep Dive at brief length: evidence, mechanism, consequence, test. Separate source fact from editorial inference, and keep each sentence doing one of those jobs.
 - Before release, read **Why it matters** beside **What to do**. The action must test the mechanism described in the judgement, and the result must answer its stated uncertainty.
+- When a source reports aggregate percentages, preserve each response base and do not imply that separate percentages describe the same firms unless the source cross-tabulates them. Make the action close that specific gap by mapping the source categories to the firm's own population with counts and denominators, then testing one material case.
+- The combined judgement may run up to 180 words when the source limitation and firm-level test need space. Use the extra room for a tighter link between the cited observation, the inference, and the management decision; do not repeat the source summary.
 
 ## Date and archive discipline
 

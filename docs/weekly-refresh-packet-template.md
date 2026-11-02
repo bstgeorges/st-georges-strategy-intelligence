@@ -91,6 +91,10 @@ Why it matters:
 
 **Link:** The proposed action must test the mechanism in the judgement. Read both sections together; remove any action that could fit unchanged into last week’s edition.
 
+**Bases and denominators:** When a source reports aggregate percentages or different response bases, do not imply firm-level overlap the source does not establish. Make the action produce the missing firm-level counts and denominators, then examine one material example and the decision it changed.
+
+The selected Weekly Judgement may run up to 180 words when needed to explain the evidence boundary and the specific test. Use the extra space to connect those points, not to add another source summary.
+
 ### Lead Signal
 
 Headline:

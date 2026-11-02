@@ -1,18 +1,18 @@
 {
-  "editionNumber": "Edition 19",
-  "title": "An agent’s access is not its authority.",
-  "weekOf": "2026-10-19",
-  "publicationDate": "2026-10-24",
+  "editionNumber": "Edition 20",
+  "title": "Policy adoption is not control evidence.",
+  "weekOf": "2026-10-26",
+  "publicationDate": "2026-11-01",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "An agent’s access is not its authority.",
+  "mainJudgement": "Policy adoption is not control evidence.",
   "committeeQuestion": {
-    "domain": "Delegated authority",
-    "question": "If an agent uses a customer’s credentials, what enforces the customer’s intended limits on transactions?",
-    "why": "METR found vulnerabilities in a historical internal monitoring system, while Reuters reports banks restricting outside agents. Monitoring can reveal actions; permission controls must still constrain them.",
-    "evidence": "A live demonstration of transaction-level limits enforced outside the agent, an alert when a limit is challenged, revocation evidence and a human stop path.",
+    "domain": "Post-deployment control evidence",
+    "question": "Which control in your highest-impact AI workflow would you test first, and what result would force a change?",
+    "why": "The Bank of England/FCA survey found policies more widely reported than ongoing monitoring, leakage testing or periodic review. It records firm responses; it does not test whether those controls work.",
+    "evidence": "One recent monitoring event, its linked decision, the associated leakage-test or recertification result, and a dated change made when a threshold was breached.",
     "links": [
       "brief",
       "ai",
@@ -22,10 +22,10 @@
   },
   "committeeQuestions": [
     {
-      "domain": "Delegated authority",
-      "question": "If an agent uses a customer’s credentials, what enforces the customer’s intended limits on transactions?",
-      "why": "METR found vulnerabilities in a historical internal monitoring system, while Reuters reports banks restricting outside agents. Monitoring can reveal actions; permission controls must still constrain them.",
-      "evidence": "A live demonstration of transaction-level limits enforced outside the agent, an alert when a limit is challenged, revocation evidence and a human stop path.",
+      "domain": "Post-deployment control evidence",
+      "question": "Which control in your highest-impact AI workflow would you test first, and what result would force a change?",
+      "why": "The Bank of England/FCA survey found policies more widely reported than ongoing monitoring, leakage testing or periodic review. It records firm responses; it does not test whether those controls work.",
+      "evidence": "One recent monitoring event, its linked decision, the associated leakage-test or recertification result, and a dated change made when a threshold was breached.",
       "links": [
         "brief",
         "ai",
@@ -34,81 +34,82 @@
       ]
     },
     {
-      "domain": "Independent monitoring",
-      "question": "Can the agent or its operator alter, suppress or route around the monitoring record used to investigate its actions?",
-      "why": "METR’s historical review found vulnerabilities in an internal monitoring system; OpenAI says production issues were patched, while METR did not test the expanded current system.",
-      "evidence": "A scoped independent test of log integrity, access controls, retention, alert delivery and response to a deliberately bypassed monitor.",
+      "domain": "Vendor change control",
+      "question": "How do you validate and reverse a high-materiality vendor model update before it reaches a critical workflow?",
+      "why": "The survey found reported practices varied; regression testing and rollback were not universal. Some reported bases are small and should be read cautiously.",
+      "evidence": "A recent vendor update with test results, an approval boundary, the rollback trigger and evidence the rollback path works.",
       "links": [
         "brief",
-        "ai",
-        "cyber"
-      ]
-    },
-    {
-      "domain": "Human intervention",
-      "question": "Who can stop an agent initiated payment, and how quickly does that stop take effect across connected services?",
-      "why": "Credentials may grant broad access even when the customer’s actual intent is narrow. The control must be enforceable across the account and payment path.",
-      "evidence": "Named decision owner, measurable stop latency, revocation propagation and a tested recovery route for an interrupted transaction.",
-      "links": [
-        "brief",
+        "third-party",
         "resilience",
+        "ai"
+      ]
+    },
+    {
+      "domain": "Software supply chain",
+      "question": "If a Python environment ran LiteLLM 1.107.0, can you identify the credentials it could reach without starting Python in that environment?",
+      "why": "Microsoft reports the compromised package could execute via Python startup files even where an application did not import LiteLLM.",
+      "evidence": "Affected environment inventory, preserved forensic evidence, reachable-secret scope, credential rotation and a clean rebuild or recovery record.",
+      "links": [
+        "brief",
         "third-party",
-        "market-structure"
+        "cyber",
+        "technology-failure"
       ]
     }
   ],
   "judgement": {
-    "title": "An agent’s access is not its authority.",
-    "editorialAngle": "Separate the credentials that let an agent enter a workflow from the external controls that define and enforce what it is allowed to do.",
-    "distinctFromPrevious": "Edition 18 tested collective behaviour and recovery across shared systems; Edition 17 asked whether evidence could reconstruct an agent’s actions. Edition 19 asks who sets an agent’s permitted actions and whether that authority is enforced outside the agent.",
-    "observation": "METR and Redwood found vulnerabilities in a historical OpenAI internal monitoring pilot. OpenAI says production issues were patched; METR did not evaluate the expanded system. Reuters reports banks restricting third-party account agents, while noting customers’ shared credentials complicate claims of unauthorised transactions.",
-    "executiveJudgement": "The lesson is external authority. A credential opens an account; it does not encode the owner’s intent. Monitoring can reveal actions, but it cannot set a mandate. Put the boundary outside the agent, with specific, revocable limits. Microsoft describes such an architecture; its effectiveness remains a vendor claim.",
-    "implication": "Ask one customer-workflow owner to demonstrate an external transaction limit, an alert when challenged and a human stop path. Record the first action it cannot prove was authorised."
+    "title": "Policy adoption is not control evidence.",
+    "editorialAngle": "Use the new Bank of England/FCA survey to test the gap between reported AI policy adoption and post-deployment control evidence, while treating the survey as descriptive rather than a control test.",
+    "distinctFromPrevious": "Edition 19 asked who defines and enforces an agent’s authority outside the agent. Edition 20 shifts to whether controls remain observable and effective across material AI use after deployment, vendor change and software compromise.",
+    "observation": "The Bank of England and FCA’s 2026 survey found firm-wide AI policies at 94% of full-survey respondents; ongoing monitoring, leakage testing and periodic review or recertification were each reported by about half. Eighty per cent reported AI agents deployed and 2% broad autonomy. Response bases vary by question.",
+    "executiveJudgement": "This is a reported-coverage gap, not proof that controls fail. The survey does not test whether monitoring detects breaches or a review changes deployment. Software and vendor updates can shift risk between formal approval points.",
+    "implication": "Pick the highest-impact AI workflow. Ask its owner to replay one monitoring alert that changed a decision, then show what the firm changed."
   },
   "weeklyReadout": {
-    "heading": "Who sets an agent’s authority, and where is it enforced?",
+    "heading": "Which AI control still works after go-live?",
     "steps": [
-      "Map the credentials and connected services an agent can reach in one customer workflow.",
-      "Define intended actions as specific, revocable limits enforced outside the agent.",
-      "Attempt a transaction that exceeds a limit and measure alert delivery, stop latency and revocation.",
-      "Record the first action the system cannot prove was authorised and assign the fix."
+      "Select one high-impact AI workflow and identify the operating owner.",
+      "Replay a recent monitoring alert or leakage test and show what it detected.",
+      "Trace the result to a review decision, a changed control or an explicit decision to keep the system live.",
+      "Record one unresolved control question and the person who can answer it."
     ]
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "METR found vulnerabilities in historical OpenAI agent monitoring",
-      "label": "Independent red-team report",
-      "why": "METR’s review covered a high-access pilot and the system as it existed in July. OpenAI says production issues were patched; METR did not assess the expanded current system.",
-      "source": "Primary / METR and Redwood Research / 2026-10-22"
+      "title": "AI policies are more common than post-deployment controls",
+      "label": "Bank of England/FCA supervisory survey",
+      "why": "The 2026 survey reports AI governance arrangements across 196 firms. Among full-survey respondents, 94% reported firm-wide policies, while key post-deployment data controls were each reported by about half. This is descriptive evidence, not a control-effectiveness test.",
+      "source": "Primary / Bank of England and Financial Conduct Authority / 2026-10-26"
+    },
+    {
+      "topic": "third-party",
+      "title": "LiteLLM compromise turns package startup into credential risk",
+      "label": "Software supply-chain incident analysis",
+      "why": "Microsoft says malicious startup files in LiteLLM 1.107.0 could run when Python started, even without an application importing the gateway. Exposure may extend to development, CI/CD, test and container environments.",
+      "source": "Primary / Microsoft Security Research / 2026-10-23"
     },
     {
       "topic": "resilience",
-      "title": "PRA creates a directorate for operational and cyber resilience",
-      "label": "Supervisory organisation",
-      "why": "The PRA announced a new directorate reporting to its CEO and a joint FCA consultation by year-end. This signals supervisory focus; it is not itself a new rule.",
-      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-22"
+      "title": "OpenAI reports stronger containment after frontier-model boundary tests",
+      "label": "Provider security disclosure",
+      "why": "OpenAI describes hardened containment for its own research environments and a high-compute red-team campaign. The account is company-reported; it does not independently establish resilience in customer deployments.",
+      "source": "Primary / OpenAI / 2026-10-23"
     },
     {
       "topic": "market-structure",
-      "title": "FCA review finds varied conflicts controls in private markets",
-      "label": "Multi-firm review",
-      "why": "The FCA says control maturity varies and firms should review gaps in identifying and managing conflicts. The review is supervisory feedback, not a new requirement.",
-      "source": "Primary / Financial Conduct Authority / 2026-10-23"
+      "title": "Anthropic’s S-1 puts compute commitments and provider economics in view",
+      "label": "SEC-filed S-1",
+      "why": "Anthropic’s preliminary filing exposes compute commitments and provider economics, while leaving key offering terms blank. It is useful evidence about provider dependencies, not a priced or completed IPO.",
+      "source": "Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26"
     },
     {
       "topic": "cyber",
-      "title": "PHP2Shell advisories warn of critical unauthenticated remote code execution",
-      "label": "Critical vulnerability",
-      "why": "The Canadian Cyber Centre says internet-facing PHP installations are at heightened risk and lists fixed versions. Its 23 October update reported no active exploitation at that time; check exposure and patch promptly.",
-      "source": "Primary / Canadian Centre for Cyber Security / 2026-10-21, updated 2026-10-23"
-    },
-    {
-      "topic": "technology-failure",
-      "title": "Google Cloud’s London region outage exposes cross-zone recovery limits",
-      "label": "Regional cloud incident",
-      "why": "Google’s preliminary incident report records a power event in europe-west2-b, followed by capacity and service impacts. Test whether alternate zones can carry critical workloads when a regional control plane is constrained.",
-      "source": "Primary / Google Cloud Status / 2026-10-20"
+      "title": "Historical KeyDrift activity exposes Cisco SD-WAN control-plane compromise paths",
+      "label": "Threat analysis · historical activity",
+      "why": "Cisco Talos reports historical exploitation of an authentication-bypass flaw in SD-WAN controllers and malware designed to collect keying material. Preserve the source’s historical scope; check exposure and patch status.",
+      "source": "Primary / Cisco Talos Intelligence Group / 2026-10-28"
     }
   ]
 }

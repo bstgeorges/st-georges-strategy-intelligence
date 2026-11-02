@@ -52,10 +52,10 @@
       <!-- publisher-lock:start:brief-editorial -->
 
       <section class="masthead">
-        <p class="eyebrow">Weekly Brief / Edition 19 · 24 Oct 2026</p>
-        <p class="edition-line">Live edition · 24 Oct 2026 · Vol. XIX</p>
-        <h1>An agent’s access is not its authority.</h1>
-        <p class="dek">A credential lets an agent enter an account; it does not define what its owner intended. This edition asks who sets an agent’s authority and whether limits are enforced outside the agent.</p>
+        <p class="eyebrow">Weekly Brief / Edition 20 · 1 Nov 2026</p>
+        <p class="edition-line">Live edition · 1 Nov 2026 · Vol. XX</p>
+        <h1>Policy adoption is not control evidence.</h1>
+        <p class="dek">The Bank of England and FCA’s new survey finds AI policies are more common than several post-deployment controls. The management question is whether monitoring, leakage testing and review continue to change decisions after an AI system goes live.</p>
         <p class="eyebrow">Five-minute read / <a href="#weekly-readout">one-minute scan</a></p>
       </section>
 
@@ -63,142 +63,80 @@
         <div class="section-heading compact-heading">
           <div>
             <p class="eyebrow">The weekly readout</p>
-            <h2>Who sets an agent’s authority, and where is it enforced?</h2>
+            <h2>Which AI control still works after go-live?</h2>
           </div>
-          <p>METR’s findings concern a historical internal monitoring pilot; banks’ reported account restrictions do not establish sector-wide unauthorised activity.</p>
+          <p>The survey describes firms’ responses; it does not test control effectiveness. The percentages use different question-level response bases.</p>
         </div>
         <div class="brief-scan-grid">
           <article>
             <p class="meta">01 / What happened</p>
-            <h3>METR found vulnerabilities in historical agent monitoring.</h3>
-            <p>METR and Redwood reviewed a high-access pilot of OpenAI’s internal monitoring system as it existed in July and reported multiple vulnerabilities. OpenAI says production issues were patched; METR did not evaluate the expanded current system.</p>
+            <h3>AI policies are more widely reported than post-deployment checks.</h3>
+            <p>In the Bank of England and FCA’s 2026 survey, 94% of full-survey respondents reported firm-wide AI policies. Ongoing monitoring, leakage testing, and periodic review or recertification were each reported by about half. Eighty per cent reported agents deployed; 2% reported broad autonomy.</p>
           </article>
           <article>
             <p class="meta">02 / Why it matters</p>
-            <h3>Access does not set a mandate.</h3>
-            <p>A credential opens an account; it does not encode the owner’s intent. Reuters reports banks restricting outside account agents, while noting that customers’ shared credentials complicate claims of unauthorised transactions. Treat this as reported market response, not proof of a sector-wide incident.</p>
+            <h3>Approval is a point in time; control must keep operating.</h3>
+            <p>A model or vendor update can change behaviour after approval. The survey reveals a reported-coverage gap, not proof that controls fail. It does not tell boards whether alerts are detected, acted on, or reflected in a deployment decision.</p>
           </article>
           <article>
-            <p class="meta">03 / What to do</p>
-            <h3>Enforce limits outside the agent.</h3>
-            <p>Microsoft describes dynamic permissions and independent enforcement as an architecture for agent security. Ask one customer-workflow owner to demonstrate an external transaction limit, an alert when it is challenged and a human stop path.</p>
+            <p class="meta">03 / What changed outside the survey</p>
+            <h3>A compromised AI gateway package could run at Python startup.</h3>
+            <p>Microsoft’s analysis says LiteLLM 1.107.0 added malicious startup files that could execute even without an application importing LiteLLM. Exposure may include developer and build environments, not only active gateways.</p>
           </article>
           <article>
-            <p class="meta">04 / Evidence</p>
-            <h3>Record the first unauthorised action.</h3>
-            <p>Measure stop latency and revocation across connected services. Record the first action the system cannot prove was authorised and assign the fix to the workflow owner.</p>
+            <p class="meta">04 / What to do</p>
+            <h3>Replay one control event in a material workflow.</h3>
+            <p>Pick the highest-impact AI workflow. Ask its owner to replay a monitoring alert that changed a decision and show what the firm changed as a result.</p>
           </article>
         </div>
         <ul class="brief-readout-steps">
-          <li>Map the credentials and connected services an agent can reach in one customer workflow.</li>
-          <li>Define intended actions as specific, revocable limits enforced outside the agent.</li>
-          <li>Attempt a transaction that exceeds a limit and measure alert delivery, stop latency and revocation.</li>
-          <li>Record the first action the system cannot prove was authorised and assign the fix.</li>
+          <li>Select one high-impact AI workflow and identify the operating owner.</li>
+          <li>Replay a recent monitoring alert or leakage test and show what it detected.</li>
+          <li>Trace the result to a review decision, a changed control or an explicit decision to keep the system live.</li>
+          <li>Record one unresolved control question and the person who can answer it.</li>
         </ul>
       </section>
 
       <section class="band">
         <div class="section-heading">
-          <div>
-            <p class="eyebrow">Top 5</p>
-            <h2>This week’s significant signals</h2>
-          </div>
-          <p>Each title links to its primary source. The Signals pages carry the wider source trail and retained material.</p>
+          <div><p class="eyebrow">Top 5</p><h2>This week’s significant signals</h2></div>
+          <p>Each headline links to its source. Provider statements are identified as provider accounts; the Signals pages carry the wider evidence trail.</p>
         </div>
         <ol class="brief-index">
-          <li><span class="rank">01</span><a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"><h3>METR found vulnerabilities in historical OpenAI agent monitoring</h3></a><span class="meta">Independent red-team report</span></li>
-          <li><span class="rank">02</span><a href="https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london"><h3>PRA creates a directorate for operational and cyber resilience</h3></a><span class="meta">Supervisory organisation</span></li>
-          <li><span class="rank">03</span><a href="https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets"><h3>FCA review finds varied conflicts controls in private markets</h3></a><span class="meta">Multi-firm review</span></li>
-          <li><span class="rank">04</span><a href="https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619"><h3>PHP2Shell advisories warn of critical unauthenticated remote code execution</h3></a><span class="meta">Critical vulnerability</span></li>
-          <li><span class="rank">05</span><a href="https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj"><h3>Google Cloud’s London region outage exposes cross-zone recovery limits</h3></a><span class="meta">Regional cloud incident</span></li>
+          <li><span class="rank">01</span><a href="https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"><h3>AI policies are more common than post-deployment controls</h3></a><span class="meta">Bank of England/FCA supervisory survey</span></li>
+          <li><span class="rank">02</span><a href="https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"><h3>LiteLLM compromise turns package startup into credential risk</h3></a><span class="meta">Software supply-chain incident analysis</span></li>
+          <li><span class="rank">03</span><a href="https://openai.com/index/securing-our-frontier-model-training-environment/"><h3>OpenAI reports stronger containment after frontier-model boundary tests</h3></a><span class="meta">Provider security disclosure</span></li>
+          <li><span class="rank">04</span><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"><h3>Anthropic’s S-1 puts compute commitments and provider economics in view</h3></a><span class="meta">SEC-filed S-1</span></li>
+          <li><span class="rank">05</span><a href="https://blog.talosintelligence.com/uat-11473-keydrift/"><h3>Historical KeyDrift activity exposes Cisco SD-WAN control-plane compromise paths</h3></a><span class="meta">Threat analysis · historical activity</span></li>
         </ol>
       </section>
 
       <section class="band">
         <div class="grid-3">
-          <article class="brief-card brief-action-card">
-            <p class="meta">Question</p>
-            <h3>If an agent uses a customer’s credentials, what enforces the customer’s intended limits on transactions?</h3>
-            <p>Demonstrate transaction-level limits enforced outside the agent, an alert when a limit is challenged, revocation evidence and a human stop path.</p>
-          </article>
-          <article class="brief-card brief-action-card">
-            <p class="meta">Evidence</p>
-            <h3>A test of log integrity, access controls, alert delivery, retention and response to a bypass attempt.</h3>
-            <p>METR did not assess the expanded current system. Independent scope and current-state evidence matter as much as a provider’s patch statement.</p>
-          </article>
-          <article class="brief-card brief-action-card">
-            <p class="meta">Source trail</p>
-            <h3>METR, OpenAI, Reuters, Microsoft, PRA, FCA, Canadian Cyber Centre and Google Cloud</h3>
-            <p>Provider statements are attributed. Reuters’ account is reporting, not an official bank notice; the Google incident analysis remains preliminary.</p>
-          </article>
+          <article class="brief-card brief-action-card"><p class="meta">Question 01 / Post-deployment controls</p><h3>Which control in your highest-impact AI workflow would you test first, and what result would force a change?</h3><p>Ask for one recent monitoring event, its linked decision, the relevant test result and the change made when a threshold was breached.</p></article>
+          <article class="brief-card brief-action-card"><p class="meta">Question 02 / Vendor change control</p><h3>How do you validate and reverse a high-materiality vendor model update before it reaches a critical workflow?</h3><p>Show the test, the rollback trigger and evidence that the rollback path works. The survey reports variation; it does not establish that every firm’s process is effective.</p></article>
+          <article class="brief-card brief-action-card"><p class="meta">Question 03 / Software supply chain</p><h3>If a Python environment ran LiteLLM 1.107.0, can you identify the credentials it could reach without starting Python there?</h3><p>Microsoft advises investigators not to run Python or pip inside a suspect environment. Preserve evidence, identify reachable secrets and contain affected identities.</p></article>
         </div>
       </section>
 
       <section class="band deep-dive-bridge" aria-labelledby="reg-horizon-title">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow">Regulatory Horizon</p>
-            <h2 id="reg-horizon-title">The dates behind the operating decisions</h2>
-          </div>
-          <p>Use the published horizon to review official dates, evidence and action windows alongside this week’s operating questions.</p>
-        </div>
-        <a class="home-deep-dive" href="/regulatory-horizon/">
-          <div>
-            <p class="meta">Regulatory Horizon</p>
-            <h3>Confirmed dates, current obligations and the evidence to prepare</h3>
-            <p>A practical register of upcoming regulatory dates and their operating implications.</p>
-          </div>
-          <span aria-hidden="true">Open the horizon →</span>
-        </a>
+        <div class="section-heading compact-heading"><div><p class="eyebrow">Regulatory Horizon</p><h2 id="reg-horizon-title">The dates behind the operating decisions</h2></div><p>Review official dates, evidence and action windows alongside this week’s operating questions.</p></div>
+        <a class="home-deep-dive" href="/regulatory-horizon/"><div><p class="meta">Regulatory Horizon</p><h3>Confirmed dates, current obligations and the evidence to prepare</h3><p>A practical register of upcoming regulatory dates and their operating implications.</p></div><span aria-hidden="true">Open the horizon →</span></a>
       </section>
       <!-- publisher-lock:end:brief-editorial -->
 
       <!-- standalone-deep-dive-promotion -->
 
       <section class="band" id="brief-supporting-analysis">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Reading the signals</p>
-            <h2>Different decisions require different evidence</h2>
-          </div>
-          <p>Separate controlled research from observed outcomes, map shared dependencies, and test recovery when agents respond to the same shock.</p>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">Reading the signals</p><h2>Three different claims, three different tests</h2></div><p>Survey responses, provider disclosures and incident research answer different questions. Keep their evidence boundaries visible.</p></div>
         <div class="grid-3">
-          <article class="brief-card">
-            <p class="meta">Collective behaviour</p>
-            <h3>Individually sound decisions can still interact badly.</h3>
-            <p>Use the project’s variables—payment timing, liquidity use, queue effects and shock propagation—to shape a firm-specific scenario. Keep simulator assumptions separate from evidence observed in the firm’s own test.</p>
-            <div class="source-row"><a href="https://www.bis.org/node/87745">Source / BIS Project Agenti</a></div>
-          </article>
-          <article class="brief-card">
-            <p class="meta">Governance reference</p>
-            <h3>The FSB’s final sound practices are a toolkit, not a new rule.</h3>
-            <p>The FSB describes its 12 sound practices as a practical toolkit that financial institutions can tailor and integrate into existing frameworks. Boards and senior management are encouraged to use them when refining AI governance, risk management and controls; the release presents no new rule.</p>
-            <div class="source-row"><a href="https://www.fsb.org/2026/10/fsb-finalises-sound-practices-for-the-responsible-adoption-of-artificial-intelligence-ai/">Source / FSB final practices</a></div>
-          </article>
-          <article class="brief-card">
-            <p class="meta">Independent assurance</p>
-            <h3>Access terms shape what an external evaluator can establish.</h3>
-            <p>Anthropic says six METR researchers have employee-like access to internal tools and risk-assessment material. METR can publish its findings and Anthropic says it cannot veto publication, though it can require redaction of defined categories such as customer data, privileged material and model architectures. This is a provider-specific arrangement, not a sector-wide standard.</p>
-            <div class="source-row"><a href="https://www.anthropic.com/news/an-update-on-independent-evaluators">Source / Anthropic and METR</a></div>
-          </article>
+          <article class="brief-card"><p class="meta">Supervisory evidence</p><h3>Reported policy coverage is not operating assurance.</h3><p>The Bank of England/FCA results identify where respondents report governance controls. Boards still need evidence from production workflows about coverage, exceptions and resulting changes.</p><div class="source-row"><a href="https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026">Source / 2026 AI survey</a></div></article>
+          <article class="brief-card"><p class="meta">Software supply chain</p><h3>Package risk may reach environments beyond the application.</h3><p>Microsoft’s analysis says Python startup hooks in the compromised release could execute without an application importing LiteLLM. Remediation should account for affected runtimes, startup files and accessible credentials.</p><div class="source-row"><a href="https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/">Source / Microsoft Security Research</a></div></article>
+          <article class="brief-card"><p class="meta">Provider disclosure</p><h3>Internal research containment does not establish customer deployment assurance.</h3><p>OpenAI describes high-compute red-teaming and layered controls in its own training environments. Treat that as a provider account and ask what independent scope and evidence apply to any service your firm uses.</p><div class="source-row"><a href="https://openai.com/index/securing-our-frontier-model-training-environment/">Source / OpenAI</a></div></article>
         </div>
       </section>
 
-      <section class="band">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Executive challenge</p>
-            <h2>Three questions from the week</h2>
-          </div>
-          <p>Carry one into a committee, 1:1 or control review.</p>
-        </div>
-        <ol class="question-list">
-          <li>If several agents react to the same liquidity signal, what evidence shows their combined behaviour will not create avoidable delays or gridlock?</li>
-          <li>Which critical payment or orchestration service would stop several agents at once, and can minimum service be restored if the normal control plane is unavailable?</li>
-          <li>What independent evidence supports the provider’s claims about agent performance, limitations and safeguards in the workflow we plan to use?</li>
-        </ol>
-      </section>
+      <section class="band"><div class="section-heading"><div><p class="eyebrow">Executive challenge</p><h2>Three questions from the week</h2></div><p>Use one real production example to see whether post-deployment control changes are visible and actionable.</p></div><ol class="question-list"><li>Which monitoring event changed a decision in a material AI workflow, and what changed afterward?</li><li>What happens when a vendor update fails regression testing or a rollback trigger is met?</li><li>Can incident response determine which environments and credentials were exposed by a compromised AI software dependency?</li></ol></section>
     </main>
 
     <footer class="footer">

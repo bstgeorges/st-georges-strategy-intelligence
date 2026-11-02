@@ -1,6 +1,6 @@
 {
-  "version": "2026-09-26",
-  "purpose": "Private editorial intake for the Friday Agentic AI governance and operational-risk Top 5. This file is never published directly.",
+  "version": "2026-11-01",
+  "purpose": "Private editorial intake for weekly AI risk signals. This file is never published directly.",
   "entries": [
     {
       "id": "2026-09-25-loopjacking-approval-integrity",
@@ -9,10 +9,25 @@
       "summary": "The Loopjacking research describes how a human may approve one operation while mutable workflow state allows a materially different operation to execute later.",
       "whyItMatters": "Human-in-the-loop checkpoints can appear in a process map without actually constraining the consequential action.",
       "controlImplication": "For material agent workflows, bind approved parameters and context to execution through deterministic or tamper-evident controls, then retain evidence of the executed action.",
-      "topics": ["ai", "cyber", "data"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "human-oversight", "workflow-integrity"],
-      "concepts": ["approval-to-execution-integrity", "effective-human-control", "authority-alignment"],
+      "topics": [
+        "ai",
+        "cyber",
+        "data"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "human-oversight",
+        "workflow-integrity"
+      ],
+      "concepts": [
+        "approval-to-execution-integrity",
+        "effective-human-control",
+        "authority-alignment"
+      ],
       "deepDivePotential": "ready",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -33,10 +48,25 @@
       "summary": "Independent analysis of agent boundary failures points to a combination of enabling environment, sufficient capability and misaligned objectives, with lessons from aviation, nuclear power and cybersecurity.",
       "whyItMatters": "The operating environment and the independence of the control are as important as the model’s stated objective.",
       "controlImplication": "Use layered safeguards, independent evidence sources, incident taxonomy and post-incident learning rather than relying on a single model-based monitor.",
-      "topics": ["ai", "cyber", "resilience"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "incident-management", "defence-in-depth"],
-      "concepts": ["the-harness", "independent-control", "forensic-reconstruction"],
+      "topics": [
+        "ai",
+        "cyber",
+        "resilience"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "incident-management",
+        "defence-in-depth"
+      ],
+      "concepts": [
+        "the-harness",
+        "independent-control",
+        "forensic-reconstruction"
+      ],
       "deepDivePotential": "develop",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -57,10 +87,25 @@
       "summary": "The Proof-of-Control initiative frames auditability as evidence that a particular action remained authorised, rather than a general claim that a governance framework exists.",
       "whyItMatters": "Conventional logs and operator attestations may be too weak when agents act at machine speed across systems.",
       "controlImplication": "Define a verifiable evidence standard for material agent actions: identity, authorisation, complete action telemetry, integrity of the record and proof of containment where required.",
-      "topics": ["ai", "cyber", "data"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "assurance", "observability"],
-      "concepts": ["proof-of-control", "agent-action-completeness", "verifiable-evidence"],
+      "topics": [
+        "ai",
+        "cyber",
+        "data"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "assurance",
+        "observability"
+      ],
+      "concepts": [
+        "proof-of-control",
+        "agent-action-completeness",
+        "verifiable-evidence"
+      ],
       "deepDivePotential": "develop",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -81,10 +126,25 @@
       "summary": "The useful design alternative to binary agent permission is risk-based autonomy, with tighter intervention requirements as actions become harder to reverse or independently verify.",
       "whyItMatters": "A valid identity alone cannot show that an agent’s behaviour is safe once it is inside the perimeter.",
       "controlImplication": "Set action tiers using business impact, reversibility and independent verifiability; link each tier to permissions, runtime policy enforcement and human-intervention requirements.",
-      "topics": ["ai", "cyber", "third-party"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "identity", "runtime-controls"],
-      "concepts": ["risk-based-autonomy", "authority-envelope", "behavioural-governance"],
+      "topics": [
+        "ai",
+        "cyber",
+        "third-party"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "identity",
+        "runtime-controls"
+      ],
+      "concepts": [
+        "risk-based-autonomy",
+        "authority-envelope",
+        "behavioural-governance"
+      ],
       "deepDivePotential": "watch",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -105,10 +165,27 @@
       "summary": "Cross-vendor architecture work centres four operational questions: where agents are, what they can do, what they are doing, and how quickly the firm can respond.",
       "whyItMatters": "Those questions create a practical minimum standard across agent inventory, identity, delegated authority, observability and containment.",
       "controlImplication": "Require every material agent to be a first-class identity with task-scoped access, traceable delegation, runtime monitoring and rapid reversible containment.",
-      "topics": ["ai", "cyber", "resilience", "third-party"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "identity", "containment"],
-      "concepts": ["agent-control-plane", "nonhuman-identity", "delegated-authority", "containment"],
+      "topics": [
+        "ai",
+        "cyber",
+        "resilience",
+        "third-party"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "identity",
+        "containment"
+      ],
+      "concepts": [
+        "agent-control-plane",
+        "nonhuman-identity",
+        "delegated-authority",
+        "containment"
+      ],
       "deepDivePotential": "develop",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -119,6 +196,192 @@
           "sourceType": "primary",
           "url": "https://ir.okta.com/news-and-events/news-releases/news-details/2026/Industry-Leaders-Form-the-Blueprint-Alliance-to-Advance-a-Shared-Architecture-for-Securing-AI-Agents/default.aspx",
           "publishedDate": "2026-09-22"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-30-boe-fca-ai-controls-survey",
+      "briefingDate": "2026-10-30",
+      "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+      "summary": "The Bank of England and FCA’s 2026 survey covers 196 firms. Among full-survey respondents, 94% reported firm-wide AI policies; ongoing monitoring, leakage testing and periodic review or recertification were each reported by around half. Eighty per cent reported deploying AI agents and 2% reported broad autonomy.",
+      "whyItMatters": "Reported governance structures are more common than operational evidence after deployment, while the survey is descriptive and is not a control-effectiveness test.",
+      "controlImplication": "For material AI workflows, test current monitoring coverage, leakage controls and review or recertification, retaining sample evidence, exceptions and resulting changes.",
+      "topics": [
+        "ai"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "board-accountability"
+      ],
+      "tags": [
+        "ai-governance",
+        "post-deployment-monitoring",
+        "financial-services"
+      ],
+      "concepts": [
+        "control-effectiveness",
+        "runtime-monitoring",
+        "ai-adoption"
+      ],
+      "deepDivePotential": "ready",
+      "reviewStatus": "approved",
+      "sources": [
+        {
+          "title": "Artificial intelligence in UK financial services - 2026",
+          "organisation": "Bank of England and Financial Conduct Authority",
+          "primary": true,
+          "sourceType": "primary",
+          "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+          "publishedDate": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-30-litellm-startup-supply-chain",
+      "briefingDate": "2026-10-30",
+      "title": "LiteLLM compromise turns package installation into a credential exposure test",
+      "summary": "Microsoft describes the compromised LiteLLM 1.107.0 release distributed on 21 October. Malicious Python startup files could execute when Python started in affected environments, even without an application importing LiteLLM.",
+      "whyItMatters": "Exposure may extend from gateways to developer workstations, build agents, test systems and containers; removing only the package may leave startup components or exposed credentials unaddressed.",
+      "controlImplication": "Identify affected package versions and Python environments without running Python or pip inside a suspect environment; investigate execution evidence and rotate credentials available to affected identities.",
+      "topics": [
+        "third-party",
+        "cyber"
+      ],
+      "riskAreas": [
+        "digital-resilience",
+        "third-party-risk"
+      ],
+      "tags": [
+        "software-supply-chain",
+        "credential-risk",
+        "ai-infrastructure"
+      ],
+      "concepts": [
+        "package-provenance",
+        "credential-exposure",
+        "dependency-response"
+      ],
+      "deepDivePotential": "ready",
+      "reviewStatus": "approved",
+      "sources": [
+        {
+          "title": "Inside the LiteLLM 1.107.0 supply chain compromise: Credential theft through Python startup hooks",
+          "organisation": "Microsoft Security Research",
+          "primary": true,
+          "sourceType": "primary",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+          "publishedDate": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-30-openai-frontier-training-security",
+      "briefingDate": "2026-10-30",
+      "title": "OpenAI describes hardened controls for its frontier-model training environment",
+      "summary": "OpenAI reports that it paused some training and evaluation, hardened infrastructure and monitoring, and now considers no live internet access the responsible approach for frontier training under its present assessment.",
+      "whyItMatters": "The described controls are the provider’s account of its own environment, not independent evidence that comparable safeguards work across other deployments.",
+      "controlImplication": "For material AI environments, test network isolation, execution boundaries and intervention controls against documented threat scenarios, and distinguish vendor attestations from independent assurance.",
+      "topics": [
+        "resilience"
+      ],
+      "riskAreas": [
+        "digital-resilience",
+        "ai-and-models"
+      ],
+      "tags": [
+        "frontier-models",
+        "containment",
+        "operational-resilience"
+      ],
+      "concepts": [
+        "independent-containment",
+        "runtime-control",
+        "training-security"
+      ],
+      "deepDivePotential": "develop",
+      "reviewStatus": "approved",
+      "sources": [
+        {
+          "title": "Securing our frontier model training environment",
+          "organisation": "OpenAI",
+          "primary": true,
+          "sourceType": "primary",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "publishedDate": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-30-anthropic-s1-capital-structure",
+      "briefingDate": "2026-10-30",
+      "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+      "summary": "Anthropic filed an S-1 with the SEC on 26 October and applied to list Class A common stock on Nasdaq under ANT. The public filing leaves offering size and price undecided and describes substantial infrastructure and partner dependencies.",
+      "whyItMatters": "The filing provides primary financial disclosures for assessing compute commitments, concentration and capital needs, but it does not establish a priced or completed offering.",
+      "controlImplication": "Use the filing to test provider resilience assumptions against financing needs, compute commitments and reliance on a small group of strategic infrastructure partners.",
+      "topics": [
+        "market-structure"
+      ],
+      "riskAreas": [
+        "third-party-risk",
+        "market-structure"
+      ],
+      "tags": [
+        "frontier-labs",
+        "capital-intensity",
+        "compute-dependence"
+      ],
+      "concepts": [
+        "ai-financing",
+        "compute-concentration",
+        "provider-resilience"
+      ],
+      "deepDivePotential": "watch",
+      "reviewStatus": "approved",
+      "sources": [
+        {
+          "title": "Form S-1 Registration Statement",
+          "organisation": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+          "primary": true,
+          "sourceType": "primary",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "publishedDate": "2026-10-26"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-30-openai-misalignment-monitoring-claims",
+      "briefingDate": "2026-10-30",
+      "title": "OpenAI describes expanded monitoring for frontier-model misalignment",
+      "summary": "On 29 October, OpenAI described a multilayer monitoring system covering a wider range of training, evaluation, internal-use and selected external-deployment settings, with human response for some high-priority alerts.",
+      "whyItMatters": "The company’s description follows independent historical testing of a prior pilot, but the new account is not an independent evaluation of current coverage or intervention effectiveness.",
+      "controlImplication": "Ask providers to specify which surfaces and workloads are monitored, what is excluded, expected alert and response times, and what independent testing supports the claims.",
+      "topics": [
+        "ai"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "runtime-monitoring",
+        "frontier-models",
+        "assurance"
+      ],
+      "concepts": [
+        "monitoring-coverage",
+        "alert-effectiveness",
+        "independent-assurance"
+      ],
+      "deepDivePotential": "watch",
+      "reviewStatus": "approved",
+      "sources": [
+        {
+          "title": "How we detect frontier model misalignment",
+          "organisation": "OpenAI",
+          "primary": true,
+          "sourceType": "primary",
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "publishedDate": "2026-10-29"
         }
       ]
     }

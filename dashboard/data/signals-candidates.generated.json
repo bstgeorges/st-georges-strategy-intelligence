@@ -1,12 +1,52 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-11-01T11:37:59.346Z",
+  "generatedAt": "2026-11-02T08:41:16.352Z",
   "windowDays": 14,
-  "mode": "live",
+  "mode": "live-snapshot-plus-reviewed-brief-overlay",
   "topics": [
     {
       "id": "ai",
       "candidates": [
+        {
+          "id": "77030203a39b2428",
+          "topicId": "ai",
+          "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+          "publishedAt": "2026-10-26T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "boe",
+          "sourceName": "Bank of England and Financial Conduct Authority",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "ai-and-models",
+            "board-accountability"
+          ],
+          "tags": [
+            "ai-governance",
+            "post-deployment-monitoring",
+            "financial-services",
+            "daily-intelligence"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: Reported governance structures are more common than operational evidence after deployment, while the survey is descriptive and is not a control-effectiveness test.",
+          "dailyIntelligence": {
+            "entryId": "2026-10-30-boe-fca-ai-controls-survey",
+            "briefingDate": "2026-10-30",
+            "controlImplication": "For material AI workflows, test current monitoring coverage, leakage controls and review or recertification, retaining sample evidence, exceptions and resulting changes.",
+            "concepts": [
+              "control-effectiveness",
+              "runtime-monitoring",
+              "ai-adoption"
+            ]
+          }
+        },
         {
           "id": "91038b3a35f762ad",
           "topicId": "ai",
@@ -571,12 +611,92 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Mistral AI via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "935538451df82ef0",
+          "topicId": "ai",
+          "title": "OpenAI describes expanded monitoring for frontier-model misalignment",
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "publishedAt": "2026-10-29T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "runtime-monitoring",
+            "frontier-models",
+            "assurance",
+            "daily-intelligence"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: The company’s description follows independent historical testing of a prior pilot, but the new account is not an independent evaluation of current coverage or intervention effectiveness.",
+          "dailyIntelligence": {
+            "entryId": "2026-10-30-openai-misalignment-monitoring-claims",
+            "briefingDate": "2026-10-30",
+            "controlImplication": "Ask providers to specify which surfaces and workloads are monitored, what is excluded, expected alert and response times, and what independent testing supports the claims.",
+            "concepts": [
+              "monitoring-coverage",
+              "alert-effectiveness",
+              "independent-assurance"
+            ]
+          }
         }
       ]
     },
     {
       "id": "market-structure",
       "candidates": [
+        {
+          "id": "8c5a7a7e4305273f",
+          "topicId": "market-structure",
+          "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "publishedAt": "2026-10-26T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "sec",
+          "sourceName": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "third-party-risk",
+            "market-structure"
+          ],
+          "tags": [
+            "frontier-labs",
+            "capital-intensity",
+            "compute-dependence",
+            "daily-intelligence"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: The filing provides primary financial disclosures for assessing compute commitments, concentration and capital needs, but it does not establish a priced or completed offering.",
+          "dailyIntelligence": {
+            "entryId": "2026-10-30-anthropic-s1-capital-structure",
+            "briefingDate": "2026-10-30",
+            "controlImplication": "Use the filing to test provider resilience assumptions against financing needs, compute commitments and reliance on a small group of strategic infrastructure partners.",
+            "concepts": [
+              "ai-financing",
+              "compute-concentration",
+              "provider-resilience"
+            ]
+          }
+        },
         {
           "id": "a1f7959db31dcf3f",
           "topicId": "market-structure",
@@ -1169,6 +1289,46 @@
       "id": "third-party",
       "candidates": [
         {
+          "id": "281e97f1a96a8fad",
+          "topicId": "third-party",
+          "title": "LiteLLM compromise turns package installation into a credential exposure test",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "microsoft-security",
+          "sourceName": "Microsoft Security Research",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "digital-resilience",
+            "third-party-risk"
+          ],
+          "tags": [
+            "software-supply-chain",
+            "credential-risk",
+            "ai-infrastructure",
+            "daily-intelligence"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: Exposure may extend from gateways to developer workstations, build agents, test systems and containers; removing only the package may leave startup components or exposed credentials unaddressed.",
+          "dailyIntelligence": {
+            "entryId": "2026-10-30-litellm-startup-supply-chain",
+            "briefingDate": "2026-10-30",
+            "controlImplication": "Identify affected package versions and Python environments without running Python or pip inside a suspect environment; investigate execution evidence and rotate credentials available to affected identities.",
+            "concepts": [
+              "package-provenance",
+              "credential-exposure",
+              "dependency-response"
+            ]
+          }
+        },
+        {
           "id": "1b4cf02dcff77202",
           "topicId": "third-party",
           "title": "Disruption with GitHub services",
@@ -1410,6 +1570,46 @@
     {
       "id": "resilience",
       "candidates": [
+        {
+          "id": "a9ac95977c0df0be",
+          "topicId": "resilience",
+          "title": "OpenAI describes hardened controls for its frontier-model training environment",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "digital-resilience",
+            "ai-and-models"
+          ],
+          "tags": [
+            "frontier-models",
+            "containment",
+            "operational-resilience",
+            "daily-intelligence"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 75,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: The described controls are the provider’s account of its own environment, not independent evidence that comparable safeguards work across other deployments.",
+          "dailyIntelligence": {
+            "entryId": "2026-10-30-openai-frontier-training-security",
+            "briefingDate": "2026-10-30",
+            "controlImplication": "For material AI environments, test network isolation, execution boundaries and intervention controls against documented threat scenarios, and distinguish vendor attestations from independent assurance.",
+            "concepts": [
+              "independent-containment",
+              "runtime-control",
+              "training-security"
+            ]
+          }
+        },
         {
           "id": "8d38e0ea64035cd6",
           "topicId": "resilience",
@@ -1898,6 +2098,38 @@
       "id": "cyber",
       "candidates": [
         {
+          "id": "e568dcc4d2ebdff3",
+          "topicId": "cyber",
+          "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+          "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
+          "publishedAt": "2026-10-28T21:32:02.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "cisco-talos",
+          "sourceName": "Cisco Talos Intelligence Group",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "cisco-talos-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "vulnerability",
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 93,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
+        },
+        {
           "id": "13faa7386c57dcc7",
           "topicId": "cyber",
           "title": "The Good, the Bad and the Ugly in Cybersecurity - Week 44 (2026)",
@@ -2030,38 +2262,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "e568dcc4d2ebdff3",
-          "topicId": "cyber",
-          "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
-          "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
-          "publishedAt": "2026-10-28T21:32:02.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cisco-talos",
-          "sourceName": "Cisco Talos Intelligence Group",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "cisco-talos-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "exploit"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
         },
         {
           "id": "59f0cc34d1fc0f78",
@@ -4511,6 +4711,16 @@
       "acceptedCandidates": 0,
       "reason": "no-approved-items",
       "error": ""
+    },
+    {
+      "sourceId": "weekly-ai-risk-feed",
+      "sourceRegistryId": "",
+      "fetchType": "editorial-ledger",
+      "status": "ok",
+      "fetchedEntries": 10,
+      "acceptedCandidates": 6,
+      "reason": "New reviewed entries from the supplied 30 October AI Risk brief; external feeds unavailable locally, previous live snapshot retained.",
+      "error": ""
     }
   ],
   "warnings": [
@@ -4539,6 +4749,8 @@
     "2026-09-25-proof-of-control: held for exact-source review.",
     "2026-09-25-risk-based-autonomy: held for exact-source review.",
     "2026-09-25-agent-control-plane: held for exact-source review.",
-    "Source concentration: third-party relies on github-status-rss for 5/6 candidates."
-  ]
+    "Source concentration: third-party relies on github-status-rss for 5/6 candidates.",
+    "Local live feed refresh could not reach remote feeds on 2 November; retained the 1 November live snapshot and added only source-verified, reviewed Daily/Weekly brief entries. Production release link/date checks remain required."
+  ],
+  "remoteSnapshotGeneratedAt": "2026-11-01T11:37:59.346Z"
 }

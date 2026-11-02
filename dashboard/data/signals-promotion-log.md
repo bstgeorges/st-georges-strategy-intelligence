@@ -1,16 +1,15 @@
-# Signals promotion log — 2026-10-18
+# Signals promotion log — 2026-11-01
 
 - ai: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Amp puts AI agents to work beyond code with OpenAI models" — Primary / OpenAI / 2026-10-14 — https://openai.com/index/amp-beyond-coding
+    + "UK AI survey exposes the gap between policy adoption and post-deployment controls" — Primary / Bank of England and Financial Conduct Authority / 2026-10-26 — https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026
 - resilience: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Financial resilience in an age of repeated shocks -  speech by Andrew Bailey" — Primary / Bank of England and Prudential Regulation Authority / 2026-10-08 — https://www.bankofengland.co.uk/speech/2026/october/andrew-bailey-speech-at-the-istanbul-economic-forum-central-bank-of-the-republic-of-turkey-istanbul
-- third-party: promoted 0 fresh candidate(s), kept 5 existing row(s)
+    + "OpenAI describes hardened controls for its frontier-model training environment" — Primary / OpenAI / 2026-10-23 — https://openai.com/index/securing-our-frontier-model-training-environment/
+- third-party: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "LiteLLM compromise turns package installation into a credential exposure test" — Primary / Microsoft Security Research / 2026-10-23 — https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
 - market-structure: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Minutes of the Money Market Committee meeting – September 2026" — Primary / Bank of England and Prudential Regulation Authority / 2026-10-13 — https://www.bankofengland.co.uk/minutes/2026/september/money-markets-committee-minutes-september-2026
+    + "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible" — Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26 — https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm
 - financial-crime: promoted 0 fresh candidate(s), kept 5 existing row(s)
 - cyber: promoted 1 fresh candidate(s), kept 3 existing row(s)
-    + "AL26-025 - Critical vulnerability impacting BeyondTrust Remote Support – CVE-2026-102764" — Primary / Canadian Centre for Cyber Security / 2026-10-16 — https://cyber.gc.ca/en/alerts-advisories/al26-025-critical-vulnerability-impacting-beyondtrust-remote-support-cve-2026-102764
-- technology-failure: promoted 1 fresh candidate(s), kept 3 existing row(s)
-    + "Incident with Actions, Pull Requests and Issues" — Primary / GitHub Status / 2026-10-12 — https://www.githubstatus.com/incidents/93njd414rpbx
-- data: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "De la protection des données à la création de valeur en finance : des autorités européennes publient une étude et des bonnes pratiques" — Primary / Commission nationale de l'informatique et des libertés / 2026-10-16 — https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes
+    + "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN" — Primary / Cisco Talos Intelligence Group / 2026-10-28 — https://blog.talosintelligence.com/uat-11473-keydrift
+- technology-failure: promoted 0 fresh candidate(s), kept 4 existing row(s)
+- data: promoted 0 fresh candidate(s), kept 5 existing row(s)

@@ -1,8 +1,15 @@
 {
-  "version": "2026-09-26",
-  "generatedAt": "2026-09-26T15:12:17.855Z",
+  "version": "2026-11-01",
+  "generatedAt": "2026-11-02T08:40:56.729Z",
   "purpose": "Private editorial review of the Weekly AI Risk Feed. It is not public-site content.",
   "entriesByStatus": {
+    "approved": [
+      "2026-10-30-boe-fca-ai-controls-survey",
+      "2026-10-30-litellm-startup-supply-chain",
+      "2026-10-30-openai-frontier-training-security",
+      "2026-10-30-anthropic-s1-capital-structure",
+      "2026-10-30-openai-misalignment-monitoring-claims"
+    ],
     "needs-source-review": [
       "2026-09-25-loopjacking-approval-integrity",
       "2026-09-25-agent-loss-of-control-defence-in-depth",
@@ -39,6 +46,42 @@
           "title": "A minimum agent control plane is converging around inventory, authority, activity and response",
           "briefingDate": "2026-09-25",
           "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "ai-adoption",
+      "entries": [
+        {
+          "id": "2026-10-30-boe-fca-ai-controls-survey",
+          "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "ai-financing",
+      "entries": [
+        {
+          "id": "2026-10-30-anthropic-s1-capital-structure",
+          "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "alert-effectiveness",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-misalignment-monitoring-claims",
+          "title": "OpenAI describes expanded monitoring for frontier-model misalignment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
         }
       ],
       "count": 1
@@ -92,6 +135,18 @@
       "count": 1
     },
     {
+      "concept": "compute-concentration",
+      "entries": [
+        {
+          "id": "2026-10-30-anthropic-s1-capital-structure",
+          "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
       "concept": "containment",
       "entries": [
         {
@@ -104,6 +159,30 @@
       "count": 1
     },
     {
+      "concept": "control-effectiveness",
+      "entries": [
+        {
+          "id": "2026-10-30-boe-fca-ai-controls-survey",
+          "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "credential-exposure",
+      "entries": [
+        {
+          "id": "2026-10-30-litellm-startup-supply-chain",
+          "title": "LiteLLM compromise turns package installation into a credential exposure test",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
       "concept": "delegated-authority",
       "entries": [
         {
@@ -111,6 +190,18 @@
           "title": "A minimum agent control plane is converging around inventory, authority, activity and response",
           "briefingDate": "2026-09-25",
           "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "dependency-response",
+      "entries": [
+        {
+          "id": "2026-10-30-litellm-startup-supply-chain",
+          "title": "LiteLLM compromise turns package installation into a credential exposure test",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
         }
       ],
       "count": 1
@@ -140,6 +231,30 @@
       "count": 1
     },
     {
+      "concept": "independent-assurance",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-misalignment-monitoring-claims",
+          "title": "OpenAI describes expanded monitoring for frontier-model misalignment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "independent-containment",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-frontier-training-security",
+          "title": "OpenAI describes hardened controls for its frontier-model training environment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
       "concept": "independent-control",
       "entries": [
         {
@@ -147,6 +262,18 @@
           "title": "Agent loss of control calls for independent scrutiny and defence in depth",
           "briefingDate": "2026-09-25",
           "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "monitoring-coverage",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-misalignment-monitoring-claims",
+          "title": "OpenAI describes expanded monitoring for frontier-model misalignment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
         }
       ],
       "count": 1
@@ -164,6 +291,18 @@
       "count": 1
     },
     {
+      "concept": "package-provenance",
+      "entries": [
+        {
+          "id": "2026-10-30-litellm-startup-supply-chain",
+          "title": "LiteLLM compromise turns package installation into a credential exposure test",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
       "concept": "proof-of-control",
       "entries": [
         {
@@ -171,6 +310,18 @@
           "title": "Proof that an agent remained within its control envelope may become an assurance output",
           "briefingDate": "2026-09-25",
           "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "provider-resilience",
+      "entries": [
+        {
+          "id": "2026-10-30-anthropic-s1-capital-structure",
+          "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
         }
       ],
       "count": 1
@@ -188,6 +339,30 @@
       "count": 1
     },
     {
+      "concept": "runtime-control",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-frontier-training-security",
+          "title": "OpenAI describes hardened controls for its frontier-model training environment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "runtime-monitoring",
+      "entries": [
+        {
+          "id": "2026-10-30-boe-fca-ai-controls-survey",
+          "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
+        }
+      ],
+      "count": 1
+    },
+    {
       "concept": "the-harness",
       "entries": [
         {
@@ -195,6 +370,18 @@
           "title": "Agent loss of control calls for independent scrutiny and defence in depth",
           "briefingDate": "2026-09-25",
           "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "training-security",
+      "entries": [
+        {
+          "id": "2026-10-30-openai-frontier-training-security",
+          "title": "OpenAI describes hardened controls for its frontier-model training environment",
+          "briefingDate": "2026-10-30",
+          "reviewStatus": "approved"
         }
       ],
       "count": 1
@@ -259,6 +446,42 @@
         "nonhuman-identity",
         "delegated-authority",
         "containment"
+      ],
+      "potential": "develop"
+    },
+    {
+      "id": "2026-10-30-boe-fca-ai-controls-survey",
+      "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+      "briefingDate": "2026-10-30",
+      "status": "approved",
+      "concepts": [
+        "control-effectiveness",
+        "runtime-monitoring",
+        "ai-adoption"
+      ],
+      "potential": "ready"
+    },
+    {
+      "id": "2026-10-30-litellm-startup-supply-chain",
+      "title": "LiteLLM compromise turns package installation into a credential exposure test",
+      "briefingDate": "2026-10-30",
+      "status": "approved",
+      "concepts": [
+        "package-provenance",
+        "credential-exposure",
+        "dependency-response"
+      ],
+      "potential": "ready"
+    },
+    {
+      "id": "2026-10-30-openai-frontier-training-security",
+      "title": "OpenAI describes hardened controls for its frontier-model training environment",
+      "briefingDate": "2026-10-30",
+      "status": "approved",
+      "concepts": [
+        "independent-containment",
+        "runtime-control",
+        "training-security"
       ],
       "potential": "develop"
     }

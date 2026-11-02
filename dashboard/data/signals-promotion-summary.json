@@ -1,26 +1,21 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-11-01",
   "topics": [
     {
       "id": "ai",
       "freshCount": 1,
       "leadRow": {
-        "title": "METR found vulnerabilities in historical OpenAI agent monitoring",
-        "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-        "source": "Primary / METR and Redwood Research / 2026-10-22",
+        "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+        "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+        "source": "Primary / Bank of England and Financial Conduct Authority / 2026-10-26",
         "evidence": {
-          "sourceTitle": "Red-teaming OpenAI’s internal agent monitoring system",
-          "organisation": "METR and Redwood Research",
-          "publishedDate": "2026-10-22",
-          "sourceType": "research report",
-          "significance": "METR reviewed a high-access pilot and historical system state through 21 July, found multiple vulnerabilities and says it did not evaluate the expanded current system. OpenAI says the production safeguards issues were patched. The finding is bounded to that historical scope.",
-          "sourceUrl": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-          "accessedDate": "2026-10-24",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "METR primary article displays 22 October 2026 and describes the historical pilot, vulnerabilities, OpenAI patch statement and explicit evaluation limit."
-          }
+          "sourceTitle": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "organisation": "Bank of England and Financial Conduct Authority",
+          "publishedDate": "2026-10-26",
+          "sourceType": "regulator",
+          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "sourceUrl": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+          "accessedDate": "2026-11-01"
         }
       }
     },
@@ -28,40 +23,35 @@
       "id": "resilience",
       "freshCount": 1,
       "leadRow": {
-        "title": "PRA creates a directorate for operational and cyber resilience",
-        "url": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
-        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-22",
+        "title": "OpenAI describes hardened controls for its frontier-model training environment",
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "source": "Primary / OpenAI / 2026-10-23",
         "evidence": {
-          "sourceTitle": "Mansion House City Regulators Dinner – speech by Katharine Braddick",
-          "organisation": "Bank of England and Prudential Regulation Authority",
-          "publishedDate": "2026-10-22",
-          "sourceType": "regulator",
-          "significance": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience, alongside a joint FCA consultation expected by year-end. This is strategic direction and planned consultation, not a current new rule.",
-          "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
-          "accessedDate": "2026-10-24",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
-          }
+          "sourceTitle": "OpenAI describes hardened controls for its frontier-model training environment",
+          "organisation": "OpenAI",
+          "publishedDate": "2026-10-23",
+          "sourceType": "company announcement",
+          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "accessedDate": "2026-11-01"
         }
       }
     },
     {
       "id": "third-party",
-      "freshCount": 0,
+      "freshCount": 1,
       "leadRow": {
-        "title": "CMORG holds sector-wide cloud outage simulation exercise",
-        "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
-        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
+        "title": "LiteLLM compromise turns package installation into a credential exposure test",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+        "source": "Primary / Microsoft Security Research / 2026-10-23",
         "evidence": {
-          "sourceTitle": "CMORG holds sector-wide cloud outage simulation exercise",
-          "organisation": "Bank of England and Prudential Regulation Authority",
-          "publishedDate": "2026-10-09",
-          "sourceType": "regulator",
-          "significance": "SIMEX26 involved 38 major banks and market infrastructure operators responding to a global cloud-services disruption scenario. The Bank of England says firms are expected to take action from the exercise. Participation shows rehearsal, not recovery capability; the practical test is whether findings changed service plans, supplier arrangements or response decisions.",
-          "sourceUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
-          "accessedDate": "2026-10-11"
+          "sourceTitle": "LiteLLM compromise turns package installation into a credential exposure test",
+          "organisation": "Microsoft Security Research",
+          "publishedDate": "2026-10-23",
+          "sourceType": "company announcement",
+          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+          "accessedDate": "2026-11-01"
         }
       }
     },
@@ -69,22 +59,17 @@
       "id": "market-structure",
       "freshCount": 1,
       "leadRow": {
-        "title": "FCA review finds varied conflicts controls in private markets",
-        "url": "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets",
-        "source": "Primary / Financial Conduct Authority / 2026-10-23",
+        "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+        "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source": "Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26",
         "evidence": {
-          "sourceTitle": "Conflicts of interest and fair customer treatment in private markets",
-          "organisation": "Financial Conduct Authority",
-          "publishedDate": "2026-10-23",
+          "sourceTitle": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "organisation": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+          "publishedDate": "2026-10-26",
           "sourceType": "regulator",
-          "significance": "The FCA reports varied control maturity and calls on firms to review gaps in identifying and managing conflicts. Treat this as supervisory feedback from a multi-firm review, not a new rule.",
-          "sourceUrl": "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets",
-          "accessedDate": "2026-10-24",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action."
-          }
+          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "accessedDate": "2026-11-01"
         }
       }
     },
@@ -110,28 +95,23 @@
       "id": "cyber",
       "freshCount": 1,
       "leadRow": {
-        "title": "PHP2Shell advisories warn of critical unauthenticated remote code execution",
-        "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-        "source": "Primary / Canadian Centre for Cyber Security / 2026-10-21, updated 2026-10-23",
+        "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+        "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
+        "source": "Primary / Cisco Talos Intelligence Group / 2026-10-28",
         "evidence": {
-          "sourceTitle": "Critical vulnerabilities impacting PHP (CVE-2026-109618, CVE-2026-109619)",
-          "organisation": "Canadian Centre for Cyber Security",
-          "publishedDate": "2026-10-21",
-          "sourceType": "national cyber authority",
-          "significance": "The advisory describes unauthenticated remote code execution affecting vulnerable PHP installations serving web requests, with internet-facing deployments at heightened risk. Fixed versions are listed. The 23 October update reported no active exploitation at that time and added a separate issue with a temporary mitigation.",
-          "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-          "accessedDate": "2026-10-24",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "Canadian Cyber Centre primary advisory displays 21 October 2026 and shows the 23 October update, affected versions and exploitation status."
-          }
+          "sourceTitle": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+          "organisation": "Cisco Talos Intelligence Group",
+          "publishedDate": "2026-10-28",
+          "sourceType": "company announcement",
+          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "sourceUrl": "https://blog.talosintelligence.com/uat-11473-keydrift",
+          "accessedDate": "2026-11-01"
         }
       }
     },
     {
       "id": "technology-failure",
-      "freshCount": 1,
+      "freshCount": 0,
       "leadRow": {
         "title": "Google Cloud’s London region outage exposes cross-zone recovery limits",
         "url": "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj",
@@ -140,7 +120,7 @@
           "sourceTitle": "Google Cloud Service Health incident: europe-west2",
           "organisation": "Google Cloud Status",
           "publishedDate": "2026-10-20",
-          "sourceType": "company incident report",
+          "sourceType": "company announcement",
           "significance": "Google’s preliminary report describes a power event in europe-west2-b followed by capacity constraints and impact across the London region. Firms should check whether cross-zone failover and critical-service recovery work under regional control-plane and capacity stress.",
           "sourceUrl": "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj",
           "accessedDate": "2026-10-24",
@@ -154,9 +134,9 @@
     },
     {
       "id": "data",
-      "freshCount": 1,
+      "freshCount": 0,
       "leadRow": {
-        "title": "De la protection des données à la création de valeur en finance : des autorités européennes publient une étude et des bonnes pratiques",
+        "title": "European regulators link data protection with value in finance",
         "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
         "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16",
         "evidence": {
@@ -164,9 +144,14 @@
           "organisation": "Commission nationale de l'informatique et des libertés",
           "publishedDate": "2026-10-16",
           "sourceType": "regulator",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
+          "significance": "CNIL, the UK ICO and Luxembourg’s CNPD jointly examine how data protection and governance affect trust, resilience, AI use and the valuation of financial data. This is joint analysis and good practice, not a new rule.",
           "sourceUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
-          "accessedDate": "2026-10-18"
+          "accessedDate": "2026-10-18",
+          "sourceDateVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-18",
+            "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page."
+          }
         }
       }
     }

@@ -93,7 +93,9 @@ Why it matters:
 
 **Bases and denominators:** When a source reports aggregate percentages or different response bases, do not imply firm-level overlap the source does not establish. Make the action produce the missing firm-level counts and denominators, then examine one material example and the decision it changed.
 
-The selected Weekly Judgement may run up to 180 words when needed to explain the evidence boundary and the specific test. Use the extra space to connect those points, not to add another source summary.
+**Context and reasoning chain:** Give enough detail for a reader to follow the cited observation, its scope or denominator, the source's evidence boundary, the operational mechanism, and the decision-relevant consequence. Mark editorial inference as judgement. Then make the action produce evidence that answers the uncertainty raised in “Why it matters.” Edition 20's 2 Nov 2026 revision is the quality benchmark for depth and context; adapt its reasoning standard to the new week's evidence instead of reusing its wording or subject.
+
+The selected Weekly Judgement may run up to 180 words when needed to make this reasoning chain clear. Use the extra space for relevant context and an evidence-linked test, not another source summary or general risk language.
 
 ### Lead Signal
 

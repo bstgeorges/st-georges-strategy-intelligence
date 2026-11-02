@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-11-01T11:37:59.346Z",
-  "preparedAt": "2026-11-01T11:38:16.285Z",
+  "candidateGeneratedAt": "2026-11-02T08:41:16.352Z",
+  "preparedAt": "2026-11-02T08:42:01.665Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -23,7 +23,7 @@
       "active-threat": 7,
       "outage": 4,
       "research": 4,
-      "context": 61
+      "context": 66
     },
     "decisionTypeGroups": [
       {
@@ -419,7 +419,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 61,
+        "candidateCount": 66,
         "candidates": [
           {
             "title": "The Good, the Bad and the Ugly in Cybersecurity - Week 44 (2026)",
@@ -556,57 +556,57 @@
       }
     ],
     "diversity": {
-      "candidateRows": 100,
-      "uniqueCandidateEvents": 91,
+      "candidateRows": 105,
+      "uniqueCandidateEvents": 96,
       "crossThemeDuplicatesCollapsed": 9,
       "sourceOwnerConcentration": [
+        {
+          "sourceOwner": "openai",
+          "sourceName": "OpenAI",
+          "count": 7,
+          "share": 7.3
+        },
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 6,
-          "share": 6.6
+          "share": 6.3
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.5
+          "share": 5.2
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.5
+          "share": 5.2
         },
         {
           "sourceOwner": "osfi",
           "sourceName": "Office of the Superintendent of Financial Institutions",
           "count": 5,
-          "share": 5.5
-        },
-        {
-          "sourceOwner": "openai",
-          "sourceName": "OpenAI",
-          "count": 5,
-          "share": 5.5
+          "share": 5.2
         },
         {
           "sourceOwner": "ofsi",
           "sourceName": "UK Office of Financial Sanctions Implementation",
           "count": 5,
-          "share": 5.5
+          "share": 5.2
+        },
+        {
+          "sourceOwner": "sec",
+          "sourceName": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+          "count": 4,
+          "share": 4.2
         },
         {
           "sourceOwner": "fr-amf",
           "sourceName": "Autorité des marchés financiers",
           "count": 4,
-          "share": 4.4
-        },
-        {
-          "sourceOwner": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "count": 4,
-          "share": 4.4
+          "share": 4.2
         }
       ],
       "sourceOwnerConcentrationWarning": "",
@@ -614,21 +614,21 @@
         {
           "region": "UK/EMEA",
           "count": 29,
-          "share": 31.9
+          "share": 30.2
         },
         {
           "region": "US",
-          "count": 13,
-          "share": 14.3
+          "count": 14,
+          "share": 14.6
         },
         {
           "region": "Global/other",
-          "count": 49,
-          "share": 53.8
+          "count": 53,
+          "share": 55.2
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 89,
+        "newCandidateEvents": 94,
         "alreadyPublishedCandidates": 2,
         "continuingPublishedEvents": 33,
         "currentEditionTop5Events": 38
@@ -637,28 +637,28 @@
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 18,
+        "candidateCount": 20,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "market-structure",
-        "candidateCount": 15,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "third-party",
-        "candidateCount": 6,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
       },
       {
         "id": "resilience",
-        "candidateCount": 3,
+        "candidateCount": 4,
         "minimumCandidateCount": 3,
         "status": "editorial-review-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
@@ -694,9 +694,9 @@
     ],
     "sourceHealth": {
       "runsRetained": 12,
-      "healthy": 83,
-      "watching": 2,
-      "investigate": 2,
+      "healthy": 84,
+      "watching": 0,
+      "investigate": 5,
       "supplementary": 1,
       "entries": [
         {
@@ -1072,18 +1072,18 @@
           "sourceId": "bis-press-rss",
           "sourceRegistryId": "bis",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "no-parseable-entries"
         },
         {
           "sourceId": "ico-news-sitemap",
           "sourceRegistryId": "ico",
           "status": "quiet",
-          "consecutiveIssueRuns": 1,
+          "consecutiveIssueRuns": 2,
           "monitoring": "standard",
-          "action": "watch",
+          "action": "investigate",
           "detail": "no-parseable-entries"
         },
         {
@@ -1553,6 +1553,15 @@
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
+        },
+        {
+          "sourceId": "weekly-ai-risk-feed",
+          "sourceRegistryId": "",
+          "status": "ok",
+          "consecutiveIssueRuns": 12,
+          "monitoring": "standard",
+          "action": "investigate",
+          "detail": "New reviewed entries from the supplied 30 October AI Risk brief; external feeds unavailable locally, previous live snapshot retained."
         }
       ]
     }
@@ -1562,7 +1571,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 18,
+        "candidateCount": 20,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1570,6 +1579,29 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
+          "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
+          "sourceName": "Bank of England and Financial Conduct Authority",
+          "sourceOwner": "boe",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "publishedAt": "2026-10-26T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "relevanceScore": 75,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models",
+            "board-accountability"
+          ],
+          "tags": [
+            "ai-governance",
+            "post-deployment-monitoring",
+            "financial-services",
+            "daily-intelligence"
+          ],
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: Reported governance structures are more common than operational evidence after deployment, while the survey is descriptive and is not a control-effectiveness test."
+        },
         {
           "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
           "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals",
@@ -1656,27 +1688,6 @@
             "infrastructure"
           ],
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models Amid Robust Growth",
-          "url": "https://nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth",
-          "sourceName": "NVIDIA Newsroom",
-          "sourceOwner": "nvidia",
-          "sourceTier": "primary",
-          "sourceCategory": "ai-infrastructure",
-          "publishedAt": "2026-10-27T05:52:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 75,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models",
-            "digital-resilience"
-          ],
-          "tags": [
-            "ai",
-            "infrastructure"
-          ],
-          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1684,7 +1695,7 @@
       "id": "market-structure",
       "readiness": {
         "id": "market-structure",
-        "candidateCount": 15,
+        "candidateCount": 16,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1692,6 +1703,29 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "sourceName": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+          "sourceOwner": "sec",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "publishedAt": "2026-10-26T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "relevanceScore": 75,
+          "decisionType": "context",
+          "riskAreas": [
+            "third-party-risk",
+            "market-structure"
+          ],
+          "tags": [
+            "frontier-labs",
+            "capital-intensity",
+            "compute-dependence",
+            "daily-intelligence"
+          ],
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: The filing provides primary financial disclosures for assessing compute commitments, concentration and capital needs, but it does not establish a priced or completed offering."
+        },
         {
           "title": "La CNMV publica el nuevo documento de preguntas y respuestas sobre el régimen de folletos a publicar en las ofertas públicas y admisiones a cotización en mercados regulados",
           "url": "https://www.cnmv.es/Portal/AlDia/NotasPrensa.aspx?tipo=1",
@@ -1790,30 +1824,6 @@
             "australia"
           ],
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
-        },
-        {
-          "title": "Gestion de la liquidité des fonds monétaires - DOC-2026-07",
-          "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2026-07",
-          "sourceName": "Autorité des marchés financiers",
-          "sourceOwner": "fr-amf",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-10-29T23:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "markets",
-            "asset-management",
-            "enforcement",
-            "france"
-          ],
-          "whyCandidate": "Pulled from Autorité des marchés financiers via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1821,7 +1831,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 6,
+        "candidateCount": 7,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1829,6 +1839,29 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "LiteLLM compromise turns package installation into a credential exposure test",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+          "sourceName": "Microsoft Security Research",
+          "sourceOwner": "microsoft-security",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "relevanceScore": 75,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience",
+            "third-party-risk"
+          ],
+          "tags": [
+            "software-supply-chain",
+            "credential-risk",
+            "ai-infrastructure",
+            "daily-intelligence"
+          ],
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: Exposure may extend from gateways to developer workstations, build agents, test systems and containers; removing only the package may leave startup components or exposed credentials unaddressed."
+        },
         {
           "title": "Disruption with GitHub services",
           "url": "https://www.githubstatus.com/incidents/nxy2l0ssxm10",
@@ -1916,28 +1949,6 @@
             "service-disruption"
           ],
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Disruption with some Copilot services",
-          "url": "https://www.githubstatus.com/incidents/l7ycmglmykgg",
-          "sourceName": "GitHub Status",
-          "sourceOwner": "github-status",
-          "sourceTier": "primary",
-          "sourceCategory": "technology",
-          "publishedAt": "2026-10-28T15:28:19.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "outage",
-          "riskAreas": [
-            "digital-resilience"
-          ],
-          "tags": [
-            "developer-platform",
-            "provider-incident",
-            "dependency",
-            "service-disruption"
-          ],
-          "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1945,7 +1956,7 @@
       "id": "resilience",
       "readiness": {
         "id": "resilience",
-        "candidateCount": 3,
+        "candidateCount": 4,
         "minimumCandidateCount": 3,
         "status": "editorial-review-required",
         "instruction": "Do not promote a Resilience item merely to fill coverage. It must identify a discrete operating exposure or control decision and be supported by a specific primary source. If none qualifies, retain a verified existing anchor and record the gap."
@@ -1953,6 +1964,29 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
+        {
+          "title": "OpenAI describes hardened controls for its frontier-model training environment",
+          "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+          "sourceName": "OpenAI",
+          "sourceOwner": "openai",
+          "sourceTier": "primary",
+          "sourceCategory": "weekly-ai-risk",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "relevanceScore": 75,
+          "decisionType": "context",
+          "riskAreas": [
+            "digital-resilience",
+            "ai-and-models"
+          ],
+          "tags": [
+            "frontier-models",
+            "containment",
+            "operational-resilience",
+            "daily-intelligence"
+          ],
+          "whyCandidate": "Editorially approved weekly ai risk item from 2026-10-30: The described controls are the provider’s account of its own environment, not independent evidence that comparable safeguards work across other deployments."
+        },
         {
           "title": "Strength through resilience, adaptability and trust – insurance for a stronger Europe - Speech by Deputy Governor McMunn at Insurance Ireland",
           "url": "https://www.centralbank.ie/news/article/speech-deputy-governor-mcmunn-insurance-ireland-22-october-2026",
@@ -2169,6 +2203,27 @@
       "editorialRationale": "",
       "proposedCandidates": [
         {
+          "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+          "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
+          "sourceName": "Cisco Talos Intelligence Group",
+          "sourceOwner": "cisco-talos",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "publishedAt": "2026-10-28T21:32:02.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 93,
+          "decisionType": "context",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
+        },
+        {
           "title": "The Good, the Bad and the Ugly in Cybersecurity - Week 44 (2026)",
           "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-44-8",
           "sourceName": "SentinelOne Labs",
@@ -2253,27 +2308,6 @@
             "critical-infrastructure"
           ],
           "whyCandidate": "Pulled from US Cybersecurity and Infrastructure Security Agency via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
-          "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
-          "sourceName": "Cisco Talos Intelligence Group",
-          "sourceOwner": "cisco-talos",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "publishedAt": "2026-10-28T21:32:02.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 93,
-          "decisionType": "context",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
         }
       ]
     },

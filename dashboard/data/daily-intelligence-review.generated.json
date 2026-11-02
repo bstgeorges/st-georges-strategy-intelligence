@@ -1,20 +1,22 @@
 {
-  "version": "2026-09-26",
-  "generatedAt": "2026-09-26T15:12:16.197Z",
+  "version": "2026-11-01",
+  "generatedAt": "2026-11-02T08:40:57.200Z",
   "purpose": "Private editorial review of daily intelligence. It is not public-site content.",
   "entriesByStatus": {
     "needs-source-review": [
       "2026-09-23-detection-remediation-capacity",
       "2026-09-24-agent-authority-envelope",
       "2026-09-25-approval-execution-integrity",
-      "2026-09-26-agent-action-completeness"
+      "2026-09-26-agent-action-completeness",
+      "2026-11-01-ai-infostealer-claims"
     ]
   },
   "warnings": [
     "2026-09-23-detection-remediation-capacity: held for exact-source review.",
     "2026-09-24-agent-authority-envelope: held for exact-source review.",
     "2026-09-25-approval-execution-integrity: held for exact-source review.",
-    "2026-09-26-agent-action-completeness: held for exact-source review."
+    "2026-09-26-agent-action-completeness: held for exact-source review.",
+    "2026-11-01-ai-infostealer-claims: held for exact-source review."
   ],
   "concepts": [
     {
@@ -66,6 +68,30 @@
           "id": "2026-09-24-agent-authority-envelope",
           "title": "An agent’s authority envelope now spans applications, identities and transactions",
           "briefingDate": "2026-09-24",
+          "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "campaign-attribution",
+      "entries": [
+        {
+          "id": "2026-11-01-ai-infostealer-claims",
+          "title": "An AI-enabled infostealer may profile victims from stolen credentials",
+          "briefingDate": "2026-11-01",
+          "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "credential-misuse",
+      "entries": [
+        {
+          "id": "2026-11-01-ai-infostealer-claims",
+          "title": "An AI-enabled infostealer may profile victims from stolen credentials",
+          "briefingDate": "2026-11-01",
           "reviewStatus": "needs-source-review"
         }
       ],
@@ -150,6 +176,18 @@
           "id": "2026-09-23-detection-remediation-capacity",
           "title": "AI detection velocity can exceed human remediation capacity",
           "briefingDate": "2026-09-23",
+          "reviewStatus": "needs-source-review"
+        }
+      ],
+      "count": 1
+    },
+    {
+      "concept": "source-quality",
+      "entries": [
+        {
+          "id": "2026-11-01-ai-infostealer-claims",
+          "title": "An AI-enabled infostealer may profile victims from stolen credentials",
+          "briefingDate": "2026-11-01",
           "reviewStatus": "needs-source-review"
         }
       ],

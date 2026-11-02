@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-26",
+  "version": "2026-11-01",
   "purpose": "Private editorial intake from the Daily Intelligence Briefing. This file is never published directly.",
   "entries": [
     {
@@ -9,10 +9,25 @@
       "summary": "Continuous AI-enabled security testing can improve discovery while creating a remediation backlog faster than the organisation can safely validate, prioritise and close it.",
       "whyItMatters": "A faster detector is not automatically a stronger control environment when validation, change authority and remediation throughput do not scale with it.",
       "controlImplication": "Measure discovery-to-remediation capacity and make queue re-sequencing authority explicit before expanding autonomous scanning or patching.",
-      "topics": ["ai", "cyber", "resilience"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "vulnerability-management", "remediation-capacity"],
-      "concepts": ["detection-velocity", "organisational-absorption-capacity", "the-harness"],
+      "topics": [
+        "ai",
+        "cyber",
+        "resilience"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "vulnerability-management",
+        "remediation-capacity"
+      ],
+      "concepts": [
+        "detection-velocity",
+        "organisational-absorption-capacity",
+        "the-harness"
+      ],
       "deepDivePotential": "develop",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -33,10 +48,25 @@
       "summary": "As agents move from a single application into browsers, productivity suites and external services, the relevant control surface becomes the authority the agent can exercise across that environment.",
       "whyItMatters": "The traditional unit of application risk is too narrow when one delegated identity can discover, select and act across multiple systems.",
       "controlImplication": "Map delegated identity, persistent credentials, action limits and revocation across the full workflow rather than assessing an agent as a standalone application.",
-      "topics": ["ai", "third-party", "data"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "identity", "delegated-authority"],
-      "concepts": ["authority-envelope", "nonhuman-identity", "delegated-authority"],
+      "topics": [
+        "ai",
+        "third-party",
+        "data"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "identity",
+        "delegated-authority"
+      ],
+      "concepts": [
+        "authority-envelope",
+        "nonhuman-identity",
+        "delegated-authority"
+      ],
       "deepDivePotential": "watch",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -57,10 +87,25 @@
       "summary": "A human can approve one operation while mutable workflow state causes a materially different operation to execute later. The control objective is approval-to-execution integrity, not simply a human-in-the-loop checkpoint.",
       "whyItMatters": "Process maps can show a human approval while the technical system no longer guarantees that the approved context, parameters and action remain the same.",
       "controlImplication": "Require deterministic or tamper-evident binding between the exact action reviewed, its parameters and its execution record for consequential agent workflows.",
-      "topics": ["ai", "cyber", "data"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "human-oversight", "workflow-integrity"],
-      "concepts": ["approval-to-execution-integrity", "effective-human-control", "authority-alignment"],
+      "topics": [
+        "ai",
+        "cyber",
+        "data"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "human-oversight",
+        "workflow-integrity"
+      ],
+      "concepts": [
+        "approval-to-execution-integrity",
+        "effective-human-control",
+        "authority-alignment"
+      ],
       "deepDivePotential": "ready",
       "reviewStatus": "needs-source-review",
       "sources": []
@@ -72,10 +117,27 @@
       "summary": "When external agent activity is discovered late or by outside researchers, the question is no longer only whether the agent crossed a boundary. It is whether the firm can reconstruct every credential use, data transfer and attempted boundary crossing.",
       "whyItMatters": "Partial telemetry weakens containment, incident response, disclosure and assurance at exactly the point autonomous activity needs stronger evidence.",
       "controlImplication": "Define an action-completeness standard for material agents: attributable identity, immutable event capture, complete external-action telemetry and independent evidence of containment.",
-      "topics": ["ai", "cyber", "resilience", "data"],
-      "riskAreas": ["ai-and-models", "digital-resilience"],
-      "tags": ["agentic-ai", "observability", "incident-evidence"],
-      "concepts": ["agent-action-completeness", "observability", "forensic-reconstruction", "authority-alignment"],
+      "topics": [
+        "ai",
+        "cyber",
+        "resilience",
+        "data"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "agentic-ai",
+        "observability",
+        "incident-evidence"
+      ],
+      "concepts": [
+        "agent-action-completeness",
+        "observability",
+        "forensic-reconstruction",
+        "authority-alignment"
+      ],
       "deepDivePotential": "develop",
       "reviewStatus": "needs-source-review",
       "sources": [
@@ -88,6 +150,35 @@
           "publishedDate": "2026-09-16"
         }
       ]
+    },
+    {
+      "id": "2026-11-01-ai-infostealer-claims",
+      "briefingDate": "2026-11-01",
+      "title": "An AI-enabled infostealer may profile victims from stolen credentials",
+      "summary": "The Sunday Daily Intelligence Brief describes a Cisco Talos/WIRED report on malware that uses commercial AI models to prioritise stolen credentials. The attached summary does not include a direct Talos publication URL, and it says real-world deployment has not been established.",
+      "whyItMatters": "If verified, it would affect identity monitoring and response to stolen session tokens; the current evidence supplied is insufficient to present this as an active campaign.",
+      "controlImplication": "Hold from publication until the direct research report and deployment evidence are independently checked.",
+      "topics": [
+        "ai",
+        "cyber"
+      ],
+      "riskAreas": [
+        "ai-and-models",
+        "digital-resilience"
+      ],
+      "tags": [
+        "credential-theft",
+        "ai-assisted-cyber",
+        "source-verification"
+      ],
+      "concepts": [
+        "credential-misuse",
+        "source-quality",
+        "campaign-attribution"
+      ],
+      "deepDivePotential": "watch",
+      "reviewStatus": "needs-source-review",
+      "sources": []
     }
   ]
 }

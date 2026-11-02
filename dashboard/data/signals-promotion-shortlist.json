@@ -1,59 +1,59 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-10-24T20:14:11.239Z",
-  "publicationDate": "2026-10-24",
-  "reviewedAt": "2026-10-24",
+  "candidateGeneratedAt": "2026-11-02T08:41:16.352Z",
+  "publicationDate": "2026-11-01",
+  "reviewedAt": "2026-11-02",
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"
+        "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"
       ],
-      "editorialRationale": "Select this source for its clear decision relevance and recent primary evidence. Keep the claim within the source’s stated scope and avoid inferring a sector-wide failure or new requirement."
+      "editorialRationale": "Lead with the Bank/FCA primary survey because it directly measures the gap between firm-wide policy coverage and reported post-deployment controls. Preserve the survey response-base caveat and do not present a descriptive survey as an effectiveness test."
     },
     {
       "id": "resilience",
       "selectedUrls": [
-        "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london"
+        "https://openai.com/index/securing-our-frontier-model-training-environment/"
       ],
-      "editorialRationale": "Select this source for its clear decision relevance and recent primary evidence. Keep the claim within the source’s stated scope and avoid inferring a sector-wide failure or new requirement."
+      "editorialRationale": "Select OpenAI’s 23 October description as a bounded provider case study on training-environment containment. Attribute the controls to OpenAI and state that the description is not independent assurance or a new sector requirement."
     },
     {
       "id": "third-party",
-      "selectedUrls": [],
-      "editorialRationale": "No new candidate in this topic clears the materiality, novelty and evidence threshold for this edition. Retain existing topic archive anchors without presenting them as fresh developments."
+      "selectedUrls": [
+        "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
+      ],
+      "editorialRationale": "Select Microsoft’s direct incident analysis of the compromised LiteLLM 1.107.0 release. It exposes a concrete software-supply-chain and credential-response problem extending beyond active gateway users."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets"
+        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
       ],
-      "editorialRationale": "Select this source for its clear decision relevance and recent primary evidence. Keep the claim within the source’s stated scope and avoid inferring a sector-wide failure or new requirement."
+      "editorialRationale": "Select Anthropic’s SEC-filed S-1 as a source-backed provider-financing and compute-dependency signal. Do not imply the offering is priced, effective or completed."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [],
-      "editorialRationale": "No new candidate in this topic clears the materiality, novelty and evidence threshold for this edition. Retain existing topic archive anchors without presenting them as fresh developments."
+      "editorialRationale": "No new item in the supplied briefs or current candidate set clears the freshness, decision-value and distinctness threshold. Keep the current reviewed anchors."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619"
+        "https://blog.talosintelligence.com/uat-11473-keydrift"
       ],
-      "editorialRationale": "Select this source for its clear decision relevance and recent primary evidence. Keep the claim within the source’s stated scope and avoid inferring a sector-wide failure or new requirement."
+      "editorialRationale": "Select Cisco Talos’s 28 October KeyDrift analysis for a new, specific network-device threat report; preserve its historical-scope wording and do not imply current active exploitation."
     },
     {
       "id": "technology-failure",
-      "selectedUrls": [
-        "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj"
-      ],
-      "editorialRationale": "Select this source for its clear decision relevance and recent primary evidence. Keep the claim within the source’s stated scope and avoid inferring a sector-wide failure or new requirement."
+      "selectedUrls": [],
+      "editorialRationale": "No fresh candidate clears the materiality threshold; GitHub status notices would repeat recent editions. Keep the existing reviewed anchor."
     },
     {
       "id": "data",
       "selectedUrls": [],
-      "editorialRationale": "No new candidate in this topic clears the materiality, novelty and evidence threshold for this edition. Retain existing topic archive anchors without presenting them as fresh developments."
+      "editorialRationale": "No data-protection item in the supplied briefs changes a rule or operating decision for this edition. Keep the current reviewed anchors."
     }
   ]
 }

@@ -68,12 +68,12 @@
     "archiveCorrection": ""
   },
   "weeklyReadout": {
-    "heading": "Can vulnerability response keep pace with AI-enabled discovery?",
+    "heading": "Can we validate and close credible findings within service tolerance?",
     "steps": [
-      "Choose one critical internet-facing dependency and name the service owner, vulnerability lead and change approver.",
-      "Reproduce one credible finding independently; record when exposure is confirmed and who accepts the risk.",
-      "Time patch or compensating-control approval, deployment, rollback readiness, retest and verified closure.",
-      "Report elapsed time and overdue critical findings; assign each backlog item an owner and due date."
+      "Select one internet-facing critical service and prepare a staging copy or equivalent controlled test path.",
+      "Have the vulnerability lead reproduce a credible finding independently and record the exposure and patch-or-isolate decision.",
+      "Run the change, rollback and safe-restoration steps; timestamp each hand-off through verified closure.",
+      "Report detection-to-verified-fix time and the high-severity backlog at cut-off; assign any tolerance breach to an owner."
     ]
   },
   "topSignals": [

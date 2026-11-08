@@ -3563,7 +3563,6 @@ async function main() {
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
   renderDeepDiveLibrary(options.out);
   renderDeepDiveAttribution(options.out);
-  renderDeepDiveTopicPromotions(options.out);
   simplifyPublicEditorialSurfaces(options.out);
   addBriefEditionPermalink(options.out, editionRecord);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is
@@ -3575,6 +3574,7 @@ async function main() {
   // the freeze (below) then picks up today's edition in the hub's own card list.
   generateArchiveHubPages(options.out);
   syncSignalsArchiveStore(options.out, edition);
+  renderDeepDiveTopicPromotions(options.out);
   renderDeepDiveAttribution(options.out);
   // Standalone Deep Dives are promoted on current entry pages only. This comes
   // after the weekly snapshot is frozen so a between-edition article never

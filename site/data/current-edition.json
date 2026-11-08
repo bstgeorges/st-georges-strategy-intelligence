@@ -1,116 +1,96 @@
 {
-  "editionNumber": "Edition 20",
-  "title": "Policy adoption is not control evidence.",
-  "weekOf": "2026-10-26",
-  "publicationDate": "2026-11-01",
+  "editionNumber": "Edition 21",
+  "title": "The response window is part of the vulnerability control.",
+  "weekOf": "2026-11-02",
+  "publicationDate": "2026-11-08",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "Policy adoption is not control evidence.",
+  "mainJudgement": "The response window is part of the vulnerability control.",
   "committeeQuestion": {
-    "domain": "Production-agent control coverage",
-    "question": "How many production agents have ongoing monitoring, leakage testing and periodic review—and what happened when the last exception surfaced?",
-    "why": "The Bank of England/FCA survey reports agent deployment and post-deployment controls as aggregate, question-level responses; it cannot show whether the same firms report both or whether the controls work.",
-    "evidence": "Counts and denominators for production agents covered by each control, plus one decision-support agent’s alert or controlled test, human decision, time to review and resulting change or recorded reason for no change.",
-    "links": [
-      "brief",
-      "ai",
-      "third-party",
-      "cyber"
-    ]
+    "domain": "Vulnerability remediation capacity",
+    "question": "Can the CISO show, with timestamps, how one critical vulnerability moves from independent validation to safe remediation and verified closure—and where the work waits?",
+    "why": "OpenAI reports substantially more capable vulnerability discovery and exploit development; METR estimates faster model-capability progress but with high uncertainty. Neither report establishes a bank incident. The firm-level issue is whether its own validation and change process can absorb credible findings.",
+    "evidence": "A timed exercise against a critical test dependency; independent reproduction; exposure decision; owner and approval timestamps; patch or compensating control; rollback test; closure evidence; and overdue critical backlog with accountable owners.",
+    "links": ["brief", "ai", "cyber", "resilience"]
   },
   "committeeQuestions": [
     {
-      "domain": "Production-agent control coverage",
-      "question": "How many production agents have ongoing monitoring, leakage testing and periodic review—and what happened when the last exception surfaced?",
-      "why": "The Bank of England/FCA survey reports agent deployment and post-deployment controls as aggregate, question-level responses; it cannot show whether the same firms report both or whether the controls work.",
-      "evidence": "Counts and denominators for production agents covered by each control, plus one decision-support agent’s alert or controlled test, human decision, time to review and resulting change or recorded reason for no change.",
-      "links": [
-        "brief",
-        "ai",
-        "third-party",
-        "cyber"
-      ]
+      "domain": "Vulnerability remediation capacity",
+      "question": "Can the CISO show, with timestamps, how one critical vulnerability moves from independent validation to safe remediation and verified closure—and where the work waits?",
+      "why": "OpenAI reports substantially more capable vulnerability discovery and exploit development; METR estimates faster model-capability progress but with high uncertainty. Neither report establishes a bank incident. The firm-level issue is whether its own validation and change process can absorb credible findings.",
+      "evidence": "A timed exercise against a critical test dependency; independent reproduction; exposure decision; owner and approval timestamps; patch or compensating control; rollback test; closure evidence; and overdue critical backlog with accountable owners.",
+      "links": ["brief", "ai", "cyber", "resilience"]
     },
     {
-      "domain": "Vendor change control",
-      "question": "How do you validate and reverse a high-materiality vendor model update before it reaches a critical workflow?",
-      "why": "The survey found reported practices varied; regression testing and rollback were not universal. Some reported bases are small and should be read cautiously.",
-      "evidence": "A recent vendor update with test results, an approval boundary, the rollback trigger and evidence the rollback path works.",
-      "links": [
-        "brief",
-        "third-party",
-        "resilience",
-        "ai"
-      ]
+      "domain": "Agentic cyber defence",
+      "question": "If an ARTEX-like tool reaches an exposed application, can we detect and stop credential use and lateral movement before a critical service is affected?",
+      "why": "Microsoft reports ARTEX used with conventional tools in activity targeting financial organisations, including exploitation, credential compromise and use of cloud identities. Its report is an observed threat account, not a measure of prevalence across banks.",
+      "evidence": "A scoped red-team scenario covering public-facing upload or SSRF paths, identity alerts, cloud-session revocation, lateral-movement detection, containment time and evidence retained outside the agent.",
+      "links": ["brief", "cyber", "ai", "third-party"]
     },
     {
-      "domain": "Software supply chain",
-      "question": "If a Python environment ran LiteLLM 1.107.0, can you identify the credentials it could reach without starting Python in that environment?",
-      "why": "Microsoft reports the compromised package could execute via Python startup files even where an application did not import LiteLLM.",
-      "evidence": "Affected environment inventory, preserved forensic evidence, reachable-secret scope, credential rotation and a clean rebuild or recovery record.",
-      "links": [
-        "brief",
-        "third-party",
-        "cyber",
-        "technology-failure"
-      ]
+      "domain": "Cloud recovery evidence",
+      "question": "What changed in our recovery plans after the sector-wide cloud outage exercise, and can we show minimum service restored under the same dependency scenario?",
+      "why": "The Bank/PRA exercise involved 38 banks and market-infrastructure firms; participation shows rehearsal, not that recovery objectives were met or findings were closed.",
+      "evidence": "The scenario, participating service owners, exercise findings, assigned actions, tested fallback, time to minimum-service recovery, open exceptions and next test date.",
+      "links": ["brief", "third-party", "resilience", "technology-failure"]
     }
   ],
   "judgement": {
-    "title": "Policy adoption is not control evidence.",
-    "editorialAngle": "Use the Bank of England/FCA survey’s separate aggregate figures to ask whether a firm’s deployed-agent population is actually covered by post-deployment monitoring, leakage testing and review.",
-    "distinctFromPrevious": "Edition 19 asked who defines and enforces an agent’s authority outside the agent. Edition 20 shifts to whether controls remain observable and effective across material AI use after deployment, vendor change and software compromise.",
-    "observation": "The Bank of England and FCA’s 2026 survey found firm-wide AI policies at 94% of full-survey respondents; ongoing monitoring, leakage testing and periodic review or recertification were each reported by about half. On agent adoption, 80% reported agents currently deployed. In the separate autonomy question, 80% reported decision-support agents in production and 2% broad autonomy. Percentages use valid question-level responses.",
-    "executiveJudgement": "The report gives aggregate, question-level results; it does not show whether firms reporting production agents are the same firms reporting monitoring, leakage testing or review. That gap matters even for decision-support agents: their recommendations can shape a workflow before the human makes and executes the decision. A firm-wide policy count cannot show whether those production workflows receive the controls after go-live.",
-    "implication": "Ask the AI governance owner for counts and denominators: how many production agents are monitored, leakage-tested and reviewed or recertified? Sample one material decision-support agent; trace its latest alert—or a controlled leakage test—to the human decision, time to review and any change to the recommendation or workflow. Set an owner and next-review date for each uncovered material agent.",
-    "archiveCorrection": "Editorial updates (2 Nov 2026): ‘Why it matters’ and ‘What to do’ were revised to distinguish aggregate survey responses and specify a firm-level agent-coverage test. ‘What happened’ now distinguishes the survey’s separate agent-deployment questions; repeated figures were removed from ‘Why it matters’. The reported findings and publication date are unchanged."
+    "title": "The response window is part of the vulnerability control.",
+    "editorialAngle": "Use OpenAI's provider-reported cyber capability results, METR's independent but uncertain R&D acceleration assessment, and Microsoft's observed ARTEX activity to ask whether firms can validate and close vulnerabilities faster without weakening authorization or change controls.",
+    "distinctFromPrevious": "Edition 20 asked whether production agents had post-deployment control evidence. Edition 21 shifts to the pace of vulnerability discovery and exploitation: whether validation, remediation and recovery capacity can keep a critical service within tolerance as AI-enabled security work accelerates.",
+    "observation": "OpenAI says GPT‑6 Cyber identified 81 previously unknown, Mozilla-classified high-severity Firefox vulnerabilities and developed 948 Linux-kernel exploits. Mozilla has begun fixes. METR estimates Anthropic’s capability progress at 1.9× its prior rate (95% CI 1.5–2.8), with uncertainty and redactions.",
+    "executiveJudgement": "My judgement: neither report shows a bank attack or proves autonomous self-improvement. They ask whether vulnerability teams can independently validate and close credible findings before discovery outpaces remediation.",
+    "implication": "Run a timed exercise against a staging copy of one internet-facing critical service. Have the vulnerability lead independently reproduce a credible finding, decide to patch or isolate, and evidence safe restoration. Report detection-to-verified-fix time and the number of high-severity findings still open at cut-off; escalate if either exceeds the service's tolerance.",
+    "archiveCorrection": ""
   },
   "weeklyReadout": {
-    "heading": "Do production agents have post-deployment control evidence?",
+    "heading": "Can vulnerability response keep pace with AI-enabled discovery?",
     "steps": [
-      "Count production agents in scope and identify the operating owner.",
-      "Report how many have ongoing monitoring, leakage testing and periodic review or recertification, with a denominator for each.",
-      "Sample one material decision-support agent and trace an alert or controlled test to the human decision and resulting change.",
-      "Assign an owner and next-review date to each uncovered material agent."
+      "Choose one critical internet-facing dependency and name the service owner, vulnerability lead and change approver.",
+      "Reproduce one credible finding independently; record when exposure is confirmed and who accepts the risk.",
+      "Time patch or compensating-control approval, deployment, rollback readiness, retest and verified closure.",
+      "Report elapsed time and overdue critical findings; assign each backlog item an owner and due date."
     ]
   },
   "topSignals": [
     {
       "topic": "ai",
-      "title": "AI policies are more common than post-deployment controls",
-      "label": "Bank of England/FCA supervisory survey",
-      "why": "The 2026 survey reports AI governance arrangements across 196 firms. Among full-survey respondents, 94% reported firm-wide policies, while key post-deployment data controls were each reported by about half. This is descriptive evidence, not a control-effectiveness test.",
-      "source": "Primary / Bank of England and Financial Conduct Authority / 2026-10-26"
-    },
-    {
-      "topic": "third-party",
-      "title": "LiteLLM compromise turns package startup into credential risk",
-      "label": "Software supply-chain incident analysis",
-      "why": "Microsoft says malicious startup files in LiteLLM 1.107.0 could run when Python started, even without an application importing the gateway. Exposure may extend to development, CI/CD, test and container environments.",
-      "source": "Primary / Microsoft Security Research / 2026-10-23"
-    },
-    {
-      "topic": "resilience",
-      "title": "OpenAI reports stronger containment after frontier-model boundary tests",
-      "label": "Provider security disclosure",
-      "why": "OpenAI describes hardened containment for its own research environments and a high-compute red-team campaign. The account is company-reported; it does not independently establish resilience in customer deployments.",
-      "source": "Primary / OpenAI / 2026-10-23"
-    },
-    {
-      "topic": "market-structure",
-      "title": "Anthropic’s S-1 puts compute commitments and provider economics in view",
-      "label": "SEC-filed S-1",
-      "why": "Anthropic’s preliminary filing exposes compute commitments and provider economics, while leaving key offering terms blank. It is useful evidence about provider dependencies, not a priced or completed IPO.",
-      "source": "Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26"
+      "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+      "label": "OpenAI provider disclosure · cybersecurity capability",
+      "why": "OpenAI reports that its limited-access model developed working exploits for 948 Linux kernel vulnerabilities and produced 81 novel Firefox findings classified high severity by Mozilla; Mozilla began fixes. OpenAI classifies it as Critical under its own framework and reports improved scope compliance. These are provider-reported results; they do not establish customer outcomes or independent safeguard effectiveness.",
+      "source": "Primary / OpenAI / 2026-11-05"
     },
     {
       "topic": "cyber",
-      "title": "Historical KeyDrift activity exposes Cisco SD-WAN control-plane compromise paths",
-      "label": "Threat analysis · historical activity",
-      "why": "Cisco Talos reports historical exploitation of an authentication-bypass flaw in SD-WAN controllers and malware designed to collect keying material. Preserve the source’s historical scope; check exposure and patch status.",
-      "source": "Primary / Cisco Talos Intelligence Group / 2026-10-28"
+      "title": "ARTEX abuse expands as cybercriminals target financial sector",
+      "label": "Microsoft Threat Intelligence · observed financial-sector activity",
+      "why": "Microsoft Threat Intelligence says Storm-3358 used the agentic framework ARTEX alongside conventional tools to scan public-facing systems, exploit web-application flaws and use compromised credentials and cloud identities for persistence and data exfiltration. This is Microsoft's observed activity account, not a prevalence estimate. Test internet-facing exposure, identity controls, lateral-movement detection and containment.",
+      "source": "Primary / Microsoft Threat Intelligence / 2026-11-06"
+    },
+    {
+      "topic": "resilience",
+      "title": "PRA creates a directorate for operational and cyber resilience",
+      "label": "Prudential Regulation Authority · organisational change",
+      "why": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience, alongside a joint FCA consultation expected by year-end. This is strategic direction and planned consultation, not a current new rule.",
+      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-22"
+    },
+    {
+      "topic": "market-structure",
+      "title": "Market Participants Survey results - November 2026",
+      "label": "Bank of England · market-participant expectations",
+      "why": "The survey was open 21–23 October and received responses from 80 selected market participants. Published median expectations placed Bank Rate at 4.00% after the December meeting and 4.25% in February and March 2027. These are respondents' expectations, not an MPC decision or Bank forecast. Use as a scenario input for borrowers and infrastructure providers exposed to financing-cost changes.",
+      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-06"
+    },
+    {
+      "topic": "third-party",
+      "title": "CMORG holds sector-wide cloud outage simulation exercise",
+      "label": "Bank of England/PRA · sector-wide cloud outage exercise",
+      "why": "SIMEX26 involved 38 major banks and market infrastructure operators responding to a global cloud-services disruption scenario. The Bank of England says firms are expected to take action from the exercise. Participation shows rehearsal, not recovery capability; the practical test is whether findings changed service plans, supplier arrangements or response decisions.",
+      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09"
     }
   ]
 }

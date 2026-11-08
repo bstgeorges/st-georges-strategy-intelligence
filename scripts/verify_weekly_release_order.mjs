@@ -27,6 +27,12 @@ function ageDays(older, newer) {
   return Math.floor((Date.parse(`${newer}T00:00:00Z`) - Date.parse(`${older}T00:00:00Z`)) / 86400000);
 }
 
+function isCalendarDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return false;
+  const date = new Date(`${value}T00:00:00Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+}
+
 function normalise(value) { return String(value || "").replace(/\s+/g, " ").trim().toLowerCase(); }
 
 function main() {
@@ -59,7 +65,12 @@ function main() {
   if (candidates?.generatedAt) {
     if (!shortlist || shortlist.reviewStatus !== "approved") failures.push("A newer Signals candidate run exists without an approved editorial shortlist");
     else if (shortlist.candidateGeneratedAt !== candidates.generatedAt) {
-      const editionLocked = shortlist.publicationDate === publicationDate && shortlist.reviewedAt === publicationDate;
+      const reviewedAt = shortlist.reviewedAt;
+      const reviewBelongsToCurrentEdition = shortlist.publicationDate === publicationDate
+        && isCalendarDate(reviewedAt)
+        && ageDays(publicationDate, reviewedAt) >= 0
+        && ageDays(reviewedAt, options.asOf) >= 0;
+      const editionLocked = reviewBelongsToCurrentEdition;
       if (!editionLocked) failures.push("The approved Signals shortlist does not match the newest candidate run");
       else console.warn(`Signals candidate run ${candidates.generatedAt} is newer than the approved ${publicationDate} shortlist; retaining the locked reviewed snapshot for this release.`);
     }

@@ -38,6 +38,16 @@ function currentDeepDive(editionRecord) {
   return deepDive.title && deepDive.route ? deepDive : null;
 }
 
+function weeklyDeepDiveSummary(deepDives, formatDateShort) {
+  const records = Array.isArray(deepDives) ? deepDives : [];
+  if (!records.length) return "";
+  const items = records.map((record) => `<li><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a><span class="meta">${escapeHtml(formatDateShort(record.publishedDate))} / ${escapeHtml(record.readTime || "Long read")}</span><p>${escapeHtml(record.dek)}</p></li>`).join("");
+  return `<section class="home-current-deep-dives" aria-label="Deep Dives published this week">
+            <p class="eyebrow">Deep Dive${records.length === 1 ? "" : "s"} published this week</p>
+            <ul class="home-current-deep-dive-list">${items}</ul>
+          </section>`;
+}
+
 /**
  * Render the shared current-edition record onto the two public entry surfaces.
  * File I/O remains in the publisher; this module owns only the editorial markup.
@@ -48,6 +58,7 @@ export function renderCurrentEditionSurfaces({
   homeHtml,
   committeeHtml,
   formatDateShort,
+  deepDivesThisWeek,
   replaceElementContent,
 }) {
   if (!editionRecord) return { homeHtml, committeeHtml };
@@ -59,6 +70,7 @@ export function renderCurrentEditionSurfaces({
 
   if (renderedHome) {
     const lead = editionRecord.topSignals?.[0] || {};
+    const weeklyDeepDives = weeklyDeepDiveSummary(deepDivesThisWeek, formatDateShort);
     const deepDiveFeature = deepDive
       ? `<a class="home-deep-dive" href="${escapeHtml(deepDive.route)}"><div><p class="meta">Deep Dive / ${escapeHtml(deepDive.readTime || "Long read")}</p><h3>${escapeHtml(deepDive.title)}</h3><p>${escapeHtml(deepDive.dek || "A considered look at the issue beneath this week’s judgement.")}</p></div><span aria-hidden="true">Read the analysis →</span></a>`
       : "";
@@ -73,6 +85,7 @@ export function renderCurrentEditionSurfaces({
             <a class="brief-card" href="/committee-questions/"><p class="meta">This week’s question</p><h3>${escapeHtml(question.question || "Turn the judgement into challenge")}</h3><p>${escapeHtml(question.evidence || "Use the current question and the evergreen library to ask for evidence rather than reassurance.")}</p></a>
             <a class="brief-card" href="/archive/"><p class="meta">Trace the record</p><h3>Read the judgement in context</h3><p>Use the dated brief and topic archives to follow the evidence and how the operating judgement changed.</p></a>
           </div>
+          ${weeklyDeepDives}
           ${deepDiveFeature}
           <div class="button-row"><a class="button secondary light" href="/brief/">Read the full brief</a><a class="button secondary light" href="/signals/">Explore the signal library</a></div>
         </section>

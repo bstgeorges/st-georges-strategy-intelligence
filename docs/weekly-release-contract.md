@@ -5,7 +5,7 @@ The public edition is one reviewed package, not five independent page updates. B
 1. `site/data/current-edition.json` — edition date, a distinct judgement with recorded editorial angle and contrast to the prior edition, five distinct Top 5 signals, and three complete current Committee Questions (with the first retained as the compact feature).
 2. `site/data/signals.json` — validated source-backed Top 5 by topic, with a current promotion summary.
 3. `site/brief/index.html` and `site/committee-questions/index.html` — reader-facing judgement and committee prompt that match the edition record.
-   - When a Deep Dive is published, add it to `site/deep-dives/index.html` in the same release. The primary navigation always goes to `/deep-dives/`, never directly to a single article.
+   - When a Deep Dive is published, register it in `site/data/deep-dives.json` and publish its article in the same release. The homepage's “This edition” summary automatically lists every Deep Dive dated from `weekOf` through `publicationDate`, inclusive. The primary navigation always goes to `/deep-dives/`, never directly to a single article.
 4. `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record and QA report. The current edition is published by the canonical release workflow when the private evidence passes its freshness, correctness, source-health and coverage gates; separate per-edition pre-approval is not required.
 
 The preparatory workflows create candidates and an editorial pack; neither publishes a new edition. A reviewer must make the editorial choices, confirm source evidence, and run:

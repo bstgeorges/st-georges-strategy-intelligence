@@ -1,59 +1,55 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-11-02T08:41:16.352Z",
-  "publicationDate": "2026-11-01",
-  "reviewedAt": "2026-11-02",
+  "candidateGeneratedAt": "2026-11-08T11:39:54.060Z",
+  "publicationDate": "2026-11-08",
+  "reviewedAt": "2026-11-08",
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"
+        "https://openai.com/index/introducing-gpt-6-cyber"
       ],
-      "editorialRationale": "Lead with the Bank/FCA primary survey because it directly measures the gap between firm-wide policy coverage and reported post-deployment controls. Preserve the survey response-base caveat and do not present a descriptive survey as an effectiveness test."
+      "editorialRationale": "Select OpenAI's 5 November primary disclosure as a material change in defensive vulnerability discovery and exploit-development capability. Attribute performance, safeguard and deployment claims to OpenAI; describe Critical as its own framework classification, not an independent rating."
     },
     {
       "id": "resilience",
-      "selectedUrls": [
-        "https://openai.com/index/securing-our-frontier-model-training-environment/"
-      ],
-      "editorialRationale": "Select OpenAI’s 23 October description as a bounded provider case study on training-environment containment. Attribute the controls to OpenAI and state that the description is not independent assurance or a new sector requirement."
+      "selectedUrls": [],
+      "editorialRationale": "No newly dated resilience item clears the evidence and materiality test. Retain the PRA's 22 October directorate announcement as current strategic context, while making clear that the planned FCA consultation is not yet a new rule."
     },
     {
       "id": "third-party",
-      "selectedUrls": [
-        "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
-      ],
-      "editorialRationale": "Select Microsoft’s direct incident analysis of the compromised LiteLLM 1.107.0 release. It exposes a concrete software-supply-chain and credential-response problem extending beyond active gateway users."
+      "selectedUrls": [],
+      "editorialRationale": "Cloudflare's candidate is a 17-minute, single-location network issue; it does not clear the materiality threshold for promotion. Retain the Bank/PRA sector-wide cloud simulation as a more decision-relevant dependency and recovery signal."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+        "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026"
       ],
-      "editorialRationale": "Select Anthropic’s SEC-filed S-1 as a source-backed provider-financing and compute-dependency signal. Do not imply the offering is priced, effective or completed."
+      "editorialRationale": "Select the Bank of England's 6 November market-participants survey as a dated read on market expectations after the MPC decision. Preserve the 80-respondent base and label its results as expectations, not Bank forecasts or policy commitments."
     },
     {
       "id": "financial-crime",
       "selectedUrls": [],
-      "editorialRationale": "No new item in the supplied briefs or current candidate set clears the freshness, decision-value and distinctness threshold. Keep the current reviewed anchors."
+      "editorialRationale": "No fresh candidate in this run changes a financial-crime decision; retain reviewed anchors within the 90-day window."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://blog.talosintelligence.com/uat-11473-keydrift"
+        "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector"
       ],
-      "editorialRationale": "Select Cisco Talos’s 28 October KeyDrift analysis for a new, specific network-device threat report; preserve its historical-scope wording and do not imply current active exploitation."
+      "editorialRationale": "Select Microsoft Threat Intelligence's 6 November report as observed agentic-tool use in activity targeting financial firms. Attribute actor, geographic and technique details to Microsoft and distinguish observed activity from a sector-wide prevalence claim."
     },
     {
       "id": "technology-failure",
       "selectedUrls": [],
-      "editorialRationale": "No fresh candidate clears the materiality threshold; GitHub status notices would repeat recent editions. Keep the existing reviewed anchor."
+      "editorialRationale": "The localized Cloudflare status item does not clear the threshold, and the weekly Top 5 already retains a separate cross-sector cloud-recovery exercise. No distinct technology-failure candidate is promoted."
     },
     {
       "id": "data",
       "selectedUrls": [],
-      "editorialRationale": "No data-protection item in the supplied briefs changes a rule or operating decision for this edition. Keep the current reviewed anchors."
+      "editorialRationale": "No fresh data-protection or data-governance candidate changes an operating decision for this edition; retain reviewed anchors."
     }
   ]
 }

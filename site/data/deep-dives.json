@@ -8,7 +8,11 @@
       "dek": "A multi-stage compromise crossed developer endpoints, internal tooling and a container-deployment credential before reaching a wallet-signing service. The banking question is whether one compromised identity can cross the same boundaries in your environment.",
       "readTime": "12 min read",
       "socialTitle": "Could one compromised developer reach your payment controls?",
-      "category": "Cyber risk & operational resilience"
+      "category": "Cyber risk & operational resilience",
+      "keyThesis": "The decisive failure was the path between build credentials and a wallet-signing service: each trust boundary needs its own identity, approval and evidence.",
+      "topics": ["cyber", "resilience", "third-party"],
+      "about": ["Cybersecurity", "Identity and access management", "Operational resilience"],
+      "mentions": ["Binance"]
     },
     {
       "route": "/deep-dives/standard-of-proof/",
@@ -19,6 +23,10 @@
       "readTime": "12 min read",
       "socialTitle": "What evidence will supervisors expect for AI governance?",
       "category": "AI governance & operational resilience",
+      "keyThesis": "A policy can state the standard; supervisory confidence depends on whether a firm can reconstruct evidence of outcomes, governance and resilience in practice.",
+      "topics": ["ai", "resilience"],
+      "about": ["Artificial intelligence", "Operational resilience", "Supervisory evidence"],
+      "mentions": ["Financial Conduct Authority", "Financial Stability Board", "European Central Bank", "Monetary Authority of Singapore"],
       "archiveDate": "2026-10-27"
     },
     {
@@ -29,6 +37,10 @@
       "readTime": "12 min read",
       "socialTitle": "What if the tail keeps coming back?",
       "category": "Operational resilience & shared dependencies",
+      "keyThesis": "Repeated moderate outages can become a severe resilience event when shared services fail faster than firms can restore workarounds and capacity.",
+      "topics": ["resilience", "third-party"],
+      "about": ["Operational resilience", "Third-party risk", "Shared services"],
+      "mentions": ["Financial Conduct Authority", "Bank of England"],
       "promptedBy": null
     },
     {
@@ -39,6 +51,10 @@
       "readTime": "11 min read",
       "socialTitle": "Are AI cyber controls keeping pace with the threat?",
       "category": "AI cyber risk & operational resilience",
+      "keyThesis": "AI cyber governance becomes operationally meaningful only when detection, containment and recovery keep pace with faster vulnerability discovery and attack preparation.",
+      "topics": ["ai", "cyber", "resilience"],
+      "about": ["Artificial intelligence", "Cybersecurity", "Operational resilience"],
+      "mentions": ["Financial Stability Board", "European Central Bank", "European Systemic Risk Board"],
       "promptedBy": null
     },
     {
@@ -49,6 +65,10 @@
       "readTime": "9 min read",
       "socialTitle": "Can you prove what an AI agent is authorised to do?",
       "category": "AI governance & operational risk",
+      "keyThesis": "Agentic governance is credible only when the firm's delegated authority, runtime safeguards and intervention rights can be evidenced in operation.",
+      "topics": ["ai", "resilience"],
+      "about": ["Artificial intelligence", "AI governance", "Operational risk"],
+      "mentions": ["Monetary Authority of Singapore", "Basel Committee on Banking Supervision"],
       "promptedBy": null
     },
     {
@@ -59,6 +79,10 @@
       "readTime": "7 min read",
       "socialTitle": "Who can pause an AI agent?",
       "category": "AI governance & agentic risk",
+      "keyThesis": "Once an agent receives authority, governance must control its identity, scope, supplier access and interruption path throughout use—not only at model approval.",
+      "topics": ["ai", "third-party"],
+      "about": ["Artificial intelligence", "Delegated authority", "Third-party risk"],
+      "mentions": ["Monetary Authority of Singapore", "Oliver Wyman", "Institute of International Finance", "EY", "McKinsey & Company"],
       "promptedBy": null
     },
     {
@@ -70,6 +94,10 @@
       "readTime": "9 min read",
       "socialTitle": "The model is not the control.",
       "category": "AI governance & cyber resilience",
+      "keyThesis": "The model alone does not determine operational risk; permissions, tools, data paths and the ability to intervene shape how it behaves in a real workflow.",
+      "topics": ["ai", "cyber"],
+      "about": ["Artificial intelligence", "Cybersecurity", "Control environment"],
+      "mentions": ["Financial Conduct Authority", "Financial Stability Board"],
       "promptedBy": null
     },
     {
@@ -80,6 +108,10 @@
       "readTime": "8 min read",
       "socialTitle": "Who owns AI risk?",
       "category": "AI governance & financial stability",
+      "keyThesis": "Firm-level controls and system-wide exposure sit in different mandates; effective AI risk governance needs a bridge between microprudential and macroprudential views.",
+      "topics": ["ai", "resilience"],
+      "about": ["Artificial intelligence", "Microprudential supervision", "Macroprudential supervision"],
+      "mentions": ["Basel Committee on Banking Supervision", "Bank of England", "European Central Bank"],
       "promptedBy": null
     }
   ]

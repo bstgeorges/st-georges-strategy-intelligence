@@ -669,6 +669,38 @@ main + .subscribe-band + .footer {
 
 .subscribe-embed iframe { max-width: 100% !important; }
 
+.subscribe-fallback {
+  margin: 18px 0 0;
+  color: var(--navy-text);
+  font-size: 13px;
+}
+
+.subscribe-fallback a {
+  color: var(--cream);
+  text-underline-offset: 3px;
+}
+
+.archive-count-note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.archive-count-note summary {
+  width: fit-content;
+  cursor: pointer;
+  text-underline-offset: 3px;
+}
+
+.archive-count-note p {
+  margin: 8px 0 0;
+}
+
+.deep-dive-key-thesis {
+  padding-left: 14px;
+  border-left: 2px solid var(--accent-readable);
+}
+
 @media (max-width: 480px) {
   /* Avoid the sub-pixel overflow from the desktop full-bleed calculation. */
   .subscribe-band {

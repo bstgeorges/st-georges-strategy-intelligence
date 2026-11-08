@@ -18,7 +18,7 @@ const TOPICS = new Set([
   "technology-failure",
   "data",
 ]);
-const ALLOWED_MODES = new Set(["live", "offline", "seed"]);
+const ALLOWED_MODES = new Set(["live", "live-snapshot-plus-reviewed-brief-overlay", "offline", "seed"]);
 const ALLOWED_SOURCE_STATUSES = new Set(["ok", "quiet", "failed", "skipped"]);
 const ALLOWED_DATE_SOURCES = new Set(["feed", "url-inference", "sitemap-lastmod", "page-published", "reviewed-reg-horizon", "daily-intelligence-verified", "weekly-ai-risk-verified"]);
 const HORIZON_BRIDGE_IDS = new Set([

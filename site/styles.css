@@ -2518,6 +2518,48 @@ a.tag:hover {
   max-width: 24ch;
 }
 
+.home-current-deep-dives {
+  margin-top: clamp(28px, 4vw, 44px);
+  border-left: 4px solid var(--accent);
+  padding: clamp(20px, 2.5vw, 30px);
+  background: var(--paper-raised);
+}
+
+.home-current-deep-dives > .eyebrow {
+  margin-bottom: 16px;
+}
+
+.home-current-deep-dive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-current-deep-dive-list li {
+  min-width: 0;
+}
+
+.home-current-deep-dive-list a {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--navy);
+  font: 600 clamp(20px, 2vw, 27px)/1.18 var(--serif);
+}
+
+.home-current-deep-dive-list .meta {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.home-current-deep-dive-list p:not(.meta) {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--muted);
+}
+
 .committee-current {
   padding-top: clamp(46px, 6vw, 80px);
   border-top: 3px solid var(--accent);

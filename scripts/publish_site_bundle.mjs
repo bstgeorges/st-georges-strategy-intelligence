@@ -1324,9 +1324,21 @@ function renderCurrentEditionExperience(out, editionRecord, horizonData) {
   if (!editionRecord) return;
   const homeFile = path.join(out, "index.html");
   const committeeFile = path.join(out, "committee-questions", "index.html");
+  const deepDivesThisWeek = standaloneDeepDives()
+    .filter((record) => (
+      deepDiveDetails(record)
+      && /^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || "")
+      && record.publishedDate >= editionRecord.weekOf
+      && record.publishedDate <= editionRecord.publicationDate
+      && record.title
+      && record.dek
+      && record.readTime
+    ))
+    .sort((left, right) => String(left.publishedDate).localeCompare(String(right.publishedDate)) || String(left.route).localeCompare(String(right.route)));
   const rendered = renderCurrentEditionSurfaces({
     editionRecord,
     horizonData,
+    deepDivesThisWeek,
     homeHtml: fs.existsSync(homeFile) ? read(homeFile) : "",
     committeeHtml: fs.existsSync(committeeFile) ? read(committeeFile) : "",
     formatDateShort,
@@ -3387,6 +3399,21 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     const value = editionRecord.judgement?.[field];
     if (!value) continue;
     assert(archivedBrief.includes(value), "Archived Brief must retain the full Weekly Judgement", failures);
+  }
+  const deepDivesThisWeek = standaloneDeepDives().filter((record) => (
+    deepDiveDetails(record)
+    && /^\d{4}-\d{2}-\d{2}$/.test(record?.publishedDate || "")
+    && record.publishedDate >= editionRecord.weekOf
+    && record.publishedDate <= editionRecord.publicationDate
+  ));
+  const weeklyDeepDiveSummary = (homePage.match(/<section class="home-current-deep-dives"[\s\S]*?<\/section>/) || [""])[0];
+  assert(
+    Boolean(weeklyDeepDiveSummary) === (deepDivesThisWeek.length > 0),
+    "Homepage summary must list Deep Dives only when one was published during the edition week",
+    failures,
+  );
+  for (const record of deepDivesThisWeek) {
+    assert(weeklyDeepDiveSummary.includes(`href="${record.route}"`) && weeklyDeepDiveSummary.includes(escapeHtml(record.title)) && weeklyDeepDiveSummary.includes(escapeHtml(record.dek)), `Homepage edition summary must include this week's Deep Dive: ${record.route}`, failures);
   }
   if (editionRecord.deepDive) {
     assert(homePage.includes(editionRecord.deepDive.title), "Homepage must feature the current Deep Dive", failures);

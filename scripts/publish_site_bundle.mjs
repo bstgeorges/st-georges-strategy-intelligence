@@ -240,6 +240,7 @@ function buildSubscribeSection() {
           <div class="subscribe-embed">
             <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d75a8e0a-2d7c-467f-87c1-a2e3a86d4ba1"></script>
           </div>
+          <p class="subscribe-fallback">If the form is blocked on your network, <a href="mailto:ben@stgeorgesstrategy.com?subject=Subscribe%20to%20The%20Virtual%20Officer">email Ben to subscribe</a>.</p>
         </div>
       </section>
       <!-- subscribe-marker:end -->`;
@@ -1342,6 +1343,7 @@ function renderCurrentEditionExperience(out, editionRecord, horizonData) {
     homeHtml: fs.existsSync(homeFile) ? read(homeFile) : "",
     committeeHtml: fs.existsSync(committeeFile) ? read(committeeFile) : "",
     formatDateShort,
+    formatDateLong,
     replaceElementContent,
   });
   if (rendered.homeHtml) write(homeFile, rendered.homeHtml);
@@ -1618,9 +1620,31 @@ function renderDeepDiveAttribution(out) {
       ? `<p class="deep-dive-prompted-by">Prompted by: <a href="${escapeHtml(promptedBy.url)}">${escapeHtml(promptedBy.title)}</a> (${escapeHtml(formatDateLong(promptedBy.date))}).</p>`
       : "";
     if (html.includes(marker)) html = html.replace(marker, prompt);
-    if (!html.includes('"author": { "@type": "Person", "name": "Ben St Georges" }')) {
+    if (!/"author":\s*\{\s*"@type":\s*"Person",\s*"name":\s*"Ben St Georges"/.test(html)) {
       throw new Error(`Deep Dive author metadata must match the visible byline: ${record.route}`);
     }
+    for (const field of ["keyThesis", "topics", "about", "mentions"]) {
+      const value = record[field];
+      const valid = field === "keyThesis"
+        ? typeof value === "string" && value.trim()
+        : Array.isArray(value) && value.length > 0 && value.every((item) => typeof item === "string" && item.trim());
+      if (!valid) throw new Error(`Deep Dive ${field} metadata is required: ${record.route}`);
+    }
+    if (record.topics.some((topic) => !topics.includes(topic))) {
+      throw new Error(`Deep Dive topic metadata contains an unknown Signals route: ${record.route}`);
+    }
+    const jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    if (!jsonLdMatch) throw new Error(`Deep Dive JSON-LD missing: ${record.route}`);
+    let jsonLd;
+    try {
+      jsonLd = JSON.parse(jsonLdMatch[1]);
+    } catch (error) {
+      throw new Error(`Deep Dive JSON-LD is invalid for ${record.route}: ${error.message}`);
+    }
+    jsonLd["@type"] = ["NewsArticle", "AnalysisNewsArticle"];
+    jsonLd.about = record.about.map((name) => ({ "@type": "Thing", name }));
+    jsonLd.mentions = record.mentions.map((name) => ({ "@type": "Organization", name }));
+    html = html.replace(jsonLdMatch[0], `<script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>`);
     write(file, html);
   }
   for (const file of listFiles(path.join(out, "deep-dives"), ".html")) {
@@ -1633,6 +1657,10 @@ function renderDeepDiveAttribution(out) {
 function renderStandaloneDeepDivePromotion(out, editionRecord) {
   const record = latestStandaloneDeepDive();
   if (!record) return;
+  const editionStart = editionRecord?.weekOf || editionRecord?.publicationDate || "";
+  const isInThisEditionWeek = /^\d{4}-\d{2}-\d{2}$/.test(record.publishedDate || "")
+    && record.publishedDate >= editionStart
+    && record.publishedDate <= (editionRecord?.publicationDate || "");
   const promoteStandalone = record.route !== editionRecord?.deepDive?.route;
   const homepageFeature = `<section class="band deep-dive-bridge standalone-deep-dive" aria-labelledby="latest-standalone-deep-dive-title">
           <div class="section-heading compact-heading">
@@ -1645,8 +1673,8 @@ function renderStandaloneDeepDivePromotion(out, editionRecord) {
               <span aria-hidden="true">Read the analysis →</span>
             </a>
             <aside class="deep-dive-spotlight-aside">
-              <p class="eyebrow">What the long read adds</p>
-              <p>Trace the source record, test the operating implications and take practical questions into your next risk discussion.</p>
+              <p class="eyebrow">Key Thesis</p>
+              <p>${escapeHtml(record.keyThesis)}</p>
               <a href="/deep-dives/">Browse all Deep Dives →</a>
             </aside>
           </div>
@@ -1663,7 +1691,10 @@ function renderStandaloneDeepDivePromotion(out, editionRecord) {
         </section>`;
   const marker = "<!-- standalone-deep-dive-promotion -->";
   if (promoteStandalone) {
-    for (const [relative, feature] of [["index.html", homepageFeature], ["brief/index.html", briefFeature]]) {
+    const promotions = [];
+    if (!isInThisEditionWeek) promotions.push(["index.html", homepageFeature]);
+    promotions.push(["brief/index.html", briefFeature]);
+    for (const [relative, feature] of promotions) {
       const file = path.join(out, relative);
       if (!fs.existsSync(file)) continue;
       const html = read(file);
@@ -1689,6 +1720,30 @@ function renderStandaloneDeepDivePromotion(out, editionRecord) {
     const marker = "<!-- latest-deep-dive-promotion -->";
     if (!html.includes(marker)) throw new Error(`Latest Deep Dive discovery marker missing: ${relative}`);
     write(file, html.replace(marker, discoveryFeature));
+  }
+}
+
+function renderDeepDiveTopicPromotions(out) {
+  const divesByTopic = new Map();
+  for (const record of standaloneDeepDives().sort((left, right) => String(right.publishedDate).localeCompare(String(left.publishedDate)))) {
+    const details = deepDiveDetails(record);
+    if (!details || !record.keyThesis || !Array.isArray(record.topics)) continue;
+    for (const topic of record.topics) {
+      divesByTopic.set(topic, [...(divesByTopic.get(topic) || []), record]);
+    }
+  }
+  for (const [topic, records] of divesByTopic) {
+    const file = path.join(out, "signals", topic, "index.html");
+    if (!fs.existsSync(file)) continue;
+    let html = read(file);
+    const mainStart = html.indexOf('<main class="page">');
+    const mastheadStart = html.indexOf('<section class="masthead">', mainStart);
+    const mastheadEnd = mastheadStart >= 0 ? html.indexOf("</section>", mastheadStart) : -1;
+    if (mastheadEnd < 0) throw new Error(`Signals topic masthead missing for Deep Dive promotion: ${topic}`);
+    const cards = records.map((record) => `<a class="archive-card deep-dive-topic-card" href="${escapeHtml(record.route)}"><p class="meta">Deep Dive / ${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime || "Long read")}</p><h3>${escapeHtml(record.title)}</h3><p><strong>Key thesis:</strong> ${escapeHtml(record.keyThesis)}</p><span>Read the analysis →</span></a>`).join("\n          ");
+    const section = `\n      <section class="band deep-dive-topic-promotion" aria-label="Related Deep Dives"><div class="section-heading compact-heading"><div><p class="eyebrow">Deep Dives in this stream</p><h2>Follow the analysis further</h2></div><p>Source-led long reads related to this topic.</p></div><div class="grid-3">${cards}</div></section>`;
+    html = `${html.slice(0, mastheadEnd + "</section>".length)}${section}${html.slice(mastheadEnd + "</section>".length)}`;
+    write(file, html);
   }
 }
 
@@ -1859,9 +1914,6 @@ function buildArchiveHubPage({ title, eyebrow, description, cards, backHref, bac
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="canonical" href="${escapeHtml(url)}">
     <meta property="og:url" content="${escapeHtml(url)}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
@@ -1970,7 +2022,7 @@ function updateArchiveIndexCards(out, edition) {
     ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${escapeHtml(formatDateLong(date))}</a>`).join(", ")}; no topic archive has a matching date.`
     : "";
   const totalsDiffer = briefDates.length !== topicCounts[0] || !topicCounts.every((count) => count === topicCounts[0]);
-  const countNote = `<p class="archive-count-note"><strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${briefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}</p>`;
+  const countNote = `<details class="archive-count-note"><summary>${totalsDiffer ? "Why the archive counts differ" : "Archive counts"}</summary><p>The Weekly Brief archive holds ${briefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}</p></details>`;
   const archiveMetaStart = "<!-- archive-meta:start -->";
   const archiveMetaEnd = "<!-- archive-meta:end -->";
   const archiveMeta = briefDates.length
@@ -3023,12 +3075,7 @@ function renderSignalsHubFromData(out, signalsData, editionRecord) {
       <section class="band news-research-radar" id="news-research-radar">
         <div class="section-heading">
           <div><p class="eyebrow">Source standard</p><h2>How we use evidence</h2></div>
-          <p>Every published signal links to its evidence. We prioritise primary sources, use press and specialist reporting for context and corroboration, and link research at paper level.</p>
-        </div>
-        <div class="source-standard-grid">
-          <article><p class="meta">Primary sources</p><h3>Evidence for action</h3><p>Regulators, authorities, standards bodies, courts and companies anchor a material claim wherever one is available.</p></article>
-          <article><p class="meta">Context and corroboration</p><h3>Useful, never a substitute</h3><p>Press and specialist reporting help identify and test a development; they do not replace the authoritative link.</p></article>
-          <article><p class="meta">Research</p><h3>Paper-level review</h3><p>Research is linked to the paper or abstract and identified by its evidence type before it informs a decision.</p></article>
+          <p>Signals link to their source records; official material anchors claims when available, while press and research are labelled for context. <a href="/about/">Read the full editorial method.</a></p>
         </div>
       </section>
       <!-- publisher-lock:end:signals-editorial -->
@@ -3413,7 +3460,7 @@ function verifyBuild(out, edition, sitemapUrls, failures) {
     failures,
   );
   for (const record of deepDivesThisWeek) {
-    assert(weeklyDeepDiveSummary.includes(`href="${record.route}"`) && weeklyDeepDiveSummary.includes(escapeHtml(record.title)) && weeklyDeepDiveSummary.includes(escapeHtml(record.dek)), `Homepage edition summary must include this week's Deep Dive: ${record.route}`, failures);
+    assert(weeklyDeepDiveSummary.includes(`href="${record.route}"`) && weeklyDeepDiveSummary.includes(escapeHtml(record.title)) && weeklyDeepDiveSummary.includes(escapeHtml(record.dek)) && weeklyDeepDiveSummary.includes(escapeHtml(record.keyThesis)), `Homepage edition summary must include this week's Deep Dive and key thesis: ${record.route}`, failures);
   }
   if (editionRecord.deepDive) {
     assert(homePage.includes(editionRecord.deepDive.title), "Homepage must feature the current Deep Dive", failures);
@@ -3516,6 +3563,7 @@ async function main() {
   renderCurrentEditionExperience(options.out, editionRecord, horizonData);
   renderDeepDiveLibrary(options.out);
   renderDeepDiveAttribution(options.out);
+  renderDeepDiveTopicPromotions(options.out);
   simplifyPublicEditorialSurfaces(options.out);
   addBriefEditionPermalink(options.out, editionRecord);
   // Archive hub pages (e.g. /signals/ai/archive/) must exist BEFORE this edition is

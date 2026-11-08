@@ -103,6 +103,10 @@ function checkCurrentEditionAlignment(failures) {
   const briefEditionLabel = `Weekly Brief / ${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
   const committeeEditionLabel = `${edition.editionNumber} · ${formatDateLong(edition.publicationDate)}`;
   const expectedTopSignals = (edition.topSignals || []).map((signal) => signal.title);
+  const weeklyDeepDives = (readSourceJson("data/deep-dives.json").items || []).filter((record) => (
+    record?.publishedDate >= (edition.weekOf || edition.publicationDate)
+    && record?.publishedDate <= edition.publicationDate
+  ));
 
   function topSignalTitles(html, pattern) {
     const section = (html.match(pattern) || [])[1] || "";
@@ -121,10 +125,20 @@ function checkCurrentEditionAlignment(failures) {
   const signalsHub = read("signals/index.html");
   const hubTopSignals = topSignalTitles(signalsHub, hubTop5Pattern);
   const hubTopSignalLinks = topSignalLinks(signalsHub, hubTop5Pattern);
+  const homeDeepDiveSummary = (home.match(/<!-- home-current-deep-dives:start -->([\s\S]*?)<!-- home-current-deep-dives:end -->/) || [])[1] || "";
+  assert(Boolean(homeDeepDiveSummary) === (weeklyDeepDives.length > 0), "homepage edition summary must include Deep Dives published this week", failures);
+  for (const record of weeklyDeepDives) {
+    assert(homeDeepDiveSummary.includes(`href="${record.route}"`) && homeDeepDiveSummary.includes(record.title) && homeDeepDiveSummary.includes(record.dek) && homeDeepDiveSummary.includes(record.keyThesis), `homepage edition summary must include this week's Deep Dive and key thesis: ${record.route}`, failures);
+  }
+  assert(!home.includes("Evidence Base"), "homepage should stay focused on the current executive readout", failures);
   const expectedTopSignalLinks = (edition.topSignals || []).map((signal) => {
     const topic = (signals.topics || []).find((item) => item.id === signal.topic);
     return (topic?.top5 || []).find((item) => item.title === signal.title)?.url || "";
   });
+  const getRanks = (section) => Array.from(section.matchAll(/<span class="(?:rank|signal-rank)">([^<]+)<\/span>/g), (match) => match[1]);
+  const expectedRanks = expectedTopSignals.map((_, index) => String(index + 1).padStart(2, "0"));
+  assert(JSON.stringify(getRanks((brief.match(top5Pattern) || [])[1] || "")) === JSON.stringify(expectedRanks), "Weekly Brief Top 5 must number every signal from 01 in order", failures);
+  assert(JSON.stringify(getRanks((signalsHub.match(hubTop5Pattern) || [])[1] || "")) === JSON.stringify(expectedRanks), "Signals hub Top 5 must number every signal from 01 in order", failures);
 
   assert(signals.edition === edition.publicationDate, `signals.json edition ${signals.edition} should match current publicationDate ${edition.publicationDate}`, failures);
   assert(home.includes('<details class="site-menu" open>'), "home navigation must be visible without JavaScript on desktop", failures);
@@ -291,7 +305,11 @@ function checkDeepDiveLibraryAndMobileNavigation(failures) {
     const slug = record.route.match(/^\/deep-dives\/([^/]+)\/$/)?.[1] || "";
     const article = slug ? read(`deep-dives/${slug}/index.html`) : "";
     assert(article.includes("By Ben St Georges"), `Deep Dive ${record.route} must use the named author byline`, failures);
-    assert(article.includes('"author": { "@type": "Person", "name": "Ben St Georges" }'), `Deep Dive ${record.route} structured author must match its byline`, failures);
+    const articleJsonLd = JSON.parse((article.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1] || "{}");
+    assert(articleJsonLd.author?.name === "Ben St Georges", `Deep Dive ${record.route} structured author must match its byline`, failures);
+    assert(Boolean(record.keyThesis) && article.includes('"AnalysisNewsArticle"'), `Deep Dive ${record.route} should publish its key thesis schema and analysis type`, failures);
+    assert(Array.isArray(articleJsonLd["@type"]) && articleJsonLd["@type"].includes("NewsArticle") && articleJsonLd["@type"].includes("AnalysisNewsArticle"), `Deep Dive ${record.route} must retain Google-compatible NewsArticle and Schema.org analysis typing`, failures);
+    assert(articleJsonLd.about?.length === record.about?.length && articleJsonLd.mentions?.length === record.mentions?.length, `Deep Dive ${record.route} must include its declared about/mentions entities`, failures);
     if (record.promptedBy) assert(article.includes(record.promptedBy.title), `Deep Dive ${record.route} must show its prompted-by source`, failures);
   }
   const latest = library[0];
@@ -302,6 +320,12 @@ function checkDeepDiveLibraryAndMobileNavigation(failures) {
       assert(feed.includes(`<link>https://stgeorgesstrategy.com${record.route}</link>`), `RSS feed must include ${record.route}`, failures);
       assert(feed.includes(`<category>Deep Dives</category>`), "RSS feed must categorize Deep Dive entries", failures);
       assert(feed.includes(`<pubDate>${pubDate}</pubDate>`), `RSS feed must use the publication date for ${record.route}`, failures);
+    }
+  }
+  for (const record of library) {
+    for (const topic of record.topics || []) {
+      const topicPage = read(`signals/${topic}/index.html`);
+      assert(topicPage.includes(`href="${record.route}"`), `${topic} Signals hub must link to related Deep Dive ${record.route}`, failures);
     }
   }
   const about = read("about/index.html");
@@ -387,6 +411,22 @@ function main() {
   for (const font of ["hanken-grotesk-latin.woff2", "jetbrains-mono-latin.woff2", "playfair-display-latin.woff2", "playfair-display-latin-italic.woff2"]) {
     assert(fs.existsSync(path.join(SITE, "assets", "fonts", font)), `self-hosted font missing: ${font}`, failures);
   }
+  const htmlFiles = [];
+  function findHtml(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) findHtml(full);
+      else if (entry.name.endsWith(".html")) htmlFiles.push(full);
+    }
+  }
+  findHtml(SITE);
+  for (const file of htmlFiles) {
+    const html = fs.readFileSync(file, "utf8");
+    assert(!/fonts\.(?:googleapis|gstatic)\.com/i.test(html), `${path.relative(SITE, file)} must not request Google Fonts`, failures);
+    if (html.includes('class="band subscribe-band"')) {
+      assert(html.includes("If the form is blocked on your network") && html.includes("mailto:ben@stgeorgesstrategy.com?subject=Subscribe%20to%20The%20Virtual%20Officer"), `${path.relative(SITE, file)} subscription must provide a direct email fallback`, failures);
+    }
+  }
   const styles = read("styles.css");
   assert(styles.includes("@media print"), "stylesheet must provide an executive print treatment", failures);
   assert(styles.includes("--muted: #5e5849"), "muted text must meet the AA contrast target", failures);
@@ -435,6 +475,8 @@ function main() {
     const stillMaterial = (html.match(/<ol class="brief-index evidence-list still-material-list">([\s\S]*?)<\/ol>/) || [])[1] || "";
     assert(count(/<li(?:\s|>)/g, top5) === expectedShortlistCount, `${topic} should have ${expectedShortlistCount} current shortlist rows`, failures);
     assert(count(/top-source/g, top5) === expectedShortlistCount, `${topic} should have ${expectedShortlistCount} current shortlist source labels`, failures);
+    const topicRanks = Array.from(top5.matchAll(/<span class="signal-rank">([^<]+)<\/span>/g), (match) => match[1]);
+    assert(JSON.stringify(topicRanks) === JSON.stringify(Array.from({ length: expectedShortlistCount }, (_, index) => String(index + 1).padStart(2, "0"))), `${topic} Top 5 must number every signal from 01 in order`, failures);
     const retainedCount = count(/<li(?:\s|>)/g, stillMaterial);
     assert(retainedCount >= 3 && retainedCount <= 7, `${topic} should have 3–7 still-material rows`, failures);
     assert(!stillMaterial.includes('class="rank"'), `${topic} still-material rows should not be ranked`, failures);
@@ -494,7 +536,7 @@ function main() {
   assert(signalsHub.includes("Top 5 for this edition") && !signalsHub.includes("Top 5 refreshed"), "Signals hub must describe the current Top 5 accurately", failures);
   assert(!signalsHub.includes("reviewed each edition"), "Signals hub must not claim stale retained rows were reviewed this edition", failures);
   assert(signalsHub.includes("How we use evidence"), "Signals hub missing concise public source standard", failures);
-  assert(signalsHub.includes("Primary sources") && signalsHub.includes("Paper-level review"), "Signals hub missing public evidence principles", failures);
+  assert(signalsHub.includes("/about/") && signalsHub.includes("Read the full editorial method"), "Signals hub should link to the full editorial method", failures);
   assert(!/Financial Times|Wall Street Journal|POLITICO Pro|manual or licensed feed/.test(signalsHub), "Signals hub must not publish the internal source register", failures);
   assert(!/How to read the source trail|Signals by watch theme/.test(signalsHub), "Signals hub must not repeat source or Horizon framing", failures);
   assert(
@@ -536,6 +578,8 @@ function main() {
   assert(horizonPage.includes('class="site-banner"'), "Reg Horizon must use the shared site header", failures);
   assert(horizonPage.includes('class="footer"'), "Reg Horizon must use the shared site footer", failures);
   assert(!horizonPage.includes('class="top"'), "Reg Horizon must not retain its standalone preview header", failures);
+  assert((horizonPage.match(/<table\b/g) || []).length === 1 && horizonPage.includes('id="full-horizon-rows"'), "Reg Horizon should show upcoming dates in one filterable table", failures);
+  assert(!/id="(?:deadline-cards|horizon-timeline|next|timeline)"/.test(horizonPage), "Reg Horizon must not repeat upcoming dates in cards or a second timeline", failures);
   assert(
     horizonEditorial.firstEdition
       ? !horizonPage.includes("Change since last review")

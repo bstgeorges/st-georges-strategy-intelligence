@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-11-08T10:26:13.081Z",
-  "preparedAt": "2026-11-08T10:26:30.971Z",
+  "candidateGeneratedAt": "2026-11-08T11:39:54.060Z",
+  "preparedAt": "2026-11-08T11:40:07.601Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -23,7 +23,7 @@
       "active-threat": 6,
       "outage": 0,
       "research": 2,
-      "context": 67
+      "context": 66
     },
     "decisionTypeGroups": [
       {
@@ -37,7 +37,7 @@
             "sourceName": "Deutsche Bundesbank",
             "sourceOwner": "de-bundesbank",
             "publishedAt": "2026-11-05T11:24:43.000Z",
-            "relevanceScore": 80,
+            "relevanceScore": 79,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -317,7 +317,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 67,
+        "candidateCount": 66,
         "candidates": [
           {
             "title": "Network Performance Issues in Chicago",
@@ -352,7 +352,7 @@
             "sourceName": "Comisión Nacional del Mercado de Valores",
             "sourceOwner": "spain-cnmv",
             "publishedAt": "2026-11-06T10:40:00.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 96,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
@@ -366,7 +366,7 @@
             "sourceName": "Deutsche Bundesbank",
             "sourceOwner": "de-bundesbank",
             "publishedAt": "2026-11-05T11:23:14.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 96,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
@@ -444,7 +444,7 @@
             "sourceName": "Palo Alto Networks Unit 42",
             "sourceOwner": "paloalto-unit42",
             "publishedAt": "2026-11-02T23:00:45.000Z",
-            "relevanceScore": 90,
+            "relevanceScore": 89,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -455,39 +455,39 @@
       }
     ],
     "diversity": {
-      "candidateRows": 99,
-      "uniqueCandidateEvents": 89,
+      "candidateRows": 98,
+      "uniqueCandidateEvents": 88,
       "crossThemeDuplicatesCollapsed": 10,
       "sourceOwnerConcentration": [
         {
           "sourceOwner": "cftc",
           "sourceName": "US Commodity Futures Trading Commission",
           "count": 7,
-          "share": 7.9
+          "share": 8
         },
         {
           "sourceOwner": "uk-boe-pra",
           "sourceName": "Bank of England and Prudential Regulation Authority",
           "count": 5,
-          "share": 5.6
+          "share": 5.7
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.6
+          "share": 5.7
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.6
+          "share": 5.7
         },
         {
           "sourceOwner": "osfi",
           "sourceName": "Office of the Superintendent of Financial Institutions",
           "count": 5,
-          "share": 5.6
+          "share": 5.7
         },
         {
           "sourceOwner": "fr-amf",
@@ -512,22 +512,22 @@
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 30,
-          "share": 33.7
+          "count": 29,
+          "share": 33
         },
         {
           "region": "US",
           "count": 14,
-          "share": 15.7
+          "share": 15.9
         },
         {
           "region": "Global/other",
           "count": 45,
-          "share": 50.6
+          "share": 51.1
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 89,
+        "newCandidateEvents": 88,
         "alreadyPublishedCandidates": 0,
         "continuingPublishedEvents": 32,
         "currentEditionTop5Events": 38
@@ -585,7 +585,7 @@
       },
       {
         "id": "data",
-        "candidateCount": 20,
+        "candidateCount": 19,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -971,7 +971,7 @@
           "sourceId": "bis-press-rss",
           "sourceRegistryId": "bis",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-parseable-entries"
@@ -980,7 +980,7 @@
           "sourceId": "ico-news-sitemap",
           "sourceRegistryId": "ico",
           "status": "failed",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "Fetch failed 403 for https://ico.org.uk/sitemap.xml"
@@ -1601,7 +1601,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-11-06T10:40:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 97,
+          "relevanceScore": 96,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1859,7 +1859,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-11-05T11:23:14.000Z",
           "dateSource": "feed",
-          "relevanceScore": 97,
+          "relevanceScore": 96,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -1882,7 +1882,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-11-05T11:24:43.000Z",
           "dateSource": "feed",
-          "relevanceScore": 80,
+          "relevanceScore": 79,
           "decisionType": "rule-change",
           "riskAreas": [
             "digital-resilience",
@@ -2353,7 +2353,7 @@
       "id": "data",
       "readiness": {
         "id": "data",
-        "candidateCount": 20,
+        "candidateCount": 19,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."

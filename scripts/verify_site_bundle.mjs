@@ -195,8 +195,9 @@ function checkCurrentEditionAlignment(failures) {
   const unmatchedNote = briefOnlyDates.length
     ? ` The additional Brief snapshot${briefOnlyDates.length === 1 ? " is" : "s are"} dated ${briefOnlyDates.map((date) => `<a href="/archive/brief/${date}/">${formatDateLong(date)}</a>`).join(", ")}; no topic archive has a matching date.`
     : "";
-  const countExplanation = `<strong>${totalsDiffer ? "Why the totals differ:" : "Archive counts:"}</strong> The Weekly Brief archive holds ${storedBriefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}`;
+  const countExplanation = `The Weekly Brief archive holds ${storedBriefDates.length} dated snapshots; ${topicCountSummary}.${unmatchedNote}`;
   assert(archive.includes(countExplanation), `archive must explain its snapshot counts: ${countExplanation}`, failures);
+  assert(archive.includes(`<summary>${totalsDiffer ? "Why the archive counts differ" : "Archive counts"}</summary>`), "archive count explanation should stay tucked into a concise disclosure", failures);
   const deepDiveArchiveSlugs = Array.from(
     archive.matchAll(/href="\/deep-dives\/([^/]+)\/archive\/[^/]+\//g),
     (match) => match[1],
@@ -226,7 +227,8 @@ function checkCurrentEditionAlignment(failures) {
     const slug = latestStandalone.route.match(/^\/deep-dives\/([^/]+)\/$/)?.[1] || "";
     assert(home.includes(latestStandalone.title), "homepage must promote the latest standalone Deep Dive", failures);
     assert(brief.includes(latestStandalone.title), "Weekly Brief must promote the latest standalone Deep Dive", failures);
-    assert(home.includes(expectedMeta) && brief.includes(expectedMeta), "standalone Deep Dive promotion must use its publication date and read time", failures);
+    const homeDeepDiveMeta = (home.match(/<!-- home-current-deep-dives:start -->([\s\S]*?)<!-- home-current-deep-dives:end -->/) || [])[1] || "";
+    assert((home.includes(expectedMeta) || homeDeepDiveMeta.includes(`${formatDateLong(latestStandalone.publishedDate)} / ${latestStandalone.readTime}`)) && brief.includes(expectedMeta), "Deep Dive homepage and Brief promotions must use the publication date and read time", failures);
     assert(!archivedBrief.includes("Latest Deep Dive"), "standalone Deep Dive promotion must not rewrite the dated Weekly Brief", failures);
     assert(archive.includes(`Deep Dive / ${formatDateLong(latestStandalone.publishedDate)}`), "archive Deep Dive cards must use human-readable dates", failures);
     if (slug) {
@@ -236,6 +238,8 @@ function checkCurrentEditionAlignment(failures) {
   }
   assert(about.includes("Coverage and cadence"), "About page should explain coverage and cadence", failures);
   assert(about.includes("Not proof of no activity"), "About page should explain quiet-theme meaning", failures);
+  assert(about.includes("Advisory conversations typically focus on AI governance"), "About page should explain the practical advisory conversation path", failures);
+  assert(home.includes('href="#subscribe">Get the weekly email</a>'), "homepage hero should offer a direct route to newsletter signup", failures);
   for (const [label, html] of [
     ["home", home],
     ["brief", brief],
@@ -422,9 +426,14 @@ function main() {
   findHtml(SITE);
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
-    assert(!/fonts\.(?:googleapis|gstatic)\.com/i.test(html), `${path.relative(SITE, file)} must not request Google Fonts`, failures);
+    const relative = path.relative(SITE, file).split(path.sep).join("/");
+    assert(!/fonts\.(?:googleapis|gstatic)\.com/i.test(html), `${relative} must not request Google Fonts`, failures);
+    const needsSubscribe = relative.startsWith("deep-dives/")
+      || relative === "brief/index.html"
+      || /^brief\/\d{4}-\d{2}-\d{2}\/index\.html$/.test(relative);
+    if (needsSubscribe) assert(html.includes('id="subscribe" class="band subscribe-band"'), `${relative} should offer the weekly email at the end of the read`, failures);
     if (html.includes('class="band subscribe-band"')) {
-      assert(html.includes("If the form is blocked on your network") && html.includes("mailto:ben@stgeorgesstrategy.com?subject=Subscribe%20to%20The%20Virtual%20Officer"), `${path.relative(SITE, file)} subscription must provide a direct email fallback`, failures);
+      assert(html.includes("If the form is blocked on your network") && html.includes("mailto:ben@stgeorgesstrategy.com?subject=Subscribe%20to%20The%20Virtual%20Officer"), `${relative} subscription must provide a direct email fallback`, failures);
     }
   }
   const styles = read("styles.css");

@@ -232,7 +232,7 @@ function wrapMobileNavigation(navigation) {
 }
 
 function buildSubscribeSection() {
-  return `<section class="band subscribe-band" aria-label="Subscribe">
+  return `<section id="subscribe" class="band subscribe-band" aria-label="Subscribe">
         <div class="subscribe-inner">
           <p class="eyebrow">Weekly, direct</p>
           <h2>Get the brief before it's on the site</h2>
@@ -344,11 +344,19 @@ function normaliseArchiveMetadata(out) {
 const SUBSCRIBE_ROUTES = ["/", "/brief/"];
 
 function enforceSubscribeSection(out) {
-  const markerRegex = /<section class="band subscribe-band"[\s\S]*?<!-- subscribe-marker:end -->/;
+  const markerRegex = /<section\b(?=[^>]*\bclass="band subscribe-band")[^>]*>[\s\S]*?<!-- subscribe-marker:end -->/;
   const footerRegex = /(<footer class="footer">)/;
+  const files = new Set();
   for (const [route, relative] of routes) {
     if (!SUBSCRIBE_ROUTES.includes(route)) continue;
-    const file = routeFile(out, relative);
+    files.add(routeFile(out, relative));
+  }
+  for (const file of listFiles(path.join(out, "deep-dives"), ".html")) files.add(file);
+  for (const file of listFiles(path.join(out, "brief"), ".html")) {
+    const relative = path.relative(path.join(out, "brief"), file).split(path.sep).join("/");
+    if (/^\d{4}-\d{2}-\d{2}\/index\.html$/.test(relative)) files.add(file);
+  }
+  for (const file of files) {
     if (!fs.existsSync(file)) continue;
     let html = read(file);
     const section = buildSubscribeSection();
@@ -596,7 +604,7 @@ function publicHorizonHtml(html, edition, { archive = false } = {}) {
   return html
     .replace(/<meta name="robots" content="noindex, nofollow">/, social)
     .replace(/<title>Regulatory Horizon \| Private product preview<\/title>/, "<title>Regulatory Horizon | St Georges Strategy</title>")
-    .replace(/<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin>\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?[^\"]*" rel="stylesheet">\s*<style>[\s\S]*?<\/style>/, publicStyle)
+    .replace(/<style>[\s\S]*?<\/style>/, publicStyle)
     .replace(/<header class="top">[\s\S]*?<\/header>/, sharedHeader)
     .replace('<main class="shell">', '<main class="page horizon-public">')
     .replace('<section class="hero">', '<section class="horizon-public-hero">')
@@ -1342,7 +1350,6 @@ function renderCurrentEditionExperience(out, editionRecord, horizonData) {
     deepDivesThisWeek,
     homeHtml: fs.existsSync(homeFile) ? read(homeFile) : "",
     committeeHtml: fs.existsSync(committeeFile) ? read(committeeFile) : "",
-    formatDateShort,
     formatDateLong,
     replaceElementContent,
   });

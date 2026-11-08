@@ -38,10 +38,10 @@ function currentDeepDive(editionRecord) {
   return deepDive.title && deepDive.route ? deepDive : null;
 }
 
-function weeklyDeepDiveSummary(deepDives, formatDateShort) {
+function weeklyDeepDiveSummary(deepDives, formatDateLong) {
   const records = Array.isArray(deepDives) ? deepDives : [];
   if (!records.length) return "";
-  const items = records.map((record) => `<li><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a><span class="meta">${escapeHtml(formatDateShort(record.publishedDate))} / ${escapeHtml(record.readTime || "Long read")}</span><p>${escapeHtml(record.dek)}</p><p class="deep-dive-key-thesis"><strong>Key thesis:</strong> ${escapeHtml(record.keyThesis || "")}</p></li>`).join("");
+  const items = records.map((record) => `<li><a href="${escapeHtml(record.route)}">${escapeHtml(record.title)}</a><span class="meta">${escapeHtml(formatDateLong(record.publishedDate))} / ${escapeHtml(record.readTime || "Long read")}</span><p>${escapeHtml(record.dek)}</p><p class="deep-dive-key-thesis"><strong>Key thesis:</strong> ${escapeHtml(record.keyThesis || "")}</p></li>`).join("");
   return `<!-- home-current-deep-dives:start --><section class="home-current-deep-dives" aria-label="Deep Dives published this week">
             <p class="eyebrow">Deep Dive${records.length === 1 ? "" : "s"} published this week</p>
             <ul class="home-current-deep-dive-list">${items}</ul>
@@ -57,7 +57,7 @@ export function renderCurrentEditionSurfaces({
   horizonData,
   homeHtml,
   committeeHtml,
-  formatDateShort,
+  formatDateLong,
   deepDivesThisWeek,
   replaceElementContent,
 }) {
@@ -70,7 +70,7 @@ export function renderCurrentEditionSurfaces({
 
   if (renderedHome) {
     const lead = editionRecord.topSignals?.[0] || {};
-    const weeklyDeepDives = weeklyDeepDiveSummary(deepDivesThisWeek, formatDateShort);
+    const weeklyDeepDives = weeklyDeepDiveSummary(deepDivesThisWeek, formatDateLong);
     const deepDiveFeature = deepDive && !deepDivesThisWeek.some((record) => record.route === deepDive.route)
       ? `<a class="home-deep-dive" href="${escapeHtml(deepDive.route)}"><div><p class="meta">Deep Dive / ${escapeHtml(deepDive.readTime || "Long read")}</p><h3>${escapeHtml(deepDive.title)}</h3><p>${escapeHtml(deepDive.dek || "A considered look at the issue beneath this week’s judgement.")}</p></div><span aria-hidden="true">Read the analysis →</span></a>`
       : "";

@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-11-08T11:39:54.060Z",
-  "preparedAt": "2026-11-08T11:40:07.601Z",
+  "candidateGeneratedAt": "2026-11-08T13:15:59.128Z",
+  "preparedAt": "2026-11-08T13:16:11.096Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -76,7 +76,7 @@
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
             "publishedAt": "2026-10-27T00:00:00.000Z",
-            "relevanceScore": 61,
+            "relevanceScore": 60,
             "decisionType": "rule-change",
             "region": "Global/other",
             "topics": [
@@ -141,7 +141,7 @@
             "sourceName": "UK Office of Financial Sanctions Implementation",
             "sourceOwner": "ofsi",
             "publishedAt": "2026-10-28T11:50:21.000Z",
-            "relevanceScore": 49,
+            "relevanceScore": 48,
             "decisionType": "rule-change",
             "region": "UK/EMEA",
             "topics": [
@@ -187,7 +187,7 @@
             "sourceName": "US Commodity Futures Trading Commission",
             "sourceOwner": "cftc",
             "publishedAt": "2026-10-27T12:58:38.000Z",
-            "relevanceScore": 62,
+            "relevanceScore": 61,
             "decisionType": "enforcement",
             "region": "US",
             "topics": [
@@ -207,7 +207,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-11-06T12:00:00.000Z",
-            "relevanceScore": 97,
+            "relevanceScore": 96,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -220,7 +220,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-11-04T13:00:18.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -233,7 +233,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-11-04T12:00:00.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -246,7 +246,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-11-03T12:00:00.000Z",
-            "relevanceScore": 91,
+            "relevanceScore": 90,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -259,7 +259,7 @@
             "sourceName": "US Cybersecurity and Infrastructure Security Agency",
             "sourceOwner": "cisa",
             "publishedAt": "2026-10-30T12:00:00.000Z",
-            "relevanceScore": 83,
+            "relevanceScore": 82,
             "decisionType": "active-threat",
             "region": "US",
             "topics": [
@@ -305,7 +305,7 @@
             "sourceName": "Google DeepMind",
             "sourceOwner": "google-deepmind",
             "publishedAt": "2026-10-28T00:00:00.000Z",
-            "relevanceScore": 48,
+            "relevanceScore": 47,
             "decisionType": "research",
             "region": "Global/other",
             "topics": [
@@ -405,7 +405,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-11-05T13:01:54.000Z",
-            "relevanceScore": 95,
+            "relevanceScore": 94,
             "decisionType": "context",
             "region": "Global/other",
             "topics": [
@@ -431,7 +431,7 @@
             "sourceName": "Commission nationale de l'informatique et des libertés",
             "sourceOwner": "fr-cnil",
             "publishedAt": "2026-11-04T00:00:00.000Z",
-            "relevanceScore": 92,
+            "relevanceScore": 91,
             "decisionType": "context",
             "region": "UK/EMEA",
             "topics": [
@@ -527,8 +527,8 @@
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 88,
-        "alreadyPublishedCandidates": 0,
+        "newCandidateEvents": 85,
+        "alreadyPublishedCandidates": 3,
         "continuingPublishedEvents": 32,
         "currentEditionTop5Events": 38
       }
@@ -971,7 +971,7 @@
           "sourceId": "bis-press-rss",
           "sourceRegistryId": "bis",
           "status": "quiet",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-parseable-entries"
@@ -980,7 +980,7 @@
           "sourceId": "ico-news-sitemap",
           "sourceRegistryId": "ico",
           "status": "failed",
-          "consecutiveIssueRuns": 4,
+          "consecutiveIssueRuns": 5,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "Fetch failed 403 for https://ico.org.uk/sitemap.xml"
@@ -1491,50 +1491,6 @@
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Measuring how AI agents handle everyday wet-lab science",
-          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
-          "sourceName": "OpenAI",
-          "sourceOwner": "openai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "publishedAt": "2026-11-06T00:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 81,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Project EVE: Claude plays MMORPGs",
-          "url": "https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs",
-          "sourceName": "Anthropic",
-          "sourceOwner": "anthropic",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "publishedAt": "2026-11-06T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 81,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
-        },
-        {
           "title": "Introducing the Microsoft Copilot harness: Unlocking the potential of truly multi-model agentic work",
           "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work",
           "sourceName": "Microsoft AI",
@@ -1556,6 +1512,50 @@
             "cloud"
           ],
           "whyCandidate": "Pulled from Microsoft AI via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Measuring how AI agents handle everyday wet-lab science",
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+          "sourceName": "OpenAI",
+          "sourceOwner": "openai",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-11-06T00:00:00.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 80,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "Project EVE: Claude plays MMORPGs",
+          "url": "https://www.anthropic.com/research/project-eve-claude-plays-mmorpgs",
+          "sourceName": "Anthropic",
+          "sourceOwner": "anthropic",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "publishedAt": "2026-11-06T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 80,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models"
+          ],
+          "tags": [
+            "model-releases",
+            "agents",
+            "enterprise-ai",
+            "safety"
+          ],
+          "whyCandidate": "Pulled from Anthropic via sitemap ingestion and matched the topic rules."
         },
         {
           "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
@@ -1649,7 +1649,7 @@
           "sourceCategory": "prudential",
           "publishedAt": "2026-11-06T12:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -1757,7 +1757,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-11-06T00:20:49.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -1823,7 +1823,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-11-04T11:50:06.000Z",
           "dateSource": "feed",
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -2038,7 +2038,7 @@
           "sourceCategory": "markets",
           "publishedAt": "2026-10-27T12:58:38.000Z",
           "dateSource": "feed",
-          "relevanceScore": 62,
+          "relevanceScore": 61,
           "decisionType": "enforcement",
           "riskAreas": [
             "market-plumbing",
@@ -2147,7 +2147,7 @@
           "sourceCategory": "cyber",
           "publishedAt": "2026-11-06T12:00:00.000Z",
           "dateSource": "feed",
-          "relevanceScore": 97,
+          "relevanceScore": 96,
           "decisionType": "active-threat",
           "riskAreas": [
             "digital-resilience"
@@ -2268,7 +2268,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-11-06T00:20:49.000Z",
           "dateSource": "feed",
-          "relevanceScore": 85,
+          "relevanceScore": 84,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -2334,7 +2334,7 @@
           "sourceCategory": "technology",
           "publishedAt": "2026-11-04T11:50:06.000Z",
           "dateSource": "feed",
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience"
@@ -2370,7 +2370,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-11-04T00:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 92,
+          "relevanceScore": 91,
           "decisionType": "context",
           "riskAreas": [
             "board-accountability",
@@ -2393,7 +2393,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-10-30T00:00:00.000Z",
           "dateSource": "page-published",
-          "relevanceScore": 82,
+          "relevanceScore": 81,
           "decisionType": "context",
           "riskAreas": [
             "digital-resilience",
@@ -2416,7 +2416,7 @@
           "sourceCategory": "regulation",
           "publishedAt": "2026-11-06T00:00:00.000Z",
           "dateSource": "url-inference",
-          "relevanceScore": 81,
+          "relevanceScore": 80,
           "decisionType": "context",
           "riskAreas": [
             "market-plumbing",
@@ -2432,29 +2432,6 @@
             "japan"
           ],
           "whyCandidate": "Pulled from Financial Services Agency of Japan via rss ingestion and matched the topic rules."
-        },
-        {
-          "title": "Cookies et application mobile : sanctions de 7 millions d’euros à l’encontre des sociétés FNAC DARTY PARTICIPATIONS ET SERVICES et FNAC DIRECT",
-          "url": "https://www.cnil.fr/fr/sanction-cookies-app-fnac",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceOwner": "fr-cnil",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-10-29T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 80,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
           "title": "26-194MR McPherson&#x2019;s liable for continuous disclosure failure and misleading investors, former CEO breached directors&#x2019; duties | ASIC",
@@ -2480,6 +2457,29 @@
             "australia"
           ],
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "Cookies et application mobile : sanctions de 7 millions d’euros à l’encontre des sociétés FNAC DARTY PARTICIPATIONS ET SERVICES et FNAC DIRECT",
+          "url": "https://www.cnil.fr/fr/sanction-cookies-app-fnac",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceOwner": "fr-cnil",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-10-29T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "context",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         }
       ]
     }

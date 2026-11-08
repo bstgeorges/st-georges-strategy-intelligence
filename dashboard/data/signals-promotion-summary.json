@@ -1,57 +1,67 @@
 {
-  "date": "2026-11-01",
+  "date": "2026-11-08",
   "topics": [
     {
       "id": "ai",
       "freshCount": 1,
       "leadRow": {
-        "title": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
-        "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
-        "source": "Primary / Bank of England and Financial Conduct Authority / 2026-10-26",
+        "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+        "url": "https://openai.com/index/introducing-gpt-6-cyber",
+        "source": "Primary / OpenAI / 2026-11-05",
         "evidence": {
-          "sourceTitle": "UK AI survey exposes the gap between policy adoption and post-deployment controls",
-          "organisation": "Bank of England and Financial Conduct Authority",
-          "publishedDate": "2026-10-26",
-          "sourceType": "regulator",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
-          "sourceUrl": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
-          "accessedDate": "2026-11-01"
+          "sourceTitle": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+          "organisation": "OpenAI",
+          "publishedDate": "2026-11-05",
+          "sourceType": "company announcement",
+          "significance": "OpenAI reports that its limited-access model developed working exploits for 948 Linux kernel vulnerabilities and produced 81 novel Firefox findings classified high severity by Mozilla; Mozilla began fixes. OpenAI classifies it as Critical under its own framework and reports improved scope compliance. These are provider-reported results; they do not establish customer outcomes or independent safeguard effectiveness.",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-cyber",
+          "accessedDate": "2026-11-08",
+          "sourceDateVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-11-08",
+            "reason": "OpenAI's primary 5 November announcement states 81 novel Firefox vulnerabilities, 948 Linux kernel exploits, Mozilla fixes, limited access and its own Critical classification."
+          }
         }
       }
     },
     {
       "id": "resilience",
-      "freshCount": 1,
+      "freshCount": 0,
       "leadRow": {
-        "title": "OpenAI describes hardened controls for its frontier-model training environment",
-        "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
-        "source": "Primary / OpenAI / 2026-10-23",
+        "title": "PRA creates a directorate for operational and cyber resilience",
+        "url": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
+        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-22",
         "evidence": {
-          "sourceTitle": "OpenAI describes hardened controls for its frontier-model training environment",
-          "organisation": "OpenAI",
-          "publishedDate": "2026-10-23",
-          "sourceType": "company announcement",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
-          "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment/",
-          "accessedDate": "2026-11-01"
+          "sourceTitle": "Mansion House City Regulators Dinner – speech by Katharine Braddick",
+          "organisation": "Bank of England and Prudential Regulation Authority",
+          "publishedDate": "2026-10-22",
+          "sourceType": "regulator",
+          "significance": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience, alongside a joint FCA consultation expected by year-end. This is strategic direction and planned consultation, not a current new rule.",
+          "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
+          "accessedDate": "2026-10-24",
+          "sourceDateVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-10-24",
+            "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
+          }
         }
       }
     },
     {
       "id": "third-party",
-      "freshCount": 1,
+      "freshCount": 0,
       "leadRow": {
-        "title": "LiteLLM compromise turns package installation into a credential exposure test",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-        "source": "Primary / Microsoft Security Research / 2026-10-23",
+        "title": "CMORG holds sector-wide cloud outage simulation exercise",
+        "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
         "evidence": {
-          "sourceTitle": "LiteLLM compromise turns package installation into a credential exposure test",
-          "organisation": "Microsoft Security Research",
-          "publishedDate": "2026-10-23",
-          "sourceType": "company announcement",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
-          "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-          "accessedDate": "2026-11-01"
+          "sourceTitle": "CMORG holds sector-wide cloud outage simulation exercise",
+          "organisation": "Bank of England and Prudential Regulation Authority",
+          "publishedDate": "2026-10-09",
+          "sourceType": "regulator",
+          "significance": "SIMEX26 involved 38 major banks and market infrastructure operators responding to a global cloud-services disruption scenario. The Bank of England says firms are expected to take action from the exercise. Participation shows rehearsal, not recovery capability; the practical test is whether findings changed service plans, supplier arrangements or response decisions.",
+          "sourceUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+          "accessedDate": "2026-10-11"
         }
       }
     },
@@ -59,17 +69,22 @@
       "id": "market-structure",
       "freshCount": 1,
       "leadRow": {
-        "title": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
-        "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
-        "source": "Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26",
+        "title": "Market Participants Survey results - November 2026",
+        "url": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
+        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-06",
         "evidence": {
-          "sourceTitle": "Anthropic’s S-1 makes frontier-lab economics and dependencies more visible",
-          "organisation": "Anthropic, PBC / U.S. Securities and Exchange Commission",
-          "publishedDate": "2026-10-26",
+          "sourceTitle": "Market Participants Survey results - November 2026",
+          "organisation": "Bank of England and Prudential Regulation Authority",
+          "publishedDate": "2026-11-06",
           "sourceType": "regulator",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
-          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
-          "accessedDate": "2026-11-01"
+          "significance": "The survey was open 21–23 October and received responses from 80 selected market participants. Published median expectations placed Bank Rate at 4.00% after the December meeting and 4.25% in February and March 2027. These are respondents' expectations, not an MPC decision or Bank forecast. Use as a scenario input for borrowers and infrastructure providers exposed to financing-cost changes.",
+          "sourceUrl": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
+          "accessedDate": "2026-11-08",
+          "sourceDateVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-11-08",
+            "reason": "The Bank of England page is dated 6 November 2026 and states the 80-respondent base and question-level median Bank Rate expectations."
+          }
         }
       }
     },
@@ -95,17 +110,22 @@
       "id": "cyber",
       "freshCount": 1,
       "leadRow": {
-        "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
-        "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
-        "source": "Primary / Cisco Talos Intelligence Group / 2026-10-28",
+        "title": "ARTEX abuse expands as cybercriminals target financial sector",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
+        "source": "Primary / Microsoft Threat Intelligence / 2026-11-06",
         "evidence": {
-          "sourceTitle": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
-          "organisation": "Cisco Talos Intelligence Group",
-          "publishedDate": "2026-10-28",
+          "sourceTitle": "ARTEX abuse expands as cybercriminals target financial sector",
+          "organisation": "Microsoft Threat Intelligence",
+          "publishedDate": "2026-11-06",
           "sourceType": "company announcement",
-          "significance": "EDITORIAL_REVIEW_REQUIRED: state the decision, control, or governance significance before publication.",
-          "sourceUrl": "https://blog.talosintelligence.com/uat-11473-keydrift",
-          "accessedDate": "2026-11-01"
+          "significance": "Microsoft Threat Intelligence says Storm-3358 used the agentic framework ARTEX alongside conventional tools to scan public-facing systems, exploit web-application flaws and use compromised credentials and cloud identities for persistence and data exfiltration. This is Microsoft's observed activity account, not a prevalence estimate. Test internet-facing exposure, identity controls, lateral-movement detection and containment.",
+          "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
+          "accessedDate": "2026-11-08",
+          "sourceDateVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-11-08",
+            "reason": "Microsoft's primary Threat Intelligence article is dated 6 November 2026 and describes Storm-3358's use of ARTEX against financial-sector organisations."
+          }
         }
       }
     },

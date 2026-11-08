@@ -13,7 +13,12 @@
     "question": "Can the CISO show, with timestamps, how one critical vulnerability moves from independent validation to safe remediation and verified closure—and where the work waits?",
     "why": "OpenAI reports substantially more capable vulnerability discovery and exploit development; METR estimates faster model-capability progress but with high uncertainty. Neither report establishes a bank incident. The firm-level issue is whether its own validation and change process can absorb credible findings.",
     "evidence": "A timed exercise against a critical test dependency; independent reproduction; exposure decision; owner and approval timestamps; patch or compensating control; rollback test; closure evidence; and overdue critical backlog with accountable owners.",
-    "links": ["brief", "ai", "cyber", "resilience"]
+    "links": [
+      "brief",
+      "ai",
+      "cyber",
+      "resilience"
+    ]
   },
   "committeeQuestions": [
     {
@@ -21,21 +26,36 @@
       "question": "Can the CISO show, with timestamps, how one critical vulnerability moves from independent validation to safe remediation and verified closure—and where the work waits?",
       "why": "OpenAI reports substantially more capable vulnerability discovery and exploit development; METR estimates faster model-capability progress but with high uncertainty. Neither report establishes a bank incident. The firm-level issue is whether its own validation and change process can absorb credible findings.",
       "evidence": "A timed exercise against a critical test dependency; independent reproduction; exposure decision; owner and approval timestamps; patch or compensating control; rollback test; closure evidence; and overdue critical backlog with accountable owners.",
-      "links": ["brief", "ai", "cyber", "resilience"]
+      "links": [
+        "brief",
+        "ai",
+        "cyber",
+        "resilience"
+      ]
     },
     {
       "domain": "Agentic cyber defence",
       "question": "If an ARTEX-like tool reaches an exposed application, can we detect and stop credential use and lateral movement before a critical service is affected?",
       "why": "Microsoft reports ARTEX used with conventional tools in activity targeting financial organisations, including exploitation, credential compromise and use of cloud identities. Its report is an observed threat account, not a measure of prevalence across banks.",
       "evidence": "A scoped red-team scenario covering public-facing upload or SSRF paths, identity alerts, cloud-session revocation, lateral-movement detection, containment time and evidence retained outside the agent.",
-      "links": ["brief", "cyber", "ai", "third-party"]
+      "links": [
+        "brief",
+        "cyber",
+        "ai",
+        "third-party"
+      ]
     },
     {
       "domain": "Cloud recovery evidence",
       "question": "What changed in our recovery plans after the sector-wide cloud outage exercise, and can we show minimum service restored under the same dependency scenario?",
       "why": "The Bank/PRA exercise involved 38 banks and market-infrastructure firms; participation shows rehearsal, not that recovery objectives were met or findings were closed.",
       "evidence": "The scenario, participating service owners, exercise findings, assigned actions, tested fallback, time to minimum-service recovery, open exceptions and next test date.",
-      "links": ["brief", "third-party", "resilience", "technology-failure"]
+      "links": [
+        "brief",
+        "third-party",
+        "resilience",
+        "technology-failure"
+      ]
     }
   ],
   "judgement": {

@@ -175,12 +175,12 @@
             "sourceDateVerification": {
               "status": "manual-verified",
               "verifiedDate": "2026-10-24",
-              "reason": "PRA's primary 22 October Mansion House announcement creates the directorate and refers to a planned future FCA consultation."
+              "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
             }
           }
         },
         {
-          "title": "OpenAI: Securing our frontier model training environment",
+          "title": "OpenAI reports stronger containment after frontier-model boundary tests",
           "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
           "source": "Primary / OpenAI / 2026-10-23",
           "evidence": {
@@ -188,555 +188,661 @@
             "organisation": "OpenAI",
             "publishedDate": "2026-10-23",
             "sourceType": "company announcement",
-            "significance": "OpenAI describes controls around an internal training environment. This is a provider-described case study rather than independent assurance or a new sector requirement.",
+            "significance": "OpenAI says it hardened its internal training and evaluation environments, including no live internet access for frontier training, and used high-compute red-teaming to find weaknesses. This is the provider’s account of its research environment, not independent assurance or evidence about customer deployments.",
             "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment/",
-            "accessedDate": "2026-10-24",
+            "accessedDate": "2026-11-02",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "OpenAI's primary post is dated 23 October and details internal training-environment controls while presenting them as OpenAI's own account."
+              "verifiedDate": "2026-11-02",
+              "reason": "OpenAI’s primary post is dated 23 October 2026 and expressly describes its own model training and evaluation environments, not customer deployments."
             }
           }
         },
         {
-          "title": "PRA reviews operational resilience investment and board accountability",
-          "url": "https://www.bankofengland.co.uk/speech/2026/january/operational-resilience-investment-accountability",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-01-29",
+          "title": "ENISA frames dependency concentration as a resilience exposure",
+          "url": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
+          "source": "Primary / ENISA / 2026-09-22",
           "evidence": {
-            "sourceTitle": "Operational resilience investment and board accountability",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-01-29",
-            "sourceType": "regulator",
-            "significance": "Supervisor remarks describe investment trade-offs in resilience and board responsibility for important business services. Retain as context, not a new rule or firm-specific finding.",
-            "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/january/operational-resilience-investment-accountability",
-            "accessedDate": "2026-06-09"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed as continuing strategic context; no fresh official resilience announcement replaced it."
-        },
-        {
-          "title": "Bank of England and PRA assess recovery from a sector-wide cloud outage",
-          "url": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-03",
-          "evidence": {
-            "sourceTitle": "Financial sector exercises response to cloud outage scenario",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-11-03",
-            "sourceType": "regulator",
-            "significance": "The Bank and PRA ran a sector-wide simulation of a severe cloud outage. Participants included financial firms and cloud providers. The public announcement describes a test, not results or evidence that any individual firm could recover.",
-            "sourceUrl": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-            "accessedDate": "2026-11-08",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-11-08",
-              "reason": "Bank/PRA announcement published 3 November 2026 describes a cross-sector cloud outage simulation involving financial firms and cloud providers, without publishing participant recovery results."
-            }
+            "sourceTitle": "Exploring the evolution of the cyber threat landscape: How dependencies weaken our digital resilience | ENISA",
+            "organisation": "European Union Agency for Cybersecurity",
+            "publishedDate": "2026-09-22",
+            "sourceType": "public authority",
+            "significance": "Dependency concentration can turn a disruption outside the firm into a live resilience event; the practical control is a usable view of the service chain and its alternatives.",
+            "sourceUrl": "https://www.enisa.europa.eu/news/exploring-the-evolution-of-the-cyber-threat-landscape-how-dependencies-weaken-our-digital-resilience",
+            "accessedDate": "2026-09-27"
           }
         },
         {
-          "title": "OpenAI says it severed access after suspected use of monitoring signals",
-          "url": "https://openai.com/index/response-to-suspected-coordinated-attempts-to-extract-model-capabilities/",
-          "source": "Primary / OpenAI / 2026-10-13",
+          "title": "OSFI’s 2027 market-risk standard sets a timetable for model and data evidence",
+          "url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+          "source": "Primary / Office of the Superintendent of Financial Institutions / 2026-09-10",
           "evidence": {
-            "sourceTitle": "Response to suspected coordinated attempts to extract model capabilities",
-            "organisation": "OpenAI",
-            "publishedDate": "2026-10-13",
+            "sourceTitle": "Capital Adequacy Requirements (CAR) (2027) – Chapter 9 – Market Risk - Office of the Superintendent of Financial Institutions",
+            "organisation": "Office of the Superintendent of Financial Institutions",
+            "publishedDate": "2026-09-10",
+            "sourceType": "regulator",
+            "significance": "OSFI's 2027 market-risk chapter gives firms an implementation timetable for a detailed capital framework. The decision is whether models, data lineage and capital calculations can produce the evidence required by the new standard before its effective dates, rather than being treated as a late policy-read exercise.",
+            "sourceUrl": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
+            "accessedDate": "2026-09-20"
+          }
+        },
+        {
+          "title": "CloudTrail makes containment and recovery a decision-record test",
+          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
+          "source": "Primary / AWS Security Blog / 2026-09-03",
+          "evidence": {
+            "sourceTitle": "Incident response guide for AWS CloudTrail investigations – Part 2",
+            "organisation": "AWS Security Blog",
+            "publishedDate": "2026-09-03",
             "sourceType": "company announcement",
-            "significance": "OpenAI says it identified suspected capability-extraction activity and severed access. Retain as a provider-reported incident response account, not independently verified attribution.",
-            "sourceUrl": "https://openai.com/index/response-to-suspected-coordinated-attempts-to-extract-model-capabilities/",
-            "accessedDate": "2026-10-18"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-10-18; retained as a provider-described boundary and response case. The current edition shifts to vulnerability closure and recovery readiness."
+            "significance": "AWS's second CloudTrail investigation guide takes an alert through containment, recovery and post-incident analysis. The useful resilience test is whether incident teams can produce the activity record, the authority for each containment decision, the recovery steps and evidence that the service was safe to return to normal.",
+            "sourceUrl": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
+            "accessedDate": "2026-09-13"
+          }
         }
       ],
       "stillMaterial": [
         {
           "rank": 6,
-          "title": "BoE survey reports AI control coverage, but not control effectiveness",
-          "url": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
-          "source": "Primary / Bank of England and FCA / 2026-10-26",
+          "title": "Important business services still need third-party evidence packs",
+          "url": "https://www.fca.org.uk/firms/operational-resilience",
+          "source": "Official expectations / FCA operational resilience",
           "evidence": {
-            "sourceTitle": "Artificial intelligence in UK financial services — 2026",
-            "organisation": "Bank of England and FCA",
-            "publishedDate": "2026-10-26",
+            "sourceTitle": "Important business services still need third-party evidence packs",
+            "organisation": "FCA",
+            "publishedDate": "2026-03-31",
             "sourceType": "regulator",
-            "significance": "The survey measures self-reported policy and control coverage; it does not show whether a control operated effectively in a specific workflow.",
-            "sourceUrl": "https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026",
-            "accessedDate": "2026-11-02"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-11-01 as a control-coverage baseline; Edition 21 turns to vulnerability remediation speed and service recovery evidence."
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "Current FCA operational-resilience expectations page retained as a live control baseline; it is not a dated weekly publication."
+            }
+          }
         },
         {
           "rank": 7,
-          "title": "METR and Redwood find vulnerabilities in historical OpenAI monitoring pilot",
-          "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-          "source": "Primary / METR and Redwood Research / 2026-10-22",
-          "evidence": {
-            "sourceTitle": "Red-teaming OpenAI’s internal agent monitoring system",
-            "organisation": "METR and Redwood Research",
-            "publishedDate": "2026-10-22",
-            "sourceType": "research",
-            "significance": "The researchers report vulnerabilities in a bounded historical pilot and say the expanded system was outside scope.",
-            "sourceUrl": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-            "accessedDate": "2026-10-24"
-          },
+          "title": "HSBC Australia penalty keeps complaint ageing in the resilience narrative",
+          "url": "https://www.ft.com/content/32b5af43-6ceb-452d-ac2f-d4cda3f4938c",
+          "source": "Financial reporting / Financial Times / 2026-06-01",
           "retention": "six-month-anchor",
-          "retentionReason": "The historical red-team finding remains useful context, but this edition's new question is whether external vulnerability findings can be validated, remediated and recovered within tolerance."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "HSBC Australia penalty keeps complaint ageing in the resilience narrative",
+            "organisation": "Financial Times",
+            "publishedDate": "2026-06-01",
+            "sourceType": "financial reporting",
+            "significance": "Supports the signal by linking Financial Times evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.ft.com/content/32b5af43-6ceb-452d-ac2f-d4cda3f4938c",
+            "accessedDate": "2026-07-09"
+          }
         },
         {
           "rank": 8,
-          "title": "Technology third-party dependencies need tested exit and recovery paths",
-          "url": "https://www.bankofengland.co.uk/speech/2026/march/technology-third-party-dependencies-exit-and-resilience",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-03-18",
-          "evidence": {
-            "sourceTitle": "Technology third-party dependencies, exit and resilience",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-03-18",
-            "sourceType": "regulator",
-            "significance": "Regulator remarks reinforce tested fallback and recovery plans for critical technology dependencies.",
-            "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/march/technology-third-party-dependencies-exit-and-resilience",
-            "accessedDate": "2026-06-09"
-          },
+          "title": "Agent guardrails need operational recovery and incident communications",
+          "url": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
+          "source": "Other reporting / TechRadar / 2026-06-22",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as resilience context; no fresh evidence supersedes tested exit and recovery capabilities."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "Agent guardrails need operational recovery and incident communications",
+            "organisation": "TechRadar",
+            "publishedDate": "2026-06-22",
+            "sourceType": "other reporting",
+            "significance": "Supports the signal by linking TechRadar evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.techradar.com/pro/phishing-the-agent-why-ai-guardrails-arent-enough",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 9,
+          "title": "Regional network degradation can create uneven customer impact",
+          "url": "https://www.techradar.com/news/live/x-and-reddit-down-june-2026",
+          "source": "Other reporting / TechRadar / 2026-06-22",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "Regional network degradation can create uneven customer impact",
+            "organisation": "TechRadar",
+            "publishedDate": "2026-06-22",
+            "sourceType": "other reporting",
+            "significance": "Supports the signal by linking TechRadar evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.techradar.com/news/live/x-and-reddit-down-june-2026",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 10,
+          "title": "Patch SLAs are compressing as AI changes vulnerability discovery",
+          "url": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
+          "source": "Other reporting / WIRED / 2026-06-10",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant resilience control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "Patch SLAs are compressing as AI changes vulnerability discovery",
+            "organisation": "WIRED",
+            "publishedDate": "2026-06-10",
+            "sourceType": "other reporting",
+            "significance": "Supports the signal by linking WIRED evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.wired.com/story/cisa-ai-vulnerability-directive",
+            "accessedDate": "2026-07-09"
+          }
         }
       ]
     },
     {
       "id": "third-party",
       "route": "/signals/third-party/",
-      "title": "Concentration, substitutability, and exit that works.",
+      "title": "Dependencies that look internal when they fail.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "CMORG holds sector-wide cloud outage simulation exercise",
-          "url": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-03",
+          "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
           "evidence": {
-            "sourceTitle": "Financial sector exercises response to cloud outage scenario",
+            "sourceTitle": "CMORG holds sector-wide cloud outage simulation exercise",
             "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-11-03",
+            "publishedDate": "2026-10-09",
             "sourceType": "regulator",
-            "significance": "The Bank/PRA exercise tested the sector's response to a severe cloud outage with firms and cloud providers. Its announcement does not say which providers or services failed, publish results, or prove that any participant recovered within tolerance.",
-            "sourceUrl": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-            "accessedDate": "2026-11-08",
+            "significance": "SIMEX26 involved 38 major banks and market infrastructure operators responding to a global cloud-services disruption scenario. The Bank of England says firms are expected to take action from the exercise. Participation shows rehearsal, not recovery capability; the practical test is whether findings changed service plans, supplier arrangements or response decisions.",
+            "sourceUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
+            "accessedDate": "2026-10-11"
+          }
+        },
+        {
+          "title": "LiteLLM compromise turns package startup into credential risk",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+          "source": "Primary / Microsoft Security Research / 2026-10-23",
+          "evidence": {
+            "sourceTitle": "Inside the LiteLLM 1.107.0 supply chain compromise: Credential theft through Python startup hooks",
+            "organisation": "Microsoft Security Research",
+            "publishedDate": "2026-10-23",
+            "sourceType": "company announcement",
+            "significance": "Microsoft reports the compromised 1.107.0 release added Python startup files that could run when an affected environment launched Python, even without importing LiteLLM. Its analysis says removing the package alone may leave malicious startup components or exposed credentials. Identify affected environments without running Python or pip in a suspect environment, then investigate and rotate reachable secrets.",
+            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
+            "accessedDate": "2026-11-02",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-11-08",
-              "reason": "Official Bank/PRA announcement dated 3 November 2026 describes the participants and test scenario but not individual firm results."
+              "verifiedDate": "2026-11-02",
+              "reason": "Microsoft Security Research’s primary analysis is dated 23 October 2026 and documents the LiteLLM 1.107.0 startup-hook behavior and remediation cautions."
             }
           }
         },
         {
-          "title": "Microsoft: LiteLLM 1.107.0 supply-chain compromise exposed credentials",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-          "source": "Primary / Microsoft Threat Intelligence / 2026-10-23",
+          "title": "Bank of England consults on fees for payment-system supervision",
+          "url": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
+          "source": "Primary / Bank of England / 2026-09-22",
           "evidence": {
-            "sourceTitle": "Inside the LiteLLM 1.107.0 supply-chain compromise: Credential theft through Python startup hooks",
-            "organisation": "Microsoft Threat Intelligence",
-            "publishedDate": "2026-10-23",
-            "sourceType": "security company analysis",
-            "significance": "Microsoft reports the compromised package could execute via Python startup files even when an application did not import LiteLLM, making environment inventory, secret reachability and credential rotation relevant beyond obvious gateway deployments.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-            "accessedDate": "2026-10-24",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "Microsoft's direct 23 October incident analysis covers the compromised release and Python startup-file execution beyond applications that import LiteLLM."
-            }
+            "sourceTitle": "The Bank of England’s fees regime for recognised payment systems and specified service providers supervision 2026/27",
+            "organisation": "Bank of England",
+            "publishedDate": "2026-09-22",
+            "sourceType": "regulator",
+            "significance": "This consultation sets proposed 2026/27 fees for the Bank’s existing supervision of recognised payment systems and specified service providers. It does not extend the supervisory perimeter; firms in scope should understand the cost and response timetable.",
+            "sourceUrl": "https://www.bankofengland.co.uk/paper/2026/cp/the-boes-fees-regime-for-recognised-payment-systems-and-ssps-supervision-2026-27",
+            "accessedDate": "2026-09-27"
           }
         },
         {
-          "title": "Microsoft warns of LiteLLM supply-chain compromise and credential theft",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-          "source": "Primary / Microsoft Threat Intelligence / 2026-10-23",
+          "title": "BIS puts critical third-party dependence inside the cyber-resilience test",
+          "url": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
+          "source": "Primary / Bank for International Settlements / 2026-09-08",
           "evidence": {
-            "sourceTitle": "Inside the LiteLLM 1.107.0 supply-chain compromise: Credential theft through Python startup hooks",
-            "organisation": "Microsoft Threat Intelligence",
-            "publishedDate": "2026-10-23",
-            "sourceType": "security company analysis",
-            "significance": "Microsoft reports the compromised package could execute via Python startup files even where an application did not import LiteLLM. For financial firms, this makes environment inventory, secret reachability and credential rotation relevant beyond obvious gateway deployments.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-            "accessedDate": "2026-11-01"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-11-01; retained for its environment-level credential exposure and remediation lesson."
+            "sourceTitle": "Global standard-setting bodies publish a toolkit for cyber resilience at FMIs and a discussion paper on FMIs’ reliance on third-party service providers",
+            "organisation": "Bank for International Settlements",
+            "publishedDate": "2026-09-08",
+            "sourceType": "international standard setter",
+            "significance": "CPMI-IOSCO's toolkit and discussion paper connect cyber resilience to financial market infrastructures' reliance on critical third-party services. Firms should be able to show the service map, the intervention and escalation authority, and the evidence that recovery and supplier arrangements work together; comments are requested by 1 December 2026.",
+            "sourceUrl": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
+            "accessedDate": "2026-09-13"
+          }
         },
         {
-          "title": "Praised exit plans must include evidence of executable recovery",
-          "url": "https://www.bankofengland.co.uk/speech/2026/march/technology-third-party-dependencies-exit-and-resilience",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-03-18",
+          "title": "Google Cloud network degradation tests the shared service boundary",
+          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+          "source": "Primary / Google Cloud Service Health / 2026-09-03",
           "evidence": {
-            "sourceTitle": "Technology third-party dependencies, exit and resilience",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-03-18",
-            "sourceType": "regulator",
-            "significance": "Regulator remarks reinforce tested fallback and recovery plans for critical technology dependencies.",
-            "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/march/technology-third-party-dependencies-exit-and-resilience",
-            "accessedDate": "2026-06-09"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a control expectation for critical service exit and recovery."
-        },
-        {
-          "title": "Agentic AI procurement needs executable exit and fallback evidence",
-          "url": "https://www.eba.europa.eu/publications-and-media/speeches-and-presentations/remarks-eba-supervisory-forum-2025",
-          "source": "Primary / European Banking Authority / 2025-12-16",
-          "evidence": {
-            "sourceTitle": "Remarks at the EBA Supervisory Forum 2025",
-            "organisation": "European Banking Authority",
-            "publishedDate": "2025-12-16",
-            "sourceType": "regulator",
-            "significance": "EBA remarks support continued scrutiny of external service dependencies and operational resilience, although they do not establish a new AI-specific requirement.",
-            "sourceUrl": "https://www.eba.europa.eu/publications-and-media/speeches-and-presentations/remarks-eba-supervisory-forum-2025",
-            "accessedDate": "2026-01-19"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained for third-party resilience context; no stronger current official source changed the decision."
+            "sourceTitle": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
+            "organisation": "Google Cloud Service Health",
+            "publishedDate": "2026-09-03",
+            "sourceType": "company announcement",
+            "significance": "Google Cloud reported network degradation affecting multiple products in one zone. The useful test is whether the firm can identify shared network dependencies, assess the customer impact, invoke a viable fallback and record the decision before a provider restores service.",
+            "sourceUrl": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
+            "accessedDate": "2026-09-07"
+          }
         }
       ],
       "stillMaterial": [
         {
           "rank": 6,
-          "title": "Microsoft documents 2026 LiteLLM credential-theft incident",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-          "source": "Primary / Microsoft Threat Intelligence / 2026-10-23",
-          "evidence": {
-            "sourceTitle": "Inside the LiteLLM 1.107.0 supply-chain compromise",
-            "organisation": "Microsoft Threat Intelligence",
-            "publishedDate": "2026-10-23",
-            "sourceType": "security company analysis",
-            "significance": "The incident illustrates indirect execution paths and secret reachability beyond the package's named application use.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-            "accessedDate": "2026-10-24"
-          },
+          "title": "Agentic AI suppliers create permission and audit-log questions",
+          "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
+          "source": "Monitoring / Financial Times / 2026-06-30",
           "retention": "six-month-anchor",
-          "retentionReason": "This supply-chain exposure was reviewed for the 2026-10-25 edition and retained because environment-level execution and credential reachability remain operationally relevant."
-        },
-        {
-          "rank": 7,
-          "title": "DORA third-party registers should identify shared critical dependencies",
-          "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/dora-register-information",
-          "source": "Primary / European Banking Authority / 2025-01-17",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant third-party control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
-            "sourceTitle": "DORA registers of information and subcontracting chains",
-            "organisation": "European Banking Authority",
-            "publishedDate": "2025-01-17",
-            "sourceType": "regulator",
-            "significance": "The registers require identification of contractual ICT service chains; dependency mapping should make shared concentration and exit constraints visible.",
-            "sourceUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/operational-resilience/dora-register-information",
-            "accessedDate": "2026-01-19"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a structural dependency-mapping reference under DORA."
+            "sourceTitle": "Agentic AI suppliers create permission and audit-log questions",
+            "organisation": "Financial Times",
+            "publishedDate": "2026-06-30",
+            "sourceType": "financial reporting",
+            "significance": "Supports the signal by linking Financial Times evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
+            "accessedDate": "2026-07-09"
+          }
         },
         {
           "rank": 8,
-          "title": "Agentic procurement should ask who owns the recovery path",
-          "url": "https://www.eba.europa.eu/publications-and-media/speeches-and-presentations/remarks-eba-supervisory-forum-2025",
-          "source": "Primary / European Banking Authority / 2025-12-16",
+          "title": "ICT risk governance should connect supplier access, monitoring, and continuity",
+          "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
+          "source": "Official guidance / EBA",
           "evidence": {
-            "sourceTitle": "Remarks at the EBA Supervisory Forum 2025",
-            "organisation": "European Banking Authority",
-            "publishedDate": "2025-12-16",
+            "sourceTitle": "ICT risk governance should connect supplier access, monitoring, and continuity",
+            "organisation": "EBA",
+            "publishedDate": "2025-02-11",
             "sourceType": "regulator",
-            "significance": "The EBA remarks are strategic context for managing third-party dependencies; they do not create an AI-specific requirement.",
-            "sourceUrl": "https://www.eba.europa.eu/publications-and-media/speeches-and-presentations/remarks-eba-supervisory-forum-2025",
-            "accessedDate": "2026-01-19"
-          },
+            "significance": "Supports the signal by linking EBA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-ict-and-security-risk-management",
+            "accessedDate": "2026-09-27",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-09-27",
+              "reason": "The guidelines were amended on 11 February 2025 and applied from 20 May 2025. They are retained as a durable control baseline, not as a current-edition development."
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "title": "Material outsourcing still needs audit, subcontracting, and exit evidence",
+          "url": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
+          "source": "Primary / EBA outsourcing guidelines",
+          "evidence": {
+            "sourceTitle": "Material outsourcing still needs audit, subcontracting, and exit evidence",
+            "organisation": "FCA",
+            "publishedDate": "2026-03-31",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/internal-governance/guidelines-outsourcing-arrangements",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "EBA outsourcing guidelines remain a live control baseline; the historical publication date is not used as a current-edition date."
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "title": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
+          "url": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
+          "source": "Primary / FSB / 2026-06-10",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as third-party governance context; no fresh source supersedes it."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant third-party control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "FSB consults on sound practices for AI adoption, including third-party and vendor concentration risk oversight",
+            "organisation": "FSB",
+            "publishedDate": "2026-06-10",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FSB evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fsb.org/2026/06/sound-practices-for-responsible-adoption-of-artificial-intelligence-ai-consultation-report/",
+            "accessedDate": "2026-07-09"
+          }
         }
       ]
     },
     {
       "id": "market-structure",
       "route": "/signals/market-structure/",
-      "title": "Market plumbing, timing, and cross-entity dependencies.",
+      "title": "Capital, liquidity, infrastructure, and concentration risk.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "Market Participants Survey results - November 2026",
           "url": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
-          "source": "Primary / Bank of England / 2026-11-06",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-06",
           "evidence": {
             "sourceTitle": "Market Participants Survey results - November 2026",
-            "organisation": "Bank of England",
+            "organisation": "Bank of England and Prudential Regulation Authority",
             "publishedDate": "2026-11-06",
-            "sourceType": "regulator survey",
-            "significance": "The survey captures expectations and views from 80 market participants after the MPC decision; it is not a Bank forecast or policy commitment. Preserve the response base and distinguish respondents' expectations from the Bank's view.",
+            "sourceType": "regulator",
+            "significance": "The survey was open 21–23 October and received responses from 80 selected market participants. Published median expectations placed Bank Rate at 4.00% after the December meeting and 4.25% in February and March 2027. These are respondents' expectations, not an MPC decision or Bank forecast. Use as a scenario input for borrowers and infrastructure providers exposed to financing-cost changes.",
             "sourceUrl": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
             "accessedDate": "2026-11-08",
             "sourceDateVerification": {
               "status": "manual-verified",
               "verifiedDate": "2026-11-08",
-              "reason": "Bank of England survey page is dated 6 November 2026 and reports responses from 80 market participants."
+              "reason": "The Bank of England page is dated 6 November 2026 and states the 80-respondent base and question-level median Bank Rate expectations."
             }
           }
         },
         {
-          "title": "AI-market concentration requires correlated downside scenarios",
-          "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
-          "source": "Monitoring / Wall Street Journal / 2026-06-29",
+          "title": "Anthropic’s S-1 puts compute commitments and provider economics in view",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "source": "Primary / Anthropic, PBC / U.S. Securities and Exchange Commission / 2026-10-26",
           "evidence": {
-            "sourceTitle": "AI infrastructure financing and system concentration risks",
-            "organisation": "Wall Street Journal",
-            "publishedDate": "2026-06-29",
-            "sourceType": "financial reporting",
-            "significance": "The report describes leveraged investment in AI infrastructure and financing interconnected with a concentrated set of customers and providers. It remains a context anchor, not a new market event.",
-            "sourceUrl": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
-            "accessedDate": "2026-07-09"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as context on correlated AI infrastructure financing."
+            "sourceTitle": "Form S-1 Registration Statement",
+            "organisation": "Anthropic, PBC / U.S. Securities and Exchange Commission",
+            "publishedDate": "2026-10-26",
+            "sourceType": "regulator",
+            "significance": "The preliminary S-1 discloses the proposed Nasdaq listing and provider financial and infrastructure commitments. Offering price and share quantities remain blank, and the registration statement is not effective. Use it as primary evidence on provider economics and compute dependence, not as a completed offering or forecast of failure.",
+            "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+            "accessedDate": "2026-11-02",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-11-02",
+              "reason": "The SEC-hosted Form S-1 states it was filed on 26 October 2026 and shows the proposed offering terms are incomplete and subject to effectiveness."
+            }
+          }
         },
         {
-          "title": "AI-provider funding models affect infrastructure dependency",
-          "url": "https://www.ft.com/content/3a9c311a-2219-4d53-aa7b-f16c8c11e57a",
-          "source": "Monitoring / Financial Times / 2026-07-12",
+          "title": "FCA review finds varied conflicts controls in private markets",
+          "url": "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets",
+          "source": "Primary / Financial Conduct Authority / 2026-10-23",
           "evidence": {
-            "sourceTitle": "AI providers rely on complex financing and compute commitments",
-            "organisation": "Financial Times",
-            "publishedDate": "2026-07-12",
-            "sourceType": "financial reporting",
-            "significance": "The item informs analysis of capital commitments and compute supply concentration, without establishing that any provider faces imminent failure.",
-            "sourceUrl": "https://www.ft.com/content/3a9c311a-2219-4d53-aa7b-f16c8c11e57a",
-            "accessedDate": "2026-07-12"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as market-structure context for AI-provider capital requirements."
+            "sourceTitle": "Conflicts of interest and fair customer treatment in private markets",
+            "organisation": "Financial Conduct Authority",
+            "publishedDate": "2026-10-23",
+            "sourceType": "regulator",
+            "significance": "The FCA reports varied control maturity and calls on firms to review gaps in identifying and managing conflicts. Treat this as supervisory feedback from a multi-firm review, not a new rule.",
+            "sourceUrl": "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets",
+            "accessedDate": "2026-10-24",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-24",
+              "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action."
+            }
+          }
         },
         {
-          "title": "Frontier AI investment needs independent unit-economics evidence",
-          "url": "https://www.ft.com/content/1fe98d72-5444-4a72-a8b6-918c4df98220",
-          "source": "Monitoring / Financial Times / 2026-07-27",
+          "title": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+          "url": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+          "source": "Primary / US Securities and Exchange Commission / 2026-10-09",
           "evidence": {
-            "sourceTitle": "Frontier labs face pressure to show AI unit economics",
-            "organisation": "Financial Times",
-            "publishedDate": "2026-07-27",
-            "sourceType": "financial reporting",
-            "significance": "Reported funding and infrastructure plans can inform counterparty scenarios, but plans and valuations are not audited evidence of sustainable economics.",
-            "sourceUrl": "https://www.ft.com/content/1fe98d72-5444-4a72-a8b6-918c4df98220",
-            "accessedDate": "2026-07-27"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a monitoring reference for frontier provider economics and capital requirements."
+            "sourceTitle": "SEC Proposes Expanding Securities Eligible for Cross Trading by Registered Funds",
+            "organisation": "US Securities and Exchange Commission",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "The SEC proposes restoring cross-trading in most fixed-income securities while updating pricing and oversight conditions and requiring aggregated reporting. This is a proposal, not current law; the comment period runs for 60 days after Federal Register publication. Funds can assess how pricing can be verified, conflicts reviewed and activity reported before any rule takes effect.",
+            "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2026-104-sec-proposes-expanding-securities-eligible-cross-trading-registered-funds",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The SEC press release displays 9 October 2026 beneath its title. The generic page-date extractor returned a site-wide metadata date, so the release date was checked against the primary page."
+            }
+          }
         },
         {
-          "title": "Project Agenti is a research project, not an operational requirement",
-          "url": "https://www.bis.org/about/bisih/topics/suptech_regtech/project_agenti.htm",
-          "source": "Primary / Bank for International Settlements / 2026-10-14",
+          "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+          "source": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
           "evidence": {
-            "sourceTitle": "Project Agenti",
-            "organisation": "Bank for International Settlements",
-            "publishedDate": "2026-10-14",
-            "sourceType": "international organisation",
-            "significance": "BIS describes an ongoing controlled-simulation project examining how agents with different objectives may affect payment flows and stability. No results or scaled deployment commitment were reported.",
-            "sourceUrl": "https://www.bis.org/about/bisih/topics/suptech_regtech/project_agenti.htm",
-            "accessedDate": "2026-10-18"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a research context signal; Edition 21 adds a dated Bank of England survey about market participants' post-MPC expectations."
+            "sourceTitle": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
+            "organisation": "US Commodity Futures Trading Commission",
+            "publishedDate": "2026-10-09",
+            "sourceType": "regulator",
+            "significance": "The CFTC proposes expressly including specified event contracts based on sports, politics, culture and weather in the swap definition. Comments run for 30 days after Federal Register publication. Treat this as a proposed classification change and check whether product inventories and legal analysis distinguish it from other event-based offerings.",
+            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The CFTC page identifies release 9310-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+            }
+          }
         }
       ],
       "stillMaterial": [
         {
           "rank": 6,
-          "title": "AI financial concentration links customers, providers and infrastructure lenders",
-          "url": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
-          "source": "Monitoring / Wall Street Journal / 2026-06-29",
+          "title": "Autonomous trading agents put circuit breakers into the market-stability debate",
+          "url": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
+          "source": "Monitoring / Financial Times / 2026-06-30",
           "evidence": {
-            "sourceTitle": "AI infrastructure financing and system concentration risks",
-            "organisation": "Wall Street Journal",
-            "publishedDate": "2026-06-29",
+            "sourceTitle": "Autonomous trading agents put circuit breakers into the market-stability debate",
+            "organisation": "Financial Times",
+            "publishedDate": "2026-06-30",
             "sourceType": "financial reporting",
-            "significance": "A useful structural reference for financial links between AI developers, customers and infrastructure providers.",
-            "sourceUrl": "https://www.wsj.com/economy/bis-sees-peril-for-economy-financial-system-in-ai-investment-boom-326960fb",
+            "significance": "Supports the signal by linking Financial Times evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.ft.com/content/61ccaf26-e0cf-41af-afc6-f5eb43e4e568",
             "accessedDate": "2026-07-09"
           },
           "retention": "six-month-anchor",
-          "retentionReason": "Retained to monitor correlated financial exposure across providers and infrastructure."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 7,
-          "title": "BIS's Project Agenti examines payment-system impacts of AI agents",
-          "url": "https://www.bis.org/about/bisih/topics/suptech_regtech/project_agenti.htm",
-          "source": "Primary / Bank for International Settlements / 2026-10-14",
+          "title": "ECB Sintra signals feed H2 rate, liquidity, and risk-appetite assumptions",
+          "url": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
+          "source": "Primary / ECB forum / 2026-06-29 to 2026-07-01",
           "evidence": {
-            "sourceTitle": "Project Agenti",
-            "organisation": "Bank for International Settlements",
-            "publishedDate": "2026-10-14",
-            "sourceType": "international organisation",
-            "significance": "An ongoing controlled-simulation study of agent interaction with payment flows; the page does not report findings or set requirements.",
-            "sourceUrl": "https://www.bis.org/about/bisih/topics/suptech_regtech/project_agenti.htm",
-            "accessedDate": "2026-10-18"
+            "sourceTitle": "ECB Sintra signals feed H2 rate, liquidity, and risk-appetite assumptions",
+            "organisation": "ECB",
+            "publishedDate": "2026-06-29",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking ECB evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.ecb.europa.eu/press/conferences/html/20260629_ecb_forum_on_central_banking.en.html",
+            "accessedDate": "2026-07-09"
           },
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as non-binding research context."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         },
         {
           "rank": 8,
-          "title": "Market structure shapes AI infrastructure financing and liquidity exposure",
-          "url": "https://www.ft.com/content/1fe98d72-5444-4a72-a8b6-918c4df98220",
-          "source": "Monitoring / Financial Times / 2026-07-27",
+          "title": "ESMA's sixth data-quality report shows measurable effects of transaction-reporting burden reduction across EU market infrastructure",
+          "url": "https://www.esma.europa.eu/press-news/esma-news/esmas-annual-data-report-shows-increased-quality-wider-use-and-digital",
+          "source": "Primary / ESMA / 2026-05-29",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold.",
           "evidence": {
-            "sourceTitle": "Frontier labs face pressure to show AI unit economics",
-            "organisation": "Financial Times",
-            "publishedDate": "2026-07-27",
-            "sourceType": "financial reporting",
-            "significance": "The article informs structural scenarios around AI provider financing, compute commitments and market concentration.",
-            "sourceUrl": "https://www.ft.com/content/1fe98d72-5444-4a72-a8b6-918c4df98220",
-            "accessedDate": "2026-07-27"
+            "sourceTitle": "ESMA's sixth data-quality report shows measurable effects of transaction-reporting burden reduction across EU market infrastructure",
+            "organisation": "ESMA",
+            "publishedDate": "2026-05-29",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking ESMA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.esma.europa.eu/press-news/esma-news/esmas-annual-data-report-shows-increased-quality-wider-use-and-digital",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 9,
+          "title": "ESG ratings regulation changes procurement, methodology, and conflicts evidence",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
+          "source": "Primary / EUR-Lex ESG ratings / applies 2026-07-02",
+          "evidence": {
+            "sourceTitle": "ESG ratings regulation changes procurement, methodology, and conflicts evidence",
+            "organisation": "EUR-Lex",
+            "publishedDate": "2026-07-02",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking EUR-Lex evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/3005/oj",
+            "accessedDate": "2026-07-09"
           },
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as context; no newer specific financing event has superseded it."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant market-structure control anchor; no stronger fresh source cleared this week's editorial threshold."
         }
       ]
     },
     {
       "id": "financial-crime",
       "route": "/signals/financial-crime/",
-      "title": "Fraud, sanctions, and financial-crime operating signals.",
-      "stillMaterialReviewedAt": "2026-10-04",
+      "title": "Fraud, scams, sanctions, and control evidence.",
+      "stillMaterialReviewedAt": "2026-10-11",
       "top5": [
         {
           "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int-2026-104-zarubezhneft",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-31",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-08",
           "evidence": {
-            "sourceTitle": "General Licence INT/2026/104",
-            "organisation": "Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-10-31",
-            "sourceType": "regulator notice",
-            "significance": "OFSI's licence permits defined wind-down activity until 21 November 2026 and requires transaction records to be kept for six years. Firms should check counterparties and payment routes against the licence terms rather than treating it as general permission.",
-            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int-2026-104-zarubezhneft",
-            "accessedDate": "2026-11-01",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-11-01",
-              "reason": "GOV.UK publication and linked licence INT/2026/104 state the 21 November expiry and six-year record-keeping requirement."
-            }
+            "sourceTitle": "Guidance: OFSI General Licence - INT/2026/11080040",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-08",
+            "sourceType": "regulator",
+            "significance": "OFSI's licence permits defined persons and relevant UK institutions to wind down or divest from transactions involving Zarubezhneft JSC or its subsidiaries. It runs from 8 October to 21 November 2026 and requires complete, readable records for six years. Firms should confirm entity ownership, transaction scope and licence conditions before relying on the permission.",
+            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
+            "accessedDate": "2026-10-11"
           }
         },
         {
-          "title": "The UK sanctions regime updates its Russia licence guidance",
-          "url": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-11-01",
+          "title": "UK NCA secures a £290,000 confiscation order after a people-smuggling conviction",
+          "url": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+          "source": "Primary / National Crime Agency / 2026-10-02",
           "evidence": {
-            "sourceTitle": "Financial sanctions guidance and licensing updates",
-            "organisation": "Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-11-01",
-            "sourceType": "regulator guidance",
-            "significance": "Official updated guidance links sanctions licence obligations to operational screening and escalation. It is guidance, not a general licence for transactions outside the stated terms.",
-            "sourceUrl": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-            "accessedDate": "2026-11-08"
+            "sourceTitle": "People smuggling boss hit with SCPO and told to hand over £290k proceeds of crime or face more time in jail",
+            "organisation": "National Crime Agency",
+            "publishedDate": "2026-10-02",
+            "sourceType": "regulator",
+            "significance": "The NCA reports a £290,000 court confiscation order and a five-year Serious Crime Prevention Order restricting this individual’s access to bank accounts and communication devices. It is a case-specific example of post-conviction asset recovery and financial controls, not evidence of a wider trend.",
+            "sourceUrl": "https://www.nationalcrimeagency.gov.uk/news/people-smuggling-boss-hit-with-scpo-and-told-to-hand-over-290k-proceeds-of-crime-or-face-more-time-in-jail",
+            "accessedDate": "2026-10-04"
           }
         },
         {
-          "title": "Sanctions screening requires current ownership and payment-route data",
-          "url": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-07-10",
+          "title": "ASIC's misconduct data turns reporting channels into a control-intelligence test",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
+          "source": "Primary / Australian Securities and Investments Commission / 2026-09-03",
           "evidence": {
-            "sourceTitle": "Financial sanctions guidance and licensing updates",
-            "organisation": "Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-07-10",
-            "sourceType": "regulator guidance",
-            "significance": "Sanctions controls should use current ownership, counterparty and payment-route data and preserve escalation evidence.",
-            "sourceUrl": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-            "accessedDate": "2026-07-15"
-          }
-        },
-        {
-          "title": "FSB toolkit frames AI oversight as risk-proportionate practice",
-          "url": "https://www.fsb.org/2026/10/monitoring-and-supervising-ai-adoption-in-financial-services-a-toolkit-for-financial-authorities-and-regulators/",
-          "source": "Primary / Financial Stability Board / 2026-10-16",
-          "evidence": {
-            "sourceTitle": "Monitoring and supervising AI adoption in financial services: a toolkit for financial authorities and regulators",
-            "organisation": "Financial Stability Board",
-            "publishedDate": "2026-10-16",
-            "sourceType": "international organisation",
-            "significance": "The FSB offers a 12-practice toolkit for authorities monitoring AI adoption in finance. It is a supervisory resource, not a new binding requirement for firms.",
-            "sourceUrl": "https://www.fsb.org/2026/10/monitoring-and-supervising-ai-adoption-in-financial-services-a-toolkit-for-financial-authorities-and-regulators/",
+            "sourceTitle": "26-206MR Scams and governance failures dominate misconduct report | ASIC",
+            "organisation": "Australian Securities and Investments Commission",
+            "publishedDate": "2026-09-03",
+            "sourceType": "regulator",
+            "significance": "ASIC says retail-investor issues and governance matters made up more than four in five misconduct reports in the first half of 2026, with reports helping existing surveillance and investigations. The read-across is whether a firm can connect complaints, whistleblowing and scam intelligence to triage, investigation, accountable action and a record of the outcome.",
+            "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
             "accessedDate": "2026-10-18"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a non-binding supervisory-practice context signal."
+          }
         },
         {
-          "title": "OFAC sanctions lists require continuous counterparty screening",
-          "url": "https://ofac.treasury.gov/recent-actions/20260710",
-          "source": "Primary / US Office of Foreign Assets Control / 2026-07-10",
+          "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
+          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
+          "source": "Primary / Central Bank of Ireland / 2026-09-04",
           "evidence": {
-            "sourceTitle": "Recent OFAC actions",
-            "organisation": "US Office of Foreign Assets Control",
-            "publishedDate": "2026-07-10",
-            "sourceType": "regulator notice",
-            "significance": "Sanctions list changes can require updates to screening datasets and documented re-review of affected activity.",
-            "sourceUrl": "https://ofac.treasury.gov/recent-actions/20260710",
-            "accessedDate": "2026-07-15"
+            "sourceTitle": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
+            "organisation": "Central Bank of Ireland",
+            "publishedDate": "2026-09-04",
+            "sourceType": "regulator",
+            "significance": "The Central Bank of Ireland reports fraudulent-payment value rose 27.2% to €179.04 million in 2025, with authorised push-payment fraud making up 45% of value and cross-border payments 69.8%. That is a direct test of payment monitoring, intervention speed, customer support and the evidence behind each decision.",
+            "sourceUrl": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
+            "accessedDate": "2026-09-06"
+          }
+        },
+        {
+          "title": "OFSI penalty puts sanctions-payment controls back under scrutiny",
+          "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-09-02",
+          "evidence": {
+            "sourceTitle": "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-09-02",
+            "sourceType": "regulator",
+            "significance": "OFSI has imposed a £4.73 million penalty on Citibank's London branch for a financial-sanctions breach. The practical read-across is to test screening, payment release, escalation, exception authority and the contemporaneous record of why a payment was allowed or stopped.",
+            "sourceUrl": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
+            "accessedDate": "2026-09-06"
           }
         }
       ],
       "stillMaterial": [
         {
-          "rank": 6,
-          "title": "Financial crime monitoring must distinguish an allowance from permission",
-          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int-2026-104-zarubezhneft",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-31",
-          "evidence": {
-            "sourceTitle": "General Licence INT/2026/104",
-            "organisation": "Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-10-31",
-            "sourceType": "regulator notice",
-            "significance": "The licence is narrow and time-bound. Operational records should show how parties checked the authorised activity, period and payment route.",
-            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int-2026-104-zarubezhneft",
-            "accessedDate": "2026-11-01"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained because the narrow authorisation and deadline remain operationally relevant this cycle."
-        },
-        {
           "rank": 7,
-          "title": "Sanctions screening should keep a clear audit trail",
-          "url": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-07-10",
+          "title": "Financial-crime governance should be traceable from risk assessment to control testing",
+          "url": "https://handbook.fca.org.uk/handbook/FCG/1/",
+          "source": "Official guidance / FCA financial crime guide",
           "evidence": {
-            "sourceTitle": "Financial sanctions guidance and licensing updates",
-            "organisation": "Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-07-10",
-            "sourceType": "regulator guidance",
-            "significance": "Sanctions decisions require a defensible trail linking the current list, match review, escalation and payment outcome.",
-            "sourceUrl": "https://www.gov.uk/government/collections/financial-sanctions-regime-specific-consolidated-lists-and-releases",
-            "accessedDate": "2026-07-15"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as foundational screening and audit-trail context."
+            "sourceTitle": "Financial-crime governance should be traceable from risk assessment to control testing",
+            "organisation": "FCA",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://handbook.fca.org.uk/handbook/FCG/1/",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA Financial Crime Guide is maintained handbook guidance and is retained as a live control baseline."
+            }
+          }
         },
         {
-          "rank": 8,
-          "title": "Cross-border payments need reliable sanctions escalation paths",
-          "url": "https://www.fca.org.uk/publications/multi-firm-reviews/cross-border-payments-financial-crime-controls",
-          "source": "Primary / Financial Conduct Authority / 2026-03-12",
-          "evidence": {
-            "sourceTitle": "Cross-border payment controls and escalation",
-            "organisation": "Financial Conduct Authority",
-            "publishedDate": "2026-03-12",
-            "sourceType": "regulator review",
-            "significance": "Supervisory findings on cross-border payment controls inform sanctions screening and escalation design; they do not evidence firm-specific weakness.",
-            "sourceUrl": "https://www.fca.org.uk/publications/multi-firm-reviews/cross-border-payments-financial-crime-controls",
-            "accessedDate": "2026-06-09"
-          },
+          "rank": 9,
+          "title": "JMLSG consults on Part I amendments covering MLRO cross-border oversight and bank-insolvency exceptions",
+          "url": "https://www.jmlsg.org.uk/latest-news/jmlsg-consultation-part-i-2/",
+          "source": "Industry guidance / JMLSG / 2026-06-01",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained as cross-border control context; no fresh enforcement case supersedes it."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant financial-crime control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "JMLSG consults on Part I amendments covering MLRO cross-border oversight and bank-insolvency exceptions",
+            "organisation": "JMLSG",
+            "publishedDate": "2026-06-01",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking JMLSG evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.jmlsg.org.uk/latest-news/jmlsg-consultation-part-i-2/",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 10,
+          "title": "Cryptoasset AML expectations should link onboarding, monitoring, custody, and suspicious activity controls",
+          "url": "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/cryptoassets-aml-ctf-regime",
+          "source": "Official expectations / FCA cryptoasset AML regime",
+          "evidence": {
+            "sourceTitle": "Cryptoasset AML expectations should link onboarding, monitoring, custody, and suspicious activity controls",
+            "organisation": "FCA",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/cryptoassets-aml-ctf-regime",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA cryptoasset AML regime page is live supervisory guidance, retained for current control interpretation rather than as a dated news item."
+            }
+          }
+        },
+        {
+          "title": "OFSI extends Maritime Mutual reinsurance wind-down licence and adds monthly reporting",
+          "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "OFSI General Licence INT/2026/8893924",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-07",
+            "sourceType": "regulator",
+            "significance": "OFSI amended and extended this licence on 7 October through 6 October 2027. The amendment adds monthly reporting within 14 days of each month end, while preserving six-year record keeping. Its permissions concern specified pre-designation reinsurance contracts and payments; firms should check the complete terms before relying on the licence.",
+            "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int20268893924",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "The GOV.UK page records a 7 October 2026 amendment; the attached primary licence PDF is signed as amended on that date and sets the revised reporting and expiry terms."
+            }
+          }
+        },
+        {
+          "title": "OFSI updates Russian oil services and price-cap licence materials",
+          "url": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-01",
+          "evidence": {
+            "sourceTitle": "Maritime Services Ban and Oil Price Cap: licences and reporting forms",
+            "organisation": "UK Office of Financial Sanctions Implementation",
+            "publishedDate": "2026-10-01",
+            "sourceType": "regulator",
+            "significance": "The GOV.UK record says its 1 October update changed General Licence INT/2022/2470156 and publication notices for four licence numbers. Firms relying on the Russian oil-services or price-cap permissions should compare the attached versions with internal procedures and confirm any related reporting requirements from the licence text.",
+            "sourceUrl": "https://www.gov.uk/government/publications/russian-oil-services-ban",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GOV.UK gives 1 October 2026 as the last-updated date and identifies the licence and publication-notice files changed in that update; the date refers to the recorded revision, not original publication."
+            }
+          }
         }
       ]
     },
     {
       "id": "cyber",
       "route": "/signals/cyber/",
-      "title": "Observed threats, containment, and recoverable services.",
+      "title": "Threats, vulnerabilities, identity, and response.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
@@ -747,308 +853,485 @@
             "sourceTitle": "ARTEX abuse expands as cybercriminals target financial sector",
             "organisation": "Microsoft Threat Intelligence",
             "publishedDate": "2026-11-06",
-            "sourceType": "security company analysis",
-            "significance": "Microsoft reports threat actors abusing Microsoft's Account Research Tool for Exchange, including credential theft, inbox access and lateral movement affecting financial-sector organisations. Treat this as Microsoft's observed activity, not a prevalence estimate or independently confirmed sector-wide incident count.",
+            "sourceType": "company announcement",
+            "significance": "Microsoft Threat Intelligence says Storm-3358 used the agentic framework ARTEX alongside conventional tools to scan public-facing systems, exploit web-application flaws and use compromised credentials and cloud identities for persistence and data exfiltration. This is Microsoft's observed activity account, not a prevalence estimate. Test internet-facing exposure, identity controls, lateral-movement detection and containment.",
             "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
             "accessedDate": "2026-11-08",
             "sourceDateVerification": {
               "status": "manual-verified",
               "verifiedDate": "2026-11-08",
-              "reason": "Microsoft Threat Intelligence's direct report is dated 6 November and describes ARTEX abuse in observed activity targeting financial firms."
+              "reason": "Microsoft's primary Threat Intelligence article is dated 6 November 2026 and describes Storm-3358's use of ARTEX against financial-sector organisations."
             }
           }
         },
         {
-          "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-          "url": "https://openai.com/index/introducing-gpt-6-cyber",
-          "source": "Primary / OpenAI / 2026-11-05",
-          "evidence": {
-            "sourceTitle": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-            "organisation": "OpenAI",
-            "publishedDate": "2026-11-05",
-            "sourceType": "company announcement",
-            "significance": "OpenAI reports that GPT‑6 Cyber found 81 high-severity Firefox vulnerabilities and developed 948 Linux-kernel exploits in evaluations. Mozilla has begun issuing fixes. These provider-reported results show capability in controlled work, not proof of real-world exploitation or customer defensive outcomes.",
-            "sourceUrl": "https://openai.com/index/introducing-gpt-6-cyber",
-            "accessedDate": "2026-11-08"
-          }
-        },
-        {
-          "title": "Microsoft ARTEX credential theft demands prompt access review",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
-          "source": "Primary / Microsoft Threat Intelligence / 2026-11-06",
-          "evidence": {
-            "sourceTitle": "ARTEX abuse expands as cybercriminals target financial sector",
-            "organisation": "Microsoft Threat Intelligence",
-            "publishedDate": "2026-11-06",
-            "sourceType": "security company analysis",
-            "significance": "Microsoft describes credential theft, inbox access and lateral movement in attacks on financial firms. Review exposure and access paths without assuming the report establishes the prevalence of these methods across the sector.",
-            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
-            "accessedDate": "2026-11-08"
-          }
-        },
-        {
-          "title": "KeyDrift espionage targeting network devices described by Cisco Talos",
+          "title": "Historical KeyDrift activity exposes Cisco SD-WAN control-plane compromise paths",
           "url": "https://blog.talosintelligence.com/uat-11473-keydrift",
-          "source": "Primary / Cisco Talos / 2026-10-28",
+          "source": "Primary / Cisco Talos Intelligence Group / 2026-10-28",
           "evidence": {
-            "sourceTitle": "UAT-11473: KeyDrift espionage activity targets network appliances",
-            "organisation": "Cisco Talos",
+            "sourceTitle": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+            "organisation": "Cisco Talos Intelligence Group",
             "publishedDate": "2026-10-28",
-            "sourceType": "security company analysis",
-            "significance": "Talos describes a long-running espionage campaign targeting network appliances, including historical evidence of compromise. Its report does not establish active exploitation of every vulnerable device or current compromise across financial institutions.",
+            "sourceType": "company announcement",
+            "significance": "Cisco Talos says UAT-11473 exploited an authentication-bypass flaw in Cisco SD-WAN Catalyst Controller instances and deployed KeyDrift components designed to persist and collect sensitive control-plane keying material. The article analyses historical activity; it does not establish current exploitation. Check affected-device exposure, patch state and control-plane telemetry.",
             "sourceUrl": "https://blog.talosintelligence.com/uat-11473-keydrift",
-            "accessedDate": "2026-11-01"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-11-01; retained for the operational lesson on perimeter-device compromise and credential rotation."
+            "accessedDate": "2026-11-02",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-11-02",
+              "reason": "Cisco Talos’s primary threat advisory is dated 28 October 2026 and describes historical UAT-11473 activity and KeyDrift; no claim of current exploitation is made."
+            }
+          }
         },
         {
-          "title": "CERT-FR warns of active FortiMail exploitation",
-          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
-          "source": "Primary / CERT-FR / 2026-10-09",
+          "title": "PHP2Shell advisories warn of critical unauthenticated remote code execution",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
+          "source": "Primary / Canadian Centre for Cyber Security / 2026-10-21, updated 2026-10-23",
           "evidence": {
-            "sourceTitle": "CERTFR-2026-ALE-012: FortiMail vulnerabilities exploited in the wild",
-            "organisation": "French Cybersecurity Agency (CERT-FR)",
-            "publishedDate": "2026-10-09",
-            "sourceType": "public authority advisory",
-            "significance": "CERT-FR confirms the vulnerabilities are exploited in the wild. Prioritise exposure identification, the vendor's fixes and evidence of containment, rather than treating monitoring alone as closure.",
-            "sourceUrl": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
-            "accessedDate": "2026-10-11"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-10-11 and retained for the confirmed in-the-wild exploitation alert."
+            "sourceTitle": "Critical vulnerabilities impacting PHP (CVE-2026-109618, CVE-2026-109619)",
+            "organisation": "Canadian Centre for Cyber Security",
+            "publishedDate": "2026-10-21",
+            "sourceType": "public authority",
+            "significance": "The advisory describes unauthenticated remote code execution affecting vulnerable PHP installations serving web requests, with internet-facing deployments at heightened risk. Fixed versions are listed. The 23 October update reported no active exploitation at that time and added a separate issue with a temporary mitigation.",
+            "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
+            "accessedDate": "2026-10-24",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-24",
+              "reason": "Canadian Cyber Centre primary advisory displays 21 October 2026 and shows the 23 October update, affected versions and exploitation status."
+            }
+          }
+        },
+        {
+          "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+          "source": "Primary / CERT-FR / ANSSI / 2026-10-02",
+          "evidence": {
+            "sourceTitle": "Vulnérabilité dans Fortinet FortiMail (02 octobre 2026)",
+            "organisation": "CERT-FR / ANSSI",
+            "publishedDate": "2026-10-02",
+            "sourceType": "regulator",
+            "significance": "CERT-FR says Fortinet confirmed active exploitation of a remote-code-execution vulnerability affecting specified FortiMail versions. If the product is in the firm's estate, identify affected versions, apply Fortinet's fix and review the available indicators of compromise. The advisory does not establish that any particular firm was affected.",
+            "sourceUrl": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "CERT-FR's primary advisory identifies 2 October 2026 as both the first and last version date; it records Fortinet's confirmation of active exploitation. The date and claim were checked on the primary page."
+            }
+          }
         }
       ],
       "stillMaterial": [
         {
           "rank": 6,
-          "title": "CISA's KEV catalog requires an evidence-backed prioritisation path",
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "Primary / Cybersecurity and Infrastructure Security Agency / 2026-10-01",
+          "title": "A small set of measurable controls is more useful than a long cyber-control catalogue",
+          "url": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
+          "source": "Official guidance / CISA Cross-Sector Cybersecurity Performance Goals",
           "evidence": {
-            "sourceTitle": "Known Exploited Vulnerabilities Catalog",
+            "sourceTitle": "Cross-Sector Cybersecurity Performance Goals",
             "organisation": "CISA",
-            "publishedDate": "2026-10-01",
-            "sourceType": "public authority catalog",
-            "significance": "The catalog supports risk-based remediation prioritisation, but institutions need evidence connecting KEV inclusion to asset exposure, compensating controls, deadlines and verified closure.",
-            "sourceUrl": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-10-04"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a baseline vulnerability-prioritisation source; this edition uses provider-reported AI capability and observed Microsoft threat activity as its new signals."
+            "publishedDate": "2022-12-08",
+            "sourceType": "regulator",
+            "significance": "CISA's cross-sector goals provide a maintained, prioritised baseline for testing whether a cyber-control programme can show measurable risk reduction.",
+            "sourceUrl": "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals",
+            "accessedDate": "2026-09-07",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-09-07",
+              "reason": "CISA maintains the Cross-Sector Cybersecurity Performance Goals as a prioritised control baseline; it is retained for operating practice rather than weekly news recency."
+            }
+          }
         },
         {
           "rank": 7,
-          "title": "NCSC's Secure by Design guidance remains an operational baseline",
-          "url": "https://www.ncsc.gov.uk/collection/secure-design",
-          "source": "Primary / UK National Cyber Security Centre / 2025-11-01",
+          "title": "Identity and access management should be treated as a board-visible cyber control",
+          "url": "https://www.ncsc.gov.uk/collection/10-steps/identity-and-access-management",
+          "source": "Official guidance / NCSC 10 Steps IAM",
           "evidence": {
-            "sourceTitle": "Secure design principles",
-            "organisation": "UK National Cyber Security Centre",
-            "publishedDate": "2025-11-01",
-            "sourceType": "public authority guidance",
-            "significance": "The guidance is a control-design baseline, not a response to a new event. Retain as a standing reference for secure defaults, monitoring and recovery.",
-            "sourceUrl": "https://www.ncsc.gov.uk/collection/secure-design",
-            "accessedDate": "2026-10-04"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a long-term secure-design anchor, distinct from this week's current cyber threat and vulnerability-closure signals."
+            "sourceTitle": "Identity and access management should be treated as a board-visible cyber control",
+            "organisation": "NCSC",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking NCSC evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.ncsc.gov.uk/collection/10-steps/identity-and-access-management",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "NCSC identity and access guidance is a maintained control baseline, not a weekly news item."
+            }
+          }
         },
         {
           "rank": 8,
-          "title": "OpenAI's frontier cybersecurity safeguards need independent testing",
-          "url": "https://openai.com/index/introducing-gpt-6-cyber",
-          "source": "Primary / OpenAI / 2026-11-05",
+          "title": "Known exploited vulnerabilities should drive risk-based patch prioritisation",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "Threat source / CISA KEV catalog",
           "evidence": {
-            "sourceTitle": "GPT‑6 Cyber technical announcement",
-            "organisation": "OpenAI",
-            "publishedDate": "2026-11-05",
-            "sourceType": "company announcement",
-            "significance": "OpenAI reports improved scope compliance in controlled testing, but customers need independently validated restrictions and evidence of defensive outcomes in their own environment.",
-            "sourceUrl": "https://openai.com/index/introducing-gpt-6-cyber",
-            "accessedDate": "2026-11-08"
-          },
+            "sourceTitle": "Known exploited vulnerabilities should drive risk-based patch prioritisation",
+            "organisation": "CISA",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking CISA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The CISA KEV catalogue is a live operational dataset; its review date is the relevant freshness signal."
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "title": "NIST proof keeps continuous adversarial monitoring ahead of fixed AI guardrails",
+          "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
+          "source": "Primary / NIST / 2026-06-09",
           "retention": "six-month-anchor",
-          "retentionReason": "Retained to track external validation of the new limited-access model and whether its safeguards hold beyond provider-controlled evaluations."
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant cyber control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "NIST mathematical proof supports transition to continuous monitor and update",
+            "organisation": "NIST",
+            "publishedDate": "2026-06-09",
+            "sourceType": "regulator",
+            "significance": "NIST's work retains continuous monitoring and updating as the relevant control anchor when fixed AI guardrails no longer reflect the operating threat.",
+            "sourceUrl": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
+            "accessedDate": "2026-09-07"
+          }
+        },
+        {
+          "rank": 10,
+          "title": "Incident response must be built into risk management, not left to a technical playbook",
+          "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "source": "Official guidance / NIST SP 800-61 Rev. 3",
+          "evidence": {
+            "sourceTitle": "NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management",
+            "organisation": "NIST",
+            "publishedDate": "2025-04-03",
+            "sourceType": "regulator",
+            "significance": "NIST connects preparation, detection, response and recovery to the wider risk-management system, making the operating decision path—not only the technical playbook—the retained control test.",
+            "sourceUrl": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+            "accessedDate": "2026-09-07",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-09-07",
+              "reason": "NIST SP 800-61 Rev. 3 is current incident-response guidance, retained as a durable control baseline rather than a weekly news item."
+            }
+          }
         }
-      ]
+      ],
+      "shortlistCount": 4,
+      "shortlistRationale": "Four distinct current cyber items cleared review: an active-exploitation catalog update, a government alert on exposed Citrix gateways, Microsoft reporting of Zimbra exploitation, and research on stealthy network-edge implants. Repetitive older KEV alerts were excluded from the current shortlist."
     },
     {
       "id": "technology-failure",
       "route": "/signals/technology-failure/",
-      "title": "Service degradation, incident response, and recovery evidence.",
+      "title": "Outages, change failure, data integrity, and recovery.",
+      "shortlistCount": 4,
+      "shortlistRationale": "No additional technology-failure candidate cleared the editorial materiality threshold for this edition.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "Google Cloud’s London region outage exposes cross-zone recovery limits",
           "url": "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj",
-          "source": "Primary / Google Cloud status / 2026-10-30",
+          "source": "Primary / Google Cloud Status / 2026-10-20",
           "evidence": {
-            "sourceTitle": "Google Cloud Service Health",
-            "organisation": "Google Cloud",
-            "publishedDate": "2026-10-30",
-            "sourceType": "service status",
-            "significance": "Google Cloud describes a temporary single-region disruption that affected some customers in London and notes cross-zone recovery limits. The status account does not establish broad service failure or show that every customer was affected.",
+            "sourceTitle": "Google Cloud Service Health incident: europe-west2",
+            "organisation": "Google Cloud Status",
+            "publishedDate": "2026-10-20",
+            "sourceType": "company announcement",
+            "significance": "Google’s preliminary report describes a power event in europe-west2-b followed by capacity constraints and impact across the London region. Firms should check whether cross-zone failover and critical-service recovery work under regional control-plane and capacity stress.",
             "sourceUrl": "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj",
-            "accessedDate": "2026-11-01"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-11-01; retained as a recent infrastructure-dependency case for recovery testing."
-        },
-        {
-          "title": "Cloudflare: October 21, 2026 network disruption review",
-          "url": "https://blog.cloudflare.com/october-21-2026-network-disruption/",
-          "source": "Primary / Cloudflare / 2026-10-21",
-          "evidence": {
-            "sourceTitle": "October 21, 2026 network disruption review",
-            "organisation": "Cloudflare",
-            "publishedDate": "2026-10-21",
-            "sourceType": "company incident review",
-            "significance": "The event disrupted some services for 17 minutes in one location due to an internal configuration issue. It is a limited incident and should not be used to infer broad system instability.",
-            "sourceUrl": "https://blog.cloudflare.com/october-21-2026-network-disruption/",
-            "accessedDate": "2026-10-25"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a bounded network-service disruption and change-control lesson; no broader reliability trend is implied."
-        },
-        {
-          "title": "AWS reports resilience findings from its July 2026 service outage",
-          "url": "https://aws.amazon.com/message/2026/07/aws-service-event-july-2026/",
-          "source": "Primary / Amazon Web Services / 2026-07-14",
-          "evidence": {
-            "sourceTitle": "AWS service event review, July 2026",
-            "organisation": "Amazon Web Services",
-            "publishedDate": "2026-07-14",
-            "sourceType": "company incident review",
-            "significance": "AWS reports a bounded control-plane disruption and improvements; customer-specific recovery evidence remains necessary.",
-            "sourceUrl": "https://aws.amazon.com/message/2026/07/aws-service-event-july-2026/",
-            "accessedDate": "2026-07-15"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a cloud recovery reference; no new platform-wide disruption supersedes it."
-        },
-        {
-          "title": "CISA's Known Exploited Vulnerabilities Catalog supports priority decisions",
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "Primary / Cybersecurity and Infrastructure Security Agency / 2026-10-01",
-          "evidence": {
-            "sourceTitle": "Known Exploited Vulnerabilities Catalog",
-            "organisation": "CISA",
-            "publishedDate": "2026-10-01",
-            "sourceType": "public authority catalog",
-            "significance": "The catalog helps prioritise known exploited issues; continuity also requires verified remediation and recoverable service paths.",
-            "sourceUrl": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-            "accessedDate": "2026-10-04"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as standing prioritisation context; this edition moves from incident notification to vulnerability closure speed."
-        },
-        {
-          "title": "PRA and Bank test sector response to a severe cloud outage",
-          "url": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-03",
-          "evidence": {
-            "sourceTitle": "Financial sector exercises response to cloud outage scenario",
-            "organisation": "Bank of England and Prudential Regulation Authority",
-            "publishedDate": "2026-11-03",
-            "sourceType": "regulator",
-            "significance": "The Bank/PRA sector-wide exercise tested coordination during a simulated cloud outage. The announcement does not publish firm-level recovery results, so participants' ability to restore critical services remains an open evidence question.",
-            "sourceUrl": "https://www.bankofengland.co.uk/news/2026/november/financial-sector-exercises-response-to-cloud-outage-scenario",
-            "accessedDate": "2026-11-08",
+            "accessedDate": "2026-10-24",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-11-08",
-              "reason": "The official 3 November Bank/PRA announcement describes a cloud-outage simulation and does not report participant recovery performance."
+              "verifiedDate": "2026-10-24",
+              "reason": "Google Cloud Status incident page states the event date as 20 October and describes the europe-west2-b power event and subsequent regional impacts."
             }
+          }
+        },
+        {
+          "title": "Incident with Git Operations, Pull Requests and Actions",
+          "url": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+          "source": "Primary / GitHub Status / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "Incident with Git Operations, Pull Requests and Actions",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-10-07",
+            "sourceType": "company announcement",
+            "significance": "GitHub reported a roughly ten-minute disruption on 7 October affecting Git operations, webhooks, issues, pull requests and Actions. A second service-wide disruption occurred later the same day. The first report says the cause was still under investigation and mitigations were being applied; users of hosted development workflows should check whether release, change-control or recovery plans account for temporary platform unavailability.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/djlmxz2zd0j7",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GitHub Status timestamps this incident on 7 October 2026; the initial report identifies a disruption between 15:06 and 15:16 UTC. The primary incident record was checked directly."
+            }
+          }
+        },
+        {
+          "title": "Incident with Git Operations, Issues, Actions and Pull Requests",
+          "url": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+          "source": "Primary / GitHub Status / 2026-10-07",
+          "evidence": {
+            "sourceTitle": "Incident with Git Operations, Issues, Actions and Pull Requests",
+            "organisation": "GitHub Status",
+            "publishedDate": "2026-10-07",
+            "sourceType": "company announcement",
+            "significance": "GitHub reported a second roughly ten-minute service disruption on 7 October, affecting Git operations, issues, pull requests and Actions, after an earlier incident that day. The provider said durable mitigation was in progress and later reported recovery. Treat the pair as a same-day recurrence, not evidence of a prolonged or continuing outage.",
+            "sourceUrl": "https://www.githubstatus.com/incidents/qpfv5p86dmrl",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "GitHub Status timestamps this second incident on 7 October 2026; the report identifies a recurrence between 16:52 and 17:01 UTC. The primary incident record was checked directly."
+            }
+          }
+        },
+        {
+          "title": "Cloudflare R2 errors expose a regional storage-dependency test",
+          "url": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+          "source": "Primary / Cloudflare Status / 2026-09-05",
+          "evidence": {
+            "sourceTitle": "Elevated number of R2 503 errors in Eastern North America region",
+            "organisation": "Cloudflare Status",
+            "publishedDate": "2026-09-05",
+            "sourceType": "company announcement",
+            "significance": "Cloudflare reported elevated R2 storage errors in Eastern North America. Treat a regional storage disruption as a practical test of dependency mapping, customer-impact detection, routing or fallback options, and the record of who decided the service was safe to resume.",
+            "sourceUrl": "https://www.cloudflarestatus.com/incidents/ftvf8c3m4mv5",
+            "accessedDate": "2026-09-06"
           }
         }
       ],
-      "stillMaterial": []
+      "stillMaterial": [
+        {
+          "rank": 6,
+          "title": "Incident reporting should be connected to customer impact and remediation evidence",
+          "url": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
+          "source": "Official expectations / FCA incident reporting",
+          "evidence": {
+            "sourceTitle": "Incident reporting should be connected to customer impact and remediation evidence",
+            "organisation": "FCA",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/firms/operational-resilience/reporting-operational-incidents",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "FCA incident-reporting expectations are maintained supervisory guidance and remain relevant as a control baseline."
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "title": "DORA makes ICT third-party exit, audit and data-return evidence one control question",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+          "source": "Official regulation / EU Digital Operational Resilience Act",
+          "evidence": {
+            "sourceTitle": "Regulation (EU) 2022/2554 on digital operational resilience for the financial sector",
+            "organisation": "European Union",
+            "publishedDate": "2022-12-27",
+            "sourceType": "regulator",
+            "significance": "DORA connects ICT third-party arrangements, access and audit rights, data return, exit and continuity into one operational-resilience control set.",
+            "sourceUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+            "accessedDate": "2026-09-07",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-09-07",
+              "reason": "DORA is binding, durable primary law and is retained as the cross-border ICT third-party control baseline."
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "title": "ESAs' first DORA incident report finds a third of major ICT incidents have cross-border impact",
+          "url": "https://www.esma.europa.eu/press-news/esma-news/esas-publish-first-report-dora-major-ict-related-incidents",
+          "source": "Primary / ESAs (EBA, EIOPA, ESMA) / 2026-06-03",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant technology-failure control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "ESAs' first DORA incident report finds a third of major ICT incidents have cross-border impact",
+            "organisation": "ESMA",
+            "publishedDate": "2026-06-03",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking ESMA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.esma.europa.eu/press-news/esma-news/esas-publish-first-report-dora-major-ict-related-incidents",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 10,
+          "title": "Critical third-party policy turns technology concentration into a systemic resilience question",
+          "url": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector",
+          "source": "Official source / FCA critical third parties",
+          "evidence": {
+            "sourceTitle": "Critical third-party policy turns technology concentration into a systemic resilience question",
+            "organisation": "FCA",
+            "publishedDate": "2024-11-12",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/publications/policy-statements/ps24-16-operational-resilience-critical-third-parties-uk-financial-sector",
+            "accessedDate": "2026-07-09"
+          }
+        }
+      ]
     },
     {
       "id": "data",
       "route": "/signals/data/",
-      "title": "Data protection, transfer, and governance signals.",
+      "title": "Lineage, reporting, privacy, and evidence integrity.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
           "title": "European regulators link data protection with value in finance",
-          "url": "https://www.cnil.fr/fr/intelligence-artificielle-et-donnees-financieres-les-autorites-europeennes-cooperent",
-          "source": "Primary / CNIL / 2026-10-23",
+          "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16",
           "evidence": {
-            "sourceTitle": "Intelligence artificielle et données financières : les autorités européennes coopèrent",
-            "organisation": "CNIL",
-            "publishedDate": "2026-10-23",
-            "sourceType": "regulator announcement",
-            "significance": "CNIL says it and the European Data Protection Board will cooperate on AI use and personal-data processing in financial institutions, including through a joint event. It is coordination, not a new requirement or published enforcement finding.",
-            "sourceUrl": "https://www.cnil.fr/fr/intelligence-artificielle-et-donnees-financieres-les-autorites-europeennes-cooperent",
-            "accessedDate": "2026-11-01"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Reviewed for 2026-11-01; retained for the cross-authority data-governance context."
+            "sourceTitle": "De la protection des données à la création de valeur en finance : des autorités européennes publient une étude et des bonnes pratiques",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-10-16",
+            "sourceType": "regulator",
+            "significance": "CNIL, the UK ICO and Luxembourg’s CNPD jointly examine how data protection and governance affect trust, resilience, AI use and the valuation of financial data. This is joint analysis and good practice, not a new rule.",
+            "sourceUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page."
+            }
+          }
         },
         {
-          "title": "EU AI Act implementation dates remain staged and scope-specific",
-          "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
-          "source": "Primary / European Commission / 2025-08-01",
+          "title": "CNIL closes France Travail injunction after security controls were implemented",
+          "url": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-08",
           "evidence": {
-            "sourceTitle": "AI Act regulatory framework",
-            "organisation": "European Commission",
-            "publishedDate": "2025-08-01",
-            "sourceType": "regulator guidance",
-            "significance": "The framework page describes staged implementation; firms should confirm the provisions, role and deployment date that apply to each system.",
-            "sourceUrl": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
-            "accessedDate": "2026-10-18"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as a staged-implementation reference; this edition adds no new AI Act date or obligation."
+            "sourceTitle": "Clôture de l’injonction prononcée à l’encontre de FRANCE TRAVAIL",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-10-08",
+            "sourceType": "regulator",
+            "significance": "CNIL closed its injunction after France Travail demonstrated stronger passwords, multi-factor authentication for adviser accounts, active log monitoring and access limited to job-related data. The authority did not apply the daily penalty. The case shows remediation closure tied to implemented measures, rather than a policy commitment alone.",
+            "sourceUrl": "https://www.cnil.fr/fr/cloture-injonction-france-travail",
+            "accessedDate": "2026-10-11",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-11",
+              "reason": "CNIL's primary page displays 8 October 2026 beneath the title. Its page date was checked directly."
+            }
+          }
         },
         {
-          "title": "EDPB clarifies AI model data-protection questions",
-          "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects-related-processing-personal-data-context-ai-models_en",
-          "source": "Primary / European Data Protection Board / 2024-12-18",
+          "title": "Irish DPC orders DPIAs and controls after children’s paper-record failings",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
+          "source": "Primary / Data Protection Commission Ireland / 2026-10-01",
           "evidence": {
-            "sourceTitle": "Opinion 28/2024 on personal data in AI models",
-            "organisation": "European Data Protection Board",
-            "publishedDate": "2024-12-18",
-            "sourceType": "regulator opinion",
-            "significance": "The opinion sets out data-protection analysis for AI model training and deployment; firms should apply it to their role, processing context and evidence rather than treating it as a blanket product approval.",
-            "sourceUrl": "https://www.edpb.europa.eu/our-work-tools/our-documents/opinion-board-art-64/opinion-282024-certain-data-protection-aspects-related-processing-personal-data-context-ai-models_en",
-            "accessedDate": "2026-10-18"
-          },
-          "retention": "six-month-anchor",
-          "retentionReason": "Retained as an established analytical reference; no fresh finding changes the data-protection decision this week."
-        },
-        {
-          "title": "NIST Privacy Framework supports accountable AI data management",
-          "url": "https://www.nist.gov/privacy-framework",
-          "source": "Primary / National Institute of Standards and Technology / 2020-01-16",
-          "evidence": {
-            "sourceTitle": "NIST Privacy Framework",
-            "organisation": "National Institute of Standards and Technology",
-            "publishedDate": "2020-01-16",
-            "sourceType": "standards guidance",
-            "significance": "The framework is a voluntary resource for privacy-risk management; it is not evidence that a specific control operates or a new statutory obligation.",
-            "sourceUrl": "https://www.nist.gov/privacy-framework",
+            "sourceTitle": "Data Protection Commission Publishes Final Decision Following Inquiry into the Children’s Health Ireland (‘CHI’)",
+            "organisation": "Data Protection Commission Ireland",
+            "publishedDate": "2026-10-01",
+            "sourceType": "regulator",
+            "significance": "The DPC published notice of its final decision on 1 October; the decision was notified to CHI on 10 September. It reprimanded CHI at Tallaght, ordered two DPIAs finalised and sent within four weeks, and required implementation of their identified measures. The full written decision will follow.",
+            "sourceUrl": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-publishes-final-decision-following-inquiry-childrens-health-ireland-chi",
             "accessedDate": "2026-10-04"
           }
         },
         {
-          "title": "ICO guidance on lawful AI development requires role-specific assessment",
-          "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
-          "source": "Primary / Information Commissioner's Office / 2025-10-01",
+          "title": "CNIL turns e-invoicing platforms into a data-role and retention test",
+          "url": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-09-10",
           "evidence": {
-            "sourceTitle": "Guidance on AI and data protection",
-            "organisation": "Information Commissioner's Office",
-            "publishedDate": "2025-10-01",
-            "sourceType": "regulator guidance",
-            "significance": "ICO guidance requires organisations to assess their role and lawful basis under UK data protection law in the specific processing context.",
-            "sourceUrl": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
-            "accessedDate": "2026-10-04"
+            "sourceTitle": "Facturation électronique : quels enjeux pour la protection des données personnelles ?",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-09-10",
+            "sourceType": "regulator",
+            "significance": "CNIL's guidance accompanies the live French e-invoicing reform and sets out the practical boundary between controller and processor, the need for appropriate contracts, data minimisation, retention and platform traceability. For affected firms, the implementation question is whether the chosen platform's data use, access controls and audit record match the intended operating role.",
+            "sourceUrl": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
+            "accessedDate": "2026-10-18",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-10-18",
+              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page."
+            }
+          }
+        },
+        {
+          "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
+          "source": "Primary / UK Information Commissioner's Office / 2026-08-18",
+          "evidence": {
+            "sourceTitle": "Facial recognition in policing: earning public trust through strong data protection governance",
+            "organisation": "UK Information Commissioner's Office",
+            "publishedDate": "2026-08-18",
+            "sourceType": "regulator",
+            "significance": "ICO audit findings on facial recognition make data provenance, retention, accuracy, bias testing and senior oversight concrete deployment evidence for high-impact automated decisions.",
+            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
+            "accessedDate": "2026-11-02",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-11-02",
+              "reason": "The ICO primary page displays 18 August 2026 and states that five police-force audits found inconsistent data-protection compliance, with 107 recommendations accepted or partially accepted. The publication date and findings were checked directly on the source page."
+            }
           }
         }
       ],
-      "stillMaterial": []
+      "stillMaterial": [
+        {
+          "rank": 7,
+          "title": "Bank of England's Statistics Taxonomy v1.3.1 update retires the Statistical Utility tool firms relied on for XBRL filings",
+          "url": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
+          "source": "Primary / Bank of England / 2026-06-03",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant data control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "Bank of England's Statistics Taxonomy v1.3.1 update retires the Statistical Utility tool firms relied on for XBRL filings",
+            "organisation": "Bank of England",
+            "publishedDate": "2026-06-03",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking Bank of England evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-05",
+            "accessedDate": "2026-07-09"
+          }
+        },
+        {
+          "rank": 9,
+          "title": "Surveillance data needs completeness and explainability before alerts can be trusted",
+          "url": "https://www.fca.org.uk/publications/techsprints/market-abuse-surveillance",
+          "source": "Official expectations / FCA market abuse surveillance",
+          "evidence": {
+            "sourceTitle": "Surveillance data needs completeness and explainability before alerts can be trusted",
+            "organisation": "FCA",
+            "publishedDate": "2026-07-09",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking FCA evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://www.fca.org.uk/publications/techsprints/market-abuse-surveillance",
+            "accessedDate": "2026-07-09",
+            "sourceDateVerification": {
+              "status": "evergreen",
+              "reviewedDate": "2026-07-21",
+              "reason": "The FCA surveillance page is retained as a live control and evidence baseline, not as a dated weekly development."
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "title": "ICO sets out 2026/27 workplan for its AI code of practice and dedicated agentic-AI data protection guidance",
+          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/05/ico-response-to-government-on-safe-ai-powered-innovation/",
+          "source": "Primary / ICO / 2026-05-29",
+          "retention": "six-month-anchor",
+          "retentionReason": "Reviewed for the 2026-10-04 edition. Retained as a relevant data control anchor; no stronger fresh source cleared this week's editorial threshold.",
+          "evidence": {
+            "sourceTitle": "ICO sets out 2026/27 workplan for its AI code of practice and dedicated agentic-AI data protection guidance",
+            "organisation": "ICO",
+            "publishedDate": "2026-05-29",
+            "sourceType": "regulator",
+            "significance": "Supports the signal by linking ICO evidence to the current governance, resilience, control, or market question.",
+            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/05/ico-response-to-government-on-safe-ai-powered-innovation/",
+            "accessedDate": "2026-07-09"
+          }
+        }
+      ]
     }
   ]
 }

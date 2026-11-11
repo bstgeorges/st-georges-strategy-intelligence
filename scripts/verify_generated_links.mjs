@@ -21,6 +21,13 @@ const SELF_HOSTS = new Set([
 const REQUEST_TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;
 const TRANSIENT_RETRY_ATTEMPTS = 3;
+// These two official EIOPA notices return 429 to the parallel GitHub Actions
+// link audit, although each notice is available in ordinary browsing. Treat
+// the explicit throttle response as restricted/present, as for CFTC below.
+const RATE_LIMITED_OFFICIAL_ENDPOINTS = new Set([
+  "https://www.eiopa.europa.eu/eiopa-consults-enhancements-insurance-corporate-disclosures-under-eu-taxonomy-environmentally-2026-07-01_en",
+  "https://www.eiopa.europa.eu/eiopa-peer-review-follow-shows-progress-product-oversight-and-governance-supervision-2026-06-30_en",
+]);
 // These are individually reviewed government endpoints which intermittently drop
 // automated connections from CI. A 4xx response still fails; only repeated
 // transport failures are recorded as an availability restriction.
@@ -96,6 +103,7 @@ function isRestrictedButPresent(url, status) {
     const parsed = new URL(url);
     const hostname = parsed.hostname;
     if ([429, 999].includes(status) && hostname.endsWith("linkedin.com")) return true;
+    if (status === 429 && RATE_LIMITED_OFFICIAL_ENDPOINTS.has(url)) return true;
     // CFTC rate-limits the parallel CI audit. A 429 is an explicit throttle
     // response, not a missing page; keep 404s and other CFTC errors as failures.
     return status === 429 && hostname === "www.cftc.gov";

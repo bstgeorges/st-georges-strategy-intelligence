@@ -21,12 +21,14 @@ const SELF_HOSTS = new Set([
 const REQUEST_TIMEOUT_MS = 15000;
 const CONCURRENCY = 8;
 const TRANSIENT_RETRY_ATTEMPTS = 3;
-// These two official EIOPA notices return 429 to the parallel GitHub Actions
-// link audit, although each notice is available in ordinary browsing. Treat
-// the explicit throttle response as restricted/present, as for CFTC below.
+// These four official EU pages return 429 to the parallel GitHub Actions link
+// audit, although each notice is available in ordinary browsing. Treat only
+// these explicit throttle responses as restricted/present, as for CFTC below.
 const RATE_LIMITED_OFFICIAL_ENDPOINTS = new Set([
   "https://www.eiopa.europa.eu/eiopa-consults-enhancements-insurance-corporate-disclosures-under-eu-taxonomy-environmentally-2026-07-01_en",
   "https://www.eiopa.europa.eu/eiopa-peer-review-follow-shows-progress-product-oversight-and-governance-supervision-2026-06-30_en",
+  "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+  "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act",
 ]);
 // These are individually reviewed government endpoints which intermittently drop
 // automated connections from CI. A 4xx response still fails; only repeated

@@ -234,7 +234,7 @@ function wrapMobileNavigation(navigation) {
 function buildSubscribeSection() {
   return `<section id="subscribe" class="band subscribe-band" aria-label="Subscribe">
         <div class="subscribe-inner">
-          <p class="eyebrow">Weekly, direct</p>
+          <p class="eyebrow">The Virtual Officer · from St Georges Strategy</p>
           <h2>Get the brief before it's on the site</h2>
           <p class="dek">One email a week. The so-what, the Top 5, and the board question — nothing else.</p>
           <div class="subscribe-embed">

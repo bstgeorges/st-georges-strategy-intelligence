@@ -1,40 +1,12 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-11-15T12:27:24.491Z",
+  "generatedAt": "2026-11-15T14:25:04.181Z",
   "windowDays": 14,
-  "mode": "live-snapshot-plus-reviewed-brief-overlay",
+  "mode": "live",
   "topics": [
     {
       "id": "ai",
       "candidates": [
-        {
-          "id": "bdeda9dc49a9025e",
-          "topicId": "ai",
-          "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
-          "url": "https://openai.com/index/control-room/",
-          "publishedAt": "2026-11-09T00:00:00.000Z",
-          "dateSource": "weekly-ai-risk-verified",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "weekly-ai-risk-feed",
-          "riskAreas": [
-            "ai-and-models",
-            "digital-resilience"
-          ],
-          "tags": [
-            "runtime-controls",
-            "agent-governance"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
-          "reviewStatus": "candidate",
-          "sourceType": "weekly-ai-risk-feed",
-          "whyCandidate": "AI Risk and Frontier Brief, 13 November. Reconciled against OpenAI primary source and Japan AISI 13 November roundup confirming announcement date."
-        },
         {
           "id": "77625322d4684167",
           "topicId": "ai",
@@ -153,7 +125,7 @@
           "matchedKeywords": [],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 67,
+          "relevanceScore": 66,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
@@ -431,46 +403,6 @@
       "id": "market-structure",
       "candidates": [
         {
-          "id": "5f9094356800fcd3",
-          "topicId": "market-structure",
-          "title": "FSB recommends Türkiye further strengthens its regulatory framework for crypto-assets and stablecoins",
-          "url": "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins",
-          "publishedAt": "2026-11-11T08:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "fsb",
-          "sourceName": "Financial Stability Board",
-          "sourceTier": "primary",
-          "sourceCategory": "financial-stability",
-          "ingestSourceId": "fsb-feed",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "balance-sheet",
-            "digital-resilience"
-          ],
-          "tags": [
-            "financial-stability",
-            "nonbank-finance",
-            "operational-resilience",
-            "crypto"
-          ],
-          "matchedKeywords": [
-            "crypto",
-            "stablecoin"
-          ],
-          "titleMatchedKeywords": [
-            "crypto",
-            "stablecoin"
-          ],
-          "summaryMatchedKeywords": [
-            "stablecoin"
-          ],
-          "relevanceScore": 92,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Financial Stability Board via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "021aaf4b449bc97c",
           "topicId": "market-structure",
           "title": "CFTC Files Lawsuit Against Arkansas as the Agency Defends its Federal Jurisdiction Over Prediction Markets",
@@ -576,7 +508,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 77,
+          "relevanceScore": 76,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
@@ -735,7 +667,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 68,
+          "relevanceScore": 67,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
@@ -809,7 +741,7 @@
             "market"
           ],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 64,
+          "relevanceScore": 63,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
@@ -905,7 +837,7 @@
         {
           "id": "8fc0624dd9c6ec06",
           "topicId": "market-structure",
-          "title": "Gestion de la liquidité des fonds monétaires - DOC-2026-07",
+          "title": "Gestion de la liquidité des fonds monétaires -",
           "url": "https://www.amf-france.org/fr/reglementation/doctrine/doc-2026-07",
           "publishedAt": "2026-10-29T23:00:00.000Z",
           "dateSource": "feed",
@@ -1181,41 +1113,6 @@
       "id": "resilience",
       "candidates": [
         {
-          "id": "86b4bf1f0d52ecc6",
-          "topicId": "resilience",
-          "title": "APRA&#039;s System Risk Outlook - November 2026 | APRA",
-          "url": "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026",
-          "publishedAt": "2026-11-12T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "apra",
-          "sourceName": "Australian Prudential Regulation Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "apra-resilience-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "digital-resilience",
-            "board-accountability"
-          ],
-          "tags": [
-            "prudential-supervision",
-            "operational-risk",
-            "reporting",
-            "australia"
-          ],
-          "matchedKeywords": [
-            "risk"
-          ],
-          "titleMatchedKeywords": [
-            "risk"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 78,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Australian Prudential Regulation Authority via sitemap ingestion and matched the topic rules."
-        },
-        {
           "id": "8d38e0ea64035cd6",
           "topicId": "resilience",
           "title": "Strength through resilience, adaptability and trust – insurance for a stronger Europe - Speech by Deputy Governor McMunn at Insurance Ireland",
@@ -1433,50 +1330,10 @@
           "summaryMatchedKeywords": [
             "money laundering"
           ],
-          "relevanceScore": 78,
+          "relevanceScore": 77,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from HM Treasury via atom ingestion and matched the topic rules."
-        },
-        {
-          "id": "8455626867600948",
-          "topicId": "financial-crime",
-          "title": "FINMA publishes partially revised FINMA Anti-Money Laundering Ordinance",
-          "url": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
-          "publishedAt": "2026-11-10T08:59:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "finma",
-          "sourceName": "Swiss Financial Market Supervisory Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "finma-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "supervision",
-            "operational-risk",
-            "sanctions",
-            "technology",
-            "switzerland"
-          ],
-          "matchedKeywords": [
-            "money laundering"
-          ],
-          "titleMatchedKeywords": [
-            "money laundering"
-          ],
-          "summaryMatchedKeywords": [
-            "money laundering"
-          ],
-          "relevanceScore": 75,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Swiss Financial Market Supervisory Authority via rss ingestion and matched the topic rules."
         },
         {
           "id": "204a726071bf7ab2",
@@ -1849,42 +1706,10 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 95,
+          "relevanceScore": 94,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "08ef23e442f35451",
-          "topicId": "cyber",
-          "title": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
-          "publishedAt": "2026-11-11T19:49:57.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "microsoft-security",
-          "sourceName": "Microsoft Security Blog",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "microsoft-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "vulnerability",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
         },
         {
           "id": "366064eb6b06f543",
@@ -1914,7 +1739,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 92,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -1979,7 +1804,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
+          "relevanceScore": 90,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
@@ -2011,7 +1836,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
+          "relevanceScore": 90,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -2044,7 +1869,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
+          "relevanceScore": 90,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -2250,40 +2075,6 @@
           "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
         },
         {
-          "id": "ab8bf9cf9f0af11c",
-          "topicId": "cyber",
-          "title": "Gartner Report: The Attack Path is Closing Faster than Most Teams Can Patch",
-          "url": "https://www.rapid7.com/blog/post/ai-gartner-report-attack-paths-closing-faster-than-patchable",
-          "publishedAt": "2026-11-05T14:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "rapid7",
-          "sourceName": "Rapid7 Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "rapid7-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "vulnerability-management"
-          ],
-          "matchedKeywords": [
-            "cyber",
-            "vulnerability",
-            "exploit",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 81,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "afc81af16dd0cb13",
           "topicId": "cyber",
           "title": "Attackers Use Autonomous AI to Target Semiconductor, Defense and Civil Society Sectors",
@@ -2313,37 +2104,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Palo Alto Networks Unit 42 via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "cb7ef7e6961e3ee7",
-          "topicId": "cyber",
-          "title": "Check Point Expands Its FedRAMP Certification to Include Check Point WAF",
-          "url": "https://blog.checkpoint.com/security/check-point-expands-its-fedramp-certification-to-include-check-point-waf",
-          "publishedAt": "2026-11-12T13:05:38.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "checkpoint",
-          "sourceName": "Check Point Research",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "checkpoint-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "cyber"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 80,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
         },
         {
           "id": "209b9f392ce42b60",
@@ -2379,6 +2139,106 @@
             "vulnerability"
           ],
           "relevanceScore": 80,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "ab8bf9cf9f0af11c",
+          "topicId": "cyber",
+          "title": "Gartner Report: The Attack Path is Closing Faster than Most Teams Can Patch",
+          "url": "https://www.rapid7.com/blog/post/ai-gartner-report-attack-paths-closing-faster-than-patchable",
+          "publishedAt": "2026-11-05T14:00:00.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "rapid7",
+          "sourceName": "Rapid7 Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "rapid7-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "vulnerability-management"
+          ],
+          "matchedKeywords": [
+            "cyber",
+            "vulnerability",
+            "exploit",
+            "threat"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 80,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Rapid7 Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "cb7ef7e6961e3ee7",
+          "topicId": "cyber",
+          "title": "Check Point Expands Its FedRAMP Certification to Include Check Point WAF",
+          "url": "https://blog.checkpoint.com/security/check-point-expands-its-fedramp-certification-to-include-check-point-waf",
+          "publishedAt": "2026-11-12T13:05:38.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "cyber"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 79,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "c9c125ffb72dab41",
+          "topicId": "cyber",
+          "title": "Part 4 – Cybersecurity journeys: What I’d tell my younger self",
+          "url": "https://aws.amazon.com/blogs/security/part-4-cybersecurity-journeys-what-id-tell-my-younger-self",
+          "publishedAt": "2026-11-11T18:21:01.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "aws-security",
+          "sourceName": "AWS Security Blog",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "aws-security-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "cloud-security"
+          ],
+          "matchedKeywords": [
+            "security"
+          ],
+          "titleMatchedKeywords": [
+            "security"
+          ],
+          "summaryMatchedKeywords": [
+            "security"
+          ],
+          "relevanceScore": 78,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from AWS Security Blog via rss ingestion and matched the topic rules."
@@ -2780,10 +2640,10 @@
       "id": "data",
       "candidates": [
         {
-          "id": "ef204d2bd3424e08",
+          "id": "eacbf60971edb108",
           "topicId": "data",
           "title": "Data Protection Commission",
-          "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-mtch-eu11-million-following-inquiry-tinder-users-personal-data",
+          "url": "https://www.dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-mtch-eu11-million-following-inquiry-tinder-users-personal-data",
           "publishedAt": "2026-11-13T00:00:00.000Z",
           "dateSource": "page-published",
           "sourceRegistryId": "ireland-dpc",
@@ -3599,7 +3459,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 6,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -3958,7 +3818,7 @@
       "sourceRegistryId": "aws-service-health",
       "fetchType": "rss",
       "status": "ok",
-      "fetchedEntries": 3,
+      "fetchedEntries": 4,
       "acceptedCandidates": 0,
       "reason": "",
       "error": ""
@@ -4049,7 +3909,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 1,
+      "acceptedCandidates": 0,
       "reason": "",
       "error": ""
     },
@@ -4299,7 +4159,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 11,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 4,
       "reason": "",
       "error": ""
     },
@@ -4309,7 +4169,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -4369,7 +4229,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 9,
+      "acceptedCandidates": 8,
       "reason": "",
       "error": ""
     },
@@ -4471,6 +4331,8 @@
     "Dropped unregistered citation host candidate: https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1512",
     "Dropped unregistered citation host candidate: https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1505",
     "Dropped unregistered citation host candidate: https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1514",
+    "Dropped generic citation candidate: https://status.aws.amazon.com/",
+    "Dropped generic citation candidate: https://status.aws.amazon.com/",
     "Dropped unregistered citation host candidate: https://techcommunity.microsoft.com/blog/microsoft-security-blog/new-investments-to-reduce-on-premises-security-risk/4570381",
     "2026-09-23-detection-remediation-capacity: held for exact-source review.",
     "2026-09-24-agent-authority-envelope: held for exact-source review.",
@@ -4488,6 +4350,7 @@
     "2026-09-25-proof-of-control: held for exact-source review.",
     "2026-09-25-risk-based-autonomy: held for exact-source review.",
     "2026-09-25-agent-control-plane: held for exact-source review.",
-    "Source concentration: third-party relies on github-status-rss for 5/5 candidates."
+    "Source concentration: third-party relies on github-status-rss for 5/5 candidates.",
+    "Thin coverage: resilience has only 2 candidate(s) in the current window."
   ]
 }

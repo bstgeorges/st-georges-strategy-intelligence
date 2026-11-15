@@ -58,6 +58,9 @@ jobs:
       - name: Check horizon sync script syntax
         run: node --check scripts/sync_reg_horizon.mjs
 
+      - name: Test briefing coverage reconciliation
+        run: node --test scripts/reconcile_briefing_coverage.test.mjs
+
       - name: Build staging-style migration output
         run: npm run site:build
 

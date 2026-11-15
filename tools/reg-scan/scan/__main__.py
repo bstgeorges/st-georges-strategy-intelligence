@@ -131,13 +131,16 @@ def _semantic_change(old, item):
 
 
 def _fetch_source_bundle(source_id, source):
+    json_config = _feeds.JSON_MAP.get(source_id)
     feed_urls = _feeds.FEED_MAP.get(source_id)
     page_configs = _feeds.PAGE_MAP.get(source_id)
     sitemap_configs = _feeds.SITEMAP_MAP.get(source_id)
-    if not feed_urls and not page_configs and not sitemap_configs:
+    if not json_config and not feed_urls and not page_configs and not sitemap_configs:
         return source_id, source, [], None, "not-configured"
     try:
-        if feed_urls:
+        if json_config:
+            items, error = _fetch.fetch_ico_search_source(source, json_config, _feeds.SOURCE_FILTERS)
+        elif feed_urls:
             items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
             if not items and page_configs:
                 fallback_items, fallback_error = _fetch.fetch_page_source(source, page_configs, _feeds.SOURCE_FILTERS)

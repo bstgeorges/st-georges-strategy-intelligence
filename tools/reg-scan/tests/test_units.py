@@ -419,6 +419,40 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertTrue(items[0]["published_at"].startswith("2026-10-30"))
 
+    def test_ico_search_reads_every_page_and_uses_publication_date(self):
+        from unittest.mock import Mock, patch
+        from scan.fetch import fetch_ico_search_source
+        source = {"id": "ico", "name": "ICO"}
+        config = {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 3}
+        pages = []
+        for number in (1, 2):
+            response = Mock()
+            response.json.return_value = {"results": [{"title": f"News {number}", "url": f"/news/{number}",
+                "filterItemMetaData": "12 November 2026, News", "description": ""}],
+                "pagination": {"totalPages": 2, "showingPageNumber": number}}
+            pages.append(response)
+        with patch("scan.fetch.requests.post", side_effect=pages) as post:
+            items, error = fetch_ico_search_source(source, config, {})
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 2)
+        self.assertEqual(post.call_count, 2)
+        self.assertTrue(items[0]["published_at"].startswith("2026-11-12"))
+
+    def test_ico_search_discards_partial_results_when_a_page_is_missing(self):
+        from unittest.mock import Mock, patch
+        from scan.fetch import fetch_ico_search_source
+        first = Mock()
+        first.json.return_value = {"results": [{"title": "News", "url": "/news",
+            "filterItemMetaData": "12 November 2026"}], "pagination": {"totalPages": 2, "showingPageNumber": 1}}
+        wrong_page = Mock()
+        wrong_page.json.return_value = {"results": [{"title": "News", "url": "/news",
+            "filterItemMetaData": "12 November 2026"}], "pagination": {"totalPages": 2, "showingPageNumber": 1}}
+        with patch("scan.fetch.requests.post", side_effect=[first, wrong_page]):
+            items, error = fetch_ico_search_source({"id": "ico", "name": "ICO"},
+                {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 3}, {})
+        self.assertEqual(items, [])
+        self.assertIn("pagination", error)
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

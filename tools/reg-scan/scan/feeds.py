@@ -8,6 +8,11 @@ an entry here - no other changes required.
 import json
 from pathlib import Path
 
+# The ICO's official listing is rendered from this public search endpoint.
+JSON_MAP = {
+    "ico": {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 50},
+}
+
 # Each value is a list so a source can be covered by multiple feeds.
 FEED_MAP = {
 

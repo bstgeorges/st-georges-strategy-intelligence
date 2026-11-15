@@ -282,6 +282,46 @@ def fetch_source(source, feed_urls, source_filters=None):
     return all_items, (last_error if not all_items else None)
 
 
+def fetch_ico_search_source(source, config, source_filters=None):
+    """Read every page of the ICO's official dated news search, or fail closed."""
+    all_items = []
+    expected_pages = None
+    try:
+        for page in range(1, config.get("max_pages", 50) + 1):
+            payload = {"filters": [{"key": "order", "values": ["newest"]}],
+                       "pageNumber": page, "order": "newest", "rootPageId": config["rootPageId"]}
+            response = requests.post(config["url"], json=payload, headers=_HEADERS, timeout=_TIMEOUT)
+            response.raise_for_status()
+            data = response.json()
+            if not isinstance(data, dict) or not isinstance(data.get("results"), list):
+                raise ValueError("ICO search returned an invalid result page")
+            pagination = data.get("pagination") or {}
+            total_pages = pagination.get("totalPages")
+            if (not isinstance(total_pages, int) or total_pages < 1 or
+                    pagination.get("showingPageNumber") != page or
+                    (expected_pages is not None and total_pages != expected_pages)):
+                raise ValueError("ICO search pagination is incomplete or changed during the scan")
+            expected_pages = total_pages
+            if not data["results"]:
+                raise ValueError("ICO search returned an empty page")
+            for row in data["results"]:
+                title = row.get("title")
+                raw_url = row.get("url")
+                metadata = row.get("filterItemMetaData") or ""
+                date = datetime.strptime(metadata.split(",", 1)[0].strip(), "%d %B %Y").replace(tzinfo=timezone.utc).isoformat()
+                url = urljoin("https://ico.org.uk/", raw_url or "")
+                if not title or not raw_url or urlparse(url).hostname != "ico.org.uk":
+                    raise ValueError("ICO search returned an invalid publication row")
+                summary = row.get("description") or ""
+                if passes_source_filter(source["id"], title, summary, source_filters):
+                    all_items.append(_canonical_item(source, title, url, summary, date))
+            if page == total_pages:
+                return all_items, None
+        raise ValueError("ICO search exceeded its page limit")
+    except (requests.RequestException, ValueError, TypeError, AttributeError, KeyError) as exc:
+        return [], f"ICO search unavailable or incomplete: {exc}"
+
+
 def fetch_page_source(source, page_configs, source_filters=None):
     """Fetch structured entries from an official, dated publication listing."""
     all_items = []

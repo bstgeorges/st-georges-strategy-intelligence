@@ -31,13 +31,21 @@ function collect(pages, kind, previous, through) {
   const states = new Map();
   const issues = [];
   for (const raw of pages) {
-    const data = unwrap(raw);
+    // For paginated reads, the caller records the cursor supplied to each
+    // request. This lets us detect a missing middle page, not just a missing
+    // final page. A single unwrapped terminal response remains convenient.
+    const wrappedPage = raw && Object.hasOwn(raw, "response");
+    const requestCursor = wrappedPage ? raw.requestCursor : null;
+    if (requestCursor !== null && typeof requestCursor !== "string") throw new Error("Briefing requestCursor must be a string or null.");
+    const data = unwrap(wrappedPage ? raw.response : raw);
     const id = data?.thread?.id;
     if (!id || !Array.isArray(data.turns) || !data.page || typeof data.page.hasMore !== "boolean") {
       throw new Error(`The ${kind} briefing response is incomplete.`);
     }
-    const state = states.get(id) || { terminalPage: false };
-    state.terminalPage ||= !data.page.hasMore;
+    const state = states.get(id) || new Map();
+    const key = requestCursor === null ? "" : requestCursor;
+    if (state.has(key)) throw new Error(`Briefing chat ${id} has a duplicate or unrecorded page cursor.`);
+    state.set(key, data.page);
     states.set(id, state);
     for (const turn of data.turns) for (const item of turn.items || []) {
       if (item.type !== "agentMessage" || typeof item.text !== "string") continue;
@@ -51,7 +59,20 @@ function collect(pages, kind, previous, through) {
       issues.push({ date, threadId: id, messageId: item.id || null });
     }
   }
-  for (const [id, state] of states) if (!state.terminalPage) throw new Error(`Briefing chat ${id} has more history; read all required pages before reconciling.`);
+  for (const [id, state] of states) {
+    const seen = new Set();
+    let cursor = "";
+    while (true) {
+      if (seen.has(cursor)) throw new Error(`Briefing chat ${id} has a repeated page cursor.`);
+      const page = state.get(cursor);
+      if (!page) throw new Error(`Briefing chat ${id} has a missing history page; follow each nextCursor before reconciling.`);
+      seen.add(cursor);
+      if (!page.hasMore) break;
+      if (typeof page.nextCursor !== "string" || !page.nextCursor) throw new Error(`Briefing chat ${id} has more history but no nextCursor.`);
+      cursor = page.nextCursor;
+    }
+    if (seen.size !== state.size) throw new Error(`Briefing chat ${id} has pages outside the cursor chain.`);
+  }
   return [...new Map(issues.map((issue) => [`${issue.threadId}:${issue.messageId || issue.date}`, issue])).values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 

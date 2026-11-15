@@ -31,7 +31,11 @@ test("rejects missing or stale source material and impossible dates", () => {
 test("accepts actual tool response envelopes and deduplicates overlapping pages", () => {
   const wrapped = (data) => ({ content: [{ type: "text", text: JSON.stringify(data) }], isError: false });
   const older = page("d", [["1", "DAILY INTELLIGENCE · TUESDAY 10 NOVEMBER 2026\nfirst"]], true);
-  const report = reconcileBriefings({ ...args, dailyPages: [wrapped(older), wrapped(daily)], weeklyPages: [wrapped(weekly)] });
+  older.page.nextCursor = "cursor-1";
+  const first = { requestCursor: null, response: wrapped(older) };
+  const last = { requestCursor: "cursor-1", response: wrapped(daily) };
+  const report = reconcileBriefings({ ...args, dailyPages: [first, last], weeklyPages: [wrapped(weekly)] });
   assert.equal(report.daily.length, 2);
+  assert.throws(() => reconcileBriefings({ ...args, dailyPages: [first, { ...last, requestCursor: "cursor-2" }] }), /missing history page/);
   assert.throws(() => reconcileBriefings({ ...args, dailyPages: [{ isError: true }] }), /could not be read/);
 });

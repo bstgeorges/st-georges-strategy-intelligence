@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { retryRateLimitedLinks } from "./lib/retry_rate_limited_links.mjs";
 
 // Retry marker 2026-07-10: previous Cloudflare Pages publish run failed at
 // this step's external link check (transient); this comment forces a real
@@ -305,6 +306,8 @@ async function main() {
   await Promise.all(
     Array.from({ length: Math.min(CONCURRENCY, pending.length) }, () => worker()),
   );
+
+  await retryRateLimitedLinks(results, fetchUrl);
 
   for (const result of results) {
     const status = result.status ?? "ERR";

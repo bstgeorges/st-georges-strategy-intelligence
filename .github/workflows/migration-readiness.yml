@@ -64,6 +64,9 @@ jobs:
       - name: Test verified release handoff
         run: node --test scripts/assert_release_revision.test.mjs scripts/dispatch_verified_release.test.mjs
 
+      - name: Test rate-limited link retries
+        run: node --test scripts/lib/retry_rate_limited_links.test.mjs
+
       - name: Build staging-style migration output
         run: npm run site:build
 

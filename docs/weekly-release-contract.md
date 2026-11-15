@@ -8,7 +8,7 @@ The public edition is one reviewed package, not five independent page updates. B
    - When a Deep Dive is published, register it in `site/data/deep-dives.json` and publish its article in the same release. The homepage's “This edition” summary automatically lists every Deep Dive dated from `weekOf` through `publicationDate`, inclusive. The primary navigation always goes to `/deep-dives/`, never directly to a single article.
 4. `dashboard/regulatory-deadline-register/` — the private cumulative deadline register, source-health record and QA report. The current edition is published by the canonical release workflow when the private evidence passes its freshness, correctness, source-health and coverage gates; separate per-edition pre-approval is not required.
 
-The preparatory workflows create candidates and an editorial pack; neither publishes a new edition. A reviewer must make the editorial choices, confirm source evidence, and run:
+The preparatory workflows create candidates and an editorial pack; neither publishes a new edition. Editorial review may be performed by the authorised scheduled Codex task or by a human. In either case, record who or what performed the review, make the editorial choices, confirm source evidence, and run:
 
 ```sh
 npm run release:readiness -- --as-of YYYY-MM-DD

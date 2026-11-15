@@ -326,6 +326,22 @@ def fetch_ico_search_source(source, config, cutoff, source_filters=None):
         return [], f"ICO search unavailable or incomplete: {exc}"
 
 
+def fetch_amf_enforcement_source(source, feed_url, cutoff):
+    """Use AMF's combined release feed only when it covers the requested window."""
+    items, error = fetch_source(source, [feed_url], {})
+    if error or not items:
+        return [], error or "AMF release feed returned no records"
+    try:
+        dates = [datetime.fromisoformat(item["published_at"].replace("Z", "+00:00")) for item in items]
+    except (KeyError, AttributeError, TypeError, ValueError):
+        return [], "AMF release feed contains an undated record"
+    if min(dates).date() > cutoff.date():
+        return [], "AMF release feed does not cover the requested lookback"
+    selected = [item for item in items if urlparse(item["url"]).hostname == "www.amf-france.org"
+                and "/news-releases/enforcement-committee-news-releases/" in urlparse(item["url"]).path]
+    return selected, None
+
+
 def fetch_page_source(source, page_configs, source_filters=None):
     """Fetch structured entries from an official, dated publication listing."""
     all_items = []

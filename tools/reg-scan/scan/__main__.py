@@ -138,7 +138,9 @@ def _fetch_source_bundle(source_id, source, cutoff):
     if not json_config and not feed_urls and not page_configs and not sitemap_configs:
         return source_id, source, [], None, "not-configured"
     try:
-        if json_config:
+        if source_id == "amf-sanctions":
+            items, error = _fetch.fetch_amf_enforcement_source(source, _feeds.AMF_ENFORCEMENT_FEED, cutoff)
+        elif json_config:
             items, error = _fetch.fetch_ico_search_source(source, json_config, cutoff, _feeds.SOURCE_FILTERS)
         elif feed_urls:
             items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)

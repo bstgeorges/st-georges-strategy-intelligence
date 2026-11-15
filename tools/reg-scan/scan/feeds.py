@@ -13,6 +13,8 @@ JSON_MAP = {
     "ico": {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 50},
 }
 
+AMF_ENFORCEMENT_FEED = "https://www.amf-france.org/en/flux-rss/display/23"
+
 # Each value is a list so a source can be covered by multiple feeds.
 FEED_MAP = {
 

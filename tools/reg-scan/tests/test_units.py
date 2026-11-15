@@ -487,6 +487,23 @@ class TestFetch(unittest.TestCase):
         self.assertTrue(items[0]["published_at"].startswith("2026-10-08"))
         self.assertEqual(items[0]["url"], "https://www.sfc.hk/en/statement")
 
+    def test_amf_feed_requires_coverage_and_selects_enforcement_urls(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_amf_enforcement_source
+        cutoff = datetime(2026, 8, 17, tzinfo=timezone.utc)
+        items = [
+            {"url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases/case", "published_at": "2026-09-01T00:00:00+00:00"},
+            {"url": "https://www.amf-france.org/en/news-publications/news-releases/amf-news-releases/report", "published_at": "2026-08-01T00:00:00+00:00"},
+        ]
+        with patch("scan.fetch.fetch_source", return_value=(items, None)):
+            selected, error = fetch_amf_enforcement_source({"id": "amf-sanctions"}, "https://example.test/feed", cutoff)
+        self.assertIsNone(error)
+        self.assertEqual(selected, items[:1])
+        with patch("scan.fetch.fetch_source", return_value=(items[:1], None)):
+            selected, error = fetch_amf_enforcement_source({"id": "amf-sanctions"}, "https://example.test/feed", cutoff)
+        self.assertEqual(selected, [])
+        self.assertIn("lookback", error)
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

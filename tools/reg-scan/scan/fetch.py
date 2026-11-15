@@ -281,7 +281,7 @@ def fetch_page_source(source, page_configs, source_filters=None):
     """Fetch structured entries from an official, dated publication listing."""
     all_items = []
     last_error = None
-    matched_rows = 0
+    usable_rows = 0
     for config in page_configs:
         url = config["url"]
         try:
@@ -296,7 +296,6 @@ def fetch_page_source(source, page_configs, source_filters=None):
                 rows = soup.select(selector)
                 if rows:
                     break
-            matched_rows += len(rows)
             for row in rows:
                 link_node = row if config.get("link_self") and row.get("href") else next(
                     (row.select_one(s) for s in config["link_selectors"] if row.select_one(s)), None
@@ -320,6 +319,7 @@ def fetch_page_source(source, page_configs, source_filters=None):
                 )
                 if not title or not link or not published_at:
                     continue
+                usable_rows += 1
                 summary_node = row.select_one(config.get("summary_selector", "p"))
                 summary = summary_node.get_text(" ", strip=True) if summary_node else ""
                 if config.get("context_selector"):
@@ -334,7 +334,7 @@ def fetch_page_source(source, page_configs, source_filters=None):
         except Exception as exc:
             last_error = f"unexpected error fetching {url}: {exc}"
             log.warning("unexpected page error %s: %s", url, exc, exc_info=True)
-    if not all_items and matched_rows == 0 and last_error is None:
+    if not all_items and usable_rows == 0 and last_error is None:
         last_error = "official page returned no recognisable publication rows"
     return all_items, (last_error if not all_items else None)
 

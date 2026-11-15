@@ -335,6 +335,30 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(items, [])
         self.assertIn("blocked by anti-bot challenge", error)
 
+    def test_page_adapter_rejects_rows_without_parseable_publication_dates(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        html = b'<article><a href="/news">Navigation link</a></article>'
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        config = [{"url": "https://example.org", "item_selectors": ["article"],
+                   "link_selectors": ["a[href]"], "date_selectors": ["time[datetime]"]}]
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "test", "name": "Test"}, config, {})
+        self.assertEqual(items, [])
+        self.assertIn("no recognisable publication rows", error)
+
+    def test_page_adapter_accepts_usable_rows_filtered_as_irrelevant(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        html = b'<article><a href="/news">Office furniture</a><time datetime="2026-11-15"></time></article>'
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        config = [{"url": "https://example.org", "item_selectors": ["article"],
+                   "link_selectors": ["a[href]"], "date_selectors": ["time[datetime]"]}]
+        with patch("scan.fetch._get", return_value=response), patch("scan.fetch.passes_source_filter", return_value=False):
+            items, error = fetch_page_source({"id": "test", "name": "Test"}, config, {})
+        self.assertEqual(items, [])
+        self.assertIsNone(error)
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

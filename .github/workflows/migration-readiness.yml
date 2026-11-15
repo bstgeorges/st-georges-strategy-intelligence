@@ -61,6 +61,9 @@ jobs:
       - name: Test briefing coverage reconciliation
         run: node --test scripts/reconcile_briefing_coverage.test.mjs
 
+      - name: Test verified release handoff
+        run: node --test scripts/assert_release_revision.test.mjs scripts/dispatch_verified_release.test.mjs
+
       - name: Build staging-style migration output
         run: npm run site:build
 

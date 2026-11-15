@@ -23,6 +23,18 @@ The workflow is green only after step 7 and step 8 pass. This removes the need t
 - Push to `dev`: preview release to `https://dev.st-georges-strategy-intelligence.pages.dev`.
 - Manual dispatch: choose `production` or `dev`.
 
+An automated caller can also provide `expected_sha` as a full commit SHA when
+dispatching the workflow. The release fails before deployment if the workflow's
+revision or checked-out commit differs. This protects the handoff if a branch
+moves after an edition has been prepared; the caller must still wait for the
+release run to succeed before treating the edition as published.
+Once an edition has passed its preparation checks and its commit is on `main`,
+`GH_TOKEN=... node scripts/dispatch_verified_release.mjs <full-sha>` dispatches
+that release and waits for the specific run's successful conclusion. The token
+needs Actions read and write permissions. It does not prepare an edition or push
+a commit. On an ambiguous dispatch or timeout, inspect the indicated Actions run
+before retrying; the command deliberately does not redispatch automatically.
+
 The Pages project's configured production branch remains `production`; `main` is the GitHub source branch. The workflow makes that translation explicitly.
 
 ## GitHub secrets

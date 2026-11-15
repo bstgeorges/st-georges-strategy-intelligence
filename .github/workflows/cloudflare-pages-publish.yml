@@ -25,6 +25,10 @@ on:
         options:
           - production
           - dev
+      expected_sha:
+        description: "Optional full commit SHA that this dispatch must deploy"
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -53,6 +57,12 @@ jobs:
         with:
           node-version: "22"
           cache: npm
+
+      - name: Verify requested release revision
+        env:
+          EXPECTED_RELEASE_SHA: ${{ inputs.expected_sha }}
+          WORKFLOW_RELEASE_SHA: ${{ github.sha }}
+        run: node scripts/assert_release_revision.mjs
 
       - name: Install dependencies
         run: npm ci

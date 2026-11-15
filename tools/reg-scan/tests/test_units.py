@@ -472,6 +472,21 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 2)
         self.assertEqual(post.call_count, 2)
 
+    def test_hong_kong_sfc_reads_official_table_dates_and_titles(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import PAGE_MAP, SOURCE_FILTERS
+        html = b'''<div class="documents-on-display-table"><table><tbody><tr><th>Date</th><th>Title</th></tr>
+          <tr><td>08 Oct 2026</td><td><a href="/en/statement">Joint regulatory statement</a></td></tr>
+          </tbody></table></div>'''
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "hong-kong-sfc", "name": "SFC"}, PAGE_MAP["hong-kong-sfc"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["published_at"].startswith("2026-10-08"))
+        self.assertEqual(items[0]["url"], "https://www.sfc.hk/en/statement")
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

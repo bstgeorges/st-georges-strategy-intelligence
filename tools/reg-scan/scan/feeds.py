@@ -51,6 +51,9 @@ FEED_MAP = {
     "finma": [
         "https://www.finma.ch/en/rss/news/",
     ],
+    "switzerland-snb": [
+        "https://www.snb.ch/public/rss/en/pressrel",
+    ],
     "japan-fsa": [
         "https://www.fsa.go.jp/fsaEnNewsList_rss2.xml",
     ],
@@ -166,7 +169,7 @@ PAGE_MAP = {
     "ofac-recent-actions": [{"url": "https://ofac.treasury.gov/recent-actions", "timeout": 20, "retries": 2, "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".field--name-field-date", ".font-sans-2xs"]}],
     "amf-sanctions": [{"url": "https://www.amf-france.org/en/news-publications/news-releases/enforcement-committee-news-releases", "item_selectors": ["article", ".card", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "ecb-supervision-sanctions": [{"url": "https://www.bankingsupervision.europa.eu/banking/sanctions/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
-    "de-bundesbank": [{"url": "https://www.bundesbank.de/de/aufgaben/themen", "item_selectors": ["article", ".teaser", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    "de-bundesbank": [{"url": "https://www.bundesbank.de/de/aufgaben/themen", "item_selectors": [".resultlist__item", "article", ".teaser", ".card", "li"], "link_selectors": ["a.teasable__link[href]", "h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": [".teasable__date", "time[datetime]", ".date", ".published"]}],
     "hong-kong-sfc": [{"url": "https://www.sfc.hk/en/News-and-announcements/Policy-statements-and-announcements", "request_profile": "browser", "item_selectors": ["article", ".views-row", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
     "south-africa-sarb": [{"url": "https://www.resbank.co.za/en/home/newsroom", "request_profile": "browser", "timeout": 20, "retries": 2, "item_selectors": ["article", ".card", ".views-row", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "h4 a[href]", "a[href*='/newsroom/']", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published", ".news-date"]}],
     "india-rbi": [{"url": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx", "item_selectors": ["article", "table tr", ".views-row", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],

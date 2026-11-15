@@ -389,6 +389,36 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertTrue(items[0]["published_at"].startswith("2026-11-13"))
 
+    def test_bundesbank_listing_uses_main_link_and_dated_row(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import PAGE_MAP, SOURCE_FILTERS
+        html = b'''<li class="resultlist__item"><span class="teasable__date">03.11.2026</span>
+          <a href="/en/translation" class="metadata__lang">EN</a>
+          <a href="/de/main-report" class="teasable__link"><span>Bundesbank report</span></a></li>'''
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "de-bundesbank", "name": "Bundesbank"}, PAGE_MAP["de-bundesbank"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["url"], "https://www.bundesbank.de/de/main-report")
+        self.assertTrue(items[0]["published_at"].startswith("2026-11-03"))
+
+    def test_snb_feed_parses_official_dublin_core_date(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_source
+        from scan.feeds import FEED_MAP, SOURCE_FILTERS
+        xml = b'''<?xml version="1.0"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+          <channel><title>SNB</title><link>https://www.snb.ch/</link><description>News</description>
+          <item><title>SNB report</title><link>https://www.snb.ch/en/report</link><dc:date>2026-10-30T06:15:00Z</dc:date></item>
+          </channel></rss>'''
+        response = type("Response", (), {"content": xml})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_source({"id": "switzerland-snb", "name": "SNB"}, FEED_MAP["switzerland-snb"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["published_at"].startswith("2026-10-30"))
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

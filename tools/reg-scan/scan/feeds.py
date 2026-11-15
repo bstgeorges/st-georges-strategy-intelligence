@@ -168,7 +168,9 @@ FEED_MAP = {
 # adapter to tolerate minor CMS template changes without crawling arbitrary links.
 PAGE_MAP = {
     "ico": [{"url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/", "item_selectors": ["article", ".card", ".news-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
-    "uk-fca-regulatory-initiatives-grid": [{"url": "https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid", "request_profile": "browser", "item_selectors": ["article", ".search-item", ".card", ".document"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".published"]}],
+    # The FCA publishes the current Grid on a single updated document page,
+    # rather than a dated listing of cards.
+    "uk-fca-regulatory-initiatives-grid": [{"url": "https://www.fca.org.uk/publications/corporate-documents/regulatory-initiatives-grid", "request_profile": "browser", "document_self": True, "item_selectors": [".article-header"], "title_selector": "h1", "date_selectors": [".pubdate time[datetime]"]}],
     "ecb-ssm-newsletter": [{"url": "https://www.bankingsupervision.europa.eu/press/supervisory-newsletters/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
     "ecb-supervisory-priorities": [{"url": "https://www.bankingsupervision.europa.eu/framework/priorities/html/index.en.html", "item_selectors": ["article", ".ecl-content-item", ".card", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".ecl-content-block__date"]}],
     "bcbs": [{"url": "https://www.bis.org/bcbs/publications.htm", "item_selectors": [".item", "article", "li"], "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"], "date_selectors": ["time[datetime]", ".date", ".pubdate"]}],

@@ -504,6 +504,20 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(selected, [])
         self.assertIn("lookback", error)
 
+    def test_fca_grid_is_a_dated_current_document_not_a_card_listing(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import PAGE_MAP, SOURCE_FILTERS
+        html = b'''<div class="article-header"><h1>Regulatory Initiatives Grid - 10th Edition</h1>
+          <span class="pubdate">First published: <time datetime="2026-05-19T06:02:54Z">19/05/2026</time></span></div>'''
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "uk-fca-regulatory-initiatives-grid", "name": "FCA"}, PAGE_MAP["uk-fca-regulatory-initiatives-grid"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["published_at"].startswith("2026-05-19"))
+        self.assertEqual(items[0]["url"], PAGE_MAP["uk-fca-regulatory-initiatives-grid"][0]["url"])
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

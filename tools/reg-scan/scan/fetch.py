@@ -362,16 +362,21 @@ def fetch_page_source(source, page_configs, source_filters=None):
                 if rows:
                     break
             for row in rows:
-                link_node = row if config.get("link_self") and row.get("href") else next(
-                    (row.select_one(s) for s in config["link_selectors"] if row.select_one(s)), None
-                )
-                if link_node is None:
-                    continue
-                title_node = row.select_one(config.get("title_selector", "")) if config.get("title_selector") else link_node
+                if config.get("document_self"):
+                    link_node = None
+                    title_node = row.select_one(config["title_selector"])
+                    link = url
+                else:
+                    link_node = row if config.get("link_self") and row.get("href") else next(
+                        (row.select_one(s) for s in config["link_selectors"] if row.select_one(s)), None
+                    )
+                    if link_node is None:
+                        continue
+                    title_node = row.select_one(config.get("title_selector", "")) if config.get("title_selector") else link_node
+                    link = urljoin(url, link_node.get("href", ""))
                 if title_node is None:
                     continue
                 title = title_node.get_text(" ", strip=True)
-                link = urljoin(url, link_node.get("href", ""))
                 published_at = next(
                     (
                         parsed

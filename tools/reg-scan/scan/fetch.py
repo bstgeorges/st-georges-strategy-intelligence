@@ -282,10 +282,11 @@ def fetch_source(source, feed_urls, source_filters=None):
     return all_items, (last_error if not all_items else None)
 
 
-def fetch_ico_search_source(source, config, source_filters=None):
-    """Read every page of the ICO's official dated news search, or fail closed."""
+def fetch_ico_search_source(source, config, cutoff, source_filters=None):
+    """Cover the requested window of the ICO's dated news search, or fail closed."""
     all_items = []
     expected_pages = None
+    previous_date = None
     try:
         for page in range(1, config.get("max_pages", 50) + 1):
             payload = {"filters": [{"key": "order", "values": ["newest"]}],
@@ -308,14 +309,17 @@ def fetch_ico_search_source(source, config, source_filters=None):
                 title = row.get("title")
                 raw_url = row.get("url")
                 metadata = row.get("filterItemMetaData") or ""
-                date = datetime.strptime(metadata.split(",", 1)[0].strip(), "%d %B %Y").replace(tzinfo=timezone.utc).isoformat()
+                date = datetime.strptime(metadata.split(",", 1)[0].strip(), "%d %B %Y").replace(tzinfo=timezone.utc)
+                if previous_date and date > previous_date:
+                    raise ValueError("ICO search dates are not ordered newest first")
+                previous_date = date
                 url = urljoin("https://ico.org.uk/", raw_url or "")
                 if not title or not raw_url or urlparse(url).hostname != "ico.org.uk":
                     raise ValueError("ICO search returned an invalid publication row")
                 summary = row.get("description") or ""
                 if passes_source_filter(source["id"], title, summary, source_filters):
-                    all_items.append(_canonical_item(source, title, url, summary, date))
-            if page == total_pages:
+                    all_items.append(_canonical_item(source, title, url, summary, date.isoformat()))
+            if previous_date.date() < cutoff.date() or page == total_pages:
                 return all_items, None
         raise ValueError("ICO search exceeded its page limit")
     except (requests.RequestException, ValueError, TypeError, AttributeError, KeyError) as exc:

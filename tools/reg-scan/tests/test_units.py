@@ -432,7 +432,7 @@ class TestFetch(unittest.TestCase):
                 "pagination": {"totalPages": 2, "showingPageNumber": number}}
             pages.append(response)
         with patch("scan.fetch.requests.post", side_effect=pages) as post:
-            items, error = fetch_ico_search_source(source, config, {})
+            items, error = fetch_ico_search_source(source, config, datetime(2026, 11, 1, tzinfo=timezone.utc), {})
         self.assertIsNone(error)
         self.assertEqual(len(items), 2)
         self.assertEqual(post.call_count, 2)
@@ -449,9 +449,28 @@ class TestFetch(unittest.TestCase):
             "filterItemMetaData": "12 November 2026"}], "pagination": {"totalPages": 2, "showingPageNumber": 1}}
         with patch("scan.fetch.requests.post", side_effect=[first, wrong_page]):
             items, error = fetch_ico_search_source({"id": "ico", "name": "ICO"},
-                {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 3}, {})
+                {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 3}, datetime(2026, 11, 1, tzinfo=timezone.utc), {})
         self.assertEqual(items, [])
         self.assertIn("pagination", error)
+
+    def test_ico_search_stops_only_after_covering_the_cutoff_date(self):
+        from unittest.mock import Mock, patch
+        from scan.fetch import fetch_ico_search_source
+        first = Mock()
+        first.json.return_value = {"results": [
+            {"title": "Boundary", "url": "/boundary", "filterItemMetaData": "1 November 2026"}],
+            "pagination": {"totalPages": 3, "showingPageNumber": 1}}
+        second = Mock()
+        second.json.return_value = {"results": [
+            {"title": "Older", "url": "/older", "filterItemMetaData": "31 October 2026"}],
+            "pagination": {"totalPages": 3, "showingPageNumber": 2}}
+        with patch("scan.fetch.requests.post", side_effect=[first, second]) as post:
+            items, error = fetch_ico_search_source({"id": "ico", "name": "ICO"},
+                {"url": "https://ico.org.uk/api/search", "rootPageId": 2816, "max_pages": 3},
+                datetime(2026, 11, 1, tzinfo=timezone.utc), {})
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 2)
+        self.assertEqual(post.call_count, 2)
 
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch

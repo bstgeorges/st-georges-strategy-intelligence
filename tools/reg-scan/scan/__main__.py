@@ -130,7 +130,7 @@ def _semantic_change(old, item):
     return "unchanged"
 
 
-def _fetch_source_bundle(source_id, source):
+def _fetch_source_bundle(source_id, source, cutoff):
     json_config = _feeds.JSON_MAP.get(source_id)
     feed_urls = _feeds.FEED_MAP.get(source_id)
     page_configs = _feeds.PAGE_MAP.get(source_id)
@@ -139,7 +139,7 @@ def _fetch_source_bundle(source_id, source):
         return source_id, source, [], None, "not-configured"
     try:
         if json_config:
-            items, error = _fetch.fetch_ico_search_source(source, json_config, _feeds.SOURCE_FILTERS)
+            items, error = _fetch.fetch_ico_search_source(source, json_config, cutoff, _feeds.SOURCE_FILTERS)
         elif feed_urls:
             items, error = _fetch.fetch_source(source, feed_urls, _feeds.SOURCE_FILTERS)
             if not items and page_configs:
@@ -200,7 +200,7 @@ def main():
     # unchanged source estate does not create a noisy, non-semantic diff.
     with ThreadPoolExecutor(max_workers=24) as pool:
         futures = {
-            pool.submit(_fetch_source_bundle, source_id, source): source_id
+            pool.submit(_fetch_source_bundle, source_id, source, cutoff): source_id
             for source_id, source in sources_by_id.items()
         }
         fetched_by_source = {

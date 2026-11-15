@@ -376,6 +376,19 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertTrue(items[0]["published_at"].startswith("2026-11-13"))
 
+    def test_ofac_listing_extracts_date_followed_by_category(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import PAGE_MAP, SOURCE_FILTERS
+        html = b'''<div class="views-row"><div><a href="/recent-actions/20261113">Counter Terrorism Designations</a></div>
+          <div class="font-sans-2xs">November 13, 2026 - <a href="/recent-actions/sanctions-list-updates">Sanctions List Updates</a></div></div>'''
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "ofac-recent-actions", "name": "OFAC"}, PAGE_MAP["ofac-recent-actions"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["published_at"].startswith("2026-11-13"))
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

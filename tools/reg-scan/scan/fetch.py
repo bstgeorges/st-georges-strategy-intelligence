@@ -140,6 +140,11 @@ def _parse_page_date(node):
             return None
     normalized = re.sub(r"\bde\s+", "", normalized, flags=re.I)
     normalized = normalized.replace("Sept ", "Sep ")
+    # Some official listing date labels append a category or link after a
+    # month-first date (for example, "November 13, 2026 - Sanctions").
+    month_first = re.match(r"^([A-Za-z]+\s+\d{1,2},\s+\d{4})(?:\s|$)", normalized)
+    if month_first:
+        normalized = month_first.group(1)
     for local, english in _LOCAL_MONTHS.items():
         normalized = re.sub(rf"\b{local}\b", english, normalized, flags=re.I)
     embedded_numeric = re.search(r"\b(\d{1,2}[./]\d{1,2}[./]\d{4})\b", normalized)

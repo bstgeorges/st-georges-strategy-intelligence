@@ -303,7 +303,7 @@ PAGE_MAP = {
         "url": "https://www.apra.gov.au/news-and-publications?page=0",
         "item_selectors": [".views-row", "article"],
         "link_selectors": ["h2 a[href]", "h3 a[href]", "a[href]"],
-        "date_selectors": ["time[datetime]", ".date", ".field--name-field-date"],
+        "date_selectors": ["time[datetime]", ".date", ".field--name-field-date", ".search-result__tags .anx-pill--split .anx-pill__label-last"],
     }],
     "osfi": [{
         "url": "https://www.osfi-bsif.gc.ca/en/news",

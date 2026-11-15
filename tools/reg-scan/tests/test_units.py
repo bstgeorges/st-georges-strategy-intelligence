@@ -359,6 +359,23 @@ class TestFetch(unittest.TestCase):
         self.assertEqual(items, [])
         self.assertIsNone(error)
 
+    def test_apra_listing_extracts_its_published_date_pill(self):
+        from unittest.mock import patch
+        from scan.fetch import fetch_page_source
+        from scan.feeds import PAGE_MAP, SOURCE_FILTERS
+        html = b'''<div class="views-row"><div class="search-result">
+          <h2><a href="/news-and-publications/final-guidance">Final prudential guidance</a></h2>
+          <div class="search-result__tags"><div class="anx-pill--split">
+            <div class="anx-pill__label-first">Published</div>
+            <div class="anx-pill__label-last">13 November 2026</div>
+          </div></div></div></div>'''
+        response = type("Response", (), {"content": html, "text": html.decode()})()
+        with patch("scan.fetch._get", return_value=response):
+            items, error = fetch_page_source({"id": "apra", "name": "APRA"}, PAGE_MAP["apra"], SOURCE_FILTERS)
+        self.assertIsNone(error)
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["published_at"].startswith("2026-11-13"))
+
     def test_page_adapter_treats_maintenance_shell_as_blocked(self):
         from unittest.mock import patch
         from scan.fetch import fetch_page_source

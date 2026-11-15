@@ -1,55 +1,60 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "approved",
-  "candidateGeneratedAt": "2026-11-08T11:39:54.060Z",
-  "publicationDate": "2026-11-08",
-  "reviewedAt": "2026-11-08",
+  "reviewMethod": "Codex automated source verification",
+  "candidateGeneratedAt": "2026-11-15T12:27:24.491Z",
+  "publicationDate": "2026-11-15",
+  "reviewedAt": "2026-11-15",
   "topics": [
     {
       "id": "ai",
       "selectedUrls": [
-        "https://openai.com/index/introducing-gpt-6-cyber"
+        "https://openai.com/index/control-room/"
       ],
-      "editorialRationale": "Select OpenAI's 5 November primary disclosure as a material change in defensive vulnerability discovery and exploit-development capability. Attribute performance, safeguard and deployment claims to OpenAI; describe Critical as its own framework classification, not an independent rating."
-    },
-    {
-      "id": "resilience",
-      "selectedUrls": [],
-      "editorialRationale": "No newly dated resilience item clears the evidence and materiality test. Retain the PRA's 22 October directorate announcement as current strategic context, while making clear that the planned FCA consultation is not yet a new rule."
-    },
-    {
-      "id": "third-party",
-      "selectedUrls": [],
-      "editorialRationale": "Cloudflare's candidate is a 17-minute, single-location network issue; it does not clear the materiality threshold for promotion. Retain the Bank/PRA sector-wide cloud simulation as a more decision-relevant dependency and recovery signal."
+      "editorialRationale": "Primary source read and scope checked on 15 November; see dated editorial packet."
     },
     {
       "id": "market-structure",
       "selectedUrls": [
-        "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026"
+        "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins"
       ],
-      "editorialRationale": "Select the Bank of England's 6 November market-participants survey as a dated read on market expectations after the MPC decision. Preserve the 80-respondent base and label its results as expectations, not Bank forecasts or policy commitments."
+      "editorialRationale": "Primary source read and scope checked on 15 November; see dated editorial packet."
+    },
+    {
+      "id": "third-party",
+      "selectedUrls": [],
+      "editorialRationale": "No new candidate met the materiality and source-evidence threshold; retain current source-backed rows."
+    },
+    {
+      "id": "resilience",
+      "selectedUrls": [
+        "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026"
+      ],
+      "editorialRationale": "Primary source read and scope checked on 15 November; see dated editorial packet."
     },
     {
       "id": "financial-crime",
-      "selectedUrls": [],
-      "editorialRationale": "No fresh candidate in this run changes a financial-crime decision; retain reviewed anchors within the 90-day window."
+      "selectedUrls": [
+        "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma"
+      ],
+      "editorialRationale": "Primary source read and scope checked on 15 November; see dated editorial packet."
     },
     {
       "id": "cyber",
       "selectedUrls": [
-        "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector"
+        "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2"
       ],
-      "editorialRationale": "Select Microsoft Threat Intelligence's 6 November report as observed agentic-tool use in activity targeting financial firms. Attribute actor, geographic and technique details to Microsoft and distinguish observed activity from a sector-wide prevalence claim."
+      "editorialRationale": "Primary source read and scope checked on 15 November; see dated editorial packet."
     },
     {
       "id": "technology-failure",
       "selectedUrls": [],
-      "editorialRationale": "The localized Cloudflare status item does not clear the threshold, and the weekly Top 5 already retains a separate cross-sector cloud-recovery exercise. No distinct technology-failure candidate is promoted."
+      "editorialRationale": "No new candidate met the materiality and source-evidence threshold; retain current source-backed rows."
     },
     {
       "id": "data",
       "selectedUrls": [],
-      "editorialRationale": "No fresh data-protection or data-governance candidate changes an operating decision for this edition; retain reviewed anchors."
+      "editorialRationale": "No new candidate met the materiality and source-evidence threshold; retain current source-backed rows."
     }
   ]
 }

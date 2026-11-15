@@ -1,49 +1,44 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-15",
   "topics": [
     {
       "id": "ai",
       "freshCount": 1,
       "leadRow": {
-        "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-        "url": "https://openai.com/index/introducing-gpt-6-cyber",
-        "source": "Primary / OpenAI / 2026-11-05",
+        "title": "A stop instruction is only one part of agent containment",
+        "url": "https://openai.com/index/control-room/",
+        "source": "Primary / OpenAI / 2026-11-09",
         "evidence": {
-          "sourceTitle": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+          "sourceTitle": "Control Room: A central system to track and stop model workloads across our research infrastructure",
           "organisation": "OpenAI",
-          "publishedDate": "2026-11-05",
+          "publishedDate": "2026-11-09",
           "sourceType": "company announcement",
-          "significance": "OpenAI reports that its limited-access model developed working exploits for 948 Linux kernel vulnerabilities and produced 81 novel Firefox findings classified high severity by Mozilla; Mozilla began fixes. OpenAI classifies it as Critical under its own framework and reports improved scope compliance. These are provider-reported results; they do not establish customer outcomes or independent safeguard effectiveness.",
-          "sourceUrl": "https://openai.com/index/introducing-gpt-6-cyber",
-          "accessedDate": "2026-11-08",
+          "significance": "OpenAI says Control Room can halt further model output within 35 seconds after receiving a stop instruction and denies inference if the control service is unavailable. This is its account of research infrastructure, not proof that completed actions can be reversed or that an enterprise deployment has the same control.",
+          "sourceUrl": "https://openai.com/index/control-room/",
+          "accessedDate": "2026-11-15",
           "sourceDateVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-11-08",
-            "reason": "OpenAI's primary 5 November announcement states 81 novel Firefox vulnerabilities, 948 Linux kernel exploits, Mozilla fixes, limited access and its own Critical classification."
+            "verifiedDate": "2026-11-15",
+            "reason": "The 9 November announcement date is independently recorded by Japan AISI’s 13 November roundup. OpenAI’s primary page describes the stop-instruction boundary, inference enforcement and fail-closed design."
           }
         }
       }
     },
     {
       "id": "resilience",
-      "freshCount": 0,
+      "freshCount": 1,
       "leadRow": {
-        "title": "PRA creates a directorate for operational and cyber resilience",
-        "url": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
-        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-22",
+        "title": "APRA links AI risk with shared provider dependencies",
+        "url": "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026",
+        "source": "Primary / Australian Prudential Regulation Authority / 2026-11-12",
         "evidence": {
-          "sourceTitle": "Mansion House City Regulators Dinner – speech by Katharine Braddick",
-          "organisation": "Bank of England and Prudential Regulation Authority",
-          "publishedDate": "2026-10-22",
+          "sourceTitle": "APRA&#039;s System Risk Outlook - November 2026 | APRA",
+          "organisation": "Australian Prudential Regulation Authority",
+          "publishedDate": "2026-11-12",
           "sourceType": "regulator",
-          "significance": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience, alongside a joint FCA consultation expected by year-end. This is strategic direction and planned consultation, not a current new rule.",
-          "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
-          "accessedDate": "2026-10-24",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
-          }
+          "significance": "APRA says AI can create risks within firms and accelerate external threats, while shared material providers can transmit disruption. Some individual providers support institutions holding more than half of APRA-regulated financial assets; this is Australian supervisory evidence, not a measurement of any individual firm’s exposure.",
+          "sourceUrl": "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026",
+          "accessedDate": "2026-11-15"
         }
       }
     },
@@ -69,40 +64,35 @@
       "id": "market-structure",
       "freshCount": 1,
       "leadRow": {
-        "title": "Market Participants Survey results - November 2026",
-        "url": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
-        "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-06",
+        "title": "FSB calls for stronger stablecoin oversight in Türkiye",
+        "url": "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins",
+        "source": "Primary / Financial Stability Board / 2026-11-11",
         "evidence": {
-          "sourceTitle": "Market Participants Survey results - November 2026",
-          "organisation": "Bank of England and Prudential Regulation Authority",
-          "publishedDate": "2026-11-06",
+          "sourceTitle": "FSB recommends Türkiye further strengthens its regulatory framework for crypto-assets and stablecoins",
+          "organisation": "Financial Stability Board",
+          "publishedDate": "2026-11-11",
           "sourceType": "regulator",
-          "significance": "The survey was open 21–23 October and received responses from 80 selected market participants. Published median expectations placed Bank Rate at 4.00% after the December meeting and 4.25% in February and March 2027. These are respondents' expectations, not an MPC decision or Bank forecast. Use as a scenario input for borrowers and infrastructure providers exposed to financing-cost changes.",
-          "sourceUrl": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
-          "accessedDate": "2026-11-08",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-11-08",
-            "reason": "The Bank of England page is dated 6 November 2026 and states the 80-respondent base and question-level median Bank Rate expectations."
-          }
+          "significance": "The FSB recommends a dedicated stablecoin regime, stronger supervision and enforcement, and cross-border cooperation in Türkiye. These are recommendations to authorities, not new obligations already imposed on firms.",
+          "sourceUrl": "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins",
+          "accessedDate": "2026-11-15"
         }
       }
     },
     {
       "id": "financial-crime",
-      "freshCount": 0,
+      "freshCount": 1,
       "leadRow": {
-        "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
-        "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
-        "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-08",
+        "title": "FINMA sets January start for revised AML requirements",
+        "url": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
+        "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-11-10",
         "evidence": {
-          "sourceTitle": "Guidance: OFSI General Licence - INT/2026/11080040",
-          "organisation": "UK Office of Financial Sanctions Implementation",
-          "publishedDate": "2026-10-08",
+          "sourceTitle": "FINMA publishes partially revised FINMA Anti-Money Laundering Ordinance",
+          "organisation": "Swiss Financial Market Supervisory Authority",
+          "publishedDate": "2026-11-10",
           "sourceType": "regulator",
-          "significance": "OFSI's licence permits defined persons and relevant UK institutions to wind down or divest from transactions involving Zarubezhneft JSC or its subsidiaries. It runs from 8 October to 21 November 2026 and requires complete, readable records for six years. Firms should confirm entity ownership, transaction scope and licence conditions before relying on the permission.",
-          "sourceUrl": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
-          "accessedDate": "2026-10-11"
+          "significance": "FINMA says its revised anti-money-laundering ordinance enters into force on 1 January 2027. The associated self-regulation provides a four-month transition period; affected firms must assess which provisions apply to their own activities.",
+          "sourceUrl": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
+          "accessedDate": "2026-11-15"
         }
       }
     },
@@ -110,22 +100,17 @@
       "id": "cyber",
       "freshCount": 1,
       "leadRow": {
-        "title": "ARTEX abuse expands as cybercriminals target financial sector",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
-        "source": "Primary / Microsoft Threat Intelligence / 2026-11-06",
+        "title": "GSocket persistence can survive the initial application patch",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
+        "source": "Primary / Microsoft Security Blog / 2026-11-11",
         "evidence": {
-          "sourceTitle": "ARTEX abuse expands as cybercriminals target financial sector",
-          "organisation": "Microsoft Threat Intelligence",
-          "publishedDate": "2026-11-06",
+          "sourceTitle": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
+          "organisation": "Microsoft Security Blog",
+          "publishedDate": "2026-11-11",
           "sourceType": "company announcement",
-          "significance": "Microsoft Threat Intelligence says Storm-3358 used the agentic framework ARTEX alongside conventional tools to scan public-facing systems, exploit web-application flaws and use compromised credentials and cloud identities for persistence and data exfiltration. This is Microsoft's observed activity account, not a prevalence estimate. Test internet-facing exposure, identity controls, lateral-movement detection and containment.",
-          "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
-          "accessedDate": "2026-11-08",
-          "sourceDateVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-11-08",
-            "reason": "Microsoft's primary Threat Intelligence article is dated 6 November 2026 and describes Storm-3358's use of ARTEX against financial-sector organisations."
-          }
+          "significance": "Microsoft describes attackers using an outbound relay after compromising internet-facing applications. Patching the initial flaw does not itself remove the relay client or persistence; the report describes observed telemetry rather than the prevalence of compromise across banks.",
+          "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
+          "accessedDate": "2026-11-15"
         }
       }
     },

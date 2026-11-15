@@ -2,11 +2,39 @@
   "version": "2026-08-14",
   "generatedAt": "2026-11-15T12:27:24.491Z",
   "windowDays": 14,
-  "mode": "live",
+  "mode": "live-snapshot-plus-reviewed-brief-overlay",
   "topics": [
     {
       "id": "ai",
       "candidates": [
+        {
+          "id": "bdeda9dc49a9025e",
+          "topicId": "ai",
+          "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+          "url": "https://openai.com/index/control-room/",
+          "publishedAt": "2026-11-09T00:00:00.000Z",
+          "dateSource": "weekly-ai-risk-verified",
+          "sourceRegistryId": "openai",
+          "sourceName": "OpenAI",
+          "sourceTier": "primary",
+          "sourceCategory": "ai",
+          "ingestSourceId": "weekly-ai-risk-feed",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "runtime-controls",
+            "agent-governance"
+          ],
+          "matchedKeywords": [],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 95,
+          "reviewStatus": "candidate",
+          "sourceType": "weekly-ai-risk-feed",
+          "whyCandidate": "AI Risk and Frontier Brief, 13 November. Reconciled against OpenAI primary source and Japan AISI 13 November roundup confirming announcement date."
+        },
         {
           "id": "77625322d4684167",
           "topicId": "ai",

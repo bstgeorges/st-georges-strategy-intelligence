@@ -1,6 +1,6 @@
 {
-  "edition": "2026-11-08",
-  "generatedAt": "2026-11-08T00:00:00.000Z",
+  "edition": "2026-11-15",
+  "generatedAt": "2026-11-15T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,25 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "A stop instruction is only one part of agent containment",
+          "url": "https://openai.com/index/control-room/",
+          "source": "Primary / OpenAI / 2026-11-09",
+          "evidence": {
+            "sourceTitle": "Control Room: A central system to track and stop model workloads across our research infrastructure",
+            "organisation": "OpenAI",
+            "publishedDate": "2026-11-09",
+            "sourceType": "company announcement",
+            "significance": "OpenAI says Control Room can halt further model output within 35 seconds after receiving a stop instruction and denies inference if the control service is unavailable. This is its account of research infrastructure, not proof that completed actions can be reversed or that an enterprise deployment has the same control.",
+            "sourceUrl": "https://openai.com/index/control-room/",
+            "accessedDate": "2026-11-15",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-11-15",
+              "reason": "The 9 November announcement date is independently recorded by Japan AISI’s 13 November roundup. OpenAI’s primary page describes the stop-instruction boundary, inference enforcement and fail-closed design."
+            }
+          }
+        },
         {
           "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
           "url": "https://openai.com/index/introducing-gpt-6-cyber",
@@ -84,20 +103,6 @@
               "reason": "METR primary article displays 22 October 2026 and describes the historical pilot, vulnerabilities, OpenAI patch statement and explicit evaluation limit."
             }
           }
-        },
-        {
-          "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
-          "url": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
-          "source": "Primary / UK AI Security Institute / 2026-10-07",
-          "evidence": {
-            "sourceTitle": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
-            "organisation": "UK AI Security Institute",
-            "publishedDate": "2026-10-07",
-            "sourceType": "public authority",
-            "significance": "The UK AI Security Institute's open-source Transect tool is demonstrated on a long, multi-agent evaluation. It aligns recorded events, sub-agent activity, token use and behavioural labels on a turn-based timeline, linking interpretations back to transcript turns for review.",
-            "sourceUrl": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
-            "accessedDate": "2026-10-11"
-          }
         }
       ],
       "stillMaterial": [
@@ -160,6 +165,20 @@
       "title": "Failure paths, fallback evidence, and customer impact.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "APRA links AI risk with shared provider dependencies",
+          "url": "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026",
+          "source": "Primary / Australian Prudential Regulation Authority / 2026-11-12",
+          "evidence": {
+            "sourceTitle": "APRA&#039;s System Risk Outlook - November 2026 | APRA",
+            "organisation": "Australian Prudential Regulation Authority",
+            "publishedDate": "2026-11-12",
+            "sourceType": "regulator",
+            "significance": "APRA says AI can create risks within firms and accelerate external threats, while shared material providers can transmit disruption. Some individual providers support institutions holding more than half of APRA-regulated financial assets; this is Australian supervisory evidence, not a measurement of any individual firm’s exposure.",
+            "sourceUrl": "https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026",
+            "accessedDate": "2026-11-15"
+          }
+        },
         {
           "title": "PRA creates a directorate for operational and cyber resilience",
           "url": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
@@ -224,20 +243,6 @@
             "significance": "OSFI's 2027 market-risk chapter gives firms an implementation timetable for a detailed capital framework. The decision is whether models, data lineage and capital calculations can produce the evidence required by the new standard before its effective dates, rather than being treated as a late policy-read exercise.",
             "sourceUrl": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/capital-adequacy-requirements-car-2027-chapter-9-market-risk",
             "accessedDate": "2026-09-20"
-          }
-        },
-        {
-          "title": "CloudTrail makes containment and recovery a decision-record test",
-          "url": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
-          "source": "Primary / AWS Security Blog / 2026-09-03",
-          "evidence": {
-            "sourceTitle": "Incident response guide for AWS CloudTrail investigations – Part 2",
-            "organisation": "AWS Security Blog",
-            "publishedDate": "2026-09-03",
-            "sourceType": "company announcement",
-            "significance": "AWS's second CloudTrail investigation guide takes an alert through containment, recovery and post-incident analysis. The useful resilience test is whether incident teams can produce the activity record, the authority for each containment decision, the recovery steps and evidence that the service was safe to return to normal.",
-            "sourceUrl": "https://aws.amazon.com/blogs/security/incident-response-guide-for-aws-cloudtrail-investigations-part-2",
-            "accessedDate": "2026-09-13"
           }
         }
       ],
@@ -498,6 +503,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "FSB calls for stronger stablecoin oversight in Türkiye",
+          "url": "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins",
+          "source": "Primary / Financial Stability Board / 2026-11-11",
+          "evidence": {
+            "sourceTitle": "FSB recommends Türkiye further strengthens its regulatory framework for crypto-assets and stablecoins",
+            "organisation": "Financial Stability Board",
+            "publishedDate": "2026-11-11",
+            "sourceType": "regulator",
+            "significance": "The FSB recommends a dedicated stablecoin regime, stronger supervision and enforcement, and cross-border cooperation in Türkiye. These are recommendations to authorities, not new obligations already imposed on firms.",
+            "sourceUrl": "https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins",
+            "accessedDate": "2026-11-15"
+          }
+        },
+        {
           "title": "Market Participants Survey results - November 2026",
           "url": "https://www.bankofengland.co.uk/markets/market-intelligence/survey-results/2026/market-participants-survey-results-november-2026",
           "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-06",
@@ -568,27 +587,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "The SEC press release displays 9 October 2026 beneath its title. The generic page-date extractor returned a site-wide metadata date, so the release date was checked against the primary page."
-            }
-          }
-        },
-        {
-          "title": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
-          "source": "Primary / US Commodity Futures Trading Commission / 2026-10-09",
-          "evidence": {
-            "sourceTitle": "CFTC Seeks Public Comment on Notice of Proposed Rulemaking Concerning the Inclusion of Certain Event Contracts in the Definition of Swap",
-            "organisation": "US Commodity Futures Trading Commission",
-            "publishedDate": "2026-10-09",
-            "sourceType": "regulator",
-            "significance": "The CFTC proposes expressly including specified event contracts based on sports, politics, culture and weather in the swap definition. Comments run for 30 days after Federal Register publication. Treat this as a proposed classification change and check whether product inventories and legal analysis distinguish it from other event-based offerings.",
-            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9310-26",
-            "accessedDate": "2026-10-11",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "The CFTC page identifies release 9310-26 as dated 9 October 2026. The page was checked directly because automated extraction classified it as restricted."
+              "verifiedDate": "2026-11-15",
+              "reason": "The SEC press release displays 9 October 2026 beneath its title. The generic page-date extractor returned a site-wide metadata date, so the release date was checked against the primary page. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         }
@@ -671,6 +671,20 @@
       "stillMaterialReviewedAt": "2026-10-11",
       "top5": [
         {
+          "title": "FINMA sets January start for revised AML requirements",
+          "url": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
+          "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-11-10",
+          "evidence": {
+            "sourceTitle": "FINMA publishes partially revised FINMA Anti-Money Laundering Ordinance",
+            "organisation": "Swiss Financial Market Supervisory Authority",
+            "publishedDate": "2026-11-10",
+            "sourceType": "regulator",
+            "significance": "FINMA says its revised anti-money-laundering ordinance enters into force on 1 January 2027. The associated self-regulation provides a four-month transition period; affected firms must assess which provisions apply to their own activities.",
+            "sourceUrl": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
+            "accessedDate": "2026-11-15"
+          }
+        },
+        {
           "title": "OFSI grants a time-bound licence to wind down Zarubezhneft transactions",
           "url": "https://www.gov.uk/government/publications/ofsi-general-licence-int202611080040",
           "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-10-08",
@@ -723,20 +737,6 @@
             "sourceType": "regulator",
             "significance": "The Central Bank of Ireland reports fraudulent-payment value rose 27.2% to €179.04 million in 2025, with authorised push-payment fraud making up 45% of value and cross-border payments 69.8%. That is a direct test of payment monitoring, intervention speed, customer support and the evidence behind each decision.",
             "sourceUrl": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-            "accessedDate": "2026-09-06"
-          }
-        },
-        {
-          "title": "OFSI penalty puts sanctions-payment controls back under scrutiny",
-          "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
-          "source": "Primary / UK Office of Financial Sanctions Implementation / 2026-09-02",
-          "evidence": {
-            "sourceTitle": "Notice: Imposition of Monetary Penalty – Citibank, N.A., London Branch",
-            "organisation": "UK Office of Financial Sanctions Implementation",
-            "publishedDate": "2026-09-02",
-            "sourceType": "regulator",
-            "significance": "OFSI has imposed a £4.73 million penalty on Citibank's London branch for a financial-sanctions breach. The practical read-across is to test screening, payment release, escalation, exception authority and the contemporaneous record of why a payment was allowed or stopped.",
-            "sourceUrl": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
             "accessedDate": "2026-09-06"
           }
         }
@@ -813,8 +813,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "The GOV.UK page records a 7 October 2026 amendment; the attached primary licence PDF is signed as amended on that date and sets the revised reporting and expiry terms."
+              "verifiedDate": "2026-11-15",
+              "reason": "The GOV.UK page records a 7 October 2026 amendment; the attached primary licence PDF is signed as amended on that date and sets the revised reporting and expiry terms. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         },
@@ -832,8 +832,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "GOV.UK gives 1 October 2026 as the last-updated date and identifies the licence and publication-notice files changed in that update; the date refers to the recorded revision, not original publication."
+              "verifiedDate": "2026-11-15",
+              "reason": "GOV.UK gives 1 October 2026 as the last-updated date and identifies the licence and publication-notice files changed in that update; the date refers to the recorded revision, not original publication. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         }
@@ -845,6 +845,20 @@
       "title": "Threats, vulnerabilities, identity, and response.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "GSocket persistence can survive the initial application patch",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
+          "source": "Primary / Microsoft Security Blog / 2026-11-11",
+          "evidence": {
+            "sourceTitle": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
+            "organisation": "Microsoft Security Blog",
+            "publishedDate": "2026-11-11",
+            "sourceType": "company announcement",
+            "significance": "Microsoft describes attackers using an outbound relay after compromising internet-facing applications. Patching the initial flaw does not itself remove the relay client or persistence; the report describes observed telemetry rather than the prevalence of compromise across banks.",
+            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
+            "accessedDate": "2026-11-15"
+          }
+        },
         {
           "title": "ARTEX abuse expands as cybercriminals target financial sector",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector",
@@ -899,25 +913,6 @@
               "status": "manual-verified",
               "verifiedDate": "2026-10-24",
               "reason": "Canadian Cyber Centre primary advisory displays 21 October 2026 and shows the 23 October update, affected versions and exploitation status."
-            }
-          }
-        },
-        {
-          "title": "CERT-FR flags active exploitation of a FortiMail remote-code-execution flaw",
-          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
-          "source": "Primary / CERT-FR / ANSSI / 2026-10-02",
-          "evidence": {
-            "sourceTitle": "Vulnérabilité dans Fortinet FortiMail (02 octobre 2026)",
-            "organisation": "CERT-FR / ANSSI",
-            "publishedDate": "2026-10-02",
-            "sourceType": "regulator",
-            "significance": "CERT-FR says Fortinet confirmed active exploitation of a remote-code-execution vulnerability affecting specified FortiMail versions. If the product is in the firm's estate, identify affected versions, apply Fortinet's fix and review the available indicators of compromise. The advisory does not establish that any particular firm was affected.",
-            "sourceUrl": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1257",
-            "accessedDate": "2026-10-18",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-18",
-              "reason": "CERT-FR's primary advisory identifies 2 October 2026 as both the first and last version date; it records Fortinet's confirmation of active exploitation. The date and claim were checked on the primary page."
             }
           }
         }
@@ -1065,8 +1060,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "GitHub Status timestamps this incident on 7 October 2026; the initial report identifies a disruption between 15:06 and 15:16 UTC. The primary incident record was checked directly."
+              "verifiedDate": "2026-11-15",
+              "reason": "GitHub Status timestamps this incident on 7 October 2026; the initial report identifies a disruption between 15:06 and 15:16 UTC. The primary incident record was checked directly. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         },
@@ -1084,8 +1079,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "GitHub Status timestamps this second incident on 7 October 2026; the report identifies a recurrence between 16:52 and 17:01 UTC. The primary incident record was checked directly."
+              "verifiedDate": "2026-11-15",
+              "reason": "GitHub Status timestamps this second incident on 7 October 2026; the report identifies a recurrence between 16:52 and 17:01 UTC. The primary incident record was checked directly. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         },
@@ -1218,8 +1213,8 @@
             "accessedDate": "2026-10-11",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-11",
-              "reason": "CNIL's primary page displays 8 October 2026 beneath the title. Its page date was checked directly."
+              "verifiedDate": "2026-11-15",
+              "reason": "CNIL's primary page displays 8 October 2026 beneath the title. Its page date was checked directly. Rechecked against the linked primary source on 15 November 2026."
             }
           }
         },

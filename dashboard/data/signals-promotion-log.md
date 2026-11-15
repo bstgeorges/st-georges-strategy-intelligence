@@ -1,12 +1,15 @@
-# Signals promotion log — 2026-11-08
+# Signals promotion log — 2026-11-15
 
-- ai: promoted 1 fresh candidate; added METR’s 5 November independent acceleration assessment as a supplemental source from the supplied weekly AI Risk brief; retained 3 reviewed rows.
-- resilience: promoted 0 fresh candidates; retained 5 reviewed rows.
-- third-party: promoted 0 fresh candidates; retained 5 reviewed rows.
-- market-structure: promoted 1 fresh candidate; retained 4 reviewed rows.
-- financial-crime: promoted 0 fresh candidates; retained 5 reviewed rows.
-- cyber: promoted 1 fresh candidate; retained 3 reviewed rows.
-- technology-failure: promoted 0 fresh candidates; retained 4 reviewed rows.
-- data: promoted 0 fresh candidates; retained 5 reviewed rows.
-
-Editorial review retained the PRA resilience and CMORG cloud exercise signals, avoiding a repeated LiteLLM item and a 17-minute, single-location Cloudflare status incident. New source claims are attributed and date-checked.
+- ai: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "Control Room: A central system to track and stop model workloads across our research infrastructure" — Primary / OpenAI / 2026-11-09 — https://openai.com/index/control-room/
+- resilience: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "APRA&#039;s System Risk Outlook - November 2026 | APRA" — Primary / Australian Prudential Regulation Authority / 2026-11-12 — https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026
+- third-party: promoted 0 fresh candidate(s), kept 5 existing row(s)
+- market-structure: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "FSB recommends Türkiye further strengthens its regulatory framework for crypto-assets and stablecoins" — Primary / Financial Stability Board / 2026-11-11 — https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins
+- financial-crime: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "FINMA publishes partially revised FINMA Anti-Money Laundering Ordinance" — Primary / Swiss Financial Market Supervisory Authority / 2026-11-10 — https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma
+- cyber: promoted 1 fresh candidate(s), kept 3 existing row(s)
+    + "The global socket: how threat actors are weaponizing GSocket for stealthy C2" — Primary / Microsoft Security Blog / 2026-11-11 — https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2
+- technology-failure: promoted 0 fresh candidate(s), kept 4 existing row(s)
+- data: promoted 0 fresh candidate(s), kept 5 existing row(s)

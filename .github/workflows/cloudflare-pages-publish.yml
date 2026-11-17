@@ -60,7 +60,7 @@ jobs:
 
       - name: Verify requested release revision
         env:
-          EXPECTED_RELEASE_SHA: ${{ inputs.expected_sha }}
+          EXPECTED_RELEASE_SHA: ${{ github.event_name == 'workflow_dispatch' && inputs.expected_sha || '' }}
           WORKFLOW_RELEASE_SHA: ${{ github.sha }}
         run: node scripts/assert_release_revision.mjs
 

@@ -3479,3 +3479,8 @@ a.tag:hover {
   .deep-dive-toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .outage-cascade { margin-inline: -8px; padding: 8px; }
 }
+
+/* Keep paragraph text in the dark Deep Dive committee panel readable. */
+.deep-dive-conclusion p {
+  color: var(--paper-soft);
+}

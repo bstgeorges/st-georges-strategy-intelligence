@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nothing was abnormal: lessons from Microsoft's Exchange Online outage | Deep Dive | St Georges Strategy</title>
+    <meta name="description" content="What Microsoft's Exchange Online outage reveals about change control, supplier dependencies, detection and recovery when ordinary conditions combine.">
+    <link rel="canonical" href="https://stgeorgesstrategy.com/deep-dives/nothing-was-abnormal-exchange-online-outage/">
+    <meta property="og:type" content="article"><meta property="og:site_name" content="St Georges Strategy">
+    <meta property="og:title" content="Nothing was abnormal: lessons from Microsoft's Exchange Online outage">
+    <meta property="og:description" content="What Microsoft's Exchange Online outage reveals about change control, supplier dependencies, detection and recovery when ordinary conditions combine.">
+    <meta property="og:url" content="https://stgeorgesstrategy.com/deep-dives/nothing-was-abnormal-exchange-online-outage/">
+    <meta property="og:image" content="https://stgeorgesstrategy.com/assets/og/deep-dive-nothing-was-abnormal-exchange-online-outage.png">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Nothing was abnormal: lessons from Microsoft's Exchange Online outage">
+    <meta name="twitter:description" content="A Deep Dive from The Virtual Officer.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Nothing was abnormal: lessons from Microsoft's Exchange Online outage","description":"What Microsoft's Exchange Online outage reveals about change control, supplier dependencies, detection and recovery when ordinary conditions combine.","datePublished":"2026-11-22","dateModified":"2026-11-22","author":{"@type":"Person","name":"Ben St Georges"},"publisher":{"@type":"Organization","name":"St Georges Strategy"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://stgeorgesstrategy.com/deep-dives/nothing-was-abnormal-exchange-online-outage/"}}</script>
+    <link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-banner" aria-label="Primary"><div class="site-banner-inner"><a class="site-wordmark" href="../../index.html" aria-label="St Georges Strategy home"><span class="site-mark" aria-hidden="true">SGS</span><span>St Georges Strategy</span></a><nav class="site-nav" aria-label="Primary"><a href="../../index.html">Home</a><a href="../../brief/index.html">Weekly Brief</a><a href="../../signals/index.html">Signals</a><a href="../index.html" aria-current="page">Deep Dives</a><a href="../../committee-questions/index.html">Committee Questions</a><a href="../../archive/index.html">Archive</a><a href="../../about/index.html">About</a></nav></div></header>
+    <main class="page deep-dive-page"><article>
+      <header class="masthead deep-dive-masthead"><p class="eyebrow">Deep Dive <span aria-hidden="true">·</span> Third-party risk &amp; operational resilience</p><h1><em>Nothing was abnormal</em>: lessons from Microsoft's Exchange Online outage</h1><p class="dek">One latent defect, three ordinary conditions and a day without Exchange Online: what Microsoft's own post-incident report tells resilience leaders about change control, supplier dependencies and recovery.</p><p class="deep-dive-byline">By Ben St Georges <span aria-hidden="true">·</span> 22 November 2026 <span aria-hidden="true">·</span> 11 min read</p></header>
+      <section class="deep-dive-timeline" aria-label="Key facts"><div><p class="meta">23 h 50 min</p><p>Customer impact, from Microsoft's incident timeline</p></div><div><p class="meta">4 conditions</p><p>One latent defect plus three individually normal conditions</p></div><div><p class="meta">18:00 UTC</p><p>Servers in every region affected after load redistribution</p></div></section>
+      <div class="deep-dive-body"><p class="deep-dive-lead">Microsoft's Exchange Online outage on 12–13 November 2026 lasted 23 hours 50 minutes, and no exceptional shock was needed to cause it. According to Microsoft's post-incident report, a latent defect in a Windows change that had run safely for more than three months surfaced when three ordinary conditions happened to coincide.</p>
+<p>That is the uncomfortable part for operational risk leaders. Most severe-but-plausible scenarios are built around one large shock. This one was assembled from routine maintenance, an automatic failover and normal North American business-hours traffic.</p>
+<p>This piece sets out what Microsoft says happened, why it cascaded, and the lessons for change control, supplier dependencies, detection and recovery that translate directly into questions for an operational resilience committee.</p>
+<aside class="deep-dive-regulatory"><p><strong>Regulatory implication</strong> — Under the UK critical third parties regime and DORA alike, accountability stays with the regulated firm, so a supplier's latent defect becomes the firm's resilience problem to evidence.</p></aside>
+<nav class="deep-dive-toc" aria-label="On this page"><p class="meta">In this deep dive</p><ol><li><a href="#what-happened">The incident</a></li><li><a href="#why-it-failed-a-latent-change-meets-three-normal-conditions">Root cause</a></li><li><a href="#a-change-can-fail-months-after-it-ships">Change control</a></li><li><a href="#the-dependency-you-cannot-see-is-inside-the-supplier">Supplier dependencies</a></li><li><a href="#restarting-is-not-recovering">Recovery</a></li><li><a href="#slow-building-stress-hides-from-alerting">Detection</a></li><li><a href="#the-report-itself-is-a-benchmark-for-third-party-oversight">Third-party oversight</a></li><li><a href="#committee-questions">Committee questions</a></li><li><a href="#attribution-and-estimate-limits">Evidence map &amp; sources</a></li></ol></nav>
+<section class="deep-dive-section" aria-labelledby="what-happened">
+<p class="meta">01 / The incident</p>
+<h2 id="what-happened">What happened</h2>
+<p>Microsoft records the incident as starting at 16:20 UTC on 12 November and customer impact ending at 16:10 UTC on 13 November (11:20 to 11:10 US Eastern). Broad failures in North America began around 16:00, about 20 minutes before the official start. Microsoft declared the incident resolved at 04:15 UTC on 14 November, after clearing the backlog.</p>
+<p>Exchange Online was the epicentre: Outlook, Outlook on the web, mobile access and mail flow. Microsoft tracked it as incident EX1550543, and at 18:27 UTC opened MO1550821 to cover the knock-on impact on Teams, Copilot, Defender and other services. The impact list in the report is much longer. It includes Microsoft 365 Copilot, Teams (calendar, presence, Teams Rooms and desk phones), SharePoint Online, OneDrive, Microsoft Graph, the Microsoft 365 admin center, Purview, Defender XDR, Intune and Power BI.</p>
+<p>For a resilience committee, the breadth of that list matters more than a day without email. The tools a firm would use to coordinate its response (email and Teams) and to follow the supplier's status (the admin center) were affected at the same time. So were some security and compliance functions: links protected by Safe Links could fail to open, post-delivery email protection was delayed, and Purview policy matches and alerts could be delayed.</p>
+<p>Microsoft states the incident was "confirmed not to be caused by a cyberattack" and that the change "was not caused by AI tooling". Microsoft also reports that no customer data at rest was affected and no enterprise mail was permanently lost, though some delayed messages to consumer mailboxes inactive for more than 30 days expired.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Time (UTC)</th><th scope="col">What the report records</th></tr></thead><tbody>
+<tr><td>July 2026</td><td>Update carrying the defect begins rolling out to gateway servers; it runs without issue for more than three months</td></tr>
+<tr><td>12 Nov, 01:07</td><td>Teams automatically fails over onto the gateway it shares with Exchange Online; load starts to rise</td></tr>
+<tr><td>12 Nov, 01:07–16:00</td><td>Load builds gradually; isolated server failures are handled by automated mitigations</td></tr>
+<tr><td>12 Nov, 16:00–16:20</td><td>Broad failures begin in North America (about 16:00); anomaly detection fires (16:03); on-call alerted and incident EX1550543 posted (16:20)</td></tr>
+<tr><td>12 Nov, 19:00–19:20</td><td>All deployments and configuration changes paused; engineers realise servers are unavailable rather than traffic being high</td></tr>
+<tr><td>13 Nov, 00:30–01:00</td><td>Connection negotiation identified as the bottleneck</td></tr>
+<tr><td>13 Nov, 07:20</td><td>Fix reverting the defective change applied to part of the fleet</td></tr>
+<tr><td>13 Nov, 11:00–15:54</td><td>Asia Pacific, then Europe, then global access recover</td></tr>
+<tr><td>13 Nov, 16:10</td><td>No active customer impact; backlog recovery continues</td></tr>
+<tr><td>14 Nov, 04:15</td><td>Incident declared resolved</td></tr>
+</tbody></table></div>
+</section>
+<section class="deep-dive-section" aria-labelledby="why-it-failed-a-latent-change-meets-three-normal-conditions">
+<p class="meta">02 / Root cause</p>
+<h2 id="why-it-failed-a-latent-change-meets-three-normal-conditions">Why it failed: a latent change meets three normal conditions</h2>
+<p>The root cause was a latent defect in how Windows processed connections on Microsoft 365's network gateway servers. Under load, lock contention inside an internal Windows process exhausted CPU and memory. The defect existed only in a configuration specific to Exchange Online, and only on newer, higher-core server models.</p>
+<p>It had been live since a July rollout. What exposed it on 12 November was three conditions that Microsoft says were each "within normal operating parameters":</p>
+<ul>
+<li>About 14% of gateway capacity was offline for routine deployment.</li>
+<li>Teams had automatically failed over onto the gateway it shares with Exchange Online, adding load roughly 15 hours earlier.</li>
+<li>North American business-hours traffic arrived on top.</li>
+</ul>
+<p>In less than two hours, the defect was triggered across a significant share of the North American fleet; at the worst point, Microsoft says, more than 80% of servers were unresponsive. Automatic traffic redistribution then pushed the load into other regions, and by around 18:00 UTC, about two hours after the broad North American failures began, servers in every region were affected.</p>
+<figure class="outage-cascade"><img src="assets/exchange-outage-cascade-diagram.png" width="1344" height="650" loading="lazy" decoding="async" alt="Diagram: a latent Windows defect, 14% of capacity offline for routine deployment, a Teams failover onto the shared gateway and North American business-hours traffic combine to overload the gateways (more than 80% of servers unresponsive); load is redistributed to other regions and every region is affected by about 18:00 UTC."><figcaption>How the outage built · one latent defect, three normal conditions, one cascade</figcaption></figure>
+<p>No single input would have caused an outage; the combination, plus automatic redistribution, did.</p>
+</section>
+<section class="deep-dive-section" aria-labelledby="a-change-can-fail-months-after-it-ships">
+<p class="meta">03 / Change control</p>
+<h2 id="a-change-can-fail-months-after-it-ships">A change can fail months after it ships</h2>
+<p>Change management frameworks quietly assume that a bad change shows itself quickly. Post-implementation reviews, hypercare windows and rollback plans are all sized for days or weeks, not a quarter.</p>
+<p>This change broke that assumption twice. First, triage stalled: Microsoft says change auditing and diagnostics took longer to identify a Windows change that had been live for months. "What changed recently?" pointed nowhere useful.</p>
+<p>Second, the usual safety nets did not work. Microsoft could not quickly stop a rollout, roll back or switch off a feature flag, because the defect was already everywhere. Applying the fix to each server took five steps: take it out of service, restart, patch, restart again, return it.</p>
+<p>The defect had also slipped past testing. Microsoft's labs used older hardware with fewer cores, which made the defect less likely to appear, and the report concedes that testing "did not adequately represent the combination of hardware and traffic mix encountered during this incident". Load testing on the newest, highest-core hardware is now a repair item for the first quarter of 2027.</p>
+<p>The question for firms is whether their own change records, and their suppliers', let an incident team find a three-month-old change within the first hour. It is also worth asking whether rollback plans are ever tested against a change that has already spread across the whole estate, and whether pre-production load tests mirror the newest production hardware and real peak traffic.</p>
+</section>
+<section class="deep-dive-section" aria-labelledby="the-dependency-you-cannot-see-is-inside-the-supplier">
+<p class="meta">04 / Supplier dependencies</p>
+<h2 id="the-dependency-you-cannot-see-is-inside-the-supplier">The dependency you cannot see is inside the supplier</h2>
+<p>A firm mapping its important business services would reasonably list Teams and Exchange Online as two dependencies. On 12 November they behaved as one. Teams' failover landed on the gateway Exchange Online also used, and the isolation between Microsoft's capacity units and regions did not contain the cascade.</p>
+<p>Dependency mapping built from a supplier's service descriptions is unlikely to reveal shared gateways or how failover is scoped. That detail sits inside the supplier's architecture, below the level of service descriptions and contracts. The FCA made a related point on 11 November, flagging firms that rely on third-party, group or shared-service resilience assumptions without evidence those assumptions were tested or challenged.</p>
+<p>Microsoft's own findings confirm the diagnosis: "Regional failure zones are too large." By the end of 2026 it plans to stop failures cascading across regions and to limit Teams failover to the affected region. In the first quarter of 2027 it plans to split gateway capacity into separate pools per workload.</p>
+<p>For firms, the practical step is to ask critical suppliers which of their services share infrastructure, and how failover between them is scoped. Where the answer is unknown, scenario testing should assume the services fail together.</p>
+</section>
+<section class="deep-dive-section" aria-labelledby="restarting-is-not-recovering">
+<p class="meta">05 / Recovery</p>
+<h2 id="restarting-is-not-recovering">Restarting is not recovering</h2>
+<p>Microsoft's engineers repeatedly brought servers back, only to watch them fail again. Recovered servers were immediately overwhelmed by queued client traffic, and the report notes that automated recovery was not designed for this.</p>
+<p>Microsoft's own timeline shows the tail. Active customer impact ended at 16:10 UTC on 13 November, but clearing the backlog took another 12 hours: the incident was declared resolved only at 04:15 UTC on 14 November.</p>
+<p>The pattern will be familiar to anyone who has run a payments or trading recovery. The outage ends; the backlog does not. Every client, retry loop and queued message arrives at once, and the first systems back absorb the full surge.</p>
+<p>Microsoft's planned fixes include gradual ramp-up and admission control when servers rejoin, plus better retry and back-off behaviour. It also extended the mail retry window from 24 to 48 hours, to give delayed mail more time to be delivered.</p>
+<p>Impact-tolerance testing that stops when the service is "back up" misses this phase. Firms should test the reconnection surge explicitly, including how long it takes to clear backlogs within tolerance.</p>
+</section>
+<section class="deep-dive-section" aria-labelledby="slow-building-stress-hides-from-alerting">
+<p class="meta">06 / Detection</p>
+<h2 id="slow-building-stress-hides-from-alerting">Slow-building stress hides from alerting</h2>
+<p>Load began rising at 01:07 UTC when Teams failed over. Isolated server failures followed and were handled by automated mitigations. Broad failures began around 16:00 and anomaly detection fired at 16:03, roughly 15 hours after the stress began. Microsoft's first customer notification followed about 20 minutes after broad impact, which the report lists as a gap to close.</p>
+<p>In practice, monitoring handled the parts but not the pattern. The report records automated mitigations absorbing isolated server failures through the day; the connectivity anomaly monitor flagged an increase in end-user connectivity issues only as broad failures began. Microsoft now plans to add detection for extended capacity loss, and to keep more capacity headroom.</p>
+<p>The read-across for firms is about what dashboards measure. Alerts tuned to individual component failures can stay green while spare capacity quietly erodes. A useful test: would your monitoring notice that automated recovery is working unusually hard?</p>
+</section>
+<section class="deep-dive-section" aria-labelledby="the-report-itself-is-a-benchmark-for-third-party-oversight">
+<p class="meta">07 / Third-party oversight</p>
+<h2 id="the-report-itself-is-a-benchmark-for-third-party-oversight">The report itself is a benchmark for third-party oversight</h2>
+<p>In the UK, HM Treasury <a href="https://www.gov.uk/government/news/uk-financial-system-strengthened-with-new-safeguards-for-major-technology-providers">designated Microsoft Ireland Operations Limited as a critical third party</a> from 13 July 2026, alongside Google Cloud, Amazon Web Services and Oracle. In the EU, the same Microsoft entity is on the <a href="https://www.eba.europa.eu/sites/default/files/2025-11/e388451b-356b-408a-bbf2-b8e425865d75/List%20of%20designated%20CTPPs.pdf">list of critical ICT third-party providers designated under DORA</a>, which brings it under direct oversight by the European Supervisory Authorities. Neither regime moves accountability away from the regulated firm. When Google Cloud failed in London a month earlier, the EBA contacted Google to assess the impact on EU financial firms. Reuters noted separately that, under UK rules, banks remain responsible for the services they provide to customers, including when they rely on third parties.</p>
+<p>That makes the quality of a supplier's incident reporting an operational risk control in its own right. By that standard, this report sets a useful bar. A preliminary version followed within days, and the final report on 20 November gave a timeline to the minute, a named root cause, the conditions that triggered it, an honest account of why recovery was slow, and repair items with target quarters.</p>
+<p>Firms can use it as a yardstick. Would your contracts with other critical suppliers entitle you to a report this specific, this quickly? Does your incident process actually pull such reports into your own risk assessment, or do they sit with the IT team?</p>
+<p>The commercial remedy is thinner, and the report says nothing about service credits. Office 365 for IT Pros estimates that a tenant whose users lost access for the whole incident could see Exchange Online's monthly uptime fall into Microsoft's 50% credit band. Whether any tenant qualifies, and for how much, depends on its actual impact, the <a href="https://www.microsoft.com/licensing/docs/view/service-level-agreements-sla-for-online-services">Microsoft service level agreement</a> that applies to it, and a timely claim. On that site's reading, credits are not automatic, are the sole remedy, and must be claimed by the end of December 2026.</p>
+<p>Either way, a credit against a monthly licence fee bears little relation to a lost business day, which is itself a point for exit and substitution planning. Those plans also have to work when everyone else is degraded too: clients, counterparties, law firms and custodians that rely on the same service could not send or receive email either.</p>
+</section>
+<section class="deep-dive-conclusion" aria-labelledby="committee-questions">
+<p class="eyebrow">For the committee</p>
+<h2 id="committee-questions">Eight questions for a CRO or operational resilience committee</h2>
+<p class="deep-dive-lead">The value of an incident like this is that it happened to someone else. Eight questions turn it into a test of your own framework:</p>
+<ol class="deep-dive-questions">
+  <li><span>01</span><p>Do any of our severe-but-plausible scenarios combine several individually normal conditions, or are they all single large shocks?</p></li>
+  <li><span>02</span><p>Could our incident teams, and our critical suppliers', identify a change made three months ago within the first hour of an outage?</p></li>
+  <li><span>03</span><p>Have we tested rollback for a change that has already spread across the whole estate, and do our load tests mirror the newest production hardware and real peak traffic?</p></li>
+  <li><span>04</span><p>Which of our "separate" supplier dependencies actually share infrastructure, and how would we know?</p></li>
+  <li><span>05</span><p>Do our impact-tolerance tests include the reconnection surge and backlog clearance, or do they stop at "service restored"?</p></li>
+  <li><span>06</span><p>Would our monitoring alert us when spare capacity is quietly eroding, or automated recovery is working overtime, before customers feel it?</p></li>
+  <li><span>07</span><p>If email, chat and our supplier's status page fail together, how do we coordinate the response and keep security controls in place?</p></li>
+  <li><span>08</span><p>Do our contracts with critical suppliers guarantee a post-incident report of this depth and speed, and who owns reading it?</p></li>
+</ol>
+<p>The FCA's 11 November review of trading venues found testing that focused on whether a change was implemented rather than whether services could recover from it. Microsoft's outage is a vivid illustration of why that distinction matters.</p>
+</section>
+<p class="eyebrow">Evidence map</p>
+<h2 id="attribution-and-estimate-limits">Attribution and estimate limits</h2>
+<p>Attribution rates whether the source itself was read and how directly; estimate rates how reliable a number is.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Claim</th><th scope="col">Source</th><th scope="col">Attribution</th><th scope="col">Estimate</th><th scope="col">Limit</th></tr></thead><tbody>
+<tr><td>Incident window 16:20 UTC 12 Nov to 16:10 UTC 13 Nov; resolved 04:15 UTC 14 Nov</td><td>Microsoft post-incident report, MO1550821</td><td>Medium–high</td><td>Not an estimate</td><td>Read via a third-party copy, not the admin-center original</td></tr>
+<tr><td>Latent Windows defect, newer high-core servers, rolled out from July 2026</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Not an estimate</td><td>Microsoft's own account; no independent technical review</td></tr>
+<tr><td>Three triggering conditions, including about 14% of gateway capacity offline</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Approximate ("about 14%")</td><td>Microsoft's own account</td></tr>
+<tr><td>More than 80% of servers unresponsive at the worst point</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Microsoft figure</td><td>Sentence sits in the North American context but does not name the region</td></tr>
+<tr><td>Every region affected about two hours after broad failures began</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Approximate</td><td>Timing given as "about two hours"</td></tr>
+<tr><td>First customer notification about 20 minutes after broad impact</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Approximate</td><td>Listed by Microsoft as a gap to close</td></tr>
+<tr><td>Security and compliance effects (Safe Links, post-delivery protection, Purview)</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Not an estimate</td><td>Described as effects users "may have" seen; tenant experience varied</td></tr>
+<tr><td>No enterprise mail permanently lost; some consumer messages expired</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Not an estimate</td><td>Report's executive summary is less qualified than its body</td></tr>
+<tr><td>Repair items and target quarters</td><td>Microsoft post-incident report</td><td>Medium–high</td><td>Not an estimate</td><td>Commitments, not yet delivered</td></tr>
+<tr><td>Outage could fall in the 50% service-credit band</td><td>Office 365 for IT Pros</td><td>High</td><td>Low–medium</td><td>Assumes full-duration loss for all users; eligibility is tenant-specific</td></tr>
+<tr><td>Microsoft Ireland Operations Limited designated a UK critical third party from 13 Jul 2026</td><td>HM Treasury</td><td>High</td><td>Not an estimate</td><td>None</td></tr>
+<tr><td>Same entity on the EU list of designated critical ICT providers</td><td>EU list hosted by the EBA</td><td>High</td><td>Not an estimate</td><td>Document is undated and does not name its issuer in the text</td></tr>
+<tr><td>FCA findings on untested third-party assumptions and change-focused testing</td><td>FCA, 11 Nov 2026 publications</td><td>High</td><td>Not an estimate</td><td>Findings relate to UK firms and trading venues, not this incident</td></tr>
+<tr><td>EBA contacted Google after the October outage; UK banks remain responsible for services</td><td>Reuters, 21 Oct 2026</td><td>High</td><td>Not an estimate</td><td>The responsibility point is Reuters' summary of UK rules, not an EBA statement</td></tr>
+</tbody></table></div>
+<p class="eyebrow">Sources</p>
+<h2 id="direct-evidence-behind-this-analysis">Direct evidence behind this analysis</h2>
+<p>Sources read for this analysis, with publication dates where given.</p>
+<ul>
+<li><a href="https://www.365fanatic.com/m365-outage-12-november-2026-final-report/">365Fanatic: Microsoft 365 outage of 12 and 13 November 2026, final report</a> (updated 21 November 2026)</li>
+<li><a href="https://office365itpros.com/2026/11/16/exchange-online-outage-nov26/">Office 365 for IT Pros: The Great Exchange Online Outage of November 2026</a> (Tony Redmond, 16 November 2026), source of the service-credit estimate</li>
+<li><a href="https://windowsforum.com/news/microsoft-365-outage-root-cause-exchange-gateway-failure-and-resilience-lessons-for-admins.453216/">WindowsForum: Exchange gateway failure root cause and resilience lessons</a> (19–21 November 2026)</li>
+<li><a href="https://www.microsoft.com/licensing/docs/view/service-level-agreements-sla-for-online-services">Microsoft: Service Level Agreements for Online Services</a></li>
+<li><a href="https://www.gov.uk/government/news/uk-financial-system-strengthened-with-new-safeguards-for-major-technology-providers">HM Treasury: UK financial system strengthened with new safeguards for major technology providers</a> (10 July 2026)</li>
+<li><a href="https://www.eba.europa.eu/sites/default/files/2025-11/e388451b-356b-408a-bbf2-b8e425865d75/List%20of%20designated%20CTPPs.pdf">EU list of designated critical ICT third-party service providers under DORA</a></li>
+<li><a href="https://www.fca.org.uk/publications/good-and-poor-practice/operational-resilience-demonstrating-resilience-practice">FCA: Operational resilience – demonstrating resilience in practice</a> (11 November 2026)</li>
+<li><a href="https://www.fca.org.uk/publications/multi-firm-reviews/operational-resilience-trading-venues">FCA: Operational resilience of trading venues, multi-firm review</a> (11 November 2026)</li>
+<li><a href="https://www.globalbankingandfinance.com/europes-financial-regulators-query-google-over-cloud-outage/">Reuters via Global Banking &amp; Finance Review: Europe's financial regulators query Google over cloud outage</a> (21 October 2026)</li>
+</ul>
+<p class="source-limits"><em>Source limits.</em> Microsoft distributes its post-incident reports to customers through the Microsoft 365 admin center (Service health &gt; History), and this one carries a Microsoft copyright notice, so it is not linked here. The analysis draws on a copy summarised and circulated by 365Fanatic, which is consistent with all other reporting on the incident. Early press claims about the outage's economic cost and airline disruption remain preliminary or conflicting and are excluded.</p>
+<p>Illustrative content based on public, sector-wide sources. Not investment, legal, compliance or regulatory advice.</p>
+<p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p></div>
+    </article></main>
+    <footer class="footer"><div class="footer-inner"><div class="footer-brand">The Virtual Officer — Deep Dives</div><div class="footer-note"><a class="button outline footer-cta" href="../../brief/index.html">Read the latest brief</a></div><div class="footer-meta"><p>Written by Ben St Georges, drawing on 25+ years of financial-services risk, regulation, strategy, and transformation experience.</p><p class="footer-contact"><a href="mailto:ben@stgeorgesstrategy.com">ben@stgeorgesstrategy.com</a> &middot; <a href="https://www.linkedin.com/in/benstgeorges/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p><p>Illustrative content based on public sources.</p></div></div></footer>
+  </body>
+</html>

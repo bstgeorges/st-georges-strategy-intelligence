@@ -1,8 +1,8 @@
 {
   "version": "2026-08-14",
   "reviewStatus": "pending",
-  "candidateGeneratedAt": "2026-11-22T12:22:25.892Z",
-  "preparedAt": "2026-11-22T12:22:41.507Z",
+  "candidateGeneratedAt": "2026-11-22T13:01:40.675Z",
+  "preparedAt": "2026-11-22T13:02:24.845Z",
   "instructions": "Start with topic-readiness, decision-type groups and diversity controls, then review the proposed candidates by theme. Resilience is a materiality gate, not a quota: never promote a weak item merely to fill coverage. Copy approved URLs into signals-promotion-shortlist.json, add editorial rationales, set reviewStatus to approved, and preserve candidateGeneratedAt exactly.",
   "criteria": [
     "materiality",
@@ -20,10 +20,10 @@
     "decisionTypeCounts": {
       "rule-change": 13,
       "enforcement": 2,
-      "active-threat": 5,
+      "active-threat": 4,
       "outage": 2,
       "research": 3,
-      "context": 68
+      "context": 66
     },
     "decisionTypeGroups": [
       {
@@ -153,7 +153,7 @@
             "url": "https://www.apra.gov.au/news-and-publications/consultation-confidentiality-data-collected-under-srs-6040",
             "sourceName": "Australian Prudential Regulation Authority",
             "sourceOwner": "apra",
-            "publishedAt": "2026-10-22T23:00:00.000Z",
+            "publishedAt": "2026-10-23T00:00:00.000Z",
             "relevanceScore": 55,
             "decisionType": "rule-change",
             "region": "Global/other",
@@ -199,7 +199,7 @@
       {
         "id": "active-threat",
         "label": "active threat",
-        "candidateCount": 5,
+        "candidateCount": 4,
         "candidates": [
           {
             "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
@@ -233,7 +233,7 @@
             "sourceName": "Check Point Research",
             "sourceOwner": "checkpoint",
             "publishedAt": "2026-11-18T13:00:18.000Z",
-            "relevanceScore": 93,
+            "relevanceScore": 92,
             "decisionType": "active-threat",
             "region": "Global/other",
             "topics": [
@@ -249,19 +249,6 @@
             "relevanceScore": 92,
             "decisionType": "active-threat",
             "region": "US",
-            "topics": [
-              "cyber"
-            ]
-          },
-          {
-            "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
-            "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
-            "sourceName": "Microsoft Security Blog",
-            "sourceOwner": "microsoft-security",
-            "publishedAt": "2026-11-17T00:08:41.000Z",
-            "relevanceScore": 89,
-            "decisionType": "active-threat",
-            "region": "Global/other",
             "topics": [
               "cyber"
             ]
@@ -352,7 +339,7 @@
       {
         "id": "context",
         "label": "context",
-        "candidateCount": 68,
+        "candidateCount": 66,
         "candidates": [
           {
             "title": "SEC: Eight Entities Used Fake Crypto Asset Trading Platforms to Steal More Than $37 Million From U.S. Investors",
@@ -459,19 +446,6 @@
             ]
           },
           {
-            "title": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
-            "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
-            "sourceName": "Commission nationale de l'informatique et des libertés",
-            "sourceOwner": "fr-cnil",
-            "publishedAt": "2026-11-18T00:00:00.000Z",
-            "relevanceScore": 91,
-            "decisionType": "context",
-            "region": "UK/EMEA",
-            "topics": [
-              "data"
-            ]
-          },
-          {
             "title": "Security for the agentic era, powered by Microsoft Perception",
             "url": "https://www.microsoft.com/en-us/security/blog/2026/11/17/security-for-the-agentic-era-powered-by-microsoft-perception",
             "sourceName": "Microsoft Security Blog",
@@ -483,84 +457,97 @@
             "topics": [
               "cyber"
             ]
+          },
+          {
+            "title": "The Good, the Bad and the Ugly in Cybersecurity - Week 46 (2026)",
+            "url": "https://www.sentinelone.com/blog/the-good-the-bad-and-the-ugly-in-cybersecurity-week-46-8",
+            "sourceName": "SentinelOne Labs",
+            "sourceOwner": "sentinelone",
+            "publishedAt": "2026-11-13T17:46:55.000Z",
+            "relevanceScore": 83,
+            "decisionType": "context",
+            "region": "Global/other",
+            "topics": [
+              "cyber"
+            ]
           }
         ]
       }
     ],
     "diversity": {
-      "candidateRows": 103,
-      "uniqueCandidateEvents": 93,
+      "candidateRows": 100,
+      "uniqueCandidateEvents": 90,
       "crossThemeDuplicatesCollapsed": 10,
       "sourceOwnerConcentration": [
-        {
-          "sourceOwner": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "count": 6,
-          "share": 6.5
-        },
-        {
-          "sourceOwner": "uk-boe-pra",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "count": 5,
-          "share": 5.4
-        },
         {
           "sourceOwner": "fr-cnil",
           "sourceName": "Commission nationale de l'informatique et des libertés",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "github-status",
           "sourceName": "GitHub Status",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "nvidia",
           "sourceName": "NVIDIA Newsroom",
           "count": 5,
-          "share": 5.4
-        },
-        {
-          "sourceOwner": "openai",
-          "sourceName": "OpenAI",
-          "count": 5,
-          "share": 5.4
+          "share": 5.6
         },
         {
           "sourceOwner": "rapid7",
           "sourceName": "Rapid7 Research",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
+        },
+        {
+          "sourceOwner": "cftc",
+          "sourceName": "US Commodity Futures Trading Commission",
+          "count": 5,
+          "share": 5.6
         },
         {
           "sourceOwner": "sec",
           "sourceName": "US Securities and Exchange Commission",
           "count": 5,
-          "share": 5.4
+          "share": 5.6
+        },
+        {
+          "sourceOwner": "apra",
+          "sourceName": "Australian Prudential Regulation Authority",
+          "count": 4,
+          "share": 4.4
+        },
+        {
+          "sourceOwner": "fr-amf",
+          "sourceName": "Autorité des marchés financiers",
+          "count": 4,
+          "share": 4.4
         }
       ],
       "sourceOwnerConcentrationWarning": "",
       "regionalBalance": [
         {
           "region": "UK/EMEA",
-          "count": 35,
-          "share": 37.6
+          "count": 34,
+          "share": 37.8
         },
         {
           "region": "US",
-          "count": 13,
-          "share": 14
+          "count": 12,
+          "share": 13.3
         },
         {
           "region": "Global/other",
-          "count": 45,
-          "share": 48.4
+          "count": 44,
+          "share": 48.9
         }
       ],
       "newVersusContinuing": {
-        "newCandidateEvents": 93,
+        "newCandidateEvents": 90,
         "alreadyPublishedCandidates": 0,
         "continuingPublishedEvents": 32,
         "currentEditionTop5Events": 38
@@ -569,7 +556,7 @@
     "topicReadiness": [
       {
         "id": "ai",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -583,7 +570,7 @@
       },
       {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -597,7 +584,7 @@
       },
       {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -968,7 +955,7 @@
           "sourceId": "sebi-regulatory-rss",
           "sourceRegistryId": "india-sebi",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-parseable-entries"
@@ -1481,7 +1468,7 @@
           "sourceId": "weekly-ai-risk-feed",
           "sourceRegistryId": "",
           "status": "quiet",
-          "consecutiveIssueRuns": 3,
+          "consecutiveIssueRuns": 4,
           "monitoring": "standard",
           "action": "investigate",
           "detail": "no-approved-items"
@@ -1494,7 +1481,7 @@
       "id": "ai",
       "readiness": {
         "id": "ai",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -1567,28 +1554,6 @@
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         },
         {
-          "title": "Combatting adversarial distillation",
-          "url": "https://openai.com/index/combatting-adversarial-distillation",
-          "sourceName": "OpenAI",
-          "sourceOwner": "openai",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "publishedAt": "2026-11-20T10:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 66,
-          "decisionType": "context",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
-        },
-        {
           "title": "Hebbia sees improvements in financial research with GPT-6 Astra",
           "url": "https://openai.com/business/customer-stories/hebbia",
           "sourceName": "OpenAI",
@@ -1609,6 +1574,27 @@
             "safety"
           ],
           "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
+          "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs",
+          "sourceName": "NVIDIA Newsroom",
+          "sourceOwner": "nvidia",
+          "sourceTier": "primary",
+          "sourceCategory": "ai-infrastructure",
+          "publishedAt": "2026-11-19T20:00:15.000Z",
+          "dateSource": "feed",
+          "relevanceScore": 65,
+          "decisionType": "context",
+          "riskAreas": [
+            "ai-and-models",
+            "digital-resilience"
+          ],
+          "tags": [
+            "ai",
+            "infrastructure"
+          ],
+          "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -1753,7 +1739,7 @@
       "id": "third-party",
       "readiness": {
         "id": "third-party",
-        "candidateCount": 7,
+        "candidateCount": 6,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2004,7 +1990,7 @@
       "id": "financial-crime",
       "readiness": {
         "id": "financial-crime",
-        "candidateCount": 14,
+        "candidateCount": 13,
         "minimumCandidateCount": 1,
         "status": "editorial-review-required",
         "instruction": "Select only specific, source-supported candidates that add a decision, control, dependency or exposure not already covered in the live edition."
@@ -2012,31 +1998,6 @@
       "selectedUrls": [],
       "editorialRationale": "",
       "proposedCandidates": [
-        {
-          "title": "CFTC Charges 11 Companies and Two Indiana Executives in $550 Million Fraud Scheme",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceOwner": "cftc",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "publishedAt": "2026-11-20T16:00:00.000Z",
-          "dateSource": "feed",
-          "relevanceScore": 82,
-          "decisionType": "context",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "derivatives",
-            "market-conduct",
-            "enforcement",
-            "recordkeeping",
-            "us"
-          ],
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
         {
           "title": "‘Lord of Fraud’ Hugh Rodley sentenced for child sexual abuse offences",
           "url": "https://www.nationalcrimeagency.gov.uk/news/lord-of-fraud-hugh-rodley-sentenced-for-child-sexual-abuse-offences",
@@ -2128,6 +2089,31 @@
             "organised-crime"
           ],
           "whyCandidate": "Pulled from National Crime Agency via rss ingestion and matched the topic rules."
+        },
+        {
+          "title": "26-285MR ASIC permanently bans jailed fraudster Anthony Torre from financial services and credit | ASIC",
+          "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-285mr-asic-permanently-bans-jailed-fraudster-anthony-torre-from-financial-services-and-credit",
+          "sourceName": "Australian Securities and Investments Commission",
+          "sourceOwner": "asic",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-11-17T04:49:21.000Z",
+          "dateSource": "sitemap-lastmod",
+          "relevanceScore": 75,
+          "decisionType": "context",
+          "riskAreas": [
+            "market-plumbing",
+            "crime-and-sanctions",
+            "board-accountability"
+          ],
+          "tags": [
+            "enforcement",
+            "markets",
+            "scams",
+            "reporting",
+            "australia"
+          ],
+          "whyCandidate": "Pulled from Australian Securities and Investments Commission via sitemap ingestion and matched the topic rules."
         }
       ]
     },
@@ -2434,29 +2420,6 @@
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
-          "title": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
-          "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceOwner": "fr-cnil",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "publishedAt": "2026-11-18T00:00:00.000Z",
-          "dateSource": "page-published",
-          "relevanceScore": 91,
-          "decisionType": "context",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
           "title": "Data Protection Commission",
           "url": "https://dataprotection.ie/en/news-media/latest-news/data-protection-commission-fines-mtch-eu11-million-following-inquiry-tinder-users-personal-data",
           "sourceName": "Data Protection Commission Ireland",
@@ -2482,6 +2445,29 @@
         {
           "title": "EIOPA&#039;s Opinion on the Draft Implementing Technical Standards on supervisory reporting and public disclosure",
           "url": "https://www.eiopa.europa.eu/publications/eiopas-opinion-draft-implementing-technical-standards-supervisory-reporting-and-public-disclosure_en",
+          "sourceName": "European Insurance and Occupational Pensions Authority",
+          "sourceOwner": "eiopa",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "publishedAt": "2026-11-12T00:00:00.000Z",
+          "dateSource": "page-published",
+          "relevanceScore": 79,
+          "decisionType": "rule-change",
+          "riskAreas": [
+            "digital-resilience",
+            "board-accountability"
+          ],
+          "tags": [
+            "insurance-supervision",
+            "dora",
+            "reporting",
+            "eu"
+          ],
+          "whyCandidate": "Pulled from European Insurance and Occupational Pensions Authority via sitemap ingestion and matched the topic rules."
+        },
+        {
+          "title": "European Commission&#039;s Letter to EIOPA on amended draft ITS on supervisory reporting and on public disclosure",
+          "url": "https://www.eiopa.europa.eu/publications/european-commissions-letter-eiopa-amended-draft-its-supervisory-reporting-and-public-disclosure_en",
           "sourceName": "European Insurance and Occupational Pensions Authority",
           "sourceOwner": "eiopa",
           "sourceTier": "primary",

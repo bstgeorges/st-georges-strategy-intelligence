@@ -1,6 +1,6 @@
 {
   "version": "2026-08-14",
-  "generatedAt": "2026-11-22T12:22:25.892Z",
+  "generatedAt": "2026-11-22T13:01:40.675Z",
   "windowDays": 14,
   "mode": "live",
   "topics": [
@@ -100,36 +100,6 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from NVIDIA Newsroom via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "7ad44f990f0c53ef",
-          "topicId": "ai",
-          "title": "Combatting adversarial distillation",
-          "url": "https://openai.com/index/combatting-adversarial-distillation",
-          "publishedAt": "2026-11-20T10:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "openai",
-          "sourceName": "OpenAI",
-          "sourceTier": "primary",
-          "sourceCategory": "ai",
-          "ingestSourceId": "openai-news-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "ai-and-models"
-          ],
-          "tags": [
-            "model-releases",
-            "agents",
-            "enterprise-ai",
-            "safety"
-          ],
-          "matchedKeywords": [],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 66,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from OpenAI via rss ingestion and matched the topic rules."
         },
         {
           "id": "8145fefb47ff1ca9",
@@ -1252,42 +1222,6 @@
           "whyCandidate": "Pulled from GitHub Status via rss ingestion and matched the topic rules."
         },
         {
-          "id": "9bc8d2f8e07565dc",
-          "topicId": "third-party",
-          "title": "Near-final Statement of Policy: The Bank of England’s approach to permissions in relation to CCP rules (disclosure, outsourcing and interoperability arrangements permissions)",
-          "url": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
-          "publishedAt": "2026-11-16T11:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "uk-boe-pra",
-          "sourceName": "Bank of England and Prudential Regulation Authority",
-          "sourceTier": "primary",
-          "sourceCategory": "prudential",
-          "ingestSourceId": "boe-publications-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "digital-resilience",
-            "balance-sheet"
-          ],
-          "tags": [
-            "prudential-policy",
-            "supervision",
-            "operational-resilience",
-            "uk"
-          ],
-          "matchedKeywords": [
-            "outsourcing"
-          ],
-          "titleMatchedKeywords": [
-            "outsourcing"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 73,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Bank of England and Prudential Regulation Authority via rss ingestion and matched the topic rules."
-        },
-        {
           "id": "8819a2e5d1c43958",
           "topicId": "third-party",
           "title": "Copilot experiencing degraded model availability for some GPT models",
@@ -1516,43 +1450,6 @@
     {
       "id": "financial-crime",
       "candidates": [
-        {
-          "id": "97c59c91d88095b0",
-          "topicId": "financial-crime",
-          "title": "CFTC Charges 11 Companies and Two Indiana Executives in $550 Million Fraud Scheme",
-          "url": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
-          "publishedAt": "2026-11-20T16:00:00.000Z",
-          "dateSource": "feed",
-          "sourceRegistryId": "cftc",
-          "sourceName": "US Commodity Futures Trading Commission",
-          "sourceTier": "primary",
-          "sourceCategory": "markets",
-          "ingestSourceId": "cftc-enforcement-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "market-plumbing",
-            "crime-and-sanctions",
-            "board-accountability"
-          ],
-          "tags": [
-            "derivatives",
-            "market-conduct",
-            "enforcement",
-            "recordkeeping",
-            "us"
-          ],
-          "matchedKeywords": [
-            "fraud"
-          ],
-          "titleMatchedKeywords": [
-            "fraud"
-          ],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 82,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from US Commodity Futures Trading Commission via rss ingestion and matched the topic rules."
-        },
         {
           "id": "da83c58b48670d40",
           "topicId": "financial-crime",
@@ -2264,7 +2161,7 @@
           ],
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
-          "relevanceScore": 93,
+          "relevanceScore": 92,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
@@ -2332,38 +2229,6 @@
           "titleMatchedKeywords": [],
           "summaryMatchedKeywords": [],
           "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
-        },
-        {
-          "id": "9e5a303f878f1726",
-          "topicId": "cyber",
-          "title": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
-          "publishedAt": "2026-11-16T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "microsoft-security",
-          "sourceName": "Microsoft Security Blog",
-          "sourceTier": "primary",
-          "sourceCategory": "cyber",
-          "ingestSourceId": "microsoft-security-rss",
-          "fetchType": "rss",
-          "riskAreas": [
-            "cyber-security",
-            "digital-resilience"
-          ],
-          "tags": [
-            "cyber",
-            "threat-intelligence"
-          ],
-          "matchedKeywords": [
-            "phishing",
-            "threat"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 89,
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Microsoft Security Blog via rss ingestion and matched the topic rules."
@@ -2667,6 +2532,37 @@
           "reviewStatus": "candidate",
           "sourceType": "feed-ingestion",
           "whyCandidate": "Pulled from Cisco Talos Intelligence Group via rss ingestion and matched the topic rules."
+        },
+        {
+          "id": "308d05b3ca4fe8fc",
+          "topicId": "cyber",
+          "title": "Java4Shell (CVE-2026-114938): Check Your Java Services Now",
+          "url": "https://blog.checkpoint.com/security/java4shell-cve-2026-114938-check-your-java-services-now",
+          "publishedAt": "2026-11-18T09:19:33.000Z",
+          "dateSource": "feed",
+          "sourceRegistryId": "checkpoint",
+          "sourceName": "Check Point Research",
+          "sourceTier": "primary",
+          "sourceCategory": "cyber",
+          "ingestSourceId": "checkpoint-rss",
+          "fetchType": "rss",
+          "riskAreas": [
+            "cyber-security",
+            "digital-resilience"
+          ],
+          "tags": [
+            "cyber",
+            "threat-intelligence"
+          ],
+          "matchedKeywords": [
+            "exploit"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 77,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Check Point Research via rss ingestion and matched the topic rules."
         }
       ]
     },
@@ -3023,43 +2919,6 @@
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
-          "id": "39ea03bd302359d5",
-          "topicId": "data",
-          "title": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
-          "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
-          "publishedAt": "2026-11-18T00:00:00.000Z",
-          "dateSource": "page-published",
-          "sourceRegistryId": "fr-cnil",
-          "sourceName": "Commission nationale de l'informatique et des libertés",
-          "sourceTier": "primary",
-          "sourceCategory": "regulation",
-          "ingestSourceId": "cnil-data-sitemap",
-          "fetchType": "sitemap",
-          "riskAreas": [
-            "board-accountability",
-            "ai-and-models"
-          ],
-          "tags": [
-            "privacy",
-            "data-protection",
-            "enforcement",
-            "france"
-          ],
-          "matchedKeywords": [
-            "données",
-            "protection",
-            "rgpd",
-            "sanction",
-            "contrôle"
-          ],
-          "titleMatchedKeywords": [],
-          "summaryMatchedKeywords": [],
-          "relevanceScore": 91,
-          "reviewStatus": "candidate",
-          "sourceType": "feed-ingestion",
-          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
-        },
-        {
           "id": "ef204d2bd3424e08",
           "topicId": "data",
           "title": "Data Protection Commission",
@@ -3380,6 +3239,39 @@
           "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
         },
         {
+          "id": "c13578e388c2925f",
+          "topicId": "data",
+          "title": "La CNIL a prononcé 38 nouvelles sanctions en procédure simplifiée depuis juin 2026",
+          "url": "https://www.cnil.fr/fr/38-sanctions-simplifiees",
+          "publishedAt": "2026-11-17T00:00:00.000Z",
+          "dateSource": "page-published",
+          "sourceRegistryId": "fr-cnil",
+          "sourceName": "Commission nationale de l'informatique et des libertés",
+          "sourceTier": "primary",
+          "sourceCategory": "regulation",
+          "ingestSourceId": "cnil-data-sitemap",
+          "fetchType": "sitemap",
+          "riskAreas": [
+            "board-accountability",
+            "ai-and-models"
+          ],
+          "tags": [
+            "privacy",
+            "data-protection",
+            "enforcement",
+            "france"
+          ],
+          "matchedKeywords": [
+            "sanction"
+          ],
+          "titleMatchedKeywords": [],
+          "summaryMatchedKeywords": [],
+          "relevanceScore": 74,
+          "reviewStatus": "candidate",
+          "sourceType": "feed-ingestion",
+          "whyCandidate": "Pulled from Commission nationale de l'informatique et des libertés via sitemap ingestion and matched the topic rules."
+        },
+        {
           "id": "c2841e3e22611964",
           "topicId": "data",
           "title": "EIOPA&#039;s Final Advice on the review of (re)insurance disclosures under the Taxonomy Disclosures Delegated Act",
@@ -3564,7 +3456,7 @@
           "topicId": "data",
           "title": "Consultation on confidentiality of data collected under SRS 604.0 | APRA",
           "url": "https://www.apra.gov.au/news-and-publications/consultation-confidentiality-data-collected-under-srs-6040",
-          "publishedAt": "2026-10-22T23:00:00.000Z",
+          "publishedAt": "2026-10-23T00:00:00.000Z",
           "dateSource": "page-published",
           "sourceRegistryId": "apra",
           "sourceName": "Australian Prudential Regulation Authority",
@@ -3678,7 +3570,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 8,
-      "acceptedCandidates": 5,
+      "acceptedCandidates": 4,
       "reason": "",
       "error": ""
     },
@@ -3868,7 +3760,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 2,
+      "acceptedCandidates": 1,
       "reason": "",
       "error": ""
     },
@@ -3898,7 +3790,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 3,
+      "acceptedCandidates": 2,
       "reason": "",
       "error": ""
     },
@@ -4467,7 +4359,7 @@
       "sourceRegistryId": "eiopa",
       "fetchType": "sitemap",
       "status": "ok",
-      "fetchedEntries": 13,
+      "fetchedEntries": 12,
       "acceptedCandidates": 3,
       "reason": "",
       "error": ""
@@ -4508,7 +4400,7 @@
       "fetchType": "sitemap",
       "status": "ok",
       "fetchedEntries": 12,
-      "acceptedCandidates": 7,
+      "acceptedCandidates": 6,
       "reason": "",
       "error": ""
     },
@@ -4538,7 +4430,7 @@
       "fetchType": "rss",
       "status": "ok",
       "fetchedEntries": 10,
-      "acceptedCandidates": 9,
+      "acceptedCandidates": 8,
       "reason": "",
       "error": ""
     },
@@ -4653,6 +4545,7 @@
     "2026-09-25-agent-loss-of-control-defence-in-depth: held for exact-source review.",
     "2026-09-25-proof-of-control: held for exact-source review.",
     "2026-09-25-risk-based-autonomy: held for exact-source review.",
-    "2026-09-25-agent-control-plane: held for exact-source review."
+    "2026-09-25-agent-control-plane: held for exact-source review.",
+    "Source concentration: third-party relies on github-status-rss for 5/6 candidates."
   ]
 }

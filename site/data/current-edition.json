@@ -1,112 +1,112 @@
 {
-  "editionNumber": "Edition 22",
-  "title": "A stop instruction is not the same as containment.",
-  "weekOf": "2026-11-09",
-  "publicationDate": "2026-11-15",
+  "editionNumber": "Edition 23",
+  "title": "A recovery message can become the next attack.",
+  "weekOf": "2026-11-16",
+  "publicationDate": "2026-11-22",
   "canonicalUrl": "https://stgeorgesstrategy.com/brief/",
   "status": "current",
   "signalsRanked": 5,
   "streamsScanned": 8,
-  "mainJudgement": "A stop instruction is not the same as containment.",
+  "mainJudgement": "A recovery message can become the next attack.",
   "committeeQuestion": {
-    "domain": "Stopping agent execution",
-    "question": "How long does it take to stop a material agent after an intervention decision, and what can still happen during that interval?",
-    "why": "OpenAI reports a 35-second maximum from stop instruction to preventing further model progress in its research environment. That figure excludes detection and decision time and does not reverse completed actions.",
-    "evidence": "A timed test showing detection, decision and enforcement timestamps; the independent control path; actions already queued or completed; and the result when the control service is unavailable.",
+    "domain": "Recovery communications",
+    "question": "During a provider outage, how can staff distinguish an authorised recovery instruction from a convincing phishing message?",
+    "why": "Microsoft observed messages that impersonated service-health notices and claimed held emails would be deleted unless recipients acted.",
+    "evidence": "A timed exercise using the published incident channel and a simulated recovery request, showing how recipients verify the message and where they report uncertainty.",
     "links": [
       "brief",
-      "ai",
-      "resilience"
+      "cyber",
+      "technology-failure"
     ]
   },
   "committeeQuestions": [
     {
-      "domain": "Stopping agent execution",
-      "question": "How long does it take to stop a material agent after an intervention decision, and what can still happen during that interval?",
-      "why": "OpenAI reports a 35-second maximum from stop instruction to preventing further model progress in its research environment. That figure excludes detection and decision time and does not reverse completed actions.",
-      "evidence": "A timed test showing detection, decision and enforcement timestamps; the independent control path; actions already queued or completed; and the result when the control service is unavailable.",
-      "links": [
-        "brief",
-        "ai",
-        "resilience"
-      ]
-    },
-    {
-      "domain": "Shared provider disruption",
-      "question": "Which critical services share the same material provider, and how do we restore the business service when that provider is unavailable?",
-      "why": "APRA warns that common material providers can transmit disruption across institutions. Its system-wide observations do not establish the exposure or recovery capability of any individual firm.",
-      "evidence": "A current service-to-provider map, a severe but plausible disruption test, fallback communications, time to minimum service and unresolved dependencies.",
-      "links": [
-        "brief",
-        "resilience",
-        "third-party"
-      ]
-    },
-    {
-      "domain": "Persistent access after patching",
-      "question": "After patching an exploited internet-facing application, how do we know an attacker’s relay and persistence have also been removed?",
-      "why": "Microsoft describes observed Linux intrusions in which GSocket runs independently of the vulnerable application, so patching alone need not remove access.",
-      "evidence": "A scoped investigation of process ancestry, relay connections and persistence, followed by host remediation and evidence that access has stopped.",
+      "domain": "Recovery communications",
+      "question": "During a provider outage, how can staff distinguish an authorised recovery instruction from a convincing phishing message?",
+      "why": "Microsoft observed messages that impersonated service-health notices and claimed held emails would be deleted unless recipients acted.",
+      "evidence": "A timed exercise using the published incident channel and a simulated recovery request, showing how recipients verify the message and where they report uncertainty.",
       "links": [
         "brief",
         "cyber",
         "technology-failure"
       ]
+    },
+    {
+      "domain": "Credential protection",
+      "question": "Where could customer credentials still be stored or logged in readable form?",
+      "why": "The CNIL found plaintext customer passwords in one enforcement case; the finding does not establish the position at another firm.",
+      "evidence": "A scoped inventory of authentication stores and logs, sample-based verification and a dated remediation decision for any plaintext finding.",
+      "links": [
+        "brief",
+        "data",
+        "cyber"
+      ]
+    },
+    {
+      "domain": "Clearing dependencies",
+      "question": "Which clearing arrangements depend on outsourced risk-management activity, and when is prior permission needed?",
+      "why": "The Bank of England’s near-final policy describes permissions for CCP outsourcing and is subject to final legislation.",
+      "evidence": "A list of relevant CCP services and contracts, the applicable permission analysis and the owner of any unresolved legal interpretation.",
+      "links": [
+        "brief",
+        "third-party",
+        "market-structure"
+      ]
     }
   ],
   "judgement": {
-    "title": "A stop instruction is not the same as containment.",
-    "editorialAngle": "Use OpenAI’s research-infrastructure stop design and APRA’s shared-provider warning to distinguish detection, intervention and the restoration of business service.",
-    "distinctFromPrevious": "Edition 21 tested the time from vulnerability discovery to verified remediation. Edition 22 asks whether an active agent or shared dependency can be contained during execution, including work already queued and actions already completed.",
-    "observation": "OpenAI says its Control Room stops further model output within 35 seconds after receiving a stop instruction in its research infrastructure. Separately, APRA says some individual providers support institutions holding more than half of APRA-regulated financial assets.",
-    "executiveJudgement": "The two observations describe different environments and neither proves a firm can control its own agents or recover its services. A stop timer begins after someone or something decides to intervene; it does not include detection, human decision-making or the reversal of actions already taken. Concentration matters here because a stop or recovery path that depends on the same provider may fail with it.",
-    "implication": "Choose one material agentic workflow and run a controlled stop exercise. Timestamp the alert, decision and independent enforcement; identify actions that remain queued or complete during the interval, then demonstrate the recovery or compensating action for one consequential outcome.",
-    "archiveCorrection": "15 November 2026: clarified how shared-provider concentration relates to the stop and recovery judgement."
+    "title": "A recovery message can become the next attack.",
+    "editorialAngle": "Use an observed outage-themed phishing campaign to test whether recovery communications can be verified when staff are under pressure.",
+    "distinctFromPrevious": "Edition 22 tested intervention timing for an agent and recovery from a shared provider outage. Edition 23 examines whether the messages used during recovery can themselves be authenticated.",
+    "observation": "Microsoft says a high-volume campaign on 13 November used messages disguised as Microsoft 365 service-health notifications, claiming held emails would be deleted unless recipients acted. It assessed the activity as likely credential phishing but did not confirm credential capture or post-compromise activity.",
+    "executiveJudgement": "An outage gives an attacker a credible pretext to send urgent instructions just when staff expect unusual messages. Microsoft’s observations do not show that any particular firm was compromised. The decision for a firm is whether its people can verify a recovery request through a channel that does not depend on trusting the message itself.",
+    "implication": "Ask the incident communications owner to run one simulated provider-outage notice. Measure how many recipients use the published verification channel before acting, how long confirmation takes, and what happens when that channel is unavailable. Use the result to decide which recovery instructions need a clearer route.",
+    "archiveCorrection": ""
   },
   "weeklyReadout": {
-    "heading": "Can we stop a material agent and account for what already happened?",
+    "heading": "Can staff verify a recovery instruction during an outage?",
     "steps": [
-      "Choose one material agentic workflow and define the stop decision.",
-      "Timestamp the alert, decision and independent enforcement.",
-      "Identify queued and completed actions at the enforcement point.",
-      "Demonstrate recovery or a compensating action for one consequential outcome."
+      "Choose a material provider outage scenario.",
+      "Send a simulated recovery notice to the relevant team.",
+      "Measure independent verification and the time to confirm.",
+      "Decide how staff should proceed if the verification channel is unavailable."
     ]
   },
   "topSignals": [
     {
-      "topic": "ai",
-      "title": "A stop instruction is only one part of agent containment",
-      "label": "OpenAI research infrastructure · provider account",
-      "why": "OpenAI says Control Room can halt further model output within 35 seconds after receiving a stop instruction and denies inference if the control service is unavailable. This is its account of research infrastructure, not proof that completed actions can be reversed or that an enterprise deployment has the same control.",
-      "source": "Primary / OpenAI / 2026-11-09"
+      "topic": "cyber",
+      "title": "Outage recovery messages can become a phishing lure",
+      "label": "Microsoft threat intelligence · observed campaign",
+      "why": "Microsoft reports a high-volume campaign impersonating Microsoft 365 service-health messages. It assesses the activity was likely credential phishing; its evidence did not confirm credential capture or later compromise.",
+      "source": "Primary / Microsoft Security Blog / 2026-11-16"
     },
     {
-      "topic": "resilience",
-      "title": "APRA links AI risk with shared provider dependencies",
-      "label": "Australian prudential supervisor · system outlook",
-      "why": "APRA says AI can create risks within firms and accelerate external threats, while shared material providers can transmit disruption. Some individual providers support institutions holding more than half of APRA-regulated financial assets; this is Australian supervisory evidence, not a measurement of any individual firm’s exposure.",
-      "source": "Primary / Australian Prudential Regulation Authority / 2026-11-12"
+      "topic": "ai",
+      "title": "Model safeguards can be challenged through coordinated extraction",
+      "label": "OpenAI · provider account",
+      "why": "OpenAI describes layered defences against adversarial distillation, including request-level protection and investigations. These are the provider’s account of its controls, not independent evidence of their effectiveness.",
+      "source": "Primary / OpenAI / 2026-11-20"
+    },
+    {
+      "topic": "data",
+      "title": "Plaintext passwords exposed a basic control failure",
+      "label": "CNIL · enforcement decision",
+      "why": "France’s CNIL fined an unnamed company €5 million after finding, among other issues, that customer passwords were stored in plaintext. The decision concerns that company, not the state of controls across financial services.",
+      "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-11-18"
     },
     {
       "topic": "financial-crime",
-      "title": "FINMA sets January start for revised AML requirements",
-      "label": "Swiss supervisor · final ordinance",
-      "why": "FINMA says its revised anti-money-laundering ordinance enters into force on 1 January 2027. The associated self-regulation provides a four-month transition period; affected firms must assess which provisions apply to their own activities.",
-      "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-11-10"
+      "title": "CFTC alleges a large investment scheme misrepresented trading",
+      "label": "CFTC · civil complaint",
+      "why": "The CFTC alleges that a group solicited over $550 million while claiming returns from leveraged foreign-exchange trading. The complaint is an allegation, not a finding of liability.",
+      "source": "Primary / US Commodity Futures Trading Commission / 2026-11-20"
     },
     {
-      "topic": "market-structure",
-      "title": "FSB calls for stronger stablecoin oversight in Türkiye",
-      "label": "FSB peer review · recommendations",
-      "why": "The FSB recommends a dedicated stablecoin regime, stronger supervision and enforcement, and cross-border cooperation in Türkiye. These are recommendations to authorities, not new obligations already imposed on firms.",
-      "source": "Primary / Financial Stability Board / 2026-11-11"
-    },
-    {
-      "topic": "cyber",
-      "title": "GSocket persistence can survive the initial application patch",
-      "label": "Microsoft Security Research · observed activity",
-      "why": "Microsoft describes attackers using an outbound relay after compromising internet-facing applications. Patching the initial flaw does not itself remove the relay client or persistence; the report describes observed telemetry rather than the prevalence of compromise across banks.",
-      "source": "Primary / Microsoft Security Blog / 2026-11-11"
+      "topic": "third-party",
+      "title": "CCP outsourcing permissions remain subject to final legislation",
+      "label": "Bank of England · near-final policy",
+      "why": "The Bank of England published a near-final policy on permissions for central counterparties, including outsourcing major risk-management activities. It remains subject to final Treasury legislation.",
+      "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-16"
     }
   ]
 }

@@ -1,30 +1,89 @@
 {
-  "generatedAt": "2026-11-15T12:37:07.524Z",
+  "generatedAt": "2026-11-22T12:26:50.806Z",
   "source": "site/data/signals.json",
-  "edition": "2026-11-15",
+  "edition": "2026-11-22",
   "rowCount": 71,
   "uniqueUrlCount": 70,
   "summary": {
-    "manual-verified": 7,
-    "match": 24,
-    "candidate-match": 21,
-    "restricted": 5,
+    "match": 26,
+    "candidate-match": 22,
+    "restricted": 4,
     "evergreen": 12,
+    "manual-verified": 5,
     "no-source-date-found": 1
   },
   "results": [
     {
+      "url": "https://openai.com/index/combatting-adversarial-distillation",
+      "finalUrl": "https://openai.com/index/combatting-adversarial-distillation/",
+      "status": 200,
+      "expectedDates": [
+        "2026-11-20"
+      ],
+      "sourceDate": "2026-11-20",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2026-11-20",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-20",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "ai",
+          "section": "top5",
+          "title": "Model safeguards can be challenged through coordinated extraction",
+          "url": "https://openai.com/index/combatting-adversarial-distillation",
+          "displayedDate": "2026-11-20",
+          "displayedSourceDate": "2026-11-20",
+          "displayedSourceDates": [
+            "2026-11-20"
+          ],
+          "sourceLabel": "Primary / OpenAI / 2026-11-20",
+          "sourceType": "company announcement",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
       "url": "https://openai.com/index/control-room/",
       "finalUrl": "https://openai.com/index/control-room/",
-      "status": 403,
+      "status": 200,
       "expectedDates": [
         "2026-11-09"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "manual-verified",
-      "confidence": "unknown",
+      "sourceDate": "2026-10-29",
+      "sourceDateEvidence": "body.month-first",
+      "candidates": [
+        {
+          "date": "2026-10-29",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-09-28",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-08-26",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-09",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "ai",
@@ -48,16 +107,29 @@
     },
     {
       "url": "https://openai.com/index/introducing-gpt-6-cyber",
-      "finalUrl": "https://openai.com/index/introducing-gpt-6-cyber",
-      "status": 403,
+      "finalUrl": "https://openai.com/index/introducing-gpt-6-cyber/",
+      "status": 200,
       "expectedDates": [
         "2026-11-05"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "manual-verified",
-      "confidence": "unknown",
+      "sourceDate": "2026-11-05",
+      "sourceDateEvidence": "body.month-first",
+      "candidates": [
+        {
+          "date": "2026-11-05",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-17",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
       "rows": [
         {
           "topic": "ai",
@@ -168,19 +240,27 @@
       "expectedDates": [
         "2026-10-26"
       ],
-      "sourceDate": "2026-11-13",
+      "sourceDate": "2026-11-20",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "time.datetime"
         },
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "body.iso"
         },
         {
-          "date": "2026-11-12",
+          "date": "2026-11-19",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-16",
           "source": "body.iso"
         },
         {
@@ -188,15 +268,23 @@
           "source": "body.human"
         },
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "body.human"
         },
         {
-          "date": "2026-11-12",
+          "date": "2026-11-19",
           "source": "body.human"
         },
         {
-          "date": "2026-11-11",
+          "date": "2026-11-18",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-17",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-16",
           "source": "body.human"
         }
       ],
@@ -219,88 +307,6 @@
             "status": "manual-verified",
             "verifiedDate": "2026-11-02",
             "reason": "Bank of England report dated 26 October 2026 displays the survey findings used here: 94% firm-wide policies, about half for the three post-deployment controls, and response-basis caveats."
-          }
-        }
-      ]
-    },
-    {
-      "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-      "finalUrl": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-      "status": 200,
-      "expectedDates": [
-        "2026-10-22"
-      ],
-      "sourceDate": "2026-10-22",
-      "sourceDateEvidence": "body.iso",
-      "candidates": [
-        {
-          "date": "2026-10-22",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-14",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-29",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-08-26",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-03-25",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-05-19",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-05-11",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-01-19",
-          "source": "body.iso"
-        },
-        {
-          "date": "2025-07-14",
-          "source": "body.iso"
-        },
-        {
-          "date": "2023-09-26",
-          "source": "body.iso"
-        },
-        {
-          "date": "2025-03-11",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-01-29",
-          "source": "body.iso"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "ai",
-          "section": "top5",
-          "title": "METR found vulnerabilities in historical OpenAI agent monitoring",
-          "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-          "displayedDate": "2026-10-22",
-          "displayedSourceDate": "2026-10-22",
-          "displayedSourceDates": [
-            "2026-10-22"
-          ],
-          "sourceLabel": "Primary / METR and Redwood Research / 2026-10-22",
-          "sourceType": "research",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "METR primary article displays 22 October 2026 and describes the historical pilot, vulnerabilities, OpenAI patch statement and explicit evaluation limit."
           }
         }
       ]
@@ -365,16 +371,41 @@
     },
     {
       "url": "https://openai.com/index/managing-ai-investments-in-agentic-era",
-      "finalUrl": "https://openai.com/index/managing-ai-investments-in-agentic-era",
-      "status": 403,
+      "finalUrl": "https://openai.com/index/managing-ai-investments-in-agentic-era/",
+      "status": 200,
       "expectedDates": [
         "2026-07-14"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "restricted",
-      "confidence": "restricted",
+      "sourceDate": "2026-11-19",
+      "sourceDateEvidence": "time.datetime",
+      "candidates": [
+        {
+          "date": "2026-11-19",
+          "source": "time.datetime"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-07-14",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-10-26",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-10-22",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "ai",
@@ -465,12 +496,16 @@
       "expectedDates": [
         "2026-10-22"
       ],
-      "sourceDate": "2026-11-11",
+      "sourceDate": "2026-11-18",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-11-11",
+          "date": "2026-11-18",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.iso"
         },
         {
           "date": "2026-11-11",
@@ -478,10 +513,6 @@
         },
         {
           "date": "2026-11-10",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-09",
           "source": "body.iso"
         },
         {
@@ -489,15 +520,15 @@
           "source": "body.human"
         },
         {
+          "date": "2026-11-18",
+          "source": "body.human"
+        },
+        {
           "date": "2026-11-11",
           "source": "body.human"
         },
         {
           "date": "2026-11-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-09",
           "source": "body.human"
         }
       ],
@@ -518,8 +549,8 @@
           "sourceType": "regulator",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
+            "verifiedDate": "2026-11-22",
+            "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation. Primary page rechecked on 22 November 2026."
           }
         }
       ]
@@ -527,15 +558,32 @@
     {
       "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
       "finalUrl": "https://openai.com/index/securing-our-frontier-model-training-environment/",
-      "status": 403,
+      "status": 200,
       "expectedDates": [
         "2026-10-23"
       ],
-      "sourceDate": "",
-      "sourceDateEvidence": "",
-      "candidates": [],
-      "result": "manual-verified",
-      "confidence": "unknown",
+      "sourceDate": "2026-11-18",
+      "sourceDateEvidence": "body.iso",
+      "candidates": [
+        {
+          "date": "2026-11-18",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-10-23",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-11-06",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "resilience",
@@ -744,11 +792,11 @@
           "source": "body.human"
         },
         {
-          "date": "2017-05-17",
+          "date": "2026-09-15",
           "source": "body.slash"
         },
         {
-          "date": "2026-09-15",
+          "date": "2017-05-17",
           "source": "body.slash"
         },
         {
@@ -911,7 +959,11 @@
           "source": "body.month-first"
         },
         {
-          "date": "2026-10-13",
+          "date": "2026-11-13",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2019-05-19",
           "source": "body.month-first"
         }
       ],
@@ -935,18 +987,84 @@
       ]
     },
     {
+      "url": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
+      "finalUrl": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
+      "status": 200,
+      "expectedDates": [
+        "2026-11-16"
+      ],
+      "sourceDate": "2026-11-20",
+      "sourceDateEvidence": "time.datetime",
+      "candidates": [
+        {
+          "date": "2026-11-20",
+          "source": "time.datetime"
+        },
+        {
+          "date": "2026-11-20",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-20",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.human"
+        }
+      ],
+      "result": "candidate-match",
+      "confidence": "candidate-match",
+      "rows": [
+        {
+          "topic": "third-party",
+          "section": "top5",
+          "title": "CCP outsourcing permissions remain subject to final legislation",
+          "url": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
+          "displayedDate": "2026-11-16",
+          "displayedSourceDate": "2026-11-16",
+          "displayedSourceDates": [
+            "2026-11-16"
+          ],
+          "sourceLabel": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-16",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
       "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
       "finalUrl": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
       "status": 200,
       "expectedDates": [
         "2026-10-09"
       ],
-      "sourceDate": "2026-11-13",
+      "sourceDate": "2026-11-19",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-11-13",
+          "date": "2026-11-19",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.iso"
         },
         {
           "date": "2026-11-13",
@@ -954,14 +1072,6 @@
         },
         {
           "date": "2026-11-10",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-05",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-04",
           "source": "body.iso"
         },
         {
@@ -973,23 +1083,19 @@
           "source": "body.human"
         },
         {
+          "date": "2026-11-19",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.human"
+        },
+        {
           "date": "2026-11-13",
           "source": "body.human"
         },
         {
           "date": "2026-11-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-05",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-04",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-10-13",
           "source": "body.human"
         }
       ],
@@ -1069,19 +1175,27 @@
       "expectedDates": [
         "2026-09-22"
       ],
-      "sourceDate": "2026-11-13",
+      "sourceDate": "2026-11-20",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "time.datetime"
         },
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "body.iso"
         },
         {
-          "date": "2026-11-12",
+          "date": "2026-11-19",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-16",
           "source": "body.iso"
         },
         {
@@ -1105,15 +1219,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-11-13",
+          "date": "2026-11-20",
           "source": "body.human"
         },
         {
-          "date": "2026-11-12",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-11",
+          "date": "2026-11-19",
           "source": "body.human"
         }
       ],
@@ -1170,60 +1280,6 @@
           ],
           "sourceLabel": "Primary / Bank for International Settlements / 2026-09-08",
           "sourceType": "international standard setter",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
-      "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-      "finalUrl": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-03"
-      ],
-      "sourceDate": "2026-09-29",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-09-01",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-09-29",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-01",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-03",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-01",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
-      "rows": [
-        {
-          "topic": "third-party",
-          "section": "top5",
-          "title": "Google Cloud network degradation tests the shared service boundary",
-          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-          "displayedDate": "2026-09-03",
-          "displayedSourceDate": "2026-09-03",
-          "displayedSourceDates": [
-            "2026-09-03"
-          ],
-          "sourceLabel": "Primary / Google Cloud Service Health / 2026-09-03",
-          "sourceType": "company announcement",
           "manualVerification": null
         }
       ]
@@ -1362,9 +1418,13 @@
       "expectedDates": [
         "2026-06-10"
       ],
-      "sourceDate": "2026-11-11",
+      "sourceDate": "2026-11-16",
       "sourceDateEvidence": "body.human",
       "candidates": [
+        {
+          "date": "2026-11-16",
+          "source": "body.human"
+        },
         {
           "date": "2026-11-11",
           "source": "body.human"
@@ -1382,7 +1442,7 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-12",
+          "date": "2026-11-17",
           "source": "body.human"
         },
         {
@@ -1432,9 +1492,13 @@
       "expectedDates": [
         "2026-11-11"
       ],
-      "sourceDate": "2026-11-11",
+      "sourceDate": "2026-11-16",
       "sourceDateEvidence": "body.human",
       "candidates": [
+        {
+          "date": "2026-11-16",
+          "source": "body.human"
+        },
         {
           "date": "2026-11-11",
           "source": "body.human"
@@ -1452,12 +1516,12 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-12",
+          "date": "2026-11-17",
           "source": "body.human"
         }
       ],
-      "result": "match",
-      "confidence": "verified",
+      "result": "candidate-match",
+      "confidence": "candidate-match",
       "rows": [
         {
           "topic": "market-structure",
@@ -1662,11 +1726,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-10-14",
+          "date": "2026-10-23",
           "source": "body.slash"
         },
         {
-          "date": "2026-10-23",
+          "date": "2026-10-14",
           "source": "body.slash"
         }
       ],
@@ -1687,8 +1751,8 @@
           "sourceType": "regulator",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action."
+            "verifiedDate": "2026-11-22",
+            "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action. Primary page rechecked on 22 November 2026."
           }
         }
       ]
@@ -1818,15 +1882,15 @@
       "expectedDates": [
         "2026-05-29"
       ],
-      "sourceDate": "2026-09-28",
-      "sourceDateEvidence": "body.human",
+      "sourceDate": "2026-05-29",
+      "sourceDateEvidence": "body.slash",
       "candidates": [
         {
-          "date": "2026-09-28",
-          "source": "body.human"
+          "date": "2026-05-29",
+          "source": "body.slash"
         },
         {
-          "date": "2026-05-29",
+          "date": "2026-11-18",
           "source": "body.slash"
         },
         {
@@ -1842,8 +1906,8 @@
           "source": "body.slash"
         }
       ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
+      "result": "match",
+      "confidence": "verified",
       "rows": [
         {
           "topic": "market-structure",
@@ -1885,6 +1949,40 @@
             "2026-07-02"
           ],
           "sourceLabel": "Primary / EUR-Lex ESG ratings / applies 2026-07-02",
+          "sourceType": "regulator",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
+      "finalUrl": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
+      "status": 200,
+      "expectedDates": [
+        "2026-11-20"
+      ],
+      "sourceDate": "2026-11-20",
+      "sourceDateEvidence": "body.month-first",
+      "candidates": [
+        {
+          "date": "2026-11-20",
+          "source": "body.month-first"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "financial-crime",
+          "section": "top5",
+          "title": "CFTC alleges a large investment scheme misrepresented trading",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
+          "displayedDate": "2026-11-20",
+          "displayedSourceDate": "2026-11-20",
+          "displayedSourceDates": [
+            "2026-11-20"
+          ],
+          "sourceLabel": "Primary / US Commodity Futures Trading Commission / 2026-11-20",
           "sourceType": "regulator",
           "manualVerification": null
         }
@@ -2051,56 +2149,6 @@
       ]
     },
     {
-      "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-      "finalUrl": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-      "status": 200,
-      "expectedDates": [
-        "2026-09-04"
-      ],
-      "sourceDate": "2026-09-04",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-09-04",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-13",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-12",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-11",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-08",
-          "source": "body.slash"
-        }
-      ],
-      "result": "match",
-      "confidence": "verified",
-      "rows": [
-        {
-          "topic": "financial-crime",
-          "section": "top5",
-          "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "displayedDate": "2026-09-04",
-          "displayedSourceDate": "2026-09-04",
-          "displayedSourceDates": [
-            "2026-09-04"
-          ],
-          "sourceLabel": "Primary / Central Bank of Ireland / 2026-09-04",
-          "sourceType": "regulator",
-          "manualVerification": null
-        }
-      ]
-    },
-    {
       "url": "https://handbook.fca.org.uk/handbook/FCG/1/",
       "finalUrl": "https://handbook.fca.org.uk/handbook/fcg1",
       "status": 200,
@@ -2214,11 +2262,11 @@
           "source": "body.human"
         },
         {
-          "date": "2019-10-24",
+          "date": "2026-02-12",
           "source": "body.slash"
         },
         {
-          "date": "2026-02-12",
+          "date": "2019-10-24",
           "source": "body.slash"
         },
         {
@@ -2402,6 +2450,48 @@
       ]
     },
     {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
+      "finalUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/",
+      "status": 200,
+      "expectedDates": [
+        "2026-11-16"
+      ],
+      "sourceDate": "2026-11-16",
+      "sourceDateEvidence": "url.path",
+      "candidates": [
+        {
+          "date": "2026-11-13",
+          "source": "body.month-first"
+        },
+        {
+          "date": "2026-29-04",
+          "source": "body.slash"
+        },
+        {
+          "date": "2026-11-16",
+          "source": "url.path"
+        }
+      ],
+      "result": "match",
+      "confidence": "verified",
+      "rows": [
+        {
+          "topic": "cyber",
+          "section": "top5",
+          "title": "Outage recovery messages can become a phishing lure",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
+          "displayedDate": "2026-11-16",
+          "displayedSourceDate": "2026-11-16",
+          "displayedSourceDates": [
+            "2026-11-16"
+          ],
+          "sourceLabel": "Primary / Microsoft Security Blog / 2026-11-16",
+          "sourceType": "company announcement",
+          "manualVerification": null
+        }
+      ]
+    },
+    {
       "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
       "finalUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/",
       "status": 200,
@@ -2520,6 +2610,10 @@
           "source": "body.month-first"
         },
         {
+          "date": "2026-11-17",
+          "source": "body.month-first"
+        },
+        {
           "date": "2026-11-13",
           "source": "body.month-first"
         },
@@ -2547,74 +2641,6 @@
             "status": "manual-verified",
             "verifiedDate": "2026-11-02",
             "reason": "Cisco Talos’s primary threat advisory is dated 28 October 2026 and describes historical UAT-11473 activity and KeyDrift; no claim of current exploitation is made."
-          }
-        }
-      ]
-    },
-    {
-      "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-      "finalUrl": "https://www.cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-      "status": 200,
-      "expectedDates": [
-        "2026-10-21",
-        "2026-10-23"
-      ],
-      "sourceDate": "2026-11-15",
-      "sourceDateEvidence": "body.human",
-      "candidates": [
-        {
-          "date": "2026-10-27",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-21",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-10-23",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-15",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-10-21",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-10-27",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-10-23",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2026-10-26",
-          "source": "body.month-first"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
-      "rows": [
-        {
-          "topic": "cyber",
-          "section": "top5",
-          "title": "PHP2Shell advisories warn of critical unauthenticated remote code execution",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-          "displayedDate": "2026-10-21",
-          "displayedSourceDate": "2026-10-21",
-          "displayedSourceDates": [
-            "2026-10-21",
-            "2026-10-23"
-          ],
-          "sourceLabel": "Primary / Canadian Centre for Cyber Security / 2026-10-21, updated 2026-10-23",
-          "sourceType": "public authority",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "Canadian Cyber Centre primary advisory displays 21 October 2026 and shows the 23 October update, affected versions and exploitation status."
           }
         }
       ]
@@ -2710,9 +2736,37 @@
       "expectedDates": [
         "2026-07-09"
       ],
-      "sourceDate": "2026-11-13",
+      "sourceDate": "2026-11-20",
       "sourceDateEvidence": "body.iso",
       "candidates": [
+        {
+          "date": "2026-11-20",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-23",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-21",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-12-02",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-11-17",
+          "source": "body.iso"
+        },
+        {
+          "date": "2026-12-01",
+          "source": "body.iso"
+        },
         {
           "date": "2026-11-13",
           "source": "body.iso"
@@ -2731,34 +2785,6 @@
         },
         {
           "date": "2026-11-09",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-12",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-05",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-06",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-20",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-04",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-18",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-03",
           "source": "body.iso"
         }
       ],
@@ -2925,8 +2951,8 @@
           "sourceType": "company announcement",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-10-24",
-            "reason": "Google Cloud Status incident page states the event date as 20 October and describes the europe-west2-b power event and subsequent regional impacts."
+            "verifiedDate": "2026-11-22",
+            "reason": "Google Cloud Status incident page states the event date as 20 October and describes the europe-west2-b power event and subsequent regional impacts. Primary page rechecked on 22 November 2026."
           }
         }
       ]
@@ -3088,11 +3114,11 @@
           "source": "body.human"
         },
         {
-          "date": "2026-03-15",
+          "date": "2026-10-30",
           "source": "body.slash"
         },
         {
-          "date": "2026-10-30",
+          "date": "2026-03-15",
           "source": "body.slash"
         },
         {
@@ -3233,11 +3259,11 @@
           "source": "body.human"
         },
         {
-          "date": "2023-12-06",
+          "date": "2024-11-12",
           "source": "body.slash"
         },
         {
-          "date": "2024-11-12",
+          "date": "2023-12-06",
           "source": "body.slash"
         },
         {
@@ -3269,6 +3295,39 @@
       ]
     },
     {
+      "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+      "finalUrl": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+      "status": 200,
+      "expectedDates": [
+        "2026-11-18"
+      ],
+      "sourceDate": "",
+      "sourceDateEvidence": "",
+      "candidates": [],
+      "result": "manual-verified",
+      "confidence": "unknown",
+      "rows": [
+        {
+          "topic": "data",
+          "section": "top5",
+          "title": "Plaintext passwords exposed a basic control failure",
+          "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+          "displayedDate": "2026-11-18",
+          "displayedSourceDate": "2026-11-18",
+          "displayedSourceDates": [
+            "2026-11-18"
+          ],
+          "sourceLabel": "Primary / Commission nationale de l'informatique et des libertés / 2026-11-18",
+          "sourceType": "regulator",
+          "manualVerification": {
+            "status": "manual-verified",
+            "verifiedDate": "2026-11-22",
+            "reason": "The CNIL primary page displays 18 novembre 2026 immediately below its headline and describes the sanction and plaintext passwords. The page date and decision were checked directly."
+          }
+        }
+      ]
+    },
+    {
       "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
       "finalUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
       "status": 200,
@@ -3295,8 +3354,8 @@
           "sourceType": "regulator",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-10-18",
-            "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page."
+            "verifiedDate": "2026-11-22",
+            "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page. Primary page rechecked on 22 November 2026."
           }
         }
       ]
@@ -3412,58 +3471,8 @@
           "sourceType": "regulator",
           "manualVerification": {
             "status": "manual-verified",
-            "verifiedDate": "2026-10-18",
-            "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page."
-          }
-        }
-      ]
-    },
-    {
-      "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-      "finalUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-      "status": 200,
-      "expectedDates": [
-        "2026-08-18"
-      ],
-      "sourceDate": "2026-09-03",
-      "sourceDateEvidence": "meta.date",
-      "candidates": [
-        {
-          "date": "2026-09-03",
-          "source": "meta.date"
-        },
-        {
-          "date": "2026-08-18",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-09-03",
-          "source": "body.month-first"
-        },
-        {
-          "date": "2024-12-17",
-          "source": "body.slash"
-        }
-      ],
-      "result": "candidate-match",
-      "confidence": "candidate-match",
-      "rows": [
-        {
-          "topic": "data",
-          "section": "top5",
-          "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-          "displayedDate": "2026-08-18",
-          "displayedSourceDate": "2026-08-18",
-          "displayedSourceDates": [
-            "2026-08-18"
-          ],
-          "sourceLabel": "Primary / UK Information Commissioner's Office / 2026-08-18",
-          "sourceType": "regulator",
-          "manualVerification": {
-            "status": "manual-verified",
-            "verifiedDate": "2026-11-02",
-            "reason": "The ICO primary page displays 18 August 2026 and states that five police-force audits found inconsistent data-protection compliance, with 107 recommendations accepted or partially accepted. The publication date and findings were checked directly on the source page."
+            "verifiedDate": "2026-11-22",
+            "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page. Primary page rechecked on 22 November 2026."
           }
         }
       ]
@@ -3475,12 +3484,16 @@
       "expectedDates": [
         "2026-06-03"
       ],
-      "sourceDate": "2026-11-13",
+      "sourceDate": "2026-11-19",
       "sourceDateEvidence": "time.datetime",
       "candidates": [
         {
-          "date": "2026-11-13",
+          "date": "2026-11-19",
           "source": "time.datetime"
+        },
+        {
+          "date": "2026-11-19",
+          "source": "body.iso"
         },
         {
           "date": "2026-11-13",
@@ -3488,14 +3501,6 @@
         },
         {
           "date": "2026-11-10",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-05",
-          "source": "body.iso"
-        },
-        {
-          "date": "2026-11-03",
           "source": "body.iso"
         },
         {
@@ -3503,19 +3508,19 @@
           "source": "body.human"
         },
         {
+          "date": "2026-11-19",
+          "source": "body.human"
+        },
+        {
+          "date": "2026-11-18",
+          "source": "body.human"
+        },
+        {
           "date": "2026-11-13",
           "source": "body.human"
         },
         {
           "date": "2026-11-10",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-05",
-          "source": "body.human"
-        },
-        {
-          "date": "2026-11-03",
           "source": "body.human"
         }
       ],
@@ -3565,11 +3570,11 @@
           "source": "body.human"
         },
         {
-          "date": "2025-10-20",
+          "date": "2026-11-06",
           "source": "body.slash"
         },
         {
-          "date": "2026-11-06",
+          "date": "2025-10-20",
           "source": "body.slash"
         },
         {

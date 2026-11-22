@@ -1,15 +1,15 @@
-# Signals promotion log — 2026-11-15
+# Signals promotion log — 2026-11-22
 
 - ai: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "Control Room: A central system to track and stop model workloads across our research infrastructure" — Primary / OpenAI / 2026-11-09 — https://openai.com/index/control-room/
-- resilience: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "APRA&#039;s System Risk Outlook - November 2026 | APRA" — Primary / Australian Prudential Regulation Authority / 2026-11-12 — https://www.apra.gov.au/news-and-publications/apras-system-risk-outlook-november-2026
-- third-party: promoted 0 fresh candidate(s), kept 5 existing row(s)
-- market-structure: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "FSB recommends Türkiye further strengthens its regulatory framework for crypto-assets and stablecoins" — Primary / Financial Stability Board / 2026-11-11 — https://www.fsb.org/2026/11/fsb-recommends-turkiye-further-strengthens-its-regulatory-framework-for-crypto-assets-and-stablecoins
+    + "Combatting adversarial distillation" — Primary / OpenAI / 2026-11-20 — https://openai.com/index/combatting-adversarial-distillation
+- resilience: promoted 0 fresh candidate(s), kept 5 existing row(s)
+- third-party: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "Near-final Statement of Policy: The Bank of England’s approach to permissions in relation to CCP rules (disclosure, outsourcing and interoperability arrangements permissions)" — Primary / Bank of England and Prudential Regulation Authority / 2026-11-16 — https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules
+- market-structure: promoted 0 fresh candidate(s), kept 5 existing row(s)
 - financial-crime: promoted 1 fresh candidate(s), kept 4 existing row(s)
-    + "FINMA publishes partially revised FINMA Anti-Money Laundering Ordinance" — Primary / Swiss Financial Market Supervisory Authority / 2026-11-10 — https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma
+    + "CFTC Charges 11 Companies and Two Indiana Executives in $550 Million Fraud Scheme" — Primary / US Commodity Futures Trading Commission / 2026-11-20 — https://www.cftc.gov/PressRoom/PressReleases/9328-26
 - cyber: promoted 1 fresh candidate(s), kept 3 existing row(s)
-    + "The global socket: how threat actors are weaponizing GSocket for stealthy C2" — Primary / Microsoft Security Blog / 2026-11-11 — https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2
+    + "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors" — Primary / Microsoft Security Blog / 2026-11-16 — https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2
 - technology-failure: promoted 0 fresh candidate(s), kept 4 existing row(s)
-- data: promoted 0 fresh candidate(s), kept 5 existing row(s)
+- data: promoted 1 fresh candidate(s), kept 4 existing row(s)
+    + "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros" — Primary / Commission nationale de l'informatique et des libertés / 2026-11-18 — https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros

@@ -1,6 +1,6 @@
 {
-  "edition": "2026-11-15",
-  "generatedAt": "2026-11-15T00:00:00.000Z",
+  "edition": "2026-11-22",
+  "generatedAt": "2026-11-22T00:00:00.000Z",
   "source": "site-bundle-publisher",
   "topics": [
     {
@@ -9,6 +9,20 @@
       "title": "AI, agents, and control evidence.",
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
+        {
+          "title": "Model safeguards can be challenged through coordinated extraction",
+          "url": "https://openai.com/index/combatting-adversarial-distillation",
+          "source": "Primary / OpenAI / 2026-11-20",
+          "evidence": {
+            "sourceTitle": "Combatting adversarial distillation",
+            "organisation": "OpenAI",
+            "publishedDate": "2026-11-20",
+            "sourceType": "company announcement",
+            "significance": "OpenAI describes layered defences against adversarial distillation, including request-level protection and investigations. These are the provider’s account of its controls, not independent evidence of their effectiveness.",
+            "sourceUrl": "https://openai.com/index/combatting-adversarial-distillation",
+            "accessedDate": "2026-11-22"
+          }
+        },
         {
           "title": "A stop instruction is only one part of agent containment",
           "url": "https://openai.com/index/control-room/",
@@ -82,25 +96,6 @@
               "status": "manual-verified",
               "verifiedDate": "2026-11-02",
               "reason": "Bank of England report dated 26 October 2026 displays the survey findings used here: 94% firm-wide policies, about half for the three post-deployment controls, and response-basis caveats."
-            }
-          }
-        },
-        {
-          "title": "METR found vulnerabilities in historical OpenAI agent monitoring",
-          "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-          "source": "Primary / METR and Redwood Research / 2026-10-22",
-          "evidence": {
-            "sourceTitle": "Red-teaming OpenAI’s internal agent monitoring system",
-            "organisation": "METR and Redwood Research",
-            "publishedDate": "2026-10-22",
-            "sourceType": "research",
-            "significance": "METR reviewed a high-access pilot and historical system state through 21 July, found multiple vulnerabilities and says it did not evaluate the expanded current system. OpenAI says the production safeguards issues were patched. The finding is bounded to that historical scope.",
-            "sourceUrl": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-            "accessedDate": "2026-10-24",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "METR primary article displays 22 October 2026 and describes the historical pilot, vulnerabilities, OpenAI patch statement and explicit evaluation limit."
             }
           }
         }
@@ -188,13 +183,13 @@
             "organisation": "Bank of England and Prudential Regulation Authority",
             "publishedDate": "2026-10-22",
             "sourceType": "regulator",
-            "significance": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience, alongside a joint FCA consultation expected by year-end. This is strategic direction and planned consultation, not a current new rule.",
+            "significance": "The PRA announced a directorate reporting directly to its CEO for operational and cyber resilience. Its proposed joint cyber guidance was subsequently published for consultation on 19 November; it is not a new rule.",
             "sourceUrl": "https://www.bankofengland.co.uk/speech/2026/october/katharine-braddick-mansion-house-city-regulators-dinner-london",
-            "accessedDate": "2026-10-24",
+            "accessedDate": "2026-11-22",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation."
+              "verifiedDate": "2026-11-22",
+              "reason": "PRA primary speech page displays publication date 22 October 2026 and states the new directorate and intended joint FCA consultation. Primary page rechecked on 22 November 2026."
             }
           }
         },
@@ -344,6 +339,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "CCP outsourcing permissions remain subject to final legislation",
+          "url": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
+          "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-11-16",
+          "evidence": {
+            "sourceTitle": "Near-final Statement of Policy: The Bank of England’s approach to permissions in relation to CCP rules (disclosure, outsourcing and interoperability arrangements permissions)",
+            "organisation": "Bank of England and Prudential Regulation Authority",
+            "publishedDate": "2026-11-16",
+            "sourceType": "regulator",
+            "significance": "The Bank of England published a near-final policy on permissions for central counterparties, including outsourcing major risk-management activities. It remains subject to final Treasury legislation.",
+            "sourceUrl": "https://www.bankofengland.co.uk/paper/2026/sop/near-final-sop-boes-approach-to-permissions-in-relation-to-ccp-rules",
+            "accessedDate": "2026-11-22"
+          }
+        },
+        {
           "title": "CMORG holds sector-wide cloud outage simulation exercise",
           "url": "https://www.bankofengland.co.uk/news/2026/october/cmorg-holds-sector-wide-cloud-outage-simulation-exercise",
           "source": "Primary / Bank of England and Prudential Regulation Authority / 2026-10-09",
@@ -402,20 +411,6 @@
             "significance": "CPMI-IOSCO's toolkit and discussion paper connect cyber resilience to financial market infrastructures' reliance on critical third-party services. Firms should be able to show the service map, the intervention and escalation authority, and the evidence that recovery and supplier arrangements work together; comments are requested by 1 December 2026.",
             "sourceUrl": "https://www.bis.org/media-releases/20260908-global-standard-setting-bodies-publish-toolkit-cyber-resilience-fmis-and-discussion-paper-fmis",
             "accessedDate": "2026-09-13"
-          }
-        },
-        {
-          "title": "Google Cloud network degradation tests the shared service boundary",
-          "url": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-          "source": "Primary / Google Cloud Service Health / 2026-09-03",
-          "evidence": {
-            "sourceTitle": "RESOLVED: Multiple products in us-central1-b are experiencing network service degradation.",
-            "organisation": "Google Cloud Service Health",
-            "publishedDate": "2026-09-03",
-            "sourceType": "company announcement",
-            "significance": "Google Cloud reported network degradation affecting multiple products in one zone. The useful test is whether the firm can identify shared network dependencies, assess the customer impact, invoke a viable fallback and record the decision before a provider restores service.",
-            "sourceUrl": "https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev",
-            "accessedDate": "2026-09-07"
           }
         }
       ],
@@ -565,11 +560,11 @@
             "sourceType": "regulator",
             "significance": "The FCA reports varied control maturity and calls on firms to review gaps in identifying and managing conflicts. Treat this as supervisory feedback from a multi-firm review, not a new rule.",
             "sourceUrl": "https://www.fca.org.uk/publications/multi-firm-reviews/conflicts-interest-fair-customer-treatment-private-markets",
-            "accessedDate": "2026-10-24",
+            "accessedDate": "2026-11-22",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action."
+              "verifiedDate": "2026-11-22",
+              "reason": "FCA primary review page displays 23 October 2026 and describes its findings and requested firm action. Primary page rechecked on 22 November 2026."
             }
           }
         },
@@ -671,6 +666,20 @@
       "stillMaterialReviewedAt": "2026-10-11",
       "top5": [
         {
+          "title": "CFTC alleges a large investment scheme misrepresented trading",
+          "url": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
+          "source": "Primary / US Commodity Futures Trading Commission / 2026-11-20",
+          "evidence": {
+            "sourceTitle": "CFTC Charges 11 Companies and Two Indiana Executives in $550 Million Fraud Scheme",
+            "organisation": "US Commodity Futures Trading Commission",
+            "publishedDate": "2026-11-20",
+            "sourceType": "regulator",
+            "significance": "The CFTC alleges that a group solicited over $550 million while claiming returns from leveraged foreign-exchange trading. The complaint is an allegation, not a finding of liability.",
+            "sourceUrl": "https://www.cftc.gov/PressRoom/PressReleases/9328-26",
+            "accessedDate": "2026-11-22"
+          }
+        },
+        {
           "title": "FINMA sets January start for revised AML requirements",
           "url": "https://www.finma.ch/en/news/2026/11/20261110-mm-gwv-finma",
           "source": "Primary / Swiss Financial Market Supervisory Authority / 2026-11-10",
@@ -724,20 +733,6 @@
             "significance": "ASIC says retail-investor issues and governance matters made up more than four in five misconduct reports in the first half of 2026, with reports helping existing surveillance and investigations. The read-across is whether a firm can connect complaints, whistleblowing and scam intelligence to triage, investigation, accountable action and a record of the outcome.",
             "sourceUrl": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2026-releases/26-206mr-scams-and-governance-failures-dominate-misconduct-report",
             "accessedDate": "2026-10-18"
-          }
-        },
-        {
-          "title": "Irish payment-fraud losses sharpen the control test for high-value transfers",
-          "url": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-          "source": "Primary / Central Bank of Ireland / 2026-09-04",
-          "evidence": {
-            "sourceTitle": "Payment fraud increases by 27% to reach €179 million in 2025, Central Bank of Ireland report finds",
-            "organisation": "Central Bank of Ireland",
-            "publishedDate": "2026-09-04",
-            "sourceType": "regulator",
-            "significance": "The Central Bank of Ireland reports fraudulent-payment value rose 27.2% to €179.04 million in 2025, with authorised push-payment fraud making up 45% of value and cross-border payments 69.8%. That is a direct test of payment monitoring, intervention speed, customer support and the evidence behind each decision.",
-            "sourceUrl": "https://www.centralbank.ie/news/article/press-release-payment-fraud-increases-by-27-to-reach-179-million-in-2025-central-bank-of-ireland-report-finds",
-            "accessedDate": "2026-09-06"
           }
         }
       ],
@@ -846,6 +841,20 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Outage recovery messages can become a phishing lure",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
+          "source": "Primary / Microsoft Security Blog / 2026-11-16",
+          "evidence": {
+            "sourceTitle": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
+            "organisation": "Microsoft Security Blog",
+            "publishedDate": "2026-11-16",
+            "sourceType": "company announcement",
+            "significance": "Microsoft reports a high-volume campaign impersonating Microsoft 365 service-health messages. It assesses the activity was likely credential phishing; its evidence did not confirm credential capture or later compromise.",
+            "sourceUrl": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2",
+            "accessedDate": "2026-11-22"
+          }
+        },
+        {
           "title": "GSocket persistence can survive the initial application patch",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2",
           "source": "Primary / Microsoft Security Blog / 2026-11-11",
@@ -894,25 +903,6 @@
               "status": "manual-verified",
               "verifiedDate": "2026-11-02",
               "reason": "Cisco Talos’s primary threat advisory is dated 28 October 2026 and describes historical UAT-11473 activity and KeyDrift; no claim of current exploitation is made."
-            }
-          }
-        },
-        {
-          "title": "PHP2Shell advisories warn of critical unauthenticated remote code execution",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-          "source": "Primary / Canadian Centre for Cyber Security / 2026-10-21, updated 2026-10-23",
-          "evidence": {
-            "sourceTitle": "Critical vulnerabilities impacting PHP (CVE-2026-109618, CVE-2026-109619)",
-            "organisation": "Canadian Centre for Cyber Security",
-            "publishedDate": "2026-10-21",
-            "sourceType": "public authority",
-            "significance": "The advisory describes unauthenticated remote code execution affecting vulnerable PHP installations serving web requests, with internet-facing deployments at heightened risk. Fixed versions are listed. The 23 October update reported no active exploitation at that time and added a separate issue with a temporary mitigation.",
-            "sourceUrl": "https://cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619",
-            "accessedDate": "2026-10-24",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "Canadian Cyber Centre primary advisory displays 21 October 2026 and shows the 23 October update, affected versions and exploitation status."
             }
           }
         }
@@ -1036,13 +1026,13 @@
             "organisation": "Google Cloud Status",
             "publishedDate": "2026-10-20",
             "sourceType": "company announcement",
-            "significance": "Google’s preliminary report describes a power event in europe-west2-b followed by capacity constraints and impact across the London region. Firms should check whether cross-zone failover and critical-service recovery work under regional control-plane and capacity stress.",
+            "significance": "Google’s incident report describes a power event in europe-west2-b followed by capacity constraints and impact across the London region. Firms should check whether cross-zone failover and critical-service recovery work under regional control-plane and capacity stress.",
             "sourceUrl": "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj",
-            "accessedDate": "2026-10-24",
+            "accessedDate": "2026-11-22",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-24",
-              "reason": "Google Cloud Status incident page states the event date as 20 October and describes the europe-west2-b power event and subsequent regional impacts."
+              "verifiedDate": "2026-11-22",
+              "reason": "Google Cloud Status incident page states the event date as 20 October and describes the europe-west2-b power event and subsequent regional impacts. Primary page rechecked on 22 November 2026."
             }
           }
         },
@@ -1181,6 +1171,25 @@
       "stillMaterialReviewedAt": "2026-10-04",
       "top5": [
         {
+          "title": "Plaintext passwords exposed a basic control failure",
+          "url": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+          "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-11-18",
+          "evidence": {
+            "sourceTitle": "Conservation des mots de passe clients en clair : la CNIL prononce une sanction de 5 millions d’euros",
+            "organisation": "Commission nationale de l'informatique et des libertés",
+            "publishedDate": "2026-11-18",
+            "sourceType": "regulator",
+            "significance": "France’s CNIL fined an unnamed company €5 million after finding, among other issues, that customer passwords were stored in plaintext. The decision concerns that company, not the state of controls across financial services.",
+            "sourceUrl": "https://www.cnil.fr/fr/conservation-des-mots-de-passe-sanction-5-millions-deuros",
+            "accessedDate": "2026-11-22",
+            "sourceDateVerification": {
+              "status": "manual-verified",
+              "verifiedDate": "2026-11-22",
+              "reason": "The CNIL primary page displays 18 novembre 2026 immediately below its headline and describes the sanction and plaintext passwords. The page date and decision were checked directly."
+            }
+          }
+        },
+        {
           "title": "European regulators link data protection with value in finance",
           "url": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
           "source": "Primary / Commission nationale de l'informatique et des libertés / 2026-10-16",
@@ -1191,11 +1200,11 @@
             "sourceType": "regulator",
             "significance": "CNIL, the UK ICO and Luxembourg’s CNPD jointly examine how data protection and governance affect trust, resilience, AI use and the valuation of financial data. This is joint analysis and good practice, not a new rule.",
             "sourceUrl": "https://www.cnil.fr/fr/protection-donnees-valeur-finance-etude-autorites-europeennes",
-            "accessedDate": "2026-10-18",
+            "accessedDate": "2026-11-22",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-18",
-              "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page."
+              "verifiedDate": "2026-11-22",
+              "reason": "The CNIL primary page displays 16 October 2026 beneath the headline and describes the joint CNIL, ICO and CNPD study. The date was checked directly on the primary page. Primary page rechecked on 22 November 2026."
             }
           }
         },
@@ -1243,30 +1252,11 @@
             "sourceType": "regulator",
             "significance": "CNIL's guidance accompanies the live French e-invoicing reform and sets out the practical boundary between controller and processor, the need for appropriate contracts, data minimisation, retention and platform traceability. For affected firms, the implementation question is whether the chosen platform's data use, access controls and audit record match the intended operating role.",
             "sourceUrl": "https://www.cnil.fr/fr/facturation-electronique-quels-enjeux",
-            "accessedDate": "2026-10-18",
+            "accessedDate": "2026-11-22",
             "sourceDateVerification": {
               "status": "manual-verified",
-              "verifiedDate": "2026-10-18",
-              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page."
-            }
-          }
-        },
-        {
-          "title": "ICO facial-recognition audit turns data lineage and oversight into deployment tests",
-          "url": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-          "source": "Primary / UK Information Commissioner's Office / 2026-08-18",
-          "evidence": {
-            "sourceTitle": "Facial recognition in policing: earning public trust through strong data protection governance",
-            "organisation": "UK Information Commissioner's Office",
-            "publishedDate": "2026-08-18",
-            "sourceType": "regulator",
-            "significance": "ICO audit findings on facial recognition make data provenance, retention, accuracy, bias testing and senior oversight concrete deployment evidence for high-impact automated decisions.",
-            "sourceUrl": "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/08/facial-recognition-in-policing",
-            "accessedDate": "2026-11-02",
-            "sourceDateVerification": {
-              "status": "manual-verified",
-              "verifiedDate": "2026-11-02",
-              "reason": "The ICO primary page displays 18 August 2026 and states that five police-force audits found inconsistent data-protection compliance, with 107 recommendations accepted or partially accepted. The publication date and findings were checked directly on the source page."
+              "verifiedDate": "2026-11-22",
+              "reason": "The CNIL primary page displays 10 September 2026 beneath the headline. The date and e-invoicing guidance were checked directly on the primary page. Primary page rechecked on 22 November 2026."
             }
           }
         }

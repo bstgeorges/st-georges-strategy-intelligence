@@ -50,9 +50,10 @@
       if (!reducedMotion && value && Number.isFinite(end) && (index === 1 || index === 2)) {
         value.textContent = "0";
         setTimeout(() => {
-          const start = performance.now();
+          let start = null;
           const tick = (now) => {
-            const progress = Math.min((now - start) / 500, 1);
+            start ??= now;
+            const progress = Math.max(0, Math.min((now - start) / 500, 1));
             value.textContent = String(Math.round(end * (1 - Math.pow(1 - progress, 3))));
             if (progress < 1) requestAnimationFrame(tick);
           };

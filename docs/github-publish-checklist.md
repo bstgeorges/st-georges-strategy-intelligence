@@ -29,11 +29,9 @@ Use the current repository as the source of truth.
 
 ## Files And Data Not To Publish
 
-- Telegram bot tokens or chat IDs
 - Local `.env` files
 - Codex automation memory files
 - Private source extracts
-- Temporary Telegram message output
 - Local dependency or deployment caches
 
 ## Cloudflare Pages Settings
@@ -87,12 +85,11 @@ The build now enforces publisher-locked sections for:
 
 If a future script change tries to overwrite those sections from raw feed content, the build fails.
 
-## Codex Sandbox Note
+## Codex Cloud Note
 
-Do not rely on `wrangler` from the mounted Codex workspace as a production deploy surface. The supported permanent path is:
+Do not run production Wrangler commands from the mounted Codex workspace. The supported production path is the canonical GitHub Actions workflow:
 
-1. push to `main`, or
-2. manually dispatch the GitHub Actions workflow, or
-3. use a normal local terminal on Ben's Mac
+1. Push or merge the intended release to `main`, or
+2. Manually dispatch `Site release (Cloudflare)` with the production target.
 
-This avoids the mounted-workspace `Node fs.readFileSync` failure mode seen inside the sandbox bridge.
+A green workflow run that verifies the exact SHA at both the Pages origin and `stgeorgesstrategy.com` is the publication proof.
